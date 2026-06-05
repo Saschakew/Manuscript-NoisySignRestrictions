@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "M0007-derive-bivariate-cumulant-map",
+  "sequence": 7,
+  "title": "Derive bivariate cumulant map",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-05T21:14:24Z",
+  "closed_at": "2026-06-05T21:19:38Z",
+  "start_commit": "5d40518328e85d439119abc1340cc55c5c6ee001",
+  "snapshot_ref": "manuscript-milestones/M0007-derive-bivariate-cumulant-map",
+  "summary": "Derived the bivariate diagonal-noise SVAR cumulant map through fourth order and marked M05 done, with the result pending M06 adversarial audit.",
+  "user_inputs": [
+    {
+      "id": "U0007-001",
+      "milestone_id": "M0007-derive-bivariate-cumulant-map",
+      "captured_at": "2026-06-05T21:14:24Z",
+      "source": "chat",
+      "text": "Continue to the next project task, M05: derive the corrected bivariate cumulant map from scratch for u_t = B(a,b) epsilon_t + eta_t, including all second-, third-, and fourth-order cumulant equations and nuisance noise cumulants."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0007-001",
+      "milestone_id": "M0007-derive-bivariate-cumulant-map",
+      "captured_at": "2026-06-05T21:19:09Z",
+      "description": "Created manuscript/derivations/bivariate-cumulant-map.md with the multilinear cumulant formula and all distinct second-, third-, and fourth-order cumulant equations."
+    },
+    {
+      "id": "A0007-002",
+      "milestone_id": "M0007-derive-bivariate-cumulant-map",
+      "captured_at": "2026-06-05T21:19:09Z",
+      "description": "Classified clean mixed cumulants separately from pure own nuisance noise cumulants and recorded profiled nuisance maps for nu_i, tau_i, and rho_i."
+    },
+    {
+      "id": "A0007-003",
+      "milestone_id": "M0007-derive-bivariate-cumulant-map",
+      "captured_at": "2026-06-05T21:19:09Z",
+      "description": "Updated the task board, dashboard, workplan, formal-object registry, session log, Codex log, and matching GitHub milestone."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-05T21:19:09Z",
+      "description": "python scripts/check_manuscript.py: passed with only the expected open-milestone warning before M0007 closure"
+    },
+    {
+      "captured_at": "2026-06-05T21:19:38Z",
+      "description": "python scripts/check_manuscript.py: passed after M0007 closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/derivations/bivariate-cumulant-map.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0007-derive-bivariate-cumulant-map.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 4,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/4",
+    "tag_name": "manuscript-milestones/M0007-derive-bivariate-cumulant-map"
+  }
+}

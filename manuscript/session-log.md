@@ -71,3 +71,17 @@ For traceable work blocks, pair this human-readable note with a closed
   active milestone note.
 - Next recommended action: open a substantive milestone for M05 and derive the
   corrected bivariate cumulant map from scratch.
+
+### 2026-06-05 - Derive bivariate cumulant map
+
+- Request or goal: continue to the next project task, M05.
+- Files changed: `manuscript/derivations/bivariate-cumulant-map.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/project-dashboard.md`,
+  `manuscript/task-board.md`, `manuscript/workplan.md`,
+  `manuscript/session-log.md`, `manuscript/codex-log.md`, and M0007
+  transparency files.
+- Summary of work: derived the full second-, third-, and fourth-order cumulant
+  map for `u_t = B(a,b) epsilon_t + eta_t`, including nuisance diagonal noise
+  cumulants and clean-versus-nuisance moment classifications.
+- Next recommended action: run the M06 adversarial derivation audit before
+  using the cumulant map in a draft result or local identification proof.

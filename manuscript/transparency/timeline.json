@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-05T21:08:55Z",
+  "updated_at": "2026-06-05T21:19:39Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -91,6 +91,28 @@
         "milestone_number": 3,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/3",
         "tag_name": "manuscript-milestones/M0006-close-m0005-task-state"
+      }
+    },
+    {
+      "id": "M0007-derive-bivariate-cumulant-map",
+      "sequence": 7,
+      "title": "Derive bivariate cumulant map",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-05T21:14:24Z",
+      "closed_at": "2026-06-05T21:19:38Z",
+      "start_commit": "5d40518328e85d439119abc1340cc55c5c6ee001",
+      "snapshot_ref": "manuscript-milestones/M0007-derive-bivariate-cumulant-map",
+      "summary": "Derived the bivariate diagonal-noise SVAR cumulant map through fourth order and marked M05 done, with the result pending M06 adversarial audit.",
+      "user_input_ids": [
+        "U0007-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0007-derive-bivariate-cumulant-map.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 4,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/4",
+        "tag_name": "manuscript-milestones/M0007-derive-bivariate-cumulant-map"
       }
     }
   ]

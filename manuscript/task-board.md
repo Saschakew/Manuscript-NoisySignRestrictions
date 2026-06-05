@@ -8,7 +8,7 @@ Statuses: `todo`, `doing`, `blocked`, `done`, `deferred`.
 | M02 | done | 1 | source | Build the manuscript source packet from KnowledgeVault. | Keep packet compact; add sources only when a draft claim needs them. |
 | M03 | done | 1 | scope | Identify the one central paper idea. | Use the revised paper contract in `paper-plan.md` and `paper-map.md`. |
 | M04 | done | 1 | citation | Create a first self-contained bibliography snapshot. | Add or clean BibTeX only when prose depends on new citation keys. |
-| M05 | todo | 1 | derivation | Derive the corrected bivariate cumulant map from scratch. | Write all second-, third-, and fourth-cumulant equations for `u_t = B(a,b) epsilon_t + eta_t`, including nuisance noise cumulants. |
+| M05 | done | 1 | derivation | Derive the corrected bivariate cumulant map from scratch. | Created `manuscript/derivations/bivariate-cumulant-map.md` with all distinct second-, third-, and fourth-order cumulant equations, nuisance noise cumulants, and clean-versus-nuisance classifications. |
 | M06 | todo | 1 | adversarial-review | Audit the cumulant derivation before using it. | Check indices, cumulant definitions, normalization, missing pure/mixed moments, and whether any moment is incorrectly called clean. |
 | M07 | todo | 1 | method | Prove what the BR analogy does and does not justify. | Show why full BR quasi-JADE does not apply directly for `L=K=2`; document the manuscript object as a BR-style profiled inversion. |
 | M08 | todo | 1 | adversarial-review | Attack the BR applicability argument. | Try to falsify the claim that the bivariate case needs its own derivation; record any missing rank assumptions or hidden restrictions. |

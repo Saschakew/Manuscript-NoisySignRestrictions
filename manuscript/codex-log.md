@@ -82,3 +82,19 @@ machine-readable milestone in `transparency/milestones/`.
 - Checks run: `python scripts/check_manuscript.py` passed.
 - Open uncertainties: M05 still needs the actual bivariate cumulant derivation
   before any Section 4 claims can be drafted.
+
+### 2026-06-05 - Bivariate cumulant-map derivation
+
+- Request: continue to the next project task, M05.
+- Actions taken: created `manuscript/derivations/bivariate-cumulant-map.md`
+  with the complete second-, third-, and fourth-order cumulant map for the
+  diagonal-normalized bivariate SVAR; classified clean mixed moments separately
+  from nuisance pure own moments and mapped noise cumulants.
+- Files changed: `manuscript/derivations/bivariate-cumulant-map.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/project-dashboard.md`,
+  `manuscript/task-board.md`, `manuscript/workplan.md`, logs, and the M0007
+  transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed.
+- Open uncertainties: M06 must audit the algebra, notation, and
+  clean-versus-nuisance classifications before this map can support Section 4
+  claims.
