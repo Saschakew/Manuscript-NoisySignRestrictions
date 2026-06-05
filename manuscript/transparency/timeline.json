@@ -3,52 +3,8 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-05T19:24:13Z",
+  "updated_at": "2026-06-05T19:43:15Z",
   "milestones": [
-    {
-      "id": "M0001-add-discuss-with-me-workflow",
-      "sequence": 1,
-      "title": "Add discuss-with-me workflow",
-      "kind": "user-request",
-      "status": "closed",
-      "opened_at": "2026-06-05T11:50:25Z",
-      "closed_at": "2026-06-05T11:59:21Z",
-      "start_commit": "bcb02896990bca4168d9520b2eae8744982fa2f1",
-      "snapshot_ref": "manuscript-milestones/M0001-add-discuss-with-me-workflow",
-      "summary": "Added a discussion-only workflow for content conversations without manuscript edits or logging.",
-      "user_input_ids": [
-        "U0001-001"
-      ],
-      "milestone_path": "manuscript/transparency/milestones/M0001-add-discuss-with-me-workflow.json",
-      "github": {
-        "repository": "Saschakew/manuscript-repo-template",
-        "milestone_number": 1,
-        "milestone_url": "https://github.com/Saschakew/manuscript-repo-template/milestone/1",
-        "tag_name": "manuscript-milestones/M0001-add-discuss-with-me-workflow"
-      }
-    },
-    {
-      "id": "M0002-formal-object-typography",
-      "sequence": 2,
-      "title": "Formal object typography",
-      "kind": "user-request",
-      "status": "closed",
-      "opened_at": "2026-06-05T14:20:41Z",
-      "closed_at": "2026-06-05T14:29:32Z",
-      "start_commit": "e5f92ddd2959e9a0f80ea5cb20f7968201bf7576",
-      "snapshot_ref": "manuscript-milestones/M0002-formal-object-typography",
-      "summary": "Updated manuscript rules so formal statements are fully italicized and proofs use Proof: with a square terminator.",
-      "user_input_ids": [
-        "U0002-001"
-      ],
-      "milestone_path": "manuscript/transparency/milestones/M0002-formal-object-typography.json",
-      "github": {
-        "repository": "Saschakew/manuscript-repo-template",
-        "milestone_number": 2,
-        "milestone_url": "https://github.com/Saschakew/manuscript-repo-template/milestone/2",
-        "tag_name": "manuscript-milestones/M0002-formal-object-typography"
-      }
-    },
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
       "sequence": 3,
@@ -69,6 +25,28 @@
         "milestone_number": 1,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/1",
         "tag_name": "manuscript-milestones/M0003-initialize-noise-robust-sign-svar-manuscript"
+      }
+    },
+    {
+      "id": "M0004-remove-template-era-milestones",
+      "sequence": 4,
+      "title": "Remove template-era milestones",
+      "kind": "maintenance",
+      "status": "closed",
+      "opened_at": "2026-06-05T19:39:00Z",
+      "closed_at": "2026-06-05T19:43:14Z",
+      "start_commit": "eb25aeb862431236d955a32c203ea0e4434cf7f6",
+      "snapshot_ref": "manuscript-milestones/M0004-remove-template-era-milestones",
+      "summary": "Removed template-era milestones from the manuscript transparency timeline without reverting their underlying work.",
+      "user_input_ids": [
+        "U0004-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0004-remove-template-era-milestones.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": null,
+        "milestone_url": "",
+        "tag_name": "manuscript-milestones/M0004-remove-template-era-milestones"
       }
     }
   ]
