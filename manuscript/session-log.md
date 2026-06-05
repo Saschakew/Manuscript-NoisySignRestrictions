@@ -101,3 +101,20 @@ For traceable work blocks, pair this human-readable note with a closed
   identifying restrictions after unrestricted `gamma` profiling.
 - Next recommended action: start M07 by documenting what the Bonhomme-Robin
   analogy does and does not justify for the bivariate `L=K=2` case.
+
+### 2026-06-05 - Clarify Bonhomme-Robin applicability
+
+- Request or goal: continue with M07.
+- Files changed: `manuscript/derivations/br-applicability.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/paper-map.md`,
+  `manuscript/review-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and M0009 transparency files.
+- Summary of work: documented why the original Bonhomme-Robin quasi-JADE
+  theorem does not directly apply to the bivariate `L=K=2` SVAR: independent
+  bivariate errors provide only one clean pair, so the all-kurtotic rank
+  condition cannot hold, and the skewness route does not cover two factors
+  when `L=2`. Defined the manuscript object as a BR-style profiled inversion.
+- Next recommended action: run M08 by attacking this applicability argument
+  before deriving profiled criteria in M09.

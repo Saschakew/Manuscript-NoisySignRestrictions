@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-05T21:32:53Z",
+  "updated_at": "2026-06-05T21:42:45Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -135,6 +135,28 @@
         "milestone_number": 5,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/5",
         "tag_name": "manuscript-milestones/M0008-audit-bivariate-cumulant-map"
+      }
+    },
+    {
+      "id": "M0009-clarify-br-applicability",
+      "sequence": 9,
+      "title": "Clarify BR applicability",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-05T21:37:55Z",
+      "closed_at": "2026-06-05T21:42:45Z",
+      "start_commit": "e3ea0bab72f0a8fe62ba6e721e376adc555efd87",
+      "snapshot_ref": "manuscript-milestones/M0009-clarify-br-applicability",
+      "summary": "Documented the Bonhomme-Robin applicability boundary for the bivariate L=K=2 SVAR and defined the manuscript object as a BR-style profiled inversion.",
+      "user_input_ids": [
+        "U0009-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0009-clarify-br-applicability.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 6,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/6",
+        "tag_name": "manuscript-milestones/M0009-clarify-br-applicability"
       }
     }
   ]

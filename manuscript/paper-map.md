@@ -102,6 +102,5 @@ proof or output status.
 ## Current Bottlenecks
 
 - The next writing pass should not start with prose polish. It should first
-  derive and adversarially review the BR-style cumulant system, because the
-  corrected KnowledgeVault notes show that the earlier BR summary was too
-  simple.
+  adversarially attack the BR applicability note, then derive the profiled
+  `J_4` and `J_stack` criteria from the audited cumulant map.

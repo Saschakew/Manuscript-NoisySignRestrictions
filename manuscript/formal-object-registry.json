@@ -97,13 +97,16 @@
     {
       "id": "def:br-sign-inverted-set",
       "type": "definition",
-      "status": "planned",
-      "draft_location": "draft.md#4-robust-sign-inversion",
-      "description": "Bivariate diagonal-normalized BR-style profiled cumulant set that profiles structural cumulants and diagonal-noise cumulants as needed, then intersects verified candidate matrices with sign labels.",
+      "status": "defined-pending-criteria",
+      "draft_location": "derivations/br-applicability.md; draft.md#4-robust-sign-inversion",
+      "description": "Bivariate diagonal-normalized BR-style profiled cumulant set that profiles structural cumulants and diagonal-noise cumulants as needed, then intersects verified candidate matrices with sign labels; defined as distinct from direct quasi-JADE.",
       "depends_on": [
         "def:diagonal-noise-svar",
-        "ass:unit-variance-normalization"
+        "ass:unit-variance-normalization",
+        "audit:br-applicability"
       ],
+      "derivation": "manuscript/derivations/br-applicability.md",
+      "verification_status": "M07 applicability boundary complete; pending M08 adversarial review and M09 profiled criteria",
       "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
     },
     {
@@ -139,12 +142,14 @@
     {
       "id": "audit:br-applicability",
       "type": "audit",
-      "status": "planned",
-      "draft_location": "review-log.md",
-      "description": "Adversarial review that checks the manuscript does not claim direct applicability of Bonhomme-Robin quasi-JADE in the bivariate L=K=2 SVAR case.",
+      "status": "boundary-documented-pending-adversarial-review",
+      "draft_location": "derivations/br-applicability.md; review-log.md",
+      "description": "Applicability boundary showing that full Bonhomme-Robin quasi-JADE does not directly cover the bivariate L=K=2 SVAR because the clean-pair rank conditions fail; M08 still needs to attack this argument.",
       "depends_on": [
         "def:br-profiled-cumulant-system"
       ],
+      "derivation": "manuscript/derivations/br-applicability.md",
+      "verification_status": "M07 boundary argument complete; pending M08 adversarial applicability review",
       "source": "vault/papers/Consistent noisy independent component analysis.md"
     },
     {
@@ -177,6 +182,7 @@
       "description": "To-be-verified result: under diagonal noise, correct signs, compactness, valid nuisance profiling, and local rank, the bivariate BR-style profiled inversion targets the robust population set and contains B0.",
       "depends_on": [
         "def:br-profiled-cumulant-system",
+        "audit:br-applicability",
         "ass:diagonal-idiosyncratic-noise",
         "ass:br-local-rank"
       ],

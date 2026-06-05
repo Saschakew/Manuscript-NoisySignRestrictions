@@ -115,3 +115,20 @@ machine-readable milestone in `transparency/milestones/`.
 - Open uncertainties: the map still needs M07 BR applicability work, M09
   profiled criteria and local rank derivation, and M12 symbolic/population
   verification before supporting manuscript result claims.
+
+### 2026-06-05 - Bonhomme-Robin applicability clarification
+
+- Request: continue with M07.
+- Actions taken: created `manuscript/derivations/br-applicability.md` to pin
+  the BR analogy to the paper's clean-pair and rank conditions; showed why the
+  bivariate `L=K=2` SVAR is not covered by full quasi-JADE; defined the
+  manuscript object as a low-dimensional BR-style profiled inversion.
+- Files changed: `manuscript/derivations/br-applicability.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/paper-map.md`,
+  `manuscript/review-log.md`, logs, and the M0009 transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed.
+- Open uncertainties: M08 must still attack the applicability argument, and
+  M09/M12 must derive and verify the profiled criteria before any robust
+  inversion claim is draftable.

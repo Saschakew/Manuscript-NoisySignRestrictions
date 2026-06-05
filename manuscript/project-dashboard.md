@@ -8,14 +8,15 @@ KnowledgeVault link: `../knowledge-vault-link.json`
 
 Current stage: initialized and scoped.
 
-Current focus: prove what the Bonhomme-Robin analogy does and does not justify
-for the audited bivariate cumulant map.
+Current focus: adversarially attack the Bonhomme-Robin applicability argument
+before moving on to profiled criteria and local rank.
 
-Next recommended action: start M07 by documenting why the original
-Bonhomme-Robin quasi-JADE theorem does not directly cover the bivariate
-`L=K=2` SVAR, and how the manuscript object remains only BR-style.
+Next recommended action: start M08 by trying to falsify
+`manuscript/derivations/br-applicability.md`, especially the `J=1<K=2` rank
+argument and the claim that the manuscript object must be BR-style rather than
+direct quasi-JADE.
 
-Active milestone: none. M0008 is closed, committed, tagged, and its GitHub
+Active milestone: none. M0009 is closed, committed, tagged, and its GitHub
 milestone is closed.
 
 Active blockers:
@@ -25,17 +26,17 @@ Active blockers:
 - Proposition 3 needs exact regularity conditions, critical-value choice, and
   proof target.
 - The corrected KnowledgeVault notes show that the original Bonhomme-Robin
-  theorem does not mechanically cover the bivariate `L=K=2` SVAR; the audited
-  bivariate cumulant map must still be connected to profiled criteria and
-  simulated before becoming a draft result.
+  theorem does not mechanically cover the bivariate `L=K=2` SVAR; the
+  applicability note documents this boundary, but it still needs adversarial
+  attack before M09 builds criteria on it.
 - Evidence scripts must be wrapped under `manuscript/replication/` before the
   paper is shareable.
 - The first draft should wait until formal statements and source trails are
   stable enough to prevent later rewrites.
 
-Last substantive session: 2026-06-05, adversarially audited the bivariate
-cumulant map, found no coefficient/index errors, and corrected the
-clean-equation versus identifying-restriction language.
+Last substantive session: 2026-06-05, documented why Bonhomme-Robin
+quasi-JADE does not directly identify the bivariate `L=K=2` SVAR and defined
+the manuscript object as a BR-style profiled inversion.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

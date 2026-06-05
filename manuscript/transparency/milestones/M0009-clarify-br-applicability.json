@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "M0009-clarify-br-applicability",
+  "sequence": 9,
+  "title": "Clarify BR applicability",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-05T21:37:55Z",
+  "closed_at": "2026-06-05T21:42:45Z",
+  "start_commit": "e3ea0bab72f0a8fe62ba6e721e376adc555efd87",
+  "snapshot_ref": "manuscript-milestones/M0009-clarify-br-applicability",
+  "summary": "Documented the Bonhomme-Robin applicability boundary for the bivariate L=K=2 SVAR and defined the manuscript object as a BR-style profiled inversion.",
+  "user_inputs": [
+    {
+      "id": "U0009-001",
+      "milestone_id": "M0009-clarify-br-applicability",
+      "captured_at": "2026-06-05T21:37:55Z",
+      "source": "chat",
+      "text": "Continue with M07: prove what the Bonhomme-Robin analogy does and does not justify by showing why full BR quasi-JADE does not directly apply for the bivariate L=K=2 SVAR and documenting the manuscript object as a BR-style profiled inversion."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0009-001",
+      "milestone_id": "M0009-clarify-br-applicability",
+      "captured_at": "2026-06-05T21:42:15Z",
+      "description": "Created manuscript/derivations/br-applicability.md showing why direct all-kurtotic Bonhomme-Robin quasi-JADE fails when independent bivariate errors give J=1<K=2."
+    },
+    {
+      "id": "A0009-002",
+      "milestone_id": "M0009-clarify-br-applicability",
+      "captured_at": "2026-06-05T21:42:15Z",
+      "description": "Documented that the skewness route also does not cover the two-factor L=2 case and separated what the BR analogy justifies from what it does not."
+    },
+    {
+      "id": "A0009-003",
+      "milestone_id": "M0009-clarify-br-applicability",
+      "captured_at": "2026-06-05T21:42:15Z",
+      "description": "Updated the formal-object registry, dashboard, task board, workplan, paper map, review log, session log, Codex log, and matching GitHub milestone."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-05T21:42:15Z",
+      "description": "python scripts/check_manuscript.py: passed with only the expected open-milestone warning before M0009 closure"
+    },
+    {
+      "captured_at": "2026-06-05T21:42:45Z",
+      "description": "python scripts/check_manuscript.py: passed after M0009 closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/derivations/br-applicability.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0009-clarify-br-applicability.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 6,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/6",
+    "tag_name": "manuscript-milestones/M0009-clarify-br-applicability"
+  }
+}
