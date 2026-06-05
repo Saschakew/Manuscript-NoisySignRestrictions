@@ -9,10 +9,11 @@ Noise-Robust Sign-Restricted SVARs
 Sign restrictions are not automatically robust to residual noise: with
 diagonal idiosyncratic noise, the standard sign-restricted SVAR rotates a noisy
 covariance factor and targets a pseudo-set, while no-noise independence
-refinements can create false finite-sample precision. A
-Bonhomme-Robin-style inversion that uses clean cross covariance and mixed
-higher cumulants gives the right target and turns the contaminated own
-variances into a noise diagnostic.
+refinements can create false finite-sample precision. The constructive part is
+now a conjectured and to-be-verified Bonhomme-Robin-style profiled cumulant
+inversion: stack the bivariate SVAR cumulant equations, profile structural and
+diagonal-noise cumulants, use signs for labels, and test whether the resulting
+diagnostics really distinguish no-noise from noisy residuals.
 
 ## Why It Matters
 
@@ -25,10 +26,13 @@ are powerful, but a small nonempty finite-sample accepted set may be the
 least-rejected region of a false no-noise model rather than evidence of sharp
 structural learning.
 
-The constructive value is that the same higher-moment idea can be redirected:
-use the mixed cumulants that diagonal idiosyncratic noise cannot contaminate,
-profile structural cumulants, impose signs only as labels, and report weakness
-honestly when the clean moments are weak.
+The constructive value is that the same higher-moment idea may be redirected,
+but only after verification. Bonhomme-Robin do not simply discard pure own
+moments. They identify and subtract error cumulants using clean-pair
+restrictions, then identify loadings from denoised cumulants. In the bivariate
+`L=K=2` SVAR, the original BR theorem does not apply mechanically, so our paper
+must derive the profiled bivariate moment result itself and then check it by
+simulation before relying on it.
 
 ## Proposed Structure
 
@@ -42,13 +46,14 @@ honestly when the clean moments are weak.
    shocks are mixtures of more primitive sources than observed coordinates;
    state a generic emptiness result and the finite-sample false-precision
    channel.
-4. Noise-robust sign inversion: define the bivariate diagonal-normalized
-   Bonhomme-Robin-style moment set using `sigma_12` and mixed fourth cumulants,
-   profile structural cumulants, intersect with signs, and state consistency
-   under the local rank condition.
-5. Noise diagnostic and evidence: map the robust accepted set into implied
-   diagonal noise variances; show favorable, weak-moment, Gaussian-noise, and
-   misspecification/stress cases using the existing vault simulations.
+4. Bonhomme-Robin correction and bivariate profiled inversion: explain what BR
+   actually identify, state why the bivariate SVAR is only BR-style, derive the
+   cumulant map, identify which moments restrict `(a,b)` and which profile
+   nuisance noise cumulants, and state the rank condition only after proof.
+5. Verification, diagnostics, and evidence: map the verified robust accepted
+   set into implied diagonal noise variances; compare it with a restricted
+   no-noise J test; show favorable, weak-moment, Gaussian-noise, and
+   misspecification/stress cases using newly checked simulations.
 6. Conclusion: sign restrictions still label shocks, but the covariance and
    moment target must match the residual-noise model.
 
@@ -66,14 +71,19 @@ honestly when the clean moments are weak.
   accepted rotations for which `B^{-1} u_t` appears mutually independent.
 - Bivariate robust normalized matrix:
   `B(a,b) = [[1, a], [b, 1]]`.
-- Clean moment vector:
+- Minimal fourth-cumulant vector:
   `h = (sigma_12, K_1112, K_1122, K_1222)'`.
-- Profiled robust criterion:
-  `J_BR(a,b) = T min_lambda (h_hat - m(a,b,lambda))' S_hat^{-1}
-  (h_hat - m(a,b,lambda))`.
+- Minimal profiled robust criterion:
+  `J_4(a,b) = T min_kappa (h_hat - m_4(a,b,kappa))' S_hat^{-1}
+  (h_hat - m_4(a,b,kappa))`.
+- Stacked profiled criterion:
+  `J_stack(a,b) = T min_{gamma,kappa,xi_eta} (mu_hat -
+  m(a,b,gamma,kappa,xi_eta))' W_hat (mu_hat -
+  m(a,b,gamma,kappa,xi_eta))`, where `xi_eta` collects diagonal noise
+  cumulants.
 - Mapped noise set:
   `V_T(c) = { (sigma_11 - (1+a^2), sigma_22 - (1+b^2)) :
-  B(a,b) in B_BR+sign,T(c) }`.
+  B(a,b) in B_profiled+sign,T(c) }`.
 
 ## Main Results To Prove Or Demonstrate
 
@@ -85,38 +95,66 @@ honestly when the clean moments are weak.
   noise, a K-coordinate demixing generally cannot recover mutually independent
   shocks from 2K primitive sources; finite-sample inversion can still leave a
   narrow least-rejected region.
-- Proposition 3, robust sign inversion: under diagonal noise, correct signs,
-  compactness, nonzero mixed cumulant relevance, and the bivariate local rank
-  condition `a0 kappa_42 != b0 kappa_41`, the BR-style sign-intersected
-  inversion targets the robust population set and contains `B0`.
+- Proposition 3, bivariate profiled cumulant inversion: after we derive it,
+  show that the minimal fourth-cumulant system or the stacked profiled system
+  contains `B0` under diagonal noise and locally identifies `(a0,b0)` under
+  the rank condition `a0 kappa_2 != b0 kappa_1`, subject to nonsingularity
+  `1-a0 b0 != 0`.
 - Proposition 4, noise diagnostic: if the robust set is consistent and true
   diagonal noise is bounded away from zero, the mapped noise set excludes the
   no-noise origin with probability approaching one; under `V=0` it covers the
-  origin at the intended rate.
+  origin at the intended rate. This remains a planned result until the
+  derivation and simulations validate it.
+
+## Bonhomme-Robin Verification Tasks
+
+1. Analytic derivation: write a derivation note for the complete bivariate
+   cumulant map through fourth order, including all pure and mixed cumulants.
+2. Moment classification: mark each moment as clean restriction, nuisance fit,
+   diagnostic, or overidentifying only under extra noise restrictions.
+3. BR applicability audit: prove in writing why the original BR clean-pair
+   quasi-JADE rank condition is not the theorem for `L=K=2`.
+4. Local identification proof: rederive the determinant condition, tangent,
+   and rank condition from the cumulant map; check every algebraic sign and
+   factor.
+5. Criterion audit: distinguish `J_4`, `J_stack`, mapped variance diagnostics,
+   and restricted no-noise J tests; specify which statistic answers which
+   question.
+6. Simulation verification: implement symbolic/population/finite-sample tests
+   before reusing the existing figures as manuscript evidence.
+7. Adversarial result audit: run a formal review after each derivation and
+   simulation stage, recording mistakes, undefined objects, and story failures
+   in `review-log.md`.
 
 ## Evidence Plan
 
-- Favorable case: reuse the BR replication calibration
+- Favorable case: after derivation, reuse or rebuild the BR replication
+  calibration
   `(a0,b0)=(-0.45,0.7)` with informative fourth cumulants and diagonal
-  Gaussian or skewed noise; show that BR+sign stays centered near `B0` and the
-  noise map tracks `V`.
+  Gaussian or skewed noise; show that the profiled sign-intersected set stays
+  centered near `B0` only when the verified rank and nuisance conditions hold,
+  and that the noise map tracks `V`.
 - Failure geometry: reuse deterministic sign-noise figures showing sign
   boundary movement, pseudo covariance ellipses, and the full-matrix
   column-rescaling obstruction.
 - Independence-refinement case: show the no-noise independence accepted region
   shrinking, emptying, or reopening around noise-dominated rotations depending
   on noise path and test power.
-- Limitation/stress case: weak or near-Gaussian fourth cumulants, small macro
-  samples, near-boundary sign restrictions, high noise, and negative implied
-  variance regions that indicate the maintained diagonal-noise model may be
-  wrong.
+- Limitation/stress case: weak or near-Gaussian fourth cumulants, exact rank
+  failure, small macro samples, near-boundary sign restrictions, high noise,
+  negative implied variance regions, non-diagonal noise, mis-normalized shock
+  variances, and noise restrictions that make pure moments misleading.
 
 ## What Is Missing
 
 - A clean proof write-up for the generic independence-refinement result,
   including explicit special cases where it fails.
-- A formal statement of the BR consistency result with exact regularity
-  conditions and the finite-sample critical-value choice.
+- A self-contained derivation of the BR-style bivariate result. The updated
+  KnowledgeVault notes make clear that this cannot be imported directly from
+  Bonhomme-Robin's full quasi-JADE theorem.
+- A formal statement of the profiled inversion consistency result with exact
+  regularity conditions, nuisance treatment, and finite-sample critical-value
+  choice.
 - A decision on whether the main text reports only bivariate impact signs or
   also an appendix for dynamic signs and `K > 2`.
 - A manuscript-local replication wrapper that rebuilds the selected figures
@@ -153,6 +191,8 @@ Revise the first plan down to the narrowest coherent paper:
 2. Make the central contribution a three-part sequence: pseudo-set warning,
    false-precision channel for no-noise independence refinement, and
    BR-style sign inversion with a mapped noise diagnostic.
-3. Use simulations only to make those three claims legible and falsifiable.
+3. Use simulations as verification gates, not decoration: the BR-style result
+   should not become a manuscript claim until analytic and simulation checks
+   agree.
 4. Treat empirical work, dynamic signs, and `K > 2` generalization as optional
    later layers rather than first-draft blockers.

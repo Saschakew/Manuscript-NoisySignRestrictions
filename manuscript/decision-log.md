@@ -69,3 +69,24 @@ decisions.
 - Consequence for next work: The literature section and Proposition 2 must
   distinguish asymptotic rejection/emptiness from finite-sample
   least-rejected-region interpretation.
+
+### 2026-06-05 - Verify the Bonhomme-Robin-style result before claiming it
+
+- Origin: user correction and updated KnowledgeVault notes
+- User input id: U0005
+- Codex role: analyzed and revised plan
+- Decision: The paper should no longer frame the constructive method as a
+  direct Bonhomme-Robin clean-moment inversion. It should call the bivariate
+  method a Bonhomme-Robin-style profiled cumulant inversion, derive it
+  independently, and verify it with symbolic, population, and finite-sample
+  simulations before promoting it to a manuscript result.
+- Rationale: The corrected vault notes clarify that Bonhomme and Robin first
+  identify/subtract error cumulants using clean-pair restrictions and that the
+  `L=K=2` bivariate SVAR is not directly covered by the full quasi-JADE rank
+  theorem. Pure own moments are nuisance or diagnostic moments unless extra
+  restrictions are placed on the noise.
+- Alternatives considered: keeping the earlier plan that treated mixed
+  cumulants as the BR fix and using existing figures as sufficient evidence.
+- Consequence for next work: The next work block should derive the bivariate
+  cumulant system, run adversarial derivation reviews, build verification
+  simulations, and only then draft the BR-style result.

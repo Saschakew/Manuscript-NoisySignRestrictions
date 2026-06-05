@@ -46,3 +46,24 @@ machine-readable milestone in `transparency/milestones/`.
   warning that M0003 was still open before milestone closure.
 - Open uncertainties: Proposition 2 genericity conditions and Proposition 3
   regularity conditions need exact statements before drafting polished prose.
+
+### 2026-06-05 - Bonhomme-Robin verification revision
+
+- Request: incorporate corrected KnowledgeVault notes on Bonhomme-Robin noisy
+  ICA and the BR-style SVAR inversion.
+- Actions taken: reread the updated vault notes, updated the KnowledgeVault
+  source commit, revised the paper plan/map/source packet, marked the BR-style
+  propositions as unverified until derivation and simulation checks pass, added
+  interleaved adversarial review tasks, and updated replication instructions.
+- Files changed: `knowledge-vault-link.json`, `manuscript/source-packet.md`,
+  `manuscript/paper-plan.md`, `manuscript/paper-map.md`,
+  `manuscript/task-board.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/literature-search.md`,
+  `manuscript/replication/README.md`, `manuscript/draft.md`, logs, and the
+  M0005 transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed, with the expected
+  warning that M0005 was still open before milestone closure.
+- Open uncertainties: the BR-style cumulant map, local rank condition, and
+  noise diagnostic must be derived and stress-tested before becoming manuscript
+  claims.

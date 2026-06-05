@@ -38,5 +38,22 @@ For traceable work blocks, pair this human-readable note with a closed
   into a shorter theory-and-simulation plan, listed core formal objects, copied
   a first verified bibliography snapshot, and created next tasks.
 - Next recommended action: write exact formal statements and proof obligations
-  for the noisy pseudo-set, no-noise independence refinement failure, robust
-  BR+sign inversion, and mapped noise diagnostic.
+  for the noisy pseudo-set, no-noise independence refinement failure, the
+  profiled cumulant inversion, and mapped noise diagnostic.
+
+### 2026-06-05 - Revise Bonhomme-Robin verification plan
+
+- Request or goal: update the manuscript plan after corrected KnowledgeVault
+  notes on Bonhomme-Robin and noisy ICA.
+- Files changed: `knowledge-vault-link.json`, `manuscript/source-packet.md`,
+  `manuscript/paper-plan.md`, `manuscript/paper-map.md`,
+  `manuscript/task-board.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/literature-search.md`,
+  `manuscript/replication/README.md`, `manuscript/draft.md`, and logs.
+- Summary of work: revised the plan so the constructive BR component is a
+  verified bivariate profiled cumulant inversion rather than a direct import
+  of the original BR theorem; added analytic derivation, simulation
+  verification, and adversarial review tasks.
+- Next recommended action: write the bivariate cumulant derivation and run the
+  first adversarial derivation audit before drafting Section 4.

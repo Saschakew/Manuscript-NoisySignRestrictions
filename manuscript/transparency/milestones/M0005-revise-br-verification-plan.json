@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "id": "M0005-revise-br-verification-plan",
+  "sequence": 5,
+  "title": "Revise BR verification plan",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-05T20:32:19Z",
+  "closed_at": "2026-06-05T20:43:01Z",
+  "start_commit": "b0963f652a25a4ca847b0afe500933b0d8d9f7fd",
+  "snapshot_ref": "manuscript-milestones/M0005-revise-br-verification-plan",
+  "summary": "Revised the manuscript plan after corrected Bonhomme-Robin/noisy-ICA notes and added derivation, simulation, and adversarial review gates for the BR-style profiled cumulant result.",
+  "user_inputs": [
+    {
+      "id": "U0005-001",
+      "milestone_id": "M0005-revise-br-verification-plan",
+      "captured_at": "2026-06-05T20:32:19Z",
+      "source": "chat",
+      "text": "User corrected the Bonhomme-Robin summary in KnowledgeVault and asked to carefully analyze the updated notes, revise the manuscript plan, add detailed tasks for analytic derivation and simulation verification of the Bonhomme-Robin-style results, and insert adversarial review tasks to catch mistakes, undefined objects, logical gaps, and weak story points."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0005-001",
+      "milestone_id": "M0005-revise-br-verification-plan",
+      "captured_at": "2026-06-05T20:43:01Z",
+      "description": "Reread updated KnowledgeVault notes on Bonhomme-Robin noisy ICA and BR-style SVAR moment inversion."
+    },
+    {
+      "id": "A0005-002",
+      "milestone_id": "M0005-revise-br-verification-plan",
+      "captured_at": "2026-06-05T20:43:01Z",
+      "description": "Updated the source packet, paper plan, paper map, task board, workplan, formal registry, provenance, literature search, replication README, draft skeleton, and logs."
+    },
+    {
+      "id": "A0005-003",
+      "milestone_id": "M0005-revise-br-verification-plan",
+      "captured_at": "2026-06-05T20:43:01Z",
+      "description": "Added detailed analytic derivation, simulation verification, and adversarial review tasks before BR-style claims can be promoted."
+    },
+    {
+      "id": "A0005-004",
+      "milestone_id": "M0005-revise-br-verification-plan",
+      "captured_at": "2026-06-05T20:43:01Z",
+      "description": "Created the matching GitHub milestone."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-05T20:43:01Z",
+      "description": "python scripts/check_manuscript.py: passed"
+    }
+  ],
+  "changed_files": [
+    "knowledge-vault-link.json",
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/literature-search.md",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/replication/README.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0005-revise-br-verification-plan.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 2,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/2",
+    "tag_name": "manuscript-milestones/M0005-revise-br-verification-plan"
+  }
+}

@@ -99,7 +99,7 @@
       "type": "definition",
       "status": "planned",
       "draft_location": "draft.md#4-robust-sign-inversion",
-      "description": "Bivariate diagonal-normalized robust set that profiles structural fourth cumulants from clean cross covariance and mixed fourth cumulants, then intersects with sign restrictions.",
+      "description": "Bivariate diagonal-normalized BR-style profiled cumulant set that profiles structural cumulants and diagonal-noise cumulants as needed, then intersects verified candidate matrices with sign labels.",
       "depends_on": [
         "def:diagonal-noise-svar",
         "ass:unit-variance-normalization"
@@ -107,13 +107,37 @@
       "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
     },
     {
+      "id": "def:br-profiled-cumulant-system",
+      "type": "definition",
+      "status": "planned",
+      "draft_location": "draft.md#4-robust-sign-inversion",
+      "description": "Complete bivariate cumulant system through fourth order with structural cumulants and diagonal noise cumulants profiled as nuisance parameters.",
+      "depends_on": [
+        "def:diagonal-noise-svar",
+        "ass:diagonal-idiosyncratic-noise",
+        "ass:unit-variance-normalization"
+      ],
+      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
+    },
+    {
+      "id": "audit:br-applicability",
+      "type": "audit",
+      "status": "planned",
+      "draft_location": "review-log.md",
+      "description": "Adversarial review that checks the manuscript does not claim direct applicability of Bonhomme-Robin quasi-JADE in the bivariate L=K=2 SVAR case.",
+      "depends_on": [
+        "def:br-profiled-cumulant-system"
+      ],
+      "source": "vault/papers/Consistent noisy independent component analysis.md"
+    },
+    {
       "id": "eq:br-j-statistic",
       "type": "equation",
       "status": "planned",
       "draft_location": "draft.md#4-robust-sign-inversion",
-      "description": "J_BR(a,b) = T min_lambda (h_hat - m(a,b,lambda))' S_hat^{-1} (h_hat - m(a,b,lambda)).",
+      "description": "Minimal J_4(a,b) and stacked J_stack(a,b) profiled criteria; they must be kept distinct from mapped variance diagnostics and restricted no-noise J tests.",
       "depends_on": [
-        "def:br-sign-inverted-set"
+        "def:br-profiled-cumulant-system"
       ],
       "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
     },
@@ -122,9 +146,9 @@
       "type": "assumption",
       "status": "planned",
       "draft_location": "draft.md#4-robust-sign-inversion",
-      "description": "Bivariate fourth-cumulant rank condition a0 kappa_42 != b0 kappa_41.",
+      "description": "Bivariate fourth-cumulant rank condition a0 kappa_2 != b0 kappa_1 together with nonsingularity 1-a0 b0 != 0; must be rederived from the corrected cumulant map.",
       "depends_on": [
-        "def:br-sign-inverted-set"
+        "def:br-profiled-cumulant-system"
       ],
       "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
     },
@@ -133,13 +157,13 @@
       "type": "proposition",
       "status": "planned",
       "draft_location": "draft.md#4-robust-sign-inversion",
-      "description": "Under diagonal noise, correct signs, compactness, and local rank, the BR-style sign-intersected inversion targets the robust population set and contains B0.",
+      "description": "To-be-verified result: under diagonal noise, correct signs, compactness, valid nuisance profiling, and local rank, the bivariate BR-style profiled inversion targets the robust population set and contains B0.",
       "depends_on": [
-        "def:br-sign-inverted-set",
+        "def:br-profiled-cumulant-system",
         "ass:diagonal-idiosyncratic-noise",
         "ass:br-local-rank"
       ],
-      "proof_status": "missing",
+      "proof_status": "blocked-on-derivation-and-simulation-verification",
       "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
     },
     {
@@ -159,13 +183,48 @@
       "type": "proposition",
       "status": "planned",
       "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
-      "description": "If the robust set is consistent and true diagonal noise is bounded away from zero, the mapped noise set excludes the no-noise origin asymptotically; under no noise it covers the origin at the intended rate.",
+      "description": "To-be-verified diagnostic result: if the profiled cumulant set is consistent and true diagonal noise is bounded away from zero, the mapped noise set excludes the no-noise origin asymptotically; under no noise it covers the origin at the intended rate.",
       "depends_on": [
         "def:mapped-noise-set",
         "prop:robust-sign-inversion"
       ],
-      "proof_status": "missing",
+      "proof_status": "blocked-on-derivation-and-simulation-verification",
       "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
+    },
+    {
+      "id": "def:restricted-no-noise-j-test",
+      "type": "definition",
+      "status": "planned",
+      "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
+      "description": "Restricted J test that sets selected diagonal noise cumulants to zero and compares the no-noise SVAR fit with the unrestricted profiled cumulant fit.",
+      "depends_on": [
+        "def:br-profiled-cumulant-system"
+      ],
+      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
+    },
+    {
+      "id": "audit:br-derivation-adversarial-review",
+      "type": "audit",
+      "status": "planned",
+      "draft_location": "review-log.md",
+      "description": "Adversarial review of the BR-style derivation, checking cumulant algebra, rank claims, nuisance treatment, undefined objects, boundary cases, and overinterpretation.",
+      "depends_on": [
+        "def:br-profiled-cumulant-system",
+        "ass:br-local-rank"
+      ],
+      "source": "manuscript/task-board.md"
+    },
+    {
+      "id": "audit:br-simulation-adversarial-review",
+      "type": "audit",
+      "status": "planned",
+      "draft_location": "review-log.md",
+      "description": "Adversarial review of BR-style verification simulations, checking DGP normalization, cumulant estimators, grids, critical values, seeds, failure cases, and interpretation.",
+      "depends_on": [
+        "prop:robust-sign-inversion",
+        "prop:consistent-noise-diagnostic"
+      ],
+      "source": "manuscript/task-board.md"
     },
     {
       "id": "fig:sign-noise-geometry",
@@ -217,7 +276,12 @@
     {
       "id": "audit:initial-objects",
       "status": "open",
-      "question": "Which planned objects should be promoted into main-text statements after Proposition 2 and Proposition 3 are written precisely?"
+      "question": "Which planned objects should be promoted into main-text statements after Proposition 2 and the BR-style profiled cumulant results are independently derived, simulated, and adversarially reviewed?"
+    },
+    {
+      "id": "audit:br-verification-gate",
+      "status": "open",
+      "question": "Do analytic derivations and simulations actually verify the BR-style profiled cumulant inversion and mapped noise diagnostic, or should those claims be weakened or removed?"
     }
   ]
 }

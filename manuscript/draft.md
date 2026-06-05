@@ -36,23 +36,26 @@ finite-sample false-precision channel.
 <!-- SOURCE-TRAIL: Use Drautzburg-Wright, Montiel Olea-Plagborg-Moller-Qian, Lewis, and the noisy-residual synthesis. -->
 <!-- TODO-NOTE: Be fair: the target is the no-noise null and applied interpretation, not test inversion itself. -->
 
-## 4. Robust Sign Inversion
+## 4. BR-Style Profiled Cumulant Inversion
 
-TODO: Define the diagonal-normalized bivariate `B(a,b)` model, the clean
-moment vector, the profiled BR criterion, the sign-intersected robust set, and
-the local rank condition. State the robust inversion result.
+TODO: Correctly explain what Bonhomme-Robin identify, why the bivariate
+`L=K=2` SVAR is only a BR-style profiled cumulant inversion, and derive the
+complete bivariate cumulant system before stating any rank or consistency
+claim.
 
 <!-- SOURCE-TRAIL: Use Bonhomme-Robin noisy ICA, the BR synthesis, Guay, and Keweloh. -->
+<!-- TODO-NOTE: Do not say "BR says use only clean co-moments." Pure own moments are nuisance/diagnostic unless extra noise restrictions are imposed. -->
 <!-- TODO-NOTE: Make the unit-variance normalization impossible to miss. -->
 
-## 5. Noise Diagnostic And Evidence
+## 5. Verification, Noise Diagnostic, And Evidence
 
 TODO: Define the mapped noise set, state the diagnostic result, and present the
 minimal honest evidence package: pseudo-set geometry, independence-refinement
 failure, BR robust set, noise path, and weak-moment stress cases.
 
 <!-- SOURCE-TRAIL: Use the two KnowledgeVault replication assets and record every final figure command in `replication/README.md`. -->
-<!-- TODO-NOTE: Include at least one inconclusive or weak case. -->
+<!-- TODO-NOTE: Include symbolic moment checks, population checks, finite-sample Monte Carlo, and at least one inconclusive or weak case. -->
+<!-- TODO-NOTE: Run adversarial reviews before interpreting any BR-style figure as support for a manuscript claim. -->
 
 ## 6. Conclusion
 

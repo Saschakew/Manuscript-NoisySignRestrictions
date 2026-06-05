@@ -8,14 +8,14 @@ KnowledgeVault link: `../knowledge-vault-link.json`
 
 Current stage: initialized and scoped.
 
-Current focus: turn the revised paper plan into exact formal statements,
-proof obligations, and a manuscript-local evidence wrapper.
+Current focus: verify the corrected Bonhomme-Robin-style profiled cumulant
+inversion before drafting it as a result.
 
-Next recommended action: write the precise assumptions and statements for
-Propositions 1-4, starting with the generic no-noise independence-refinement
-failure and the BR+sign consistency target.
+Next recommended action: derive the bivariate cumulant map and run the first
+adversarial derivation review before accepting any BR-style rank or diagnostic
+claim.
 
-Active milestone: M0003 initialize noise-robust sign SVAR manuscript.
+Active milestone: M0005 revise BR verification plan.
 
 Active blockers:
 
@@ -23,13 +23,17 @@ Active blockers:
   cases.
 - Proposition 3 needs exact regularity conditions, critical-value choice, and
   proof target.
+- The corrected KnowledgeVault notes show that the original Bonhomme-Robin
+  theorem does not mechanically cover the bivariate `L=K=2` SVAR; the paper
+  must derive and simulate its own profiled cumulant result.
 - Evidence scripts must be wrapped under `manuscript/replication/` before the
   paper is shareable.
 - The first draft should wait until formal statements and source trails are
   stable enough to prevent later rewrites.
 
-Last substantive session: 2026-06-05, initialized the manuscript, validated
-KnowledgeVault, built the source packet, and revised the paper plan.
+Last substantive session: 2026-06-05, revised the Bonhomme-Robin plan after
+corrected KnowledgeVault notes and added analytic, simulation, and adversarial
+review gates.
 
 ## Orientation Map
 
@@ -66,6 +70,8 @@ KnowledgeVault, built the source packet, and revised the paper plan.
 - One paper should carry one central idea.
 - Keep the first version bivariate and theory/simulation focused; empirical
   illustration is optional after the core is stable.
+- Treat BR-style inversion claims as unverified until analytic derivations,
+  simulations, and adversarial reviews support them.
 - Every non-original claim needs a source trail or citation.
 - Every original contribution should be marked as such in prose or provenance.
 - Final figures, tables, and replication outputs should be reproducible from

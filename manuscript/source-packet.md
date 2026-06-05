@@ -8,7 +8,7 @@ drafting prose, then keep it compact and source-backed.
 - KnowledgeVault link: `../knowledge-vault-link.json`
 - Local path: `C:\Users\smsakewe\Documents\GitHub\KnowledgeVault`
 - Repository: `https://github.com/Saschakew/KnowledgeVault.git`
-- Commit: `c213b4c7564657d84c647588c5a21e00ba1b0365`
+- Commit: `83a30daf4794aef2eb85ae99fe52574114dba063`
 - Validated on: 2026-06-05
 - Status: validated
 
@@ -28,7 +28,7 @@ Required surfaces to validate:
 - Import name: `svar_toolkit`
 - Resolved KnowledgeVault path: `svar-toolkit/`
 - Version, wheel, or commit: `knowledge-vault-svar-toolkit 0.1.0.dev0` at
-  KnowledgeVault commit `c213b4c7564657d84c647588c5a21e00ba1b0365`
+  KnowledgeVault commit `83a30daf4794aef2eb85ae99fe52574114dba063`
 - Validation status: validated from `pyproject.toml` and vault orientation
 - Manuscript use: reuse existing sign-restriction draws, structural-output
   helpers, non-Gaussian cross-moment diagnostics, GMM primitives, plotting, and
@@ -42,9 +42,10 @@ routine as package follow-up before implementing local manuscript code.
 ## Manuscript Question
 
 How should sign-restricted SVAR inference be interpreted when reduced-form
-residuals contain diagonal idiosyncratic noise, and can a Bonhomme-Robin-style
-clean-moment inversion combine economic sign labels with higher-moment
-information without pretending the noisy covariance is structural?
+residuals contain diagonal idiosyncratic noise, and can a carefully verified
+Bonhomme-Robin-style profiled cumulant inversion combine economic sign labels
+with higher-moment information without pretending the noisy covariance is
+structural?
 
 ## Orientation Searches
 
@@ -55,6 +56,7 @@ information without pretending the noisy covariance is structural?
 | sign restrictions and independence refinement | `vault/overview/`, `vault/papers/` | Located sign-restriction overview, Kilian-Lutkepohl Chapter 13, ARRW sign-zero inference, and Drautzburg-Wright independence refinement. | Keep the critique fair: target the no-noise population null and finite-sample interpretation, not test inversion itself. |
 | higher moments, noisy ICA, GMM | `vault/papers/`, `vault/overview/` | Located Bonhomme-Robin noisy ICA, Guay higher unconditional moments, Keweloh SVAR-GMM, Lewis review, and Montiel Olea-Plagborg-Moller-Qian caution. | Use them to state moment relevance, weak-identification risk, and diagnostic burden. |
 | existing evidence assets | `replications/` | Located `svar-noise-recursive-sign-visualization/` and `bonhomme-robin-noise-robust-svar/` with figures and tests. | Promote or wrap these assets under `manuscript/replication/` before final sharing. |
+| corrected Bonhomme-Robin reading | `vault/syntheses/`, `vault/papers/` | Reread updated `Bonhomme-Robin noise-robust SVAR moment inversion.md` and `Consistent noisy independent component analysis.md` after user correction. The corrected reading says BR first identifies/subtracts error cumulants from clean-pair restrictions; the bivariate `L=K=2` SVAR is not directly covered by the BR quasi-JADE theorem. | Revise the plan to require our own analytic derivation and simulation verification before claiming the BR-style result. |
 
 ## Core Source Set
 
@@ -65,8 +67,8 @@ Keep this list small enough to fit in active manuscript context. Prefer the
 |---:|---|---|---|---|
 | 1 | `vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md` | Originating paper design: pseudo-set warning, independence-refinement misspecification, robust inversion, noise diagnostic, simulation plan. | n/a | source-backed |
 | 2 | `vault/syntheses/Noisy residuals in recursive and sign-restricted SVARs.md` | Algebraic source for noisy covariance factors, sign-set geometry, column-rescaling obstruction, and independence-test failure modes. | n/a | source-backed |
-| 3 | `vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md` | Constructive source for the bivariate BR-style clean moment set, local rank condition, and mapped noise diagnostic. | n/a | source-backed |
-| 4 | `vault/papers/Consistent noisy independent component analysis.md` | Positive ancestor for using clean cumulants under measurement error rather than forcing noisy residuals into a no-noise ICA model. | `bonhomme2009ConsistentNoisyIndependentComponent` | source-backed |
+| 3 | `vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md` | Corrected constructive source: the bivariate object is a BR-style profiled cumulant inversion, not a direct application of the full BR quasi-JADE theorem. Pure moments are nuisance/diagnostic unless extra noise restrictions are imposed. | n/a | source-backed |
+| 4 | `vault/papers/Consistent noisy independent component analysis.md` | Positive ancestor and caution: BR identify error cumulants using clean measurement pairs, subtract them, then identify loadings from denoised cumulants; the `L=K=2` SVAR needs extra derivation. | `bonhomme2009ConsistentNoisyIndependentComponent` | source-backed |
 | 5 | `vault/papers/Refining set-identification in VARs through independence.md` | Closest target/comparator: sign restrictions plus inverted independence tests under no-noise recovered shocks. | `drautzburg2023RefiningSetIdentificationVars` | source-backed |
 | 6 | `vault/overview/Sign and narrative restrictions in SVARs.md` | Method overview for admissible rotations, set reporting, accepted-set interpretation, and code entry points. | n/a | source-backed |
 | 7 | `vault/papers/Structural Vector Autoregressive Analysis - Chapter 13 - Identification by Sign Restrictions.md` | Book-level sign-restriction geometry and warnings about acceptance rates, pointwise summaries, penalties, and priors. | `kilian2016StructuralVectorAutoregressiveAnalysis93b03b` | source-backed |
@@ -86,7 +88,7 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 |---|---|---|
 | `vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md` | Already contains the proposed paper's claims, formal model, simulation design, and limits. | Treat as the manuscript's initial idea record and revise it into a tighter paper contract. |
 | `vault/syntheses/Noisy residuals in recursive and sign-restricted SVARs.md` | Shows why the usual covariance factor is a noisy pseudo-structural object. | Use for Sections 2 and 3, especially rescaling obstruction and independence-test failure. |
-| `vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md` | Gives the clean cross-cumulant moment set and the noise diagnostic. | Use for Sections 4 and 5 and the replication wrapper. |
+| `vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md` | Gives the corrected profiled cumulant interpretation, the bivariate cumulant equations, and the warning that the original BR theorem does not apply mechanically when `L=K=2`. | Use for Sections 4 and 5 only after deriving the bivariate results ourselves. |
 | `vault/syntheses/Non-Gaussian and higher-moment identification of SVARs.md` | Places the paper in the non-Gaussian/higher-moment shelf. | Use for concise background and limitations. |
 | `vault/syntheses/Proxy-SVAR shock recovery under noisy residuals.md` | Analogy for residual noise creating pseudo-targets in another identification design. | Mention only if introduction needs a neighboring motivation; otherwise defer. |
 
@@ -95,7 +97,7 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | Vault path | What it validates or illustrates | Manuscript action |
 |---|---|---|
 | `replications/svar-noise-recursive-sign-visualization/` | Deterministic geometry for recursive noise, sign boundary movement, no-noise independence refinement, and B-plane moment tests. | Reuse for failure-mode figures after deciding which panels belong in main text versus appendix. |
-| `replications/bonhomme-robin-noise-robust-svar/` | Bivariate robust inversion and implied diagonal-noise map under no, Gaussian, and skewed noise. | Promote to manuscript replication wrapper; preserve source provenance and seeds. |
+| `replications/bonhomme-robin-noise-robust-svar/` | Existing bivariate robust inversion and implied diagonal-noise map under no, Gaussian, and skewed noise. | Treat as a starting diagnostic, not proof. Rebuild after analytic derivation and add adversarial DGPs, population checks, and finite-sample Monte Carlo. |
 | `svar-toolkit/examples/howto/06_sign_restrictions.py` | Verified fixed-draw sign-restriction accepted-set workflow. | Use for standard sign-set simulations if needed; do not treat acceptance rates as tests. |
 | `svar-toolkit/examples/howto/12_non_gaussian_cross_moments.py` | Verified fixed-draw higher-moment cross-moment selector. | Use only for diagnostics or comparator figures; not a full ICA estimator. |
 | `svar-toolkit/docs/api/gmm.md` and GMM examples | Reusable moment quadratic engine. | Candidate for implementing the BR criterion as a thin manuscript-specific moment stack. |
@@ -109,6 +111,44 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | `non_gaussian_cross_moments`, `select_non_gaussian_cross_moment_rotation` | `svar-toolkit/src/svar_toolkit/non_gaussian.py` | Comparator diagnostics for no-noise higher-moment rotation selection. | validated |
 | GMM utilities | `svar-toolkit/src/svar_toolkit/gmm.py` | Candidate engine for pointwise BR moment criterion and bootstrap wrappers. | candidate |
 | plotting helpers | `svar-toolkit/src/svar_toolkit/plotting.py` | Figure layer for accepted sets, IRFs, and diagnostics if reused. | validated |
+
+## Bonhomme-Robin Verification Plan
+
+This paper must not rely on the earlier, too-simple summary of Bonhomme-Robin.
+Before any prose claims that the robust inversion works, complete these tasks:
+
+1. Derive the bivariate cumulant map from scratch for
+   `u_t = B(a,b) epsilon_t + eta_t`, including second cumulants, all distinct
+   third cumulants, all distinct fourth cumulants, and nuisance noise cumulants
+   `(nu_i, tau_i, rho_i)`.
+2. Separate population restrictions from nuisance fitting:
+   `sigma_12`, `T_112`, `T_122`, `K_1112`, `K_1122`, and `K_1222` are clean
+   under diagonal independent noise; pure own moments estimate or test
+   nuisance noise cumulants unless extra restrictions are imposed.
+3. Prove that the original BR clean-pair quasi-JADE theorem is not the theorem
+   used in the bivariate manuscript case, because independent errors provide
+   only one clean pair when `L=K=2`.
+4. Derive the minimal fourth-cumulant profiled criterion `J_4(a,b)`, the
+   determinant condition, the local tangent, and the rank condition
+   `a0 kappa_2 != b0 kappa_1`, checking the `(1-a0 b0)` nonsingularity factor.
+5. Derive the stacked profiled criterion with unrestricted diagonal noise
+   cumulants and specify exactly which extra restrictions would turn pure
+   moments into overidentifying tests: no noise, Gaussian noise, zero skewness,
+   zero fourth cumulant, nonnegative variances, or sign restrictions on noise
+   moments.
+6. Derive the mapped variance diagnostic and the restricted no-noise J test as
+   separate diagnostics. Do not conflate "origin outside mapped variance set"
+   with "literal measurement error proven."
+7. Build verification code with three layers: symbolic/algebraic moment checks,
+   population-grid checks using analytic cumulants, and finite-sample Monte
+   Carlo with bootstrap or repeated-sample critical values.
+8. Run adversarial simulations: weak/zero fourth cumulants, near rank failure,
+   high noise, negative implied variances, Gaussian structural shocks, skewed
+   and Gaussian noise, mis-normalized shocks, and non-diagonal noise to verify
+   the method fails honestly.
+9. Only after the derivation and simulations pass, promote `prop:robust-sign-
+   inversion` and `prop:consistent-noise-diagnostic` from planned claims to
+   draftable manuscript results.
 
 ## Citation Snapshot Plan
 
@@ -131,6 +171,11 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
   noise-dominated rotations, and special loading alignments.
 - The robust BR inversion depends on a unit-variance or diagonal normalization;
   the paper must not present the noise diagnostic without this scale discipline.
+- The BR-style inversion is currently unverified by us. It is a planned
+  contribution, not yet a manuscript result.
+- Pure own moments are not clean identifying moments for `B(a,b)` under
+  unrestricted diagonal noise. They are nuisance/diagnostic moments unless the
+  paper imposes extra restrictions on the noise cumulants.
 - Mixed fourth cumulants are statistically noisy. The evidence plan must include
   weak-cumulant and macro-sample stress cases where the robust set is wide or
   inconclusive.

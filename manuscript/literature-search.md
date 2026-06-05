@@ -13,6 +13,7 @@ verification.
 | LS04 | done | Which source provides the noise-robust cumulant logic? | Bonhomme-Robin noisy ICA; BR SVAR synthesis; noisy-residual synthesis. | Use for the constructive method section. |
 | LS05 | done | Which sources provide higher-moment caution and finite-sample warnings? | Lewis review; Montiel Olea-Plagborg-Moller-Qian; Guay; Keweloh. | Use to frame weak moment relevance and bootstrap/stress-case evidence. |
 | LS06 | todo | Does the final paper need an empirical illustration? | Search sign-restricted applications with small data and existing vault notes. | Deferred until formal results and simulations are stable. |
+| LS07 | done | What changed after the corrected Bonhomme-Robin notes? | Updated `Bonhomme-Robin noise-robust SVAR moment inversion.md` and `Consistent noisy independent component analysis.md`. | The plan now treats the bivariate method as a BR-style profiled cumulant inversion requiring independent derivation and simulation verification. |
 
 ## Candidate Sources
 
@@ -20,8 +21,8 @@ verification.
 |---|---|---|---|
 | Research proposal - noise-robust sign-restricted SVARs | Originating plan and claims. | inspected | n/a |
 | Noisy residuals in recursive and sign-restricted SVARs | Algebra for pseudo covariance target and sign geometry. | inspected | n/a |
-| Bonhomme-Robin noise-robust SVAR moment inversion | Clean moment set and diagnostic source. | inspected | n/a |
-| Consistent noisy independent component analysis | Noisy-ICA ancestor. | inspected | `bonhomme2009ConsistentNoisyIndependentComponent` |
+| Bonhomme-Robin noise-robust SVAR moment inversion | Corrected profiled cumulant source and diagnostic caution. | reinspected after correction | n/a |
+| Consistent noisy independent component analysis | Noisy-ICA ancestor; clarifies BR error-cumulant identification, subtraction, and theorem limits. | reinspected after correction | `bonhomme2009ConsistentNoisyIndependentComponent` |
 | Refining set-identification in VARs through independence | Main no-noise comparator. | inspected | `drautzburg2023RefiningSetIdentificationVars` |
 | Structural VAR Analysis Chapter 13 | Sign-restriction method and reporting cautions. | inspected | `kilian2016StructuralVectorAutoregressiveAnalysis93b03b` |
 | ARRW sign-zero inference | Set-inference and penalty-function warning. | inspected | `arias2018InferenceBasedStructuralVector` |
@@ -38,6 +39,10 @@ verification.
   the main text or leave it as a literature-search footnote/deferred contrast.
 - Need verify if a final empirical illustration adds application-specific
   sources and data provenance.
+- Need primary-theorem-level confirmation of Bonhomme-Robin's clean-pair rank
+  requirement if the paper quotes the `J=1<K=2` limitation directly.
+- Need manuscript-local derivation evidence before treating the BR-style
+  profiled inversion as a source-backed result.
 
 ## BibTeX Verification
 

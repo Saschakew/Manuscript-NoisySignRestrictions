@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-05T19:43:15Z",
+  "updated_at": "2026-06-05T20:43:02Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -47,6 +47,28 @@
         "milestone_number": null,
         "milestone_url": "",
         "tag_name": "manuscript-milestones/M0004-remove-template-era-milestones"
+      }
+    },
+    {
+      "id": "M0005-revise-br-verification-plan",
+      "sequence": 5,
+      "title": "Revise BR verification plan",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-05T20:32:19Z",
+      "closed_at": "2026-06-05T20:43:01Z",
+      "start_commit": "b0963f652a25a4ca847b0afe500933b0d8d9f7fd",
+      "snapshot_ref": "manuscript-milestones/M0005-revise-br-verification-plan",
+      "summary": "Revised the manuscript plan after corrected Bonhomme-Robin/noisy-ICA notes and added derivation, simulation, and adversarial review gates for the BR-style profiled cumulant result.",
+      "user_input_ids": [
+        "U0005-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0005-revise-br-verification-plan.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 2,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/2",
+        "tag_name": "manuscript-milestones/M0005-revise-br-verification-plan"
       }
     }
   ]
