@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Manuscript Transparency Milestone",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "id",
+    "sequence",
+    "title",
+    "kind",
+    "status",
+    "opened_at",
+    "start_commit",
+    "snapshot_ref",
+    "user_inputs",
+    "agent_actions",
+    "checks",
+    "changed_files"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "id": { "type": "string" },
+    "sequence": { "type": "integer", "minimum": 1 },
+    "title": { "type": "string" },
+    "kind": {
+      "type": "string",
+      "enum": ["user-request", "progress", "review", "release", "maintenance"]
+    },
+    "status": { "type": "string", "enum": ["open", "closed"] },
+    "opened_at": { "type": "string" },
+    "closed_at": { "type": "string" },
+    "start_commit": { "type": "string" },
+    "snapshot_ref": { "type": "string" },
+    "summary": { "type": "string" },
+    "user_inputs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "captured_at", "source", "text"],
+        "properties": {
+          "id": { "type": "string" },
+          "captured_at": { "type": "string" },
+          "source": { "type": "string" },
+          "text": { "type": "string" }
+        }
+      }
+    },
+    "agent_actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "captured_at", "description"],
+        "properties": {
+          "id": { "type": "string" },
+          "captured_at": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["captured_at", "description"],
+        "properties": {
+          "captured_at": { "type": "string" },
+          "description": { "type": "string" }
+        }
+      }
+    },
+    "changed_files": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "github": {
+      "type": "object",
+      "properties": {
+        "repository": { "type": "string" },
+        "milestone_number": { "type": ["integer", "null"] },
+        "milestone_url": { "type": "string" },
+        "tag_name": { "type": "string" }
+      }
+    }
+  }
+}

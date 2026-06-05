@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+
+# Generated local exports and scratch outputs
+manuscript/exports/
+manuscript/replication/output/cache/
+manuscript/replication/.venv/

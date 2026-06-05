@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "manuscript_slug": "{{MANUSCRIPT_SLUG}}",
+  "working_title": "{{WORKING_TITLE}}",
+  "snapshot_tag_prefix": "manuscript-milestones/",
+  "updated_at": "2026-06-05T14:29:32Z",
+  "milestones": [
+    {
+      "id": "M0001-add-discuss-with-me-workflow",
+      "sequence": 1,
+      "title": "Add discuss-with-me workflow",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-05T11:50:25Z",
+      "closed_at": "2026-06-05T11:59:21Z",
+      "start_commit": "bcb02896990bca4168d9520b2eae8744982fa2f1",
+      "snapshot_ref": "manuscript-milestones/M0001-add-discuss-with-me-workflow",
+      "summary": "Added a discussion-only workflow for content conversations without manuscript edits or logging.",
+      "user_input_ids": [
+        "U0001-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0001-add-discuss-with-me-workflow.json",
+      "github": {
+        "repository": "Saschakew/manuscript-repo-template",
+        "milestone_number": 1,
+        "milestone_url": "https://github.com/Saschakew/manuscript-repo-template/milestone/1",
+        "tag_name": "manuscript-milestones/M0001-add-discuss-with-me-workflow"
+      }
+    },
+    {
+      "id": "M0002-formal-object-typography",
+      "sequence": 2,
+      "title": "Formal object typography",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-05T14:20:41Z",
+      "closed_at": "2026-06-05T14:29:32Z",
+      "start_commit": "e5f92ddd2959e9a0f80ea5cb20f7968201bf7576",
+      "snapshot_ref": "manuscript-milestones/M0002-formal-object-typography",
+      "summary": "Updated manuscript rules so formal statements are fully italicized and proofs use Proof: with a square terminator.",
+      "user_input_ids": [
+        "U0002-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0002-formal-object-typography.json",
+      "github": {
+        "repository": "Saschakew/manuscript-repo-template",
+        "milestone_number": 2,
+        "milestone_url": "https://github.com/Saschakew/manuscript-repo-template/milestone/2",
+        "tag_name": "manuscript-milestones/M0002-formal-object-typography"
+      }
+    }
+  ]
+}

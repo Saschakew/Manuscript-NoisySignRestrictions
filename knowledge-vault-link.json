@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "template_mode": true,
+  "manuscript_slug": "{{MANUSCRIPT_SLUG}}",
+  "working_title": "{{WORKING_TITLE}}",
+  "knowledge_vault": {
+    "repository": "{{KNOWLEDGE_VAULT_REPOSITORY_URL}}",
+    "local_path_hint": "{{KNOWLEDGE_VAULT_LOCAL_PATH}}",
+    "commit": "",
+    "source_material": [
+      {
+        "type": "user-idea",
+        "path_or_url": "",
+        "title": "",
+        "note": "Replace this entry with the synthesis, paper notes, raw sources, replication paths, or user idea that started the manuscript."
+      }
+    ]
+  },
+  "vault_orientation": {
+    "source_packet": "manuscript/source-packet.md",
+    "required_surfaces": [
+      "vault/_index.md",
+      "vault/_paper_registry.json",
+      "vault/_replication_registry.json",
+      "vault/papers/",
+      "vault/syntheses/",
+      "vault/citations/references.bib",
+      "replications/"
+    ],
+    "last_validated": "",
+    "status": "not-started"
+  },
+  "citation_snapshot": {
+    "bibliography": "bibliography/references.bib",
+    "source": "KnowledgeVault/vault/citations/references.bib",
+    "last_synced": ""
+  },
+  "computational_package": {
+    "name": "svar-python",
+    "role": "Default Python package for SVAR estimation, identification, inference, simulations, and replication code.",
+    "import_name": "svar_toolkit",
+    "required": true,
+    "path_candidates": [
+      "svar-python/",
+      "svar-toolkit/",
+      "packages/svar-python/"
+    ],
+    "resolved_path": "",
+    "version_or_commit": "",
+    "status": "not-validated"
+  },
+  "transparency": {
+    "schema_version": 1,
+    "timeline": "manuscript/transparency/timeline.json",
+    "milestones_dir": "manuscript/transparency/milestones",
+    "user_input_log": "manuscript/transparency/user-input.jsonl",
+    "agent_action_log": "manuscript/transparency/agent-actions.jsonl",
+    "viewer_repository": "Manuscript-Timeline",
+    "snapshot_tag_prefix": "manuscript-milestones/",
+    "status": "template"
+  }
+}

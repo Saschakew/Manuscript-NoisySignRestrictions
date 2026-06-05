@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "M0001-add-discuss-with-me-workflow",
+  "sequence": 1,
+  "title": "Add discuss-with-me workflow",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-05T11:50:25Z",
+  "closed_at": "2026-06-05T11:59:21Z",
+  "start_commit": "bcb02896990bca4168d9520b2eae8744982fa2f1",
+  "snapshot_ref": "manuscript-milestones/M0001-add-discuss-with-me-workflow",
+  "summary": "Added a discussion-only workflow for content conversations without manuscript edits or logging.",
+  "user_inputs": [
+    {
+      "id": "U0001-001",
+      "milestone_id": "M0001-add-discuss-with-me-workflow",
+      "captured_at": "2026-06-05T11:50:25Z",
+      "source": "chat",
+      "text": "User asked to add a discuss-with-me workflow for discussion-only content conversations with no manuscript edits or logging."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0001-001",
+      "milestone_id": "M0001-add-discuss-with-me-workflow",
+      "captured_at": "2026-06-05T11:57:51Z",
+      "description": "Updated AGENTS.md and the local manuscript skill with discuss-with-me workflow rules."
+    },
+    {
+      "id": "A0001-002",
+      "milestone_id": "M0001-add-discuss-with-me-workflow",
+      "captured_at": "2026-06-05T11:59:21Z",
+      "description": "Updated AGENTS.md and the local manuscript skill with discuss-with-me workflow rules."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-05T11:57:51Z",
+      "description": "python scripts/check_manuscript.py: passed with existing template-placeholder warnings"
+    },
+    {
+      "captured_at": "2026-06-05T11:59:21Z",
+      "description": "python scripts/check_manuscript.py: passed with existing template-placeholder warnings"
+    }
+  ],
+  "changed_files": [
+    ".codex/skills/write-standalone-manuscript/SKILL.md",
+    "AGENTS.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0001-add-discuss-with-me-workflow.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl"
+  ],
+  "github": {
+    "repository": "Saschakew/manuscript-repo-template",
+    "milestone_number": 1,
+    "milestone_url": "https://github.com/Saschakew/manuscript-repo-template/milestone/1",
+    "tag_name": "manuscript-milestones/M0001-add-discuss-with-me-workflow"
+  }
+}

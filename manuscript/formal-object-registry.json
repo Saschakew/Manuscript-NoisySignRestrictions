@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "manuscript": "{{MANUSCRIPT_SLUG}}",
+  "purpose": "Index formal manuscript objects.",
+  "source_of_truth": "draft.md contains manuscript prose; this registry is an audit and navigation layer.",
+  "objects": [],
+  "open_audits": [
+    {
+      "id": "audit:initial-objects",
+      "status": "todo",
+      "question": "Which assumptions, definitions, propositions, equations, figures, tables, proofs, or algorithms need stable labels?"
+    }
+  ]
+}

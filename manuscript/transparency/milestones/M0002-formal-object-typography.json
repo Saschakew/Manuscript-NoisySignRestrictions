@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "M0002-formal-object-typography",
+  "sequence": 2,
+  "title": "Formal object typography",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-05T14:20:41Z",
+  "closed_at": "2026-06-05T14:29:32Z",
+  "start_commit": "e5f92ddd2959e9a0f80ea5cb20f7968201bf7576",
+  "snapshot_ref": "manuscript-milestones/M0002-formal-object-typography",
+  "summary": "Updated manuscript rules so formal statements are fully italicized and proofs use Proof: with a square terminator.",
+  "user_inputs": [
+    {
+      "id": "U0002-001",
+      "milestone_id": "M0002-formal-object-typography",
+      "captured_at": "2026-06-05T14:20:41Z",
+      "source": "chat",
+      "text": "Adjust manuscript writing rules so definitions, propositions, and related formal objects are entirely italicized, remove end-proposition markers, and require proofs to start with Proof: and end with a square."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0002-001",
+      "milestone_id": "M0002-formal-object-typography",
+      "captured_at": "2026-06-05T14:29:32Z",
+      "description": "Updated manuscript formal-object typography and proof-formatting rules."
+    },
+    {
+      "id": "A0002-002",
+      "milestone_id": "M0002-formal-object-typography",
+      "captured_at": "2026-06-05T14:29:32Z",
+      "description": "Logged the user instruction and durable formatting decision."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-05T14:29:32Z",
+      "description": "python scripts/check_manuscript.py: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/manuscript-rules.md",
+    "manuscript/session-log.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0002-formal-object-typography.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md"
+  ],
+  "github": {
+    "repository": "Saschakew/manuscript-repo-template",
+    "milestone_number": 2,
+    "milestone_url": "https://github.com/Saschakew/manuscript-repo-template/milestone/2",
+    "tag_name": "manuscript-milestones/M0002-formal-object-typography"
+  }
+}
