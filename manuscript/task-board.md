@@ -24,4 +24,4 @@ Statuses: `todo`, `doing`, `blocked`, `done`, `deferred`.
 | M18 | todo | 2 | writing | Draft the section skeleton with source trails. | Add concise prose placeholders and typed comments in `draft.md`; do not polish before formal statements stabilize. |
 | M19 | todo | 2 | literature | Write the first literature-positioning pass. | Distinguish the paper from Drautzburg-Wright, the original Bonhomme-Robin theorem, Keweloh/GMM, and sign-set inference. |
 | M20 | todo | 3 | review | Run a full adversarial scope and logic review. | Stress-test whether the paper is still one short idea, whether objects are defined, and whether the story is convincing. |
-| M21 | doing | 1 | transparency | Close the current traceable manuscript milestone. | Run checks, close M0005, commit the closed manifest, tag the snapshot, and push if available. |
+| M21 | done | 1 | transparency | Close the current traceable manuscript milestone. | M0005 is closed, committed, tagged at `manuscript-milestones/M0005-revise-br-verification-plan`, aligned with remote `main`, and its GitHub milestone is closed. |

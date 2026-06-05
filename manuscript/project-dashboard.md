@@ -15,7 +15,8 @@ Next recommended action: derive the bivariate cumulant map and run the first
 adversarial derivation review before accepting any BR-style rank or diagnostic
 claim.
 
-Active milestone: M0005 revise BR verification plan.
+Active milestone: none. M0005 is closed, committed, tagged, and its GitHub
+milestone is closed.
 
 Active blockers:
 
@@ -34,6 +35,9 @@ Active blockers:
 Last substantive session: 2026-06-05, revised the Bonhomme-Robin plan after
 corrected KnowledgeVault notes and added analytic, simulation, and adversarial
 review gates.
+
+Last maintenance session: 2026-06-05, cleared the stale M21 task state after
+verifying the M0005 transparency snapshot and GitHub milestone closure.
 
 ## Orientation Map
 

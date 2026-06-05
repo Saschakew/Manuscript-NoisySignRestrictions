@@ -57,3 +57,17 @@ For traceable work blocks, pair this human-readable note with a closed
   verification, and adversarial review tasks.
 - Next recommended action: write the bivariate cumulant derivation and run the
   first adversarial derivation audit before drafting Section 4.
+
+### 2026-06-05 - Close stale M0005 task state
+
+- Request or goal: complete the next open project task by finishing the stale
+  M21 transparency cleanup.
+- Files changed: `manuscript/project-dashboard.md`,
+  `manuscript/task-board.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and M0006 transparency files.
+- Summary of work: verified that M0005 is closed, committed, tagged at
+  `manuscript-milestones/M0005-revise-br-verification-plan`, aligned with
+  remote `main`, and closed on GitHub; marked M21 done and cleared the stale
+  active milestone note.
+- Next recommended action: open a substantive milestone for M05 and derive the
+  corrected bivariate cumulant map from scratch.

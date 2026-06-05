@@ -67,3 +67,18 @@ machine-readable milestone in `transparency/milestones/`.
 - Open uncertainties: the BR-style cumulant map, local rank condition, and
   noise diagnostic must be derived and stress-tested before becoming manuscript
   claims.
+
+### 2026-06-05 - M0005 task-state cleanup
+
+- Request: complete the next open project task, which resolved to stale M21
+  transparency cleanup.
+- Actions taken: verified that M0005 is closed, committed, tagged at
+  `manuscript-milestones/M0005-revise-br-verification-plan`, aligned with
+  remote `main`, and closed on GitHub; updated the dashboard and task board so
+  the next open research task is M05.
+- Files changed: `manuscript/project-dashboard.md`,
+  `manuscript/task-board.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and the M0006 transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed.
+- Open uncertainties: M05 still needs the actual bivariate cumulant derivation
+  before any Section 4 claims can be drafted.

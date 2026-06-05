@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "M0006-close-m0005-task-state",
+  "sequence": 6,
+  "title": "Close M0005 task state",
+  "kind": "maintenance",
+  "status": "closed",
+  "opened_at": "2026-06-05T21:03:36Z",
+  "closed_at": "2026-06-05T21:08:55Z",
+  "start_commit": "0ea3f9cf8b22fb30c1053a7bf3e4988db2f7a529",
+  "snapshot_ref": "manuscript-milestones/M0006-close-m0005-task-state",
+  "summary": "Cleared the stale M21 task state after verifying that M0005 is closed, committed, tagged, aligned with remote main, and closed on GitHub.",
+  "user_inputs": [
+    {
+      "id": "U0006-001",
+      "milestone_id": "M0006-close-m0005-task-state",
+      "captured_at": "2026-06-05T21:03:36Z",
+      "source": "chat",
+      "text": "Complete the next open project task by finishing the stale M21 transparency cleanup for the already-closed M0005 BR verification plan milestone."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0006-001",
+      "milestone_id": "M0006-close-m0005-task-state",
+      "captured_at": "2026-06-05T21:08:27Z",
+      "description": "Verified the M0005 transparency manifest, local tag, HEAD, origin/main, and GitHub milestone state."
+    },
+    {
+      "id": "A0006-002",
+      "milestone_id": "M0006-close-m0005-task-state",
+      "captured_at": "2026-06-05T21:08:27Z",
+      "description": "Updated the project dashboard, task board, session log, and Codex log so M21 is done and M05 is the next substantive task."
+    },
+    {
+      "id": "A0006-003",
+      "milestone_id": "M0006-close-m0005-task-state",
+      "captured_at": "2026-06-05T21:08:27Z",
+      "description": "Created and closed the matching GitHub issue milestone for M0006."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-05T21:08:27Z",
+      "description": "python scripts/check_manuscript.py: passed with only the expected open-milestone warning before M0006 closure"
+    },
+    {
+      "captured_at": "2026-06-05T21:08:55Z",
+      "description": "python scripts/check_manuscript.py: passed after M0006 closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0006-close-m0005-task-state.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 3,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/3",
+    "tag_name": "manuscript-milestones/M0006-close-m0005-task-state"
+  }
+}

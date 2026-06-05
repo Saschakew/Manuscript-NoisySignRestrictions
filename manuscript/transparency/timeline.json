@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-05T20:43:02Z",
+  "updated_at": "2026-06-05T21:08:55Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -69,6 +69,28 @@
         "milestone_number": 2,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/2",
         "tag_name": "manuscript-milestones/M0005-revise-br-verification-plan"
+      }
+    },
+    {
+      "id": "M0006-close-m0005-task-state",
+      "sequence": 6,
+      "title": "Close M0005 task state",
+      "kind": "maintenance",
+      "status": "closed",
+      "opened_at": "2026-06-05T21:03:36Z",
+      "closed_at": "2026-06-05T21:08:55Z",
+      "start_commit": "0ea3f9cf8b22fb30c1053a7bf3e4988db2f7a529",
+      "snapshot_ref": "manuscript-milestones/M0006-close-m0005-task-state",
+      "summary": "Cleared the stale M21 task state after verifying that M0005 is closed, committed, tagged, aligned with remote main, and closed on GitHub.",
+      "user_input_ids": [
+        "U0006-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0006-close-m0005-task-state.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 3,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/3",
+        "tag_name": "manuscript-milestones/M0006-close-m0005-task-state"
       }
     }
   ]
