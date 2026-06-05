@@ -1,14 +1,223 @@
 {
   "schema_version": 1,
-  "manuscript": "{{MANUSCRIPT_SLUG}}",
+  "manuscript": "noise-robust-sign-restricted-svars",
   "purpose": "Index formal manuscript objects.",
   "source_of_truth": "draft.md contains manuscript prose; this registry is an audit and navigation layer.",
-  "objects": [],
+  "objects": [
+    {
+      "id": "def:diagonal-noise-svar",
+      "type": "definition",
+      "status": "planned",
+      "draft_location": "draft.md#2-noisy-sign-sets",
+      "description": "Observed reduced-form residual model u_t = B0 epsilon_t + eta_t with unit-variance structural shocks and diagonal idiosyncratic residual noise.",
+      "depends_on": [],
+      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
+    },
+    {
+      "id": "ass:diagonal-idiosyncratic-noise",
+      "type": "assumption",
+      "status": "planned",
+      "draft_location": "draft.md#2-noisy-sign-sets",
+      "description": "Noise is independent of structural shocks and idiosyncratic across residual equations, so V is diagonal and mixed noise cumulants vanish.",
+      "depends_on": [
+        "def:diagonal-noise-svar"
+      ],
+      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
+    },
+    {
+      "id": "ass:unit-variance-normalization",
+      "type": "assumption",
+      "status": "planned",
+      "draft_location": "draft.md#4-robust-sign-inversion",
+      "description": "Structural shocks are normalized to unit variance; otherwise diagonal residual variance can be relabeled as shock variance.",
+      "depends_on": [
+        "def:diagonal-noise-svar"
+      ],
+      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
+    },
+    {
+      "id": "def:noisy-sign-pseudo-set",
+      "type": "definition",
+      "status": "planned",
+      "draft_location": "draft.md#2-noisy-sign-sets",
+      "description": "Population sign-restricted set built from a covariance factor P_* P_*' = B0 B0' + V and restrictions R(P_* Q) >= 0.",
+      "depends_on": [
+        "def:diagonal-noise-svar"
+      ],
+      "source": "vault/syntheses/Noisy residuals in recursive and sign-restricted SVARs.md"
+    },
+    {
+      "id": "prop:noisy-sign-pseudo-set",
+      "type": "proposition",
+      "status": "planned",
+      "draft_location": "draft.md#2-noisy-sign-sets",
+      "description": "If V is nonzero, the standard sign-restricted population set is based on B0 B0' + V and generally contains neither B0 nor a positive column-rescaling B0 D.",
+      "depends_on": [
+        "def:noisy-sign-pseudo-set",
+        "ass:diagonal-idiosyncratic-noise"
+      ],
+      "proof_status": "sketch-in-source",
+      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
+    },
+    {
+      "id": "eq:column-rescaling-obstruction",
+      "type": "equation",
+      "status": "planned",
+      "draft_location": "draft.md#2-noisy-sign-sets",
+      "description": "B0(D^2 - I)B0' = V, equivalently D^2 - I = B0^{-1} V B0^{-1'}; the right side is generally not diagonal.",
+      "depends_on": [
+        "prop:noisy-sign-pseudo-set"
+      ],
+      "source": "vault/syntheses/Noisy residuals in recursive and sign-restricted SVARs.md"
+    },
+    {
+      "id": "def:no-noise-independence-refined-set",
+      "type": "definition",
+      "status": "planned",
+      "draft_location": "draft.md#3-no-noise-independence-refinement",
+      "description": "Set of sign-admissible no-noise covariance factors whose recovered shocks B^{-1} u_t satisfy an independence criterion.",
+      "depends_on": [
+        "def:noisy-sign-pseudo-set"
+      ],
+      "source": "vault/papers/Refining set-identification in VARs through independence.md"
+    },
+    {
+      "id": "prop:generic-empty-independence-refinement",
+      "type": "proposition",
+      "status": "planned",
+      "draft_location": "draft.md#3-no-noise-independence-refinement",
+      "description": "Under independent non-Gaussian structural shocks and diagonal idiosyncratic residual noise, a no-noise K-shock demixing generally cannot produce mutually independent recovered shocks from the larger primitive source vector.",
+      "depends_on": [
+        "def:no-noise-independence-refined-set",
+        "ass:diagonal-idiosyncratic-noise"
+      ],
+      "proof_status": "missing",
+      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
+    },
+    {
+      "id": "def:br-sign-inverted-set",
+      "type": "definition",
+      "status": "planned",
+      "draft_location": "draft.md#4-robust-sign-inversion",
+      "description": "Bivariate diagonal-normalized robust set that profiles structural fourth cumulants from clean cross covariance and mixed fourth cumulants, then intersects with sign restrictions.",
+      "depends_on": [
+        "def:diagonal-noise-svar",
+        "ass:unit-variance-normalization"
+      ],
+      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
+    },
+    {
+      "id": "eq:br-j-statistic",
+      "type": "equation",
+      "status": "planned",
+      "draft_location": "draft.md#4-robust-sign-inversion",
+      "description": "J_BR(a,b) = T min_lambda (h_hat - m(a,b,lambda))' S_hat^{-1} (h_hat - m(a,b,lambda)).",
+      "depends_on": [
+        "def:br-sign-inverted-set"
+      ],
+      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
+    },
+    {
+      "id": "ass:br-local-rank",
+      "type": "assumption",
+      "status": "planned",
+      "draft_location": "draft.md#4-robust-sign-inversion",
+      "description": "Bivariate fourth-cumulant rank condition a0 kappa_42 != b0 kappa_41.",
+      "depends_on": [
+        "def:br-sign-inverted-set"
+      ],
+      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
+    },
+    {
+      "id": "prop:robust-sign-inversion",
+      "type": "proposition",
+      "status": "planned",
+      "draft_location": "draft.md#4-robust-sign-inversion",
+      "description": "Under diagonal noise, correct signs, compactness, and local rank, the BR-style sign-intersected inversion targets the robust population set and contains B0.",
+      "depends_on": [
+        "def:br-sign-inverted-set",
+        "ass:diagonal-idiosyncratic-noise",
+        "ass:br-local-rank"
+      ],
+      "proof_status": "missing",
+      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
+    },
+    {
+      "id": "def:mapped-noise-set",
+      "type": "definition",
+      "status": "planned",
+      "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
+      "description": "Image of the robust accepted B(a,b) set under nu_1(a)=sigma_11-(1+a^2) and nu_2(b)=sigma_22-(1+b^2).",
+      "depends_on": [
+        "def:br-sign-inverted-set",
+        "ass:unit-variance-normalization"
+      ],
+      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
+    },
+    {
+      "id": "prop:consistent-noise-diagnostic",
+      "type": "proposition",
+      "status": "planned",
+      "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
+      "description": "If the robust set is consistent and true diagonal noise is bounded away from zero, the mapped noise set excludes the no-noise origin asymptotically; under no noise it covers the origin at the intended rate.",
+      "depends_on": [
+        "def:mapped-noise-set",
+        "prop:robust-sign-inversion"
+      ],
+      "proof_status": "missing",
+      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
+    },
+    {
+      "id": "fig:sign-noise-geometry",
+      "type": "figure",
+      "status": "candidate",
+      "draft_location": "draft.md#2-noisy-sign-sets",
+      "description": "Sign-boundary movement, response ellipse deformation, and column-rescaling obstruction under diagonal noise.",
+      "depends_on": [
+        "prop:noisy-sign-pseudo-set"
+      ],
+      "output_source": "KnowledgeVault/replications/svar-noise-recursive-sign-visualization/figures/fig_sign_restriction_noise_geometry.png"
+    },
+    {
+      "id": "fig:independence-refinement-noise",
+      "type": "figure",
+      "status": "candidate",
+      "draft_location": "draft.md#3-no-noise-independence-refinement",
+      "description": "No-noise independence-refinement score under residual noise, including empty-set and high-noise reopening behavior.",
+      "depends_on": [
+        "prop:generic-empty-independence-refinement"
+      ],
+      "output_source": "KnowledgeVault/replications/svar-noise-recursive-sign-visualization/figures/fig_independence_detection_noise.png"
+    },
+    {
+      "id": "fig:br-robust-set-and-noise-map",
+      "type": "figure",
+      "status": "candidate",
+      "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
+      "description": "BR robust accepted B region and image in implied diagonal-noise space.",
+      "depends_on": [
+        "prop:robust-sign-inversion",
+        "def:mapped-noise-set"
+      ],
+      "output_source": "KnowledgeVault/replications/bonhomme-robin-noise-robust-svar/figures/fig_br_robust_set_and_noise_map.png"
+    },
+    {
+      "id": "fig:noise-path-diagnostic",
+      "type": "figure",
+      "status": "candidate",
+      "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
+      "description": "Path of common diagonal noise and implied diagnostic behavior.",
+      "depends_on": [
+        "prop:consistent-noise-diagnostic"
+      ],
+      "output_source": "KnowledgeVault/replications/bonhomme-robin-noise-robust-svar/figures/fig_br_noise_path_diagnostic.png"
+    }
+  ],
   "open_audits": [
     {
       "id": "audit:initial-objects",
-      "status": "todo",
-      "question": "Which assumptions, definitions, propositions, equations, figures, tables, proofs, or algorithms need stable labels?"
+      "status": "open",
+      "question": "Which planned objects should be promoted into main-text statements after Proposition 2 and Proposition 3 are written precisely?"
     }
   ]
 }

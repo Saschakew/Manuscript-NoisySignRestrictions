@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "manuscript_slug": "{{MANUSCRIPT_SLUG}}",
-  "working_title": "{{WORKING_TITLE}}",
+  "manuscript_slug": "noise-robust-sign-restricted-svars",
+  "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-05T14:29:32Z",
+  "updated_at": "2026-06-05T19:24:13Z",
   "milestones": [
     {
       "id": "M0001-add-discuss-with-me-workflow",
@@ -47,6 +47,28 @@
         "milestone_number": 2,
         "milestone_url": "https://github.com/Saschakew/manuscript-repo-template/milestone/2",
         "tag_name": "manuscript-milestones/M0002-formal-object-typography"
+      }
+    },
+    {
+      "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
+      "sequence": 3,
+      "title": "Initialize noise-robust sign SVAR manuscript",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-05T19:04:54Z",
+      "closed_at": "2026-06-05T19:24:13Z",
+      "start_commit": "c6ccbd465080688224661351f1ee1dd6ad113e85",
+      "snapshot_ref": "manuscript-milestones/M0003-initialize-noise-robust-sign-svar-manuscript",
+      "summary": "Initialized the manuscript, validated KnowledgeVault, built the source packet, revised the paper plan, and prepared next tasks for the noise-robust sign-restricted SVAR paper.",
+      "user_input_ids": [
+        "U0003-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0003-initialize-noise-robust-sign-svar-manuscript.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 1,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/1",
+        "tag_name": "manuscript-milestones/M0003-initialize-noise-robust-sign-svar-manuscript"
       }
     }
   ]

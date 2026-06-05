@@ -24,10 +24,25 @@ machine-readable milestone in `transparency/milestones/`.
 - Open uncertainties: KnowledgeVault link remains in template mode, but this
   work did not depend on vault source material.
 
-### {{TODAY}} - Template initialization
+### 2026-06-05 - Template initialization
 
-- Request: create a standalone manuscript repository.
-- Actions taken: TODO.
-- Files changed: TODO.
-- Checks run: `python scripts/check_manuscript.py`.
-- Open uncertainties: TODO.
+- Request: initialize a standalone manuscript from the KnowledgeVault proposal
+  on noise-robust sign-restricted SVARs and prepare a careful plan.
+- Actions taken: validated the KnowledgeVault checkout and `svar-toolkit`
+  package path; initialized manuscript metadata; built the source packet;
+  revised the paper plan after a first-pass structure; updated the paper map,
+  task board, workplan, formal-object registry, citation provenance,
+  literature search, replication plan, draft skeleton, and logs; copied a first
+  verified bibliography snapshot.
+- Files changed: `knowledge-vault-link.json`, `bibliography/references.bib`,
+  `manuscript/source-packet.md`, `manuscript/paper-plan.md`,
+  `manuscript/paper-map.md`, `manuscript/project-dashboard.md`,
+  `manuscript/task-board.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/literature-search.md`,
+  `manuscript/replication/README.md`, `manuscript/draft.md`, logs, and the
+  M0003 transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed, with the expected
+  warning that M0003 was still open before milestone closure.
+- Open uncertainties: Proposition 2 genericity conditions and Proposition 3
+  regularity conditions need exact statements before drafting polished prose.

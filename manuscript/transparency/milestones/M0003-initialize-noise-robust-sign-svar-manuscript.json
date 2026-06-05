@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
+  "sequence": 3,
+  "title": "Initialize noise-robust sign SVAR manuscript",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-05T19:04:54Z",
+  "closed_at": "2026-06-05T19:24:13Z",
+  "start_commit": "c6ccbd465080688224661351f1ee1dd6ad113e85",
+  "snapshot_ref": "manuscript-milestones/M0003-initialize-noise-robust-sign-svar-manuscript",
+  "summary": "Initialized the manuscript, validated KnowledgeVault, built the source packet, revised the paper plan, and prepared next tasks for the noise-robust sign-restricted SVAR paper.",
+  "user_inputs": [
+    {
+      "id": "U0003-001",
+      "milestone_id": "M0003-initialize-noise-robust-sign-svar-manuscript",
+      "captured_at": "2026-06-05T19:04:54Z",
+      "source": "chat",
+      "text": "Initialize a new manuscript linked to C:\\Users\\smsakewe\\Documents\\GitHub\\KnowledgeVault, use the proposal in vault\\syntheses\\Research proposal - noise-robust sign-restricted SVARs.md, and prepare a carefully revised manuscript writing plan and next tasks."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0003-001",
+      "milestone_id": "M0003-initialize-noise-robust-sign-svar-manuscript",
+      "captured_at": "2026-06-05T19:24:13Z",
+      "description": "Initialized manuscript metadata and KnowledgeVault link from the proposal note."
+    },
+    {
+      "id": "A0003-002",
+      "milestone_id": "M0003-initialize-noise-robust-sign-svar-manuscript",
+      "captured_at": "2026-06-05T19:24:13Z",
+      "description": "Read the proposal, related syntheses, paper notes, package docs, and replication assets."
+    },
+    {
+      "id": "A0003-003",
+      "milestone_id": "M0003-initialize-noise-robust-sign-svar-manuscript",
+      "captured_at": "2026-06-05T19:24:13Z",
+      "description": "Updated the source packet, paper plan, paper map, task board, workplan, formal-object registry, citation provenance, literature search, replication plan, draft skeleton, bibliography, and logs."
+    },
+    {
+      "id": "A0003-004",
+      "milestone_id": "M0003-initialize-noise-robust-sign-svar-manuscript",
+      "captured_at": "2026-06-05T19:24:13Z",
+      "description": "Created the matching GitHub milestone."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-05T19:24:13Z",
+      "description": "python scripts/check_manuscript.py: passed"
+    }
+  ],
+  "changed_files": [
+    "bibliography/references.bib",
+    "knowledge-vault-link.json",
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/literature-search.md",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/replication/README.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0003-initialize-noise-robust-sign-svar-manuscript.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 1,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/1",
+    "tag_name": "manuscript-milestones/M0003-initialize-noise-robust-sign-svar-manuscript"
+  }
+}

@@ -1,30 +1,35 @@
 # Project Dashboard
 
-Working title: {{WORKING_TITLE}}
+Working title: Noise-Robust Sign-Restricted SVARs
 
-Manuscript slug: {{MANUSCRIPT_SLUG}}
+Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: idea scoping.
+Current stage: initialized and scoped.
 
-Current focus: connect KnowledgeVault, build the source packet, identify the
-shortest paper, and choose the first concrete writing or research task.
+Current focus: turn the revised paper plan into exact formal statements,
+proof obligations, and a manuscript-local evidence wrapper.
 
-Next recommended action: validate the KnowledgeVault link, fill
-`source-packet.md`, then use it to complete `paper-plan.md`.
+Next recommended action: write the precise assumptions and statements for
+Propositions 1-4, starting with the generic no-noise independence-refinement
+failure and the BR+sign consistency target.
 
-Active milestone: initialize standalone manuscript repo.
+Active milestone: M0003 initialize noise-robust sign SVAR manuscript.
 
 Active blockers:
 
-- Replace template placeholders.
-- Validate the local KnowledgeVault checkout and build `source-packet.md`.
-- Confirm source material from KnowledgeVault or user input.
-- Copy needed verified BibTeX entries into `../bibliography/references.bib`.
+- Proposition 2 needs a careful genericity statement and explicit special
+  cases.
+- Proposition 3 needs exact regularity conditions, critical-value choice, and
+  proof target.
+- Evidence scripts must be wrapped under `manuscript/replication/` before the
+  paper is shareable.
+- The first draft should wait until formal statements and source trails are
+  stable enough to prevent later rewrites.
 
-Last substantive session: {{TODAY}}, initialized from the standalone manuscript
-template.
+Last substantive session: 2026-06-05, initialized the manuscript, validated
+KnowledgeVault, built the source packet, and revised the paper plan.
 
 ## Orientation Map
 
@@ -59,6 +64,8 @@ template.
   commits, and milestone tags.
 - Keep KnowledgeVault links explicit in working notes, not hidden in prose.
 - One paper should carry one central idea.
+- Keep the first version bivariate and theory/simulation focused; empirical
+  illustration is optional after the core is stable.
 - Every non-original claim needs a source trail or citation.
 - Every original contribution should be marked as such in prose or provenance.
 - Final figures, tables, and replication outputs should be reproducible from

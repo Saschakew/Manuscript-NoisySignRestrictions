@@ -1,18 +1,18 @@
 {
   "schema_version": 1,
-  "template_mode": true,
-  "manuscript_slug": "{{MANUSCRIPT_SLUG}}",
-  "working_title": "{{WORKING_TITLE}}",
+  "template_mode": false,
+  "manuscript_slug": "noise-robust-sign-restricted-svars",
+  "working_title": "Noise-Robust Sign-Restricted SVARs",
   "knowledge_vault": {
-    "repository": "{{KNOWLEDGE_VAULT_REPOSITORY_URL}}",
-    "local_path_hint": "{{KNOWLEDGE_VAULT_LOCAL_PATH}}",
-    "commit": "",
+    "repository": "https://github.com/Saschakew/KnowledgeVault.git",
+    "local_path_hint": "C:\\Users\\smsakewe\\Documents\\GitHub\\KnowledgeVault",
+    "commit": "c213b4c7564657d84c647588c5a21e00ba1b0365",
     "source_material": [
       {
-        "type": "user-idea",
-        "path_or_url": "",
-        "title": "",
-        "note": "Replace this entry with the synthesis, paper notes, raw sources, replication paths, or user idea that started the manuscript."
+        "type": "vault-path",
+        "path_or_url": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md",
+        "title": "Research proposal - noise-robust sign-restricted SVARs",
+        "note": "Initial proposal note supplied by the user. It defines the paper's warning about noisy sign-restricted pseudo-sets, the finite-sample risk in no-noise independence refinements, and the Bonhomme-Robin-style robust inversion."
       }
     ]
   },
@@ -27,13 +27,13 @@
       "vault/citations/references.bib",
       "replications/"
     ],
-    "last_validated": "",
-    "status": "not-started"
+    "last_validated": "2026-06-05",
+    "status": "validated"
   },
   "citation_snapshot": {
     "bibliography": "bibliography/references.bib",
     "source": "KnowledgeVault/vault/citations/references.bib",
-    "last_synced": ""
+    "last_synced": "2026-06-05"
   },
   "computational_package": {
     "name": "svar-python",
@@ -45,9 +45,9 @@
       "svar-toolkit/",
       "packages/svar-python/"
     ],
-    "resolved_path": "",
-    "version_or_commit": "",
-    "status": "not-validated"
+    "resolved_path": "svar-toolkit",
+    "version_or_commit": "0.1.0.dev0 at KnowledgeVault commit c213b4c7564657d84c647588c5a21e00ba1b0365",
+    "status": "validated"
   },
   "transparency": {
     "schema_version": 1,
@@ -57,6 +57,6 @@
     "agent_action_log": "manuscript/transparency/agent-actions.jsonl",
     "viewer_repository": "Manuscript-Timeline",
     "snapshot_tag_prefix": "manuscript-milestones/",
-    "status": "template"
+    "status": "initialized"
   }
 }
