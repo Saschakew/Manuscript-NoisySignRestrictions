@@ -85,3 +85,19 @@ For traceable work blocks, pair this human-readable note with a closed
   cumulants and clean-versus-nuisance moment classifications.
 - Next recommended action: run the M06 adversarial derivation audit before
   using the cumulant map in a draft result or local identification proof.
+
+### 2026-06-05 - Audit bivariate cumulant map
+
+- Request or goal: continue with M06.
+- Files changed: `manuscript/derivations/bivariate-cumulant-map.md`,
+  `manuscript/review-log.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and M0008 transparency files.
+- Summary of work: adversarially checked the cumulant derivation for indices,
+  cumulant definitions, normalization, missing moments, and clean-versus-
+  nuisance classifications. No coefficient/index errors were found; the audit
+  corrected wording so clean third mixed cumulants are not overstated as
+  identifying restrictions after unrestricted `gamma` profiling.
+- Next recommended action: start M07 by documenting what the Bonhomme-Robin
+  analogy does and does not justify for the bivariate `L=K=2` case.

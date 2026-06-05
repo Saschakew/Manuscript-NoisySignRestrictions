@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "M0008-audit-bivariate-cumulant-map",
+  "sequence": 8,
+  "title": "Audit bivariate cumulant map",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-05T21:24:25Z",
+  "closed_at": "2026-06-05T21:32:52Z",
+  "start_commit": "4db61689eee1e5a4b3cf382f84ca88592c693121",
+  "snapshot_ref": "manuscript-milestones/M0008-audit-bivariate-cumulant-map",
+  "summary": "Completed the M06 adversarial audit of the bivariate cumulant map, confirming the coefficient/index pattern and correcting clean-equation versus identifying-restriction language.",
+  "user_inputs": [
+    {
+      "id": "U0008-001",
+      "milestone_id": "M0008-audit-bivariate-cumulant-map",
+      "captured_at": "2026-06-05T21:24:25Z",
+      "source": "chat",
+      "text": "Continue with M06: adversarially audit the bivariate cumulant derivation before using it, checking indices, cumulant definitions, normalization, missing pure or mixed moments, and whether any moment is incorrectly called clean."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0008-001",
+      "milestone_id": "M0008-audit-bivariate-cumulant-map",
+      "captured_at": "2026-06-05T21:32:27Z",
+      "description": "Independently enumerated all second-, third-, and fourth-order bivariate cumulant coefficients for B(a,b)."
+    },
+    {
+      "id": "A0008-002",
+      "milestone_id": "M0008-audit-bivariate-cumulant-map",
+      "captured_at": "2026-06-05T21:32:27Z",
+      "description": "Recorded the M06 audit in review-log.md and in the derivation note, including the correction that clean third mixed cumulants are not identifying restrictions after unrestricted gamma profiling."
+    },
+    {
+      "id": "A0008-003",
+      "milestone_id": "M0008-audit-bivariate-cumulant-map",
+      "captured_at": "2026-06-05T21:32:27Z",
+      "description": "Updated the formal-object registry, dashboard, task board, workplan, session log, Codex log, and matching GitHub milestone."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-05T21:32:27Z",
+      "description": "python scripts/check_manuscript.py: passed with only the expected open-milestone warning before M0008 closure"
+    },
+    {
+      "captured_at": "2026-06-05T21:32:52Z",
+      "description": "python scripts/check_manuscript.py: passed after M0008 closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/derivations/bivariate-cumulant-map.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0008-audit-bivariate-cumulant-map.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 5,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/5",
+    "tag_name": "manuscript-milestones/M0008-audit-bivariate-cumulant-map"
+  }
+}

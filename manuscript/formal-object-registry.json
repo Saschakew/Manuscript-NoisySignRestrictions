@@ -109,31 +109,31 @@
     {
       "id": "def:br-profiled-cumulant-system",
       "type": "definition",
-      "status": "derived-pending-audit",
+      "status": "audited-working-map",
       "draft_location": "derivations/bivariate-cumulant-map.md; draft.md#4-robust-sign-inversion",
-      "description": "Complete bivariate cumulant system through fourth order with structural cumulants and diagonal noise cumulants profiled as nuisance parameters; derived in a working note and pending adversarial audit.",
+      "description": "Complete bivariate cumulant system through fourth order with structural cumulants and diagonal noise cumulants profiled as nuisance parameters; audited as a working map, but still pending profiled-criterion, rank, and simulation verification.",
       "depends_on": [
         "def:diagonal-noise-svar",
         "ass:diagonal-idiosyncratic-noise",
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/bivariate-cumulant-map.md",
-      "verification_status": "pending M06 adversarial derivation audit",
+      "verification_status": "M06 adversarial cumulant-map audit complete; pending M09 profiled criteria and M12 symbolic/population verification",
       "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
     },
     {
       "id": "eq:bivariate-cumulant-map",
       "type": "equation",
-      "status": "derived-pending-audit",
+      "status": "audited-working-map",
       "draft_location": "derivations/bivariate-cumulant-map.md",
-      "description": "Expanded second-, third-, and fourth-order cumulant equations for B(a,b) = [[1,a],[b,1]], including nuisance noise cumulants nu_i, tau_i, and rho_i and clean mixed-moment restrictions.",
+      "description": "Expanded second-, third-, and fourth-order cumulant equations for B(a,b) = [[1,a],[b,1]], including nuisance noise cumulants nu_i, tau_i, and rho_i; M06 confirmed the coefficient pattern and corrected clean-equation versus identifying-restriction language.",
       "depends_on": [
         "def:br-profiled-cumulant-system",
         "ass:diagonal-idiosyncratic-noise",
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/bivariate-cumulant-map.md",
-      "verification_status": "pending M06 adversarial derivation audit",
+      "verification_status": "M06 adversarial audit complete; pending M12 symbolic/population verification",
       "source": "manuscript/derivations/bivariate-cumulant-map.md"
     },
     {
@@ -222,9 +222,9 @@
     {
       "id": "audit:br-derivation-adversarial-review",
       "type": "audit",
-      "status": "planned",
-      "draft_location": "review-log.md",
-      "description": "Adversarial review of the BR-style derivation, checking cumulant algebra, rank claims, nuisance treatment, undefined objects, boundary cases, and overinterpretation.",
+      "status": "cumulant-map-audit-complete",
+      "draft_location": "review-log.md; derivations/bivariate-cumulant-map.md",
+      "description": "Adversarial review of the BR-style derivation. M06 completed the cumulant-map portion, checking cumulant algebra, nuisance treatment, undefined objects, and overinterpretation; rank claims and boundary cases remain for M09/M10.",
       "depends_on": [
         "def:br-profiled-cumulant-system",
         "ass:br-local-rank"

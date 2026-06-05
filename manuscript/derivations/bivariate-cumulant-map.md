@@ -1,6 +1,10 @@
 # Bivariate Cumulant Map
 
-Status: derived working note, pending adversarial audit under M06.
+Status: audited working note. M06 found no coefficient or index errors in the
+expanded cumulant map, but corrected the classification language around clean
+equations versus identifying restrictions after nuisance profiling. The map
+still needs the M09 profiled-criterion derivation and M12 symbolic/population
+verification before it can support manuscript result claims.
 
 Purpose: derive the complete second-, third-, and fourth-order cumulant map for
 the bivariate diagonal-noise SVAR used in the Bonhomme-Robin-style profiled
@@ -36,8 +40,10 @@ $$
 
 The derivation uses zero means, finite fourth moments, mutually independent
 structural shocks, mutually independent idiosyncratic noise components, and
-independence between structural shocks and noise. Structural shocks are
-normalized to unit variance:
+independence between structural shocks and noise. Here "diagonal noise" means
+that mixed noise cumulants vanish through the orders used below, not merely
+that the noise covariance matrix is diagonal. Structural shocks are normalized
+to unit variance:
 
 $$
 \operatorname{cum}_2(\varepsilon_j,\varepsilon_j)=1,
@@ -200,8 +206,8 @@ nuisance noise fourth cumulants.
 
 ## Moment Classification
 
-Under unrestricted diagonal idiosyncratic noise, the clean population
-restrictions for `(a,b)` are
+Under unrestricted diagonal idiosyncratic noise, the clean observed equations
+are
 
 $$
 \sigma_{12}=a+b,
@@ -267,25 +273,51 @@ $$
 
 Consequently:
 
-| Moment | Classification under unrestricted diagonal noise |
-|---|---|
-| `sigma_12` | clean covariance restriction for `(a,b)` |
-| `sigma_11`, `sigma_22` | nuisance variance fit and mapped-noise diagnostic |
-| `T_112`, `T_122` | clean third-cumulant restrictions after profiling `gamma` |
-| `T_111`, `T_222` | nuisance skewness fit or diagnostic |
-| `K_1112`, `K_1122`, `K_1222` | clean fourth-cumulant restrictions after profiling `kappa` |
-| `K_1111`, `K_2222` | nuisance fourth-cumulant fit or diagnostic |
+| Moment | Clean under diagonal noise? | Role under unrestricted nuisance profiling |
+|---|---|---|
+| `sigma_12` | yes | Direct covariance restriction `a+b=sigma_12`. |
+| `sigma_11`, `sigma_22` | no | Nuisance variance fit and mapped-noise diagnostic. |
+| `T_112`, `T_122` | yes | Clean equations, but with unrestricted `gamma=(gamma_1,gamma_2)` they usually fit structural skewness conditional on `(a,b)` rather than overidentify `(a,b)` by themselves. |
+| `T_111`, `T_222` | no | Nuisance skewness fit or diagnostic. |
+| `K_1112`, `K_1122`, `K_1222` | yes | Clean fourth-cumulant equations; with two unrestricted `kappa` parameters, they provide one profiled restriction on `(a,b)` when the loading matrix has the needed rank. |
+| `K_1111`, `K_2222` | no | Nuisance fourth-cumulant fit or diagnostic. |
 
-Pure own moments become overidentifying restrictions for `(a,b)` only after
-adding restrictions on the noise cumulants, such as no noise, Gaussian noise,
-zero noise skewness, zero noise fourth cumulant, nonnegative variances, or sign
-restrictions on noise moments.
+Pure own moments become additional restrictions for `(a,b)` only after adding
+restrictions on the noise cumulants. Equality restrictions include no noise,
+Gaussian noise, zero noise skewness, and zero noise fourth cumulant. Inequality
+restrictions such as nonnegative variances or sign restrictions on noise
+moments instead define admissible nuisance regions and diagnostics; they are
+not overidentifying equalities.
+
+## M06 Audit Record
+
+The M06 adversarial audit checked the derivation against the task-board
+requirements:
+
+- Indices: independent coefficient enumeration of
+  `prod_l B_{i_l j}` for all bivariate multisets of orders two, three, and four
+  matched the displayed coefficients.
+- Cumulant definitions: the fourth-order object is explicitly a cumulant, with
+  covariance-product subtractions shown for centered residuals.
+- Normalization: the second-cumulant equations rely on
+  `cum_2(epsilon_j, epsilon_j)=1`; without this normalization, the variance
+  diagnostic would be unidentified.
+- Missing moments: the note lists all `r+1` distinct bivariate cumulants for
+  each order `r=2,3,4`.
+- Clean versus nuisance: the audit corrected the original wording so clean
+  mixed third cumulants are not overstated as identifying restrictions after
+  unrestricted profiling of `gamma`.
+
+Remaining checks are outside M06: derive the profiled `J_4` and stacked
+criteria, prove the local rank condition, and run symbolic/population
+verification.
 
 ## Handoff To Later Tasks
 
-This note completes only the map required by M05. It does not yet prove the
-Bonhomme-Robin applicability claim, derive the `J_4` determinant condition,
-establish the local rank result, or validate the map by simulation.
+This note completes the map required by M05 and the first adversarial audit
+required by M06. It does not yet prove the Bonhomme-Robin applicability claim,
+derive the `J_4` determinant condition, establish the local rank result, or
+validate the map by simulation.
 
 The next audit should check:
 

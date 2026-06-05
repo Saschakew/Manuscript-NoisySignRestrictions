@@ -5,8 +5,9 @@
 Initialized and scoped, with a corrected Bonhomme-Robin verification layer.
 The manuscript has a validated KnowledgeVault link, source packet, revised
 paper plan, paper map, first formal-object registry, first bibliography
-snapshot, and a first bivariate cumulant-map derivation that must be audited
-before BR-style claims are drafted.
+snapshot, and an audited working bivariate cumulant map. BR-style claims still
+need the applicability argument, profiled criteria, local rank derivation, and
+simulation verification.
 
 ## Milestones
 
@@ -14,7 +15,7 @@ before BR-style claims are drafted.
 |---|---|---|
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
-| M3. Formal/evidence plan | doing | Core objects are listed and the bivariate cumulant map is derived; next exit requires adversarial derivation reviews, profiled criteria, and a verified simulation plan. |
+| M3. Formal/evidence plan | doing | Core objects are listed and the bivariate cumulant map is audited; next exit requires the BR applicability argument, profiled criteria, local rank derivation, and a verified simulation plan. |
 | M4. First complete draft | todo | All sections have coherent prose and source trails. |
 | M5. Reproducibility package | todo | Final figures/tables can be regenerated. |
 | M6. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |

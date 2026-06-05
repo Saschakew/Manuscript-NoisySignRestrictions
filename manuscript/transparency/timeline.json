@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-05T21:19:39Z",
+  "updated_at": "2026-06-05T21:32:53Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -113,6 +113,28 @@
         "milestone_number": 4,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/4",
         "tag_name": "manuscript-milestones/M0007-derive-bivariate-cumulant-map"
+      }
+    },
+    {
+      "id": "M0008-audit-bivariate-cumulant-map",
+      "sequence": 8,
+      "title": "Audit bivariate cumulant map",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-05T21:24:25Z",
+      "closed_at": "2026-06-05T21:32:52Z",
+      "start_commit": "4db61689eee1e5a4b3cf382f84ca88592c693121",
+      "snapshot_ref": "manuscript-milestones/M0008-audit-bivariate-cumulant-map",
+      "summary": "Completed the M06 adversarial audit of the bivariate cumulant map, confirming the coefficient/index pattern and correcting clean-equation versus identifying-restriction language.",
+      "user_input_ids": [
+        "U0008-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0008-audit-bivariate-cumulant-map.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 5,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/5",
+        "tag_name": "manuscript-milestones/M0008-audit-bivariate-cumulant-map"
       }
     }
   ]

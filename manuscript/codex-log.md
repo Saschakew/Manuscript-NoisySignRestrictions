@@ -98,3 +98,20 @@ machine-readable milestone in `transparency/milestones/`.
 - Open uncertainties: M06 must audit the algebra, notation, and
   clean-versus-nuisance classifications before this map can support Section 4
   claims.
+
+### 2026-06-05 - Bivariate cumulant-map audit
+
+- Request: continue with M06.
+- Actions taken: independently checked the coefficient/index pattern for all
+  distinct second-, third-, and fourth-order bivariate cumulants; recorded the
+  adversarial audit in `manuscript/review-log.md`; updated the derivation note
+  to distinguish clean observed equations from restrictions that survive
+  nuisance profiling.
+- Files changed: `manuscript/derivations/bivariate-cumulant-map.md`,
+  `manuscript/review-log.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, logs, and the M0008 transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed.
+- Open uncertainties: the map still needs M07 BR applicability work, M09
+  profiled criteria and local rank derivation, and M12 symbolic/population
+  verification before supporting manuscript result claims.

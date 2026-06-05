@@ -8,14 +8,14 @@ KnowledgeVault link: `../knowledge-vault-link.json`
 
 Current stage: initialized and scoped.
 
-Current focus: audit the newly derived bivariate cumulant map for the corrected
-Bonhomme-Robin-style profiled inversion before using it in any draft result.
+Current focus: prove what the Bonhomme-Robin analogy does and does not justify
+for the audited bivariate cumulant map.
 
-Next recommended action: run the M06 adversarial derivation review on
-`manuscript/derivations/bivariate-cumulant-map.md`, checking indices,
-cumulant definitions, normalization, and clean-versus-nuisance classifications.
+Next recommended action: start M07 by documenting why the original
+Bonhomme-Robin quasi-JADE theorem does not directly cover the bivariate
+`L=K=2` SVAR, and how the manuscript object remains only BR-style.
 
-Active milestone: none. M0007 is closed, committed, tagged, and its GitHub
+Active milestone: none. M0008 is closed, committed, tagged, and its GitHub
 milestone is closed.
 
 Active blockers:
@@ -25,17 +25,17 @@ Active blockers:
 - Proposition 3 needs exact regularity conditions, critical-value choice, and
   proof target.
 - The corrected KnowledgeVault notes show that the original Bonhomme-Robin
-  theorem does not mechanically cover the bivariate `L=K=2` SVAR; the new
-  bivariate cumulant map must be audited, connected to profiled criteria, and
+  theorem does not mechanically cover the bivariate `L=K=2` SVAR; the audited
+  bivariate cumulant map must still be connected to profiled criteria and
   simulated before becoming a draft result.
 - Evidence scripts must be wrapped under `manuscript/replication/` before the
   paper is shareable.
 - The first draft should wait until formal statements and source trails are
   stable enough to prevent later rewrites.
 
-Last substantive session: 2026-06-05, derived the bivariate cumulant map
-through fourth order for the diagonal-noise SVAR and recorded clean versus
-nuisance moment classifications.
+Last substantive session: 2026-06-05, adversarially audited the bivariate
+cumulant map, found no coefficient/index errors, and corrected the
+clean-equation versus identifying-restriction language.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.
