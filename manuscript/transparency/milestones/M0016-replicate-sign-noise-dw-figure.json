@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "id": "M0016-replicate-sign-noise-dw-figure",
+  "sequence": 16,
+  "title": "Replicate sign-noise DW figure",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T09:53:42Z",
+  "closed_at": "2026-06-06T10:05:09Z",
+  "start_commit": "adf0758b935f89a010840f7c3122de9a8e62f95a",
+  "snapshot_ref": "manuscript-milestones/M0016-replicate-sign-noise-dw-figure",
+  "summary": "Replicated the KnowledgeVault sign/standard-DW noise figure and added a robust-DW normalized higher-cumulant panel.",
+  "user_inputs": [
+    {
+      "id": "U0016-001",
+      "milestone_id": "M0016-replicate-sign-noise-dw-figure",
+      "captured_at": "2026-06-06T09:53:42Z",
+      "source": "chat",
+      "text": "Check the KnowledgeVault synthesis on sign restrictions and noise, replicate the single sign-restriction/DW noise figure, and add the robust-DW set."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0016-001",
+      "milestone_id": "M0016-replicate-sign-noise-dw-figure",
+      "captured_at": "2026-06-06T10:04:27Z",
+      "description": "Created a manuscript-local figure script, rendered PNG, and explanatory simulation note."
+    },
+    {
+      "id": "A0016-002",
+      "milestone_id": "M0016-replicate-sign-noise-dw-figure",
+      "captured_at": "2026-06-06T10:04:27Z",
+      "description": "Updated figure, simulation, registry, dashboard, task-board, source-packet, review, and log surfaces to mark the figure as exploratory evidence."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T10:04:27Z",
+      "description": "python manuscript\\\\simulations\\\\sign_dw_robust_noise_figure.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T10:04:27Z",
+      "description": "python -m py_compile manuscript\\\\simulations\\\\sign_dw_robust_noise_figure.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T10:04:27Z",
+      "description": "formal-object-registry.json JSON validation: passed"
+    },
+    {
+      "captured_at": "2026-06-06T10:04:27Z",
+      "description": "python scripts\\\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T10:05:09Z",
+      "description": "python scripts\\\\check_manuscript.py: passed after milestone closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/figures/README.md",
+    "manuscript/figures/fig_sign_dw_robust_noise_comparison.png",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/sign_dw_robust_noise_figure.md",
+    "manuscript/simulations/sign_dw_robust_noise_figure.py",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0016-replicate-sign-noise-dw-figure.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 13,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/13",
+    "tag_name": "manuscript-milestones/M0016-replicate-sign-noise-dw-figure"
+  }
+}

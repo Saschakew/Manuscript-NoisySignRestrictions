@@ -94,8 +94,9 @@ and proof or output status.
   generic emptying plus explicit pseudo-zero exceptions.
 - Derivation of the robust higher-moment stack from
   `derivations/dw-noise-robust-moments.md`.
-- Early Monte Carlo overview after the analytical J-test result to decide
-  whether the project is worth deeper figure and replication investment.
+- Early Monte Carlo overview and the M0016 candidate population figure after
+  the analytical J-test result to decide whether the project is worth deeper
+  figure and replication investment.
 - Monte Carlo comparison of standard sign, standard DW, and robust DW sets.
 - Stress cases that show honest widening, weak-moment uncertainty, and
   divergence diagnostics.
@@ -103,6 +104,7 @@ and proof or output status.
 ## Current Bottlenecks
 
 - The standard DW J-test inversion result is now a working derivation; it still
-  needs audit and finite-sample MC triage before prose promotion.
-- The first finite-sample Monte Carlo should be a quick triage after M25,
-  before drafting polished prose or spending time on final figures.
+  needs audit before prose promotion.
+- M35/M30 and M0016 provide exploratory evidence and visuals only. M28
+  population-grid checks remain the immediate gate before polished figures or
+  final finite-sample Monte Carlo tables.

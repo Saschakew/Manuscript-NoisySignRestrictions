@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Replicate sign/DW noise figure and add robust DW
+
+- Request or goal: check the KnowledgeVault synthesis figure on sign
+  restrictions and noise, replicate it, add the robust-DW set, and show the
+  new figure.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_figure.py`,
+  `manuscript/simulations/sign_dw_robust_noise_figure.md`,
+  `manuscript/figures/fig_sign_dw_robust_noise_comparison.png`, planning
+  surfaces, logs, and M0016 transparency files.
+- Summary of work: read the KnowledgeVault synthesis and visualization source,
+  rebuilt the sign/standard-DW population noise visualization in the
+  manuscript workspace, added a robust-DW normalized higher-cumulant panel
+  under Gaussian residual noise, and recorded the output as a candidate figure.
+- Next recommended action: run M28 population-grid verification before
+  promoting the figure to final manuscript evidence.
+
 ### 2026-06-06 - Audit M35 simulation triage
 
 - Request or goal: continue with the next task in goal mode after M35.

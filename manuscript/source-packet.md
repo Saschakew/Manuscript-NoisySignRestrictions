@@ -86,6 +86,7 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | Vault path | What it validates or illustrates | Manuscript action |
 |---|---|---|
 | `replications/svar-noise-recursive-sign-visualization/` | Deterministic sign-noise geometry and no-noise independence-refinement behavior under residual noise. | Use as the starting point for the intuitive figure and standard-DW false-sharpening figure. |
+| `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; M28 must still verify population grids before final evidence or polished paper use. |
 | `svar-toolkit/examples/howto/06_sign_restrictions.py` | Verified fixed-draw sign-restriction accepted-set workflow. | Use for baseline sign-set simulations if needed. |
 | `svar-toolkit/examples/howto/12_non_gaussian_cross_moments.py` | Verified fixed-draw higher-moment cross-moment selector. | Use as a comparator or helper for robust higher-moment diagnostics, not as a final estimator without audit. |
 | `svar-toolkit/docs/api/gmm.md` and GMM examples | Reusable moment quadratic engine. | Candidate for the robust DW moment criterion and Monte Carlo wrappers. |
@@ -108,7 +109,9 @@ these tasks:
 1. Derive and audit the noisy sign-set pseudo-object and column-rescaling
    obstruction.
 2. Build the intuitive geometry figure showing covariance deformation and
-   sign-set bias.
+   sign-set bias. M0016 created a candidate sign/standard-DW/robust-DW
+   population figure from the KnowledgeVault visualization, but the full
+   geometry figure and M28 validation remain open.
 3. Use the M25 standard-DW J-test inversion derivation: rich stacks empty
    generically under residual noise, while structural-coordinate rescaling
    cases and finite-moment aliases can produce pseudo-zeros.

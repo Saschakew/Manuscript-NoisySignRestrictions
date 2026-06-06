@@ -177,24 +177,24 @@
     {
       "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "planned",
+      "status": "candidate-output-created",
       "draft_location": "draft.md#3-standard-dw-under-residual-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "Figure showing standard DW accepted sets shrinking, emptying, or selecting least-rejected pseudo-candidates as residual noise increases.",
+      "description": "M0016 candidate figure showing standard DW accepted sets inside the sign-admissible noisy covariance rotations and the width pattern in which the standard-DW subset can empty over intermediate noise and reopen in noise-dominated cases.",
       "depends_on": [
         "prop:standard-dw-misspecification"
       ],
-      "output_source": "planned manuscript-local simulation"
+      "output_source": "manuscript/simulations/sign_dw_robust_noise_figure.py; manuscript/simulations/sign_dw_robust_noise_figure.md; manuscript/figures/fig_sign_dw_robust_noise_comparison.png. Candidate only until M28 population-grid checks are complete."
     },
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "planned",
+      "status": "candidate-output-created",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Overlay or panel comparison of standard DW and robust DW accepted sets under no-noise and noisy DGPs.",
+      "description": "M0016 candidate panel comparison of standard covariance-rotation DW behavior with a robust-DW normalized higher-cumulant set under Gaussian residual noise.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "planned manuscript-local simulation"
+      "output_source": "manuscript/simulations/sign_dw_robust_noise_figure.py; manuscript/simulations/sign_dw_robust_noise_figure.md; manuscript/figures/fig_sign_dw_robust_noise_comparison.png. Candidate only until M28 verifies robust-DW truth inclusion, aliases, and weak-moment widening."
     },
     {
       "id": "table:monte-carlo-coverage-width",

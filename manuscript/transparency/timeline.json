@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T08:54:34Z",
+  "updated_at": "2026-06-06T10:05:09Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -289,6 +289,28 @@
         "milestone_number": 12,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/12",
         "tag_name": "manuscript-milestones/M0015-m30-audit-m35-simulation-triage"
+      }
+    },
+    {
+      "id": "M0016-replicate-sign-noise-dw-figure",
+      "sequence": 16,
+      "title": "Replicate sign-noise DW figure",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T09:53:42Z",
+      "closed_at": "2026-06-06T10:05:09Z",
+      "start_commit": "adf0758b935f89a010840f7c3122de9a8e62f95a",
+      "snapshot_ref": "manuscript-milestones/M0016-replicate-sign-noise-dw-figure",
+      "summary": "Replicated the KnowledgeVault sign/standard-DW noise figure and added a robust-DW normalized higher-cumulant panel.",
+      "user_input_ids": [
+        "U0016-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0016-replicate-sign-noise-dw-figure.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 13,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/13",
+        "tag_name": "manuscript-milestones/M0016-replicate-sign-noise-dw-figure"
       }
     }
   ]

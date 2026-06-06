@@ -5,6 +5,29 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Treat M0016 figure as intuition, not final evidence
+
+- Origin: user-originated
+- User input id: U0016
+- Codex role: checked the KnowledgeVault synthesis and visualization script,
+  replicated the sign/standard-DW noise figure logic, and added a robust-DW
+  panel.
+- Decision: Use the M0016 figure as an exploratory candidate visual. It can
+  explain the difference between covariance-rotation sign/DW behavior and the
+  Gaussian-noise robust-DW higher-cumulant set, but it should not be promoted
+  to final evidence before M28 population-grid checks.
+- Rationale: The figure is deterministic and population-level, with an
+  illustrative fixed cutoff. The robust-DW panel deliberately drops
+  second-moment restrictions and therefore stays fixed across Gaussian
+  residual-noise variances, but the manuscript still needs grid checks for
+  robust truth inclusion, remote aliases, weak moments, and defensible
+  critical values.
+- Alternatives considered: treating the replicated figure as a final paper
+  figure immediately, or waiting for M28 before making any visualization.
+- Consequence for next work: Use M0016 to guide M28 population-grid design and
+  then decide whether the final figure needs additional covariance-ellipse or
+  pseudo-set geometry panels.
+
 ### 2026-06-06 - Audit M35 before trusting simulation evidence
 
 - Origin: Codex execution of user-requested next task

@@ -11,6 +11,30 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0016 sign/DW/robust-DW candidate figure
+
+- Request: check the KnowledgeVault synthesis page on sign restrictions and
+  noise, replicate the single simulation figure showing sign-restricted and DW
+  behavior as noise rises, add the robust-DW set, and show the new figure.
+- Actions taken: inspected the KnowledgeVault synthesis and visualization
+  script; created `manuscript/simulations/sign_dw_robust_noise_figure.py`;
+  rendered `manuscript/figures/fig_sign_dw_robust_noise_comparison.png`;
+  added `manuscript/simulations/sign_dw_robust_noise_figure.md`; updated the
+  registry, figure/simulation notes, dashboard, task board, source packet, and
+  logs.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_figure.py`,
+  `manuscript/simulations/sign_dw_robust_noise_figure.md`,
+  `manuscript/figures/fig_sign_dw_robust_noise_comparison.png`, planning
+  surfaces, logs, and M0016 transparency files.
+- Checks run: `python manuscript\simulations\sign_dw_robust_noise_figure.py`
+  passed; `python -m py_compile
+  manuscript\simulations\sign_dw_robust_noise_figure.py` passed; formal
+  registry JSON validation passed; `python scripts/check_manuscript.py`
+  passed before closure with the expected open-milestone warning.
+- Open uncertainties: the visual cutoff is illustrative; M28 still needs
+  population-grid checks for standard-DW pseudo-zeros, robust-DW truth
+  inclusion, global aliases, and weak-moment widening.
+
 ### 2026-06-06 - M30 audit of M35 simulation triage
 
 - Request: go on with the next task in goal mode.
