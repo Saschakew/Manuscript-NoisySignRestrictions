@@ -30,11 +30,13 @@ non-Gaussianity, showing the honest limitation: robust DW is not magic; when
 higher moments carry little information, the robust set becomes wide.
 The first M28 validation pass supports this grid-pair story with exact
 population moment diagnostics, grid-boundary checks, repeated finite-sample
-seeds, and pointwise critical-value sensitivity, while leaving calibrated
-coverage-style evidence for M29. M27 now fixes the comparison language:
-standard-DW accepted mass outside the robust-DW set is the directional warning
-metric, while robust-DW mass outside standard DW mainly records the information
-lost by dropping second moments.
+seeds, and pointwise critical-value sensitivity. M27 now fixes the comparison
+language: standard-DW accepted mass outside the robust-DW set is the
+directional warning metric, while robust-DW mass outside standard DW mainly
+records the information lost by dropping second moments. M29 has added a first
+calibrated Monte Carlo pass; it supports the high-noise divergence story and
+shows the standard-DW cutoff inflation required to cover the truth, but it is
+not yet the final manuscript table.
 
 ## Why It Matters
 
@@ -167,26 +169,30 @@ that the noisy covariance is structural.
 - Validation grid checks: M28 reran the same story on population and
   repeated-draw grids, checking that the visual is not an artifact of one seed,
   one grid boundary, or the pointwise chi-square cutoff.
-- Monte Carlo table: report true-`B0` coverage, accepted-set share or width,
-  empty-set frequency, standard-DW versus robust-DW overlap, the M27
-  directional divergence metric, and least-rejected candidates across no-noise,
-  moderate-noise, high-noise, weak-moment, and Gaussian-shock cases.
+- Monte Carlo table: M29's first pass reports true-`B0` coverage-style
+  inclusion, accepted-set share, empty-set frequency, standard-DW versus
+  robust-DW overlap, the M27 directional divergence metric, and
+  least-rejected candidates across no-noise, moderate-noise, high-noise,
+  weak-moment, Gaussian-shock, and skewed-residual-noise stress cases. A final
+  table still needs a larger or bootstrap-calibrated run.
 - Stress cases: weak higher moments, near-Gaussian structural shocks, high
   noise, non-Gaussian noise that violates the robust route if Gaussianity is
   maintained, anisotropic noise, near-boundary signs, and small macro samples.
 
 ## What Is Missing
 
-- A calibrated finite-sample evidence pass for the M0020 grid pair: repeated
-  samples or bootstrap critical values, true-`B0` coverage, accepted-set width,
-  empty-set frequency, overlap, and divergence diagnostics.
+- A final calibrated finite-sample evidence pass for the M0020 grid pair:
+  M29 has a first repeated-sample calibration, but final draft claims still
+  need larger repeated-sample or bootstrap critical values, true-`B0`
+  coverage, accepted-set width, empty-set frequency, overlap, and divergence
+  diagnostics.
 - A decision on the precise robust noise assumption: Gaussian additive noise is
   clean for transformed cumulants; broader non-Gaussian noise would need a
   different argument.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.
-- A figure-led first draft once M27 formalizes the diagnostic and M29
-  calibrates the grid-pair evidence, plus a concise literature-positioning
+- A figure-led first draft once M29 finalizes the grid-pair evidence enough to
+  avoid another structural rewrite, plus a concise literature-positioning
   paragraph distinguishing the paper from
   Drautzburg-Wright, sign-restriction inference, and higher-moment SVAR GMM.
 

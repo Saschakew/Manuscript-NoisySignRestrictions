@@ -90,6 +90,7 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local M0020-corrected B-plane grid: sign/covariance, standard-DW, and robust-DW rows all invert pointwise 10 percent J tests across three noise levels. The high-noise stress column has standard DW rejecting true `B0` while robust DW contains it. | Selected main visual: organize the paper's evidence around this grid; M28 first validation passed, M29 calibration remains. |
 | `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; M28 population-grid validation now favors the M0020 grid pair as the main visual spine. |
 | `manuscript/simulations/m28_grid_story_validation.py` | First M28 validation pass for the M0020 grid pair: exact population mixed-moment checks, grid-boundary sensitivity, repeated finite-sample seeds, true-`B0` J diagnostics, and pointwise critical-value sensitivity. | Use as the validation gate supporting the selected visual spine; M29 must still calibrate repeated-sample or bootstrap critical values before coverage claims. |
+| `manuscript/simulations/m29_calibrated_monte_carlo.py` | First M29 calibrated finite-sample pass on the same B-plane: chi-square guide, no-noise repeated-sample calibration, and oracle scenario truth calibration with M27 accepted-share, overlap, divergence, truth-inclusion, and least-rejected metrics. | Use as first-pass evidence that the high-noise standard-DW cutoff must inflate sharply to cover true `B0`, while robust DW remains wide and truth-compatible under Gaussian residual noise. Expand or bootstrap before final coverage claims. |
 | `svar-toolkit/examples/howto/06_sign_restrictions.py` | Verified fixed-draw sign-restriction accepted-set workflow. | Use for baseline sign-set simulations if needed. |
 | `svar-toolkit/examples/howto/12_non_gaussian_cross_moments.py` | Verified fixed-draw higher-moment cross-moment selector. | Use as a comparator or helper for robust higher-moment diagnostics, not as a final estimator without audit. |
 | `svar-toolkit/docs/api/gmm.md` and GMM examples | Reusable moment quadratic engine. | Candidate for the robust DW moment criterion and Monte Carlo wrappers. |
@@ -142,12 +143,17 @@ these tasks:
    convention, accepted shares, Jaccard overlap, directional
    standard-outside-robust warning metric, truth-inclusion simulation
    diagnostics, and interpretation boundaries.
-9. Run finite-sample Monte Carlo with repeated-sample or bootstrap critical
-   values.
-10. Report coverage, accepted-set share or width, empty-set frequency, overlap
-   frequency, and divergence diagnostics.
+9. Completed the first M29 finite-sample Monte Carlo pass with repeated-sample
+   calibration conventions. The high-noise oracle standard-DW cutoff rises to
+   about 31.4, compared with about 8.9 under no-noise calibration, while robust
+   cutoffs remain near 9-10. A larger or bootstrap-calibrated pass is still
+   needed before final coverage claims.
+10. First-pass M29 reports coverage-style truth inclusion, accepted-set share,
+    empty-set frequency, overlap frequency, directional divergence, and
+    least-rejected diagnostics. These are evidence-gate diagnostics, not final
+    manuscript table values.
 11. Only after analytic and simulation checks pass, promote the robust DW
-   comparison from a selected visual story to a final manuscript result.
+    comparison from a selected visual story to a final manuscript result.
 
 ## Gaps And Risks
 

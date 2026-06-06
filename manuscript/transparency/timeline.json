@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T12:54:15Z",
+  "updated_at": "2026-06-06T13:13:27Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -466,6 +466,28 @@
         "milestone_number": 20,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/20",
         "tag_name": "manuscript-milestones/M0023-formalize-robust-dw-diagnostic"
+      }
+    },
+    {
+      "id": "M0024-m29-calibrated-monte-carlo-first-pass",
+      "sequence": 24,
+      "title": "M29 calibrated Monte Carlo first pass",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T13:01:09Z",
+      "closed_at": "2026-06-06T13:13:26Z",
+      "start_commit": "7b19676f01eb076c7c501171ffdd92b2be4c1a24",
+      "snapshot_ref": "manuscript-milestones/M0024-m29-calibrated-monte-carlo-first-pass",
+      "summary": "Created a first calibrated M29 Monte Carlo pass for the standard-DW versus robust-DW evidence gate.",
+      "user_input_ids": [
+        "U0024-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0024-m29-calibrated-monte-carlo-first-pass.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 21,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/21",
+        "tag_name": "manuscript-milestones/M0024-m29-calibrated-monte-carlo-first-pass"
       }
     }
   ]

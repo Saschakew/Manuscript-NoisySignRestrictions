@@ -11,6 +11,29 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0024 M29 calibrated Monte Carlo first pass
+
+- Request: work on the manuscript in goal mode by picking the next task.
+- Actions taken: selected M29 from the task board; opened local transparency
+  milestone M0024 and GitHub milestone #21; implemented
+  `manuscript/simulations/m29_calibrated_monte_carlo.py`; ran a smoke test and
+  the default first-pass Monte Carlo; wrote
+  `manuscript/simulations/m29_calibrated_monte_carlo.md` and
+  `manuscript/simulations/output/m29_calibrated_monte_carlo.json`; updated the
+  simulation index, dashboard, paper plan, paper map, source packet, task
+  board, workplan, formal registry, review log, decision log, session log, and
+  Codex log.
+- Files changed: M29 simulation script, M29 Markdown and JSON outputs,
+  planning surfaces, logs, and M0024 transparency files.
+- Checks run: `python -m py_compile
+  manuscript\simulations\m29_calibrated_monte_carlo.py` passed; smoke test
+  passed; `python manuscript\simulations\m29_calibrated_monte_carlo.py`
+  passed with 80 calibration replications, 24 evaluation replications, and a
+  41-by-41 grid.
+- Open uncertainties: this is a first calibrated pass. M29 still needs design
+  audit and a larger or bootstrap-calibrated run before final coverage, width,
+  empty-set, overlap, and divergence claims.
+
 ### 2026-06-06 - M0023 M27 diagnostic formalization
 
 - Request: work on the manuscript in goal mode by picking the next task.

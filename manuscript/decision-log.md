@@ -5,6 +5,25 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Treat M29 as passed first calibrated evidence gate
+
+- Origin: Codex execution of user-requested next task
+- User input id: U0024
+- Codex role: selected M29, implemented the first calibrated Monte Carlo pass,
+  ran it, and updated planning surfaces.
+- Decision: The M29 first pass supports keeping the M0020/M28 grid pair as the
+  evidence spine, but it is not yet the final manuscript table. The high
+  Gaussian-noise scenario is the key result: standard DW requires a much larger
+  oracle truth cutoff to cover true `B0`, while robust DW remains wide and
+  truth-compatible under the maintained Gaussian residual-noise condition.
+- Rationale: Under the no-noise repeated calibration, standard DW covers true
+  `B0` in only about one third of high-noise evaluation samples, while robust
+  DW covers it in most samples. The high-noise oracle standard-DW cutoff rises
+  to about 31.4, compared with about 8.9 under no noise.
+- Consequence for next work: Audit and expand M29 with more replications or
+  bootstrap critical values before treating coverage, width, empty-set,
+  overlap, or divergence summaries as final evidence.
+
 ### 2026-06-06 - Use a directional DW-versus-robust-DW diagnostic
 
 - Origin: Codex execution of user-requested next task

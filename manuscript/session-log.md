@@ -8,6 +8,24 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - M29 calibrated Monte Carlo first pass
+
+- Request or goal: work on the manuscript in goal mode by picking the next
+  task.
+- Files changed: `manuscript/simulations/m29_calibrated_monte_carlo.py`,
+  `manuscript/simulations/m29_calibrated_monte_carlo.md`,
+  `manuscript/simulations/output/m29_calibrated_monte_carlo.json`, planning
+  surfaces, logs, and M0024 transparency files.
+- Summary of work: selected M29, created a first calibrated finite-sample
+  Monte Carlo pass on the M0020/M28 B-plane, and reported the M27 metric bundle
+  under chi-square, no-noise repeated, and oracle scenario truth cutoff
+  conventions. The high-noise standard-DW truth cutoff inflates sharply when
+  oracle-calibrated, while robust DW remains wide and truth-compatible under
+  Gaussian residual noise.
+- Next recommended action: audit and expand M29 with more replications or
+  bootstrap critical values before treating coverage-style summaries as final
+  manuscript evidence.
+
 ### 2026-06-06 - Formalize robust DW comparison diagnostic
 
 - Request or goal: work on the manuscript in goal mode by picking the next

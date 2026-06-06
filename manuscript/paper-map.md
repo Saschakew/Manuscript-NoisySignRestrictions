@@ -25,7 +25,8 @@ reported beside the standard DW set as a practical robustness check.
   shows sign-set movement, standard-DW truth rejection, and robust-DW widening;
   the non-Gaussianity grid shows why robust DW becomes wide when higher moments
   weaken. M28 validates the first population/repeated-seed layer of this story;
-  M29 still calibrates and quantifies finite-sample evidence.
+  M29 now adds a first calibrated finite-sample pass, while final evidence
+  still needs larger or bootstrap-calibrated critical values.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -104,8 +105,11 @@ and proof or output status.
 - M27 formal diagnostic note defining the reported standard-DW set, robust-DW
   set, critical-value convention, directional overlap metric, and interpretation
   boundaries.
-- Monte Carlo comparison of standard sign, standard DW, and robust DW sets
-  using the grid pair's scenarios as the main design.
+- M29 first calibrated Monte Carlo pass comparing standard DW and robust DW
+  sets using the grid pair's scenarios plus weak-moment, Gaussian-shock, and
+  skewed-residual-noise stress cases.
+- Final Monte Carlo comparison of standard sign, standard DW, and robust DW
+  sets using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and
   divergence diagnostics.
 
@@ -113,6 +117,7 @@ and proof or output status.
 
 - The standard DW J-test inversion result is now a working derivation; it still
   needs audit before prose promotion.
-- M27 has formalized the comparison diagnostic. The remaining evidence gate is
-  M29: calibrated repeated-sample or bootstrap critical values, coverage,
-  width, empty-set, overlap, and directional divergence summaries.
+- M27 has formalized the comparison diagnostic. M29's first calibrated pass
+  supports the high-noise divergence story, but the remaining evidence gate is
+  a larger or bootstrap-calibrated pass with coverage, width, empty-set,
+  overlap, and directional divergence summaries.

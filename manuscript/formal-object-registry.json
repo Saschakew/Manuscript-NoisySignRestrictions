@@ -121,7 +121,7 @@
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md",
-      "verification_status": "M24 conditional audit passed for a local normalized Gaussian-noise route; M27 formalized the reported set and diagnostic comparison; M28 population/repeated-seed validation passed, while M29 calibrated finite-sample evidence remains pending",
+      "verification_status": "M24 conditional audit passed for a local normalized Gaussian-noise route; M27 formalized the reported set and diagnostic comparison; M28 population/repeated-seed validation passed; M29 first calibrated finite-sample pass supports the high-noise divergence story but still needs a larger or bootstrap-calibrated run before final coverage claims",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
     {
@@ -134,7 +134,7 @@
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions; M28 population verification passed, while calibrated finite-sample evidence remains pending",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions; M28 population verification passed; M29 first calibrated finite-sample pass completed, while final calibration remains pending",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
@@ -148,7 +148,7 @@
         "eq:dw-higher-cumulant-moment-stack"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "proof_status": "conditional-local-rank-audit-passed; M28 grid validation passed; M29 calibrated simulation verification pending",
+      "proof_status": "conditional-local-rank-audit-passed; M28 grid validation passed; M29 first calibrated simulation pass completed, final calibration pending",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
@@ -161,7 +161,7 @@
         "def:standard-dw-refined-set",
         "def:robust-dw-higher-moment-set"
       ],
-      "proof_status": "M27 formalization complete; M29 calibrated simulation evidence pending",
+      "proof_status": "M27 formalization complete; M29 first calibrated simulation pass completed, final calibration pending",
       "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md",
       "source": "manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
@@ -196,7 +196,7 @@
       "depends_on": [
         "prop:standard-dw-misspecification"
       ],
-      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. M28 first validation passed; final-evidence status still depends on M29 calibrated finite-sample critical values."
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. M28 first validation passed; M29 first calibrated pass supports the high-noise truth-rejection story, while final-evidence status still depends on larger or bootstrap-calibrated finite-sample critical values."
     },
     {
       "id": "fig:dw-robust-set-comparison",
@@ -207,18 +207,18 @@
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Both grid figures were corrected in M0020 to invert pointwise 10 percent J tests in all rows while keeping the robust rows free of second-moment restrictions. M28 validated truth inclusion, boundary sensitivity, repeated seeds, and weak-moment widening at the first gate; final-evidence status still depends on M29 calibrated critical values."
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Both grid figures were corrected in M0020 to invert pointwise 10 percent J tests in all rows while keeping the robust rows free of second-moment restrictions. M28 validated truth inclusion, boundary sensitivity, repeated seeds, and weak-moment widening at the first gate; M29 first calibrated pass supports the high-noise divergence and weak-moment widening readings, while final-evidence status still depends on larger or bootstrap-calibrated critical values."
     },
     {
       "id": "table:monte-carlo-coverage-width",
       "type": "table",
-      "status": "triage-output-created",
+      "status": "m29-first-pass-created",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and directional divergence warnings using the M27 metric bundle. M35 created an exploratory early screen; it is cautionary rather than final evidence because the provisional statistic is permissive under moderate noise and weak higher moments.",
+      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and directional divergence warnings using the M27 metric bundle. M29 created a first calibrated finite-sample pass with chi-square, no-noise repeated, and oracle scenario truth cutoffs. The high-noise standard-DW cutoff inflates sharply when truth-calibrated, while robust DW remains wide and truth-compatible under Gaussian residual noise. This is not yet the final manuscript table.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
-      "output_source": "M35 exploratory output: manuscript/simulations/m35_jtest_monte_carlo_triage.py, manuscript/simulations/m35_jtest_monte_carlo_triage.md, manuscript/simulations/output/m35_jtest_monte_carlo_summary.json. Final manuscript table remains planned."
+      "output_source": "M29 first-pass output: manuscript/simulations/m29_calibrated_monte_carlo.py, manuscript/simulations/m29_calibrated_monte_carlo.md, manuscript/simulations/output/m29_calibrated_monte_carlo.json. Earlier M35 exploratory support: manuscript/simulations/m35_jtest_monte_carlo_triage.py, manuscript/simulations/m35_jtest_monte_carlo_triage.md, manuscript/simulations/output/m35_jtest_monte_carlo_summary.json. Final manuscript table remains planned."
     },
     {
       "id": "audit:robust-dw-derivation",
@@ -268,7 +268,7 @@
     {
       "id": "audit:simulation-story-gate",
       "status": "open",
-      "question": "After M28 validates the population and repeated-seed grid story, do M29 calibrated repeated-sample or bootstrap critical values convincingly quantify coverage, width, empty-set frequency, overlap, and divergence without overstating diagnostics?"
+      "question": "After M29's first calibrated pass, do larger repeated-sample or bootstrap critical values convincingly quantify coverage, width, empty-set frequency, overlap, and divergence without overstating diagnostics?"
     }
   ]
 }

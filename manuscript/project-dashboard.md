@@ -6,17 +6,18 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: figure-led evidence planning after the M0020-corrected noise
-and non-Gaussianity grid pair, with M28 first validation and M27 diagnostic
-formalization complete.
+Current stage: figure-led evidence validation after the M0020-corrected noise
+and non-Gaussianity grid pair, with M28 first validation, M27 diagnostic
+formalization, and an M29 calibrated Monte Carlo first pass complete.
 
-Current focus: calibrated M29 finite-sample evidence around the M0020/M28/M27
-story.
+Current focus: expand M29 from the first repeated-sample calibration pass into
+a final finite-sample evidence package around the M0020/M28/M27 story.
 
-Next recommended action: start M29. Use the M27 metric bundle to report
-coverage, accepted-set share or width, empty-set frequency, overlap,
-standard-DW mass outside robust-DW, and least-rejected candidates under
-calibrated repeated-sample or bootstrap critical values.
+Next recommended action: audit and expand M29. The first pass uses 80
+calibration replications, 24 evaluation replications, a 41-by-41 B-plane grid,
+and three pointwise cutoff conventions. A final table still needs a larger
+run or bootstrap-calibrated critical values before coverage claims become
+draft-level evidence.
 
 Active milestone: none. M0021 records the user decision that the M0020 grid
 pair tells the paper's main story and should organize the next plan.
@@ -25,9 +26,9 @@ Active blockers:
 
 - The robust DW derivation passed M24 only as a local normalized
   Gaussian-noise result. M27 has formalized the reported set and diagnostic
-  language, and M28 supports its population truth-inclusion behavior. M29 still
-  needs calibrated finite-sample evidence before this becomes final manuscript
-  evidence.
+  language, M28 supports its population truth-inclusion behavior, and M29 now
+  has a first calibrated finite-sample pass. Final evidence still needs a
+  larger or bootstrap-calibrated run.
 - The M25 standard-DW J-test inversion result is only a working derivation; M28
   supports the high-noise divergence story, but the derivation still needs a
   direct audit before theorem-level prose.
@@ -38,17 +39,21 @@ Active blockers:
   evidence.
 - The intuitive sign/DW/robust-DW evidence now has a selected M0020 visual
   spine, and M28 supports the story on exact population moments, grid-boundary
-  checks, repeated seeds, and pointwise critical-value sensitivity. The figures
-  are strong enough to organize the paper, but not final enough to skip M29
-  calibrated critical values and coverage-style summaries.
+  checks, repeated seeds, and pointwise critical-value sensitivity. M29's first
+  pass supports the high-noise divergence story and quantifies a large
+  standard-DW cutoff inflation, but the figures are still not final evidence
+  until the M29 calibration is expanded.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
 - A figure-led section draft should wait until M29 calibrates finite-sample
-  evidence enough to avoid another structural rewrite.
+  evidence enough to avoid another structural rewrite, though the first-pass
+  reading is now strong enough to outline the evidence subsection.
 
-Last substantive session: 2026-06-06, completed M27 by defining the reported
-standard-DW set, robust-DW set, critical-value convention, directional
-overlap/divergence metric, and interpretation boundaries.
+Last substantive session: 2026-06-06, completed a first M29 calibrated Monte
+Carlo pass. The run reports chi-square, no-noise repeated, and
+scenario-specific oracle truth cutoffs; the high-noise standard-DW cutoff
+inflates from about 8.9 under no-noise calibration to about 31.4 under oracle
+truth calibration, while robust-DW cutoffs remain near 9-10.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

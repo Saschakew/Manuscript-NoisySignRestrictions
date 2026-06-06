@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "id": "M0024-m29-calibrated-monte-carlo-first-pass",
+  "sequence": 24,
+  "title": "M29 calibrated Monte Carlo first pass",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T13:01:09Z",
+  "closed_at": "2026-06-06T13:13:26Z",
+  "start_commit": "7b19676f01eb076c7c501171ffdd92b2be4c1a24",
+  "snapshot_ref": "manuscript-milestones/M0024-m29-calibrated-monte-carlo-first-pass",
+  "summary": "Created a first calibrated M29 Monte Carlo pass for the standard-DW versus robust-DW evidence gate.",
+  "user_inputs": [
+    {
+      "id": "U0024-001",
+      "milestone_id": "M0024-m29-calibrated-monte-carlo-first-pass",
+      "captured_at": "2026-06-06T13:01:09Z",
+      "source": "chat",
+      "text": "Work on manuscript in goal mode; pick the next task and work on it. Selected M29 finite-sample Monte Carlo evidence as the next task."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0024-001",
+      "milestone_id": "M0024-m29-calibrated-monte-carlo-first-pass",
+      "captured_at": "2026-06-06T13:13:26Z",
+      "description": "Selected M29 as the next task from the task board."
+    },
+    {
+      "id": "A0024-002",
+      "milestone_id": "M0024-m29-calibrated-monte-carlo-first-pass",
+      "captured_at": "2026-06-06T13:13:26Z",
+      "description": "Implemented manuscript/simulations/m29_calibrated_monte_carlo.py with chi-square, no-noise repeated, and oracle scenario truth cutoff conventions."
+    },
+    {
+      "id": "A0024-003",
+      "milestone_id": "M0024-m29-calibrated-monte-carlo-first-pass",
+      "captured_at": "2026-06-06T13:13:26Z",
+      "description": "Ran the M29 first-pass simulation and wrote Markdown and JSON outputs."
+    },
+    {
+      "id": "A0024-004",
+      "milestone_id": "M0024-m29-calibrated-monte-carlo-first-pass",
+      "captured_at": "2026-06-06T13:13:26Z",
+      "description": "Updated planning surfaces, the formal registry, review and decision logs, session log, Codex log, and simulation index."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T13:13:26Z",
+      "description": "python -m py_compile manuscript\\\\simulations\\\\m29_calibrated_monte_carlo.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T13:13:26Z",
+      "description": "python manuscript\\\\simulations\\\\m29_calibrated_monte_carlo.py --calibration-reps 2 --evaluation-reps 1 --grid-points 9 --sample-size 100: passed"
+    },
+    {
+      "captured_at": "2026-06-06T13:13:26Z",
+      "description": "python manuscript\\\\simulations\\\\m29_calibrated_monte_carlo.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T13:13:26Z",
+      "description": "formal registry and M29 JSON validation: passed"
+    },
+    {
+      "captured_at": "2026-06-06T13:13:26Z",
+      "description": "python scripts\\\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T13:13:26Z",
+      "description": "git diff --check: passed with line-ending normalization warnings only"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/m29_calibrated_monte_carlo.md",
+    "manuscript/simulations/m29_calibrated_monte_carlo.py",
+    "manuscript/simulations/output/m29_calibrated_monte_carlo.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0024-m29-calibrated-monte-carlo-first-pass.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 21,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/21",
+    "tag_name": "manuscript-milestones/M0024-m29-calibrated-monte-carlo-first-pass"
+  }
+}
