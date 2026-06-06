@@ -6,6 +6,7 @@ Use this file for actual review passes and resulting decisions.
 
 | Date | Pass | Reviewer | Outcome | Follow-up tasks |
 |---|---|---|---|---|
+| 2026-06-06 | M30 M35 triage audit | Codex adversarial simulation review | Conditional pass for exploratory use only. DGP normalization and cumulant formulas are acceptable for screening, but the original moderate-noise case was near a structural-coordinate rescaling exception; the statistic's weighting and chi-square critical value are not calibrated. | Run M28 population grids next; do not use M35 for polished figures or M29 tables until critical values are calibrated. |
 | 2026-06-06 | M35 early MC triage read | Codex evidence-design review | The first standard-DW versus robust-DW finite-sample screen is useful but cautionary. The no-noise sanity case behaves reasonably, but the provisional statistic is permissive under moderate Gaussian residual noise and weak higher moments. | Audit the M35 script/statistic in M30; run M28 population-grid checks before polished figures or final Monte Carlo tables. |
 | 2026-06-06 | M24 robust DW derivation audit | Codex adversarial self-review | Conditional pass: the Gaussian-noise higher-cumulant route is valid as a local normalized derivation, with correct cumulant algebra, fourth-cumulant covariance subtractions, second-moment exclusion, and local-rank logic. It remains non-global and scale-normalized. | M25 must prove or weaken standard-DW misspecification/emptying; M28 must run population-grid checks for robust-DW truth inclusion, global aliases, and weak-moment widening. |
 | 2026-06-06 | robust DW plan pivot | Codex planning review | Active manuscript plan now centers on noisy sign-set bias, standard DW misspecification/false sharpening, robust DW higher moments that drop second moments, and Monte Carlo overlap/divergence evidence. Previous constructive-route labels were removed from active planning surfaces. | Audit the robust DW derivation; prove or weaken standard-DW asymptotic emptiness; design geometry and Monte Carlo evidence. |
@@ -84,3 +85,34 @@ Checklist outcome:
 Decision: use the derivation as the working Section 4 route, but state the
 first formal result as a local normalized Gaussian-noise proposition. Do not
 call it a global theorem or rely on it for final evidence until M28 and M29.
+
+## M30 M35 Triage Audit
+
+Scope: `manuscript/simulations/m35_jtest_monte_carlo_triage.py` and generated
+M35 outputs.
+
+Outcome: conditional pass for exploratory screening only. The detailed audit
+is in `manuscript/simulations/m30_m35_triage_audit.md`.
+
+Main findings:
+
+- DGP normalization: passed for exploratory use. The square-root weighted
+  mixture preserves unit variances in population and weakens higher cumulants
+  as intended.
+- Noise design: corrected. The original moderate diagonal-noise case was close
+  to a structural-coordinate rescaling exception; the script now reports the
+  structural-coordinate off-diagonal noise norm and adds an anisotropic
+  diagonal-noise stress case.
+- Candidate spaces: conditional pass. Standard DW uses the population
+  covariance factor and robust DW searches the normalized chart containing the
+  true shape; final finite-sample evidence must decide whether to use sample
+  covariance or keep a separate population-grid experiment.
+- Cumulant formulas: passed for centered exploratory cumulants.
+- Weighting and critical values: failed for evidence. The diagonal raw-product
+  scaling and chi-square reference are not calibrated J-test inversion
+  machinery.
+- Interpretation: passed after correction. The output now points to M28
+  population-grid checks, not polished M29 tables.
+
+Decision: M35 remains a useful cautionary screen but not evidence. M28 should
+be the next evidence task.

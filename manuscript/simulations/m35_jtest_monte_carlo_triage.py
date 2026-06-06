@@ -185,6 +185,11 @@ def build_robust_candidates(
     return candidates
 
 
+def structural_noise_offdiag_norm(B0: np.ndarray, noise_cov: np.ndarray) -> float:
+    structural_noise = np.linalg.solve(B0, noise_cov @ np.linalg.inv(B0).T)
+    return float(np.linalg.norm(structural_noise - np.diag(np.diag(structural_noise))))
+
+
 def evaluate_standard(
     u: np.ndarray,
     candidates: list[tuple[np.ndarray, tuple[float, float], float]],
@@ -357,7 +362,11 @@ def markdown_summary(payload: dict) -> str:
         "",
     ]
     for scenario in payload["scenarios"]:
-        lines.append(f"- `{scenario['name']}`: {scenario['note']}")
+        lines.append(
+            f"- `{scenario['name']}`: {scenario['note']} "
+            f"Structural-coordinate off-diagonal noise norm: "
+            f"`{scenario['structural_noise_offdiag_norm']:.4f}`."
+        )
     lines.extend(["", "## Summary", ""])
     header = (
         "| Scenario | Method | Nonempty rate | Nearest-shape accept rate | "
@@ -387,7 +396,8 @@ def markdown_summary(payload: dict) -> str:
             "## Triage Read",
             "",
             "- The no-noise strong-moment scenario passes the basic sanity check: both routes are usually nonempty and their least-rejected shapes remain close to the true normalized shape.",
-            "- The moderate-noise scenario does not yet give a clean finite-sample emptying or false-sharpening pattern for standard DW. With this provisional scale-normalized statistic, standard DW remains frequently nonempty, so the manuscript should not move directly to polished false-sharpening figures from this run.",
+            "- The original moderate-noise scenario is close to the structural-coordinate rescaling exception in the M25 derivation, so it is not a sharp test of standard-DW misspecification.",
+            "- The anisotropic-noise scenario is the relevant first stress case for generic residual-noise deformation, but the statistic is still provisional and should not be used for polished false-sharpening figures.",
             "- The weak higher-moment scenario is almost non-discriminating for both methods. That is useful triage information: weak higher cumulants can make the robust comparison honest but very wide in macro-sized samples.",
             "- Gate outcome: proceed to audit and population-grid verification before larger Monte Carlo work. This screen supports M28/M30 as the next evidence tasks, not M29-style final tables.",
             "",
@@ -417,10 +427,17 @@ def main() -> int:
         ),
         Scenario(
             name="moderate_gaussian_noise",
-            label="Moderate Gaussian residual noise",
+            label="Moderate Gaussian residual noise near rescaling exception",
             noise_cov=np.array([[0.20, 0.0], [0.0, 0.12]], dtype=float),
             non_gaussian_weight=1.0,
-            note="Diagonal Gaussian residual noise in u-coordinates; this is generically non-diagonal in structural coordinates.",
+            note="Diagonal Gaussian residual noise in u-coordinates; for this B0 it is close to a structural-coordinate rescaling case.",
+        ),
+        Scenario(
+            name="anisotropic_gaussian_noise",
+            label="Anisotropic Gaussian residual noise",
+            noise_cov=np.array([[0.50, 0.0], [0.0, 0.05]], dtype=float),
+            non_gaussian_weight=1.0,
+            note="Diagonal Gaussian residual noise in u-coordinates with stronger structural-coordinate off-diagonal deformation.",
         ),
         Scenario(
             name="weak_higher_moments_with_noise",
@@ -483,6 +500,7 @@ def main() -> int:
                 "label": scenario.label,
                 "noise_cov": scenario.noise_cov.tolist(),
                 "non_gaussian_weight": scenario.non_gaussian_weight,
+                "structural_noise_offdiag_norm": structural_noise_offdiag_norm(B0, scenario.noise_cov),
                 "note": scenario.note,
             }
             for scenario in scenarios

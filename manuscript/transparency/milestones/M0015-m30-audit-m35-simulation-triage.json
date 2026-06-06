@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "M0015-m30-audit-m35-simulation-triage",
+  "sequence": 15,
+  "title": "M30 Audit M35 simulation triage",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T08:48:38Z",
+  "closed_at": "2026-06-06T08:54:34Z",
+  "start_commit": "1621e10ba7d338b4cd1b4348703af84625c19d81",
+  "snapshot_ref": "manuscript-milestones/M0015-m30-audit-m35-simulation-triage",
+  "summary": "Audited the M35 simulation triage, patched the noise stress design, and recorded that M35 remains exploratory only.",
+  "user_inputs": [
+    {
+      "id": "U0015-001",
+      "milestone_id": "M0015-m30-audit-m35-simulation-triage",
+      "captured_at": "2026-06-06T08:48:38Z",
+      "source": "chat",
+      "text": "Continue with the next task in goal mode; selected M30 to audit the M35 J-test Monte Carlo triage before further evidence work."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0015-001",
+      "milestone_id": "M0015-m30-audit-m35-simulation-triage",
+      "captured_at": "2026-06-06T08:54:34Z",
+      "description": "Created M30 audit note, added structural-coordinate noise diagnostics and anisotropic stress case to M35, reran the triage output, and updated manuscript status/logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T08:54:34Z",
+      "description": "python manuscript\\simulations\\m35_jtest_monte_carlo_triage.py --seed 20260606 --reps 80 --sample-size 400 --angles 361 --shape-grid 51: passed"
+    },
+    {
+      "captured_at": "2026-06-06T08:54:34Z",
+      "description": "python -m py_compile manuscript\\simulations\\m35_jtest_monte_carlo_triage.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T08:54:34Z",
+      "description": "python scripts\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T08:54:41Z",
+      "description": "python scripts\\check_manuscript.py: passed after milestone closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/m30_m35_triage_audit.md",
+    "manuscript/simulations/m35_jtest_monte_carlo_triage.md",
+    "manuscript/simulations/m35_jtest_monte_carlo_triage.py",
+    "manuscript/simulations/output/m35_jtest_monte_carlo_summary.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0015-m30-audit-m35-simulation-triage.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 12,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/12",
+    "tag_name": "manuscript-milestones/M0015-m30-audit-m35-simulation-triage"
+  }
+}

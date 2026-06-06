@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Audit M35 simulation triage
+
+- Request or goal: continue with the next task in goal mode after M35.
+- Files changed: `manuscript/simulations/m35_jtest_monte_carlo_triage.py`,
+  `manuscript/simulations/m35_jtest_monte_carlo_triage.md`,
+  `manuscript/simulations/output/m35_jtest_monte_carlo_summary.json`,
+  `manuscript/simulations/m30_m35_triage_audit.md`, planning surfaces, logs,
+  and M0015 transparency files.
+- Summary of work: selected M30, audited the M35 script and output, found that
+  the original moderate-noise case was near a structural-coordinate rescaling
+  exception, patched the script to report that diagnostic and add an
+  anisotropic diagonal-noise stress case, and documented why the screen remains
+  exploratory only.
+- Next recommended action: start M28 population-grid verification before any
+  final finite-sample Monte Carlo tables.
+
 ### 2026-06-06 - Run M35 early J-test Monte Carlo triage
 
 - Request or goal: pick the next open task from the board and work on it in

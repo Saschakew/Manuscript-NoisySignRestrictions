@@ -221,9 +221,9 @@
     {
       "id": "audit:dw-noise-simulation-design",
       "type": "audit",
-      "status": "planned",
+      "status": "triage-audit-complete",
       "draft_location": "review-log.md",
-      "description": "Adversarial review of simulation design and interpretation for noisy sign-set bias, standard DW false sharpening, and robust DW comparison.",
+      "description": "Adversarial review of simulation design and interpretation for noisy sign-set bias, standard DW false sharpening, and robust DW comparison. M30 completed the first audit layer for the M35 triage script: conditional pass for exploratory use only; population-grid and final Monte Carlo audits remain.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic",
         "fig:sign-noise-geometry",
@@ -247,7 +247,7 @@
     {
       "id": "audit:simulation-story-gate",
       "status": "open",
-      "question": "After the M35 cautionary screen, do the planned population grids and Monte Carlo figures convincingly show noisy sign-set bias, standard DW false sharpening or pseudo-zeros, and robust DW widening or divergence without overstating diagnostics?"
+      "question": "After the M30 audit of the M35 cautionary screen, do the planned population grids and Monte Carlo figures convincingly separate structural-rescaling exceptions from generic noisy covariance cases, show standard DW false sharpening or pseudo-zeros, and show robust DW widening or divergence without overstating diagnostics?"
     }
   ]
 }

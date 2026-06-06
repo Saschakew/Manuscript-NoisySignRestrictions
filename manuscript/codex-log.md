@@ -11,6 +11,28 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M30 audit of M35 simulation triage
+
+- Request: go on with the next task in goal mode.
+- Actions taken: selected M30 from the dashboard recommendation; audited the
+  M35 triage script against DGP normalization, noise design, candidate spaces,
+  cumulant formulas, weighting, critical values, and interpretation; patched
+  the script to report structural-coordinate noise deformation and add an
+  anisotropic diagonal-noise stress case; reran the M35 screen and recorded
+  the audit.
+- Files changed: `manuscript/simulations/m35_jtest_monte_carlo_triage.py`,
+  `manuscript/simulations/m35_jtest_monte_carlo_triage.md`,
+  `manuscript/simulations/output/m35_jtest_monte_carlo_summary.json`,
+  `manuscript/simulations/m30_m35_triage_audit.md`, planning surfaces, logs,
+  and M0015 transparency files.
+- Checks run: `python -m py_compile
+  manuscript\simulations\m35_jtest_monte_carlo_triage.py` passed;
+  `python scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning.
+- Open uncertainties: M28 still needs population-grid verification; M29 still
+  needs calibrated repeated-sample or bootstrap critical values before any
+  manuscript evidence table.
+
 ### 2026-06-06 - M35 early J-test Monte Carlo triage
 
 - Request: pick the next open task and work on it in goal mode.

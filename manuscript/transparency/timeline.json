@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T08:42:18Z",
+  "updated_at": "2026-06-06T08:54:34Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -267,6 +267,28 @@
         "milestone_number": 11,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/11",
         "tag_name": "manuscript-milestones/M0014-m35-early-j-test-monte-carlo-triage"
+      }
+    },
+    {
+      "id": "M0015-m30-audit-m35-simulation-triage",
+      "sequence": 15,
+      "title": "M30 Audit M35 simulation triage",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T08:48:38Z",
+      "closed_at": "2026-06-06T08:54:34Z",
+      "start_commit": "1621e10ba7d338b4cd1b4348703af84625c19d81",
+      "snapshot_ref": "manuscript-milestones/M0015-m30-audit-m35-simulation-triage",
+      "summary": "Audited the M35 simulation triage, patched the noise stress design, and recorded that M35 remains exploratory only.",
+      "user_input_ids": [
+        "U0015-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0015-m30-audit-m35-simulation-triage.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 12,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/12",
+        "tag_name": "manuscript-milestones/M0015-m30-audit-m35-simulation-triage"
       }
     }
   ]

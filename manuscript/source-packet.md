@@ -121,9 +121,11 @@ these tasks:
    noise gives clean transformed higher cumulants; broader noise requires a
    different argument.
 6. Completed M35 lightweight Monte Carlo overview before investing in polished
-   figures or a large replication suite. The first screen is cautionary:
-   no-noise sanity checks pass, but the provisional finite-sample statistic is
-   permissive under moderate Gaussian residual noise and weak higher moments.
+   figures or a large replication suite, then completed M30 audit. The audit
+   found that the original moderate-noise case was near a
+   structural-coordinate rescaling exception, added an anisotropic
+   diagonal-noise stress case, and confirmed that the provisional
+   finite-sample statistic is too permissive for final evidence.
 7. Implement population-grid checks showing: standard DW false candidates or
    emptying under noise; robust DW zero at truth under its maintained noise
    model; weak-moment widening.
@@ -137,7 +139,9 @@ these tasks:
 ## Gaps And Risks
 
 - The standard DW J-test emptying statement is now a working derivation with
-  explicit exceptions; it still needs audit and early Monte Carlo triage.
+  explicit exceptions; M30 showed that the next evidence step must separate
+  structural-rescaling exceptions from genuinely generic noisy covariance
+  cases on population grids.
 - The robust DW route must be explicit about its noise assumption. Gaussian
   additive residual noise is clean for transformed cumulants; non-Gaussian
   transformed noise generally is not.

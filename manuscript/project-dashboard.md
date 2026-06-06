@@ -8,15 +8,15 @@ KnowledgeVault link: `../knowledge-vault-link.json`
 
 Current stage: early evidence gate after the M35 Monte Carlo triage.
 
-Current focus: audit the M35 screening statistic and run population-grid
-verification before investing in polished figures or a larger replication
-suite.
+Current focus: run population-grid verification before investing in polished
+figures or a larger replication suite.
 
-Next recommended action: start M30 on the M35 triage script, then run M28
-population-grid checks for standard-DW pseudo-zeros, robust-DW truth inclusion,
-and weak-moment widening.
+Next recommended action: start M28 population-grid checks for
+structural-rescaling exceptions, generic anisotropic-noise pseudo-zeros,
+robust-DW truth inclusion, finite-stack aliases, and weak-moment widening.
 
-Active milestone: none. M0014 records the M35 early J-test Monte Carlo triage.
+Active milestone: none. M0015 records the M30 audit of the M35 simulation
+triage.
 
 Active blockers:
 
@@ -25,20 +25,21 @@ Active blockers:
   final manuscript evidence.
 - The M25 standard-DW J-test inversion result is only a working derivation; it
   still needs audit and population-grid triage.
-- The first M35 simulation was useful but cautionary: the provisional
-  scale-normalized finite-sample statistic is permissive under moderate
-  Gaussian residual noise and almost non-discriminating under weak higher
-  moments.
+- The M30 audit found that the original M35 moderate-noise scenario was near a
+  structural-coordinate rescaling exception. The patched screen now includes
+  an anisotropic diagonal-noise stress case, but the provisional
+  scale-normalized finite-sample statistic is still too permissive for final
+  evidence.
 - The intuitive sign-noise figure is not yet specified.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
 - The first draft should wait until the new formal statements and evidence plan
   are stable enough to prevent another structural rewrite.
 
-Last substantive session: 2026-06-06, implemented and ran the M35 early
-standard-DW versus robust-DW J-test Monte Carlo triage. The no-noise sanity
-case passed, but moderate-noise and weak-moment cases showed that the
-provisional screen is not yet strong enough for polished evidence.
+Last substantive session: 2026-06-06, audited the M35 triage script in M30,
+patched it to report structural-coordinate noise deformation and add an
+anisotropic Gaussian-noise stress case, and recorded that M35 remains only an
+exploratory screen.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

@@ -5,6 +5,26 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Audit M35 before trusting simulation evidence
+
+- Origin: Codex execution of user-requested next task
+- User input id: U0015
+- Codex role: selected M30, audited, patched, and logged
+- Decision: The M35 triage code may be used only as an exploratory screen.
+  The manuscript should move next to M28 population-grid checks, not polished
+  figures or final finite-sample Monte Carlo tables.
+- Rationale: The audit found that the original moderate Gaussian-noise case was
+  close to a structural-coordinate rescaling exception, so it was a weak test
+  of generic standard-DW misspecification. The script now reports the
+  structural-coordinate off-diagonal noise norm and includes an anisotropic
+  diagonal-noise stress case, but the statistic still uses provisional
+  diagonal scaling and an uncalibrated chi-square critical value.
+- Alternatives considered: treating the M35 output as enough to proceed to
+  figures, or discarding the screen entirely.
+- Consequence for next work: Run M28 population grids for structural-rescaling
+  exceptions, generic noisy-covariance pseudo-zeros, robust-DW truth inclusion,
+  and weak-moment widening. Defer M29 until critical values are calibrated.
+
 ### 2026-06-06 - Treat M35 as cautionary triage, not final evidence
 
 - Origin: Codex execution of user-requested next open task
