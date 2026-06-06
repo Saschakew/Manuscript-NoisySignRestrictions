@@ -8,6 +8,24 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Run M35 early J-test Monte Carlo triage
+
+- Request or goal: pick the next open task from the board and work on it in
+  goal mode.
+- Files changed: `manuscript/simulations/m35_jtest_monte_carlo_triage.py`,
+  `manuscript/simulations/m35_jtest_monte_carlo_triage.md`,
+  `manuscript/simulations/output/m35_jtest_monte_carlo_summary.json`,
+  `manuscript/simulations/README.md`, `manuscript/task-board.md`,
+  `manuscript/project-dashboard.md`, `manuscript/source-packet.md`,
+  `manuscript/workplan.md`, `manuscript/formal-object-registry.json`, logs,
+  and M0014 transparency files.
+- Summary of work: selected M35, created a lightweight standard-DW versus
+  robust-DW screening script, ran 80 replications for no-noise, moderate-noise,
+  and weak-moment scenarios, and recorded that the first screen is useful but
+  too permissive for polished evidence.
+- Next recommended action: audit the M35 script/statistic in M30, then run M28
+  population-grid checks before final finite-sample tables.
+
 ### 2026-06-06 - Update scope and derive standard DW J-test result
 
 - Request or goal: record the new scope and evidence notes, update the plan and

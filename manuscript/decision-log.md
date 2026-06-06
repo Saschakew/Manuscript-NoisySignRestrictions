@@ -5,6 +5,23 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Treat M35 as cautionary triage, not final evidence
+
+- Origin: Codex execution of user-requested next open task
+- User input id: U0014
+- Codex role: selected M35, implemented the screen, and interpreted results
+- Decision: The M35 early Monte Carlo output should be treated as a cautionary
+  evidence gate, not as final support for polished standard-DW false-sharpening
+  figures or Monte Carlo tables.
+- Rationale: The no-noise strong-moment sanity case behaves reasonably, but the
+  provisional scale-normalized finite-sample statistic remains frequently
+  nonempty under moderate Gaussian residual noise and becomes almost
+  non-discriminating under weak higher moments.
+- Alternatives considered: moving directly to polished figures, or abandoning
+  the robust comparison because the first finite-sample screen is not sharp.
+- Consequence for next work: Audit the M35 script/statistic in M30 and run M28
+  population-grid checks before expanding to final M29 Monte Carlo evidence.
+
 ### 2026-06-06 - Restrict first paper to simultaneous SVAR and add early MC gate
 
 - Origin: user-originated

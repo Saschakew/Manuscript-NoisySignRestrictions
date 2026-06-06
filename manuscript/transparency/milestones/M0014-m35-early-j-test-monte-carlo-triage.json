@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "M0014-m35-early-j-test-monte-carlo-triage",
+  "sequence": 14,
+  "title": "M35 Early J-test Monte Carlo triage",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T08:31:50Z",
+  "closed_at": "2026-06-06T08:42:18Z",
+  "start_commit": "bb6d5a882fd5d277d7d02dcef6b7fc6c8a97703b",
+  "snapshot_ref": "manuscript-milestones/M0014-m35-early-j-test-monte-carlo-triage",
+  "summary": "Implemented and ran the M35 early standard-DW versus robust-DW J-test Monte Carlo triage; recorded the cautionary gate outcome.",
+  "user_inputs": [
+    {
+      "id": "U0014-001",
+      "milestone_id": "M0014-m35-early-j-test-monte-carlo-triage",
+      "captured_at": "2026-06-06T08:31:50Z",
+      "source": "chat",
+      "text": "Pick the next open task and work on it in goal mode; selected M35, the early J-test Monte Carlo triage."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0014-001",
+      "milestone_id": "M0014-m35-early-j-test-monte-carlo-triage",
+      "captured_at": "2026-06-06T08:42:18Z",
+      "description": "Created manuscript-local triage script, Markdown summary, JSON output, and updated manuscript status/logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T08:42:18Z",
+      "description": "python -m py_compile manuscript\\simulations\\m35_jtest_monte_carlo_triage.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T08:42:18Z",
+      "description": "python scripts\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T08:42:28Z",
+      "description": "python scripts\\check_manuscript.py: passed after milestone closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/m35_jtest_monte_carlo_triage.md",
+    "manuscript/simulations/m35_jtest_monte_carlo_triage.py",
+    "manuscript/simulations/output/m35_jtest_monte_carlo_summary.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0014-m35-early-j-test-monte-carlo-triage.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 11,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/11",
+    "tag_name": "manuscript-milestones/M0014-m35-early-j-test-monte-carlo-triage"
+  }
+}

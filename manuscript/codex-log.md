@@ -11,6 +11,29 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M35 early J-test Monte Carlo triage
+
+- Request: pick the next open task and work on it in goal mode.
+- Actions taken: selected M35 from the task board; opened local transparency
+  milestone M0014 and GitHub milestone #11; implemented
+  `manuscript/simulations/m35_jtest_monte_carlo_triage.py`; ran the
+  standard-DW versus robust-DW screening Monte Carlo; wrote Markdown and JSON
+  outputs; updated task, dashboard, source, workplan, registry, and logs.
+- Files changed: `manuscript/simulations/m35_jtest_monte_carlo_triage.py`,
+  `manuscript/simulations/m35_jtest_monte_carlo_triage.md`,
+  `manuscript/simulations/output/m35_jtest_monte_carlo_summary.json`,
+  `manuscript/simulations/README.md`, `manuscript/task-board.md`,
+  `manuscript/project-dashboard.md`, `manuscript/source-packet.md`,
+  `manuscript/workplan.md`, `manuscript/formal-object-registry.json`, logs,
+  and M0014 transparency files.
+- Checks run: `python -m py_compile
+  manuscript\simulations\m35_jtest_monte_carlo_triage.py` passed;
+  `python scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning and passed again after closure.
+- Open uncertainties: the M35 statistic is provisional and permissive; M30
+  must audit it, and M28 must verify population zeros, aliases, and
+  weak-moment widening before final evidence work.
+
 ### 2026-06-06 - Scope update and M25 J-test derivation
 
 - Request: focus the paper only on the simultaneous SVAR rather than VAR lags;

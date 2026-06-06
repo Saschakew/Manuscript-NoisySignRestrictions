@@ -199,13 +199,13 @@
     {
       "id": "table:monte-carlo-coverage-width",
       "type": "table",
-      "status": "planned",
+      "status": "triage-output-created",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and divergence warnings, preceded by a lightweight early MC triage after the J-test inversion result.",
+      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and divergence warnings. M35 created an exploratory early screen; it is cautionary rather than final evidence because the provisional statistic is permissive under moderate noise and weak higher moments.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
-      "output_source": "planned manuscript-local simulation"
+      "output_source": "M35 exploratory output: manuscript/simulations/m35_jtest_monte_carlo_triage.py, manuscript/simulations/m35_jtest_monte_carlo_triage.md, manuscript/simulations/output/m35_jtest_monte_carlo_summary.json. Final manuscript table remains planned."
     },
     {
       "id": "audit:robust-dw-derivation",
@@ -247,7 +247,7 @@
     {
       "id": "audit:simulation-story-gate",
       "status": "open",
-      "question": "Do the planned Monte Carlo figures convincingly show noisy sign-set bias, standard DW false sharpening, and robust DW widening or divergence without overstating diagnostics?"
+      "question": "After the M35 cautionary screen, do the planned population grids and Monte Carlo figures convincingly show noisy sign-set bias, standard DW false sharpening or pseudo-zeros, and robust DW widening or divergence without overstating diagnostics?"
     }
   ]
 }

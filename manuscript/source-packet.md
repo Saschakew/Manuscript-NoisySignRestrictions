@@ -120,8 +120,10 @@ these tasks:
 5. Decide and state the maintained robust noise condition. Gaussian residual
    noise gives clean transformed higher cumulants; broader noise requires a
    different argument.
-6. Run the lightweight Monte Carlo overview before investing in polished
-   figures or a large replication suite.
+6. Completed M35 lightweight Monte Carlo overview before investing in polished
+   figures or a large replication suite. The first screen is cautionary:
+   no-noise sanity checks pass, but the provisional finite-sample statistic is
+   permissive under moderate Gaussian residual noise and weak higher moments.
 7. Implement population-grid checks showing: standard DW false candidates or
    emptying under noise; robust DW zero at truth under its maintained noise
    model; weak-moment widening.

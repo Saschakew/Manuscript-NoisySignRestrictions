@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T08:21:22Z",
+  "updated_at": "2026-06-06T08:42:18Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -245,6 +245,28 @@
         "milestone_number": 10,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/10",
         "tag_name": "manuscript-milestones/M0013-scope-and-m25-dw-result"
+      }
+    },
+    {
+      "id": "M0014-m35-early-j-test-monte-carlo-triage",
+      "sequence": 14,
+      "title": "M35 Early J-test Monte Carlo triage",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T08:31:50Z",
+      "closed_at": "2026-06-06T08:42:18Z",
+      "start_commit": "bb6d5a882fd5d277d7d02dcef6b7fc6c8a97703b",
+      "snapshot_ref": "manuscript-milestones/M0014-m35-early-j-test-monte-carlo-triage",
+      "summary": "Implemented and ran the M35 early standard-DW versus robust-DW J-test Monte Carlo triage; recorded the cautionary gate outcome.",
+      "user_input_ids": [
+        "U0014-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0014-m35-early-j-test-monte-carlo-triage.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 11,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/11",
+        "tag_name": "manuscript-milestones/M0014-m35-early-j-test-monte-carlo-triage"
       }
     }
   ]

@@ -4,9 +4,10 @@
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
-new paper plan/map, an audited working robust-DW derivation, and a working
-standard-DW J-test inversion derivation. The task queue is now centered on an
-early Monte Carlo triage.
+new paper plan/map, an audited working robust-DW derivation, a working
+standard-DW J-test inversion derivation, and a first M35 early Monte Carlo
+triage. The evidence queue is now centered on auditing that triage and running
+population-grid checks.
 
 The active paper no longer treats the previous constructive route as part of
 the main plan. The first version is a short simultaneous-SVAR
@@ -22,7 +23,7 @@ model VAR lags or dynamic impulse responses.
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
 | M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. |
-| M5. Evidence package | todo | Early Monte Carlo triage is run first; if informative, intuitive figure, population grids, and Monte Carlo figures/tables are specified and verified. |
+| M5. Evidence package | doing | M35 early Monte Carlo triage is complete; audit and population-grid checks must come before polished figures or final Monte Carlo tables. |
 | M6. First complete draft | todo | All sections have coherent prose and source trails. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
@@ -44,9 +45,10 @@ model VAR lags or dynamic impulse responses.
 6. Diagnostic interpretation review: verify that DW-versus-robust-DW
    divergence is described as a warning, not proof of literal measurement
    error.
-7. Evidence design: first run a small MC overview after the analytical J-test
-   inversion result; only then expand simulations to no-noise agreement, noisy
-   disagreement, weak-moment widening, and misspecified robust-noise cases.
+7. Evidence design: use the M35 MC overview as a cautionary gate; audit it and
+   run population grids before expanding simulations to no-noise agreement,
+   noisy disagreement, weak-moment widening, and misspecified robust-noise
+   cases.
 8. Simulation adversary: before accepting any figure, check whether the DGP,
    grids, critical values, cumulant estimators, or plotting choices could make
    the result look correct even if the theory is wrong.
