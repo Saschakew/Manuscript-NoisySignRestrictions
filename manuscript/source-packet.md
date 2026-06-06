@@ -157,15 +157,24 @@ these tasks:
 11. The robust DW comparison is ready for a figure-led draft as a
     robustness-check result, with audit cutoffs described as calibration-cost
     diagnostics rather than application-ready procedures.
+12. Completed M37, the direct post-M0030 estimator audit. Conditional pass:
+    the six-moment diagonal-noise robust DW object can support local
+    theorem-level prose in the normalized bivariate chart under diagonal
+    Gaussian residual noise. The prose must state scale, optional
+    profiled-variance nonnegativity, pointwise `chi2_6`, and correlated or
+    non-Gaussian residual-noise fallback caveats.
 
 ## Gaps And Risks
 
 - The standard DW J-test emptying statement is now a working derivation with
   explicit exceptions; M28 supports the selected high-noise grid story, but
   M25 still needs a direct proof audit before theorem-level prose.
-- The robust DW route must be explicit about its noise assumption. Gaussian
-  additive residual noise is clean for transformed cumulants; non-Gaussian
-  transformed noise generally is not.
+- The robust DW route is now conditionally audited for diagonal Gaussian
+  residual noise. Correlated Gaussian noise requires dropping the
+  off-diagonal covariance anchor and using the pure higher-cumulant fallback;
+  non-Gaussian transformed residual noise generally invalidates the
+  higher-cumulant interpretation unless extra residual-noise cumulant
+  restrictions are modeled.
 - Higher moments can be weak in macro samples; the robust set may be wide or
   uninformative, and that is an honest result.
 - The robust set comparison is a diagnostic, not proof of literal measurement

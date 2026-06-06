@@ -7,34 +7,32 @@ Manuscript slug: noise-robust-sign-restricted-svars
 KnowledgeVault link: `../knowledge-vault-link.json`
 
 Current stage: first figure-led drafting pass started, then revised after the
-M0030 high-noise power audit. The abstract, introduction, and evidence section
-now use the M0030 diagonal-noise robust grid pair, refreshed M28 validation,
-M27 diagnostic formalization, and the refreshed M29 chi-square-primary Monte
-Carlo pass as the manuscript spine.
+M0030 high-noise power audit and M37 estimator audit. The abstract,
+introduction, and evidence section now use the M0030 diagonal-noise robust
+grid pair, refreshed M28 validation, M27 diagnostic formalization, the
+refreshed M29 chi-square-primary Monte Carlo pass, and the M37 caveats as the
+manuscript spine.
 
-Current focus: audit the M0030 diagonal-noise robust DW estimator before
-promoting it to theorem-level prose, then return to the literature-positioning
-pass that distinguishes this paper from Drautzburg-Wright under the no-noise
-null, sign-set inference, and higher-moment SVAR GMM.
+Current focus: write the literature-positioning pass that distinguishes this
+paper from Drautzburg-Wright under the no-noise null, sign-set inference, and
+higher-moment SVAR GMM.
 
-Next recommended action: start M37 by auditing the off-diagonal covariance
-anchor, diagonal-variance profiling, higher-cumulant stack, cutoff degrees of
-freedom, and fallback language for non-diagonal or non-Gaussian residual noise.
-Then start M32 with explicit citation trails and clear contribution boundaries.
+Next recommended action: start M32 with explicit citation trails and clear
+contribution boundaries. Keep the M37 estimator caveats visible when drafting
+Section 4 theorem-level prose.
 
-Active milestone: none. M0028 records the first figure-led drafting pass.
+Active milestone: none. M0032 records the post-M0030 estimator audit.
 
 Active blockers:
 
 - The robust DW derivation passed M24 as a local normalized Gaussian-noise
   result and was revised in M0030 to use diagonal-noise second-moment
-  information: the reported robust row now profiles diagonal noise variances,
-  keeps the off-diagonal covariance restriction, and adds higher cumulants.
-  M28 supports its population truth-inclusion behavior, and the refreshed M29
-  run gives draft-level chi-square-primary Monte Carlo evidence plus
-  repeated-sample, oracle, and truth-point residual-bootstrap calibration
-  audits. The modified estimator still needs a direct post-M0030 derivation
-  audit before theorem-level wording.
+  information. M37 now conditionally clears the post-M0030 estimator for
+  theorem-level prose as a local normalized bivariate diagnostic under
+  diagonal Gaussian residual noise. Section 4 must still state the normalized
+  scale caveat, optional nonnegative profiled-variance screen, pointwise
+  `chi2_6` status, and fallback language for correlated or non-Gaussian
+  residual noise.
 - The M25 standard-DW J-test inversion result is only a working derivation; M28
   supports the high-noise divergence story, but the derivation still needs a
   direct audit before theorem-level prose.
@@ -58,11 +56,11 @@ Active blockers:
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
 
-Last substantive session: 2026-06-06, revised the evidence spine after the
-high-noise power audit. The reported robust-DW object now uses the
-diagonal-noise off-diagonal covariance restriction plus higher cumulants; the
-figures, M28 validation, M29 Monte Carlo table, and draft prose were refreshed
-around the lower high-noise `V=(0.5,0.5)` scenario.
+Last substantive session: 2026-06-06, completed M37, the direct post-M0030
+audit of the diagonal-noise robust estimator. The audit conditionally cleared
+the six-moment robust object for disciplined Section 4 prose and recorded
+caveats about normalized scale, profiled diagonal variances, pointwise
+`chi2_6` cutoffs, and correlated or non-Gaussian residual-noise fallbacks.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

@@ -1,10 +1,10 @@
 # Standard-DW Versus Robust-DW Comparison Diagnostic
 
-Status: M27 method formalization for manuscript planning. This note defines
-the reported standard-DW set, the robust-DW set, the overlap and divergence
-diagnostics, and the critical-value convention used by the selected M0020 grid
-pair and the M28 validation pass. It is a diagnostic object, not yet a final
-coverage claim.
+Status: M27 method formalization for manuscript planning, updated by the M37
+post-M0030 estimator audit. This note defines the reported standard-DW set,
+the robust-DW set, the overlap and divergence diagnostics, and the
+critical-value convention used by the selected grid pair and M28/M29 evidence.
+It is a diagnostic object, not a final coverage claim.
 
 ## 1. Common Reporting Chart
 

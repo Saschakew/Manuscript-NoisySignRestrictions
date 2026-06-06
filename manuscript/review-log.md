@@ -6,8 +6,9 @@ Use this file for actual review passes and resulting decisions.
 
 | Date | Pass | Reviewer | Outcome | Follow-up tasks |
 |---|---|---|---|---|
+| 2026-06-06 | M37 diagonal-noise robust estimator audit | Codex adversarial method review | Conditional pass for theorem-level prose. The post-M0030 robust statistic is coherent as a six-moment local normalized bivariate diagnostic under diagonal Gaussian residual noise: one off-diagonal covariance anchor plus five mixed cumulants. The audit flags four required caveats: the covariance anchor is tied to the normalized chart and diagonal noise; nonnegative profiled diagonal variances are optional and not imposed in the current figure code; `chi2_6` is a pointwise benchmark, not coverage; and correlated or non-Gaussian residual noise needs fallback language. | Use `manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md` when drafting Section 4. Then start M32 literature positioning or the separate M25 standard-DW proof audit. |
 | 2026-06-06 | M0030 high-noise power audit | User plus Codex evidence validation | The previous pure higher-cumulant robust row lost finite-sample power under very high symmetric Gaussian noise. The revised diagonal-noise robust statistic uses the valid off-diagonal covariance anchor plus mixed higher cumulants, lowers the high-noise story column to `V=(0.5,0.5)`, and avoids whole-chart robust acceptance. Refreshed M29 chi-square rows show high-noise standard DW truth inclusion 0.050 versus robust DW truth inclusion 0.900, with robust accepted share 0.117. | Treat M0030 as superseding the old `V=(2,2)` evidence for the draft. If future models allow unrestricted residual-noise covariance, drop the off-diagonal covariance anchor and report the pure higher-cumulant fallback. |
-| 2026-06-06 | M29 larger chi-square-primary evidence gate | Codex evidence validation | Larger M29 run completed with 240 calibration replications, 120 evaluation replications, 40 truth-bootstrap replications per evaluation sample, and a 41-by-41 grid. Under primary chi-square cutoffs, high-noise standard DW includes true `B0` in 0.325 of evaluation samples, while robust DW includes it in 0.908. The weak-moment and Gaussian-shock rows keep robust DW wide, supporting the limitation story. Audit cutoffs show calibration costs and should remain secondary. | Mark M29 done for drafting. Start M31 figure-led section skeleton with chi-square rows as the main applied evidence and repeated/bootstrap rows as audit language. |
+| 2026-06-06 | M29 larger chi-square-primary evidence gate | Codex evidence validation | Superseded for the current draft by the post-M0030 refreshed M29 run recorded in `manuscript/simulations/m29_calibrated_monte_carlo.md`. The current evidence uses 120 calibration replications, 60 evaluation replications, 20 truth-bootstrap replications per evaluation sample, and a 41-by-41 grid. Under primary chi-square cutoffs, high-noise standard DW includes true `B0` in 0.050 of evaluation samples, while robust DW includes it in 0.900. The weak-moment and Gaussian-shock rows keep robust DW wide, supporting the limitation story. Audit cutoffs show calibration costs and should remain secondary. | Keep the refreshed M29 note and draft Table 1 as the current evidence. |
 | 2026-06-06 | M29 cutoff convention review | User plus Codex evidence review | User clarified that standard pointwise chi-square critical values are appropriate as the main benchmark because they are the values a researcher would use when applying standard DW without accounting for residual noise. This resolves the prior framing that a final calibration rule still had to be chosen. Repeated-sample, oracle truth, and truth-bootstrap cutoffs remain useful audits, but not the central applied procedure. | Run a larger chi-square-primary M29 table and report audit cutoffs only as sensitivity/calibration-cost diagnostics. |
 | 2026-06-06 | M29 truth-bootstrap expansion | Codex evidence validation | Added a truth-point residual-bootstrap cutoff convention to the M29 Monte Carlo. The expanded pass keeps the high-noise divergence under chi-square and no-noise repeated cutoffs: standard DW includes true `B0` in 0.292 and 0.333 of evaluation samples, while robust DW includes it in 0.917 and 0.875. The truth bootstrap restores truth inclusion to 1.000 for both methods, but with high-noise accepted shares of 0.325 for standard DW and 1.000 for robust DW, so it mainly documents the calibration cost and loss of precision. | Do not present the truth bootstrap as an application-ready procedure. Use it as an audit row beside the primary chi-square benchmark and run a larger table before marking M29 complete. |
 | 2026-06-06 | M29 calibrated Monte Carlo first pass | Codex evidence validation | First repeated-sample calibration pass completed on the M0020/M28 B-plane. In the high Gaussian-noise stress case, standard DW includes true `B0` in about one third of evaluation samples under the no-noise repeated cutoff, while robust DW includes it in most samples. The oracle high-noise standard-DW truth cutoff rises to about 31.4 versus about 8.9 under no noise, showing a large calibration cost. Weak and Gaussian higher-moment cases keep robust DW wide, as expected. | Treat as first-pass evidence only. Audit the M29 design and expand with more replications or bootstrap critical values before final coverage and table claims. |
@@ -97,6 +98,45 @@ Checklist outcome:
 Decision: use the derivation as the working Section 4 route, but state the
 first formal result as a local normalized Gaussian-noise proposition. Do not
 call it a global theorem or rely on it for final evidence until M28 and M29.
+
+## M37 Diagonal-Noise Robust Estimator Audit
+
+Scope: post-M0030 robust estimator in
+`manuscript/derivations/dw-noise-robust-moments.md`,
+`manuscript/derivations/dw-robust-comparison-diagnostic.md`, the two grid
+figure scripts, and the M28/M29 validation scripts.
+
+Detailed audit: `manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md`.
+
+Checklist outcome:
+
+- Off-diagonal covariance anchor: passed, conditional on the normalized
+  bivariate chart and diagonal residual-noise covariance. The valid restriction
+  is `Cov(u_1,u_2)=b12+b21`; it is not the false standard-DW restriction
+  `Cov(z_1,z_2)=0`.
+- Scale wording: caveat required. The anchor is tied to the diagonal-normalized
+  chart. For arbitrary unknown impact scales, the off-diagonal covariance
+  equation would need scale parameters.
+- Diagonal-variance profiling: conditional pass. The current figures profile
+  diagonal variances by dropping diagonal covariance equalities, but they do
+  not impose `V_ii(B)>=0`; formal prose must either add that admissibility
+  screen or state the diagnostic-row convention.
+- Mixed cumulants: passed under independent Gaussian residual noise. Third
+  restrictions are centered third moments, fourth restrictions are cumulants
+  with covariance-product subtractions, and covariance terms are nuisance
+  ingredients rather than restrictions.
+- Cutoff degrees of freedom: conditional pass. `chi2_6` matches the six
+  displayed moments but is only a pointwise applied benchmark, especially when
+  moment covariance is estimated or higher moments are weak.
+- Fallbacks: passed after clarification. Correlated Gaussian residual noise
+  drops the covariance anchor and uses the pure higher-cumulant fallback;
+  diagonal non-Gaussian residual noise keeps the covariance anchor but not the
+  clean transformed-cumulant interpretation; correlated non-Gaussian residual
+  noise is outside the current robust claim.
+
+Decision: Section 4 may state a conditional local proposition for the
+diagonal-noise robust DW set, not an unconditional theorem. Use M37's caveats
+when drafting theorem text and captions.
 
 ## M30 M35 Triage Audit
 

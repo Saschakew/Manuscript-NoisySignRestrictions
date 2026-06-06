@@ -8,6 +8,23 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Audit diagonal-noise robust estimator
+
+- Request or goal: work on the manuscript in goal mode by picking the next
+  task.
+- Files changed: `manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md`,
+  robust-DW derivation notes, planning/control surfaces, logs, and M0032
+  transparency files.
+- Summary of work: selected M37 from the task board, opened local transparency
+  milestone M0032 and GitHub milestone #29, and completed the direct
+  post-M0030 estimator audit. The audit conditionally clears the six-moment
+  diagonal-noise robust DW statistic for local theorem-level prose under
+  diagonal Gaussian residual noise, while requiring caveats about normalized
+  scale, profiled diagonal variances, pointwise `chi2_6` cutoffs, and fallback
+  noise cases.
+- Next recommended action: start M32 literature positioning with explicit
+  citation trails and contribution boundaries.
+
 ### 2026-06-06 - Align plan with the diagonal-noise robust estimator
 
 - Request or goal: ensure the paper plan and next tasks match the M0030

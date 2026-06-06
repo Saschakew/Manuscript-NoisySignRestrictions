@@ -11,6 +11,26 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0032 Diagonal-noise robust estimator audit
+
+- Request: user asked Codex to work on the manuscript, pick the next task, and
+  work in goal mode.
+- Actions taken: selected M37 from the task board; opened local transparency
+  milestone M0032 and GitHub milestone #29; audited the off-diagonal covariance
+  anchor, diagonal-variance profiling, mixed higher-cumulant stack, `chi2_6`
+  cutoff convention, and fallback language; created
+  `manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md`;
+  updated registry, planning surfaces, task board, review log, and human logs.
+- Files changed: derivation/audit notes, planning/control surfaces, logs, and
+  M0032 transparency files.
+- Checks run: `python -m json.tool manuscript/formal-object-registry.json`
+  passed; `git diff --check` passed with line-ending warnings only; `python
+  scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning and passed cleanly after closure.
+- Open uncertainties: M25 standard-DW proof audit remains open; final
+  replication wrappers still need to move figure/table code under
+  `manuscript/replication/`.
+
 ### 2026-06-06 - M0031 Plan alignment with new estimator
 
 - Request: user asked to ensure the paper plan and next tasks are fully aligned

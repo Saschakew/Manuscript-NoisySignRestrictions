@@ -11,6 +11,14 @@ normalized, Gaussian-noise derivation. The cumulant algebra and local-rank
 calculation survived the audit. The result is not yet a global identification
 theorem, a scale-identification result, or a finite-sample unbiasedness claim.
 
+M37 audit status: conditionally passed on 2026-06-06 for the post-M0030
+diagonal-noise robust estimator; see
+`manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md`.
+The six-moment object is valid as a local normalized bivariate diagnostic
+under diagonal Gaussian residual noise, with explicit caveats about scale,
+optional nonnegative profiled-variance screening, pointwise `chi2_6` cutoffs,
+and correlated or non-Gaussian residual-noise fallbacks.
+
 Purpose: answer whether sign restrictions plus higher-order moment conditions
 can target the structural impact matrix when residuals contain additive noise.
 The answer is yes for a Gaussian-noise higher-cumulant system, after a scale

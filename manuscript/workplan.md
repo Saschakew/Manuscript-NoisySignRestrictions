@@ -22,7 +22,9 @@ standard pointwise chi-square rows the primary applied benchmark; the other
 cutoffs are calibration audits. M31 has now started the first figure-led draft
 by replacing the TODO-only abstract, introduction, and evidence section with a
 source-traced skeleton around the residual-noise grid, the non-Gaussianity
-grid, and the M29 chi-square-primary table.
+grid, and the M29 chi-square-primary table. M37 directly audited the
+post-M0030 robust estimator and conditionally cleared it for local
+theorem-level prose under diagonal Gaussian residual noise.
 
 The active paper no longer treats the previous constructive route as part of
 the main plan. The first version is a short simultaneous-SVAR
@@ -37,7 +39,7 @@ model VAR lags or dynamic impulse responses.
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, diagonal-noise robust-DW validity result, and comparison diagnostic are stated and audited. M27 has stated the comparison diagnostic; M37 should directly audit the post-M0030 robust estimator before theorem-level prose. |
+| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, diagonal-noise robust-DW validity result, and comparison diagnostic are stated and audited. M27 has stated the comparison diagnostic, and M37 conditionally cleared the post-M0030 robust estimator for local theorem-level prose; the M25 standard-DW proof audit remains open. |
 | M5. Evidence package | done-for-draft | M0030 revised the figure pair as the visual spine; refreshed M28 validates the population/repeated-seed grid story and refreshed M29 supplies chi-square-primary evidence plus repeated-sample and truth-bootstrap audit diagnostics using the M27 metrics. |
 | M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section around the selected figures and M29 table; sections 2-4, conclusion, and literature positioning still need prose. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
@@ -55,10 +57,11 @@ model VAR lags or dynamic impulse responses.
    obstruction, and intuition in the first figure.
 4. Standard-DW misspecification review: prove or weaken the claim that the
    population DW set becomes empty under residual noise; list special cases.
-5. Robust-DW derivation review: check the off-diagonal covariance anchor,
-   diagonal-variance profiling, cumulant-to-moment algebra, fourth-order
-   covariance subtractions, local rank, scale loss, cutoff degrees of freedom,
-   and finite-sample bias wording.
+5. Robust-DW derivation review: M37 checked the off-diagonal covariance
+   anchor, diagonal-variance profiling, cumulant-to-moment algebra,
+   fourth-order covariance subtractions, local rank, scale loss, cutoff
+   degrees of freedom, and finite-sample bias wording. Carry its caveats into
+   Section 4 prose.
 6. Diagnostic interpretation review: use the M27 directional metric and verify
    that DW-versus-robust-DW divergence is described as a warning, not proof of
    literal measurement error.

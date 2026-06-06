@@ -93,8 +93,9 @@ structural.
 4. Diagonal-noise robust DW set: define the normalized robust candidate space,
    write the off-diagonal covariance and higher-cumulant restrictions as moment
    equations, and explain why diagonal noise variances are profiled out. State
-   the local identification and consistency claims only after a direct
-   post-M0030 audit of the modified estimator.
+   the local identification and consistency claims with the M37 caveats:
+   normalized bivariate chart, diagonal Gaussian residual noise, optional
+   nonnegative profiled-variance screening, and pointwise critical values.
 5. Figure-led evidence and Monte Carlo robustness check: use the M0030 revised grid
    pair as the reader's main visual guide. First show the residual-noise grid
    that moves the sign set, makes standard DW reject the truth in the high-noise
@@ -158,7 +159,8 @@ structural.
   anchor and the higher-cumulant moment stack for `z_t(B)` have zero population
   value at the true normalized impact matrix. The contaminated diagonal
   variance targets and the recovered-shock zero-covariance restriction are not
-  imposed.
+  imposed. M37 conditionally clears this as a local normalized result, not as a
+  global scale-identification or coverage theorem.
 - Proposition 4, robust set comparison: M27 formalizes the diagnostic in
   `manuscript/derivations/dw-robust-comparison-diagnostic.md`. The key warning
   is directional: standard-DW accepted mass outside robust-DW indicates that
@@ -209,10 +211,14 @@ structural.
 - The literature-positioning pass should distinguish this paper from
   Drautzburg-Wright under the no-noise null, sign-set inference, and
   higher-moment SVAR GMM.
-- A decision on the precise robust noise assumption: diagonal Gaussian additive
-  noise is clean for the selected off-diagonal covariance anchor and
-  transformed cumulants; broader non-Gaussian or correlated noise would need a
-  different argument.
+- Section 4 prose must incorporate the M37 estimator caveats: the off-diagonal
+  covariance anchor is tied to the normalized bivariate chart and diagonal
+  residual-noise covariance; the current plotted diagnostic profiles diagonal
+  variances without enforcing nonnegative variance inequalities; `chi2_6` is a
+  pointwise benchmark; correlated Gaussian noise requires dropping the
+  covariance anchor; and non-Gaussian residual noise generally invalidates the
+  transformed-cumulant interpretation unless additional noise-cumulant
+  restrictions are modeled.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.
 

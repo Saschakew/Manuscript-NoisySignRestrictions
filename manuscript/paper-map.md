@@ -22,7 +22,8 @@ reported beside the standard DW set as a practical robustness check.
 - Constructive object: robust DW-style diagonal-noise set over normalized
   impact matrices, using the off-diagonal residual covariance restriction plus
   higher cumulants written as GMM-style moment equations while avoiding the
-  false recovered-shock covariance target.
+  false recovered-shock covariance target. M37 conditionally clears this
+  object for local theorem-level prose under diagonal Gaussian residual noise.
 - Evidence: the M0030 revised grid pair is the visual spine. The residual-noise
   grid shows sign-set movement, standard-DW truth rejection at `V=(0.5,0.5)`,
   and robust-DW truth inclusion without whole-chart acceptance; the
@@ -107,7 +108,8 @@ and proof or output status.
   are misspecified under residual noise, with the J-test inversion stated as
   generic emptying plus explicit pseudo-zero exceptions.
 - Derivation of the diagonal-noise robust moment stack from
-  `derivations/dw-noise-robust-moments.md`.
+  `derivations/dw-noise-robust-moments.md`, with the post-M0030 estimator
+  audit in `derivations/m37-diagonal-noise-robust-estimator-audit.md`.
 - M28 population-grid and repeated-draw validation of the M0030 revised grid pair.
 - M27 formal diagnostic note defining the reported standard-DW set, robust-DW
   set, critical-value convention, directional overlap metric, and interpretation
@@ -126,9 +128,12 @@ and proof or output status.
 
 - The standard DW J-test inversion result is now a working derivation; it still
   needs audit before prose promotion.
+- M37 conditionally cleared the diagonal-noise robust estimator for local
+  theorem-level prose, but the prose must state its normalized-chart,
+  diagonal-Gaussian-noise, optional profiled-variance-screen, and pointwise
+  cutoff caveats.
 - M31 has converted the figure-led evidence into a first disciplined draft
   skeleton without treating audit cutoffs as application-ready procedures. The
-  next bottlenecks are a direct post-M0030 audit of the diagonal-noise robust
-  estimator, literature positioning, direct M25 proof audit before theorem-level
-  wording, and moving figure/table code into `manuscript/replication/` before
-  sharing.
+  next bottlenecks are literature positioning, direct M25 proof audit before
+  theorem-level wording, and moving figure/table code into
+  `manuscript/replication/` before sharing.

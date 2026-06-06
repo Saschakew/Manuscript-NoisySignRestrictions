@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T16:57:37Z",
+  "updated_at": "2026-06-06T17:10:17Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -643,6 +643,28 @@
         "milestone_number": 28,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/28",
         "tag_name": "manuscript-milestones/M0031-align-plan-with-new-estimator"
+      }
+    },
+    {
+      "id": "M0032-audit-diagonal-noise-robust-estimator",
+      "sequence": 32,
+      "title": "Audit diagonal-noise robust estimator",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T17:02:28Z",
+      "closed_at": "2026-06-06T17:10:16Z",
+      "start_commit": "38bf973c82512257f4dacac2502a04397ce055f1",
+      "snapshot_ref": "manuscript-milestones/M0032-audit-diagonal-noise-robust-estimator",
+      "summary": "Completed the M37 post-M0030 diagonal-noise robust estimator audit and marked M37 done.",
+      "user_input_ids": [
+        "U0032-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0032-audit-diagonal-noise-robust-estimator.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 29,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/29",
+        "tag_name": "manuscript-milestones/M0032-audit-diagonal-noise-robust-estimator"
       }
     }
   ]

@@ -120,9 +120,9 @@
         "ass:gaussian-residual-noise",
         "ass:unit-variance-normalization"
       ],
-      "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md",
-      "verification_status": "M24 conditional audit passed for the local normalized Gaussian-noise higher-cumulant route; M0030 added the diagonal-noise off-diagonal covariance restriction to solve the high-noise power problem; refreshed M28 population/repeated-seed validation passed; refreshed M29 finite-sample pass supports the high-noise divergence story under primary chi-square cutoffs and shows truth-bootstrap widening as a calibration-cost audit",
-      "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md"
+      "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
+      "verification_status": "M24 conditional audit passed for the local normalized Gaussian-noise higher-cumulant route; M0030 added the diagonal-noise off-diagonal covariance restriction to solve the high-noise power problem; M37 conditionally cleared the six-moment post-M0030 estimator for local theorem-level prose under diagonal Gaussian residual noise, with caveats on normalized scale, optional nonnegative profiled-variance screening, pointwise chi2_6 cutoffs, and correlated or non-Gaussian noise fallbacks; refreshed M28 population/repeated-seed validation passed; refreshed M29 finite-sample pass supports the high-noise divergence story under primary chi-square cutoffs and shows truth-bootstrap widening as a calibration-cost audit",
+      "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
       "id": "eq:dw-higher-cumulant-moment-stack",
@@ -133,9 +133,9 @@
       "depends_on": [
         "def:robust-dw-higher-moment-set"
       ],
-      "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions; M0030 added and validated the diagonal-noise covariance anchor; refreshed M28 population verification passed; refreshed M29 chi-square-primary finite-sample pass completed, with repeated-sample, oracle, and truth-bootstrap cutoffs retained as audits",
-      "source": "manuscript/derivations/dw-noise-robust-moments.md"
+      "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions; M0030 added and validated the diagonal-noise covariance anchor; M37 verified that the implemented stack is one off-diagonal covariance moment plus five mixed cumulants and that chi2_6 is only a pointwise guide; refreshed M28 population verification passed; refreshed M29 chi-square-primary finite-sample pass completed, with repeated-sample, oracle, and truth-bootstrap cutoffs retained as audits",
+      "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
       "id": "prop:robust-dw-higher-moment-validity",
@@ -147,9 +147,9 @@
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack"
       ],
-      "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "proof_status": "conditional-local-rank-audit-passed; M0030 diagonal-noise covariance anchor added; refreshed M28 grid validation passed; refreshed M29 chi-square-primary simulation pass completed for draft evidence",
-      "source": "manuscript/derivations/dw-noise-robust-moments.md"
+      "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
+      "proof_status": "conditional-local-rank-audit-passed; M0030 diagonal-noise covariance anchor added; M37 conditionally cleared the post-M0030 estimator as a local normalized bivariate result under diagonal Gaussian residual noise, not a global scale-identification or coverage theorem; refreshed M28 grid validation passed; refreshed M29 chi-square-primary simulation pass completed for draft evidence",
+      "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
       "id": "prop:dw-robust-comparison-diagnostic",
@@ -225,11 +225,24 @@
       "type": "audit",
       "status": "done",
       "draft_location": "review-log.md; derivations/dw-noise-robust-moments.md",
-      "description": "M24 adversarial review of the robust DW derivation. Conditional pass: cumulant-to-moment algebra, second-moment exclusion, normalization caveat, local rank, Gaussian-noise condition, and bias language are recorded; M28 later supplied the first population-grid validation gate.",
+      "description": "M24 adversarial review of the robust DW higher-cumulant derivation. Conditional pass: cumulant-to-moment algebra, second-moment exclusion, normalization caveat, local rank, Gaussian-noise condition, and bias language are recorded. M37 later audited the post-M0030 diagonal-noise covariance anchor as a separate six-moment estimator gate.",
       "depends_on": [
         "prop:robust-dw-higher-moment-validity"
       ],
       "source": "manuscript/task-board.md"
+    },
+    {
+      "id": "audit:m37-diagonal-noise-robust-estimator",
+      "type": "audit",
+      "status": "done",
+      "draft_location": "derivations/m37-diagonal-noise-robust-estimator-audit.md; review-log.md",
+      "description": "Direct post-M0030 audit of the reported diagonal-noise robust DW estimator. Conditional pass: the off-diagonal covariance anchor is valid in the normalized bivariate chart under diagonal residual-noise covariance; diagonal variances are profiled, with nonnegative profiled-variance inequalities optional but not imposed in the current figures; the higher-cumulant stack is valid under independent Gaussian residual noise; chi2_6 is a pointwise benchmark; correlated Gaussian noise requires the pure higher-cumulant fallback, and non-Gaussian residual noise generally invalidates the transformed-cumulant interpretation unless extra noise-cumulant restrictions are modeled.",
+      "depends_on": [
+        "def:robust-dw-higher-moment-set",
+        "eq:dw-higher-cumulant-moment-stack",
+        "prop:robust-dw-higher-moment-validity"
+      ],
+      "source": "manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
       "id": "audit:dw-noise-simulation-design",

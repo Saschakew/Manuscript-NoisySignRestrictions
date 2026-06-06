@@ -5,6 +5,31 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Clear M37 diagonal-noise robust estimator audit
+
+- Origin: Codex-selected next task after user requested manuscript work in
+  goal mode.
+- User input id: U0032
+- Codex role: selected M37 from the task board and performed a direct method
+  audit.
+- Decision: The post-M0030 diagonal-noise robust DW estimator may support
+  Section 4 theorem-level prose only as a conditional local normalized
+  bivariate result under diagonal Gaussian residual noise. The reported
+  six-moment object stacks the off-diagonal covariance anchor with five mixed
+  higher cumulants.
+- Rationale: The off-diagonal covariance anchor is valid under diagonal
+  residual-noise covariance and avoids the false standard-DW recovered-shock
+  covariance target. The cumulant stack remains valid under Gaussian residual
+  noise because transformed Gaussian noise has no higher cumulants.
+- Required caveats: state the normalized-chart scale restriction; decide
+  whether formal sets include nonnegative profiled diagonal-variance
+  inequalities; describe `chi2_6` as a pointwise applied benchmark, not a
+  coverage theorem; and use fallback language for correlated Gaussian,
+  diagonal non-Gaussian, and correlated non-Gaussian residual noise.
+- Consequence for next work: M37 is done. Resume M32 literature positioning or
+  run the separate M25 standard-DW proof audit before promoting Section 3
+  theorem wording.
+
 ### 2026-06-06 - Add a direct post-M0030 estimator audit task
 
 - Origin: user instruction to align the plan and next tasks with the new
