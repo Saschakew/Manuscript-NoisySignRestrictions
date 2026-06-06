@@ -106,9 +106,11 @@ these tasks:
    sign-set bias.
 3. Prove or carefully weaken the claim that standard DW refinement is
    asymptotically empty under residual-noise misspecification.
-4. Audit `manuscript/derivations/dw-noise-robust-moments.md`, especially the
-   cumulant-to-moment equations, fourth-cumulant covariance subtractions,
-   normalization, and local rank condition.
+4. Use the M24 audit of
+   `manuscript/derivations/dw-noise-robust-moments.md`: the local normalized
+   Gaussian-noise route conditionally passed, but global aliases, scale loss,
+   and finite-sample behavior still require population-grid and Monte Carlo
+   checks.
 5. Decide and state the maintained robust noise condition. Gaussian residual
    noise gives clean transformed higher cumulants; broader noise requires a
    different argument.

@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T07:51:48Z",
+  "updated_at": "2026-06-06T08:07:07Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -201,6 +201,28 @@
         "milestone_number": 8,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/8",
         "tag_name": "manuscript-milestones/M0011-pivot-plan-to-robust-dw"
+      }
+    },
+    {
+      "id": "M0012-m24-robust-dw-audit",
+      "sequence": 12,
+      "title": "M24 Robust DW Audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T07:58:20Z",
+      "closed_at": "2026-06-06T08:07:06Z",
+      "start_commit": "42e0ca3903dcb90aca7ef14e19003dd9021f0db5",
+      "snapshot_ref": "manuscript-milestones/M0012-m24-robust-dw-audit",
+      "summary": "Audited the robust DW higher-moment derivation and recorded a conditional local normalized Gaussian-noise pass with scale, global-alias, and finite-sample caveats.",
+      "user_input_ids": [
+        "U0012-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0012-m24-robust-dw-audit.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 9,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/9",
+        "tag_name": "manuscript-milestones/M0012-m24-robust-dw-audit"
       }
     }
   ]

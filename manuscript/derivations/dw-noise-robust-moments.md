@@ -1,10 +1,15 @@
 # Drautzburg-Wright-Like Higher-Moment Inversion Under Gaussian Noise
 
-Status: working derivation for manuscript design. This note derives a
+Status: audited working derivation for manuscript design. This note derives a
 Drautzburg-Wright-like higher-moment route that is robust to additive Gaussian
 residual noise. It deliberately separates this route from the no-noise
 covariance-whitened independence refinement and keeps broader non-Gaussian
 noise extensions outside the active paper.
+
+M24 audit status: conditionally passed on 2026-06-06 as a local,
+normalized, Gaussian-noise derivation. The cumulant algebra and local-rank
+calculation survived the audit. The result is not yet a global identification
+theorem, a scale-identification result, or a finite-sample unbiasedness claim.
 
 Purpose: answer whether sign restrictions plus higher-order moment conditions
 can target the structural impact matrix when residuals contain additive noise.
@@ -58,7 +63,7 @@ Since `xi_t(B)` is Gaussian for every candidate `B`, its cumulants of order
 three and above vanish.
 
 This note works with a normalized candidate space. In the bivariate manuscript
-case, a convenient normalization is
+case, a convenient local chart is
 
 $$
 B(a,b)=
@@ -70,9 +75,14 @@ b & 1
 1-ab\neq 0.
 $$
 
-Without such a normalization, higher-order independence restrictions identify
-columns only up to scale, sign, and permutation. Sign restrictions can label
-and orient columns, but they do not by themselves fix scale.
+This chart should be read as a normalized representation of the impact matrix,
+not as a claim that the original unit-variance structural impact matrix has
+ones on the diagonal. It requires the normalizing entries to be nonzero; if a
+different sign pattern makes that chart awkward, the manuscript should switch
+to another fixed-scale chart. Without such a normalization, higher-order
+independence restrictions identify columns only up to scale, sign, and
+permutation. Sign restrictions can label and orient columns, but they do not
+by themselves fix scale.
 
 ## 2. The No-Noise DW-Like System And Why It Fails Under Noise
 
@@ -285,8 +295,9 @@ E\{z_i(B)z_j(B)-s_{ij}\}=0.
 $$
 
 Those covariance equations define nuisance quantities used to form fourth
-cumulants. They are not restrictions such as `s_{11}=1`, `s_{22}=1`, or
-`s_{12}=0`.
+cumulants. For every candidate `B`, the nuisance values should be profiled or
+estimated as the covariance of `z_t(B)`. They are not restrictions such as
+`s_{11}=1`, `s_{22}=1`, or `s_{12}=0`.
 
 ## 6. Bivariate Local Identification
 
@@ -359,8 +370,8 @@ $$
 C_{1222}(a,b)=\alpha c^3\,\kappa_1+\beta d^3\,\kappa_2.
 $$
 
-At the true value, `alpha=d=1` and `beta=c=0`, so all five mixed cumulants
-vanish.
+At the true normalized value, `alpha=d=1` and `beta=c=0`, so all five mixed
+cumulants vanish.
 
 Let
 
@@ -417,10 +428,12 @@ $$
 
 Under these conditions, the population criterion based on `G_H(B(a,b))`
 has an isolated zero at `(a_0,b_0)` in a local neighborhood, up to the chosen
-normalization, sign orientation, and label convention. Global identification
-can still fail through finite-order cumulant cancellations or label/symmetry
-aliases, so the manuscript should treat this as a local rank derivation until
-an adversarial global check is complete.
+normalization, sign orientation, and label convention. The mixed cumulant
+`C_{1122}` is second order at the truth and is not needed for local rank,
+though it can still add finite-sample or global information. Global
+identification can still fail through finite-order cumulant cancellations or
+label/symmetry aliases, so the manuscript should treat this as a local rank
+derivation until population-grid checks are complete.
 
 ## 7. Bias, Consistency, And Efficiency
 
@@ -434,7 +447,9 @@ $$
 This is the sense in which Gaussian noise does not bias the higher-moment
 target. A minimum-distance or GMM estimator based on `\widehat G_H(B)` can be
 consistent for the normalized `B_0` under compactness, continuity, valid
-weighting, local rank, and the absence of other population zeros.
+weighting, local rank, and the absence of other population zeros. This is a
+shape result for the chosen normalized chart; it does not recover the original
+column scales unless additional valid scale information is supplied.
 
 The estimator should not be described as exactly finite-sample unbiased.
 Sample cumulant estimators can have finite-sample bias unless unbiased
@@ -478,3 +493,54 @@ mixed higher cumulants after transformation, and the DW-like
 transformed-cumulant restrictions are polluted. The active paper should state
 the maintained robust-noise condition clearly and treat broader noise classes
 as deferred extensions.
+
+## 9. M24 Adversarial Audit
+
+Audit date: 2026-06-06.
+
+Audit question: does this derivation survive well enough to serve as the
+constructive robust-DW route in the active manuscript plan?
+
+Outcome: conditionally yes. The derivation can support a local normalized
+Gaussian-noise robust-DW object, but the manuscript should not promote it to a
+global theorem or a finite-sample performance claim before M28 population-grid
+checks and M29 Monte Carlo evidence.
+
+Checklist outcome:
+
+- Cumulant cancellation under noise: passed. Independent Gaussian residual
+  noise is sufficient because every linear transform has zero cumulants above
+  order two. Diagonality of `V` is not needed for this cancellation, though it
+  remains useful for the paper's residual-noise interpretation. Non-Gaussian
+  residual noise is not covered unless the specific transformed mixed higher
+  cumulants used in the stack are known to vanish.
+- Cumulant-to-moment algebra: passed for centered observations. The third
+  restrictions are third central moments. The fourth restrictions must be
+  implemented as cumulants with covariance-product subtractions; raw fourth
+  moments alone are contaminated by Gaussian noise variance terms.
+- Second-moment exclusion: passed. Covariances may be estimated as nuisance
+  ingredients in fourth cumulants, but the robust route must not impose
+  `Var{z_i}=1` or `Cov{z_i,z_j}=0` as structural restrictions.
+- Normalization and scale: conditional pass. The `B(a,b)` chart is a
+  fixed-scale representation of the impact shape. It requires nonzero
+  normalizing entries and sign/label conventions. It does not identify the
+  original unit-variance impact scales without extra valid information.
+- Local rank: passed. The displayed first-order expansion implies full local
+  rank for `(a,b)` when `D_0 != 0` and each structural shock has at least one
+  nonzero third or fourth cumulant in the stack. A numeric derivative check of
+  the five displayed cumulants matched the stated Jacobian pattern: `C112` and
+  `C1112` load on `Delta b`, `C122` and `C1222` load on `Delta a`, and
+  `C1122` is second order at the truth.
+- Global aliases: not yet resolved. Finite-order cumulant cancellations, label
+  or sign symmetries, and other remote zeros can still occur. The paper should
+  call this a local derivation until population-grid checks document the
+  relevant DGP region.
+- Bias language: passed after caveat. The defensible claim is population
+  correctness and asymptotic centering under the maintained assumptions, not
+  exact finite-sample unbiasedness.
+
+Manuscript consequence: Section 4 may define the robust-DW set from this note,
+but the formal statement should be a conditional local proposition. The paper's
+evidence package still has to show when the robust set contains the true
+normalized impact matrix, when it widens under weak higher moments, and when it
+diverges from the standard DW set.

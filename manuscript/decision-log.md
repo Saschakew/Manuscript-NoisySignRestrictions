@@ -5,6 +5,27 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Treat robust DW derivation as a local audited route
+
+- Origin: Codex adversarial audit of the active plan
+- User input id: U0012
+- Codex role: selected next task and audited
+- Decision: The robust DW higher-cumulant route may remain the constructive
+  method in the active paper, but only as a local normalized Gaussian-noise
+  result until population-grid and Monte Carlo checks are complete.
+- Rationale: The audit found no error in the higher-cumulant cancellation,
+  third/fourth cumulant moment equations, second-moment exclusion, or local
+  rank calculation. It did identify important boundaries: the bivariate
+  `B(a,b)` chart fixes scale rather than recovering it, `C_{1122}` is second
+  order at the truth, non-Gaussian residual noise is not covered by the clean
+  cumulant argument, and remote finite-order aliases remain possible.
+- Alternatives considered: promoting the route immediately to a global theorem,
+  or abandoning it because it does not identify scale or cover non-Gaussian
+  noise.
+- Consequence for next work: M25 should attack the standard-DW
+  misspecification/empty-set claim; M28 must check robust-DW truth inclusion,
+  remote aliases, and weak-moment widening on population grids.
+
 ### 2026-06-06 - Pivot active paper to robust DW comparison
 
 - Origin: user-originated

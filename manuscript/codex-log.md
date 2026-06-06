@@ -11,6 +11,25 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - Robust DW derivation audit
+
+- Request: pick the next manuscript task after the updated paper plan and work
+  on it.
+- Actions taken: selected M24 from the task board; audited
+  `manuscript/derivations/dw-noise-robust-moments.md`; recorded the
+  conditional pass in the derivation note, review log, formal registry,
+  dashboard, task board, workplan, decision log, and session log.
+- Files changed: `manuscript/derivations/dw-noise-robust-moments.md`,
+  `manuscript/review-log.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/decision-log.md`,
+  `manuscript/session-log.md`, and M0012 transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed, with the expected
+  warning that M0012 was still open before milestone closure.
+- Open uncertainties: standard-DW emptying/misspecification proof, robust-DW
+  population-grid aliases, weak-moment widening, and finite-sample Monte Carlo
+  performance.
+
 ### 2026-06-06 - Robust DW plan pivot
 
 - Request: completely update the paper plan around noisy sign-set bias,

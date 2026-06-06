@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "id": "M0012-m24-robust-dw-audit",
+  "sequence": 12,
+  "title": "M24 Robust DW Audit",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T07:58:20Z",
+  "closed_at": "2026-06-06T08:07:06Z",
+  "start_commit": "42e0ca3903dcb90aca7ef14e19003dd9021f0db5",
+  "snapshot_ref": "manuscript-milestones/M0012-m24-robust-dw-audit",
+  "summary": "Audited the robust DW higher-moment derivation and recorded a conditional local normalized Gaussian-noise pass with scale, global-alias, and finite-sample caveats.",
+  "user_inputs": [
+    {
+      "id": "U0012-001",
+      "milestone_id": "M0012-m24-robust-dw-audit",
+      "captured_at": "2026-06-06T07:58:20Z",
+      "source": "chat",
+      "text": "Pick the next manuscript task after the updated paper plan and work on it."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0012-001",
+      "milestone_id": "M0012-m24-robust-dw-audit",
+      "captured_at": "2026-06-06T08:07:06Z",
+      "description": "Selected M24 as the next task from the updated paper plan and task board."
+    },
+    {
+      "id": "A0012-002",
+      "milestone_id": "M0012-m24-robust-dw-audit",
+      "captured_at": "2026-06-06T08:07:06Z",
+      "description": "Audited the robust DW derivation for cumulant algebra, fourth-cumulant covariance subtractions, second-moment exclusion, normalization, local rank, Gaussian-noise assumptions, and bias language."
+    },
+    {
+      "id": "A0012-003",
+      "milestone_id": "M0012-m24-robust-dw-audit",
+      "captured_at": "2026-06-06T08:07:06Z",
+      "description": "Updated the derivation note, review log, formal registry, source packet, dashboard, task board, workplan, decision log, session log, and Codex log."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T08:07:06Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/dw-noise-robust-moments.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0012-m24-robust-dw-audit.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 9,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/9",
+    "tag_name": "manuscript-milestones/M0012-m24-robust-dw-audit"
+  }
+}

@@ -8,6 +8,23 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Audit robust DW derivation
+
+- Request or goal: pick the next manuscript task after the updated paper plan
+  and work on it.
+- Files changed: `manuscript/derivations/dw-noise-robust-moments.md`,
+  `manuscript/review-log.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/decision-log.md`, logs, and M0012
+  transparency files.
+- Summary of work: selected M24 and audited the robust DW higher-moment
+  derivation. The cumulant algebra, fourth-cumulant covariance subtractions,
+  second-moment exclusion, Gaussian-noise condition, and local-rank calculation
+  passed conditionally; scale normalization, global aliases, and finite-sample
+  claims remain caveated.
+- Next recommended action: run M25 by proving or weakening the standard-DW
+  asymptotic-empty claim under residual-noise misspecification.
+
 ### 2026-06-06 - Pivot active plan to robust DW comparison
 
 - Request or goal: completely update the manuscript plan around the new robust

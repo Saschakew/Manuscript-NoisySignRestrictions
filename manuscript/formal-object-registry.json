@@ -96,7 +96,7 @@
     {
       "id": "def:robust-dw-higher-moment-set",
       "type": "definition",
-      "status": "working-derivation",
+      "status": "audited-working-derivation",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
       "description": "Robust DW-style sign-restricted candidate set that searches over a normalized impact space and uses mixed higher cumulants of B^{-1}u, rather than no-noise covariance factorization.",
       "depends_on": [
@@ -105,26 +105,26 @@
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "verification_status": "M0010 working derivation complete; pending M24 adversarial audit and simulation checks",
+      "verification_status": "M24 conditional audit passed for a local normalized Gaussian-noise route; global aliases and simulation checks remain pending",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
       "id": "eq:dw-higher-cumulant-moment-stack",
       "type": "equation",
-      "status": "working-derivation",
+      "status": "audited-working-derivation",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
       "description": "Moment-equation representation of the robust DW stack: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with second moments entering only as covariance products inside fourth cumulants.",
       "depends_on": [
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "verification_status": "Pending M24 independent algebra review and population verification",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions; population verification remains pending",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
       "id": "prop:robust-dw-higher-moment-validity",
       "type": "proposition",
-      "status": "working-derivation",
+      "status": "audited-working-derivation",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
       "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise, while second moments are contaminated; in the bivariate normalized system, local identification follows when each structural shock has a nonzero third or fourth cumulant.",
       "depends_on": [
@@ -132,7 +132,7 @@
         "eq:dw-higher-cumulant-moment-stack"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "proof_status": "working-derivation-pending-audit",
+      "proof_status": "conditional-local-rank-audit-passed; global uniqueness and simulation verification pending",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
@@ -195,9 +195,9 @@
     {
       "id": "audit:robust-dw-derivation",
       "type": "audit",
-      "status": "planned",
+      "status": "done",
       "draft_location": "review-log.md; derivations/dw-noise-robust-moments.md",
-      "description": "Adversarial review of the robust DW derivation, checking cumulant-to-moment algebra, second-moment exclusion, normalization, local rank, global aliases, maintained noise assumptions, and bias language.",
+      "description": "M24 adversarial review of the robust DW derivation. Conditional pass: cumulant-to-moment algebra, second-moment exclusion, normalization caveat, local rank, Gaussian-noise condition, and bias language are recorded; global aliases remain for population-grid checks.",
       "depends_on": [
         "prop:robust-dw-higher-moment-validity"
       ],
@@ -220,14 +220,14 @@
   ],
   "open_audits": [
     {
-      "id": "audit:robust-dw-route-gate",
-      "status": "open",
-      "question": "Does the robust DW higher-moment derivation survive adversarial audit strongly enough to become the constructive method in the paper?"
-    },
-    {
       "id": "audit:standard-dw-empty-set-gate",
       "status": "open",
       "question": "Can the paper prove the standard DW asymptotic-empty claim under residual noise, or should the claim be weakened to misspecified population objective plus finite-sample false sharpening?"
+    },
+    {
+      "id": "audit:robust-dw-global-grid-gate",
+      "status": "open",
+      "question": "Do population-grid checks support robust-DW truth inclusion, reveal any remote aliases, and characterize weak-moment widening under the maintained Gaussian-noise model?"
     },
     {
       "id": "audit:simulation-story-gate",

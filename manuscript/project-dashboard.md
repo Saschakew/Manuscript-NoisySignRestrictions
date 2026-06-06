@@ -6,25 +6,24 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: active paper pivoted to the robust DW comparison design.
+Current stage: formal result package after M24 robust-DW derivation audit.
 
-Current focus: cleanly develop the paper as a noisy sign-set warning plus a
-Drautzburg-Wright versus robust-DW robustness check.
+Current focus: turn the audited working route into exact formal statements
+without overstating standard-DW emptying or robust-DW global identification.
 
-Next recommended action: start M24 by adversarially auditing
-`manuscript/derivations/dw-noise-robust-moments.md`. Check the
-cumulant-to-moment algebra, second-moment exclusion, normalization and scale
-loss, local rank, exact Gaussian-noise condition, and finite-sample bias
-wording. Then run M25 to prove or weaken the standard-DW asymptotic-empty
-claim under residual-noise misspecification.
+Next recommended action: run M25 to prove or weaken the standard-DW
+asymptotic-empty claim under residual-noise misspecification. If generic
+emptiness cannot be proven, state the weaker population-misspecification result
+and finite-sample least-rejected interpretation.
 
-Active milestone: none. M0011 is closed, committed, tagged, pushed, and its
-GitHub milestone is closed.
+Active milestone: none. M0012 records the robust-DW derivation audit and is
+the snapshot for this work block.
 
 Active blockers:
 
-- The robust DW derivation is a working note and needs adversarial audit before
-  becoming a manuscript theorem.
+- The robust DW derivation passed M24 only as a local normalized
+  Gaussian-noise result; it still needs population-grid and Monte Carlo checks
+  before becoming final manuscript evidence.
 - The claim that standard DW sets become asymptotically empty under residual
   noise needs proof or careful weakening.
 - The intuitive sign-noise figure and Monte Carlo design are not yet specified.
@@ -33,10 +32,10 @@ Active blockers:
 - The first draft should wait until the new formal statements and evidence plan
   are stable enough to prevent another structural rewrite.
 
-Last substantive session: 2026-06-06, pivoted the active paper plan to the
-robust DW comparison design: biased noisy sign sets, standard DW
-false-sharpening under residual noise, robust DW higher moments that drop
-second moments, and Monte Carlo overlap/divergence evidence.
+Last substantive session: 2026-06-06, audited the robust DW higher-moment
+derivation. The Gaussian-noise cumulant algebra, fourth-cumulant subtractions,
+second-moment exclusion, and local-rank logic passed conditionally, with scale,
+global alias, and finite-sample caveats recorded.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

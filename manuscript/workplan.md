@@ -4,8 +4,9 @@
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
-new paper plan/map, a working robust-DW derivation, and a task queue centered
-on proof audit and simulation evidence.
+new paper plan/map, and an audited working robust-DW derivation. The task
+queue is now centered on the standard-DW misspecification result and simulation
+evidence.
 
 The active paper no longer treats the previous constructive route as part of
 the main plan. The first version is a short theory-and-simulation note about
@@ -18,8 +19,8 @@ DW higher-moment comparison set.
 |---|---|---|
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
-| M3. Pivot to robust DW plan | doing | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | todo | Noisy sign-set proposition, standard-DW misspecification result, robust-DW validity result, and comparison diagnostic are stated and audited. |
+| M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
+| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW misspecification result, robust-DW validity result, and comparison diagnostic are stated and audited. |
 | M5. Evidence package | todo | Intuitive figure, population grids, and Monte Carlo figures/tables are specified and verified. |
 | M6. First complete draft | todo | All sections have coherent prose and source trails. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |

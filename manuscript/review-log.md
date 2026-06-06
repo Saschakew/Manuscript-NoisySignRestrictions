@@ -6,6 +6,7 @@ Use this file for actual review passes and resulting decisions.
 
 | Date | Pass | Reviewer | Outcome | Follow-up tasks |
 |---|---|---|---|---|
+| 2026-06-06 | M24 robust DW derivation audit | Codex adversarial self-review | Conditional pass: the Gaussian-noise higher-cumulant route is valid as a local normalized derivation, with correct cumulant algebra, fourth-cumulant covariance subtractions, second-moment exclusion, and local-rank logic. It remains non-global and scale-normalized. | M25 must prove or weaken standard-DW misspecification/emptying; M28 must run population-grid checks for robust-DW truth inclusion, global aliases, and weak-moment widening. |
 | 2026-06-06 | robust DW plan pivot | Codex planning review | Active manuscript plan now centers on noisy sign-set bias, standard DW misspecification/false sharpening, robust DW higher moments that drop second moments, and Monte Carlo overlap/divergence evidence. Previous constructive-route labels were removed from active planning surfaces. | Audit the robust DW derivation; prove or weaken standard-DW asymptotic emptiness; design geometry and Monte Carlo evidence. |
 | 2026-06-05 | BR correction and plan audit | Codex self-review | Earlier plan over-claimed the Bonhomme-Robin connection. Updated plan now treats the bivariate method as BR-style and unverified until derivation and simulation checks pass. | Derive cumulant map; audit derivation; build symbolic, population, and Monte Carlo verification; audit simulation interpretation. |
 | 2026-06-05 | scope and contribution | Codex self-review | Revised first plan from a broader seven-section paper with optional empirical illustration into a shorter theory-and-simulation note. | Keep empirical illustration, dynamic signs, and `K > 2` generalization deferred until Propositions 1-4 and the simulation package are stable. |
@@ -50,3 +51,35 @@ Suggested passes:
 - Reproducibility package.
 - Literature positioning.
 - Reader path.
+
+## M24 Robust DW Derivation Audit
+
+Scope: `manuscript/derivations/dw-noise-robust-moments.md`.
+
+Checklist outcome:
+
+- Gaussian-noise condition: passed. Gaussianity and independence are the clean
+  sufficient conditions for transformed higher-cumulant cancellation; diagonal
+  `V` is not needed for the cumulant result itself.
+- Cumulant-to-moment algebra: passed for centered observations. Third
+  cumulants equal third central moments, and fourth restrictions must be fourth
+  cumulants with covariance-product subtractions.
+- Second-moment exclusion: passed. Covariances may enter as nuisance quantities
+  inside fourth cumulants, but the robust set must not impose no-noise
+  restrictions such as `Var{z_i}=1` or `Cov{z_i,z_j}=0`.
+- Normalization: conditional pass. The bivariate `B(a,b)` parameterization is a
+  normalized local chart for impact shape, not full scale recovery. It requires
+  nonzero normalizing entries plus sign and label conventions.
+- Local rank: passed. The first-order expansion gives rank for `(a,b)` when
+  `D_0 != 0` and each shock has at least one nonzero third or fourth cumulant.
+  `C_{1122}` is second order at the truth and should not be described as
+  carrying first-order local rank.
+- Global identification: unresolved. Remote zeros, finite-order cumulant
+  cancellations, and label/sign aliases remain possible until population-grid
+  checks.
+- Bias wording: passed with caveat. The result supports population correctness
+  and asymptotic centering, not finite-sample unbiasedness.
+
+Decision: use the derivation as the working Section 4 route, but state the
+first formal result as a local normalized Gaussian-noise proposition. Do not
+call it a global theorem or rely on it for final evidence until M28 and M29.
