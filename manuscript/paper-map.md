@@ -94,17 +94,17 @@ and proof or output status.
   generic emptying plus explicit pseudo-zero exceptions.
 - Derivation of the robust higher-moment stack from
   `derivations/dw-noise-robust-moments.md`.
-- Early Monte Carlo overview and the M0017 corrected B-plane grid figure after
-  the analytical J-test result to decide whether the project is worth deeper
-  figure and replication investment.
+- Early Monte Carlo overview plus the M0017 noise grid and M0018
+  non-Gaussianity grid after the analytical J-test result to decide whether
+  the project is worth deeper figure and replication investment.
 - Monte Carlo comparison of standard sign, standard DW, and robust DW sets.
 - Stress cases that show honest widening, weak-moment uncertainty, and
-  divergence diagnostics.
+  divergence diagnostics, including the M0018 non-Gaussianity companion grid.
 
 ## Current Bottlenecks
 
 - The standard DW J-test inversion result is now a working derivation; it still
   needs audit before prose promotion.
-- M35/M30 and M0017 provide exploratory evidence and a preferred candidate
-  visual only. M28 population-grid checks remain the immediate gate before
-  polished figures or final finite-sample Monte Carlo tables.
+- M35/M30, M0017, and M0018 provide exploratory evidence and preferred
+  candidate visuals only. M28 population-grid checks remain the immediate gate
+  before polished figures or final finite-sample Monte Carlo tables.

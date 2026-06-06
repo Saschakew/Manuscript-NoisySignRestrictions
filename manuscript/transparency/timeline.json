@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T10:25:59Z",
+  "updated_at": "2026-06-06T10:37:38Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -334,6 +334,28 @@
         "milestone_number": 14,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/14",
         "tag_name": "manuscript-milestones/M0017-rebuild-sign-dw-noise-grid-figure"
+      }
+    },
+    {
+      "id": "M0018-add-non-gaussianity-grid-figure",
+      "sequence": 18,
+      "title": "Add non-Gaussianity grid figure",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T10:32:07Z",
+      "closed_at": "2026-06-06T10:37:38Z",
+      "start_commit": "d41c28382618f42fb1282c018ab5aa7eddf76451",
+      "snapshot_ref": "manuscript-milestones/M0018-add-non-gaussianity-grid-figure",
+      "summary": "Added a non-Gaussianity companion grid that fixes residual noise and varies structural higher-moment strength across columns.",
+      "user_input_ids": [
+        "U0018-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0018-add-non-gaussianity-grid-figure.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 15,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/15",
+        "tag_name": "manuscript-milestones/M0018-add-non-gaussianity-grid-figure"
       }
     }
   ]

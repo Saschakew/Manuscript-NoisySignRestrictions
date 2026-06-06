@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "id": "M0018-add-non-gaussianity-grid-figure",
+  "sequence": 18,
+  "title": "Add non-Gaussianity grid figure",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T10:32:07Z",
+  "closed_at": "2026-06-06T10:37:38Z",
+  "start_commit": "d41c28382618f42fb1282c018ab5aa7eddf76451",
+  "snapshot_ref": "manuscript-milestones/M0018-add-non-gaussianity-grid-figure",
+  "summary": "Added a non-Gaussianity companion grid that fixes residual noise and varies structural higher-moment strength across columns.",
+  "user_inputs": [
+    {
+      "id": "U0018-001",
+      "milestone_id": "M0018-add-non-gaussianity-grid-figure",
+      "captured_at": "2026-06-06T10:32:07Z",
+      "source": "chat",
+      "text": "User noted that the corrected sign/DW/robust-DW grid tells the main story and requested a second similar figure with columns changing non-Gaussianity to show that robust DW depends on non-Gaussian shocks and widens when higher moments are weak."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0018-001",
+      "milestone_id": "M0018-add-non-gaussianity-grid-figure",
+      "captured_at": "2026-06-06T10:37:00Z",
+      "description": "Created the companion sign/covariance, standard-DW, and robust-DW grid figure script and PNG."
+    },
+    {
+      "id": "A0018-002",
+      "milestone_id": "M0018-add-non-gaussianity-grid-figure",
+      "captured_at": "2026-06-06T10:37:00Z",
+      "description": "Updated figure notes, registry, dashboard, task board, source packet, review, decision, session, Codex, and transparency logs to record the weak-higher-moment limitation."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T10:37:00Z",
+      "description": "python manuscript\\\\simulations\\\\sign_dw_robust_nongaussianity_grid_figure.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T10:37:00Z",
+      "description": "python -m py_compile manuscript\\\\simulations\\\\sign_dw_robust_nongaussianity_grid_figure.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T10:37:00Z",
+      "description": "formal-object-registry and M0018 manifest JSON validation: passed"
+    },
+    {
+      "captured_at": "2026-06-06T10:37:00Z",
+      "description": "python scripts\\\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T10:37:38Z",
+      "description": "python scripts\\\\check_manuscript.py: passed after milestone closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/figures/README.md",
+    "manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0018-add-non-gaussianity-grid-figure.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 15,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/15",
+    "tag_name": "manuscript-milestones/M0018-add-non-gaussianity-grid-figure"
+  }
+}

@@ -190,11 +190,11 @@
       "type": "figure",
       "status": "candidate-output-created",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "M0017 corrected candidate grid comparing sign/covariance, standard DW, and robust DW accepted B-plane sets across increasing diagonal residual noise using finite-sample N-test cutoffs.",
+      "description": "M0017 corrected candidate grid comparing sign/covariance, standard DW, and robust DW accepted B-plane sets across increasing diagonal residual noise using finite-sample N-test cutoffs. M0018 adds a companion grid that varies structural-shock non-Gaussianity to show weak-moment widening.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "Preferred candidate: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. Candidate only until M28 verifies robust-DW truth inclusion, aliases, and weak-moment widening and M29 calibrates critical values."
+      "output_source": "Preferred candidates: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. Candidate only until M28 verifies robust-DW truth inclusion, aliases, and weak-moment widening and M29 calibrates critical values."
     },
     {
       "id": "table:monte-carlo-coverage-width",

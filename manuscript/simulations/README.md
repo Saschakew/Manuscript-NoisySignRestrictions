@@ -5,6 +5,22 @@ Use this folder for exploratory simulation designs and design notes.
 Final shareable code that reproduces manuscript figures and tables belongs in
 `../replication/`.
 
+## M0018 Non-Gaussianity Companion Grid
+
+- Script: `sign_dw_robust_nongaussianity_grid_figure.py`
+- Note: `sign_dw_robust_nongaussianity_grid_figure.md`
+- Output figure: `../figures/fig_sign_dw_robust_nongaussianity_grid.png`
+- Command run:
+
+```powershell
+python manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py
+```
+
+Interpretation: this companion to the M0017 noise grid fixes residual noise at
+`V=(0.3,0.3)` and weakens structural-shock non-Gaussianity across columns.
+It is meant to show the honest limitation: robust-DW can be robust to residual
+noise but wide when higher moments are weak.
+
 ## M0017 Corrected Sign/DW/Robust-DW Noise Grid
 
 - Script: `sign_dw_robust_noise_grid_figure.py`

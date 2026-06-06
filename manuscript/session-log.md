@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Add non-Gaussianity companion grid
+
+- Request or goal: add a second figure like the corrected sign/DW/robust-DW
+  grid, but with columns changing structural-shock non-Gaussianity.
+- Files changed:
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png`, planning
+  surfaces, logs, and M0018 transparency files.
+- Summary of work: fixed residual noise at `V=(0.3,0.3)`, varied the
+  structural-shock non-Gaussian mixture weight across columns, reused the
+  sign/covariance, standard-DW, and robust-DW pointwise N-test rows, and
+  rendered the companion grid.
+- Next recommended action: use M0017 and M0018 as candidate visuals while
+  running M28/M29 validation before final manuscript use.
+
 ### 2026-06-06 - Rebuild requested B-plane grid with robust row
 
 - Request or goal: correct the previous figure to match the KnowledgeVault

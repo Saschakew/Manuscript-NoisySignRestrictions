@@ -11,6 +11,31 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0018 non-Gaussianity companion grid
+
+- Request: create a second figure like the corrected sign/DW/robust-DW grid,
+  but with columns varying structural-shock non-Gaussianity to show that robust
+  DW depends on informative higher moments and can be wide when they are weak.
+- Actions taken: created
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`;
+  rendered `manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png`;
+  added an explanatory simulation note; updated figure, simulation, registry,
+  source, dashboard, task, review, decision, session, and user-input logs.
+- Files changed:
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png`, planning
+  surfaces, logs, and M0018 transparency files.
+- Checks run: `python
+  manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py`
+  passed; `python -m py_compile
+  manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py`
+  passed; formal registry and M0018 manifest JSON validation passed;
+  `python scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning.
+- Open uncertainties: the figure is still a candidate visual; M28/M29 should
+  verify weak-moment behavior and calibrated critical values before final use.
+
 ### 2026-06-06 - M0017 corrected sign/DW/robust-DW grid
 
 - Request: correct the figure to the KnowledgeVault two-row by three-column

@@ -5,6 +5,27 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Pair the noise grid with a non-Gaussianity grid
+
+- Origin: user-originated
+- User input id: U0018
+- Codex role: created the companion figure and updated project controls.
+- Decision: Keep M0017 as the main residual-noise grid and add M0018 as a
+  companion grid that varies structural-shock non-Gaussianity at fixed
+  residual noise. Together they tell the main story and its honest limitation:
+  standard sign/DW can be misled by noisy covariance targets, while robust DW
+  remains noise-robust but can become wide when higher moments are weak.
+- Rationale: The first figure shows the noise channel. It does not show that
+  robust DW depends on structural non-Gaussian information. The companion grid
+  isolates that dependence by holding `V=(0.3,0.3)` fixed and weakening the
+  shock higher moments across columns.
+- Alternatives considered: trying to add non-Gaussianity as another dimension
+  inside the already dense M0017 figure, or leaving the limitation only in
+  prose.
+- Consequence for next work: Treat the two-grid pair as the preferred
+  candidate visual package, pending M28/M29 checks for population behavior,
+  weak moments, and critical-value calibration.
+
 ### 2026-06-06 - Use N-test cutoffs for the requested grid figure
 
 - Origin: user-originated correction
