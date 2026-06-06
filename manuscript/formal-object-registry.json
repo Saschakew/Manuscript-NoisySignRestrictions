@@ -138,17 +138,32 @@
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
-      "id": "prop:robust-dw-higher-moment-validity",
-      "type": "proposition",
-      "status": "needs-revision-after-m0034",
-      "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant. The prior claim that the off-diagonal residual covariance is a clean active anchor is superseded by M0034 under diag(B)=1.",
+      "id": "eq:bounded-noise-recovered-covariance-screen",
+      "type": "equation",
+      "status": "candidate-needs-audit",
+      "draft_location": "simulations/sign_dw_bounded_noise_robust_grid_figure.md; draft.md#4-robust-dw-higher-moment-set",
+      "description": "M0035 optional covariance screen: for B=[[1,a],[b,1]] and e(B)=B^{-1}u, diagonal residual noise V=diag(nu_1,nu_2) implies E[e1 e2]=(-b*nu_1-a*nu_2)/(1-ab)^2 at the candidate truth. With 0 <= nu_i <= 0.5, the sample recovered covariance must lie in the induced candidate-specific interval.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack"
       ],
+      "derivation": "manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md",
+      "verification_status": "M0035 figure diagnostic generated; algebra and finite-sample interpretation still need M40 adversarial audit before theorem-level prose or M28/M29 rebuild.",
+      "source": "manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md"
+    },
+    {
+      "id": "prop:robust-dw-higher-moment-validity",
+      "type": "proposition",
+      "status": "candidate-needs-audit-after-m0035",
+      "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
+      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant. M0035 adds a candidate bounded-noise recovered-covariance screen as optional extra identifying information.",
+      "depends_on": [
+        "def:robust-dw-higher-moment-set",
+        "eq:dw-higher-cumulant-moment-stack",
+        "eq:bounded-noise-recovered-covariance-screen"
+      ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M39 must rerun population and finite-sample evidence before draft theorem wording.",
+      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M0035 bounded screen generated a promising figure but needs M40 audit before draft theorem wording.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
@@ -190,24 +205,24 @@
     {
       "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "needs-revision-after-m0034",
+      "status": "candidate-after-m0035",
       "draft_location": "draft.md#3-standard-dw-under-residual-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "Residual-noise story figure needs revision after M0034. The pure higher-cumulant variant still shows sign/covariance movement and standard-DW truth rejection in the high-noise column, while the pure robust-DW row contains true B0 but becomes much wider.",
+      "description": "Residual-noise story figure candidate after M0035. The bounded-noise robust row uses pure higher-cumulant J inversion plus a 0 <= nu_i <= 0.5 recovered-covariance feasibility screen; in the high-noise column standard DW rejects true B0 while bounded robust DW contains it with much smaller accepted share than the pure row.",
       "depends_on": [
         "prop:standard-dw-misspecification"
       ],
-      "output_source": "M0034 pure variant: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode pure and manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png. The earlier diagonal-anchor output manuscript/figures/fig_sign_dw_robust_noise_grid.png is superseded for the robust row."
+      "output_source": "M0035 bounded variant: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode bounded, manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md, and manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png. M0034 pure variant remains manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png. The earlier diagonal-anchor output manuscript/figures/fig_sign_dw_robust_noise_grid.png is superseded for the robust row."
     },
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "needs-revision-after-m0034",
+      "status": "candidate-after-m0035",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Grid-pair story needs revision after M0034. The valid robust comparison should use the pure higher-cumulant robust row, which can become very wide after dropping invalid second-order information.",
+      "description": "Grid-pair story candidate after M0035. The valid robust comparison may use pure higher cumulants plus an explicit bounded-noise covariance screen; this must be audited before replacing the evidence spine.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "M0034 pure Figure 1 variant: manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png. Existing M0030/M28/M29 outputs are superseded for the robust row and must be rebuilt in M39."
+      "output_source": "M0035 bounded Figure 1 variant: manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png and manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md. Existing M0030/M28/M29 outputs are superseded for the robust row and must be rebuilt after M40 audit."
     },
     {
       "id": "table:monte-carlo-coverage-width",

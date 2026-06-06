@@ -15,16 +15,16 @@ the population sign set becomes a noisy pseudo-set. Drautzburg-Wright-style
 higher-moment refinement remains well motivated under its no-noise maintained
 null, but under residual noise it can sharpen the wrong target and return a
 small accepted set that looks more informative than it is. The paper proposes a
-validity-first robust comparison set that drops invalid second-order anchors
-and uses mixed higher-cumulant moments of normalized candidate shocks. The
-M0034 scale correction supersedes the earlier diagonal-anchor evidence; the
-pure robust Figure 1 variant shows that the price of validity can be a much
-wider set under noise. The recommendation is therefore
+validity-first robust comparison set that drops invalid zero-covariance
+anchors and uses mixed higher-cumulant moments of normalized candidate shocks.
+The M0034 scale correction supersedes the earlier diagonal-anchor evidence;
+the M0035 bounded-noise variant shows that explicit upper bounds on residual
+noise variances can recover precision. The recommendation is therefore
 diagnostic: report standard DW and robust DW together, and treat standard-DW
 precision unsupported by the robust set as a warning rather than as evidence of
 sharper structural learning.
 
-<!-- SOURCE-TRAIL: Use the M0034 pure robust Figure 1 variant and the M24 higher-cumulant derivation. Treat M0030/M37/M28/M29 diagonal-anchor evidence as superseded until M39 rebuilds it. -->
+<!-- SOURCE-TRAIL: Use the M0035 bounded-noise Figure 1 candidate, the M0034 pure robust variant, and the M24 higher-cumulant derivation. Treat M0030/M37/M28/M29 diagonal-anchor evidence as superseded until M39/M40 rebuilds it. -->
 <!-- CONTRIBUTION-NOTE: The abstract's original contribution is the residual-noise pseudo-set warning and the DW-versus-robust-DW comparison diagnostic. -->
 
 ## 1. Introduction
@@ -64,14 +64,15 @@ not as a criticism of the no-noise DW procedure on its own terms.
 
 The constructive move is to report a second, deliberately more conservative
 set. In a common normalized impact chart, the robust DW set applies the same
-sign screen but drops the recovered-shock covariance moment and the
+sign screen but drops the recovered-shock zero-covariance moment and the
 superseded diagonal-anchor `u` covariance moment. It keeps mixed
-higher-cumulant restrictions of `z_t(B)=B^{-1}u_t`. Under the maintained
-Gaussian residual-noise route, additive Gaussian noise changes contaminated
-second moments but not the higher cumulants used in the pure robust stack. The
-price is visible: when
-structural shocks are close to Gaussian or higher moments are weak, the robust
-set widens rather than producing sharp higher-moment identification.
+higher-cumulant restrictions of `z_t(B)=B^{-1}u_t`. If the researcher is
+willing to bound diagonal residual-noise variances, the recovered-shock
+covariance can enter as an inequality screen rather than as a zero moment.
+Under the maintained Gaussian residual-noise route, additive Gaussian noise
+changes contaminated second moments but not the higher cumulants used in the
+pure robust stack. The price is explicit: precision comes either from higher
+moments or from substantive noise-scale bounds.
 
 <!-- SOURCE-TRAIL: Use `manuscript/derivations/dw-noise-robust-moments.md`, `manuscript/derivations/dw-robust-comparison-diagnostic.md`, and higher-moment SVAR caution sources. -->
 
@@ -119,12 +120,10 @@ residual noise and shows the main warning: the sign/covariance set moves,
 standard DW can exclude the true normalized impact matrix, and robust DW
 remains wider while containing it. Figure 2 holds residual noise fixed and
 weakens structural non-Gaussianity, showing the limitation that robust DW's
-higher-cumulant component needs informative higher moments. Table 1 then
-reports the same story in the refreshed M29 Monte Carlo pass using the standard
-pointwise chi-square critical values that an applied standard-DW researcher
-would use under the no-noise null.
+higher-cumulant component needs informative higher moments. Table 1 must be
+rebuilt after the bounded-noise screen is audited.
 
-<!-- SOURCE-TRAIL: Use M28 for population/repeated-seed validation and M29 for the larger chi-square-primary Monte Carlo table. -->
+<!-- SOURCE-TRAIL: Use M0035 for the current Figure 1 candidate. M28/M29 must be rebuilt after M40. -->
 
 <!-- SOURCE-TRAIL: Use sign-restriction overview sources, Drautzburg-Wright, and the noisy-residual synthesis. -->
 <!-- CONTRIBUTION-NOTE: The original contribution is the noise-bias warning plus the standard-DW versus robust-DW comparison. -->
@@ -156,15 +155,15 @@ samples can still return a falsely small least-rejected set.
 ## 4. Robust DW Higher-Moment Set
 
 TODO: Define the robust normalized candidate space, candidate transformed
-residuals `z_t(B)=B^{-1}u_t`, and the pure higher-moment stack. Explain that
-recovered-shock zero covariance is not imposed, the M0030 diagonal-anchor
-`u` covariance moment is invalid under `diag(B)=1` without also imposing unit
-shock variances, and the fourth-order restrictions are cumulants written as
-moment equations.
+residuals `z_t(B)=B^{-1}u_t`, the pure higher-moment stack, and the optional
+bounded-noise recovered-covariance screen. Explain that recovered-shock zero
+covariance is not imposed, the M0030 diagonal-anchor `u` covariance moment is
+invalid under `diag(B)=1` without also imposing unit shock variances, and the
+fourth-order restrictions are cumulants written as moment equations.
 
 <!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
 <!-- TODO-NOTE: State the exact robust noise assumption. Gaussian residual noise is clean for transformed higher cumulants; broader noise requires another argument. -->
-<!-- TODO-NOTE: Emphasize the efficiency tradeoff: the robust set should be wider because it profiles noisy diagonal variances and drops recovered-shock covariance restrictions. -->
+<!-- TODO-NOTE: Audit the M0035 bounded-noise screen before theorem wording: the 0.5 upper bound is identifying information, not a normalization. -->
 
 ## 5. Monte Carlo Robustness Check
 
@@ -182,22 +181,26 @@ Figure 1 is the main story figure. Each column increases Gaussian residual
 noise. The first row shows the standard sign/covariance set. The second row
 adds the standard DW moment stack, including the no-noise covariance moment.
 The third row uses the robust DW stack, which keeps the sign screen and mixed
-higher cumulants while dropping invalid second-order anchors. The high-noise
-column is the narrative anchor: standard DW looks sharp but rejects the true
-normalized `B0`, while pure robust DW contains it at the cost of becoming wide.
+higher cumulants while replacing invalid zero-covariance anchors with a
+bounded-noise covariance screen. The high-noise column is the narrative
+anchor: standard DW looks sharp but rejects the true normalized `B0`, while
+bounded robust DW contains it with a visibly smaller set than the pure
+higher-cumulant fallback.
 
-![Figure 1. Pure robust residual-noise grid.](figures/fig_sign_dw_pure_robust_noise_grid.png)
+![Figure 1. Bounded-noise robust residual-noise grid.](figures/fig_sign_dw_bounded_noise_robust_grid.png)
 
 **Figure 1. Residual-noise grid.** Rows report the sign/covariance set,
 standard-DW set, and robust-DW set in the common normalized `B(b12,b21)` chart.
 Columns increase Gaussian residual noise from `V=(0,0)` to `V=(0.5,0.5)`.
-All rows invert pointwise 10 percent J tests. The robust-DW row profiles
-no second-order anchor and uses only mixed higher cumulants. The high-noise
-column shows the paper's main warning and limitation at once: standard DW
-rejects true `B0` under the researcher-facing cutoff, while pure robust DW
-contains it but accepts a large part of the chart.
+All rows invert pointwise 10 percent J tests for their displayed moment
+stacks. The robust-DW row uses the pure mixed higher-cumulant J statistic and
+adds the feasibility screen implied by `0 <= nu_i <= 0.5` for diagonal
+residual-noise variances. The high-noise column shows the paper's main
+warning: standard DW rejects true `B0` under the researcher-facing cutoff,
+while bounded robust DW contains it.
 
-<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_pure_robust_noise_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py --robust-mode pure`; diagnostic note `simulations/sign_dw_pure_robust_noise_grid_figure.md`. M28/M29 diagonal-anchor evidence is superseded until M39. -->
+<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_bounded_noise_robust_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py --robust-mode bounded`; diagnostic note `simulations/sign_dw_bounded_noise_robust_grid_figure.md`. M28/M29 diagonal-anchor evidence is superseded until M39/M40. -->
+<!-- TODO-NOTE: Do not claim coverage or final evidence from this figure until the bounded-noise screen has been audited and M28/M29-style checks rerun. -->
 
 M28 checks the figure's population logic before the draft leans on it. At the
 true normalized `B0`, the standard-DW population moment norm rises from
@@ -243,18 +246,16 @@ when robust DW still contains it.
 
 ### 5.3 Monte Carlo Table
 
-Table 1 reports the refreshed M29 finite-sample pass under the chi-square
-critical values used as the main applied benchmark. The table is not a final
-replication package, but it is strong enough for a first figure-led draft. The
-high-noise row is the key comparison: standard DW includes true `B0` in only
-0.050 of evaluation samples, while robust DW includes it in 0.900. The weak
-and Gaussian structural-shock rows show the limitation from Figure 2 in
-quantitative form: robust accepted shares rise to about 0.172 and 0.158, so the
-robust object falls back toward the covariance anchor when higher moments carry
-little identifying content.
+Table 1 is currently stale for the robust row. The refreshed M29 finite-sample
+pass used the superseded diagonal-anchor statistic, so its numbers should not
+be read as evidence for the bounded-noise robust set. After M40 audits the
+bounded screen, the Monte Carlo table should be rerun with the same reporting
+metrics: true-`B0` inclusion, accepted shares, empty-set frequencies, overlap,
+and the directional standard-outside-robust warning metric.
 
-**Table 1. Chi-square-primary Monte Carlo comparison.** The entries are M29
-evaluation averages under standard pointwise chi-square critical values.
+**Table 1. Superseded chi-square-primary Monte Carlo comparison.** The entries
+are M29 evaluation averages under standard pointwise chi-square critical
+values.
 `S truth` and `R truth` are true-`B0` inclusion rates for standard DW and robust
 DW. `S share` and `R share` are accepted-set shares on the normalized grid.
 `d_S_not_subset_R` is the directional share of standard-DW accepted mass not
@@ -271,9 +272,9 @@ large enough to flag divergence.
 | Gaussian structural shocks | 0.667 | 0.967 | 0.153 | 0.158 | 0.405 | 0.917 |
 | Skewed residual noise | 0.600 | 0.950 | 0.029 | 0.069 | 0.085 | 0.383 |
 
-<!-- SOURCE-TRAIL: M29 refreshed run in `simulations/m29_calibrated_monte_carlo.md` and machine-readable output `simulations/output/m29_calibrated_monte_carlo.json`. -->
+<!-- SOURCE-TRAIL: M29 refreshed run in `simulations/m29_calibrated_monte_carlo.md` and machine-readable output `simulations/output/m29_calibrated_monte_carlo.json`; superseded for the robust row after M0034/M0035. -->
 
-The audit rows in M29 should stay secondary in the main text. No-noise
+The audit rows in M29 should stay secondary and historical for now. No-noise
 repeated calibration is a size check for the maintained no-noise benchmark.
 Scenario-specific truth calibration is an oracle diagnostic: in the high-noise
 case the standard-DW cutoff must rise sharply to cover true `B0`, and the
@@ -282,7 +283,7 @@ audit because it uses the known simulation truth and often restores truth
 inclusion by making accepted sets nearly uninformative. These rows quantify
 calibration cost; they are not the applied procedure being critiqued.
 
-<!-- DESIGN-NOTE: Keep chi-square rows as the central evidence after U0026. Use repeated-sample, oracle, and bootstrap cutoffs only to explain finite-sample size and calibration cost. -->
+<!-- DESIGN-NOTE: Rebuild the chi-square-primary table after M40; the current M29 table is retained only as historical context. -->
 
 <!-- SOURCE-TRAIL: Use KnowledgeVault replication assets only as starting points; final figure commands must live in `replication/README.md`. -->
 <!-- SOURCE-TRAIL: Use `derivations/dw-robust-comparison-diagnostic.md` for the M27 definitions of the reported standard-DW set, robust-DW set, critical-value convention, directional overlap metric, and interpretation boundaries. -->

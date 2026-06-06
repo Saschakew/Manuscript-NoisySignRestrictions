@@ -13,6 +13,12 @@ variances are imposed as an additional scale normalization. The active
 constructive object is therefore the pure higher-cumulant robust-DW set, or a
 future explicitly scaled alternative after M39.
 
+M0035 candidate: the explicitly scaled alternative can use the recovered-shock
+covariance equation
+`E[e1 e2]=(-b21*nu_1-b12*nu_2)/(1-b12*b21)^2` with
+`0 <= nu_i <= 0.5`. This is a bounded-noise identifying restriction, not a
+normalization.
+
 The paper studies the simultaneous SVAR impact problem that arises after a
 reduced-form residual has been obtained: what happens when applied researchers
 combine sign restrictions with Drautzburg-Wright-style higher-moment
@@ -24,11 +30,12 @@ smaller accepted set can be an artifact of misspecification rather than more
 efficient structural learning.
 
 The constructive contribution is a robustness check: compute the standard
-Drautzburg-Wright set and compute a pure Gaussian-noise robust set that drops
-invalid second-order restrictions and keeps only mixed higher-cumulant
-restrictions. When the two sets agree, the usual refinement is less
-suspicious. When they diverge, residual noise or another covariance-target
-misspecification is indicated, and the robust set is the safer object.
+Drautzburg-Wright set and compute a Gaussian-noise robust set that drops
+invalid zero-covariance restrictions, keeps mixed higher-cumulant restrictions,
+and optionally applies an explicit bounded-noise recovered-covariance screen.
+When the two sets agree, the usual refinement is less suspicious. When they
+diverge, residual noise or another covariance-target misspecification is
+indicated, and the robust set is the safer object.
 
 The paper's visual spine is now the M0030 revised grid pair. The first grid
 varies residual noise and shows the main warning: noisy covariance moves the

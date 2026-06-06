@@ -11,6 +11,30 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0035 Bounded-noise covariance figure
+
+- Request: user suggested profiling unknown diagonal residual-noise variances
+  in `E[e1 e2]` with an upper bound of 0.5 and asked how Figure 1 looks.
+- Actions taken: opened local transparency milestone M0035 and GitHub
+  milestone #32; derived the bounded recovered-covariance screen; added
+  `--robust-mode bounded` to the Figure 1 script; rendered
+  `fig_sign_dw_bounded_noise_robust_grid.png`; documented fixed-draw
+  diagnostics; updated planning surfaces, registry, provenance, and logs; and
+  added M40 as the audit gate.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png`, manuscript
+  control surfaces, logs, and M0035 transparency files.
+- Checks run: rendered default, pure, and bounded Figure 1 modes; `git diff
+  --check` passed with line-ending warnings only; `python
+  scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning and passed cleanly after closure; `python -m
+  json.tool manuscript/formal-object-registry.json` passed.
+- Open uncertainties: the bounded row is promising but depends on a
+  substantive `0 <= nu_i <= 0.5` assumption; M40 must audit the algebra,
+  finite-sample inequality screen, and interpretability before M28/M29 are
+  rebuilt.
+
 ### 2026-06-06 - M0034 Pure robust Figure 1
 
 - Request: user corrected the robust-DW moment algebra and asked to see Figure

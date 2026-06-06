@@ -5,6 +5,27 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Test bounded-noise recovered-covariance screen
+
+- Origin: user suggestion after the pure robust Figure 1 variant.
+- User input id: U0035
+- Codex role: derived the candidate recovered-covariance interval, rendered
+  the Figure 1 variant, and recorded the follow-up audit task.
+- Decision: Treat the bounded-noise recovered-covariance screen as a promising
+  candidate, not yet as the active theorem-level robust-DW object. For
+  `B=[[1,a],[b,1]]`, `e(B)=B^{-1}u`, and diagonal residual noise
+  `V=diag(nu_1,nu_2)`, the candidate truth satisfies
+  `E[e1 e2]=(-b*nu_1-a*nu_2)/(1-ab)^2`. With `0 <= nu_i <= 0.5`, this gives
+  a candidate-specific interval for `E[e1 e2]`.
+- Rationale: This uses second-order information without imposing the invalid
+  zero recovered-shock covariance moment or the superseded `b12+b21` anchor.
+  The precision comes from explicit noise-scale information, so the upper
+  bound must be defended rather than hidden as a normalization.
+- Consequence for next work: M40 should audit the algebra, finite-sample
+  inequality-screen behavior, and substantive interpretation of the `0.5`
+  upper bound before the bounded row replaces the evidence spine or Section 4
+  prose.
+
 ### 2026-06-06 - Drop the invalid diagonal-anchor robust-DW moment
 
 - Origin: user correction during discussion of the M0030/M37 robust-DW

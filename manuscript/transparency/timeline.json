@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T19:47:07Z",
+  "updated_at": "2026-06-06T20:03:44Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -709,6 +709,28 @@
         "milestone_number": 31,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/31",
         "tag_name": "manuscript-milestones/M0034-pure-robust-figure-1"
+      }
+    },
+    {
+      "id": "M0035-bounded-noise-covariance-figure",
+      "sequence": 35,
+      "title": "Bounded noise covariance figure",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T19:52:28Z",
+      "closed_at": "2026-06-06T20:03:44Z",
+      "start_commit": "f046be33d29a1ec14e43dbc817ae4a802b6428e8",
+      "snapshot_ref": "manuscript-milestones/M0035-bounded-noise-covariance-figure",
+      "summary": "Rendered a bounded-noise recovered-covariance Figure 1 candidate and documented the optional variance-bound screen.",
+      "user_input_ids": [
+        "U0035-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0035-bounded-noise-covariance-figure.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 32,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/32",
+        "tag_name": "manuscript-milestones/M0035-bounded-noise-covariance-figure"
       }
     }
   ]

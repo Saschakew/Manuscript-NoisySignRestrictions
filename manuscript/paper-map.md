@@ -6,10 +6,10 @@ changing section structure or drafting substantial prose.
 ## One-Sentence Claim
 
 Residual noise can bias standard sign-restricted SVAR sets and make
-Drautzburg-Wright-style higher-moment refinement look falsely precise; a pure
-Gaussian-noise robust higher-cumulant set should be reported beside the
-standard DW set as a validity-first robustness check, with the warning that it
-may be wide when higher moments carry limited information.
+Drautzburg-Wright-style higher-moment refinement look falsely precise; a
+validity-first robust comparison can use Gaussian-noise higher cumulants, and
+may regain precision only when explicit noise-scale information such as an
+upper bound on diagonal residual-noise variances is defensible.
 
 ## Paper Contract
 
@@ -21,13 +21,14 @@ may be wide when higher moments carry limited information.
   Drautzburg-Wright-style no-noise higher-moment refinement.
 - Constructive object: robust DW-style set over normalized impact matrices
   using mixed higher cumulants of `B^{-1}u` written as GMM-style moment
-  equations while avoiding recovered-shock covariance targets and the
-  now-superseded diagonal-anchor `u` covariance moment.
-- Evidence: the previous M0030/M37 diagonal-anchor grid pair is superseded.
-  The M0034 pure Figure 1 variant shows the honest cost of dropping invalid
-  second-order information: true `B0` is retained, but the robust row becomes
-  much wider as residual noise increases. M39 must rebuild the visual and
-  Monte Carlo spine before draft-level evidence claims are stable.
+  equations while avoiding recovered-shock zero-covariance targets. M0035 adds
+  a candidate bounded-noise recovered-covariance screen with
+  `0 <= nu_i <= 0.5`.
+- Evidence: the M0034 pure Figure 1 variant shows the honest cost of dropping
+  invalid second-order information. The M0035 bounded-noise variant shows that
+  an explicit variance upper bound can recover precision while retaining true
+  `B0`. This bounded screen needs audit before draft-level evidence claims are
+  stable.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -41,10 +42,11 @@ may be wide when higher moments carry limited information.
    built from `B0 B0' + V`, so the sign set moves with noise.
 3. Standard DW-style refinement does not automatically fix this. In the
    high-noise grid column, it rejects true `B0` while looking precise.
-4. The paper's constructive move is to drop invalid second-order restrictions
-   and use robust higher-moment restrictions on normalized candidate impacts.
-   The pure Figure 1 variant shows the robust set contains the truth but can
-   become very wide.
+4. The paper's constructive move is to drop invalid zero-covariance
+   restrictions and use robust higher-moment restrictions on normalized
+   candidate impacts. If the researcher can bound diagonal residual-noise
+   variances, the recovered-shock covariance can be used as an inequality
+   screen rather than a zero moment.
 5. The companion non-Gaussianity grid states the limitation honestly: robust DW
    depends on informative higher moments and becomes wide when the shocks are
    close to Gaussian.
@@ -62,8 +64,8 @@ may be wide when higher moments carry limited information.
 | 1. Introduction | Motivate the robustness-check problem, position the paper relative to sign restrictions, Drautzburg-Wright, and higher-moment SVAR/GMM, and preview the geometry plus Monte Carlo evidence. | skeleton plus M32 positioning drafted |
 | 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | planned |
 | 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | planned |
-| 4. Robust Higher-Cumulant DW | Define the robust normalized candidate set from mixed higher cumulants, explain why recovered-shock covariance and the diagonal-anchor `u` covariance moment are not valid under the active normalization, and state the weak-moment limitation. | needs M39 rebuild |
-| 5. Figure-Led Evidence And Monte Carlo Check | Rebuild the visual story after M0034; the pure Figure 1 variant is the current diagnostic but M28/M29-style evidence must be rerun before polished claims. | needs revision |
+| 4. Robust Higher-Cumulant DW | Define the robust normalized candidate set from mixed higher cumulants, explain why recovered-shock zero covariance and the diagonal-anchor `u` covariance moment are invalid, and derive the bounded-noise recovered-covariance screen as an optional identifying restriction. | needs M0035 audit |
+| 5. Figure-Led Evidence And Monte Carlo Check | Compare the pure and bounded-noise Figure 1 variants; rerun M28/M29-style evidence after the bounded screen is audited. | needs revision |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
 
 ## Core Formal Objects
@@ -96,6 +98,10 @@ and proof or output status.
 - M0034 pure residual-noise grid variant showing covariance/sign-set movement,
   standard-DW truth rejection under lower high residual noise, and pure
   robust-DW truth inclusion with substantial widening.
+- M0035 bounded-noise residual grid variant showing the same setting with the
+  pure higher-cumulant row intersected with `0 <= nu_i <= 0.5`
+  recovered-covariance feasibility; high-noise accepted share falls to 0.066
+  while true `B0` remains included.
 - Existing non-Gaussianity grid still illustrates the weak-higher-moment
   limitation, but its connection to the revised Figure 1 must be checked in
   M39.

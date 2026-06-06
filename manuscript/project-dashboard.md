@@ -12,16 +12,18 @@ The abstract, introduction, evidence section, M28/M29 validation, and M37
 audit still describe the now-superseded six-moment diagonal-anchor statistic
 and must be revised before further polished Section 2-4 drafting.
 
-Current focus: inspect the M0034 pure higher-cumulant Figure 1 variant and
-decide whether the paper's constructive object is the pure robust-DW set, a
-validly scaled second-moment-plus-cumulant set, or a narrower diagnostic
-claim.
+Current focus: audit the M0035 bounded-noise covariance-screen candidate. It
+uses pure higher-cumulant moments plus a profiled recovered-covariance
+feasibility screen with `0 <= nu_i <= 0.5`, and it visually restores much of
+the precision lost by the pure robust row.
 
-Next recommended action: run M39, the post-scale-correction rebuild task,
-before M38. Do not draft Section 4 from the M0030/M37 diagonal-anchor
-estimator.
+Next recommended action: audit the bounded-noise covariance screen before
+rebuilding M28/M29 or drafting Section 4. The audit should check the algebra,
+the role of the `0.5` upper bound as identifying information, finite-sample
+behavior of the inequality screen, and whether the assumption is acceptable
+for the paper's story.
 
-Active milestone: M0034, pure robust Figure 1.
+Active milestone: M0035, bounded noise covariance figure.
 
 Active blockers:
 
@@ -43,6 +45,10 @@ Active blockers:
   robust row contains true `B0` but accepts about 0.459 of the full plotted
   grid, showing the expected loss of precision after dropping invalid
   second-order information.
+- M0035 rendered `fig_sign_dw_bounded_noise_robust_grid.png`. The high-noise
+  bounded row contains true `B0` and accepts about 0.066 of the full plotted
+  grid, but this precision comes from the explicit `0 <= nu_i <= 0.5` noise
+  bound and needs a method audit.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
 - The first figure-led skeleton now uses the refreshed M29 chi-square rows as
@@ -51,10 +57,10 @@ Active blockers:
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
 
-Last substantive session: 2026-06-06, opened M0034 after the user identified
-the scale error in the diagonal-anchor moment. Generated the pure
-higher-cumulant Figure 1 variant and marked the prior diagonal-anchor evidence
-as superseded pending a valid rebuild.
+Last substantive session: 2026-06-06, opened M0035 to test a bounded
+recovered-covariance anchor. Generated the bounded-noise Figure 1 variant and
+recorded it as a promising candidate that needs audit before replacing the
+evidence spine.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

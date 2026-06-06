@@ -7,7 +7,12 @@ M0034 warning: the diagonal-anchor robust row in this note uses
 chart `diag(B)=1`, that equality also requires unit structural-shock
 variances. With free shock scales, the off-diagonal covariance is
 `Sigma_u,12 = b21*sigma_1^2 + b12*sigma_2^2`. The active diagnostic variant is
-now documented in `manuscript/simulations/sign_dw_pure_robust_noise_grid_figure.md`.
+documented in `manuscript/simulations/sign_dw_pure_robust_noise_grid_figure.md`.
+
+M0035 candidate: the script also supports `--robust-mode bounded`, documented
+in `manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md`. This
+mode uses pure higher cumulants plus a recovered-covariance feasibility screen
+with `0 <= nu_i <= 0.5`.
 
 This is the corrected version of the KnowledgeVault B-plane figure requested in
 M0017. It uses the two-by-three sign/DW layout from the synthesis and adds a

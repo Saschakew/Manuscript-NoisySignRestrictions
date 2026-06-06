@@ -2,13 +2,16 @@
 
 This figure reproduces the KnowledgeVault B-plane layout with three noise
 columns and adds a third robust-DW row.  All rows invert pointwise finite-sample
-J statistics at the 10 percent level.  The robust-DW row profiles out diagonal
-residual-noise variances: it uses the clean off-diagonal covariance restriction
-from Sigma_u = B B' + V with diagonal V, plus mixed higher cumulants of
-B^{-1}u.  It does not impose the no-noise recovered-shock covariance target.
+J statistics at the 10 percent level.  The default historical robust-DW row
+profiles out diagonal residual-noise variances using the now-superseded
+off-diagonal covariance anchor plus mixed higher cumulants of B^{-1}u.
 
 Pass ``--robust-mode pure`` to plot the pure higher-cumulant robust row without
 the diagonal-noise off-diagonal covariance anchor.
+
+Pass ``--robust-mode bounded`` to plot the pure row intersected with the
+candidate recovered-covariance values attainable from diagonal residual-noise
+variances bounded by 0.5.
 """
 
 from __future__ import annotations
@@ -24,6 +27,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = ROOT / "manuscript" / "figures"
 OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_robust_noise_grid.png"
 PURE_OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_pure_robust_noise_grid.png"
+BOUNDED_OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_bounded_noise_robust_grid.png"
 
 TRUE_B12 = -0.25
 TRUE_B21 = 0.80
@@ -33,6 +37,7 @@ NOISE_LEVELS = ((0.0, 0.0), (0.2, 0.2), (0.5, 0.5))
 SAMPLE_SIZE = 500
 GRID_POINTS = 121
 RANDOM_SEED = 20260605
+NOISE_VARIANCE_UPPER_BOUND = 0.5
 
 CHI2_90_DF1 = 2.705543454095404
 CHI2_90_DF4 = 7.779440339734858
@@ -211,6 +216,41 @@ def pure_robust_j_statistic(b12: float, b21: float, residuals: np.ndarray) -> fl
     return robust_j_statistic_from_shocks(shocks)
 
 
+def recovered_covariance_value(b12: float, b21: float, residuals: np.ndarray) -> float:
+    shocks = candidate_shocks(b12, b21, residuals)
+    if shocks is None:
+        return math.nan
+    return float(np.mean(shocks[:, 0] * shocks[:, 1]))
+
+
+def bounded_noise_recovered_covariance_interval(
+    b12: float,
+    b21: float,
+    variance_upper_bound: float = NOISE_VARIANCE_UPPER_BOUND,
+) -> tuple[float, float] | None:
+    determinant = 1.0 - b12 * b21
+    if abs(determinant) < 1e-10:
+        return None
+
+    scale = determinant * determinant
+    coefficient_1 = -b21 / scale
+    coefficient_2 = -b12 / scale
+    lower = variance_upper_bound * (min(coefficient_1, 0.0) + min(coefficient_2, 0.0))
+    upper = variance_upper_bound * (max(coefficient_1, 0.0) + max(coefficient_2, 0.0))
+    return lower, upper
+
+
+def bounded_noise_covariance_feasible(b12: float, b21: float, residuals: np.ndarray) -> bool:
+    interval = bounded_noise_recovered_covariance_interval(b12, b21)
+    if interval is None:
+        return False
+    recovered_covariance = recovered_covariance_value(b12, b21, residuals)
+    if not math.isfinite(recovered_covariance):
+        return False
+    lower, upper = interval
+    return lower <= recovered_covariance <= upper
+
+
 def offdiagonal_covariance_values(
     residuals: np.ndarray,
     b12: float,
@@ -293,7 +333,7 @@ def evaluate_standard_grid(
 def robust_mode_cutoff(robust_mode: str) -> float:
     if robust_mode == "diagonal":
         return CHI2_90_DF6
-    if robust_mode == "pure":
+    if robust_mode in {"pure", "bounded"}:
         return CHI2_90_DF5
     raise ValueError(f"unknown robust mode: {robust_mode}")
 
@@ -303,6 +343,8 @@ def robust_mode_title(robust_mode: str) -> str:
         return "Robust DW J-test"
     if robust_mode == "pure":
         return "Pure robust DW J-test"
+    if robust_mode == "bounded":
+        return "Bounded-noise robust DW"
     raise ValueError(f"unknown robust mode: {robust_mode}")
 
 
@@ -311,15 +353,33 @@ def robust_mode_summary(robust_mode: str) -> str:
         return "robust DW profiles diagonal noise and adds mixed higher cumulants"
     if robust_mode == "pure":
         return "pure robust DW uses only mixed higher cumulants"
+    if robust_mode == "bounded":
+        return "bounded robust DW uses pure cumulants plus 0 <= noise variances <= 0.5"
     raise ValueError(f"unknown robust mode: {robust_mode}")
 
 
 def robust_mode_statistic(b12: float, b21: float, residuals: np.ndarray, robust_mode: str) -> float:
     if robust_mode == "diagonal":
         return robust_j_statistic(b12, b21, residuals)
-    if robust_mode == "pure":
+    if robust_mode in {"pure", "bounded"}:
         return pure_robust_j_statistic(b12, b21, residuals)
     raise ValueError(f"unknown robust mode: {robust_mode}")
+
+
+def robust_mode_accepts(
+    b12: float,
+    b21: float,
+    residuals: np.ndarray,
+    robust_mode: str,
+    j_value: float | None = None,
+) -> bool:
+    if j_value is None:
+        j_value = robust_mode_statistic(b12, b21, residuals, robust_mode)
+    if not math.isfinite(j_value) or j_value > robust_mode_cutoff(robust_mode):
+        return False
+    if robust_mode == "bounded":
+        return bounded_noise_covariance_feasible(b12, b21, residuals)
+    return True
 
 
 def evaluate_robust_grid(
@@ -338,7 +398,15 @@ def evaluate_robust_grid(
             residuals,
             robust_mode,
         )
-    robust_accepted = np.isfinite(robust_j) & (robust_j <= robust_mode_cutoff(robust_mode))
+    robust_accepted = np.zeros_like(robust_j, dtype=bool)
+    for row, col in zip(rows, cols):
+        robust_accepted[row, col] = robust_mode_accepts(
+            float(b12_mesh[row, col]),
+            float(b21_mesh[row, col]),
+            residuals,
+            robust_mode,
+            float(robust_j[row, col]),
+        )
     return b12_mesh, b21_mesh, robust_j, robust_accepted
 
 
@@ -404,6 +472,13 @@ def truth_label(j_value: float, cutoff: float) -> str:
     return f"B0 {status}; J0 {j_value:.3g}"
 
 
+def truth_label_with_status(j_value: float, accepted: bool) -> str:
+    if not math.isfinite(j_value):
+        return "B0 n/a"
+    status = "in" if accepted else "out"
+    return f"B0 {status}; J0 {j_value:.3g}"
+
+
 def plot(robust_mode: str = "diagonal", output_path: Path | None = None) -> Path:
     import matplotlib
 
@@ -412,7 +487,12 @@ def plot(robust_mode: str = "diagonal", output_path: Path | None = None) -> Path
 
     robust_cutoff = robust_mode_cutoff(robust_mode)
     if output_path is None:
-        output_path = PURE_OUTPUT_PATH if robust_mode == "pure" else OUTPUT_PATH
+        if robust_mode == "pure":
+            output_path = PURE_OUTPUT_PATH
+        elif robust_mode == "bounded":
+            output_path = BOUNDED_OUTPUT_PATH
+        else:
+            output_path = OUTPUT_PATH
 
     b12_grid = np.linspace(-1.35, 0.35, GRID_POINTS)
     b21_grid = np.linspace(-0.25, 1.35, GRID_POINTS)
@@ -450,6 +530,13 @@ def plot(robust_mode: str = "diagonal", output_path: Path | None = None) -> Path
             true_covariance_j = j_statistic(true_shocks, MOMENTS_COVARIANCE)
             true_dw_j = j_statistic(true_shocks, MOMENTS_DW)
         true_robust_j = robust_mode_statistic(TRUE_B12, TRUE_B21, residuals, robust_mode)
+        true_robust_accepted = robust_mode_accepts(
+            TRUE_B12,
+            TRUE_B21,
+            residuals,
+            robust_mode,
+            true_robust_j,
+        )
 
         ax = axes[0, col]
         shade(ax, b12_mesh, b21_mesh, covariance_accepted, "#9bc9a6", 0.9)
@@ -492,7 +579,7 @@ def plot(robust_mode: str = "diagonal", output_path: Path | None = None) -> Path
         ax.text(
             -1.22,
             1.16,
-            f"{min_label(robust_j)}\n{truth_label(true_robust_j, robust_cutoff)}",
+            f"{min_label(robust_j)}\n{truth_label_with_status(true_robust_j, true_robust_accepted)}",
             color="#2166ac",
             fontsize=9,
         )
@@ -524,7 +611,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--robust-mode",
-        choices=["diagonal", "pure"],
+        choices=["diagonal", "pure", "bounded"],
         default="diagonal",
         help="Bottom-row robust statistic to plot.",
     )
