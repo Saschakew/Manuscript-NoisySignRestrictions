@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "id": "M0033-m32-literature-positioning",
+  "sequence": 33,
+  "title": "M32 Literature Positioning",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T18:58:24Z",
+  "closed_at": "2026-06-06T19:07:15Z",
+  "start_commit": "3dedf7ed7ddf0d3dd01eb7f8f44e4014921561d0",
+  "snapshot_ref": "manuscript-milestones/M0033-m32-literature-positioning",
+  "summary": "Drafted the M32 literature-positioning pass and marked M32 done.",
+  "user_inputs": [
+    {
+      "id": "U0033-001",
+      "milestone_id": "M0033-m32-literature-positioning",
+      "captured_at": "2026-06-06T18:58:24Z",
+      "source": "chat",
+      "text": "Work on manuscript in goal mode; pick the next task and complete the M32 literature-positioning pass."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0033-001",
+      "milestone_id": "M0033-m32-literature-positioning",
+      "captured_at": "2026-06-06T19:06:44Z",
+      "description": "Selected M32 from the task board as the next manuscript task."
+    },
+    {
+      "id": "A0033-002",
+      "milestone_id": "M0033-m32-literature-positioning",
+      "captured_at": "2026-06-06T19:06:44Z",
+      "description": "Drafted introduction subsection 1.1 to position the paper relative to sign-restricted SVAR set inference, Drautzburg-Wright's no-noise comparator, and higher-moment SVAR/GMM work."
+    },
+    {
+      "id": "A0033-003",
+      "milestone_id": "M0033-m32-literature-positioning",
+      "captured_at": "2026-06-06T19:06:44Z",
+      "description": "Updated citation provenance, literature-search status, planning surfaces, task board, and human logs; added M38 for core Sections 2-4 prose."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T19:06:44Z",
+      "description": "git diff --check: passed with line-ending warnings only"
+    },
+    {
+      "captured_at": "2026-06-06T19:06:44Z",
+      "description": "python -m json.tool manuscript/transparency/milestones/M0033-m32-literature-positioning.json: passed"
+    },
+    {
+      "captured_at": "2026-06-06T19:06:44Z",
+      "description": "python -m json.tool manuscript/transparency/timeline.json: passed"
+    },
+    {
+      "captured_at": "2026-06-06T19:06:44Z",
+      "description": "python scripts/check_manuscript.py: passed before closure with expected open-milestone warning"
+    },
+    {
+      "captured_at": "2026-06-06T19:07:15Z",
+      "description": "python scripts/check_manuscript.py: passed after closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/literature-search.md",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0033-m32-literature-positioning.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 30,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/30",
+    "tag_name": "manuscript-milestones/M0033-m32-literature-positioning"
+  }
+}

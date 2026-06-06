@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Draft M32 literature positioning
+
+- Request or goal: work on the manuscript in goal mode by picking the next
+  task.
+- Files changed: `manuscript/draft.md`, `manuscript/citation-provenance.md`,
+  literature/planning surfaces, logs, and M0033 transparency files.
+- Summary of work: selected M32 from the task board, opened local
+  transparency milestone M0033 and GitHub milestone #30, and drafted
+  introduction subsection 1.1. The new prose positions the paper relative to
+  sign-restricted SVAR set inference, Drautzburg-Wright's no-noise
+  independence refinement, and higher-moment SVAR/GMM work while marking the
+  residual-noise DW-versus-robust-DW comparison as the original contribution.
+- Next recommended action: start M38, drafting Sections 2-4 without promoting
+  the M25 standard-DW generic-emptying result to theorem language before its
+  proof audit.
+
 ### 2026-06-06 - Audit diagonal-noise robust estimator
 
 - Request or goal: work on the manuscript in goal mode by picking the next

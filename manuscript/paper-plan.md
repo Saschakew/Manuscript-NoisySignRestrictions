@@ -81,7 +81,9 @@ structural.
 
 1. Introduction: present the puzzle that sign restrictions can look more
    precise after higher-moment refinement even when residual noise has
-   misspecified the no-noise target. State the robustness-check idea.
+   misspecified the no-noise target. State the robustness-check idea and
+   position the contribution relative to sign-set inference,
+   Drautzburg-Wright's no-noise comparator, and higher-moment SVAR/GMM work.
 2. Noisy sign-restricted sets: define the additive-noise SVAR, show that the
    standard sign set rotates a factor of `B0 B0' + V`, and give an intuitive
    visual figure of sign-boundary movement or set deformation.
@@ -208,9 +210,9 @@ structural.
 - Sections 2-4 still need prose that turns the noisy sign-set algebra,
   standard-DW misspecification result, and diagonal-noise robust DW set into
   disciplined manuscript text.
-- The literature-positioning pass should distinguish this paper from
-  Drautzburg-Wright under the no-noise null, sign-set inference, and
-  higher-moment SVAR GMM.
+- The first literature-positioning pass is drafted in the introduction. It
+  still needs final citation-style cleanup when the References section is
+  converted from TODO to shareable prose.
 - Section 4 prose must incorporate the M37 estimator caveats: the off-diagonal
   covariance anchor is tied to the normalized bivariate chart and diagonal
   residual-noise covariance; the current plotted diagnostic profiles diagonal

@@ -5,6 +5,28 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Position the paper as a residual-noise robustness check
+
+- Origin: Codex-selected M32 task after user requested manuscript work in
+  goal mode.
+- User input id: U0033
+- Codex role: selected M32 from the task board and drafted the first
+  literature-positioning pass.
+- Decision: Keep the literature positioning compact and inside the
+  introduction. The paper should be framed as adjacent to sign-restricted SVAR
+  set inference, Drautzburg-Wright independence refinement, and higher-moment
+  SVAR/GMM work, but its contribution is the residual-noise
+  DW-versus-robust-DW diagnostic rather than a broad survey or a general
+  higher-moment estimator.
+- Rationale: The manuscript is meant to stay short and focused on one
+  robustness-check idea. The positioning pass needs to be fair to
+  Drautzburg-Wright under the no-noise null and honest about weak higher
+  moments, while making clear that covariance-target contamination is this
+  paper's new object.
+- Consequence for next work: M32 is done. Sections 2-4 should now be drafted
+  around the noisy sign pseudo-set, standard-DW-under-noise caveats, and M37
+  robust-estimator limits.
+
 ### 2026-06-06 - Clear M37 diagonal-noise robust estimator audit
 
 - Origin: Codex-selected next task after user requested manuscript work in

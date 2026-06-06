@@ -11,6 +11,25 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0033 M32 literature positioning
+
+- Request: user asked Codex to work on the manuscript, pick the next task, and
+  work in goal mode.
+- Actions taken: selected M32 from the task board; opened local transparency
+  milestone M0033 and GitHub milestone #30; drafted introduction subsection
+  1.1; updated citation provenance, literature-search status, dashboard,
+  paper plan, paper map, workplan, task board, user input log, decision log,
+  and session log.
+- Files changed: `manuscript/draft.md`, `manuscript/citation-provenance.md`,
+  planning/literature/log surfaces, and M0033 transparency files.
+- Checks run: `git diff --check` passed with line-ending warnings only;
+  `python scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning; M0033 and timeline JSON validation passed; `python
+  scripts/check_manuscript.py` passed after closure.
+- Open uncertainties: Sections 2-4 remain TODO prose scaffolds; the M25
+  standard-DW proof audit remains open before theorem-level wording; final
+  sharing still requires a `manuscript/replication/` wrapper.
+
 ### 2026-06-06 - M0032 Diagonal-noise robust estimator audit
 
 - Request: user asked Codex to work on the manuscript, pick the next task, and

@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T17:10:17Z",
+  "updated_at": "2026-06-06T19:07:15Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -665,6 +665,28 @@
         "milestone_number": 29,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/29",
         "tag_name": "manuscript-milestones/M0032-audit-diagonal-noise-robust-estimator"
+      }
+    },
+    {
+      "id": "M0033-m32-literature-positioning",
+      "sequence": 33,
+      "title": "M32 Literature Positioning",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T18:58:24Z",
+      "closed_at": "2026-06-06T19:07:15Z",
+      "start_commit": "3dedf7ed7ddf0d3dd01eb7f8f44e4014921561d0",
+      "snapshot_ref": "manuscript-milestones/M0033-m32-literature-positioning",
+      "summary": "Drafted the M32 literature-positioning pass and marked M32 done.",
+      "user_input_ids": [
+        "U0033-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0033-m32-literature-positioning.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 30,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/30",
+        "tag_name": "manuscript-milestones/M0033-m32-literature-positioning"
       }
     }
   ]

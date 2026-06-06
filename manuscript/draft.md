@@ -77,6 +77,45 @@ higher-moment identification.
 
 <!-- SOURCE-TRAIL: Use `manuscript/derivations/dw-noise-robust-moments.md`, `manuscript/derivations/dw-robust-comparison-diagnostic.md`, and higher-moment SVAR caution sources. -->
 
+### 1.1 Literature Positioning
+
+This paper is closest to three literatures, but it uses them for a narrow
+robustness question rather than for a broad survey. The first is the
+sign-restricted SVAR literature. In that literature, sign restrictions describe
+sets of admissible rotations, and careful reporting matters because selected
+rotations or point summaries can understate set uncertainty. This paper accepts
+that set-based starting point. Its additional question comes one step earlier:
+if the covariance factor being rotated is a factor of `B0 B0' + V`, then even
+the population sign set is already a noisy pseudo-set.
+
+<!-- SOURCE-TRAIL: Use `kilian2016StructuralVectorAutoregressiveAnalysis93b03b` for sign-restriction geometry and `arias2018InferenceBasedStructuralVector` for set-inference and reporting cautions. -->
+<!-- CONTRIBUTION-NOTE: The covariance-target contamination question is this manuscript's contribution, not a claim inherited from standard sign-restriction inference. -->
+
+The second comparator is Drautzburg and Wright's independence refinement. Their
+procedure is the right benchmark because it takes a sign-restricted set and
+uses higher-moment independence restrictions to refine it under a maintained
+no-noise model. This paper does not claim that refinement is invalid under
+that model. It asks what the same researcher-facing refinement reports when
+the reduced-form residual includes additive noise and the no-noise covariance
+target is misspecified. The standard-DW set is therefore used as a
+maintained-null comparator, while the robust set is a diagnostic object to
+report beside it.
+
+<!-- SOURCE-TRAIL: Use `drautzburg2023RefiningSetIdentificationVars` for the no-noise comparator and `manuscript/derivations/standard-dw-j-test-under-noise.md` for the manuscript's residual-noise misspecification route. -->
+<!-- TODO-NOTE: Keep theorem-level claims about generic standard-DW emptying conditional on the M25 proof audit. -->
+
+The third connection is the higher-moment SVAR and GMM literature. Those papers
+show that non-Gaussian moments can carry structural information, but they also
+make the assumptions and weak-moment risks explicit. The robust DW set follows
+that discipline: it writes mixed higher cumulants as moment restrictions, uses
+a GMM-style inversion language, and treats weak or Gaussian structural shocks
+as an honest widening case. The robust set is not advertised as a uniformly
+sharper estimator. It is meant to reveal when standard-DW precision depends on
+a noisy covariance target that the robust moments do not support.
+
+<!-- SOURCE-TRAIL: Use `guay2020IdentificationStructuralVectorAutoregressions`, `paper2020GeneralizedMethodMomentsEstimator`, `olea2022SvarIdentificationHigherMoments`, and `lewis2025IdentificationBasedHigherMoments`. -->
+<!-- CONTRIBUTION-NOTE: The original contribution is the DW-versus-robust-DW comparison under residual noise, not the general idea that higher moments can identify SVARs. -->
+
 The paper is organized around this comparison. Figure 1 varies Gaussian
 residual noise and shows the main warning: the sign/covariance set moves,
 standard DW can exclude the true normalized impact matrix, and robust DW

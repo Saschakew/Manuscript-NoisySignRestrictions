@@ -63,7 +63,7 @@ reported beside the standard DW set as a practical robustness check.
 | Section | Job | Status |
 |---|---|---|
 | Abstract | State noisy sign-set bias, false DW sharpening, robust DW comparison, and no-application scope. | skeleton drafted |
-| 1. Introduction | Motivate the robustness-check problem and preview the geometry plus Monte Carlo evidence. | skeleton drafted |
+| 1. Introduction | Motivate the robustness-check problem, position the paper relative to sign restrictions, Drautzburg-Wright, and higher-moment SVAR/GMM, and preview the geometry plus Monte Carlo evidence. | skeleton plus M32 positioning drafted |
 | 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | planned |
 | 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | planned |
 | 4. Diagonal-Noise Robust DW | Define the robust normalized candidate set, write the off-diagonal covariance and cumulant restrictions as moment equations, and explain why diagonal noise variances are profiled out. | planned |
@@ -133,7 +133,8 @@ and proof or output status.
   diagonal-Gaussian-noise, optional profiled-variance-screen, and pointwise
   cutoff caveats.
 - M31 has converted the figure-led evidence into a first disciplined draft
-  skeleton without treating audit cutoffs as application-ready procedures. The
-  next bottlenecks are literature positioning, direct M25 proof audit before
-  theorem-level wording, and moving figure/table code into
+  skeleton without treating audit cutoffs as application-ready procedures.
+  M32 added the first literature-positioning pass with explicit contribution
+  boundaries. The next bottlenecks are drafting Sections 2-4, direct M25 proof
+  audit before theorem-level wording, and moving figure/table code into
   `manuscript/replication/` before sharing.

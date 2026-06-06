@@ -7,21 +7,21 @@ Manuscript slug: noise-robust-sign-restricted-svars
 KnowledgeVault link: `../knowledge-vault-link.json`
 
 Current stage: first figure-led drafting pass started, then revised after the
-M0030 high-noise power audit and M37 estimator audit. The abstract,
-introduction, and evidence section now use the M0030 diagonal-noise robust
-grid pair, refreshed M28 validation, M27 diagnostic formalization, the
-refreshed M29 chi-square-primary Monte Carlo pass, and the M37 caveats as the
-manuscript spine.
+M0030 high-noise power audit, M37 estimator audit, and M32
+literature-positioning pass. The abstract, introduction,
+literature-positioning subsection, and evidence section now use the M0030
+diagonal-noise robust grid pair, refreshed M28 validation, M27 diagnostic
+formalization, the refreshed M29 chi-square-primary Monte Carlo pass, verified
+citation trails, and the M37 caveats as the manuscript spine.
 
-Current focus: write the literature-positioning pass that distinguishes this
-paper from Drautzburg-Wright under the no-noise null, sign-set inference, and
-higher-moment SVAR GMM.
+Current focus: turn Sections 2-4 from TODO scaffolds into disciplined prose
+while keeping the M25 proof-audit caveat and the M37 estimator caveats visible.
 
-Next recommended action: start M32 with explicit citation trails and clear
-contribution boundaries. Keep the M37 estimator caveats visible when drafting
-Section 4 theorem-level prose.
+Next recommended action: start M38, drafting the core Sections 2-4 prose
+without promoting the M25 generic-emptying result to theorem language before
+its direct proof audit.
 
-Active milestone: none. M0032 records the post-M0030 estimator audit.
+Active milestone: none. M0033 records the M32 literature-positioning pass.
 
 Active blockers:
 
@@ -56,11 +56,11 @@ Active blockers:
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
 
-Last substantive session: 2026-06-06, completed M37, the direct post-M0030
-audit of the diagonal-noise robust estimator. The audit conditionally cleared
-the six-moment robust object for disciplined Section 4 prose and recorded
-caveats about normalized scale, profiled diagonal variances, pointwise
-`chi2_6` cutoffs, and correlated or non-Gaussian residual-noise fallbacks.
+Last substantive session: 2026-06-06, completed M32, the first
+literature-positioning pass. The introduction now distinguishes the paper from
+sign-set inference, Drautzburg-Wright's no-noise maintained-null refinement,
+and higher-moment SVAR/GMM sources while marking the residual-noise
+DW-versus-robust-DW comparison as the manuscript contribution.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

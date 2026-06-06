@@ -19,12 +19,15 @@ overlap/divergence metric, and interpretation boundaries. The refreshed M29
 Monte Carlo pass now uses chi-square, no-noise repeated, oracle scenario truth,
 and truth-point residual-bootstrap cutoffs. User decision U0026 makes the
 standard pointwise chi-square rows the primary applied benchmark; the other
-cutoffs are calibration audits. M31 has now started the first figure-led draft
-by replacing the TODO-only abstract, introduction, and evidence section with a
+cutoffs are calibration audits. M31 started the first figure-led draft by
+replacing the TODO-only abstract, introduction, and evidence section with a
 source-traced skeleton around the residual-noise grid, the non-Gaussianity
 grid, and the M29 chi-square-primary table. M37 directly audited the
 post-M0030 robust estimator and conditionally cleared it for local
-theorem-level prose under diagonal Gaussian residual noise.
+theorem-level prose under diagonal Gaussian residual noise. M32 added the
+first literature-positioning pass inside the introduction, distinguishing the
+paper from sign-set inference, Drautzburg-Wright's no-noise comparator, and
+higher-moment SVAR/GMM sources.
 
 The active paper no longer treats the previous constructive route as part of
 the main plan. The first version is a short simultaneous-SVAR
@@ -41,7 +44,7 @@ model VAR lags or dynamic impulse responses.
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
 | M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, diagonal-noise robust-DW validity result, and comparison diagnostic are stated and audited. M27 has stated the comparison diagnostic, and M37 conditionally cleared the post-M0030 robust estimator for local theorem-level prose; the M25 standard-DW proof audit remains open. |
 | M5. Evidence package | done-for-draft | M0030 revised the figure pair as the visual spine; refreshed M28 validates the population/repeated-seed grid story and refreshed M29 supplies chi-square-primary evidence plus repeated-sample and truth-bootstrap audit diagnostics using the M27 metrics. |
-| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section around the selected figures and M29 table; sections 2-4, conclusion, and literature positioning still need prose. |
+| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section around the selected figures and M29 table; M32 added the first literature-positioning pass; sections 2-4 and the conclusion still need prose. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
 
@@ -77,9 +80,9 @@ model VAR lags or dynamic impulse responses.
    mark original contributions clearly.
 10. Reproducibility package: make final figures rebuildable without a local
    KnowledgeVault dependency.
-11. Literature positioning: keep Drautzburg-Wright framed as valid under its
-   maintained no-noise null and define this paper as a residual-noise
-   robustness check.
+11. Literature positioning: M32 drafted the first pass. In later revisions,
+   keep Drautzburg-Wright framed as valid under its maintained no-noise null
+   and define this paper as a residual-noise robustness check.
 12. Reader path: make sure the residual-noise grid establishes the warning and
    the non-Gaussianity grid immediately states the honest limitation of the
    robust set.
