@@ -13,22 +13,27 @@ reported beside the standard DW set as a practical robustness check.
 ## Paper Contract
 
 - Paper type: short theory-and-simulation note.
-- Scope: bivariate impact model in the main text, with dynamic signs and
-  `K > 2` extensions deferred.
+- Scope: bivariate simultaneous impact model in the main text. Treat the
+  reduced-form residual `u_t` as given; omit VAR lag dynamics, dynamic impulse
+  responses, horizon-specific sign restrictions, and `K > 2` extensions.
 - Benchmark: standard sign-restricted covariance rotations and
   Drautzburg-Wright-style no-noise higher-moment refinement.
 - Constructive object: robust DW-style higher-moment set over normalized impact
   matrices, using higher cumulants written as GMM-style moment equations and
   excluding second moments as structural restrictions.
-- Evidence: intuitive geometry figure, standard DW misspecification figure,
-  robust-DW comparison figure, and Monte Carlo coverage/width/overlap tables.
+- Evidence: analytical J-test inversion result, then an early lightweight
+  Monte Carlo overview before polished figures; final evidence only if useful:
+  intuitive geometry figure, standard DW misspecification figure, robust-DW
+  comparison figure, and Monte Carlo coverage/width/overlap tables.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
 ## Reader Path
 
-1. The reader knows that sign restrictions filter rotations of a covariance
-   factor and that DW uses higher moments to refine a sign-admissible set.
+1. The reader is placed directly in the simultaneous impact problem: the VAR
+   residual `u_t` is already in hand, sign restrictions filter rotations of a
+   covariance factor, and DW uses higher moments to refine a sign-admissible
+   set.
 2. The problem appears when observed residuals are `B0 epsilon_t + eta_t`:
    the covariance factor is built from `B0 B0' + V`, so the sign set is already
    a noisy pseudo-set.
@@ -84,20 +89,20 @@ and proof or output status.
   sign-set bias.
 - Algebraic proof of the covariance pseudo-set and column-rescaling
   obstruction.
-- Proof or carefully bounded conjecture that standard DW recovered-shock
-  restrictions are misspecified under residual noise, with asymptotic emptiness
-  checked later.
+- M25 working derivation showing that standard DW recovered-shock restrictions
+  are misspecified under residual noise, with the J-test inversion stated as
+  generic emptying plus explicit pseudo-zero exceptions.
 - Derivation of the robust higher-moment stack from
   `derivations/dw-noise-robust-moments.md`.
+- Early Monte Carlo overview after the analytical J-test result to decide
+  whether the project is worth deeper figure and replication investment.
 - Monte Carlo comparison of standard sign, standard DW, and robust DW sets.
 - Stress cases that show honest widening, weak-moment uncertainty, and
   divergence diagnostics.
 
 ## Current Bottlenecks
 
-- The plan is now pivoted, but the robust DW derivation needs adversarial audit
-  before becoming a theorem.
-- The standard DW asymptotic-empty claim under residual noise is still a
-  conjecture to prove or weaken.
-- The first figure and Monte Carlo design need to be specified before drafting
-  polished prose.
+- The standard DW J-test inversion result is now a working derivation; it still
+  needs audit and finite-sample MC triage before prose promotion.
+- The first finite-sample Monte Carlo should be a quick triage after M25,
+  before drafting polished prose or spending time on final figures.

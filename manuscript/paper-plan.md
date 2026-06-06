@@ -6,10 +6,12 @@ Noise-Robust Sign-Restricted SVARs
 
 ## Main Idea
 
-The paper studies what happens when applied researchers combine sign
-restrictions with Drautzburg-Wright-style higher-moment refinements while the
-VAR residuals contain additive noise. The standard sign-restricted set rotates
-a factor of the noisy covariance, so it targets a pseudo-set. Standard
+The paper studies the simultaneous SVAR impact problem that arises after a
+reduced-form residual has been obtained: what happens when applied researchers
+combine sign restrictions with Drautzburg-Wright-style higher-moment
+refinements while those residuals contain additive noise. The paper does not
+model VAR lag dynamics. The standard sign-restricted set rotates a factor of
+the noisy covariance, so it targets a pseudo-set. Standard
 Drautzburg-Wright refinement then appears to sharpen that pseudo-set, but the
 smaller accepted set can be an artifact of misspecification rather than more
 efficient structural learning.
@@ -67,9 +69,13 @@ that the noisy covariance is structural.
    write the higher-cumulant restrictions as moment equations, and explain why
    second moments are excluded as structural restrictions. State the local
    identification and consistency claims only after audit.
-5. Monte Carlo evidence and robustness check: simulate no-noise, moderate
-   noise, high noise, weak-moment, and near-Gaussian cases. Show the standard
-   sign set, standard DW set, robust DW set, and their overlap/divergence.
+5. Monte Carlo evidence and robustness check: first run a lightweight overview
+   Monte Carlo after the analytical J-test inversion result is clear, to learn
+   whether the proposed comparison works well enough to justify more time.
+   Then, only if the overview is encouraging or informative, build the final
+   no-noise, moderate-noise, high-noise, weak-moment, and near-Gaussian cases.
+   Show the standard sign set, standard DW set, robust DW set, and their
+   overlap/divergence.
 6. Conclusion: recommend reporting the robust DW set beside the standard DW
    set as a diagnostic for covariance-target misspecification. Defer empirical
    applications.
@@ -79,6 +85,10 @@ that the noisy covariance is structural.
 - Observed residual model:
   `u_t = B0 epsilon_t + eta_t`, `E[epsilon_t epsilon_t'] = I`,
   `E[epsilon_t eta_t'] = 0`, and `E[eta_t eta_t'] = V`.
+- Scope convention:
+  treat `u_t` as the simultaneous residual/impact object. The first paper does
+  not specify or estimate lag matrices, dynamic responses, or horizon-specific
+  sign restrictions.
 - Standard sign set:
   `B_*(Q) = P_* Q`, where `P_* P_*' = Sigma_u = B0 B0' + V` and
   `R(P_* Q) >= 0`.
@@ -105,10 +115,12 @@ that the noisy covariance is structural.
   based on `Sigma_u` generally differs from the no-noise economic sign set.
   This result should be explained visually before the algebra.
 - Proposition 2, standard DW is misspecified under residual noise: recovered
-  shocks from noisy covariance-factor candidates are not the structural shocks,
-  so no-noise independence restrictions need not hold at `B0`. The population
-  accepted set is expected to be generically empty; finite-sample inversion can
-  still return a falsely narrow least-rejected region.
+  shocks from noisy covariance-factor candidates are not the structural shocks.
+  The M25 derivation shows that, under a rich independence/J-test inversion and
+  generic residual noise, the population accepted set is empty; with special
+  structural-coordinate rescaling cases or finite-moment aliases, the set can
+  instead contain pseudo-true candidates. Finite-sample inversion can still
+  return a falsely narrow least-rejected region.
 - Proposition 3, robust DW higher moments: under the maintained robust-noise
   conditions, the higher-cumulant moment stack for `z_t(B)` has zero
   population value at the true normalized impact matrix, while no-noise second
@@ -132,6 +144,10 @@ that the noisy covariance is structural.
 - Robust DW comparison figure: overlay standard DW and robust DW accepted sets.
   In no-noise or nearly no-noise cases they should overlap; under noise they
   should diverge, with the robust set wider.
+- Early Monte Carlo triage: immediately after the analytical J-test inversion
+  result, run a small finite-sample overview to see whether the standard-DW
+  versus robust-DW comparison has useful size, coverage, width, and divergence
+  behavior before investing in polished figures or a large replication suite.
 - Monte Carlo table: report coverage of the true normalized `B0`, set width,
   empty-set frequency for standard DW, overlap frequency, and rejection or
   divergence diagnostics.
@@ -141,11 +157,12 @@ that the noisy covariance is structural.
 
 ## What Is Missing
 
-- A formal proof or clear conjecture boundary for asymptotic emptiness of the
-  standard DW set under residual noise.
-- An adversarial audit of `derivations/dw-noise-robust-moments.md`, especially
-  the cumulant-as-moment equations, local rank, normalization, and exact noise
-  conditions.
+- An audit and early Monte Carlo check of the M25 J-test inversion derivation,
+  including the special cases where standard DW is not empty but targets a
+  rescaled or aliased pseudo-candidate.
+- A lightweight Monte Carlo triage after that analytical result, before
+  spending much more time on polished figures, a large replication package, or
+  first-draft prose.
 - A decision on the precise robust noise assumption: Gaussian additive noise is
   clean for transformed cumulants; broader non-Gaussian noise would need a
   different argument.
@@ -163,7 +180,8 @@ Excluded from the first version:
 
 - A full empirical application.
 - A general `K`-variable estimator in the main text.
-- Dynamic sign restrictions beyond simple impact-sign illustrations.
+- VAR lag dynamics, lag-coefficient estimation, dynamic responses, and
+  horizon-specific sign restrictions.
 - Correlated, serially dependent, common-factor, or stochastic-volatility noise.
 - A claim that divergence between DW and robust DW proves literal measurement
   error. It is a robustness warning inside the maintained model.

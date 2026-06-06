@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "M0013-scope-and-m25-dw-result",
+  "sequence": 13,
+  "title": "Scope And M25 DW Result",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T08:13:38Z",
+  "closed_at": "2026-06-06T08:21:22Z",
+  "start_commit": "f358797ea7e559365e94ca1237dcf518debbc2d7",
+  "snapshot_ref": "manuscript-milestones/M0013-scope-and-m25-dw-result",
+  "summary": "Updated the manuscript scope to simultaneous SVAR only, added an early Monte Carlo triage gate after the analytical J-test inversion, and completed the M25 standard-DW J-test derivation.",
+  "user_inputs": [
+    {
+      "id": "U0013-001",
+      "milestone_id": "M0013-scope-and-m25-dw-result",
+      "captured_at": "2026-06-06T08:13:38Z",
+      "source": "chat",
+      "text": "User notes: focus only on the simultaneous SVAR, not VAR lags, to keep the paper simple; after analytical results for the J-test inversion, run a Monte Carlo overview to see how well it works before spending too much time; update tasks and plan and continue with the next goal task."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0013-001",
+      "milestone_id": "M0013-scope-and-m25-dw-result",
+      "captured_at": "2026-06-06T08:21:22Z",
+      "description": "Recorded the user scope and evidence-sequencing notes in manuscript logs and planning surfaces."
+    },
+    {
+      "id": "A0013-002",
+      "milestone_id": "M0013-scope-and-m25-dw-result",
+      "captured_at": "2026-06-06T08:21:22Z",
+      "description": "Updated the paper plan, paper map, dashboard, task board, workplan, source packet, replication plan, draft notes, and formal registry."
+    },
+    {
+      "id": "A0013-003",
+      "milestone_id": "M0013-scope-and-m25-dw-result",
+      "captured_at": "2026-06-06T08:21:22Z",
+      "description": "Created manuscript/derivations/standard-dw-j-test-under-noise.md with the M25 working derivation for standard-DW J-test inversion under residual noise."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T08:21:22Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/standard-dw-j-test-under-noise.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/replication/README.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0013-scope-and-m25-dw-result.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 10,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/10",
+    "tag_name": "manuscript-milestones/M0013-scope-and-m25-dw-result"
+  }
+}

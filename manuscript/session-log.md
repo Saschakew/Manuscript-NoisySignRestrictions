@@ -8,6 +8,25 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Update scope and derive standard DW J-test result
+
+- Request or goal: record the new scope and evidence notes, update the plan and
+  tasks, then continue with the next manuscript task.
+- Files changed: `manuscript/paper-plan.md`, `manuscript/paper-map.md`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/source-packet.md`,
+  `manuscript/replication/README.md`, `manuscript/draft.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/derivations/standard-dw-j-test-under-noise.md`, logs, and M0013
+  transparency files.
+- Summary of work: narrowed the first paper to the simultaneous SVAR impact
+  model, added an early Monte Carlo triage gate after analytical J-test
+  inversion, and completed M25 with a working derivation of standard-DW
+  covariance-whitened J-test behavior under residual noise.
+- Next recommended action: run M35, a small overview Monte Carlo for
+  standard-DW versus robust-DW J-test inversion behavior, before polishing
+  figures or expanding the replication package.
+
 ### 2026-06-06 - Audit robust DW derivation
 
 - Request or goal: pick the next manuscript task after the updated paper plan

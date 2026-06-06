@@ -9,7 +9,7 @@
       "type": "definition",
       "status": "planned",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "Observed reduced-form residual model u_t = B0 epsilon_t + eta_t with unit-variance structural shocks and additive residual noise.",
+      "description": "Simultaneous impact-only observed residual model u_t = B0 epsilon_t + eta_t with unit-variance structural shocks and additive residual noise; VAR lags and dynamic responses are outside the first paper.",
       "depends_on": [],
       "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
     },
@@ -83,15 +83,30 @@
     {
       "id": "prop:standard-dw-misspecification",
       "type": "proposition",
-      "status": "planned",
+      "status": "working-derivation",
       "draft_location": "draft.md#3-standard-dw-under-residual-noise",
-      "description": "Planned result: under residual noise, standard DW recovered shocks are not structural shocks, so no-noise higher-moment restrictions generally fail at B0; the population set may be empty, while finite samples can produce falsely small least-rejected regions.",
+      "description": "M25 working result: under residual noise, standard DW recovered shocks are not structural shocks. A rich covariance-whitened J-test inversion is generically empty in population, except for structural-coordinate rescaling cases or finite-moment aliases; finite samples can produce falsely small least-rejected regions around pseudo-candidates.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "def:diagonal-noise-svar"
       ],
-      "proof_status": "missing",
-      "source": "vault/syntheses/Noisy residuals in recursive and sign-restricted SVARs.md"
+      "proof_status": "M25 working derivation complete; needs audit and early Monte Carlo triage",
+      "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md",
+      "source": "manuscript/derivations/standard-dw-j-test-under-noise.md"
+    },
+    {
+      "id": "eq:standard-dw-j-test-inversion",
+      "type": "equation",
+      "status": "working-derivation",
+      "draft_location": "derivations/standard-dw-j-test-under-noise.md; draft.md#3-standard-dw-under-residual-noise",
+      "description": "Population and sample J-test inversion for standard covariance-whitened DW candidates: g_infty(Q)'Wg_infty(Q) and T ghat(Q)'What ghat(Q), with asymptotic rejection when the population criterion is bounded away from zero.",
+      "depends_on": [
+        "def:standard-dw-refined-set",
+        "prop:standard-dw-misspecification"
+      ],
+      "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md",
+      "verification_status": "M25 working derivation complete; needs early MC and audit before draft theorem wording",
+      "source": "manuscript/derivations/standard-dw-j-test-under-noise.md"
     },
     {
       "id": "def:robust-dw-higher-moment-set",
@@ -186,7 +201,7 @@
       "type": "table",
       "status": "planned",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and divergence warnings.",
+      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and divergence warnings, preceded by a lightweight early MC triage after the J-test inversion result.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
@@ -220,9 +235,9 @@
   ],
   "open_audits": [
     {
-      "id": "audit:standard-dw-empty-set-gate",
+      "id": "audit:standard-dw-j-test-gate",
       "status": "open",
-      "question": "Can the paper prove the standard DW asymptotic-empty claim under residual noise, or should the claim be weakened to misspecified population objective plus finite-sample false sharpening?"
+      "question": "Does the M25 standard-DW J-test derivation survive audit, especially the rich-stack generic emptying claim, structural-rescaling exception, and finite-moment alias caveats?"
     },
     {
       "id": "audit:robust-dw-global-grid-gate",

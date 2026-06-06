@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T08:07:07Z",
+  "updated_at": "2026-06-06T08:21:22Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -223,6 +223,28 @@
         "milestone_number": 9,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/9",
         "tag_name": "manuscript-milestones/M0012-m24-robust-dw-audit"
+      }
+    },
+    {
+      "id": "M0013-scope-and-m25-dw-result",
+      "sequence": 13,
+      "title": "Scope And M25 DW Result",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T08:13:38Z",
+      "closed_at": "2026-06-06T08:21:22Z",
+      "start_commit": "f358797ea7e559365e94ca1237dcf518debbc2d7",
+      "snapshot_ref": "manuscript-milestones/M0013-scope-and-m25-dw-result",
+      "summary": "Updated the manuscript scope to simultaneous SVAR only, added an early Monte Carlo triage gate after the analytical J-test inversion, and completed the M25 standard-DW J-test derivation.",
+      "user_input_ids": [
+        "U0013-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0013-scope-and-m25-dw-result.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 10,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/10",
+        "tag_name": "manuscript-milestones/M0013-scope-and-m25-dw-result"
       }
     }
   ]

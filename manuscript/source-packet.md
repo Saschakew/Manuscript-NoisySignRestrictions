@@ -45,6 +45,11 @@ How should applied sign-restricted SVAR researchers diagnose whether
 Drautzburg-Wright-style higher-moment refinement is sharpening a valid
 structural set or merely sharpening a misspecified noisy-covariance target?
 
+Scope note: the first paper studies the simultaneous SVAR impact problem only.
+It treats the reduced-form residual `u_t` as the object to be decomposed and
+does not model VAR lags, dynamic impulse responses, or horizon-specific sign
+restrictions.
+
 ## Orientation Searches
 
 | Query or entry point | Vault area | Result | Follow-up |
@@ -104,8 +109,9 @@ these tasks:
    obstruction.
 2. Build the intuitive geometry figure showing covariance deformation and
    sign-set bias.
-3. Prove or carefully weaken the claim that standard DW refinement is
-   asymptotically empty under residual-noise misspecification.
+3. Use the M25 standard-DW J-test inversion derivation: rich stacks empty
+   generically under residual noise, while structural-coordinate rescaling
+   cases and finite-moment aliases can produce pseudo-zeros.
 4. Use the M24 audit of
    `manuscript/derivations/dw-noise-robust-moments.md`: the local normalized
    Gaussian-noise route conditionally passed, but global aliases, scale loss,
@@ -114,20 +120,22 @@ these tasks:
 5. Decide and state the maintained robust noise condition. Gaussian residual
    noise gives clean transformed higher cumulants; broader noise requires a
    different argument.
-6. Implement population-grid checks showing: standard DW false candidates or
+6. Run the lightweight Monte Carlo overview before investing in polished
+   figures or a large replication suite.
+7. Implement population-grid checks showing: standard DW false candidates or
    emptying under noise; robust DW zero at truth under its maintained noise
    model; weak-moment widening.
-7. Run finite-sample Monte Carlo with repeated-sample or bootstrap critical
+8. Run finite-sample Monte Carlo with repeated-sample or bootstrap critical
    values.
-8. Report coverage, set width, empty-set frequency, overlap frequency, and
+9. Report coverage, set width, empty-set frequency, overlap frequency, and
    divergence diagnostics.
-9. Only after analytic and simulation checks pass, promote the robust DW
+10. Only after analytic and simulation checks pass, promote the robust DW
    comparison from a planned robustness check to a manuscript result.
 
 ## Gaps And Risks
 
-- The standard DW asymptotic-empty statement is still a conjecture and needs a
-  proof or a softer claim.
+- The standard DW J-test emptying statement is now a working derivation with
+  explicit exceptions; it still needs audit and early Monte Carlo triage.
 - The robust DW route must be explicit about its noise assumption. Gaussian
   additive residual noise is clean for transformed cumulants; non-Gaussian
   transformed noise generally is not.

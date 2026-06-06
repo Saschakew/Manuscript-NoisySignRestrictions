@@ -5,7 +5,9 @@ reproduce manuscript figures and tables.
 
 This folder should become self-contained before the manuscript is shared.
 Exploratory code can start elsewhere, but final paper evidence should be
-rebuildable from here.
+rebuildable from here. Before building a polished evidence package, run a small
+Monte Carlo triage after the analytical J-test inversion result; the point is
+to decide whether the comparison behaves well enough to justify deeper work.
 
 Computational SVAR work should use KnowledgeVault's existing `svar-python`
 package whenever the needed routine exists there. Do not reimplement
@@ -40,8 +42,12 @@ python run_all.py --stage monte-carlo
 
 ## Evidence To Build
 
-The active paper needs a three-layer evidence package:
+The active paper first needs a quick evidence gate, then a three-layer evidence
+package if the gate is informative:
 
+0. Early MC triage: a small simultaneous-SVAR Monte Carlo comparing
+   standard-DW and robust-DW J-test inversion behavior under no noise,
+   moderate noise, and weak higher moments.
 1. Geometry: a bivariate figure showing how additive residual noise changes
    the covariance ellipse, shifts sign boundaries, and biases the standard
    sign-restricted set.

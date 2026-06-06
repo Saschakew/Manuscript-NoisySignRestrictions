@@ -11,6 +11,28 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - Scope update and M25 J-test derivation
+
+- Request: focus the paper only on the simultaneous SVAR rather than VAR lags;
+  after the analytical J-test inversion result, run an early Monte Carlo
+  overview before spending too much time; update tasks and plan and continue
+  with the next task.
+- Actions taken: updated the active plan, map, dashboard, task board, workplan,
+  source packet, replication plan, draft notes, user input log, decision log,
+  and formal registry; added M35 as the early MC triage task; created
+  `manuscript/derivations/standard-dw-j-test-under-noise.md` for M25.
+- Files changed: `manuscript/paper-plan.md`, `manuscript/paper-map.md`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/source-packet.md`,
+  `manuscript/replication/README.md`, `manuscript/draft.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/derivations/standard-dw-j-test-under-noise.md`, logs, and M0013
+  transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed, with the expected
+  warning that M0013 was still open before milestone closure.
+- Open uncertainties: M25 still needs audit; M35 should test finite-sample
+  behavior quickly before polished figures or a larger replication package.
+
 ### 2026-06-06 - Robust DW derivation audit
 
 - Request: pick the next manuscript task after the updated paper plan and work

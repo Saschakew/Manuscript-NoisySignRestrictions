@@ -5,6 +5,25 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Restrict first paper to simultaneous SVAR and add early MC gate
+
+- Origin: user-originated
+- User input id: U0013
+- Codex role: implemented and continued
+- Decision: The first version focuses only on the simultaneous SVAR impact
+  system. The paper treats the reduced-form residual `u_t` as given and does
+  not model VAR lags, lag estimation, dynamic impulse responses, or
+  horizon-specific sign restrictions. After the analytical J-test inversion
+  result, the next evidence step should be a lightweight Monte Carlo overview
+  before investing in polished figures or a large replication suite.
+- Rationale: This keeps the project small enough to evaluate quickly and makes
+  the go/no-go evidence gate explicit.
+- Alternatives considered: retaining language about dynamic signs and VAR
+  lags as deferred but still nearby, or building final figures before checking
+  whether the finite-sample J-test comparison works.
+- Consequence for next work: Complete M25, then run the new M35 early MC
+  triage before spending major effort on M26-M30 polish.
+
 ### 2026-06-06 - Treat robust DW derivation as a local audited route
 
 - Origin: Codex adversarial audit of the active plan

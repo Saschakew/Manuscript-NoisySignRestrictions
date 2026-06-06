@@ -28,6 +28,7 @@ pseudo-set result and the column-rescaling obstruction. Include an intuitive
 figure that shows how residual noise moves or deforms the sign set.
 
 <!-- SOURCE-TRAIL: Use the proposal note and `Noisy residuals in recursive and sign-restricted SVARs.md`. -->
+<!-- DESIGN-NOTE: Keep the paper simultaneous and impact-only. Treat `u_t` as given; do not introduce VAR lag equations, dynamic IRFs, or horizon-specific sign restrictions in this version. -->
 <!-- TODO-NOTE: Make this section visual and intuitive before the algebra. -->
 
 ## 3. Standard DW Under Residual Noise
@@ -39,8 +40,9 @@ population refined set should generally be empty under noise, while finite
 samples can still return a falsely small least-rejected set.
 
 <!-- SOURCE-TRAIL: Use Drautzburg-Wright, higher-moment SVAR caution sources, and the noisy-residual synthesis. -->
+<!-- SOURCE-TRAIL: Use `derivations/standard-dw-j-test-under-noise.md` for the M25 J-test inversion result: rich-stack generic emptying, structural-rescaling exceptions, finite-moment aliases, and least-rejected pseudo-candidates. -->
 <!-- TODO-NOTE: Be fair: the target is not to criticize DW under its own null, but to show what changes under residual noise. -->
-<!-- TODO-NOTE: The asymptotic-empty claim still needs proof or careful weakening. -->
+<!-- TODO-NOTE: Do not state generic emptying without the M25 assumptions and exceptions. -->
 
 ## 4. Robust DW Higher-Moment Set
 
@@ -62,6 +64,7 @@ under no noise, moderate noise, high noise, weak higher moments, and
 misspecification cases.
 
 <!-- SOURCE-TRAIL: Use KnowledgeVault replication assets only as starting points; final figure commands must live in `replication/README.md`. -->
+<!-- DESIGN-NOTE: Run an early Monte Carlo triage after the analytical J-test inversion result before polishing final figures or a large replication suite. -->
 <!-- TODO-NOTE: Include an intuitive first figure, a false-sharpening figure, and a robust-set comparison figure. -->
 <!-- TODO-NOTE: Report inconclusive and weak cases honestly. -->
 
