@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Align plan with the diagonal-noise robust estimator
+
+- Request or goal: ensure the paper plan and next tasks match the M0030
+  diagonal-noise robust DW estimator; leave files unchanged if everything is
+  already aligned.
+- Files changed: `manuscript/paper-plan.md`, `manuscript/paper-map.md`,
+  `manuscript/project-dashboard.md`, `manuscript/workplan.md`,
+  `manuscript/task-board.md`, logs, and M0031 transparency files.
+- Summary of work: audited the active planning surfaces against the modified
+  robust-DW estimator. Most surfaces already used the M0030 object, but the
+  plan and review checklist still over-emphasized the older pure
+  higher-cumulant route. Revised the active section/result language to the
+  diagonal-noise robust DW set and added M37 as the direct estimator audit
+  before theorem-level prose.
+- Next recommended action: run M37, then return to M32 literature positioning.
+
 ### 2026-06-06 - Solve high-noise robust-DW power problem
 
 - Request or goal: investigate why the high-noise robust-DW row lost power,

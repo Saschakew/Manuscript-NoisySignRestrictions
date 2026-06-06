@@ -65,7 +65,7 @@ reported beside the standard DW set as a practical robustness check.
 | 1. Introduction | Motivate the robustness-check problem and preview the geometry plus Monte Carlo evidence. | skeleton drafted |
 | 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | planned |
 | 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | planned |
-| 4. Robust DW Higher Moments | Define the robust normalized candidate set, write the off-diagonal covariance and cumulant restrictions as moment equations, and explain why diagonal noise variances are profiled out. | planned |
+| 4. Diagonal-Noise Robust DW | Define the robust normalized candidate set, write the off-diagonal covariance and cumulant restrictions as moment equations, and explain why diagonal noise variances are profiled out. | planned |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use the two M0030 revised grids as the main visual story, then validate and quantify the same claims with population-grid and Monte Carlo checks. | skeleton drafted |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
 
@@ -106,7 +106,7 @@ and proof or output status.
 - M25 working derivation showing that standard DW recovered-shock restrictions
   are misspecified under residual noise, with the J-test inversion stated as
   generic emptying plus explicit pseudo-zero exceptions.
-- Derivation of the robust higher-moment stack from
+- Derivation of the diagonal-noise robust moment stack from
   `derivations/dw-noise-robust-moments.md`.
 - M28 population-grid and repeated-draw validation of the M0030 revised grid pair.
 - M27 formal diagnostic note defining the reported standard-DW set, robust-DW
@@ -128,6 +128,7 @@ and proof or output status.
   needs audit before prose promotion.
 - M31 has converted the figure-led evidence into a first disciplined draft
   skeleton without treating audit cutoffs as application-ready procedures. The
-  next bottlenecks are literature positioning, direct M25 proof audit before
-  theorem-level wording, and moving figure/table code into
-  `manuscript/replication/` before sharing.
+  next bottlenecks are a direct post-M0030 audit of the diagonal-noise robust
+  estimator, literature positioning, direct M25 proof audit before theorem-level
+  wording, and moving figure/table code into `manuscript/replication/` before
+  sharing.

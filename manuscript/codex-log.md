@@ -11,6 +11,22 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0031 Plan alignment with new estimator
+
+- Request: user asked to ensure the paper plan and next tasks are fully aligned
+  with the new diagonal-noise robust DW estimator, without making unnecessary
+  edits.
+- Actions taken: opened M0031 and GitHub milestone #28; audited
+  `paper-plan.md`, `paper-map.md`, `project-dashboard.md`, `workplan.md`, and
+  `task-board.md`; corrected active wording from the older pure
+  higher-cumulant route to the diagonal-noise robust DW set where needed; added
+  M37 as the direct post-M0030 estimator audit before theorem-level prose.
+- Files changed: planning/control surfaces, logs, and M0031 transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed after edits.
+- Open uncertainties: M37 still needs to audit the off-diagonal covariance
+  anchor, diagonal-variance profiling, higher-cumulant stack, cutoff degrees
+  of freedom, and fallback language before formal theorem wording.
+
 ### 2026-06-06 - M0030 High-noise power fix
 
 - Request: user rejected `V=(2,2)`, asked for an investigation of the

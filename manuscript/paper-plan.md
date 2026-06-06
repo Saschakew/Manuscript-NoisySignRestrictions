@@ -90,10 +90,11 @@ structural.
    planned result that the population DW set should generally be empty under
    misspecification, with finite-sample regions shrinking around
    least-rejected pseudo-candidates.
-4. Robust DW higher-moment set: define the normalized robust candidate space,
+4. Diagonal-noise robust DW set: define the normalized robust candidate space,
    write the off-diagonal covariance and higher-cumulant restrictions as moment
    equations, and explain why diagonal noise variances are profiled out. State
-   the local identification and consistency claims only after audit.
+   the local identification and consistency claims only after a direct
+   post-M0030 audit of the modified estimator.
 5. Figure-led evidence and Monte Carlo robustness check: use the M0030 revised grid
    pair as the reader's main visual guide. First show the residual-noise grid
    that moves the sign set, makes standard DW reject the truth in the high-noise
@@ -152,10 +153,12 @@ structural.
   structural-coordinate rescaling cases or finite-moment aliases, the set can
   instead contain pseudo-true candidates. Finite-sample inversion can still
   return a falsely narrow least-rejected region.
-- Proposition 3, robust DW higher moments: under the maintained robust-noise
-  conditions, the higher-cumulant moment stack for `z_t(B)` has zero
-  population value at the true normalized impact matrix, while no-noise second
-  moment restrictions do not.
+- Proposition 3, diagonal-noise robust DW validity: under the maintained
+  diagonal Gaussian residual-noise conditions, the off-diagonal covariance
+  anchor and the higher-cumulant moment stack for `z_t(B)` have zero population
+  value at the true normalized impact matrix. The contaminated diagonal
+  variance targets and the recovered-shock zero-covariance restriction are not
+  imposed.
 - Proposition 4, robust set comparison: M27 formalizes the diagnostic in
   `manuscript/derivations/dw-robust-comparison-diagnostic.md`. The key warning
   is directional: standard-DW accepted mass outside robust-DW indicates that
@@ -201,13 +204,14 @@ structural.
 ## What Is Missing
 
 - Sections 2-4 still need prose that turns the noisy sign-set algebra,
-  standard-DW misspecification result, and robust higher-cumulant set into
+  standard-DW misspecification result, and diagonal-noise robust DW set into
   disciplined manuscript text.
 - The literature-positioning pass should distinguish this paper from
   Drautzburg-Wright under the no-noise null, sign-set inference, and
   higher-moment SVAR GMM.
-- A decision on the precise robust noise assumption: Gaussian additive noise is
-  clean for transformed cumulants; broader non-Gaussian noise would need a
+- A decision on the precise robust noise assumption: diagonal Gaussian additive
+  noise is clean for the selected off-diagonal covariance anchor and
+  transformed cumulants; broader non-Gaussian or correlated noise would need a
   different argument.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.

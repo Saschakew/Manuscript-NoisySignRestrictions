@@ -37,7 +37,7 @@ model VAR lags or dynamic impulse responses.
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M27 has stated the comparison diagnostic. |
+| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, diagonal-noise robust-DW validity result, and comparison diagnostic are stated and audited. M27 has stated the comparison diagnostic; M37 should directly audit the post-M0030 robust estimator before theorem-level prose. |
 | M5. Evidence package | done-for-draft | M0030 revised the figure pair as the visual spine; refreshed M28 validates the population/repeated-seed grid story and refreshed M29 supplies chi-square-primary evidence plus repeated-sample and truth-bootstrap audit diagnostics using the M27 metrics. |
 | M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section around the selected figures and M29 table; sections 2-4, conclusion, and literature positioning still need prose. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
@@ -48,15 +48,17 @@ model VAR lags or dynamic impulse responses.
 1. Scope and contribution: verify that the paper is a robustness-check note,
    not a broad higher-moment SVAR survey.
 2. Notation and assumptions: audit the additive-noise model, unit-variance
-   normalization, Gaussian-noise condition for robust transformed cumulants,
-   and sign-labeling conventions.
+   normalization, diagonal-noise condition for the off-diagonal covariance
+   anchor, Gaussian-noise condition for robust transformed cumulants, and
+   sign-labeling conventions.
 3. Noisy sign-set review: check the covariance pseudo-set, column-rescaling
    obstruction, and intuition in the first figure.
 4. Standard-DW misspecification review: prove or weaken the claim that the
    population DW set becomes empty under residual noise; list special cases.
-5. Robust-DW derivation review: check cumulant-to-moment algebra, fourth-order
-   covariance subtractions, local rank, scale loss, and finite-sample bias
-   wording.
+5. Robust-DW derivation review: check the off-diagonal covariance anchor,
+   diagonal-variance profiling, cumulant-to-moment algebra, fourth-order
+   covariance subtractions, local rank, scale loss, cutoff degrees of freedom,
+   and finite-sample bias wording.
 6. Diagnostic interpretation review: use the M27 directional metric and verify
    that DW-versus-robust-DW divergence is described as a warning, not proof of
    literal measurement error.

@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "M0031-align-plan-with-new-estimator",
+  "sequence": 31,
+  "title": "Align Plan With New Estimator",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T16:54:15Z",
+  "closed_at": "2026-06-06T16:57:37Z",
+  "start_commit": "d49f7017ce62719a19646735fe624cb4170bb892",
+  "snapshot_ref": "manuscript-milestones/M0031-align-plan-with-new-estimator",
+  "summary": "Aligned the paper plan and next-task surfaces with the M0030 diagonal-noise robust DW estimator, including explicit off-diagonal covariance anchor language and a new M37 post-M0030 estimator audit task.",
+  "user_inputs": [
+    {
+      "id": "U0031-001",
+      "milestone_id": "M0031-align-plan-with-new-estimator",
+      "captured_at": "2026-06-06T16:54:15Z",
+      "source": "chat",
+      "text": "Ensure the paper plan and next tasks are fully in line with the new diagonal-noise robust DW estimator, editing only if stale planning language remains."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0031-001",
+      "milestone_id": "M0031-align-plan-with-new-estimator",
+      "captured_at": "2026-06-06T16:57:37Z",
+      "description": "Updated paper plan, paper map, dashboard, workplan, task board, and logs to make M37 the next estimator-specific gate."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T16:57:37Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before close"
+    },
+    {
+      "captured_at": "2026-06-06T16:57:37Z",
+      "description": "git diff --check: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0031-align-plan-with-new-estimator.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 28,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/28",
+    "tag_name": "manuscript-milestones/M0031-align-plan-with-new-estimator"
+  }
+}

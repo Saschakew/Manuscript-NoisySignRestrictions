@@ -5,6 +5,25 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Add a direct post-M0030 estimator audit task
+
+- Origin: user instruction to align the plan and next tasks with the new
+  estimator
+- User input id: U0031
+- Codex role: audited and revised planning surfaces.
+- Decision: The paper plan should describe the constructive object as a
+  diagonal-noise robust DW set, not merely as the older pure higher-cumulant
+  route. The next method task should be M37, a direct audit of the
+  off-diagonal covariance anchor, diagonal-variance profiling, mixed
+  higher-cumulant stack, `chi2_6` cutoff convention, and fallback language for
+  correlated or non-Gaussian residual noise before theorem-level prose.
+- Rationale: M0030 modified the reported estimator by adding valid
+  second-moment information under diagonal noise. That is central enough that
+  the active plan should not treat the older cumulant-only audit as sufficient.
+- Consequence for next work: Run M37 before promoting the robust-DW validity
+  result to theorem-level text, then return to M32 literature positioning and
+  the remaining drafting tasks.
+
 ### 2026-06-06 - Replace pure robust row with diagonal-noise robust statistic
 
 - Origin: user correction and methodological suggestion

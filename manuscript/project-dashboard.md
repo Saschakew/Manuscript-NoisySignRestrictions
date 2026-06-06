@@ -12,12 +12,15 @@ now use the M0030 diagonal-noise robust grid pair, refreshed M28 validation,
 M27 diagnostic formalization, and the refreshed M29 chi-square-primary Monte
 Carlo pass as the manuscript spine.
 
-Current focus: write the literature-positioning pass that distinguishes this
-paper from Drautzburg-Wright under the no-noise null, sign-set inference, and
-higher-moment SVAR GMM without turning the paper into a broad survey.
+Current focus: audit the M0030 diagonal-noise robust DW estimator before
+promoting it to theorem-level prose, then return to the literature-positioning
+pass that distinguishes this paper from Drautzburg-Wright under the no-noise
+null, sign-set inference, and higher-moment SVAR GMM.
 
-Next recommended action: start M32 by drafting the first literature-positioning
-pass with explicit citation trails and clear contribution boundaries.
+Next recommended action: start M37 by auditing the off-diagonal covariance
+anchor, diagonal-variance profiling, higher-cumulant stack, cutoff degrees of
+freedom, and fallback language for non-diagonal or non-Gaussian residual noise.
+Then start M32 with explicit citation trails and clear contribution boundaries.
 
 Active milestone: none. M0028 records the first figure-led drafting pass.
 
@@ -30,7 +33,8 @@ Active blockers:
   M28 supports its population truth-inclusion behavior, and the refreshed M29
   run gives draft-level chi-square-primary Monte Carlo evidence plus
   repeated-sample, oracle, and truth-point residual-bootstrap calibration
-  audits.
+  audits. The modified estimator still needs a direct post-M0030 derivation
+  audit before theorem-level wording.
 - The M25 standard-DW J-test inversion result is only a working derivation; M28
   supports the high-noise divergence story, but the derivation still needs a
   direct audit before theorem-level prose.

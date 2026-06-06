@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T16:33:25Z",
+  "updated_at": "2026-06-06T16:57:37Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -621,6 +621,28 @@
         "milestone_number": 27,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/27",
         "tag_name": "manuscript-milestones/M0030-investigate-figure-power-problem"
+      }
+    },
+    {
+      "id": "M0031-align-plan-with-new-estimator",
+      "sequence": 31,
+      "title": "Align Plan With New Estimator",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T16:54:15Z",
+      "closed_at": "2026-06-06T16:57:37Z",
+      "start_commit": "d49f7017ce62719a19646735fe624cb4170bb892",
+      "snapshot_ref": "manuscript-milestones/M0031-align-plan-with-new-estimator",
+      "summary": "Aligned the paper plan and next-task surfaces with the M0030 diagonal-noise robust DW estimator, including explicit off-diagonal covariance anchor language and a new M37 post-M0030 estimator audit task.",
+      "user_input_ids": [
+        "U0031-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0031-align-plan-with-new-estimator.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 28,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/28",
+        "tag_name": "manuscript-milestones/M0031-align-plan-with-new-estimator"
       }
     }
   ]
