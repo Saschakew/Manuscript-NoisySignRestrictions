@@ -5,6 +5,22 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Keep Figure 1 as method rows and noise columns
+
+- Origin: user correction
+- User input id: U0029
+- Codex role: verified the figure orientation after an initial
+  misinterpretation.
+- Decision: Figure 1 should keep the residual-noise grid layout with rows for
+  sign/covariance, standard DW, and robust DW; structural non-Gaussianity is
+  fixed; columns increase residual noise from no noise to medium noise to
+  strong noise.
+- Rationale: This layout makes the main warning readable: holding the shock
+  distribution fixed, the reader moves left to right as the noisy covariance
+  target worsens and sees how the three methods react.
+- Consequence for next work: The non-Gaussianity grid remains the separate
+  Figure 2 limitation figure and should not be substituted for Figure 1.
+
 ### 2026-06-06 - Start the draft with the figure-led evidence spine
 
 - Origin: Codex execution of user-requested next task

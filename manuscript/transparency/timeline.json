@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T14:54:55Z",
+  "updated_at": "2026-06-06T15:10:19Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -576,6 +576,29 @@
         "milestone_number": 25,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/25",
         "tag_name": "manuscript-milestones/M0028-draft-m31-figure-led-skeleton"
+      }
+    },
+    {
+      "id": "M0029-correct-figure-one-noise-rows",
+      "sequence": 29,
+      "title": "Verify Figure One Noise Columns",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T15:02:27Z",
+      "closed_at": "2026-06-06T15:10:19Z",
+      "start_commit": "7b0b46d07de00d37a5f646ceea9e1794ac2a394f",
+      "snapshot_ref": "manuscript-milestones/M0029-verify-figure-one-noise-columns",
+      "summary": "Verified and restored Figure 1 as the fixed-non-Gaussianity residual-noise grid with method rows and increasing-noise columns.",
+      "user_input_ids": [
+        "U0029-001",
+        "U0029-002"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0029-correct-figure-one-noise-rows.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 26,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/26",
+        "tag_name": "manuscript-milestones/M0029-verify-figure-one-noise-columns"
       }
     }
   ]

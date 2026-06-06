@@ -11,6 +11,23 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0029 Figure 1 orientation clarification
+
+- Request: user corrected the Figure 1 interpretation and clarified that the
+  residual-noise figure should keep method rows and increasing-noise columns.
+- Actions taken: opened M0029; inspected the rendered residual-noise and
+  non-Gaussianity figures; restored the residual-noise figure generator and
+  PNG to the intended layout after an initial mistaken transpose; recorded the
+  clarification in user input and decision logs.
+- Files changed: transparency files and logs.
+- Checks run: rendered and visually inspected
+  `figures/fig_sign_dw_robust_noise_grid.png`; `python
+  scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning; `git diff --check` passed with line-ending
+  normalization warnings only.
+- Open uncertainties: none for Figure 1 orientation. The non-Gaussianity grid
+  remains the separate limitation figure.
+
 ### 2026-06-06 - M0028 M31 figure-led skeleton
 
 - Request: work on the manuscript in goal mode by picking the next task.

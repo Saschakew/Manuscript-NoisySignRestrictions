@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "M0029-correct-figure-one-noise-rows",
+  "sequence": 29,
+  "title": "Verify Figure One Noise Columns",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T15:02:27Z",
+  "closed_at": "2026-06-06T15:10:19Z",
+  "start_commit": "7b0b46d07de00d37a5f646ceea9e1794ac2a394f",
+  "snapshot_ref": "manuscript-milestones/M0029-verify-figure-one-noise-columns",
+  "summary": "Verified and restored Figure 1 as the fixed-non-Gaussianity residual-noise grid with method rows and increasing-noise columns.",
+  "user_inputs": [
+    {
+      "id": "U0029-001",
+      "milestone_id": "M0029-correct-figure-one-noise-rows",
+      "captured_at": "2026-06-06T15:02:27Z",
+      "source": "chat",
+      "text": "User flagged that the draft inserted the non-Gaussianity figure twice or in the wrong role, and requested that the first figure instead show fixed non-Gaussianity with increasing residual noise in rows."
+    },
+    {
+      "id": "U0029-002",
+      "milestone_id": "M0029-correct-figure-one-noise-rows",
+      "captured_at": "2026-06-06T15:06:00Z",
+      "source": "chat",
+      "text": "Clarification: Figure 1 should keep the existing layout with first row sign restrictions, second row standard DW, third row robust DW, fixed structural non-Gaussianity, and columns increasing residual noise from no noise to medium noise to strong noise."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0029-001",
+      "milestone_id": "M0029-correct-figure-one-noise-rows",
+      "captured_at": "2026-06-06T15:10:19Z",
+      "description": "Inspected both rendered grid figures and confirmed the intended Figure 1 should use sign/covariance, standard DW, and robust DW rows with residual-noise columns."
+    },
+    {
+      "id": "A0029-002",
+      "milestone_id": "M0029-correct-figure-one-noise-rows",
+      "captured_at": "2026-06-06T15:10:19Z",
+      "description": "Restored the noise-grid generator and PNG to the committed intended orientation after an initial mistaken transpose, and recorded the user clarification in durable logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T15:10:19Z",
+      "description": "Rendered and visually inspected manuscript/figures/fig_sign_dw_robust_noise_grid.png: method rows and noise columns confirmed"
+    },
+    {
+      "captured_at": "2026-06-06T15:10:19Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T15:10:19Z",
+      "description": "git diff --check: passed with line-ending normalization warnings only"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/session-log.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0029-correct-figure-one-noise-rows.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 26,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/26",
+    "tag_name": "manuscript-milestones/M0029-verify-figure-one-noise-columns"
+  }
+}

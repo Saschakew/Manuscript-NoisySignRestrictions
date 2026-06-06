@@ -8,6 +8,21 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Verify Figure 1 residual-noise orientation
+
+- Request or goal: respond to the user's correction about the first
+  figure-led draft.
+- Files changed: transparency files and logs only; the residual-noise figure
+  and generator were restored to the committed intended layout after a brief
+  mistaken transpose.
+- Summary of work: opened M0029, checked the actual residual-noise and
+  non-Gaussianity figures, initially misread the requested orientation, then
+  restored and verified Figure 1 as method rows and noise columns:
+  sign/covariance, standard DW, and robust DW by row; no, medium, and strong
+  residual noise by column; fixed structural non-Gaussianity.
+- Next recommended action: continue with M32 literature positioning after the
+  figure-layout clarification is committed.
+
 ### 2026-06-06 - Draft M31 figure-led skeleton
 
 - Request or goal: work on the manuscript in goal mode by picking the next
