@@ -66,6 +66,7 @@ misspecification cases.
 <!-- SOURCE-TRAIL: Use KnowledgeVault replication assets only as starting points; final figure commands must live in `replication/README.md`. -->
 <!-- SOURCE-TRAIL: Use `derivations/dw-robust-comparison-diagnostic.md` for the M27 definitions of the reported standard-DW set, robust-DW set, critical-value convention, directional overlap metric, and interpretation boundaries. -->
 <!-- DESIGN-NOTE: Run an early Monte Carlo triage after the analytical J-test inversion result before polishing final figures or a large replication suite. -->
+<!-- DESIGN-NOTE: Use standard pointwise chi-square critical values as the primary applied M29 benchmark; repeated-sample, oracle, and truth-bootstrap cutoffs are audit rows only. -->
 <!-- TODO-NOTE: Include an intuitive first figure, a false-sharpening figure, and a robust-set comparison figure. -->
 <!-- TODO-NOTE: In simulation tables, report accepted shares, empty-set frequencies, Jaccard overlap, standard-DW mass outside robust-DW, truth inclusion, and least-rejected candidates. -->
 <!-- TODO-NOTE: Report inconclusive and weak cases honestly. -->

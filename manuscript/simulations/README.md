@@ -17,19 +17,17 @@ python manuscript\simulations\m29_calibrated_monte_carlo.py
 ```
 
 Interpretation: this expanded M29 pass keeps the M0020/M28 B-plane and reports
-the M27 metric bundle under four pointwise cutoff conventions: the chi-square
-guide, a no-noise repeated-sample calibration applied to every scenario, an
-oracle scenario-specific truth calibration, and a truth-point residual
-bootstrap. The high-noise case supports the visual warning: standard DW
-includes true `B0` in only about one third of evaluation samples under the
-no-noise repeated calibration, while robust DW includes it in most samples.
-The high-noise oracle standard-DW cutoff rises sharply, showing the calibration
-cost of forcing the misspecified statistic to cover the truth. The
-truth-bootstrap convention restores truth inclusion for both methods only by
-widening accepted sets, with the high-noise robust set essentially covering the
-plotted chart. This remains an evidence gate, not the final manuscript table;
-M29 still needs a larger run and a final calibration convention before
-coverage claims are final.
+the M27 metric bundle under four pointwise cutoff conventions. The chi-square
+rows are the primary applied benchmark because they match the critical values a
+standard-DW researcher would use when unaware of residual noise. The high-noise
+case supports the visual warning: standard DW includes true `B0` in only 0.292
+of evaluation samples under the chi-square guide, while robust DW includes it
+in 0.917. No-noise repeated, oracle scenario truth, and truth-point residual
+bootstrap cutoffs are calibration audits. The high-noise oracle standard-DW
+cutoff rises sharply, and the truth-bootstrap convention restores truth
+inclusion only by widening accepted sets. This remains an evidence gate, not
+the final manuscript table; M29 still needs a larger chi-square-primary run
+before coverage-style claims are final.
 
 ## M0020 Non-Gaussianity Companion Grid
 
@@ -66,8 +64,9 @@ pointwise critical-value sensitivity. It supports the visual spine under the
 maintained Gaussian residual-noise condition: standard DW moves away from true
 `B0` under high residual noise, robust DW keeps true `B0` as a population zero,
 and weak or Gaussian structural higher moments widen or empty the identifying
-content of the robust row. It is not final coverage evidence; M29 still needs
-calibrated repeated-sample or bootstrap critical values.
+content of the robust row. It is not final coverage evidence; after U0026, M29
+uses chi-square cutoffs as the primary applied benchmark and repeated/bootstrap
+cutoffs as calibration audits.
 
 ## M0020 Corrected Sign/DW/Robust-DW Noise Grid
 

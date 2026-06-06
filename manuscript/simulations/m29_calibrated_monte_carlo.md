@@ -1,8 +1,8 @@
 # M29 Calibrated Monte Carlo Expanded Pass
 
-Status: expanded calibrated finite-sample evidence pass for M29, not the final replication table.
+Status: expanded finite-sample evidence pass for M29, not the final replication table.
 
-This pass keeps the M0020/M28 normalized B-plane and reports the M27 metric bundle under repeated-sample and bootstrap critical-value conventions.
+This pass keeps the M0020/M28 normalized B-plane. The main applied benchmark uses the standard pointwise chi-square critical values a researcher would use under the maintained no-noise DW null; repeated-sample, oracle, and truth-bootstrap cutoffs are reported as calibration audits.
 
 ## Configuration
 
@@ -15,10 +15,10 @@ This pass keeps the M0020/M28 normalized B-plane and reports the M27 metric bund
 
 Critical-value conventions:
 
-- `chi_square_90`: the pointwise 90 percent chi-square guide used in the M0020 figures.
-- `no_noise_repeated_90`: repeated-sample true-`B0` calibration in the no-noise strong-moment DGP, then applied to every scenario.
-- `scenario_truth_repeated_90`: oracle repeated-sample true-`B0` calibration inside each scenario. This is diagnostic only because applications do not know the true `B0` or DGP.
-- `truth_residual_bootstrap_90`: sample-specific residual-bootstrap true-`B0` calibration. This is also diagnostic only because true `B0` is known only in simulations.
+- `chi_square_90`: primary applied benchmark; the pointwise 90 percent chi-square guide used by a researcher who applies standard DW without accounting for residual noise.
+- `no_noise_repeated_90`: calibration audit; repeated-sample true-`B0` calibration in the no-noise strong-moment DGP, then applied to every scenario.
+- `scenario_truth_repeated_90`: oracle calibration audit inside each scenario. This is diagnostic only because applications do not know the true `B0` or DGP.
+- `truth_residual_bootstrap_90`: sample-specific truth-point residual-bootstrap audit. This is also diagnostic only because true `B0` is known only in simulations.
 
 ## Repeated-Sample Scenario Cutoffs
 
@@ -62,17 +62,19 @@ Critical-value conventions:
 
 ## Expanded-Pass Outcome
 
-- In the high Gaussian-noise stress case, standard DW includes true `B0` in only 0.292 of evaluation samples under the chi-square guide and 0.333 under the no-noise repeated calibration; robust DW includes true `B0` in 0.917 and 0.875, respectively.
+- Under the primary chi-square benchmark, the high Gaussian-noise stress case has standard DW including true `B0` in only 0.292 of evaluation samples under the researcher-facing cutoff, while robust DW includes true `B0` in 0.917.
+- The no-noise repeated audit gives the same reading: high-noise standard DW includes true `B0` in 0.333, while robust DW includes it in 0.875.
 - The high-noise oracle standard-DW cutoff is `31.424`, compared with `8.893` under no noise. That is the calibration cost of forcing the misspecified standard-DW statistic to cover the truth.
 - The same high-noise oracle cutoff raises the standard-DW accepted share to 0.328, so the apparent precision is not free once the cutoff is truth-calibrated.
-- Weak and Gaussian structural-shock cases keep robust DW wide under the no-noise repeated cutoff: mean robust shares are 0.912 and 0.892. This supports the limitation story rather than a sharp identification claim.
+- Weak and Gaussian structural-shock cases keep robust DW wide under the primary chi-square benchmark: mean robust shares are 0.923 and 0.903. This supports the limitation story rather than a sharp identification claim.
 - The high-noise truth-residual bootstrap gives standard-DW truth inclusion 1.000 and robust-DW truth inclusion 1.000, with mean accepted shares 0.325 and 1.000; it is a calibration-cost audit, not an application-ready recipe.
 - The skewed-residual-noise stress case has high robust truth inclusion in this pass, but the maintained Gaussian-noise interpretation is invalid there; it remains a stress case, not a robustness guarantee.
 
 ## Reading
 
-- The no-noise repeated calibration is the cleanest first size check for the maintained no-noise benchmark. It should preserve the no-noise sanity case while still exposing residual-noise divergence.
-- The high-noise Gaussian case is the main stress case from the visual spine. Under the figure-style and no-noise-calibrated cutoffs, standard DW should reject true `B0` more often than robust DW.
+- The chi-square rows are the main applied comparison because they match the critical values a standard-DW user would use when unaware of residual noise.
+- The high-noise Gaussian case is the main stress case from the visual spine. Under the researcher-facing chi-square cutoffs, standard DW rejects true `B0` much more often than robust DW.
+- The no-noise repeated calibration is a size-check audit for the maintained no-noise benchmark. It should preserve the no-noise sanity case while still exposing residual-noise divergence.
 - The scenario-specific truth calibration is an oracle diagnostic. When its standard-DW cutoff is much larger than the no-noise cutoff, the standard DW statistic is paying a calibration cost under residual noise rather than delivering free precision.
 - The truth-residual bootstrap is sample-specific and less parametric, but it still uses true `B0` and can make robust sets almost uninformative; treat it as an evidence audit rather than the final applied cutoff rule.
 - The Gaussian-shock case is expected to make robust DW wide or weak because the higher-cumulant signal disappears.

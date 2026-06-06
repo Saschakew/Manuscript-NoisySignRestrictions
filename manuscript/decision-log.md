@@ -5,6 +5,22 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Use chi-square cutoffs as the primary applied benchmark
+
+- Origin: user-originated cutoff-convention decision
+- User input id: U0026
+- Codex role: recorded the decision and aligned evidence planning surfaces.
+- Decision: M29 should use the standard pointwise chi-square critical values
+  as the main applied benchmark for standard DW and robust DW. These are the
+  cutoffs an applied researcher would use under the maintained no-noise DW
+  null if residual noise is not considered.
+- Rationale: The paper's warning is about what happens to the usual procedure
+  when its no-noise target is misspecified. Recalibrating standard DW under
+  the noisy DGP is an oracle audit, not the procedure being critiqued.
+- Consequence for next work: Report chi-square rows as the central evidence.
+  Keep no-noise repeated, oracle scenario truth, and truth-point bootstrap
+  rows as finite-sample size and calibration-cost audits.
+
 ### 2026-06-06 - Treat M29 truth bootstrap as a calibration-cost audit
 
 - Origin: Codex execution of user-requested next task
@@ -21,9 +37,9 @@ decisions.
   truth-inclusion rate remains about 0.333 while robust DW remains about
   0.875. Under the truth bootstrap, both reach 1.000, but the high-noise
   accepted shares are about 0.325 for standard DW and 1.000 for robust DW.
-- Consequence for next work: M29 still needs a larger final run and a
-  calibration convention that is either application-feasible or explicitly
-  presented as an oracle diagnostic before final coverage-style claims.
+- Consequence for next work: After U0026, use chi-square rows as the main M29
+  evidence and keep this bootstrap as an audit row. M29 still needs a larger
+  chi-square-primary final run before final coverage-style claims.
 
 ### 2026-06-06 - Treat M29 as passed first calibrated evidence gate
 
@@ -82,9 +98,9 @@ decisions.
   pointwise critical-value sensitivity. These checks support the qualitative
   figure story without making final size or coverage claims.
 - Consequence for next work: M27 should formalize the standard-DW versus
-  robust-DW comparison diagnostic. M29 should replace pointwise chi-square
-  guides with calibrated repeated-sample or bootstrap critical values before
-  final evidence tables or coverage claims.
+  robust-DW comparison diagnostic. After U0026, M29 should retain pointwise
+  chi-square guides as the primary applied benchmark and use repeated-sample or
+  bootstrap critical values only as audit diagnostics.
 
 ### 2026-06-06 - Make the M0020 grid pair the paper's visual spine
 

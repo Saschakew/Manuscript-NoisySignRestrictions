@@ -11,6 +11,27 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0026 M29 chi-square cutoff convention
+
+- Request: user clarified that standard DW should use the standard chi-square
+  critical values because those are the values an applied researcher would use
+  if unaware of residual noise.
+- Actions taken: opened local transparency milestone M0026 and GitHub
+  milestone #23; updated the M29 note generator and regenerated the M29
+  Markdown/JSON outputs so chi-square rows are the primary applied benchmark;
+  updated the dashboard, task board, paper plan, paper map, source packet,
+  workplan, formal registry, simulation index, draft notes, user input log,
+  decision log, review log, session log, and Codex log.
+- Files changed: M29 simulation script and outputs, planning surfaces, logs,
+  draft notes, and M0026 transparency files.
+- Checks run: `python -m py_compile
+  manuscript\simulations\m29_calibrated_monte_carlo.py` passed;
+  `python manuscript\simulations\m29_calibrated_monte_carlo.py` passed;
+  formal registry JSON parse passed; `python scripts\check_manuscript.py`
+  passed.
+- Open uncertainties: M29 still needs a larger chi-square-primary run before
+  final coverage-style table values are draft-level evidence.
+
 ### 2026-06-06 - M0025 M29 truth-bootstrap expansion
 
 - Request: work on the manuscript in goal mode by picking the next task.
@@ -288,9 +309,9 @@ machine-readable milestone in `transparency/milestones/`.
   manuscript\simulations\m35_jtest_monte_carlo_triage.py` passed;
   `python scripts/check_manuscript.py` passed before closure with the expected
   open-milestone warning.
-- Open uncertainties: M28 still needs population-grid verification; M29 still
-  needs calibrated repeated-sample or bootstrap critical values before any
-  manuscript evidence table.
+- Open uncertainties: M28 still needs population-grid verification. Later U0026
+  superseded the planned M29 cutoff framing by making chi-square cutoffs the
+  primary applied benchmark and repeated/bootstrap cutoffs audit rows.
 
 ### 2026-06-06 - M35 early J-test Monte Carlo triage
 

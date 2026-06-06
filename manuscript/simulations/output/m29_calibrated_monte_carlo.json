@@ -1,5 +1,5 @@
 {
-  "description": "M29 expanded calibrated Monte Carlo pass for standard-DW versus robust-DW comparison.",
+  "description": "M29 expanded Monte Carlo pass for standard-DW versus robust-DW comparison with chi-square cutoffs as the primary applied benchmark.",
   "configuration": {
     "seed": 20260606,
     "sample_size": 500,
@@ -28,7 +28,13 @@
     "chi_square_cutoffs": {
       "standard_dw": 7.779440339734858,
       "robust_dw": 9.236356899781123
-    }
+    },
+    "primary_cutoff_convention": "chi_square_90",
+    "audit_cutoff_conventions": [
+      "no_noise_repeated_90",
+      "scenario_truth_repeated_90",
+      "truth_residual_bootstrap_90"
+    ]
   },
   "scenarios": [
     {

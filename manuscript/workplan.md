@@ -15,10 +15,11 @@ moments, grid-boundary sensitivity, repeated finite-sample seeds, and
 pointwise critical-value sensitivity. M27 formalized the reported
 standard-DW set, robust-DW set, critical-value convention, directional
 overlap/divergence metric, and interpretation boundaries. M29 now has an
-expanded calibrated Monte Carlo pass using chi-square, no-noise repeated,
-oracle scenario truth, and truth-point residual-bootstrap cutoffs; the evidence
-queue is now centered on auditing the bootstrap design, selecting a final
-calibration convention, and running a larger table.
+expanded Monte Carlo pass using chi-square, no-noise repeated, oracle scenario
+truth, and truth-point residual-bootstrap cutoffs. User decision U0026 makes
+the standard pointwise chi-square rows the primary applied benchmark; the other
+cutoffs are calibration audits. The evidence queue is now centered on running
+a larger chi-square-primary table.
 
 The active paper no longer treats the previous constructive route as part of
 the main plan. The first version is a short simultaneous-SVAR
@@ -34,7 +35,7 @@ model VAR lags or dynamic impulse responses.
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
 | M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M27 has stated the comparison diagnostic. |
-| M5. Evidence package | doing | M0020 selected the figure pair as the visual spine; M28 validates the population/repeated-seed grid story and M29 now has repeated-sample plus truth-bootstrap calibrated diagnostics using the M27 metrics. Exit still requires a larger final finite-sample table and a defensible calibration convention. |
+| M5. Evidence package | doing | M0020 selected the figure pair as the visual spine; M28 validates the population/repeated-seed grid story and M29 now has chi-square-primary evidence plus repeated-sample and truth-bootstrap audit diagnostics using the M27 metrics. Exit still requires a larger final finite-sample table. |
 | M6. First complete draft | todo | After M28 validation, all sections have figure-led prose and source trails. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |

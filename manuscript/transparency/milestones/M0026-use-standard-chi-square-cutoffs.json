@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "M0026-use-standard-chi-square-cutoffs",
+  "sequence": 26,
+  "title": "Use Standard Chi-Square Cutoffs",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T14:03:44Z",
+  "closed_at": "2026-06-06T14:12:47Z",
+  "start_commit": "3e1bfbb25efa60b53875b9d8f3217d3dd6955178",
+  "snapshot_ref": "manuscript-milestones/M0026-use-standard-chi-square-cutoffs",
+  "summary": "Recorded chi-square cutoffs as the primary applied M29 benchmark and kept repeated/bootstrap cutoffs as audits.",
+  "user_inputs": [
+    {
+      "id": "U0026-001",
+      "milestone_id": "M0026-use-standard-chi-square-cutoffs",
+      "captured_at": "2026-06-06T14:03:44Z",
+      "source": "chat",
+      "text": "User decided that standard DW should use the standard chi-square critical values a researcher would use if unaware of residual noise; repeated/bootstrap cutoffs should be calibration audits."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0026-001",
+      "milestone_id": "M0026-use-standard-chi-square-cutoffs",
+      "captured_at": "2026-06-06T14:12:47Z",
+      "description": "Updated M29 simulation note generator and regenerated M29 Markdown/JSON outputs with chi_square_90 marked as primary."
+    },
+    {
+      "id": "A0026-002",
+      "milestone_id": "M0026-use-standard-chi-square-cutoffs",
+      "captured_at": "2026-06-06T14:12:47Z",
+      "description": "Updated dashboard, task board, paper plan, paper map, source packet, workplan, formal registry, simulation index, draft notes, and logs for U0026 cutoff convention."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T14:12:47Z",
+      "description": "python -m py_compile manuscript\\\\simulations\\\\m29_calibrated_monte_carlo.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T14:12:47Z",
+      "description": "python manuscript\\\\simulations\\\\m29_calibrated_monte_carlo.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T14:12:47Z",
+      "description": "python -m json.tool manuscript\\\\formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-06T14:12:47Z",
+      "description": "python scripts\\\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/m28_grid_story_validation.md",
+    "manuscript/simulations/m29_calibrated_monte_carlo.md",
+    "manuscript/simulations/m29_calibrated_monte_carlo.py",
+    "manuscript/simulations/output/m29_calibrated_monte_carlo.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0026-use-standard-chi-square-cutoffs.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 23,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/23",
+    "tag_name": "manuscript-milestones/M0026-use-standard-chi-square-cutoffs"
+  }
+}

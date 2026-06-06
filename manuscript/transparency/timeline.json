@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T13:41:22Z",
+  "updated_at": "2026-06-06T14:12:48Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -510,6 +510,28 @@
         "milestone_number": 22,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/22",
         "tag_name": "manuscript-milestones/M0025-expand-m29-monte-carlo-evidence"
+      }
+    },
+    {
+      "id": "M0026-use-standard-chi-square-cutoffs",
+      "sequence": 26,
+      "title": "Use Standard Chi-Square Cutoffs",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T14:03:44Z",
+      "closed_at": "2026-06-06T14:12:47Z",
+      "start_commit": "3e1bfbb25efa60b53875b9d8f3217d3dd6955178",
+      "snapshot_ref": "manuscript-milestones/M0026-use-standard-chi-square-cutoffs",
+      "summary": "Recorded chi-square cutoffs as the primary applied M29 benchmark and kept repeated/bootstrap cutoffs as audits.",
+      "user_input_ids": [
+        "U0026-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0026-use-standard-chi-square-cutoffs.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 23,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/23",
+        "tag_name": "manuscript-milestones/M0026-use-standard-chi-square-cutoffs"
       }
     }
   ]

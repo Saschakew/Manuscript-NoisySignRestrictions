@@ -34,10 +34,12 @@ seeds, and pointwise critical-value sensitivity. M27 now fixes the comparison
 language: standard-DW accepted mass outside the robust-DW set is the
 directional warning metric, while robust-DW mass outside standard DW mainly
 records the information lost by dropping second moments. M29 has added an
-expanded calibrated Monte Carlo pass; it supports the high-noise divergence
-story, shows the standard-DW cutoff inflation required to cover the truth, and
-shows that truth-point residual bootstrap restores truth inclusion only by
-widening the reported sets. It is not yet the final manuscript table.
+expanded Monte Carlo pass. The main applied reading uses the standard
+pointwise chi-square critical values that a researcher would use when unaware
+of residual noise; under that benchmark, the high-noise standard-DW set misses
+true `B0` much more often than the robust set. Repeated-sample, oracle truth,
+and truth-point bootstrap cutoffs are secondary audits of finite-sample size
+and calibration cost. M29 is not yet the final manuscript table.
 
 ## Why It Matters
 
@@ -174,21 +176,23 @@ that the noisy covariance is structural.
   inclusion, accepted-set share, empty-set frequency, standard-DW versus
   robust-DW overlap, the M27 directional divergence metric, and
   least-rejected candidates across no-noise, moderate-noise, high-noise,
-  weak-moment, Gaussian-shock, and skewed-residual-noise stress cases. It
-  compares chi-square, no-noise repeated, oracle scenario truth, and
-  truth-point residual-bootstrap cutoffs. A final table still needs a larger
-  run and a final calibration convention.
+  weak-moment, Gaussian-shock, and skewed-residual-noise stress cases. The
+  chi-square rows are the primary applied benchmark because they match the
+  standard DW critical values a researcher would use under the no-noise null.
+  No-noise repeated, oracle scenario truth, and truth-point residual-bootstrap
+  cutoffs are calibration audits. A final table still needs a larger
+  chi-square-primary run.
 - Stress cases: weak higher moments, near-Gaussian structural shocks, high
   noise, non-Gaussian noise that violates the robust route if Gaussianity is
   maintained, anisotropic noise, near-boundary signs, and small macro samples.
 
 ## What Is Missing
 
-- A final calibrated finite-sample evidence pass for the M0020 grid pair:
-  M29 has repeated-sample and truth-point residual-bootstrap diagnostics, but
-  final draft claims still need a larger run, a final calibration convention,
-  true-`B0` coverage, accepted-set width, empty-set frequency, overlap, and
-  divergence diagnostics.
+- A final finite-sample evidence pass for the M0020 grid pair: M29 has
+  chi-square-primary evidence plus repeated-sample and truth-point
+  residual-bootstrap diagnostics, but final draft claims still need a larger
+  run with true-`B0` coverage, accepted-set width, empty-set frequency,
+  overlap, and divergence diagnostics.
 - A decision on the precise robust noise assumption: Gaussian additive noise is
   clean for transformed cumulants; broader non-Gaussian noise would need a
   different argument.

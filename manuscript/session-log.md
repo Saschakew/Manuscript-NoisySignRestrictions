@@ -8,6 +8,20 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Record M29 chi-square cutoff convention
+
+- Request or goal: respond to the user's cutoff-convention correction.
+- Files changed: M29 simulation note generator and output note, planning
+  surfaces, registry, draft notes, user/decision/review/session/Codex logs,
+  and M0026 transparency files.
+- Summary of work: recorded the user decision that standard pointwise
+  chi-square critical values should be the primary applied M29 benchmark,
+  because those are the values a researcher would use when applying standard
+  DW without accounting for residual noise. Repeated-sample, oracle, and
+  truth-bootstrap cutoffs are retained as calibration audits.
+- Next recommended action: run a larger chi-square-primary M29 table before
+  marking M29 complete or drafting final coverage-style claims.
+
 ### 2026-06-06 - Expand M29 calibrated Monte Carlo evidence
 
 - Request or goal: work on the manuscript in goal mode by picking the next

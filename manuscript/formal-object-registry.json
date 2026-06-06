@@ -121,7 +121,7 @@
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md",
-      "verification_status": "M24 conditional audit passed for a local normalized Gaussian-noise route; M27 formalized the reported set and diagnostic comparison; M28 population/repeated-seed validation passed; M29 expanded calibrated finite-sample pass supports the high-noise divergence story and shows truth-bootstrap widening, but still needs a larger final run and calibration convention before final coverage claims",
+      "verification_status": "M24 conditional audit passed for a local normalized Gaussian-noise route; M27 formalized the reported set and diagnostic comparison; M28 population/repeated-seed validation passed; M29 expanded finite-sample pass supports the high-noise divergence story under primary chi-square cutoffs and shows truth-bootstrap widening as an audit, but still needs a larger final run before final coverage claims",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
     {
@@ -196,7 +196,7 @@
       "depends_on": [
         "prop:standard-dw-misspecification"
       ],
-      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. M28 first validation passed; M29 expanded calibrated pass supports the high-noise truth-rejection story and shows truth-bootstrap widening, while final-evidence status still depends on a larger run and final calibration convention."
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. M28 first validation passed; M29 expanded pass supports the high-noise truth-rejection story under the same chi-square cutoffs applied researchers would use; repeated/bootstrap cutoffs are audits."
     },
     {
       "id": "fig:dw-robust-set-comparison",
@@ -207,14 +207,14 @@
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Both grid figures were corrected in M0020 to invert pointwise 10 percent J tests in all rows while keeping the robust rows free of second-moment restrictions. M28 validated truth inclusion, boundary sensitivity, repeated seeds, and weak-moment widening at the first gate; M29 expanded calibrated pass supports the high-noise divergence and weak-moment widening readings, while final-evidence status still depends on a larger run and final calibration convention."
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Both grid figures were corrected in M0020 to invert pointwise 10 percent J tests in all rows while keeping the robust rows free of second-moment restrictions. M28 validated truth inclusion, boundary sensitivity, repeated seeds, and weak-moment widening at the first gate; M29 expanded pass supports the high-noise divergence and weak-moment widening readings under primary chi-square cutoffs, while final-evidence status still depends on a larger run."
     },
     {
       "id": "table:monte-carlo-coverage-width",
       "type": "table",
       "status": "m29-first-pass-created",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and directional divergence warnings using the M27 metric bundle. M29 created an expanded calibrated finite-sample pass with chi-square, no-noise repeated, oracle scenario truth, and truth-point residual-bootstrap cutoffs. The high-noise standard-DW cutoff inflates sharply when truth-calibrated, while robust DW remains wide and truth-compatible under Gaussian residual noise. The truth bootstrap restores high-noise truth inclusion only by widening accepted sets. This is not yet the final manuscript table.",
+      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and directional divergence warnings using the M27 metric bundle. M29 created an expanded finite-sample pass with chi-square, no-noise repeated, oracle scenario truth, and truth-point residual-bootstrap cutoffs. User decision U0026 makes the chi-square rows the primary applied benchmark because these are the standard critical values a researcher would use under the no-noise DW null. The audit cutoffs quantify finite-sample size and calibration cost. This is not yet the final manuscript table.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
@@ -268,7 +268,7 @@
     {
       "id": "audit:simulation-story-gate",
       "status": "open",
-      "question": "After M29's expanded calibrated pass, does a larger final run and final calibration convention convincingly quantify coverage, width, empty-set frequency, overlap, and divergence without overstating oracle truth-point diagnostics?"
+      "question": "After M29's expanded pass and U0026 chi-square benchmark decision, does a larger chi-square-primary final run convincingly quantify coverage-style truth inclusion, width, empty-set frequency, overlap, and divergence while keeping oracle truth-point diagnostics secondary?"
     }
   ]
 }

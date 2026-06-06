@@ -582,9 +582,9 @@ def write_note(payload: dict[str, Any]) -> None:
     lines: list[str] = [
         "# M29 Calibrated Monte Carlo Expanded Pass",
         "",
-        "Status: expanded calibrated finite-sample evidence pass for M29, not the final replication table.",
+        "Status: expanded finite-sample evidence pass for M29, not the final replication table.",
         "",
-        "This pass keeps the M0020/M28 normalized B-plane and reports the M27 metric bundle under repeated-sample and bootstrap critical-value conventions.",
+        "This pass keeps the M0020/M28 normalized B-plane. The main applied benchmark uses the standard pointwise chi-square critical values a researcher would use under the maintained no-noise DW null; repeated-sample, oracle, and truth-bootstrap cutoffs are reported as calibration audits.",
         "",
         "## Configuration",
         "",
@@ -597,10 +597,10 @@ def write_note(payload: dict[str, Any]) -> None:
         "",
         "Critical-value conventions:",
         "",
-        "- `chi_square_90`: the pointwise 90 percent chi-square guide used in the M0020 figures.",
-        "- `no_noise_repeated_90`: repeated-sample true-`B0` calibration in the no-noise strong-moment DGP, then applied to every scenario.",
-        "- `scenario_truth_repeated_90`: oracle repeated-sample true-`B0` calibration inside each scenario. This is diagnostic only because applications do not know the true `B0` or DGP.",
-        "- `truth_residual_bootstrap_90`: sample-specific residual-bootstrap true-`B0` calibration. This is also diagnostic only because true `B0` is known only in simulations.",
+        "- `chi_square_90`: primary applied benchmark; the pointwise 90 percent chi-square guide used by a researcher who applies standard DW without accounting for residual noise.",
+        "- `no_noise_repeated_90`: calibration audit; repeated-sample true-`B0` calibration in the no-noise strong-moment DGP, then applied to every scenario.",
+        "- `scenario_truth_repeated_90`: oracle calibration audit inside each scenario. This is diagnostic only because applications do not know the true `B0` or DGP.",
+        "- `truth_residual_bootstrap_90`: sample-specific truth-point residual-bootstrap audit. This is also diagnostic only because true `B0` is known only in simulations.",
         "",
         "## Repeated-Sample Scenario Cutoffs",
         "",
@@ -649,30 +649,28 @@ def write_note(payload: dict[str, Any]) -> None:
     high_null = summary_lookup[("high_noise", "no_noise_repeated_90")]
     high_oracle = summary_lookup[("high_noise", "scenario_truth_repeated_90")]
     high_bootstrap = summary_lookup.get(("high_noise", "truth_residual_bootstrap_90"))
-    weak_null = summary_lookup[("weak_moments", "no_noise_repeated_90")]
-    gaussian_null = summary_lookup[("gaussian_shocks", "no_noise_repeated_90")]
 
     lines.extend(
         [
             "",
             "## Expanded-Pass Outcome",
             "",
-            "- In the high Gaussian-noise stress case, standard DW includes true `B0` in only "
+            "- Under the primary chi-square benchmark, the high Gaussian-noise stress case has standard DW including true `B0` in only "
             f"{fmt(high_chi['standard_dw']['truth_in_rate'])} of evaluation samples under the "
-            "chi-square guide and "
-            f"{fmt(high_null['standard_dw']['truth_in_rate'])} under the no-noise repeated calibration; "
-            "robust DW includes true `B0` in "
-            f"{fmt(high_chi['robust_dw']['truth_in_rate'])} and "
-            f"{fmt(high_null['robust_dw']['truth_in_rate'])}, respectively.",
+            "researcher-facing cutoff, while robust DW includes true `B0` in "
+            f"{fmt(high_chi['robust_dw']['truth_in_rate'])}.",
+            "- The no-noise repeated audit gives the same reading: high-noise standard DW includes true `B0` in "
+            f"{fmt(high_null['standard_dw']['truth_in_rate'])}, while robust DW includes it in "
+            f"{fmt(high_null['robust_dw']['truth_in_rate'])}.",
             "- The high-noise oracle standard-DW cutoff is "
             f"`{fmt(payload['truth_cutoffs']['high_noise']['standard_dw'])}`, compared with "
             f"`{fmt(payload['truth_cutoffs']['no_noise']['standard_dw'])}` under no noise. "
             "That is the calibration cost of forcing the misspecified standard-DW statistic to cover the truth.",
             "- The same high-noise oracle cutoff raises the standard-DW accepted share to "
             f"{fmt(high_oracle['standard_dw']['mean_accepted_share'])}, so the apparent precision is not free once the cutoff is truth-calibrated.",
-            "- Weak and Gaussian structural-shock cases keep robust DW wide under the no-noise repeated cutoff: mean robust shares are "
-            f"{fmt(weak_null['robust_dw']['mean_accepted_share'])} and "
-            f"{fmt(gaussian_null['robust_dw']['mean_accepted_share'])}. This supports the limitation story rather than a sharp identification claim.",
+            "- Weak and Gaussian structural-shock cases keep robust DW wide under the primary chi-square benchmark: mean robust shares are "
+            f"{fmt(summary_lookup[('weak_moments', 'chi_square_90')]['robust_dw']['mean_accepted_share'])} and "
+            f"{fmt(summary_lookup[('gaussian_shocks', 'chi_square_90')]['robust_dw']['mean_accepted_share'])}. This supports the limitation story rather than a sharp identification claim.",
         ]
     )
     if high_bootstrap is not None:
@@ -689,8 +687,9 @@ def write_note(payload: dict[str, Any]) -> None:
             "",
             "## Reading",
             "",
-            "- The no-noise repeated calibration is the cleanest first size check for the maintained no-noise benchmark. It should preserve the no-noise sanity case while still exposing residual-noise divergence.",
-            "- The high-noise Gaussian case is the main stress case from the visual spine. Under the figure-style and no-noise-calibrated cutoffs, standard DW should reject true `B0` more often than robust DW.",
+            "- The chi-square rows are the main applied comparison because they match the critical values a standard-DW user would use when unaware of residual noise.",
+            "- The high-noise Gaussian case is the main stress case from the visual spine. Under the researcher-facing chi-square cutoffs, standard DW rejects true `B0` much more often than robust DW.",
+            "- The no-noise repeated calibration is a size-check audit for the maintained no-noise benchmark. It should preserve the no-noise sanity case while still exposing residual-noise divergence.",
             "- The scenario-specific truth calibration is an oracle diagnostic. When its standard-DW cutoff is much larger than the no-noise cutoff, the standard DW statistic is paying a calibration cost under residual noise rather than delivering free precision.",
             "- The truth-residual bootstrap is sample-specific and less parametric, but it still uses true `B0` and can make robust sets almost uninformative; treat it as an evidence audit rather than the final applied cutoff rule.",
             "- The Gaussian-shock case is expected to make robust DW wide or weak because the higher-cumulant signal disappears.",
@@ -720,7 +719,7 @@ def main() -> int:
         args.grid_points,
     )
     payload = {
-        "description": "M29 expanded calibrated Monte Carlo pass for standard-DW versus robust-DW comparison.",
+        "description": "M29 expanded Monte Carlo pass for standard-DW versus robust-DW comparison with chi-square cutoffs as the primary applied benchmark.",
         "configuration": {
             "seed": args.seed,
             "sample_size": args.sample_size,
@@ -736,6 +735,12 @@ def main() -> int:
                 "standard_dw": base.CHI2_90_DF4,
                 "robust_dw": base.CHI2_90_DF5,
             },
+            "primary_cutoff_convention": "chi_square_90",
+            "audit_cutoff_conventions": [
+                "no_noise_repeated_90",
+                "scenario_truth_repeated_90",
+                "truth_residual_bootstrap_90",
+            ],
         },
         "scenarios": [
             {

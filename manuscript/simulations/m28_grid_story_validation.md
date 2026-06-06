@@ -72,6 +72,6 @@ Boundary reading: the high-noise standard-DW population minimum is not at the tr
 - The population diagnostics support the core visual story: residual noise moves the standard covariance/DW target, and robust-DW keeps the true normalized impact as a population zero under the maintained Gaussian-noise condition.
 - The high-noise finite-sample stress case is stable enough for the selected visual spine: standard DW rejects the true point across repeated seeds at the pointwise 10 percent cutoff, while robust DW usually contains it.
 - The non-Gaussianity companion behaves as intended: weakening higher moments widens the robust accepted region, and the Gaussian-shock case is an all-null population limit rather than identifying evidence.
-- This is not yet final evidence. M29 still needs calibrated repeated-sample or bootstrap critical values before the manuscript reports coverage or size claims.
+- This is not yet final evidence. After U0026, M29 should use pointwise chi-square cutoffs as the primary applied benchmark and reserve repeated-sample or bootstrap critical values for calibration audits before the manuscript reports final coverage-style claims.
 
 Machine-readable output: `manuscript/simulations/output/m28_grid_story_validation.json`.

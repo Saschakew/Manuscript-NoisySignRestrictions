@@ -87,10 +87,10 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 |---|---|---|
 | `replications/svar-noise-recursive-sign-visualization/` | Deterministic sign-noise geometry and no-noise independence-refinement behavior under residual noise. | Use as the starting point for the intuitive figure and standard-DW false-sharpening figure. |
 | `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | Manuscript-local M0020-corrected companion grid: fixes residual noise and varies structural-shock non-Gaussianity. All rows invert pointwise 10 percent J tests; the robust row uses only mixed higher cumulants and no covariance restriction. | Selected companion visual: use beside the noise grid to show the limitation that robust-DW depends on informative higher moments. |
-| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local M0020-corrected B-plane grid: sign/covariance, standard-DW, and robust-DW rows all invert pointwise 10 percent J tests across three noise levels. The high-noise stress column has standard DW rejecting true `B0` while robust DW contains it. | Selected main visual: organize the paper's evidence around this grid; M28 first validation passed, and M29 has repeated-sample plus truth-bootstrap calibration audits pending final design choice. |
+| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local M0020-corrected B-plane grid: sign/covariance, standard-DW, and robust-DW rows all invert pointwise 10 percent J tests across three noise levels. The high-noise stress column has standard DW rejecting true `B0` while robust DW contains it. | Selected main visual: organize the paper's evidence around this grid; M28 first validation passed, and M29 now treats the same chi-square cutoffs as the primary applied benchmark. |
 | `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; M28 population-grid validation now favors the M0020 grid pair as the main visual spine. |
-| `manuscript/simulations/m28_grid_story_validation.py` | First M28 validation pass for the M0020 grid pair: exact population mixed-moment checks, grid-boundary sensitivity, repeated finite-sample seeds, true-`B0` J diagnostics, and pointwise critical-value sensitivity. | Use as the validation gate supporting the selected visual spine; M29 now calibrates repeated-sample and truth-bootstrap diagnostics before final coverage claims. |
-| `manuscript/simulations/m29_calibrated_monte_carlo.py` | Expanded M29 calibrated finite-sample pass on the same B-plane: chi-square guide, no-noise repeated-sample calibration, oracle scenario truth calibration, and truth-point residual bootstrap with M27 accepted-share, overlap, divergence, truth-inclusion, and least-rejected metrics. | Use as expanded evidence that the high-noise standard-DW cutoff must inflate sharply to cover true `B0`, while robust DW remains wide and truth-compatible under Gaussian residual noise. The truth bootstrap restores high-noise truth inclusion only by widening sets, so final coverage claims still need a larger run and final calibration convention. |
+| `manuscript/simulations/m28_grid_story_validation.py` | First M28 validation pass for the M0020 grid pair: exact population mixed-moment checks, grid-boundary sensitivity, repeated finite-sample seeds, true-`B0` J diagnostics, and pointwise critical-value sensitivity. | Use as the validation gate supporting the selected visual spine; M29 uses the pointwise chi-square critical values as the primary applied benchmark and reports calibration audits separately. |
+| `manuscript/simulations/m29_calibrated_monte_carlo.py` | Expanded M29 finite-sample pass on the same B-plane: chi-square guide, no-noise repeated-sample calibration, oracle scenario truth calibration, and truth-point residual bootstrap with M27 accepted-share, overlap, divergence, truth-inclusion, and least-rejected metrics. | Use the chi-square rows as the main applied evidence: high-noise standard DW includes true `B0` in 0.292 of evaluation samples, while robust DW includes it in 0.917. Use repeated/bootstrap rows only as audits of size and calibration cost. Final coverage claims still need a larger chi-square-primary run. |
 | `svar-toolkit/examples/howto/06_sign_restrictions.py` | Verified fixed-draw sign-restriction accepted-set workflow. | Use for baseline sign-set simulations if needed. |
 | `svar-toolkit/examples/howto/12_non_gaussian_cross_moments.py` | Verified fixed-draw higher-moment cross-moment selector. | Use as a comparator or helper for robust higher-moment diagnostics, not as a final estimator without audit. |
 | `svar-toolkit/docs/api/gmm.md` and GMM examples | Reusable moment quadratic engine. | Candidate for the robust DW moment criterion and Monte Carlo wrappers. |
@@ -143,12 +143,12 @@ these tasks:
    convention, accepted shares, Jaccard overlap, directional
    standard-outside-robust warning metric, truth-inclusion simulation
    diagnostics, and interpretation boundaries.
-9. Completed the expanded M29 finite-sample Monte Carlo pass with
-   repeated-sample and truth-point residual-bootstrap calibration conventions.
-   The high-noise oracle standard-DW cutoff rises to about 31.4, compared with
-   about 8.9 under no-noise calibration, while robust repeated-sample cutoffs
-   remain near 9-10. The truth bootstrap restores high-noise truth inclusion
-   only by widening the accepted sets.
+9. Completed the expanded M29 finite-sample Monte Carlo pass and user decision
+   U0026: standard pointwise chi-square critical values are the primary applied
+   benchmark because they are what a standard-DW researcher would use under the
+   no-noise null. Under those cutoffs, high-noise standard DW includes true
+   `B0` in 0.292 of evaluation samples, while robust DW includes it in 0.917.
+   Repeated-sample, oracle, and truth-bootstrap cutoffs remain audit rows.
 10. Expanded M29 reports coverage-style truth inclusion, accepted-set share,
     empty-set frequency, overlap frequency, directional divergence, and
     least-rejected diagnostics. These are evidence-gate diagnostics, not final
