@@ -5,6 +5,25 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Make the M0020 grid pair the paper's visual spine
+
+- Origin: user-originated planning decision
+- User input id: U0021
+- Codex role: updated the plan, map, dashboard, task sequence, registry, and
+  logs.
+- Decision: Organize the paper around two main figures: the residual-noise
+  grid and the non-Gaussianity grid. The first grid tells the main warning:
+  noise moves the sign/covariance set, standard DW can reject the truth, and
+  robust DW remains wider and contains it. The second grid tells the
+  limitation: robust DW becomes wide when structural higher moments weaken.
+- Rationale: The corrected figures now communicate the complete paper story in
+  a compact way, more clearly than separate isolated sign-bias, DW, and robust
+  panels.
+- Consequence for next work: M28 should validate the grid-pair story first;
+  M27 should formalize the comparison diagnostic using the figure language;
+  M29 should quantify coverage, width, overlap, and divergence; drafting should
+  become figure-led after validation.
+
 ### 2026-06-06 - Use one J-test inversion object in both grid figures
 
 - Origin: user-originated correction

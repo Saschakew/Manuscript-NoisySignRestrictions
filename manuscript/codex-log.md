@@ -11,6 +11,29 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0021 figure-led paper plan
+
+- Request: update the paper plan and next steps because the corrected M0020
+  figures tell the paper's main story well.
+- Actions taken: promoted the M0020 residual-noise grid and non-Gaussianity
+  grid to the selected visual spine; revised the paper plan, paper map,
+  dashboard, task board, workplan, source packet, formal registry, figure and
+  simulation indexes, and durable logs; reordered next work around M28
+  validation, M27 diagnostic formalization, M29 Monte Carlo, and figure-led
+  drafting.
+- Files changed: `manuscript/paper-plan.md`, `manuscript/paper-map.md`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/source-packet.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/figures/README.md`,
+  `manuscript/simulations/README.md`, logs, and M0021 transparency files.
+- Checks run: stale-language scan of active planning surfaces passed; formal
+  registry and M0021 manifest JSON validation passed; `python
+  scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning.
+- Open uncertainties: the figures are selected as the narrative spine, but
+  M28/M29 still need to validate stability, critical values, and finite-sample
+  coverage before final evidence claims.
+
 ### 2026-06-06 - M0020 J-test grid figures
 
 - Request: make both grid figures invert J tests in all rows, clarify the

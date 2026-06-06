@@ -86,8 +86,8 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | Vault path | What it validates or illustrates | Manuscript action |
 |---|---|---|
 | `replications/svar-noise-recursive-sign-visualization/` | Deterministic sign-noise geometry and no-noise independence-refinement behavior under residual noise. | Use as the starting point for the intuitive figure and standard-DW false-sharpening figure. |
-| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | Manuscript-local M0020-corrected companion grid: fixes residual noise and varies structural-shock non-Gaussianity. All rows invert pointwise 10 percent J tests; the robust row uses only mixed higher cumulants and no covariance restriction. | Use beside the noise grid to show the limitation that robust-DW depends on informative higher moments. |
-| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local M0020-corrected B-plane grid: sign/covariance, standard-DW, and robust-DW rows all invert pointwise 10 percent J tests across three noise levels. The high-noise stress column has standard DW rejecting true `B0` while robust DW contains it. | Preferred candidate visual for the user's requested sign/DW/robust-DW noise comparison; still needs M28/M29 critical-value and weak-moment checks before final evidence. |
+| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | Manuscript-local M0020-corrected companion grid: fixes residual noise and varies structural-shock non-Gaussianity. All rows invert pointwise 10 percent J tests; the robust row uses only mixed higher cumulants and no covariance restriction. | Selected companion visual: use beside the noise grid to show the limitation that robust-DW depends on informative higher moments. |
+| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local M0020-corrected B-plane grid: sign/covariance, standard-DW, and robust-DW rows all invert pointwise 10 percent J tests across three noise levels. The high-noise stress column has standard DW rejecting true `B0` while robust DW contains it. | Selected main visual: organize the paper's evidence around this grid, pending M28/M29 validation and calibration. |
 | `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; M28 must still verify population grids before final evidence or polished paper use. |
 | `svar-toolkit/examples/howto/06_sign_restrictions.py` | Verified fixed-draw sign-restriction accepted-set workflow. | Use for baseline sign-set simulations if needed. |
 | `svar-toolkit/examples/howto/12_non_gaussian_cross_moments.py` | Verified fixed-draw higher-moment cross-moment selector. | Use as a comparator or helper for robust higher-moment diagnostics, not as a final estimator without audit. |
@@ -131,15 +131,17 @@ these tasks:
    structural-coordinate rescaling exception, added an anisotropic
    diagonal-noise stress case, and confirmed that the provisional
    finite-sample statistic is too permissive for final evidence.
-7. Implement population-grid checks showing: standard DW false candidates or
-   emptying under noise; robust DW zero at truth under its maintained noise
-   model; weak-moment widening.
-8. Run finite-sample Monte Carlo with repeated-sample or bootstrap critical
+7. Validate the M0020 figure pair: population moments, repeated seeds,
+   grid-boundary sensitivity, true-`B0` J diagnostics, and critical-value
+   sensitivity.
+8. Formalize the comparison diagnostic in the same language as the figures:
+   standard DW set, robust DW set, overlap/divergence, and interpretation.
+9. Run finite-sample Monte Carlo with repeated-sample or bootstrap critical
    values.
-9. Report coverage, set width, empty-set frequency, overlap frequency, and
-   divergence diagnostics.
-10. Only after analytic and simulation checks pass, promote the robust DW
-   comparison from a planned robustness check to a manuscript result.
+10. Report coverage, accepted-set share or width, empty-set frequency, overlap
+   frequency, and divergence diagnostics.
+11. Only after analytic and simulation checks pass, promote the robust DW
+   comparison from a selected visual story to a final manuscript result.
 
 ## Gaps And Risks
 

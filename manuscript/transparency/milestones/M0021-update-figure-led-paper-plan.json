@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "id": "M0021-update-figure-led-paper-plan",
+  "sequence": 21,
+  "title": "Update figure-led paper plan",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T12:15:17Z",
+  "closed_at": "2026-06-06T12:22:40Z",
+  "start_commit": "e51e9a13dc9ac28848ba82c8dedfd0ef6e53e7e8",
+  "snapshot_ref": "manuscript-milestones/M0021-update-figure-led-paper-plan",
+  "summary": "Updated the paper plan so the M0020 grid pair is the selected visual spine and reordered next steps around validation, formalization, Monte Carlo, and drafting.",
+  "user_inputs": [
+    {
+      "id": "U0021-001",
+      "milestone_id": "M0021-update-figure-led-paper-plan",
+      "captured_at": "2026-06-06T12:15:17Z",
+      "source": "chat",
+      "text": "User says the corrected grid figures nicely tell the paper's story and asks to update the paper plan and next steps around them."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0021-001",
+      "milestone_id": "M0021-update-figure-led-paper-plan",
+      "captured_at": "2026-06-06T12:22:40Z",
+      "description": "Promoted the residual-noise grid and non-Gaussianity grid from candidate visuals to the organizing figure pair for the paper."
+    },
+    {
+      "id": "A0021-002",
+      "milestone_id": "M0021-update-figure-led-paper-plan",
+      "captured_at": "2026-06-06T12:22:40Z",
+      "description": "Marked M26 figure design complete and reordered next work as M28 validation, M27 diagnostic formalization, M29 Monte Carlo, then figure-led drafting."
+    },
+    {
+      "id": "A0021-003",
+      "milestone_id": "M0021-update-figure-led-paper-plan",
+      "captured_at": "2026-06-06T12:22:40Z",
+      "description": "Updated paper plan, paper map, dashboard, task board, workplan, source packet, formal registry, figure/simulation indexes, and logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T12:22:40Z",
+      "description": "stale-language scan of active planning surfaces: passed"
+    },
+    {
+      "captured_at": "2026-06-06T12:22:40Z",
+      "description": "formal registry and M0021 manifest JSON validation: passed"
+    },
+    {
+      "captured_at": "2026-06-06T12:22:40Z",
+      "description": "python scripts\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/figures/README.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0021-update-figure-led-paper-plan.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 18,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/18",
+    "tag_name": "manuscript-milestones/M0021-update-figure-led-paper-plan"
+  }
+}

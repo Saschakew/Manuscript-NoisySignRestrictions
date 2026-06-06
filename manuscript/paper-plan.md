@@ -22,6 +22,13 @@ second-moment restrictions. When the two sets agree, the usual refinement is
 less suspicious. When they diverge, residual noise or another covariance-target
 misspecification is indicated, and the robust set is the safer object.
 
+The paper's visual spine is now the M0020 grid pair. The first grid varies
+residual noise and shows the main warning: noisy covariance moves the sign set,
+standard DW can reject the true normalized `B0`, and robust DW remains wider
+and contains it. The companion grid fixes residual noise and weakens structural
+non-Gaussianity, showing the honest limitation: robust DW is not magic; when
+higher moments carry little information, the robust set becomes wide.
+
 ## Why It Matters
 
 Sign restrictions are qualitative, but the object being rotated is not. In the
@@ -69,13 +76,12 @@ that the noisy covariance is structural.
    write the higher-cumulant restrictions as moment equations, and explain why
    second moments are excluded as structural restrictions. State the local
    identification and consistency claims only after audit.
-5. Monte Carlo evidence and robustness check: first run a lightweight overview
-   Monte Carlo after the analytical J-test inversion result is clear, to learn
-   whether the proposed comparison works well enough to justify more time.
-   Then, only if the overview is encouraging or informative, build the final
-   no-noise, moderate-noise, high-noise, weak-moment, and near-Gaussian cases.
-   Show the standard sign set, standard DW set, robust DW set, and their
-   overlap/divergence.
+5. Figure-led evidence and Monte Carlo robustness check: use the M0020 grid
+   pair as the reader's main visual guide. First show the residual-noise grid
+   that moves the sign set, makes standard DW reject the truth in the high-noise
+   column, and leaves robust DW wider. Then show the non-Gaussianity grid that
+   makes weak higher moments visible. Use population-grid and Monte Carlo
+   checks to validate, calibrate, and summarize the same story.
 6. Conclusion: recommend reporting the robust DW set beside the standard DW
    set as a diagnostic for covariance-target misspecification. Defer empirical
    applications.
@@ -129,46 +135,48 @@ that the noisy covariance is structural.
   weakly less sharp than the standard DW set in favorable finite samples
   because it discards second-moment restrictions; disagreement between the two
   sets is a diagnostic warning, not literal proof of measurement error.
-- Simulation result: Monte Carlo evidence should show the visual sign-set
-  bias, the standard DW false-sharpening channel, and the robust DW widening
-  or disagreement under residual noise.
+- Simulation result: the M0020 grid pair should become the main evidence
+  figure package if validation passes. Monte Carlo evidence should then
+  quantify the same visual story: sign-set bias, standard DW false-sharpening
+  or truth rejection under residual noise, robust DW widening under noise, and
+  robust DW loss of information under weak or Gaussian higher moments.
 
 ## Evidence Plan
 
-- Intuitive geometry figure: show how adding diagonal variance changes the
-  covariance ellipse, rotates/deforms sign-admissible regions, and biases the
-  estimated sign set away from the no-noise economic target.
-- Standard DW misspecification figure: plot accepted sets under no noise and
-  under increasing noise. The noisy case should show shrinking, emptying, or
-  least-rejected pseudo-precision.
-- Robust DW comparison figure: overlay standard DW and robust DW accepted sets.
-  In no-noise or nearly no-noise cases they should overlap; under noise they
-  should diverge, with the robust set wider.
-- Early Monte Carlo triage: immediately after the analytical J-test inversion
-  result, run a small finite-sample overview to see whether the standard-DW
-  versus robust-DW comparison has useful size, coverage, width, and divergence
-  behavior before investing in polished figures or a large replication suite.
-- Monte Carlo table: report coverage of the true normalized `B0`, set width,
-  empty-set frequency for standard DW, overlap frequency, and rejection or
-  divergence diagnostics.
+- Main visual figure 1, residual-noise grid: show three rows
+  (sign/covariance, standard DW, robust DW) across increasing Gaussian residual
+  noise. The high-noise column should remain the narrative anchor where
+  standard DW rejects true `B0` and robust DW contains it.
+- Main visual figure 2, non-Gaussianity grid: hold residual noise fixed and
+  weaken structural-shock higher moments. Use it to show that robust DW becomes
+  wide as the identifying higher-moment signal weakens and becomes
+  uninformative in the Gaussian limit.
+- Validation grid checks: rerun the same story on population and repeated-draw
+  grids, checking that the visual is not an artifact of one seed, one grid
+  boundary, or the pointwise chi-square cutoff.
+- Monte Carlo table: report true-`B0` coverage, accepted-set share or width,
+  empty-set frequency, standard-DW versus robust-DW overlap, and divergence
+  diagnostics across no-noise, moderate-noise, high-noise, weak-moment, and
+  Gaussian-shock cases.
 - Stress cases: weak higher moments, near-Gaussian structural shocks, high
   noise, non-Gaussian noise that violates the robust route if Gaussianity is
-  maintained, non-diagonal noise, near-boundary signs, and small macro samples.
+  maintained, anisotropic noise, near-boundary signs, and small macro samples.
 
 ## What Is Missing
 
-- An audit and early Monte Carlo check of the M25 J-test inversion derivation,
-  including the special cases where standard DW is not empty but targets a
-  rescaled or aliased pseudo-candidate.
-- A lightweight Monte Carlo triage after that analytical result, before
-  spending much more time on polished figures, a large replication package, or
-  first-draft prose.
+- A focused validation pass for the M0020 grid pair: repeated seeds, population
+  moments, grid boundary checks, critical-value sensitivity, and a direct audit
+  of the robust five-moment J statistic.
+- A concise formalization of the comparison diagnostic: define the reported
+  standard-DW set, robust-DW set, overlap/divergence metric, and how a reader
+  should interpret agreement versus disagreement.
 - A decision on the precise robust noise assumption: Gaussian additive noise is
   clean for transformed cumulants; broader non-Gaussian noise would need a
   different argument.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.
-- A concise literature-positioning paragraph distinguishing the paper from
+- A figure-led first draft once M28/M29 validate the grid pair, plus a concise
+  literature-positioning paragraph distinguishing the paper from
   Drautzburg-Wright, sign-restriction inference, and higher-moment SVAR GMM.
 
 ## Page Budget And Scope Exclusions

@@ -8,6 +8,21 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Update figure-led paper plan
+
+- Request or goal: update the paper plan and next steps because the corrected
+  figures now tell the paper's main story well.
+- Files changed: `manuscript/paper-plan.md`, `manuscript/paper-map.md`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/source-packet.md`,
+  `manuscript/formal-object-registry.json`, figure/simulation indexes, logs,
+  and M0021 transparency files.
+- Summary of work: promoted the M0020 residual-noise and non-Gaussianity grids
+  to the selected visual spine; marked M26 complete; reordered next work around
+  M28 validation, M27 diagnostic formalization, M29 Monte Carlo, and then
+  figure-led drafting.
+- Next recommended action: begin M28 validation of the selected grid pair.
+
 ### 2026-06-06 - Convert grid figures to J-test inversions
 
 - Request or goal: make both grid figures invert J tests in all rows, clarify

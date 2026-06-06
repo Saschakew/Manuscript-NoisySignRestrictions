@@ -16,7 +16,7 @@ Final shareable code that reproduces manuscript figures and tables belongs in
 python manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py
 ```
 
-Interpretation: this companion to the M0020 noise grid fixes residual noise at
+Interpretation: this selected companion to the M0020 noise grid fixes residual noise at
 `V=(0.3,0.3)` and weakens structural-shock non-Gaussianity across columns.
 All rows invert pointwise 10 percent J tests. It is meant to show the honest
 limitation: robust-DW can be robust to residual noise but wide when higher
@@ -33,10 +33,10 @@ moments are weak.
 python manuscript\simulations\sign_dw_robust_noise_grid_figure.py
 ```
 
-Interpretation: this is the corrected version of the KnowledgeVault B-plane
-figure the user requested. All rows invert pointwise 10 percent J tests. The
-robust-DW row uses only mixed higher cumulants, and the high-noise column shows
-standard DW rejecting true `B0` while robust DW contains it.
+Interpretation: this is the selected main story figure. All rows invert
+pointwise 10 percent J tests. The robust-DW row uses only mixed higher
+cumulants, and the high-noise column shows standard DW rejecting true `B0`
+while robust DW contains it.
 
 ## M0016 Sign, Standard DW, And Robust DW Noise Figure
 

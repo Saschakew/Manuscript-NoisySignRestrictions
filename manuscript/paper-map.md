@@ -21,10 +21,11 @@ reported beside the standard DW set as a practical robustness check.
 - Constructive object: robust DW-style higher-moment set over normalized impact
   matrices, using higher cumulants written as GMM-style moment equations and
   excluding second moments as structural restrictions.
-- Evidence: analytical J-test inversion result, then an early lightweight
-  Monte Carlo overview before polished figures; final evidence only if useful:
-  intuitive geometry figure, standard DW misspecification figure, robust-DW
-  comparison figure, and Monte Carlo coverage/width/overlap tables.
+- Evidence: the M0020 grid pair is the visual spine. The residual-noise grid
+  shows sign-set movement, standard-DW truth rejection, and robust-DW widening;
+  the non-Gaussianity grid shows why robust DW becomes wide when higher moments
+  weaken. Population-grid and Monte Carlo checks validate and quantify this
+  story.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -34,16 +35,17 @@ reported beside the standard DW set as a practical robustness check.
    residual `u_t` is already in hand, sign restrictions filter rotations of a
    covariance factor, and DW uses higher moments to refine a sign-admissible
    set.
-2. The problem appears when observed residuals are `B0 epsilon_t + eta_t`:
-   the covariance factor is built from `B0 B0' + V`, so the sign set is already
-   a noisy pseudo-set.
-3. DW-style refinement does not automatically fix this, because recovered
-   shocks from the noisy candidate system are not the structural shocks.
-   Finite samples may produce a narrow least-rejected set that looks efficient
-   but is actually misspecified.
+2. The residual-noise grid makes the problem visual: the covariance factor is
+   built from `B0 B0' + V`, so the sign set moves with noise.
+3. Standard DW-style refinement does not automatically fix this. In the
+   high-noise grid column, it rejects true `B0` while looking precise.
 4. The paper's constructive move is to drop second-moment restrictions and use
-   robust higher-moment restrictions on normalized candidate impacts.
-5. The practical recommendation is simple: report both the standard DW set and
+   robust higher-moment restrictions on normalized candidate impacts. The same
+   grid shows the robust set remains wider and contains the truth.
+5. The companion non-Gaussianity grid states the limitation honestly: robust DW
+   depends on informative higher moments and becomes wide when the shocks are
+   close to Gaussian.
+6. The practical recommendation is simple: report both the standard DW set and
    the robust DW set. Agreement is reassuring; divergence is a warning that the
    usual covariance-target refinement should not be trusted.
 
@@ -56,7 +58,7 @@ reported beside the standard DW set as a practical robustness check.
 | 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | planned |
 | 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | planned |
 | 4. Robust DW Higher Moments | Define the robust normalized candidate set, write cumulant restrictions as moment equations, and explain why second moments are dropped. | planned |
-| 5. Monte Carlo Robustness Check | Compare standard sign, standard DW, and robust DW sets across no-noise, noisy, weak-moment, and misspecified cases. | planned |
+| 5. Figure-Led Evidence And Monte Carlo Check | Use the two M0020 grids as the main visual story, then validate and quantify the same claims with population-grid and Monte Carlo checks. | planned |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
 
 ## Core Formal Objects
@@ -85,8 +87,10 @@ and proof or output status.
 
 ## Main Evidence
 
-- Intuitive sign-noise geometry figure showing covariance deformation and
-  sign-set bias.
+- M0020 residual-noise grid showing covariance/sign-set movement, standard-DW
+  truth rejection under high residual noise, and robust-DW truth inclusion.
+- M0020 non-Gaussianity grid showing robust-DW widening as higher moments
+  weaken and the Gaussian limit becomes uninformative.
 - Algebraic proof of the covariance pseudo-set and column-rescaling
   obstruction.
 - M25 working derivation showing that standard DW recovered-shock restrictions
@@ -94,19 +98,17 @@ and proof or output status.
   generic emptying plus explicit pseudo-zero exceptions.
 - Derivation of the robust higher-moment stack from
   `derivations/dw-noise-robust-moments.md`.
-- Early Monte Carlo overview plus the M0020-corrected noise and
-  non-Gaussianity grids after the analytical J-test result to decide whether
-  the project is worth deeper figure and replication investment.
-- Monte Carlo comparison of standard sign, standard DW, and robust DW sets.
-- Stress cases that show honest widening, weak-moment uncertainty, and
-  divergence diagnostics, including the M0020-corrected non-Gaussianity
-  companion grid.
+- Population-grid and repeated-draw validation of the M0020 grid pair.
+- Monte Carlo comparison of standard sign, standard DW, and robust DW sets
+  using the grid pair's scenarios as the main design.
+- Stress cases that quantify honest widening, weak-moment uncertainty, and
+  divergence diagnostics.
 
 ## Current Bottlenecks
 
 - The standard DW J-test inversion result is now a working derivation; it still
   needs audit before prose promotion.
-- M35/M30 and the M0020-corrected grid pair provide exploratory evidence and
-  preferred candidate visuals only. M28 population-grid checks remain the
-  immediate gate before polished figures or final finite-sample Monte Carlo
-  tables.
+- The M0020-corrected grid pair is the selected visual spine, but still needs
+  M28/M29 validation before polished final evidence claims. The next gate is to
+  verify the same story is stable under population moments, repeated seeds,
+  grid-boundary changes, and calibrated critical values.

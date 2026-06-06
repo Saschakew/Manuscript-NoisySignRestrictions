@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T11:19:24Z",
+  "updated_at": "2026-06-06T12:22:40Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -400,6 +400,28 @@
         "milestone_number": 17,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/17",
         "tag_name": "manuscript-milestones/M0020-invert-j-tests-in-grid-figures"
+      }
+    },
+    {
+      "id": "M0021-update-figure-led-paper-plan",
+      "sequence": 21,
+      "title": "Update figure-led paper plan",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T12:15:17Z",
+      "closed_at": "2026-06-06T12:22:40Z",
+      "start_commit": "e51e9a13dc9ac28848ba82c8dedfd0ef6e53e7e8",
+      "snapshot_ref": "manuscript-milestones/M0021-update-figure-led-paper-plan",
+      "summary": "Updated the paper plan so the M0020 grid pair is the selected visual spine and reordered next steps around validation, formalization, Monte Carlo, and drafting.",
+      "user_input_ids": [
+        "U0021-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0021-update-figure-led-paper-plan.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 18,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/18",
+        "tag_name": "manuscript-milestones/M0021-update-figure-led-paper-plan"
       }
     }
   ]

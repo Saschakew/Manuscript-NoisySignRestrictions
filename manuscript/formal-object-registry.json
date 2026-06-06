@@ -7,7 +7,7 @@
     {
       "id": "def:diagonal-noise-svar",
       "type": "definition",
-      "status": "planned",
+      "status": "covered-by-selected-grid",
       "draft_location": "draft.md#2-noisy-sign-sets",
       "description": "Simultaneous impact-only observed residual model u_t = B0 epsilon_t + eta_t with unit-variance structural shocks and additive residual noise; VAR lags and dynamic responses are outside the first paper.",
       "depends_on": [],
@@ -168,33 +168,33 @@
       "type": "figure",
       "status": "planned",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "Intuitive figure showing covariance ellipse deformation, sign-boundary movement, and standard sign-set bias under additive residual noise.",
+      "description": "Intuitive sign-set geometry is now covered by the top row of the selected M0020 residual-noise grid, which shows sign/covariance accepted sets moving as residual noise increases.",
       "depends_on": [
         "prop:noisy-sign-pseudo-set"
       ],
-      "output_source": "planned manuscript-local simulation"
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py and manuscript/figures/fig_sign_dw_robust_noise_grid.png. A separate covariance-ellipse panel is optional, not required for the first draft."
     },
     {
       "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "candidate-output-created",
+      "status": "selected-story-figure",
       "draft_location": "draft.md#3-standard-dw-under-residual-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "M0020-corrected candidate figure showing sign/covariance, standard-DW, and robust-DW accepted B-plane sets across increasing diagonal residual noise using pointwise 10 percent finite-sample J-test cutoffs. The high-noise stress column has standard DW rejecting true B0 while robust DW contains it.",
+      "description": "Selected residual-noise story figure showing sign/covariance, standard-DW, and robust-DW accepted B-plane sets across increasing Gaussian residual noise using pointwise 10 percent finite-sample J-test cutoffs. The high-noise stress column has standard DW rejecting true B0 while robust DW contains it.",
       "depends_on": [
         "prop:standard-dw-misspecification"
       ],
-      "output_source": "Preferred candidate: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. Candidate only until M28/M29 checks are complete."
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. Final-evidence status still depends on M28/M29 validation."
     },
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "candidate-output-created",
+      "status": "selected-story-figure",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "M0020-corrected candidate grids comparing sign/covariance, standard DW, and robust DW accepted B-plane sets. Both grids invert pointwise 10 percent finite-sample J tests in all rows. The robust-DW rows use only mixed higher cumulants as restrictions and no cross-covariance restriction.",
+      "description": "Selected grid-pair story comparing sign/covariance, standard DW, and robust DW accepted B-plane sets. Both grids invert pointwise 10 percent finite-sample J tests in all rows. The residual-noise grid shows standard-DW truth rejection and robust-DW truth inclusion; the non-Gaussianity grid shows robust-DW widening as higher moments weaken.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "Preferred candidates: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Both grid figures were corrected in M0020 to invert pointwise 10 percent J tests in all rows while keeping the robust rows free of second-moment restrictions. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. Candidate only until M28 verifies robust-DW truth inclusion, aliases, and weak-moment widening and M29 calibrates critical values."
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Both grid figures were corrected in M0020 to invert pointwise 10 percent J tests in all rows while keeping the robust rows free of second-moment restrictions. Final-evidence status still depends on M28 validating truth inclusion, aliases, weak-moment widening, and M29 calibrating critical values."
     },
     {
       "id": "table:monte-carlo-coverage-width",
@@ -242,12 +242,12 @@
     {
       "id": "audit:robust-dw-global-grid-gate",
       "status": "open",
-      "question": "Do population-grid checks support robust-DW truth inclusion, reveal any remote aliases, and characterize weak-moment widening under the maintained Gaussian-noise model?"
+      "question": "Do population-grid and repeated-draw checks support the selected M0020 grid-pair story: robust-DW truth inclusion under Gaussian residual noise, standard-DW truth rejection under noisy covariance targets, no misleading remote aliases, and weak-moment widening under the maintained Gaussian-noise model?"
     },
     {
       "id": "audit:simulation-story-gate",
       "status": "open",
-      "question": "After the M30 audit of the M35 cautionary screen, do the planned population grids and Monte Carlo figures convincingly separate structural-rescaling exceptions from generic noisy covariance cases, show standard DW false sharpening or pseudo-zeros, and show robust DW widening or divergence without overstating diagnostics?"
+      "question": "After selecting the M0020 figure pair as the visual spine, do the planned population grids and Monte Carlo figures convincingly separate structural-rescaling exceptions from generic noisy covariance cases, show standard DW truth rejection or false sharpening, and show robust DW widening or divergence without overstating diagnostics?"
     }
   ]
 }
