@@ -47,19 +47,21 @@ structural set or merely sharpening a misspecified noisy-covariance target?
 
 M0034 scale correction: the M0030/M37 diagonal-anchor robust-DW object is
 superseded. Under the active diagonal-normalized chart, the covariance anchor
-`Sigma_u,12=b12+b21` also assumes unit structural-shock variances. The active
-valid fallback is the pure mixed higher-cumulant robust-DW set unless M39
-introduces a separately justified scale model.
+`Sigma_u,12=b12+b21` also assumes unit structural-shock variances. The pure
+mixed higher-cumulant robust-DW set remains the validity fallback, but M0036
+now supplies the active variance-ratio scale model.
 
 M0035 candidate scale model: a bounded recovered-covariance screen can use
 `E[e1 e2]=(-b21*nu_1-b12*nu_2)/(1-b12*b21)^2` with
 `0 <= nu_i <= 0.5`. This is valid only as an explicit noise-bound assumption,
 not as a free normalization.
 
-M0036 scale-corrected candidate: replace the absolute bound with the relative
+M0036 scale-corrected proposal: replace the absolute bound with the relative
 restriction `0 <= nu_i <= 0.5 * Var(epsilon_i)` while profiling structural
-shock variances in the diagonal-normalized chart. This is the current
-preferred Figure 1 candidate pending audit.
+shock variances in the diagonal-normalized chart. This variance-ratio robust
+DW screen is the active proposal for the manuscript. The remaining work is to
+write the formulas cleanly, update the companion figures and Monte Carlo
+evidence, and audit the finite-sample implementation.
 
 Scope note: the first paper studies the simultaneous SVAR impact problem only.
 It treats the reduced-form residual `u_t` as the object to be decomposed and
@@ -102,14 +104,14 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | Vault path | What it validates or illustrates | Manuscript action |
 |---|---|---|
 | `replications/svar-noise-recursive-sign-visualization/` | Deterministic sign-noise geometry and no-noise independence-refinement behavior under residual noise. | Use as the starting point for the intuitive figure and standard-DW false-sharpening figure. |
-| `manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md` | M0036 relative-noise Figure 1 candidate: uses pure mixed higher-cumulant J inversion plus a covariance-decomposition feasibility screen with `0 <= nu_i <= 0.5 * Var(epsilon_i)`. | Current preferred candidate visual: high-noise relative robust DW contains true `B0` and accepts 0.071 of the full plotted grid. Audit before promotion because the signal-to-noise bound is substantive identifying information. |
+| `manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md` | M0036 variance-ratio robust DW Figure 1 proposal: uses pure mixed higher-cumulant J inversion plus a covariance-decomposition feasibility screen with `0 <= nu_i <= 0.5 * Var(epsilon_i)`. | Active proposal visual: high-noise variance-ratio robust DW contains true `B0` and accepts 0.071 of the full plotted grid. Future work should update Figure 2, add Figure 3, and audit finite-sample behavior while presenting the signal-to-noise bound as substantive identifying information. |
 | `manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md` | M0035 bounded-noise Figure 1 comparison: uses pure mixed higher-cumulant J inversion plus a profiled recovered-covariance feasibility screen with `0 <= nu_i <= 0.5`. | Historical comparison: high-noise bounded robust DW contains true `B0` and accepts 0.066 of the full plotted grid, but the absolute variance cap is scale-arbitrary relative to the M0036 signal-to-noise screen. |
 | `manuscript/simulations/sign_dw_pure_robust_noise_grid_figure.md` | M0034 scale-correction diagnostic for Figure 1: the bottom row uses only five mixed higher-cumulant moments and drops the invalid off-diagonal covariance anchor. | Current visual diagnostic: high-noise pure robust DW contains true `B0` but accepts 0.459 of the full plotted grid, showing the precision cost of validity. |
-| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | Manuscript-local M0030 revised companion grid: fixes residual noise and varies structural-shock non-Gaussianity. Its diagonal-anchor robust row is superseded after M0034 and must be revised in M39. | Use only as a reminder of the weak-higher-moment limitation until the robust row is rebuilt. |
-| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local B-plane grid generator. M0034 added `--robust-mode pure`; M0035 added `--robust-mode bounded`; M0036 added `--robust-mode relative`. The old default diagonal-anchor output is superseded for the robust row. | Use relative mode for the current candidate Figure 1 and pure/bounded modes as fallback comparisons; audit before promoting. |
+| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | Manuscript-local M0030 revised companion grid: fixes residual noise and varies structural-shock non-Gaussianity. Its diagonal-anchor robust row is superseded after M0034 and must be revised in M43. | Use only as a reminder of the weak-higher-moment limitation until the robust row is rebuilt with the variance-ratio proposal. |
+| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local B-plane grid generator. M0034 added `--robust-mode pure`; M0035 added `--robust-mode bounded`; M0036 added `--robust-mode relative`. The old default diagonal-anchor output is superseded for the robust row. | Use relative mode for the proposal Figure 1 and pure/bounded modes as fallback comparisons; rebuild Figure 2/Figure 3 and audit finite-sample behavior next. |
 | `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; refreshed M28 population-grid validation now favors the M0030 grid pair as the main visual spine. |
-| `manuscript/simulations/m28_grid_story_validation.py` | Refreshed M28 validation pass for the superseded M0030 grid pair. | Historical for the robust row after M0034/M0035/M0036; rerun after M40 if the relative screen passes audit. |
-| `manuscript/simulations/m29_calibrated_monte_carlo.py` | Refreshed M29 finite-sample pass for the superseded M0030 robust statistic. | Historical for the robust row after M0034/M0035/M0036; reuse its reporting metrics when rebuilding the relative-noise Monte Carlo. |
+| `manuscript/simulations/m28_grid_story_validation.py` | Refreshed M28 validation pass for the superseded M0030 grid pair. | Historical for the robust row after M0034/M0035/M0036; rerun for the variance-ratio proposal after Figure 2/Figure 3 are rebuilt and M40 audit is complete. |
+| `manuscript/simulations/m29_calibrated_monte_carlo.py` | Refreshed M29 finite-sample pass for the superseded M0030 robust statistic. | Historical for the robust row after M0034/M0035/M0036; reuse its reporting metrics when rebuilding the variance-ratio Monte Carlo. |
 | `svar-toolkit/examples/howto/06_sign_restrictions.py` | Verified fixed-draw sign-restriction accepted-set workflow. | Use for baseline sign-set simulations if needed. |
 | `svar-toolkit/examples/howto/12_non_gaussian_cross_moments.py` | Verified fixed-draw higher-moment cross-moment selector. | Use as a comparator or helper for robust higher-moment diagnostics, not as a final estimator without audit. |
 | `svar-toolkit/docs/api/gmm.md` and GMM examples | Reusable moment quadratic engine. | Candidate for the robust DW moment criterion and Monte Carlo wrappers. |
@@ -180,8 +182,9 @@ these tasks:
     diagonal-anchor robust DW object. The pure higher-cumulant component
     remains valid under Gaussian residual noise, but the off-diagonal
     covariance anchor double-normalizes scale in the `diag(B)=1` chart unless
-    unit shock variances are also imposed. M39 must rebuild the method and
-    evidence plan.
+    unit shock variances are also imposed. M0036 supplies the active
+    variance-ratio scale model; M41-M45 should now draft formulas, clean math
+    formatting, update Figure 2, add Figure 3, and rebuild evidence.
 
 ## Gaps And Risks
 

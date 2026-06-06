@@ -5,6 +5,27 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Adopt variance-ratio robust DW as the proposal
+
+- Origin: user planning instruction after inspecting the M0036 relative-noise
+  Figure 1.
+- User input id: U0037
+- Codex role: updated the project plan, paper map, workplan, task board, formal
+  registry, and logs to make the variance-ratio screen the active proposal and
+  to queue the next writing and evidence tasks.
+- Decision: Treat the M0036 variance-ratio robust DW screen as the manuscript's
+  proposal. Future work should adjust the draft around this proposal, sketch
+  Sections 2-4 with the important formulas, use proper manuscript math
+  delimiters instead of Markdown backtick math, update Figure 2, add Figure 3
+  varying `T=500,1000,2000`, and rebuild validation/Monte Carlo evidence.
+- Rationale: Bounding residual noise relative to structural-shock variance is
+  scale-correct in the diagonal-normalized chart and solves the arbitrary-unit
+  problem of the absolute M0035 bound while preserving useful precision.
+- Consequence for next work: M41 should sketch Sections 2-4 formula-first;
+  M42 should clean math delimiters; M43 should rebuild Figure 2; M44 should
+  add the sample-size Figure 3; M45 should rebuild validation and Monte Carlo
+  evidence; M40 remains the adversarial audit of the variance-ratio screen.
+
 ### 2026-06-06 - Use relative noise-to-shock variance screen as candidate
 
 - Origin: user correction after the M0035 absolute bounded-noise figure.

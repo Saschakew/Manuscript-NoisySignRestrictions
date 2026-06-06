@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Plan variance-ratio robust DW proposal
+
+- Request or goal: update the paper plan and future tasks so the
+  variance-ratio robust DW bound is the proposal, while not yet drafting
+  Sections 2-4 or generating the next figures.
+- Files changed: planning/control surfaces, formal registry, decision and user
+  input logs, and M0037 transparency files.
+- Summary of work: opened local transparency milestone M0037 and GitHub
+  milestone #34; updated the source packet, dashboard, paper plan, paper map,
+  workplan, task board, and registry so M0036 variance-ratio robust DW is the
+  active proposal; added future tasks for Section 2-4 formula sketches, math
+  delimiter cleanup, Figure 2 rebuild, Figure 3 sample-size grid, and
+  validation/Monte Carlo rebuild.
+- Next recommended action: start M41, sketching Sections 2-4 with the
+  important formulas and proper manuscript math delimiters.
+
 ### 2026-06-06 - Render relative-noise covariance Figure 1
 
 - Request or goal: replace the absolute residual-noise variance bound with a

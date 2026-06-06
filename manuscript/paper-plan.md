@@ -10,20 +10,21 @@ M0034 scale correction: the M0030/M37 diagonal-anchor robust-DW object is
 superseded. In the diagonal-normalized chart `diag(B)=1`, the off-diagonal
 covariance is `Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2` unless unit shock
 variances are imposed as an additional scale normalization. The active
-constructive object is therefore the pure higher-cumulant robust-DW set, or a
-future explicitly scaled alternative after M39.
+constructive object is therefore the variance-ratio robust-DW set: pure
+higher-cumulant moments plus the M0036 relative noise-to-shock variance
+screen.
 
 M0035 comparison candidate: the explicitly scaled alternative can use the
 recovered-shock covariance equation
 `E[e1 e2]=(-b21*nu_1-b12*nu_2)/(1-b12*b21)^2` with
 `0 <= nu_i <= 0.5`. This absolute bounded-noise restriction is scale-arbitrary.
 
-M0036 preferred candidate pending audit: replace the absolute cap with a
-relative signal-to-noise restriction, `0 <= nu_i <= 0.5 Var(epsilon_i)`. In
-the diagonal-normalized chart, profile structural-shock variances and residual
-noise variances from the sample covariance equations for each candidate `B`.
-This is still identifying information, but it is stated relative to the
-structural shocks rather than in arbitrary units.
+M0036 proposal: replace the absolute cap with a variance-ratio signal-to-noise
+restriction, `0 <= nu_i <= 0.5 Var(epsilon_i)`. In the diagonal-normalized
+chart, profile structural-shock variances and residual-noise variances from
+the sample covariance equations for each candidate `B`. This is the paper's
+current robust-DW proposal. It is still identifying information, but it is
+stated relative to the structural shocks rather than in arbitrary units.
 
 The paper studies the simultaneous SVAR impact problem that arises after a
 reduced-form residual has been obtained: what happens when applied researchers
@@ -38,19 +39,21 @@ efficient structural learning.
 The constructive contribution is a robustness check: compute the standard
 Drautzburg-Wright set and compute a Gaussian-noise robust set that drops
 invalid zero-covariance restrictions, keeps mixed higher-cumulant restrictions,
-and optionally applies an explicit relative-noise covariance-decomposition
-screen.
+and applies the explicit variance-ratio covariance-decomposition screen.
 When the two sets agree, the usual refinement is less suspicious. When they
 diverge, residual noise or another covariance-target misspecification is
 indicated, and the robust set is the safer object.
 
-The paper's visual spine is now the M0030 revised grid pair. The first grid
-varies residual noise and shows the main warning: noisy covariance moves the
-sign set, standard DW can reject the true normalized `B0`, and robust DW
-contains it without accepting the whole chart. The companion grid fixes
-residual noise and weakens structural non-Gaussianity, showing the honest
-limitation: robust DW is not magic; when higher moments carry little
-information, the robust set widens toward the covariance anchor.
+The paper's visual spine should now be rebuilt around the M0036 variance-ratio
+proposal. Figure 1 varies residual noise and shows the main warning: noisy
+covariance moves the sign set, standard DW can reject the true normalized
+`B0`, and variance-ratio robust DW contains it without accepting the whole
+chart. Figure 2 should be updated to fix residual noise and weaken structural
+non-Gaussianity, showing the honest limitation: robust DW is not magic; when
+higher moments carry little information, the robust set widens even under the
+variance-ratio screen. Figure 3 should vary sample size `T=500,1000,2000`
+while holding the Figure 1 structural non-Gaussianity and Figure 2 residual
+noise fixed.
 The refreshed M28 validation pass supports this grid-pair story with exact
 population moment diagnostics, grid-boundary checks, repeated finite-sample
 seeds, and pointwise critical-value sensitivity. M27/M0030 now fix the
@@ -115,16 +118,19 @@ is the price of not pretending that the noisy covariance is structural.
 4. Robust higher-cumulant DW set: define the normalized robust candidate space,
    write the mixed higher-cumulant restrictions as moment equations, explain
    why recovered-shock zero covariance and the old off-diagonal `u` covariance
-   anchor are not imposed, and present the relative-noise covariance screen as
-   optional identifying information. State claims with the M0034/M0036 caveats:
-   normalized bivariate chart, diagonal Gaussian residual noise, explicit
-   signal-to-noise bound, and pointwise critical values.
-5. Figure-led evidence and Monte Carlo robustness check: use the M0030 revised grid
-   pair as the reader's main visual guide. First show the residual-noise grid
-   that moves the sign set, makes standard DW reject the truth in the high-noise
-   column, and leaves robust DW informative. Then show the non-Gaussianity grid
-   that makes weak higher moments visible. Use population-grid and Monte Carlo
-   checks to validate, calibrate, and summarize the same story.
+   anchor are not imposed, and present the variance-ratio covariance screen as
+   the proposal's identifying restriction. State claims with the M0034/M0036
+   caveats: normalized bivariate chart, diagonal Gaussian residual noise,
+   explicit signal-to-noise bound, and pointwise critical values.
+5. Figure-led evidence and Monte Carlo robustness check: use the rebuilt
+   Figure 1/Figure 2/Figure 3 sequence as the reader's main visual guide. First
+   show the residual-noise grid that moves the sign set, makes standard DW
+   reject the truth in the high-noise column, and leaves variance-ratio robust
+   DW informative. Then show the updated non-Gaussianity grid that makes weak
+   higher moments visible. Then add the sample-size grid to show how the
+   variance-ratio robust set changes from `T=500` to `T=1000` to `T=2000`.
+   Use population-grid and Monte Carlo checks to validate, calibrate, and
+   summarize the same story.
 6. Conclusion: recommend reporting the robust DW set beside the standard DW
    set as a diagnostic for covariance-target misspecification. Defer empirical
    applications.
@@ -160,7 +166,7 @@ is the price of not pretending that the noisy covariance is structural.
 - Robust DW moment stack:
   mixed third central moments and fourth cumulants of `z_t(B)`, written as raw
   moment equations with covariance products subtracted; optional second-order
-  information enters only through the explicit relative-noise covariance
+  information enters only through the explicit variance-ratio covariance
   screen.
 - Robustness check:
   compare the standard DW accepted set with the robust DW accepted set in the
@@ -210,9 +216,15 @@ is the price of not pretending that the noisy covariance is structural.
   (sign/covariance, standard DW, robust DW) across increasing Gaussian residual
   noise. The high-noise column should remain the narrative anchor where
   standard DW rejects true `B0` and robust DW contains it.
-- Main visual figure 2, non-Gaussianity grid: hold residual noise fixed and
-  weaken structural-shock higher moments. Use it to show that robust DW widens
-  toward the covariance anchor as the identifying higher-moment signal weakens.
+- Main visual figure 2, non-Gaussianity grid: update the existing companion
+  figure so the robust row uses the variance-ratio proposal. Hold residual
+  noise fixed and weaken structural-shock higher moments. Use it to show that
+  robust DW widens as the identifying higher-moment signal weakens.
+- Main visual figure 3, sample-size grid: add a new figure with columns
+  `T=500`, `T=1000`, and `T=2000`, holding the Figure 1 non-Gaussianity and
+  Figure 2 noise calibration fixed. Use it to show whether the variance-ratio
+  robust set tightens with sample size while the maintained signal-to-noise
+  restriction stays fixed.
 - Validation grid checks: M28 reran the same story on population and
   repeated-draw grids, checking that the visual is not an artifact of one seed,
   one grid boundary, or the pointwise chi-square cutoff.
@@ -234,8 +246,12 @@ is the price of not pretending that the noisy covariance is structural.
 ## What Is Missing
 
 - Sections 2-4 still need prose that turns the noisy sign-set algebra,
-  standard-DW misspecification result, and diagonal-noise robust DW set into
-  disciplined manuscript text.
+  standard-DW misspecification result, and variance-ratio robust DW proposal
+  into disciplined manuscript text. The next drafting task should at least
+  sketch the important formulas.
+- Future drafting cleanup should replace manuscript math written in Markdown
+  backticks with inline `\(...\)` and display
+  `\begin{equation}...\end{equation}` environments where appropriate.
 - The first literature-positioning pass is drafted in the introduction. It
   still needs final citation-style cleanup when the References section is
   converted from TODO to shareable prose.
@@ -270,8 +286,8 @@ Keep the paper as one clean robustness-check story:
 
 1. Noise biases the standard sign-restricted set.
 2. Standard DW refinement can falsely sharpen the misspecified set.
-3. A robust DW set keeps valid higher cumulants, drops invalid covariance
-   anchors, and should be wider when standard DW precision is driven by
-   misspecification unless defensible signal-to-noise bounds are added.
+3. A variance-ratio robust DW set keeps valid higher cumulants, drops invalid
+   covariance anchors, and adds an explicit signal-to-noise bound to recover
+   useful precision without double-normalizing scale.
 4. Comparing the two sets gives a practical diagnostic.
 5. Simulations carry the evidence burden; no application is needed yet.

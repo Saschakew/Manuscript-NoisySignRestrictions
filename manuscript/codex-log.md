@@ -11,6 +11,27 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0037 Plan variance-ratio proposal
+
+- Request: user accepted the variance-ratio bound as the good solution and
+  asked to update only the paper plan and future tasks, not to draft Sections
+  2-4 or generate figures yet.
+- Actions taken: opened local transparency milestone M0037 and GitHub
+  milestone #34; updated the project dashboard, source packet, paper plan,
+  paper map, workplan, task board, formal registry, decision log, user input
+  log, and session log so M0036 variance-ratio robust DW is the active
+  proposal.
+- Files changed: planning/control surfaces, formal registry, human-readable
+  logs, and M0037 transparency files.
+- Checks run: `git diff --check` passed with line-ending warnings only;
+  `python scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning and passed cleanly after closure; `python -m
+  json.tool manuscript/formal-object-registry.json` passed.
+- Open uncertainties: M40 still needs to audit the variance-ratio screen; M41
+  must sketch Sections 2-4 with formulas; M42 must clean manuscript math
+  delimiters; M43/M44 must rebuild Figure 2 and add Figure 3; M45 must rebuild
+  validation and Monte Carlo evidence.
+
 ### 2026-06-06 - M0036 Relative-noise covariance figure
 
 - Request: user corrected the absolute bounded-noise screen and asked to bound

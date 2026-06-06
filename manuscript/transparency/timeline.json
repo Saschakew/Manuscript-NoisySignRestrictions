@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T20:25:29Z",
+  "updated_at": "2026-06-06T20:39:11Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -753,6 +753,28 @@
         "milestone_number": 33,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/33",
         "tag_name": "manuscript-milestones/M0036-relative-noise-covariance-figure"
+      }
+    },
+    {
+      "id": "M0037-plan-variance-ratio-proposal",
+      "sequence": 37,
+      "title": "Plan variance-ratio proposal",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T20:29:55Z",
+      "closed_at": "2026-06-06T20:39:11Z",
+      "start_commit": "dc383a37c63a7080ed59b241fa3a6adca821bd65",
+      "snapshot_ref": "manuscript-milestones/M0037-plan-variance-ratio-proposal",
+      "summary": "Updated the manuscript plan and future task sequence around the variance-ratio robust DW proposal.",
+      "user_input_ids": [
+        "U0037-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0037-plan-variance-ratio-proposal.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 34,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/34",
+        "tag_name": "manuscript-milestones/M0037-plan-variance-ratio-proposal"
       }
     }
   ]

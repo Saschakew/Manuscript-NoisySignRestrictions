@@ -83,3 +83,6 @@
 {"id": "A0036-001", "milestone_id": "M0036-relative-noise-covariance-figure", "captured_at": "2026-06-06T20:25:29Z", "description": "Added --robust-mode relative to the Figure 1 generator."}
 {"id": "A0036-002", "milestone_id": "M0036-relative-noise-covariance-figure", "captured_at": "2026-06-06T20:25:29Z", "description": "Rendered fig_sign_dw_relative_noise_robust_grid.png and documented fixed-draw diagnostics."}
 {"id": "A0036-003", "milestone_id": "M0036-relative-noise-covariance-figure", "captured_at": "2026-06-06T20:25:29Z", "description": "Updated draft, registry, planning surfaces, provenance, logs, figure indexes, and simulation notes for M0036."}
+{"id": "A0037-001", "milestone_id": "M0037-plan-variance-ratio-proposal", "captured_at": "2026-06-06T20:39:11Z", "description": "Made M0036 variance-ratio robust DW the active proposal in planning and registry surfaces."}
+{"id": "A0037-002", "milestone_id": "M0037-plan-variance-ratio-proposal", "captured_at": "2026-06-06T20:39:11Z", "description": "Added future tasks for Section 2-4 formula sketches, math delimiter cleanup, Figure 2 rebuild, Figure 3 sample-size grid, and evidence rebuild."}
+{"id": "A0037-003", "milestone_id": "M0037-plan-variance-ratio-proposal", "captured_at": "2026-06-06T20:39:11Z", "description": "Recorded the user planning decision in logs and transparency files."}

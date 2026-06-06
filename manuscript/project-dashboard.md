@@ -8,23 +8,22 @@ KnowledgeVault link: `../knowledge-vault-link.json`
 
 Current stage: first figure-led drafting pass started, then M0034 exposed a
 scale-normalization error in the M0030/M37 diagonal-anchor robust-DW object.
-The abstract, introduction, evidence section, M28/M29 validation, and M37
-audit still describe the now-superseded six-moment diagonal-anchor statistic
-and must be revised before further polished Section 2-4 drafting.
+M0036 now gives the replacement proposal: variance-ratio robust DW, combining
+valid higher-cumulant moments with a profiled covariance-decomposition screen
+where residual noise variances are bounded relative to structural-shock
+variances.
 
-Current focus: audit the M0036 relative-noise covariance-screen candidate. It
-uses pure higher-cumulant moments plus a profiled covariance-decomposition
-screen with `0 <= nu_i <= 0.5 Var(epsilon_i)`, and it visually restores much
-of the precision lost by the pure robust row while avoiding the arbitrary
-absolute `nu_i <= 0.5` scale.
+Current focus: align the paper plan and future task sequence around the
+variance-ratio robust DW proposal. The current work block is planning only:
+do not yet draft Sections 2-4, rebuild Figure 2, create Figure 3, or perform
+the math-format cleanup.
 
-Next recommended action: audit the relative-noise covariance screen before
-rebuilding M28/M29 or drafting Section 4. The audit should check the algebra,
-the role of the 50 percent signal-to-noise bound as identifying information,
-finite-sample behavior of the equality-plus-inequality screen, and whether the
-assumption is acceptable for the paper's story.
+Next recommended action: sketch Sections 2-4 with the important formulas using
+proper manuscript math delimiters, then update Figure 2 to use the
+variance-ratio robust row, add the new Figure 3 sample-size grid, and rebuild
+the validation/Monte Carlo evidence around the same proposal.
 
-Active milestone: M0036, relative noise covariance figure.
+Active milestone: M0037, plan variance-ratio proposal.
 
 Active blockers:
 
@@ -53,8 +52,16 @@ Active blockers:
 - M0036 rendered `fig_sign_dw_relative_noise_robust_grid.png`. The high-noise
   relative row contains true `B0` and accepts about 0.071 of the full plotted
   grid, or 0.084 of the sign-admissible grid. Its precision comes from the
-  explicit `nu_i <= 0.5 Var(epsilon_i)` signal-to-noise restriction and needs
-  a method audit before promotion.
+  explicit `nu_i <= 0.5 Var(epsilon_i)` signal-to-noise restriction; this is
+  now the manuscript proposal, with audit and evidence rebuild still required.
+- Sections 2-4 still need a formula-first prose sketch. Future drafting should
+  use inline `\(...\)` and display `\begin{equation}...\end{equation}` math,
+  not Markdown backtick math.
+- Figure 2 must be rebuilt so its robust row uses the variance-ratio proposal
+  rather than the superseded diagonal-anchor statistic.
+- A new Figure 3 should vary sample size `T=500,1000,2000`, holding the
+  Figure 1 structural non-Gaussianity and Figure 2 residual-noise calibration
+  fixed.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
 - The first figure-led skeleton now uses the refreshed M29 chi-square rows as
@@ -63,10 +70,9 @@ Active blockers:
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
 
-Last substantive session: 2026-06-06, opened M0036 to test a relative
-noise-to-shock variance screen. Generated the relative-noise Figure 1 variant
-and recorded it as the preferred candidate pending audit before replacing the
-evidence spine.
+Last substantive session: 2026-06-06, opened M0037 to update the paper plan
+and next tasks around the variance-ratio robust DW proposal without yet
+drafting Sections 2-4 or generating the next figures.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "M0037-plan-variance-ratio-proposal",
+  "sequence": 37,
+  "title": "Plan variance-ratio proposal",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T20:29:55Z",
+  "closed_at": "2026-06-06T20:39:11Z",
+  "start_commit": "dc383a37c63a7080ed59b241fa3a6adca821bd65",
+  "snapshot_ref": "manuscript-milestones/M0037-plan-variance-ratio-proposal",
+  "summary": "Updated the manuscript plan and future task sequence around the variance-ratio robust DW proposal.",
+  "user_inputs": [
+    {
+      "id": "U0037-001",
+      "milestone_id": "M0037-plan-variance-ratio-proposal",
+      "captured_at": "2026-06-06T20:29:55Z",
+      "source": "chat",
+      "text": "Update the paper plan and future tasks so the variance-ratio robust DW bound is the proposal; schedule Section 2-4 formula sketches, LaTeX math-format cleanup, Figure 2 update, and new T-grid Figure 3, without doing those tasks now."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0037-001",
+      "milestone_id": "M0037-plan-variance-ratio-proposal",
+      "captured_at": "2026-06-06T20:39:11Z",
+      "description": "Made M0036 variance-ratio robust DW the active proposal in planning and registry surfaces."
+    },
+    {
+      "id": "A0037-002",
+      "milestone_id": "M0037-plan-variance-ratio-proposal",
+      "captured_at": "2026-06-06T20:39:11Z",
+      "description": "Added future tasks for Section 2-4 formula sketches, math delimiter cleanup, Figure 2 rebuild, Figure 3 sample-size grid, and evidence rebuild."
+    },
+    {
+      "id": "A0037-003",
+      "milestone_id": "M0037-plan-variance-ratio-proposal",
+      "captured_at": "2026-06-06T20:39:11Z",
+      "description": "Recorded the user planning decision in logs and transparency files."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T20:39:11Z",
+      "description": "git diff --check: passed with line-ending warnings only"
+    },
+    {
+      "captured_at": "2026-06-06T20:39:11Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T20:39:11Z",
+      "description": "python -m json.tool manuscript/formal-object-registry.json: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0037-plan-variance-ratio-proposal.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 34,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/34",
+    "tag_name": "manuscript-milestones/M0037-plan-variance-ratio-proposal"
+  }
+}
