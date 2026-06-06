@@ -5,6 +5,24 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Use one J-test inversion object in both grid figures
+
+- Origin: user-originated correction
+- User input id: U0020
+- Codex role: corrected the simulation scripts and regenerated both figures.
+- Decision: Both grid figures should show accepted sets from pointwise
+  finite-sample J-test inversion at the 10 percent level in every row. The
+  robust-DW row uses the five mixed higher-cumulant restrictions
+  `(C112, C122, C1112, C1122, C1222)` and excludes cross covariance as a
+  restriction.
+- Rationale: Mixing finite-sample J-test rows with a population-score robust
+  row made the cutoff interpretation unclear and weakened the visual story.
+  Using one J-test object across rows makes the comparison interpretable.
+- Consequence for next work: Captions must say these are pointwise J tests.
+  The non-Gaussian Gaussian-shock column should be described as population
+  all-null with finite-sample pointwise test noise. M28/M29 still need
+  population and calibrated finite-sample checks before final paper use.
+
 ### 2026-06-06 - Define grid robust rows as pure higher-cumulant sets
 
 - Origin: user-originated correction

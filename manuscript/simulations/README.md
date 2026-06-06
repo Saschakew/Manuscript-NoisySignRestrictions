@@ -5,7 +5,7 @@ Use this folder for exploratory simulation designs and design notes.
 Final shareable code that reproduces manuscript figures and tables belongs in
 `../replication/`.
 
-## M0018 Non-Gaussianity Companion Grid
+## M0020 Non-Gaussianity Companion Grid
 
 - Script: `sign_dw_robust_nongaussianity_grid_figure.py`
 - Note: `sign_dw_robust_nongaussianity_grid_figure.md`
@@ -16,12 +16,13 @@ Final shareable code that reproduces manuscript figures and tables belongs in
 python manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py
 ```
 
-Interpretation: this companion to the M0017 noise grid fixes residual noise at
+Interpretation: this companion to the M0020 noise grid fixes residual noise at
 `V=(0.3,0.3)` and weakens structural-shock non-Gaussianity across columns.
-It is meant to show the honest limitation: robust-DW can be robust to residual
-noise but wide when higher moments are weak.
+All rows invert pointwise 10 percent J tests. It is meant to show the honest
+limitation: robust-DW can be robust to residual noise but wide when higher
+moments are weak.
 
-## M0017 Corrected Sign/DW/Robust-DW Noise Grid
+## M0020 Corrected Sign/DW/Robust-DW Noise Grid
 
 - Script: `sign_dw_robust_noise_grid_figure.py`
 - Note: `sign_dw_robust_noise_grid_figure.md`
@@ -33,9 +34,9 @@ python manuscript\simulations\sign_dw_robust_noise_grid_figure.py
 ```
 
 Interpretation: this is the corrected version of the KnowledgeVault B-plane
-figure the user requested. It uses the finite-sample pointwise N-test statistic
-with chi-square cutoffs, not the older artificial fixed score cutoff, and adds
-the robust-DW profiled moment row.
+figure the user requested. All rows invert pointwise 10 percent J tests. The
+robust-DW row uses only mixed higher cumulants, and the high-noise column shows
+standard DW rejecting true `B0` while robust DW contains it.
 
 ## M0016 Sign, Standard DW, And Robust DW Noise Figure
 

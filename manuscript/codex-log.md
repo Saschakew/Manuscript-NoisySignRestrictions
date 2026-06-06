@@ -11,6 +11,38 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0020 J-test grid figures
+
+- Request: make both grid figures invert J tests in all rows, clarify the
+  cutoff language, and handle the fact that the previous standard-DW noise
+  grid still contained true `B0` under noise.
+- Actions taken: corrected
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` and
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` so all
+  rows invert pointwise 10 percent J tests; replaced the robust population
+  score with a finite-sample five-moment mixed higher-cumulant J statistic;
+  added true-`B0` inclusion labels; regenerated both figures; updated
+  simulation notes, registry, figure/source indexes, dashboard, task board, and
+  logs.
+- Files changed:
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_robust_noise_grid.png`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png`, planning
+  surfaces, logs, and M0020 transparency files.
+- Checks run: regenerated both corrected figures; `python -m py_compile
+  manuscript\simulations\sign_dw_robust_noise_grid_figure.py
+  manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py`
+  passed; fixed-draw diagnostics confirmed high-noise standard DW rejects true
+  `B0` while robust DW contains it; formal registry and M0020 manifest JSON
+  validation passed; `python scripts/check_manuscript.py` passed before
+  closure with the expected open-milestone warning.
+- Open uncertainties: these are still candidate visuals; M28/M29 must validate
+  population behavior, finite-sample coverage, and calibrated critical values
+  before final manuscript use.
+
 ### 2026-06-06 - M0019 pure robust row correction
 
 - Request: correct the robust-DW grid rows so they use higher moments only and

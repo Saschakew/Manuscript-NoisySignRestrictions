@@ -8,6 +8,25 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Convert grid figures to J-test inversions
+
+- Request or goal: make both grid figures invert J tests in all rows, clarify
+  the cutoff language, and address the fact that the previous noise-grid
+  standard-DW row still contained true `B0` under noise.
+- Files changed:
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.md`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md`, both
+  rendered figure PNGs, planning surfaces, logs, and M0020 transparency files.
+- Summary of work: replaced the robust population-score row with a
+  finite-sample five-moment higher-cumulant J statistic, used 10 percent
+  chi-square cutoffs in every row, added true-`B0` inclusion labels, and changed
+  the noise-grid high-noise column to `V=(2,2)` so standard DW rejects true
+  `B0` while robust DW contains it.
+- Next recommended action: keep these as candidate visuals and run M28/M29
+  validation before using them as final manuscript evidence.
+
 ### 2026-06-06 - Correct pure robust rows in grid figures
 
 - Request or goal: check whether the earlier noise-grid figure used the

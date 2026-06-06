@@ -1,10 +1,10 @@
 """Build the sign/DW/pure-robust-DW B-plane noise grid figure.
 
 This figure reproduces the KnowledgeVault B-plane layout with three noise
-columns and adds a third robust-DW row.  The top two rows use pointwise
-finite-sample N-test statistics.  The bottom row is the pure robust-DW
-population set using only mixed higher cumulants and no second-moment
-restriction.
+columns and adds a third robust-DW row.  All rows invert pointwise finite-sample
+J statistics at the 10 percent level.  The robust-DW row uses mixed higher
+cumulants only; second moments enter fourth-cumulant estimation as nuisance
+terms, not as restrictions.
 """
 
 from __future__ import annotations
@@ -23,15 +23,15 @@ TRUE_B12 = -0.45
 TRUE_B21 = 0.70
 TRUE_MATRIX = np.array([[1.0, TRUE_B12], [TRUE_B21, 1.0]], dtype=float)
 
-NOISE_LEVELS = ((0.0, 0.0), (0.3, 0.3), (1.0, 1.0))
+NOISE_LEVELS = ((0.0, 0.0), (0.3, 0.3), (2.0, 2.0))
 SAMPLE_SIZE = 500
 GRID_POINTS = 121
 RANDOM_SEED = 20260605
 
-CHI2_95_DF1 = 3.841458820694124
-CHI2_95_DF4 = 9.487729036781154
-CHI2_95_DF5 = 11.070497693516351
-ROBUST_POPULATION_CUTOFF = CHI2_95_DF5 / SAMPLE_SIZE
+CHI2_90_DF1 = 2.705543454095404
+CHI2_90_DF4 = 7.779440339734858
+CHI2_90_DF5 = 9.236356899781123
+TEST_LEVEL = 0.10
 STRUCTURAL_CHI2_DF = 5.0
 STRUCTURAL_THIRD_CUMULANT = math.sqrt(8.0 / STRUCTURAL_CHI2_DF)
 STRUCTURAL_FOURTH_CUMULANT = 12.0 / STRUCTURAL_CHI2_DF
@@ -105,6 +105,15 @@ def standardized_candidate_shocks(b12: float, b21: float, residuals: np.ndarray)
     return shocks / scale
 
 
+def candidate_shocks(b12: float, b21: float, residuals: np.ndarray) -> np.ndarray | None:
+    determinant = 1.0 - b12 * b21
+    if abs(determinant) < 1e-10:
+        return None
+    inv_b = np.array([[1.0, -b12], [-b21, 1.0]], dtype=float) / determinant
+    shocks = residuals @ inv_b.T
+    return shocks - shocks.mean(axis=0, keepdims=True)
+
+
 def moment_target(power_pair: tuple[int, int]) -> float:
     return 1.0 if power_pair == (2, 2) else 0.0
 
@@ -145,36 +154,54 @@ def j_statistic(shocks: np.ndarray, powers: tuple[tuple[int, int], ...]) -> floa
     return float(shocks.shape[0] * sample_mean @ inverse @ sample_mean)
 
 
-def pure_robust_population_score(b12_mesh: np.ndarray, b21_mesh: np.ndarray) -> np.ndarray:
-    """Population robust-DW score using mixed higher cumulants only.
+def robust_higher_cumulant_values(shocks: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    """Return mixed higher-cumulant estimates and influence observations."""
+    centered = shocks - shocks.mean(axis=0, keepdims=True)
+    x = centered[:, 0]
+    y = centered[:, 1]
 
-    For standardized chi-square(df) structural shocks, the third cumulant is
-    sqrt(8 / df) and the fourth cumulant is 12 / df.  The additive residual
-    noise is Gaussian, so it contributes no cumulants above order two.
-    """
-    determinant = 1.0 - b12_mesh * b21_mesh
-    valid = np.abs(determinant) > 1e-10
-    alpha = np.full_like(b12_mesh, np.nan, dtype=float)
-    beta = np.full_like(b12_mesh, np.nan, dtype=float)
-    c = np.full_like(b12_mesh, np.nan, dtype=float)
-    d = np.full_like(b12_mesh, np.nan, dtype=float)
-    alpha[valid] = (1.0 - b12_mesh[valid] * TRUE_B21) / determinant[valid]
-    beta[valid] = (TRUE_B12 - b12_mesh[valid]) / determinant[valid]
-    c[valid] = (TRUE_B21 - b21_mesh[valid]) / determinant[valid]
-    d[valid] = (1.0 - b21_mesh[valid] * TRUE_B12) / determinant[valid]
+    m11 = float(np.mean(x * y))
+    m20 = float(np.mean(x * x))
+    m02 = float(np.mean(y * y))
+    m31 = float(np.mean((x**3) * y))
+    m22 = float(np.mean((x**2) * (y**2)))
+    m13 = float(np.mean(x * (y**3)))
 
-    c112 = STRUCTURAL_THIRD_CUMULANT * (alpha * alpha * c + beta * beta * d)
-    c122 = STRUCTURAL_THIRD_CUMULANT * (alpha * c * c + beta * d * d)
-    c1112 = STRUCTURAL_FOURTH_CUMULANT * (alpha**3 * c + beta**3 * d)
-    c1122 = STRUCTURAL_FOURTH_CUMULANT * (alpha * alpha * c * c + beta * beta * d * d)
-    c1222 = STRUCTURAL_FOURTH_CUMULANT * (alpha * c**3 + beta * d**3)
-    return (
-        (c112 / 2.0) ** 2
-        + (c122 / 2.0) ** 2
-        + (c1112 / 6.0) ** 2
-        + (c1122 / 6.0) ** 2
-        + (c1222 / 6.0) ** 2
+    moments = np.array(
+        [
+            float(np.mean((x**2) * y)),
+            float(np.mean(x * (y**2))),
+            m31 - 3.0 * m20 * m11,
+            m22 - m20 * m02 - 2.0 * m11 * m11,
+            m13 - 3.0 * m02 * m11,
+        ],
+        dtype=float,
     )
+    influence = np.column_stack(
+        [
+            (x**2) * y,
+            x * (y**2),
+            (x**3) * y - 3.0 * (m11 * x**2 + m20 * x * y),
+            (x**2) * (y**2) - m02 * x**2 - m20 * y**2 - 4.0 * m11 * x * y,
+            x * (y**3) - 3.0 * (m11 * y**2 + m02 * x * y),
+        ]
+    )
+    return moments, influence
+
+
+def robust_j_statistic_from_shocks(shocks: np.ndarray) -> float:
+    moments, influence = robust_higher_cumulant_values(shocks)
+    inverse = regularized_inverse(sample_moment_covariance(influence))
+    if not np.all(np.isfinite(inverse)):
+        return math.nan
+    return float(shocks.shape[0] * moments @ inverse @ moments)
+
+
+def robust_j_statistic(b12: float, b21: float, residuals: np.ndarray) -> float:
+    shocks = candidate_shocks(b12, b21, residuals)
+    if shocks is None:
+        return math.nan
+    return robust_j_statistic_from_shocks(shocks)
 
 
 def evaluate_standard_grid(
@@ -201,8 +228,8 @@ def evaluate_standard_grid(
         covariance_j[row, col] = j_statistic(shocks, MOMENTS_COVARIANCE)
         dw_j[row, col] = j_statistic(shocks, MOMENTS_DW)
 
-    covariance_accepted = np.isfinite(covariance_j) & (covariance_j <= CHI2_95_DF1)
-    dw_accepted = np.isfinite(dw_j) & (dw_j <= CHI2_95_DF4)
+    covariance_accepted = np.isfinite(covariance_j) & (covariance_j <= CHI2_90_DF1)
+    dw_accepted = np.isfinite(dw_j) & (dw_j <= CHI2_90_DF4)
     return (
         b12_mesh,
         b21_mesh,
@@ -212,6 +239,24 @@ def evaluate_standard_grid(
         dw_j,
         dw_accepted,
     )
+
+
+def evaluate_robust_grid(
+    residuals: np.ndarray,
+    b12_grid: np.ndarray,
+    b21_grid: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    b12_mesh, b21_mesh = np.meshgrid(b12_grid, b21_grid)
+    robust_j = np.full_like(b12_mesh, np.nan, dtype=float)
+    rows, cols = np.where((b21_mesh >= 0.0) & (np.abs(1.0 - b12_mesh * b21_mesh) > 1e-10))
+    for row, col in zip(rows, cols):
+        robust_j[row, col] = robust_j_statistic(
+            float(b12_mesh[row, col]),
+            float(b21_mesh[row, col]),
+            residuals,
+        )
+    robust_accepted = np.isfinite(robust_j) & (robust_j <= CHI2_90_DF5)
+    return b12_mesh, b21_mesh, robust_j, robust_accepted
 
 
 def shade(ax, b12_mesh: np.ndarray, b21_mesh: np.ndarray, mask: np.ndarray, color: str, alpha: float) -> None:
@@ -269,6 +314,13 @@ def min_label(j_values: np.ndarray, fallback: str = "empty") -> str:
     return f"min J {np.nanmin(j_values):.3g}"
 
 
+def truth_label(j_value: float, cutoff: float) -> str:
+    if not math.isfinite(j_value):
+        return "B0 n/a"
+    status = "in" if j_value <= cutoff else "out"
+    return f"B0 {status}; J0 {j_value:.3g}"
+
+
 def plot() -> Path:
     import matplotlib
 
@@ -297,41 +349,61 @@ def plot() -> Path:
             dw_j,
             dw_accepted,
         ) = evaluate_standard_grid(residuals, nu1, nu2, b12_grid, b21_grid)
-        robust_score = pure_robust_population_score(b12_mesh, b21_mesh)
-        robust_accepted = (
-            (b21_mesh >= 0.0)
-            & (np.abs(1.0 - b12_mesh * b21_mesh) > 1e-10)
-            & np.isfinite(robust_score)
-            & (robust_score <= ROBUST_POPULATION_CUTOFF)
-        )
+        _, _, robust_j, robust_accepted = evaluate_robust_grid(residuals, b12_grid, b21_grid)
+
+        true_shocks = standardized_candidate_shocks(TRUE_B12, TRUE_B21, residuals)
+        true_covariance_j = math.nan
+        true_dw_j = math.nan
+        if true_shocks is not None:
+            true_covariance_j = j_statistic(true_shocks, MOMENTS_COVARIANCE)
+            true_dw_j = j_statistic(true_shocks, MOMENTS_DW)
+        true_robust_j = robust_j_statistic(TRUE_B12, TRUE_B21, residuals)
 
         ax = axes[0, col]
         shade(ax, b12_mesh, b21_mesh, covariance_accepted, "#9bc9a6", 0.9)
         draw_covariance_contour(ax, b12_mesh, b21_mesh, correlation)
-        ax.set_title(f"Sign/covariance N-test, V=({nu1:g},{nu2:g})")
-        ax.text(-1.22, 1.16, min_label(covariance_j), color="#11623a", fontsize=9)
+        ax.set_title(f"Sign/covariance J-test, V=({nu1:g},{nu2:g})")
+        ax.text(
+            -1.22,
+            1.16,
+            f"{min_label(covariance_j)}\n{truth_label(true_covariance_j, CHI2_90_DF1)}",
+            color="#11623a",
+            fontsize=9,
+        )
 
         ax = axes[1, col]
         shade(ax, b12_mesh, b21_mesh, covariance_accepted, "#d9d9d9", 0.55)
         shade(ax, b12_mesh, b21_mesh, dw_accepted, "#6a51a3", 0.9)
         draw_covariance_contour(ax, b12_mesh, b21_mesh, correlation)
-        ax.set_title(f"Standard DW N-test, V=({nu1:g},{nu2:g})")
-        ax.text(-1.22, 1.16, min_label(dw_j), color="#542788", fontsize=9)
+        ax.set_title(f"Standard DW J-test, V=({nu1:g},{nu2:g})")
+        ax.text(
+            -1.22,
+            1.16,
+            f"{min_label(dw_j)}\n{truth_label(true_dw_j, CHI2_90_DF4)}",
+            color="#542788",
+            fontsize=9,
+        )
 
         ax = axes[2, col]
         shade(ax, b12_mesh, b21_mesh, robust_accepted, "#67a9cf", 0.88)
-        if np.isfinite(robust_score).any() and robust_accepted.any():
+        if np.isfinite(robust_j).any() and robust_accepted.any():
             ax.contour(
                 b12_mesh,
                 b21_mesh,
-                robust_score,
-                levels=[ROBUST_POPULATION_CUTOFF],
+                robust_j,
+                levels=[CHI2_90_DF5],
                 colors=["#2166ac"],
                 linewidths=1.2,
             )
         draw_covariance_contour(ax, b12_mesh, b21_mesh, correlation)
-        ax.set_title(f"Robust DW: higher cumulants only, V=({nu1:g},{nu2:g})")
-        ax.text(-1.22, 1.16, f"min score {np.nanmin(robust_score):.3g}", color="#2166ac", fontsize=9)
+        ax.set_title(f"Robust DW J-test, V=({nu1:g},{nu2:g})")
+        ax.text(
+            -1.22,
+            1.16,
+            f"{min_label(robust_j)}\n{truth_label(true_robust_j, CHI2_90_DF5)}",
+            color="#2166ac",
+            fontsize=9,
+        )
 
     for ax in axes.flat:
         add_common_panel_style(ax, b12_grid, b21_grid)
@@ -345,8 +417,8 @@ def plot() -> Path:
     fig.suptitle(
         (
             "Diagonal normalization: B = [[1, b12], [b21, 1]]; sign restriction b21 >= 0\n"
-            f"Top/middle: N={SAMPLE_SIZE} pointwise tests with Gaussian residual noise; "
-            "bottom: population robust DW with no second moments"
+            f"N={SAMPLE_SIZE}; all rows invert pointwise 10% J tests; "
+            "robust DW uses mixed higher cumulants only"
         ),
         fontsize=13,
     )

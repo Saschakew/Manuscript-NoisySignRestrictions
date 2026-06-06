@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "id": "M0020-invert-j-tests-in-grid-figures",
+  "sequence": 20,
+  "title": "Invert J tests in grid figures",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T11:02:15Z",
+  "closed_at": "2026-06-06T11:19:24Z",
+  "start_commit": "213447c55b5531cdc1ce8a5249e650cfcc1e64c4",
+  "snapshot_ref": "manuscript-milestones/M0020-invert-j-tests-in-grid-figures",
+  "summary": "Converted both grid figures to pointwise 10 percent J-test inversions in all rows.",
+  "user_inputs": [
+    {
+      "id": "U0020-001",
+      "milestone_id": "M0020-invert-j-tests-in-grid-figures",
+      "captured_at": "2026-06-06T11:02:15Z",
+      "source": "chat",
+      "text": "User asked to make both grid figures clearly invert J tests for all rows, including the robust DW row, instead of mixing finite-sample J rows with a population score cutoff; use the intended 10 percent level and show/report whether standard DW contains true B0 under noise."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0020-001",
+      "milestone_id": "M0020-invert-j-tests-in-grid-figures",
+      "captured_at": "2026-06-06T11:19:24Z",
+      "description": "Replaced the robust population-score row with a finite-sample five-moment mixed higher-cumulant J statistic with no covariance restriction."
+    },
+    {
+      "id": "A0020-002",
+      "milestone_id": "M0020-invert-j-tests-in-grid-figures",
+      "captured_at": "2026-06-06T11:19:24Z",
+      "description": "Added true-B0 inclusion labels and changed the high-noise noise-grid column to V=(2,2), where standard DW rejects true B0 and robust DW contains it."
+    },
+    {
+      "id": "A0020-003",
+      "milestone_id": "M0020-invert-j-tests-in-grid-figures",
+      "captured_at": "2026-06-06T11:19:24Z",
+      "description": "Regenerated both grid PNGs and updated simulation notes, registry, dashboards, source indexes, review/user/session/Codex logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T11:19:24Z",
+      "description": "python manuscript\\simulations\\sign_dw_robust_noise_grid_figure.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T11:19:24Z",
+      "description": "python manuscript\\simulations\\sign_dw_robust_nongaussianity_grid_figure.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T11:19:24Z",
+      "description": "python -m py_compile manuscript\\simulations\\sign_dw_robust_noise_grid_figure.py manuscript\\simulations\\sign_dw_robust_nongaussianity_grid_figure.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T11:19:24Z",
+      "description": "fixed-draw diagnostics: high-noise standard DW rejects true B0 while robust DW contains it"
+    },
+    {
+      "captured_at": "2026-06-06T11:19:24Z",
+      "description": "formal registry and M0020 manifest JSON validation: passed"
+    },
+    {
+      "captured_at": "2026-06-06T11:19:24Z",
+      "description": "python scripts\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/figures/README.md",
+    "manuscript/figures/fig_sign_dw_robust_noise_grid.png",
+    "manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.py",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0020-invert-j-tests-in-grid-figures.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 17,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/17",
+    "tag_name": "manuscript-milestones/M0020-invert-j-tests-in-grid-figures"
+  }
+}

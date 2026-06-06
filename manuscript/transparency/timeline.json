@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T10:55:44Z",
+  "updated_at": "2026-06-06T11:19:24Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -378,6 +378,28 @@
         "milestone_number": 16,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/16",
         "tag_name": "manuscript-milestones/M0019-correct-non-gaussianity-robust-row"
+      }
+    },
+    {
+      "id": "M0020-invert-j-tests-in-grid-figures",
+      "sequence": 20,
+      "title": "Invert J tests in grid figures",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T11:02:15Z",
+      "closed_at": "2026-06-06T11:19:24Z",
+      "start_commit": "213447c55b5531cdc1ce8a5249e650cfcc1e64c4",
+      "snapshot_ref": "manuscript-milestones/M0020-invert-j-tests-in-grid-figures",
+      "summary": "Converted both grid figures to pointwise 10 percent J-test inversions in all rows.",
+      "user_input_ids": [
+        "U0020-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0020-invert-j-tests-in-grid-figures.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 17,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/17",
+        "tag_name": "manuscript-milestones/M0020-invert-j-tests-in-grid-figures"
       }
     }
   ]
