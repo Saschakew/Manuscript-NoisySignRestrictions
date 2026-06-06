@@ -45,6 +45,12 @@ How should applied sign-restricted SVAR researchers diagnose whether
 Drautzburg-Wright-style higher-moment refinement is sharpening a valid
 structural set or merely sharpening a misspecified noisy-covariance target?
 
+M0034 scale correction: the M0030/M37 diagonal-anchor robust-DW object is
+superseded. Under the active diagonal-normalized chart, the covariance anchor
+`Sigma_u,12=b12+b21` also assumes unit structural-shock variances. The active
+valid fallback is the pure mixed higher-cumulant robust-DW set unless M39
+introduces a separately justified scale model.
+
 Scope note: the first paper studies the simultaneous SVAR impact problem only.
 It treats the reduced-form residual `u_t` as the object to be decomposed and
 does not model VAR lags, dynamic impulse responses, or horizon-specific sign
@@ -86,8 +92,9 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | Vault path | What it validates or illustrates | Manuscript action |
 |---|---|---|
 | `replications/svar-noise-recursive-sign-visualization/` | Deterministic sign-noise geometry and no-noise independence-refinement behavior under residual noise. | Use as the starting point for the intuitive figure and standard-DW false-sharpening figure. |
-| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | Manuscript-local M0030 revised companion grid: fixes residual noise and varies structural-shock non-Gaussianity. All rows invert pointwise 10 percent J tests; the robust row uses the off-diagonal covariance anchor plus mixed higher cumulants. | Selected companion visual: use beside the noise grid to show the limitation that robust-DW's higher-cumulant component depends on informative higher moments. |
-| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local M0030 revised B-plane grid: sign/covariance, standard-DW, and diagonal-noise robust-DW rows all invert pointwise 10 percent J tests across three noise levels. The lower high-noise stress column `V=(0.5,0.5)` has standard DW rejecting true `B0` while robust DW contains it without accepting the whole chart. | Selected main visual: organize the paper's evidence around this grid; refreshed M28 validation passed, and refreshed M29 now treats the same chi-square cutoffs as the primary applied benchmark. |
+| `manuscript/simulations/sign_dw_pure_robust_noise_grid_figure.md` | M0034 scale-correction diagnostic for Figure 1: the bottom row uses only five mixed higher-cumulant moments and drops the invalid off-diagonal covariance anchor. | Current visual diagnostic: high-noise pure robust DW contains true `B0` but accepts 0.459 of the full plotted grid, showing the precision cost of validity. |
+| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | Manuscript-local M0030 revised companion grid: fixes residual noise and varies structural-shock non-Gaussianity. Its diagonal-anchor robust row is superseded after M0034 and must be revised in M39. | Use only as a reminder of the weak-higher-moment limitation until the robust row is rebuilt. |
+| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local B-plane grid generator. M0034 added `--robust-mode pure` and rendered `fig_sign_dw_pure_robust_noise_grid.png`; the old default diagonal-anchor output is superseded for the robust row. | Use the pure mode for current diagnostics; decide in M39 whether to replace the manuscript visual spine with this wider valid set or introduce a valid scale model. |
 | `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; refreshed M28 population-grid validation now favors the M0030 grid pair as the main visual spine. |
 | `manuscript/simulations/m28_grid_story_validation.py` | Refreshed M28 validation pass for the M0030 grid pair: exact population mixed-moment and off-diagonal covariance checks, grid-boundary sensitivity, repeated finite-sample seeds, true-`B0` J diagnostics, and pointwise critical-value sensitivity. | Use as the validation gate supporting the selected visual spine; M29 uses the pointwise chi-square critical values as the primary applied benchmark and reports calibration audits separately. |
 | `manuscript/simulations/m29_calibrated_monte_carlo.py` | Refreshed M29 finite-sample pass on the same B-plane: chi-square guide, no-noise repeated-sample calibration, oracle scenario truth calibration, and truth-point residual bootstrap with M27 accepted-share, overlap, divergence, truth-inclusion, and least-rejected metrics. The refreshed run uses 120 calibration replications, 60 evaluation replications, 20 truth-bootstrap replications per evaluation sample, and a 41-by-41 grid. | Use the chi-square rows as the main applied evidence: high-noise standard DW includes true `B0` in 0.050 of evaluation samples, while robust DW includes it in 0.900. Use repeated/bootstrap rows only as audits of size and calibration cost. Weak and Gaussian structural-shock rows document honest robust-DW widening toward the covariance anchor. |
@@ -157,12 +164,12 @@ these tasks:
 11. The robust DW comparison is ready for a figure-led draft as a
     robustness-check result, with audit cutoffs described as calibration-cost
     diagnostics rather than application-ready procedures.
-12. Completed M37, the direct post-M0030 estimator audit. Conditional pass:
-    the six-moment diagonal-noise robust DW object can support local
-    theorem-level prose in the normalized bivariate chart under diagonal
-    Gaussian residual noise. The prose must state scale, optional
-    profiled-variance nonnegativity, pointwise `chi2_6`, and correlated or
-    non-Gaussian residual-noise fallback caveats.
+12. M0034 supersedes the M37 pass judgment for the six-moment
+    diagonal-anchor robust DW object. The pure higher-cumulant component
+    remains valid under Gaussian residual noise, but the off-diagonal
+    covariance anchor double-normalizes scale in the `diag(B)=1` chart unless
+    unit shock variances are also imposed. M39 must rebuild the method and
+    evidence plan.
 
 ## Gaps And Risks
 

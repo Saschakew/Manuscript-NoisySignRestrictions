@@ -1,6 +1,13 @@
 # Sign, Standard DW, And Robust DW Noise Grid
 
-Status: revised manuscript-local figure candidate after the M0030 power audit.
+Status: superseded for the robust row after the M0034 scale correction.
+
+M0034 warning: the diagonal-anchor robust row in this note uses
+`sample_cov(u1,u2) - (b12 + b21) = 0`. Under the active diagonal-normalized
+chart `diag(B)=1`, that equality also requires unit structural-shock
+variances. With free shock scales, the off-diagonal covariance is
+`Sigma_u,12 = b21*sigma_1^2 + b12*sigma_2^2`. The active diagnostic variant is
+now documented in `manuscript/simulations/sign_dw_pure_robust_noise_grid_figure.md`.
 
 This is the corrected version of the KnowledgeVault B-plane figure requested in
 M0017. It uses the two-by-three sign/DW layout from the synthesis and adds a

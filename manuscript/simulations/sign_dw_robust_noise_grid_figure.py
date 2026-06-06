@@ -1,4 +1,4 @@
-"""Build the sign/DW/diagonal-noise-robust-DW B-plane noise grid figure.
+"""Build the sign/DW/robust-DW B-plane noise grid figure.
 
 This figure reproduces the KnowledgeVault B-plane layout with three noise
 columns and adds a third robust-DW row.  All rows invert pointwise finite-sample
@@ -6,11 +6,15 @@ J statistics at the 10 percent level.  The robust-DW row profiles out diagonal
 residual-noise variances: it uses the clean off-diagonal covariance restriction
 from Sigma_u = B B' + V with diagonal V, plus mixed higher cumulants of
 B^{-1}u.  It does not impose the no-noise recovered-shock covariance target.
+
+Pass ``--robust-mode pure`` to plot the pure higher-cumulant robust row without
+the diagonal-noise off-diagonal covariance anchor.
 """
 
 from __future__ import annotations
 
 import math
+import argparse
 from pathlib import Path
 
 import numpy as np
@@ -19,6 +23,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = ROOT / "manuscript" / "figures"
 OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_robust_noise_grid.png"
+PURE_OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_pure_robust_noise_grid.png"
 
 TRUE_B12 = -0.25
 TRUE_B21 = 0.80
@@ -285,21 +290,55 @@ def evaluate_standard_grid(
     )
 
 
+def robust_mode_cutoff(robust_mode: str) -> float:
+    if robust_mode == "diagonal":
+        return CHI2_90_DF6
+    if robust_mode == "pure":
+        return CHI2_90_DF5
+    raise ValueError(f"unknown robust mode: {robust_mode}")
+
+
+def robust_mode_title(robust_mode: str) -> str:
+    if robust_mode == "diagonal":
+        return "Robust DW J-test"
+    if robust_mode == "pure":
+        return "Pure robust DW J-test"
+    raise ValueError(f"unknown robust mode: {robust_mode}")
+
+
+def robust_mode_summary(robust_mode: str) -> str:
+    if robust_mode == "diagonal":
+        return "robust DW profiles diagonal noise and adds mixed higher cumulants"
+    if robust_mode == "pure":
+        return "pure robust DW uses only mixed higher cumulants"
+    raise ValueError(f"unknown robust mode: {robust_mode}")
+
+
+def robust_mode_statistic(b12: float, b21: float, residuals: np.ndarray, robust_mode: str) -> float:
+    if robust_mode == "diagonal":
+        return robust_j_statistic(b12, b21, residuals)
+    if robust_mode == "pure":
+        return pure_robust_j_statistic(b12, b21, residuals)
+    raise ValueError(f"unknown robust mode: {robust_mode}")
+
+
 def evaluate_robust_grid(
     residuals: np.ndarray,
     b12_grid: np.ndarray,
     b21_grid: np.ndarray,
+    robust_mode: str,
 ) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
     b12_mesh, b21_mesh = np.meshgrid(b12_grid, b21_grid)
     robust_j = np.full_like(b12_mesh, np.nan, dtype=float)
     rows, cols = np.where((b21_mesh >= 0.0) & (np.abs(1.0 - b12_mesh * b21_mesh) > 1e-10))
     for row, col in zip(rows, cols):
-        robust_j[row, col] = robust_j_statistic(
+        robust_j[row, col] = robust_mode_statistic(
             float(b12_mesh[row, col]),
             float(b21_mesh[row, col]),
             residuals,
+            robust_mode,
         )
-    robust_accepted = np.isfinite(robust_j) & (robust_j <= CHI2_90_DF6)
+    robust_accepted = np.isfinite(robust_j) & (robust_j <= robust_mode_cutoff(robust_mode))
     return b12_mesh, b21_mesh, robust_j, robust_accepted
 
 
@@ -365,11 +404,15 @@ def truth_label(j_value: float, cutoff: float) -> str:
     return f"B0 {status}; J0 {j_value:.3g}"
 
 
-def plot() -> Path:
+def plot(robust_mode: str = "diagonal", output_path: Path | None = None) -> Path:
     import matplotlib
 
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+
+    robust_cutoff = robust_mode_cutoff(robust_mode)
+    if output_path is None:
+        output_path = PURE_OUTPUT_PATH if robust_mode == "pure" else OUTPUT_PATH
 
     b12_grid = np.linspace(-1.35, 0.35, GRID_POINTS)
     b21_grid = np.linspace(-0.25, 1.35, GRID_POINTS)
@@ -393,7 +436,12 @@ def plot() -> Path:
             dw_j,
             dw_accepted,
         ) = evaluate_standard_grid(residuals, nu1, nu2, b12_grid, b21_grid)
-        _, _, robust_j, robust_accepted = evaluate_robust_grid(residuals, b12_grid, b21_grid)
+        _, _, robust_j, robust_accepted = evaluate_robust_grid(
+            residuals,
+            b12_grid,
+            b21_grid,
+            robust_mode,
+        )
 
         true_shocks = standardized_candidate_shocks(TRUE_B12, TRUE_B21, residuals)
         true_covariance_j = math.nan
@@ -401,7 +449,7 @@ def plot() -> Path:
         if true_shocks is not None:
             true_covariance_j = j_statistic(true_shocks, MOMENTS_COVARIANCE)
             true_dw_j = j_statistic(true_shocks, MOMENTS_DW)
-        true_robust_j = robust_j_statistic(TRUE_B12, TRUE_B21, residuals)
+        true_robust_j = robust_mode_statistic(TRUE_B12, TRUE_B21, residuals, robust_mode)
 
         ax = axes[0, col]
         shade(ax, b12_mesh, b21_mesh, covariance_accepted, "#9bc9a6", 0.9)
@@ -435,16 +483,16 @@ def plot() -> Path:
                 b12_mesh,
                 b21_mesh,
                 robust_j,
-                levels=[CHI2_90_DF6],
+                levels=[robust_cutoff],
                 colors=["#2166ac"],
                 linewidths=1.2,
             )
         draw_covariance_contour(ax, b12_mesh, b21_mesh, correlation)
-        ax.set_title(f"Robust DW J-test, V=({nu1:g},{nu2:g})")
+        ax.set_title(f"{robust_mode_title(robust_mode)}, V=({nu1:g},{nu2:g})")
         ax.text(
             -1.22,
             1.16,
-            f"{min_label(robust_j)}\n{truth_label(true_robust_j, CHI2_90_DF6)}",
+            f"{min_label(robust_j)}\n{truth_label(true_robust_j, robust_cutoff)}",
             color="#2166ac",
             fontsize=9,
         )
@@ -461,17 +509,33 @@ def plot() -> Path:
     fig.suptitle(
         (
             "Diagonal normalization: B = [[1, b12], [b21, 1]]; sign restriction b21 >= 0\n"
-            f"N={SAMPLE_SIZE}; all rows invert pointwise 10% J tests; "
-            "robust DW profiles diagonal noise and adds mixed higher cumulants"
+            f"N={SAMPLE_SIZE}; all rows invert pointwise 10% J tests; " +
+            robust_mode_summary(robust_mode)
         ),
         fontsize=13,
     )
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUTPUT_PATH, dpi=180)
+    fig.savefig(output_path, dpi=180)
     plt.close(fig)
-    return OUTPUT_PATH
+    return output_path
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "--robust-mode",
+        choices=["diagonal", "pure"],
+        default="diagonal",
+        help="Bottom-row robust statistic to plot.",
+    )
+    parser.add_argument("--output", default="", help="Optional output path.")
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
-    path = plot()
+    args = parse_args()
+    path = plot(
+        robust_mode=args.robust_mode,
+        output_path=Path(args.output) if args.output else None,
+    )
     print(f"Wrote {path.relative_to(ROOT)}")

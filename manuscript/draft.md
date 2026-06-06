@@ -15,17 +15,16 @@ the population sign set becomes a noisy pseudo-set. Drautzburg-Wright-style
 higher-moment refinement remains well motivated under its no-noise maintained
 null, but under residual noise it can sharpen the wrong target and return a
 small accepted set that looks more informative than it is. The paper proposes a
-robust comparison set that profiles diagonal residual-noise variances, keeps
-the off-diagonal covariance restriction that diagonal noise cannot bias, and
-adds mixed higher-cumulant moments of normalized candidate shocks. In the main
-simulation design, the standard pointwise chi-square benchmark includes the
-true normalized impact matrix in only 0.050 of high-noise evaluation samples,
-while the robust set includes it in 0.900. The recommendation is therefore
+validity-first robust comparison set that drops invalid second-order anchors
+and uses mixed higher-cumulant moments of normalized candidate shocks. The
+M0034 scale correction supersedes the earlier diagonal-anchor evidence; the
+pure robust Figure 1 variant shows that the price of validity can be a much
+wider set under noise. The recommendation is therefore
 diagnostic: report standard DW and robust DW together, and treat standard-DW
 precision unsupported by the robust set as a warning rather than as evidence of
 sharper structural learning.
 
-<!-- SOURCE-TRAIL: Use the M0030 revised grid pair, M27 diagnostic note, M28 validation note, and M29 refreshed Monte Carlo note. -->
+<!-- SOURCE-TRAIL: Use the M0034 pure robust Figure 1 variant and the M24 higher-cumulant derivation. Treat M0030/M37/M28/M29 diagonal-anchor evidence as superseded until M39 rebuilds it. -->
 <!-- CONTRIBUTION-NOTE: The abstract's original contribution is the residual-noise pseudo-set warning and the DW-versus-robust-DW comparison diagnostic. -->
 
 ## 1. Introduction
@@ -65,15 +64,14 @@ not as a criticism of the no-noise DW procedure on its own terms.
 
 The constructive move is to report a second, deliberately more conservative
 set. In a common normalized impact chart, the robust DW set applies the same
-sign screen but profiles out diagonal residual-noise variances. It keeps the
-off-diagonal covariance restriction that diagonal residual noise cannot bias
-and adds mixed higher-cumulant restrictions of `z_t(B)=B^{-1}u_t`. Under the
-maintained diagonal Gaussian residual-noise route, additive noise changes the
-contaminated second moments but not this off-diagonal covariance target or the
-higher cumulants used in the robust stack. The price is visible: when
+sign screen but drops the recovered-shock covariance moment and the
+superseded diagonal-anchor `u` covariance moment. It keeps mixed
+higher-cumulant restrictions of `z_t(B)=B^{-1}u_t`. Under the maintained
+Gaussian residual-noise route, additive Gaussian noise changes contaminated
+second moments but not the higher cumulants used in the pure robust stack. The
+price is visible: when
 structural shocks are close to Gaussian or higher moments are weak, the robust
-set widens toward the covariance band rather than producing sharp
-higher-moment identification.
+set widens rather than producing sharp higher-moment identification.
 
 <!-- SOURCE-TRAIL: Use `manuscript/derivations/dw-noise-robust-moments.md`, `manuscript/derivations/dw-robust-comparison-diagnostic.md`, and higher-moment SVAR caution sources. -->
 
@@ -158,10 +156,11 @@ samples can still return a falsely small least-rejected set.
 ## 4. Robust DW Higher-Moment Set
 
 TODO: Define the robust normalized candidate space, candidate transformed
-residuals `z_t(B)=B^{-1}u_t`, the diagonal-noise off-diagonal covariance
-restriction, and the higher-moment stack. Explain that diagonal residual-noise
-variances are profiled out, recovered-shock zero covariance is not imposed, and
-the fourth-order restrictions are cumulants written as moment equations.
+residuals `z_t(B)=B^{-1}u_t`, and the pure higher-moment stack. Explain that
+recovered-shock zero covariance is not imposed, the M0030 diagonal-anchor
+`u` covariance moment is invalid under `diag(B)=1` without also imposing unit
+shock variances, and the fourth-order restrictions are cumulants written as
+moment equations.
 
 <!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
 <!-- TODO-NOTE: State the exact robust noise assumption. Gaussian residual noise is clean for transformed higher cumulants; broader noise requires another argument. -->
@@ -183,23 +182,22 @@ Figure 1 is the main story figure. Each column increases Gaussian residual
 noise. The first row shows the standard sign/covariance set. The second row
 adds the standard DW moment stack, including the no-noise covariance moment.
 The third row uses the robust DW stack, which keeps the sign screen and mixed
-higher cumulants while adding the off-diagonal covariance restriction that
-survives diagonal residual noise. The high-noise column is the narrative
-anchor: standard DW looks sharp but rejects the true normalized `B0`, while
-robust DW remains informative and contains it.
+higher cumulants while dropping invalid second-order anchors. The high-noise
+column is the narrative anchor: standard DW looks sharp but rejects the true
+normalized `B0`, while pure robust DW contains it at the cost of becoming wide.
 
-![Figure 1. Residual-noise grid.](figures/fig_sign_dw_robust_noise_grid.png)
+![Figure 1. Pure robust residual-noise grid.](figures/fig_sign_dw_pure_robust_noise_grid.png)
 
 **Figure 1. Residual-noise grid.** Rows report the sign/covariance set,
 standard-DW set, and robust-DW set in the common normalized `B(b12,b21)` chart.
 Columns increase Gaussian residual noise from `V=(0,0)` to `V=(0.5,0.5)`.
 All rows invert pointwise 10 percent J tests. The robust-DW row profiles
-diagonal noise, keeps the off-diagonal covariance restriction, and adds mixed
-higher cumulants. The high-noise column shows the paper's main warning:
-standard DW rejects true `B0` under the researcher-facing cutoff, while robust
-DW contains it.
+no second-order anchor and uses only mixed higher cumulants. The high-noise
+column shows the paper's main warning and limitation at once: standard DW
+rejects true `B0` under the researcher-facing cutoff, while pure robust DW
+contains it but accepts a large part of the chart.
 
-<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_robust_noise_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py`; validation in `simulations/m28_grid_story_validation.md`; M29 finite-sample support in `simulations/m29_calibrated_monte_carlo.md`. -->
+<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_pure_robust_noise_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py --robust-mode pure`; diagnostic note `simulations/sign_dw_pure_robust_noise_grid_figure.md`. M28/M29 diagonal-anchor evidence is superseded until M39. -->
 
 M28 checks the figure's population logic before the draft leans on it. At the
 true normalized `B0`, the standard-DW population moment norm rises from

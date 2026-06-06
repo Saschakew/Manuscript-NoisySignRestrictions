@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T19:07:15Z",
+  "updated_at": "2026-06-06T19:47:07Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -687,6 +687,28 @@
         "milestone_number": 30,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/30",
         "tag_name": "manuscript-milestones/M0033-m32-literature-positioning"
+      }
+    },
+    {
+      "id": "M0034-pure-robust-figure-1",
+      "sequence": 34,
+      "title": "Pure robust Figure 1",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T19:36:20Z",
+      "closed_at": "2026-06-06T19:47:07Z",
+      "start_commit": "ff058e85a07a6b16684a928a9825a2ff223326d8",
+      "snapshot_ref": "manuscript-milestones/M0034-pure-robust-figure-1",
+      "summary": "Generated pure higher-cumulant Figure 1 variant and superseded the invalid diagonal-anchor robust-DW evidence after scale correction.",
+      "user_input_ids": [
+        "U0034-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0034-pure-robust-figure-1.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 31,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/31",
+        "tag_name": "manuscript-milestones/M0034-pure-robust-figure-1"
       }
     }
   ]

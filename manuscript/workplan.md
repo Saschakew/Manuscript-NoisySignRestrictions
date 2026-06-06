@@ -2,6 +2,11 @@
 
 ## Current Stage
 
+M0034 scale correction: the M0030/M37 diagonal-anchor robust-DW evidence is
+superseded. Before further Section 4 drafting, run M39 to rebuild the robust
+method/evidence spine around the pure higher-cumulant set or an explicitly
+justified scale model.
+
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
 new paper plan/map, an audited working robust-DW derivation, a working

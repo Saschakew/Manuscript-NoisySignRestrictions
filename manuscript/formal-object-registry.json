@@ -27,9 +27,9 @@
     {
       "id": "ass:unit-variance-normalization",
       "type": "assumption",
-      "status": "planned",
+      "status": "needs-revision-after-m0034",
       "draft_location": "draft.md#4-robust-dw-higher-moment-set",
-      "description": "Structural shocks are normalized to unit variance, and robust-DW candidate impacts are restricted to a normalized nonsingular space to fix scale.",
+      "description": "Scale must be fixed once, not twice. M0034 flags that the manuscript cannot simultaneously use the diagonal-normalized chart diag(B)=1 and also impose unit shock variances when deriving second-order restrictions. The revised robust-DW object should either use a unit-variance impact scale, profile shock variances in a diagonal-normalized chart, or avoid second-order anchors.",
       "depends_on": [
         "def:diagonal-noise-svar"
       ],
@@ -112,56 +112,56 @@
     {
       "id": "def:robust-dw-higher-moment-set",
       "type": "definition",
-      "status": "formalized-for-diagnostic",
+      "status": "needs-revision-after-m0034",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Robust DW-style sign-restricted candidate set that searches over a normalized impact space, profiles diagonal residual-noise variances, uses the off-diagonal residual covariance restriction, and adds mixed higher cumulants of B^{-1}u rather than imposing no-noise recovered-shock covariance.",
+      "description": "Robust DW-style sign-restricted candidate set that searches over a normalized impact space and uses mixed higher cumulants of B^{-1}u rather than imposing no-noise recovered-shock covariance. The M0030 off-diagonal residual covariance anchor is superseded after M0034 because it double-normalizes scale in the diag(B)=1 chart unless unit shock variances are separately imposed.",
       "depends_on": [
         "def:diagonal-noise-svar",
         "ass:gaussian-residual-noise",
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "verification_status": "M24 conditional audit passed for the local normalized Gaussian-noise higher-cumulant route; M0030 added the diagonal-noise off-diagonal covariance restriction to solve the high-noise power problem; M37 conditionally cleared the six-moment post-M0030 estimator for local theorem-level prose under diagonal Gaussian residual noise, with caveats on normalized scale, optional nonnegative profiled-variance screening, pointwise chi2_6 cutoffs, and correlated or non-Gaussian noise fallbacks; refreshed M28 population/repeated-seed validation passed; refreshed M29 finite-sample pass supports the high-noise divergence story under primary chi-square cutoffs and shows truth-bootstrap widening as a calibration-cost audit",
+      "verification_status": "M24 conditional audit passed for the pure local normalized Gaussian-noise higher-cumulant route. M0030/M37 added and audited a six-moment diagonal-anchor variant, but M0034 supersedes that variant: under diag(B)=1 the off-diagonal covariance is Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2 unless unit shock variances are imposed as an extra scale normalization. M39 must rebuild the evidence around the pure five-moment route or a valid explicit scale model.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
       "id": "eq:dw-higher-cumulant-moment-stack",
       "type": "equation",
-      "status": "audited-working-derivation",
+      "status": "needs-revision-after-m0034",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Moment-equation representation of the robust DW stack: the off-diagonal residual covariance restriction under diagonal noise, third mixed central moments, and fourth mixed cumulants of z(B)=B^{-1}u, with transformed second moments also entering as covariance products inside fourth cumulants.",
+      "description": "Moment-equation representation of the robust DW stack after M0034: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with transformed second moments entering only as covariance products inside fourth cumulants. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1.",
       "depends_on": [
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions; M0030 added and validated the diagonal-noise covariance anchor; M37 verified that the implemented stack is one off-diagonal covariance moment plus five mixed cumulants and that chi2_6 is only a pointwise guide; refreshed M28 population verification passed; refreshed M29 chi-square-primary finite-sample pass completed, with repeated-sample, oracle, and truth-bootstrap cutoffs retained as audits",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 only as a pointwise guide pending M39 evidence rebuild.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
       "id": "prop:robust-dw-higher-moment-validity",
       "type": "proposition",
-      "status": "audited-working-derivation",
+      "status": "needs-revision-after-m0034",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise; under diagonal residual noise, the off-diagonal residual covariance is also clean after profiling diagonal variances. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant.",
+      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant. The prior claim that the off-diagonal residual covariance is a clean active anchor is superseded by M0034 under diag(B)=1.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "proof_status": "conditional-local-rank-audit-passed; M0030 diagonal-noise covariance anchor added; M37 conditionally cleared the post-M0030 estimator as a local normalized bivariate result under diagonal Gaussian residual noise, not a global scale-identification or coverage theorem; refreshed M28 grid validation passed; refreshed M29 chi-square-primary simulation pass completed for draft evidence",
+      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M39 must rerun population and finite-sample evidence before draft theorem wording.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
       "id": "prop:dw-robust-comparison-diagnostic",
       "type": "proposition",
-      "status": "formalized-for-m29",
+      "status": "needs-revision-after-m0034",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#5-monte-carlo-robustness-check",
-      "description": "M27/M0030 diagnostic statement: standard-DW accepted mass outside the robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while robust accepted mass outside standard DW mainly records the information deliberately lost by profiling diagonal noise variances and dropping recovered-shock covariance restrictions.",
+      "description": "Diagnostic statement to revise after M0034: standard-DW accepted mass outside a valid pure robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while a large pure robust-DW set records the information lost by dropping invalid second-order restrictions.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "def:robust-dw-higher-moment-set"
       ],
-      "proof_status": "M27 formalization complete; M0030 robust statistic revision complete; refreshed M29 chi-square-primary simulation pass completed for draft evidence",
+      "proof_status": "M27 formalization complete for the older comparison metric, but M0034 supersedes the diagonal-anchor robust set used in M29. Recompute metrics after M39.",
       "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md",
       "source": "manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
@@ -190,35 +190,35 @@
     {
       "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "selected-story-figure",
+      "status": "needs-revision-after-m0034",
       "draft_location": "draft.md#3-standard-dw-under-residual-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "Selected residual-noise story figure showing sign/covariance, standard-DW, and diagonal-noise robust-DW accepted B-plane sets across increasing Gaussian residual noise using pointwise 10 percent finite-sample J-test cutoffs. The lower high-noise stress column V=(0.5,0.5) has standard DW rejecting true B0 while robust DW contains it without accepting the whole chart.",
+      "description": "Residual-noise story figure needs revision after M0034. The pure higher-cumulant variant still shows sign/covariance movement and standard-DW truth rejection in the high-noise column, while the pure robust-DW row contains true B0 but becomes much wider.",
       "depends_on": [
         "prop:standard-dw-misspecification"
       ],
-      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. M0030 revised the DGP and robust statistic; refreshed M28 validation passed; refreshed M29 pass supports the high-noise truth-rejection story under the same chi-square cutoffs applied researchers would use; repeated/bootstrap cutoffs are audits."
+      "output_source": "M0034 pure variant: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode pure and manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png. The earlier diagonal-anchor output manuscript/figures/fig_sign_dw_robust_noise_grid.png is superseded for the robust row."
     },
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "selected-story-figure",
+      "status": "needs-revision-after-m0034",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Selected grid-pair story comparing sign/covariance, standard DW, and diagonal-noise robust DW accepted B-plane sets. Both grids invert pointwise 10 percent finite-sample J tests in all rows. The residual-noise grid shows standard-DW truth rejection and robust-DW truth inclusion; the non-Gaussianity grid shows robust-DW widening toward the covariance anchor as higher moments weaken.",
+      "description": "Grid-pair story needs revision after M0034. The valid robust comparison should use the pure higher-cumulant robust row, which can become very wide after dropping invalid second-order information.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. M0030 revised both grids to use the diagonal-noise robust row with chi2_6 cutoffs. Refreshed M28 validated truth inclusion, boundary sensitivity, repeated seeds, and weak-moment widening at the first gate; the refreshed M29 pass supports the high-noise divergence and weak-moment readings under primary chi-square cutoffs."
+      "output_source": "M0034 pure Figure 1 variant: manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png. Existing M0030/M28/M29 outputs are superseded for the robust row and must be rebuilt in M39."
     },
     {
       "id": "table:monte-carlo-coverage-width",
       "type": "table",
-      "status": "m29-refreshed-pass-complete",
+      "status": "needs-revision-after-m0034",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Monte Carlo summary of true-B coverage-style inclusion, set width, empty-set frequency, standard-DW versus robust-DW overlap, and directional divergence warnings using the M27 metric bundle. The refreshed M29 finite-sample pass uses chi-square, no-noise repeated, oracle scenario truth, and truth-point residual-bootstrap cutoffs. User decision U0026 makes the chi-square rows the primary applied benchmark because these are the standard critical values a researcher would use under the no-noise DW null. The audit cutoffs quantify finite-sample size and calibration cost. The refreshed run uses 120 calibration replications, 60 evaluation replications, 20 truth-bootstrap replications per evaluation sample, and a 41-by-41 grid.",
+      "description": "Monte Carlo summary must be rebuilt after M0034 because the M29 robust row used the superseded diagonal-anchor statistic. The revised table should compare standard DW with the pure higher-cumulant robust set or another explicitly valid scale model.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
-      "output_source": "M29 refreshed output: manuscript/simulations/m29_calibrated_monte_carlo.py, manuscript/simulations/m29_calibrated_monte_carlo.md, manuscript/simulations/output/m29_calibrated_monte_carlo.json. Under primary chi-square cutoffs, high-noise standard DW includes true B0 in 0.050 of evaluation samples while robust DW includes it in 0.900. Earlier M35 exploratory support: manuscript/simulations/m35_jtest_monte_carlo_triage.py, manuscript/simulations/m35_jtest_monte_carlo_triage.md, manuscript/simulations/output/m35_jtest_monte_carlo_summary.json."
+      "output_source": "Superseded M29 output: manuscript/simulations/m29_calibrated_monte_carlo.py, manuscript/simulations/m29_calibrated_monte_carlo.md, manuscript/simulations/output/m29_calibrated_monte_carlo.json. Rebuild after M39."
     },
     {
       "id": "audit:robust-dw-derivation",
@@ -234,9 +234,9 @@
     {
       "id": "audit:m37-diagonal-noise-robust-estimator",
       "type": "audit",
-      "status": "done",
+      "status": "superseded-by-m0034",
       "draft_location": "derivations/m37-diagonal-noise-robust-estimator-audit.md; review-log.md",
-      "description": "Direct post-M0030 audit of the reported diagonal-noise robust DW estimator. Conditional pass: the off-diagonal covariance anchor is valid in the normalized bivariate chart under diagonal residual-noise covariance; diagonal variances are profiled, with nonnegative profiled-variance inequalities optional but not imposed in the current figures; the higher-cumulant stack is valid under independent Gaussian residual noise; chi2_6 is a pointwise benchmark; correlated Gaussian noise requires the pure higher-cumulant fallback, and non-Gaussian residual noise generally invalidates the transformed-cumulant interpretation unless extra noise-cumulant restrictions are modeled.",
+      "description": "Direct post-M0030 audit of the reported diagonal-noise robust DW estimator. Superseded by M0034: the off-diagonal covariance anchor is not valid in the diag(B)=1 chart unless unit shock variances are also imposed. The pure higher-cumulant part remains the active valid route under independent Gaussian residual noise.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack",

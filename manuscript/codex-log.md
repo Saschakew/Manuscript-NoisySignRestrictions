@@ -11,6 +11,28 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0034 Pure robust Figure 1
+
+- Request: user corrected the robust-DW moment algebra and asked to see Figure
+  1 without the invalid covariance anchor.
+- Actions taken: opened local transparency milestone M0034 and GitHub
+  milestone #31; added a `--robust-mode pure` option to the Figure 1 script;
+  rendered `fig_sign_dw_pure_robust_noise_grid.png`; computed fixed-draw
+  diagnostics; updated planning surfaces, registry entries, provenance, and
+  logs so M0030/M37 diagonal-anchor evidence is marked superseded.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_pure_robust_noise_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png`, manuscript
+  control surfaces, logs, and M0034 transparency files.
+- Checks run: rendered both the pure and default Figure 1 modes; `git diff
+  --check` passed with line-ending warnings only; `python
+  scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning and passed cleanly after closure; `python -m
+  json.tool manuscript/formal-object-registry.json` passed.
+- Open uncertainties: M39 must decide whether the paper uses the pure
+  higher-cumulant robust set, a valid explicit scale model, or a narrower
+  diagnostic claim, and then rerun the visual/Monte Carlo evidence.
+
 ### 2026-06-06 - M0033 M32 literature positioning
 
 - Request: user asked Codex to work on the manuscript, pick the next task, and

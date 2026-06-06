@@ -6,6 +6,13 @@ Noise-Robust Sign-Restricted SVARs
 
 ## Main Idea
 
+M0034 scale correction: the M0030/M37 diagonal-anchor robust-DW object is
+superseded. In the diagonal-normalized chart `diag(B)=1`, the off-diagonal
+covariance is `Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2` unless unit shock
+variances are imposed as an additional scale normalization. The active
+constructive object is therefore the pure higher-cumulant robust-DW set, or a
+future explicitly scaled alternative after M39.
+
 The paper studies the simultaneous SVAR impact problem that arises after a
 reduced-form residual has been obtained: what happens when applied researchers
 combine sign restrictions with Drautzburg-Wright-style higher-moment
@@ -17,12 +24,11 @@ smaller accepted set can be an artifact of misspecification rather than more
 efficient structural learning.
 
 The constructive contribution is a robustness check: compute the standard
-Drautzburg-Wright set and compute a diagonal-noise robust set that profiles
-diagonal residual-noise variances, keeps the clean off-diagonal covariance
-restriction, and adds higher-cumulant restrictions. When the two sets agree,
-the usual refinement is less suspicious. When they diverge, residual noise or
-another covariance-target misspecification is indicated, and the robust set is
-the safer object.
+Drautzburg-Wright set and compute a pure Gaussian-noise robust set that drops
+invalid second-order restrictions and keeps only mixed higher-cumulant
+restrictions. When the two sets agree, the usual refinement is less
+suspicious. When they diverge, residual noise or another covariance-target
+misspecification is indicated, and the robust set is the safer object.
 
 The paper's visual spine is now the M0030 revised grid pair. The first grid
 varies residual noise and shows the main warning: noisy covariance moves the

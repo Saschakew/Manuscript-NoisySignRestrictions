@@ -8,6 +8,23 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Generate pure robust Figure 1 after scale correction
+
+- Request or goal: show how Figure 1 looks when robust DW drops the invalid
+  covariance anchor.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png`, the new pure
+  figure note, planning/control surfaces, logs, and M0034 transparency files.
+- Summary of work: opened local transparency milestone M0034 and GitHub
+  milestone #31; parameterized the Figure 1 generator with `--robust-mode
+  pure`; rendered the pure five-moment higher-cumulant robust row; recorded
+  that the M0030/M37 diagonal-anchor robust statistic is superseded because
+  `diag(B)=1` and unit shock variances cannot both be used as free scale
+  normalizations.
+- Next recommended action: run M39 to rebuild the method/evidence spine around
+  the pure robust set or an explicitly justified scale model before drafting
+  Section 4.
+
 ### 2026-06-06 - Draft M32 literature positioning
 
 - Request or goal: work on the manuscript in goal mode by picking the next

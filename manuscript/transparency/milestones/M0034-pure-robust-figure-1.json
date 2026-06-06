@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "id": "M0034-pure-robust-figure-1",
+  "sequence": 34,
+  "title": "Pure robust Figure 1",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T19:36:20Z",
+  "closed_at": "2026-06-06T19:47:07Z",
+  "start_commit": "ff058e85a07a6b16684a928a9825a2ff223326d8",
+  "snapshot_ref": "manuscript-milestones/M0034-pure-robust-figure-1",
+  "summary": "Generated pure higher-cumulant Figure 1 variant and superseded the invalid diagonal-anchor robust-DW evidence after scale correction.",
+  "user_inputs": [
+    {
+      "id": "U0034-001",
+      "milestone_id": "M0034-pure-robust-figure-1",
+      "captured_at": "2026-06-06T19:36:20Z",
+      "source": "chat",
+      "text": "Show how Figure 1 looks when robust DW drops the invalid covariance anchor and uses only higher-cumulant moments."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0034-001",
+      "milestone_id": "M0034-pure-robust-figure-1",
+      "captured_at": "2026-06-06T19:47:07Z",
+      "description": "Added pure robust mode to the Figure 1 generator and rendered fig_sign_dw_pure_robust_noise_grid.png."
+    },
+    {
+      "id": "A0034-002",
+      "milestone_id": "M0034-pure-robust-figure-1",
+      "captured_at": "2026-06-06T19:47:07Z",
+      "description": "Updated manuscript planning, registry, provenance, draft notes, and logs to mark the M0030/M37 diagonal-anchor evidence superseded."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T19:47:07Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T19:47:07Z",
+      "description": "git diff --check: passed"
+    },
+    {
+      "captured_at": "2026-06-06T19:47:07Z",
+      "description": "python -m json.tool manuscript/formal-object-registry.json: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/sign_dw_pure_robust_noise_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.py",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0034-pure-robust-figure-1.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 31,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/31",
+    "tag_name": "manuscript-milestones/M0034-pure-robust-figure-1"
+  }
+}

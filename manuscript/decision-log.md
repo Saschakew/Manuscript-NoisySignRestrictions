@@ -5,6 +5,29 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Drop the invalid diagonal-anchor robust-DW moment
+
+- Origin: user correction during discussion of the M0030/M37 robust-DW
+  moment stack.
+- User input id: U0034
+- Codex role: checked the moment algebra, generated the pure-cumulant Figure 1
+  variant, and marked the prior diagonal-anchor evidence as superseded.
+- Decision: The robust-DW object should not use the displayed
+  `Cov(u1,u2)=b12+b21` anchor when the chart already normalizes
+  `diag(B)=1`. That equation also requires unit shock variances; with free
+  shock scales it becomes
+  `Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2`, so it is not a clean restriction
+  on `(b12,b21)`.
+- Rationale: Imposing both diagonal-normalized impacts and unit-variance
+  shocks fixes scale twice. The recovered-shock covariance moment is also
+  invalid under residual noise. The only currently valid robust-DW moments in
+  this chart are the mixed higher cumulants of `B^{-1}u` under Gaussian
+  residual noise.
+- Consequence for next work: Treat the M0030/M37 six-moment diagonal-anchor
+  evidence as superseded. Rebuild the visual and Monte Carlo spine around the
+  pure higher-cumulant robust set, or introduce an explicitly justified scale
+  model before using any second-order information.
+
 ### 2026-06-06 - Position the paper as a residual-noise robustness check
 
 - Origin: Codex-selected M32 task after user requested manuscript work in
