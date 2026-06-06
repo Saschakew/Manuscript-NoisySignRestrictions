@@ -24,8 +24,8 @@ reported beside the standard DW set as a practical robustness check.
 - Evidence: the M0020 grid pair is the visual spine. The residual-noise grid
   shows sign-set movement, standard-DW truth rejection, and robust-DW widening;
   the non-Gaussianity grid shows why robust DW becomes wide when higher moments
-  weaken. Population-grid and Monte Carlo checks validate and quantify this
-  story.
+  weaken. M28 validates the first population/repeated-seed layer of this story;
+  M29 still calibrates and quantifies finite-sample evidence.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -98,7 +98,7 @@ and proof or output status.
   generic emptying plus explicit pseudo-zero exceptions.
 - Derivation of the robust higher-moment stack from
   `derivations/dw-noise-robust-moments.md`.
-- Population-grid and repeated-draw validation of the M0020 grid pair.
+- M28 population-grid and repeated-draw validation of the M0020 grid pair.
 - Monte Carlo comparison of standard sign, standard DW, and robust DW sets
   using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and
@@ -108,7 +108,7 @@ and proof or output status.
 
 - The standard DW J-test inversion result is now a working derivation; it still
   needs audit before prose promotion.
-- The M0020-corrected grid pair is the selected visual spine, but still needs
-  M28/M29 validation before polished final evidence claims. The next gate is to
-  verify the same story is stable under population moments, repeated seeds,
-  grid-boundary changes, and calibrated critical values.
+- The M0020-corrected grid pair is the selected visual spine, and M28 supports
+  the population/repeated-seed layer of the story. The remaining evidence gate
+  is M29: calibrated repeated-sample or bootstrap critical values, coverage,
+  width, empty-set, overlap, and divergence summaries.

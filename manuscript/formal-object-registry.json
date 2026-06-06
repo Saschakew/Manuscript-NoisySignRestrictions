@@ -120,7 +120,7 @@
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "verification_status": "M24 conditional audit passed for a local normalized Gaussian-noise route; global aliases and simulation checks remain pending",
+      "verification_status": "M24 conditional audit passed for a local normalized Gaussian-noise route; M28 population/repeated-seed validation passed, while M29 calibrated finite-sample evidence remains pending",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
@@ -133,7 +133,7 @@
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions; population verification remains pending",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions; M28 population verification passed, while calibrated finite-sample evidence remains pending",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
@@ -147,7 +147,7 @@
         "eq:dw-higher-cumulant-moment-stack"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "proof_status": "conditional-local-rank-audit-passed; global uniqueness and simulation verification pending",
+      "proof_status": "conditional-local-rank-audit-passed; M28 grid validation passed; M29 calibrated simulation verification pending",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
@@ -183,7 +183,7 @@
       "depends_on": [
         "prop:standard-dw-misspecification"
       ],
-      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. Final-evidence status still depends on M28/M29 validation."
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. M28 first validation passed; final-evidence status still depends on M29 calibrated finite-sample critical values."
     },
     {
       "id": "fig:dw-robust-set-comparison",
@@ -194,7 +194,7 @@
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Both grid figures were corrected in M0020 to invert pointwise 10 percent J tests in all rows while keeping the robust rows free of second-moment restrictions. Final-evidence status still depends on M28 validating truth inclusion, aliases, weak-moment widening, and M29 calibrating critical values."
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Both grid figures were corrected in M0020 to invert pointwise 10 percent J tests in all rows while keeping the robust rows free of second-moment restrictions. M28 validated truth inclusion, boundary sensitivity, repeated seeds, and weak-moment widening at the first gate; final-evidence status still depends on M29 calibrated critical values."
     },
     {
       "id": "table:monte-carlo-coverage-width",
@@ -212,7 +212,7 @@
       "type": "audit",
       "status": "done",
       "draft_location": "review-log.md; derivations/dw-noise-robust-moments.md",
-      "description": "M24 adversarial review of the robust DW derivation. Conditional pass: cumulant-to-moment algebra, second-moment exclusion, normalization caveat, local rank, Gaussian-noise condition, and bias language are recorded; global aliases remain for population-grid checks.",
+      "description": "M24 adversarial review of the robust DW derivation. Conditional pass: cumulant-to-moment algebra, second-moment exclusion, normalization caveat, local rank, Gaussian-noise condition, and bias language are recorded; M28 later supplied the first population-grid validation gate.",
       "depends_on": [
         "prop:robust-dw-higher-moment-validity"
       ],
@@ -231,6 +231,19 @@
         "fig:dw-robust-set-comparison"
       ],
       "source": "manuscript/task-board.md"
+    },
+    {
+      "id": "audit:m28-grid-story-validation",
+      "type": "audit",
+      "status": "done",
+      "draft_location": "simulations/m28_grid_story_validation.md",
+      "description": "First M28 validation gate for the M0020 grid pair. Exact population moment diagnostics support robust-DW truth zeros under Gaussian residual noise, standard-DW divergence under noisy covariance targets, and weak/Gaussian higher-moment widening. Repeated finite-sample seeds support the high-noise visual story at pointwise chi-square cutoffs, while leaving calibrated coverage evidence to M29.",
+      "depends_on": [
+        "fig:dw-robust-set-comparison",
+        "prop:standard-dw-misspecification",
+        "prop:robust-dw-higher-moment-validity"
+      ],
+      "source": "manuscript/simulations/m28_grid_story_validation.md"
     }
   ],
   "open_audits": [
@@ -240,14 +253,9 @@
       "question": "Does the M25 standard-DW J-test derivation survive audit, especially the rich-stack generic emptying claim, structural-rescaling exception, and finite-moment alias caveats?"
     },
     {
-      "id": "audit:robust-dw-global-grid-gate",
-      "status": "open",
-      "question": "Do population-grid and repeated-draw checks support the selected M0020 grid-pair story: robust-DW truth inclusion under Gaussian residual noise, standard-DW truth rejection under noisy covariance targets, no misleading remote aliases, and weak-moment widening under the maintained Gaussian-noise model?"
-    },
-    {
       "id": "audit:simulation-story-gate",
       "status": "open",
-      "question": "After selecting the M0020 figure pair as the visual spine, do the planned population grids and Monte Carlo figures convincingly separate structural-rescaling exceptions from generic noisy covariance cases, show standard DW truth rejection or false sharpening, and show robust DW widening or divergence without overstating diagnostics?"
+      "question": "After M28 validates the population and repeated-seed grid story, do M29 calibrated repeated-sample or bootstrap critical values convincingly quantify coverage, width, empty-set frequency, overlap, and divergence without overstating diagnostics?"
     }
   ]
 }

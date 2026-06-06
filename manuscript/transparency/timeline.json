@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T12:22:40Z",
+  "updated_at": "2026-06-06T12:42:14Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -422,6 +422,28 @@
         "milestone_number": 18,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/18",
         "tag_name": "manuscript-milestones/M0021-update-figure-led-paper-plan"
+      }
+    },
+    {
+      "id": "M0022-m28-grid-validation",
+      "sequence": 22,
+      "title": "M28 grid validation",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T12:28:41Z",
+      "closed_at": "2026-06-06T12:42:14Z",
+      "start_commit": "76e28694cd69f4f513192880f8ee7ed347bb860f",
+      "snapshot_ref": "manuscript-milestones/M0022-m28-grid-validation",
+      "summary": "Completed the first M28 validation pass for the M0020 grid-pair story and promoted M27 as the next task.",
+      "user_input_ids": [
+        "U0022-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0022-m28-grid-validation.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 19,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/19",
+        "tag_name": "manuscript-milestones/M0022-m28-grid-validation"
       }
     }
   ]

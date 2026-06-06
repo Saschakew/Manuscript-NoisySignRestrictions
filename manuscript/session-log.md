@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Validate M0020 grid-pair story
+
+- Request or goal: pick the next manuscript task and work on it in goal mode.
+- Files changed: `manuscript/simulations/m28_grid_story_validation.py`,
+  `manuscript/simulations/m28_grid_story_validation.md`,
+  `manuscript/simulations/output/m28_grid_story_validation.json`, planning
+  surfaces, logs, and M0022 transparency files.
+- Summary of work: selected M28, created a separate validation script for the
+  M0020 grid pair, ran exact population moment checks, boundary sensitivity,
+  repeated finite-sample seeds, true-`B0` diagnostics, and pointwise
+  critical-value sensitivity. The first validation pass supports the visual
+  spine while leaving calibrated coverage and critical values to M29.
+- Next recommended action: run M27 by formalizing the standard-DW versus
+  robust-DW comparison diagnostic in the same language as the M0020/M28
+  evidence.
+
 ### 2026-06-06 - Update figure-led paper plan
 
 - Request or goal: update the paper plan and next steps because the corrected

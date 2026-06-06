@@ -5,6 +5,27 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Treat M28 as passed first validation gate
+
+- Origin: Codex execution of user-requested next task
+- User input id: U0022
+- Codex role: selected M28, implemented the validation script, ran diagnostics,
+  and updated planning surfaces.
+- Decision: The M0020 residual-noise and non-Gaussianity grid pair may remain
+  the paper's visual spine after the first M28 validation gate. The population
+  robust-DW moment stack has true `B0` as a zero under the maintained Gaussian
+  residual-noise condition, standard DW diverges under noisy covariance
+  targets, and weak or Gaussian structural higher moments widen or empty the
+  identifying content of the robust row.
+- Rationale: The validation checked exact population moments, base/expanded
+  grid boundaries, repeated finite-sample seeds, true-`B0` J diagnostics, and
+  pointwise critical-value sensitivity. These checks support the qualitative
+  figure story without making final size or coverage claims.
+- Consequence for next work: M27 should formalize the standard-DW versus
+  robust-DW comparison diagnostic. M29 should replace pointwise chi-square
+  guides with calibrated repeated-sample or bootstrap critical values before
+  final evidence tables or coverage claims.
+
 ### 2026-06-06 - Make the M0020 grid pair the paper's visual spine
 
 - Origin: user-originated planning decision
@@ -19,10 +40,10 @@ decisions.
 - Rationale: The corrected figures now communicate the complete paper story in
   a compact way, more clearly than separate isolated sign-bias, DW, and robust
   panels.
-- Consequence for next work: M28 should validate the grid-pair story first;
-  M27 should formalize the comparison diagnostic using the figure language;
-  M29 should quantify coverage, width, overlap, and divergence; drafting should
-  become figure-led after validation.
+- Consequence for next work: M28 has validated the grid-pair story at the
+  first gate; M27 should formalize the comparison diagnostic using the figure
+  language; M29 should quantify coverage, width, overlap, and divergence;
+  drafting should become figure-led after formalization and calibration.
 
 ### 2026-06-06 - Use one J-test inversion object in both grid figures
 

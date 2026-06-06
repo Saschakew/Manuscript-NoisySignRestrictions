@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "id": "M0022-m28-grid-validation",
+  "sequence": 22,
+  "title": "M28 grid validation",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T12:28:41Z",
+  "closed_at": "2026-06-06T12:42:14Z",
+  "start_commit": "76e28694cd69f4f513192880f8ee7ed347bb860f",
+  "snapshot_ref": "manuscript-milestones/M0022-m28-grid-validation",
+  "summary": "Completed the first M28 validation pass for the M0020 grid-pair story and promoted M27 as the next task.",
+  "user_inputs": [
+    {
+      "id": "U0022-001",
+      "milestone_id": "M0022-m28-grid-validation",
+      "captured_at": "2026-06-06T12:28:41Z",
+      "source": "chat",
+      "text": "Pick the next manuscript task and work on it; selected M28 validation of the M0020 grid-pair story."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0022-001",
+      "milestone_id": "M0022-m28-grid-validation",
+      "captured_at": "2026-06-06T12:42:14Z",
+      "description": "Created and ran manuscript/simulations/m28_grid_story_validation.py for exact population moments, boundary sensitivity, repeated seeds, true-B0 diagnostics, and pointwise critical-value sensitivity."
+    },
+    {
+      "id": "A0022-002",
+      "milestone_id": "M0022-m28-grid-validation",
+      "captured_at": "2026-06-06T12:42:14Z",
+      "description": "Recorded M28 outputs and updated dashboard, paper map, paper plan, source packet, task board, workplan, formal registry, review log, decision log, session log, Codex log, and simulation index."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T12:42:14Z",
+      "description": "python manuscript\\\\simulations\\\\m28_grid_story_validation.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T12:42:14Z",
+      "description": "python -m py_compile manuscript\\\\simulations\\\\m28_grid_story_validation.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T12:42:14Z",
+      "description": "python -m json.tool manuscript\\\\formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-06T12:42:14Z",
+      "description": "python scripts\\\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/m28_grid_story_validation.md",
+    "manuscript/simulations/m28_grid_story_validation.py",
+    "manuscript/simulations/output/m28_grid_story_validation.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0022-m28-grid-validation.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 19,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/19",
+    "tag_name": "manuscript-milestones/M0022-m28-grid-validation"
+  }
+}

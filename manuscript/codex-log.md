@@ -11,6 +11,29 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0022 M28 grid story validation
+
+- Request: pick the next manuscript task and work on it in goal mode.
+- Actions taken: selected M28 from the task board; opened local transparency
+  milestone M0022 and GitHub milestone #19; implemented
+  `manuscript/simulations/m28_grid_story_validation.py`; ran the M28
+  validation; wrote Markdown and JSON outputs; updated the simulation index,
+  dashboard, paper map, paper plan, source packet, task board, workplan,
+  formal registry, review log, decision log, session log, and Codex log.
+- Files changed: `manuscript/simulations/m28_grid_story_validation.py`,
+  `manuscript/simulations/m28_grid_story_validation.md`,
+  `manuscript/simulations/output/m28_grid_story_validation.json`, planning
+  surfaces, logs, and M0022 transparency files.
+- Checks run: `python manuscript\simulations\m28_grid_story_validation.py`
+  passed. The generated diagnostics support the M0020 visual spine at the
+  population/repeated-seed gate: high-noise standard DW rejects true `B0`
+  across repeated seeds at the pointwise 10 percent cutoff, robust DW keeps
+  true `B0` as a population zero under Gaussian residual noise, and weak or
+  Gaussian structural higher moments widen the robust row.
+- Open uncertainties: M29 still needs calibrated repeated-sample or bootstrap
+  critical values before the manuscript reports coverage, size, width, or
+  empty-set frequencies as final evidence.
+
 ### 2026-06-06 - M0021 figure-led paper plan
 
 - Request: update the paper plan and next steps because the corrected M0020

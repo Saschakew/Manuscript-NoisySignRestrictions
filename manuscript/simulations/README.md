@@ -22,6 +22,27 @@ All rows invert pointwise 10 percent J tests. It is meant to show the honest
 limitation: robust-DW can be robust to residual noise but wide when higher
 moments are weak.
 
+## M28 Grid Story Validation
+
+- Script: `m28_grid_story_validation.py`
+- Note: `m28_grid_story_validation.md`
+- Machine-readable output: `output/m28_grid_story_validation.json`
+- Command run:
+
+```powershell
+python manuscript\simulations\m28_grid_story_validation.py
+```
+
+Interpretation: this first M28 validation pass keeps the M0020 figure scripts
+unchanged and checks the selected grid-pair story with exact population
+moments, grid-boundary sensitivity, repeated finite-sample seeds, and
+pointwise critical-value sensitivity. It supports the visual spine under the
+maintained Gaussian residual-noise condition: standard DW moves away from true
+`B0` under high residual noise, robust DW keeps true `B0` as a population zero,
+and weak or Gaussian structural higher moments widen or empty the identifying
+content of the robust row. It is not final coverage evidence; M29 still needs
+calibrated repeated-sample or bootstrap critical values.
+
 ## M0020 Corrected Sign/DW/Robust-DW Noise Grid
 
 - Script: `sign_dw_robust_noise_grid_figure.py`
@@ -52,8 +73,8 @@ python manuscript\simulations\sign_dw_robust_noise_figure.py
 Interpretation: this is an exploratory population figure candidate. It
 replicates the KnowledgeVault sign/standard-DW noise visualization and adds a
 robust-DW normalized higher-cumulant panel under Gaussian residual noise. M28
-must still run population-grid checks before the figure can be promoted to
-final manuscript evidence.
+now favors the M0020 grid pair as the main visual spine, while M29 calibration
+remains open before final manuscript evidence.
 
 ## M35 Early J-Test Monte Carlo Triage
 

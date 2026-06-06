@@ -28,6 +28,10 @@ standard DW can reject the true normalized `B0`, and robust DW remains wider
 and contains it. The companion grid fixes residual noise and weakens structural
 non-Gaussianity, showing the honest limitation: robust DW is not magic; when
 higher moments carry little information, the robust set becomes wide.
+The first M28 validation pass supports this grid-pair story with exact
+population moment diagnostics, grid-boundary checks, repeated finite-sample
+seeds, and pointwise critical-value sensitivity, while leaving calibrated
+coverage-style evidence for M29.
 
 ## Why It Matters
 
@@ -151,9 +155,9 @@ that the noisy covariance is structural.
   weaken structural-shock higher moments. Use it to show that robust DW becomes
   wide as the identifying higher-moment signal weakens and becomes
   uninformative in the Gaussian limit.
-- Validation grid checks: rerun the same story on population and repeated-draw
-  grids, checking that the visual is not an artifact of one seed, one grid
-  boundary, or the pointwise chi-square cutoff.
+- Validation grid checks: M28 reran the same story on population and
+  repeated-draw grids, checking that the visual is not an artifact of one seed,
+  one grid boundary, or the pointwise chi-square cutoff.
 - Monte Carlo table: report true-`B0` coverage, accepted-set share or width,
   empty-set frequency, standard-DW versus robust-DW overlap, and divergence
   diagnostics across no-noise, moderate-noise, high-noise, weak-moment, and
@@ -164,9 +168,9 @@ that the noisy covariance is structural.
 
 ## What Is Missing
 
-- A focused validation pass for the M0020 grid pair: repeated seeds, population
-  moments, grid boundary checks, critical-value sensitivity, and a direct audit
-  of the robust five-moment J statistic.
+- A calibrated finite-sample evidence pass for the M0020 grid pair: repeated
+  samples or bootstrap critical values, true-`B0` coverage, accepted-set width,
+  empty-set frequency, overlap, and divergence diagnostics.
 - A concise formalization of the comparison diagnostic: define the reported
   standard-DW set, robust-DW set, overlap/divergence metric, and how a reader
   should interpret agreement versus disagreement.
@@ -175,8 +179,9 @@ that the noisy covariance is structural.
   different argument.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.
-- A figure-led first draft once M28/M29 validate the grid pair, plus a concise
-  literature-positioning paragraph distinguishing the paper from
+- A figure-led first draft once M27 formalizes the diagnostic and M29
+  calibrates the grid-pair evidence, plus a concise literature-positioning
+  paragraph distinguishing the paper from
   Drautzburg-Wright, sign-restriction inference, and higher-moment SVAR GMM.
 
 ## Page Budget And Scope Exclusions

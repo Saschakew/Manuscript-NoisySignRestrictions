@@ -1,0 +1,4801 @@
+{
+  "schema_version": 1,
+  "description": "M28 validation of the M0020 grid-pair story.",
+  "configuration": {
+    "population_grid_points": 101,
+    "finite_grid_points": 51,
+    "seeds": [
+      20260605,
+      20260606,
+      20260607,
+      20260608,
+      20260609,
+      20260610
+    ],
+    "zero_tolerance": 1e-08,
+    "near_tolerance": 0.005,
+    "remote_radius": 0.2,
+    "sample_size": 500,
+    "true_B0": [
+      [
+        1.0,
+        -0.45
+      ],
+      [
+        0.7,
+        1.0
+      ]
+    ],
+    "critical_values": {
+      "80": {
+        "covariance": 1.642374415149818,
+        "standard_dw": 5.9886166940042465,
+        "robust_dw": 7.289276126648476
+      },
+      "90": {
+        "covariance": 2.705543454095404,
+        "standard_dw": 7.779440339734858,
+        "robust_dw": 9.236356899781123
+      },
+      "95": {
+        "covariance": 3.841458820694124,
+        "standard_dw": 9.487729036781154,
+        "robust_dw": 11.070497693516351
+      }
+    }
+  },
+  "scenarios": [
+    {
+      "group": "noise_grid",
+      "name": "noise_none",
+      "label": "V=(0,0)",
+      "noise": [
+        0.0,
+        0.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "note": "No residual noise; strong chi-square higher moments."
+    },
+    {
+      "group": "noise_grid",
+      "name": "noise_moderate",
+      "label": "V=(0.3,0.3)",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "note": "Moderate Gaussian residual noise; strong chi-square higher moments."
+    },
+    {
+      "group": "noise_grid",
+      "name": "noise_high",
+      "label": "V=(2,2)",
+      "noise": [
+        2.0,
+        2.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "note": "High Gaussian residual noise; selected false-sharpening stress case."
+    },
+    {
+      "group": "nongaussianity_grid",
+      "name": "strong_nongaussianity",
+      "label": "w=1",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "note": "Fixed moderate residual noise with strong structural higher moments."
+    },
+    {
+      "group": "nongaussianity_grid",
+      "name": "weak_nongaussianity",
+      "label": "w=0.25",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.25,
+      "note": "Fixed moderate residual noise with weakened structural higher moments."
+    },
+    {
+      "group": "nongaussianity_grid",
+      "name": "gaussian_shocks",
+      "label": "w=0",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.0,
+      "note": "Fixed moderate residual noise with Gaussian structural shocks."
+    }
+  ],
+  "population": [
+    {
+      "window": "base",
+      "grid_points": 101,
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "noise": [
+        0.0,
+        0.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 74,
+          "remote_near_zero_count": 59,
+          "min_norm": 1.063787841085701e-17,
+          "min_abs_max": 1.063787841085701e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 1.063787841085701e-17,
+          "truth_abs_max": 1.063787841085701e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 2,
+          "remote_near_zero_count": 0,
+          "min_norm": 1.715306352867796e-17,
+          "min_abs_max": 1.345597010009625e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 1.715306352867796e-17,
+          "truth_abs_max": 1.345597010009625e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 2,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "base",
+      "grid_points": 101,
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 77,
+          "remote_near_zero_count": 63,
+          "min_norm": 1.2455493373214926e-16,
+          "min_abs_max": 1.2455493373214926e-16,
+          "min_b12": -0.1259999999999999,
+          "min_b21": 0.31000000000000005,
+          "min_distance_to_truth": 0.5070266265197519,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8772,
+          "zero_count": 0,
+          "near_zero_count": 0,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.020514628049061925,
+          "min_abs_max": 0.015880365348693245,
+          "min_b12": -0.46599999999999997,
+          "min_b21": 0.678,
+          "min_distance_to_truth": 0.02720294101747079,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 2,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "base",
+      "grid_points": 101,
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "noise": [
+        2.0,
+        2.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8772,
+          "zero_count": 0,
+          "near_zero_count": 78,
+          "remote_near_zero_count": 65,
+          "min_norm": 3.0285176736711494e-05,
+          "min_abs_max": 3.0285176736711494e-05,
+          "min_b12": -0.2789999999999999,
+          "min_b21": 0.374,
+          "min_distance_to_truth": 0.3681263370094566,
+          "truth_norm": 0.11331782481348912,
+          "truth_abs_max": 0.11331782481348912,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8772,
+          "zero_count": 0,
+          "near_zero_count": 0,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.026000108277788845,
+          "min_abs_max": 0.019134024043458642,
+          "min_b12": -0.534,
+          "min_b21": 0.646,
+          "min_distance_to_truth": 0.09985990186255941,
+          "truth_norm": 0.11619159734673422,
+          "truth_abs_max": 0.11331782481348912,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 2,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "base",
+      "grid_points": 101,
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 77,
+          "remote_near_zero_count": 63,
+          "min_norm": 1.2455493373214926e-16,
+          "min_abs_max": 1.2455493373214926e-16,
+          "min_b12": -0.1259999999999999,
+          "min_b21": 0.31000000000000005,
+          "min_distance_to_truth": 0.5070266265197519,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8772,
+          "zero_count": 0,
+          "near_zero_count": 0,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.020514628049061925,
+          "min_abs_max": 0.015880365348693245,
+          "min_b12": -0.46599999999999997,
+          "min_b21": 0.678,
+          "min_distance_to_truth": 0.02720294101747079,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 2,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "base",
+      "grid_points": 101,
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.25,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 77,
+          "remote_near_zero_count": 63,
+          "min_norm": 1.2455493373214926e-16,
+          "min_abs_max": 1.2455493373214926e-16,
+          "min_b12": -0.1259999999999999,
+          "min_b21": 0.31000000000000005,
+          "min_distance_to_truth": 0.5070266265197519,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8772,
+          "zero_count": 0,
+          "near_zero_count": 2,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.004989065513498791,
+          "min_abs_max": 0.004235223939850321,
+          "min_b12": -0.5,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.04999999999999999,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 42,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.318471848329938e-18,
+          "min_abs_max": 1.6819962625120312e-18,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.318471848329938e-18,
+          "truth_abs_max": 1.6819962625120312e-18,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "base",
+      "grid_points": 101,
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 77,
+          "remote_near_zero_count": 63,
+          "min_norm": 1.2455493373214926e-16,
+          "min_abs_max": 1.2455493373214926e-16,
+          "min_b12": -0.1259999999999999,
+          "min_b21": 0.31000000000000005,
+          "min_distance_to_truth": 0.5070266265197519,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8772,
+          "zero_count": 1,
+          "near_zero_count": 77,
+          "remote_near_zero_count": 63,
+          "min_norm": 1.2455493373214926e-16,
+          "min_abs_max": 1.2455493373214926e-16,
+          "min_b12": -0.1259999999999999,
+          "min_b21": 0.31000000000000005,
+          "min_distance_to_truth": 0.5070266265197519,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8772,
+          "zero_count": 8772,
+          "near_zero_count": 8772,
+          "remote_near_zero_count": 8264,
+          "min_norm": 0.0,
+          "min_abs_max": 0.0,
+          "min_b12": -1.35,
+          "min_b21": 0.006000000000000005,
+          "min_distance_to_truth": 1.1365016498008265,
+          "truth_norm": 0.0,
+          "truth_abs_max": 0.0,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "expanded",
+      "grid_points": 101,
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "noise": [
+        0.0,
+        0.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8058,
+          "zero_count": 1,
+          "near_zero_count": 57,
+          "remote_near_zero_count": 49,
+          "min_norm": 1.063787841085701e-17,
+          "min_abs_max": 1.063787841085701e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 1.063787841085701e-17,
+          "truth_abs_max": 1.063787841085701e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8058,
+          "zero_count": 1,
+          "near_zero_count": 4,
+          "remote_near_zero_count": 0,
+          "min_norm": 1.715306352867796e-17,
+          "min_abs_max": 1.345597010009625e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 1.715306352867796e-17,
+          "truth_abs_max": 1.345597010009625e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8058,
+          "zero_count": 1,
+          "near_zero_count": 2,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "expanded",
+      "grid_points": 101,
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8058,
+          "zero_count": 0,
+          "near_zero_count": 68,
+          "remote_near_zero_count": 62,
+          "min_norm": 8.636417401722622e-06,
+          "min_abs_max": 8.636417401722622e-06,
+          "min_b12": -1.31,
+          "min_b21": 1.4180000000000004,
+          "min_distance_to_truth": 1.1203231676619032,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8058,
+          "zero_count": 0,
+          "near_zero_count": 0,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.02261584288328324,
+          "min_abs_max": 0.016053127481689994,
+          "min_b12": -0.47299999999999986,
+          "min_b21": 0.6980000000000002,
+          "min_distance_to_truth": 0.023086792761230227,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8058,
+          "zero_count": 1,
+          "near_zero_count": 2,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "expanded",
+      "grid_points": 101,
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "noise": [
+        2.0,
+        2.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8058,
+          "zero_count": 0,
+          "near_zero_count": 64,
+          "remote_near_zero_count": 58,
+          "min_norm": 0.00019227046113588498,
+          "min_abs_max": 0.00019227046113588498,
+          "min_b12": -0.17599999999999993,
+          "min_b21": 0.2660000000000001,
+          "min_distance_to_truth": 0.5132562712719639,
+          "truth_norm": 0.11331782481348912,
+          "truth_abs_max": 0.11331782481348912,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8058,
+          "zero_count": 0,
+          "near_zero_count": 0,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.02699074991216052,
+          "min_abs_max": 0.019814649547530212,
+          "min_b12": -0.5269999999999999,
+          "min_b21": 0.6260000000000001,
+          "min_distance_to_truth": 0.10679419459877003,
+          "truth_norm": 0.11619159734673422,
+          "truth_abs_max": 0.11331782481348912,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8058,
+          "zero_count": 1,
+          "near_zero_count": 2,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "expanded",
+      "grid_points": 101,
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8058,
+          "zero_count": 0,
+          "near_zero_count": 68,
+          "remote_near_zero_count": 62,
+          "min_norm": 8.636417401722622e-06,
+          "min_abs_max": 8.636417401722622e-06,
+          "min_b12": -1.31,
+          "min_b21": 1.4180000000000004,
+          "min_distance_to_truth": 1.1203231676619032,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8058,
+          "zero_count": 0,
+          "near_zero_count": 0,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.02261584288328324,
+          "min_abs_max": 0.016053127481689994,
+          "min_b12": -0.47299999999999986,
+          "min_b21": 0.6980000000000002,
+          "min_distance_to_truth": 0.023086792761230227,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8058,
+          "zero_count": 1,
+          "near_zero_count": 2,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "expanded",
+      "grid_points": 101,
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.25,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8058,
+          "zero_count": 0,
+          "near_zero_count": 68,
+          "remote_near_zero_count": 62,
+          "min_norm": 8.636417401722622e-06,
+          "min_abs_max": 8.636417401722622e-06,
+          "min_b12": -1.31,
+          "min_b21": 1.4180000000000004,
+          "min_distance_to_truth": 1.1203231676619032,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8058,
+          "zero_count": 0,
+          "near_zero_count": 5,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.0037023981160738623,
+          "min_abs_max": 0.0023645808570035903,
+          "min_b12": -0.47299999999999986,
+          "min_b21": 0.6740000000000002,
+          "min_distance_to_truth": 0.034713109915419316,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8058,
+          "zero_count": 1,
+          "near_zero_count": 16,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.318471848329938e-18,
+          "min_abs_max": 1.6819962625120312e-18,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.318471848329938e-18,
+          "truth_abs_max": 1.6819962625120312e-18,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "expanded",
+      "grid_points": 101,
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 8058,
+          "zero_count": 0,
+          "near_zero_count": 68,
+          "remote_near_zero_count": 62,
+          "min_norm": 8.636417401722622e-06,
+          "min_abs_max": 8.636417401722622e-06,
+          "min_b12": -1.31,
+          "min_b21": 1.4180000000000004,
+          "min_distance_to_truth": 1.1203231676619032,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 8058,
+          "zero_count": 0,
+          "near_zero_count": 68,
+          "remote_near_zero_count": 62,
+          "min_norm": 8.636417403010962e-06,
+          "min_abs_max": 8.636417401722622e-06,
+          "min_b12": -1.31,
+          "min_b21": 1.4180000000000004,
+          "min_distance_to_truth": 1.1203231676619032,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 8058,
+          "zero_count": 8058,
+          "near_zero_count": 8058,
+          "remote_near_zero_count": 7827,
+          "min_norm": 0.0,
+          "min_abs_max": 0.0,
+          "min_b12": -1.85,
+          "min_b21": 0.0020000000000000018,
+          "min_distance_to_truth": 1.5643541798454723,
+          "truth_norm": 0.0,
+          "truth_abs_max": 0.0,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "narrow",
+      "grid_points": 101,
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "noise": [
+        0.0,
+        0.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 10404,
+          "zero_count": 4,
+          "near_zero_count": 116,
+          "remote_near_zero_count": 82,
+          "min_norm": 1.063787841085701e-17,
+          "min_abs_max": 1.063787841085701e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 1.063787841085701e-17,
+          "truth_abs_max": 1.063787841085701e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 10404,
+          "zero_count": 4,
+          "near_zero_count": 4,
+          "remote_near_zero_count": 0,
+          "min_norm": 1.715306352867796e-17,
+          "min_abs_max": 1.345597010009625e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 1.715306352867796e-17,
+          "truth_abs_max": 1.345597010009625e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 10404,
+          "zero_count": 4,
+          "near_zero_count": 4,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "narrow",
+      "grid_points": 101,
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 10404,
+          "zero_count": 0,
+          "near_zero_count": 124,
+          "remote_near_zero_count": 83,
+          "min_norm": 4.051358201332306e-05,
+          "min_abs_max": 4.051358201332306e-05,
+          "min_b12": -0.6299999999999999,
+          "min_b21": 0.8300000000000001,
+          "min_distance_to_truth": 0.22203603311174513,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 10404,
+          "zero_count": 0,
+          "near_zero_count": 0,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.019947980709241354,
+          "min_abs_max": 0.013823965527046254,
+          "min_b12": -0.47,
+          "min_b21": 0.6900000000000001,
+          "min_distance_to_truth": 0.022360679774997817,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 10404,
+          "zero_count": 4,
+          "near_zero_count": 4,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "narrow",
+      "grid_points": 101,
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "noise": [
+        2.0,
+        2.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 10404,
+          "zero_count": 0,
+          "near_zero_count": 128,
+          "remote_near_zero_count": 102,
+          "min_norm": 6.408673661309497e-05,
+          "min_abs_max": 6.408673661309497e-05,
+          "min_b12": -0.8899999999999999,
+          "min_b21": 0.9800000000000001,
+          "min_distance_to_truth": 0.521536192416212,
+          "truth_norm": 0.11331782481348912,
+          "truth_abs_max": 0.11331782481348912,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 10404,
+          "zero_count": 0,
+          "near_zero_count": 0,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.025864016587498793,
+          "min_abs_max": 0.018421206376117143,
+          "min_b12": -0.53,
+          "min_b21": 0.64,
+          "min_distance_to_truth": 0.09999999999999998,
+          "truth_norm": 0.11619159734673422,
+          "truth_abs_max": 0.11331782481348912,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 10404,
+          "zero_count": 4,
+          "near_zero_count": 4,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "narrow",
+      "grid_points": 101,
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 10404,
+          "zero_count": 0,
+          "near_zero_count": 124,
+          "remote_near_zero_count": 83,
+          "min_norm": 4.051358201332306e-05,
+          "min_abs_max": 4.051358201332306e-05,
+          "min_b12": -0.6299999999999999,
+          "min_b21": 0.8300000000000001,
+          "min_distance_to_truth": 0.22203603311174513,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 10404,
+          "zero_count": 0,
+          "near_zero_count": 0,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.019947980709241354,
+          "min_abs_max": 0.013823965527046254,
+          "min_b12": -0.47,
+          "min_b21": 0.6900000000000001,
+          "min_distance_to_truth": 0.022360679774997817,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 10404,
+          "zero_count": 4,
+          "near_zero_count": 4,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.88598406811186e-17,
+          "min_abs_max": 2.5530908186056825e-17,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.88598406811186e-17,
+          "truth_abs_max": 2.5530908186056825e-17,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "narrow",
+      "grid_points": 101,
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.25,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 10404,
+          "zero_count": 0,
+          "near_zero_count": 124,
+          "remote_near_zero_count": 83,
+          "min_norm": 4.051358201332306e-05,
+          "min_abs_max": 4.051358201332306e-05,
+          "min_b12": -0.6299999999999999,
+          "min_b21": 0.8300000000000001,
+          "min_distance_to_truth": 0.22203603311174513,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 10404,
+          "zero_count": 0,
+          "near_zero_count": 16,
+          "remote_near_zero_count": 0,
+          "min_norm": 0.00420648226957997,
+          "min_abs_max": 0.0027444030483172754,
+          "min_b12": -0.4799999999999999,
+          "min_b21": 0.68,
+          "min_distance_to_truth": 0.03605551275463977,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 10404,
+          "zero_count": 4,
+          "near_zero_count": 83,
+          "remote_near_zero_count": 0,
+          "min_norm": 2.318471848329938e-18,
+          "min_abs_max": 1.6819962625120312e-18,
+          "min_b12": -0.45,
+          "min_b21": 0.7,
+          "min_distance_to_truth": 0.0,
+          "truth_norm": 2.318471848329938e-18,
+          "truth_abs_max": 1.6819962625120312e-18,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    },
+    {
+      "window": "narrow",
+      "grid_points": 101,
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.0,
+      "methods": [
+        {
+          "method": "covariance",
+          "candidate_count": 10404,
+          "zero_count": 0,
+          "near_zero_count": 124,
+          "remote_near_zero_count": 83,
+          "min_norm": 4.051358201332306e-05,
+          "min_abs_max": 4.051358201332306e-05,
+          "min_b12": -0.6299999999999999,
+          "min_b21": 0.8300000000000001,
+          "min_distance_to_truth": 0.22203603311174513,
+          "truth_norm": 0.0351672833197561,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "standard_dw",
+          "candidate_count": 10404,
+          "zero_count": 0,
+          "near_zero_count": 124,
+          "remote_near_zero_count": 83,
+          "min_norm": 4.051358214631702e-05,
+          "min_abs_max": 4.051358201332306e-05,
+          "min_b12": -0.6299999999999999,
+          "min_b21": 0.8300000000000001,
+          "min_distance_to_truth": 0.22203603311174513,
+          "truth_norm": 0.035254161425213384,
+          "truth_abs_max": 0.0351672833197561,
+          "truth_is_zero": false,
+          "truth_is_near_zero": false
+        },
+        {
+          "method": "robust_dw",
+          "candidate_count": 10404,
+          "zero_count": 10404,
+          "near_zero_count": 10404,
+          "remote_near_zero_count": 9071,
+          "min_norm": 0.0,
+          "min_abs_max": 0.0,
+          "min_b12": -0.95,
+          "min_b21": 0.05,
+          "min_distance_to_truth": 0.8200609733428362,
+          "truth_norm": 0.0,
+          "truth_abs_max": 0.0,
+          "truth_is_zero": true,
+          "truth_is_near_zero": true
+        }
+      ]
+    }
+  ],
+  "finite_records": [
+    {
+      "seed": 20260605,
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "noise": [
+        0.0,
+        0.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.3813773039816517,
+          "min_j": 2.1193920827405187e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.09726331360946745,
+              "accepted_share_valid": 0.11494755244755245
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1235207100591716,
+              "accepted_share_valid": 0.145979020979021
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14681952662721892,
+              "accepted_share_valid": 0.17351398601398602
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 0.8678328442976195,
+          "min_j": 0.33486424382300234,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.02329881656804734,
+              "accepted_share_valid": 0.027534965034965036
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03217455621301775,
+              "accepted_share_valid": 0.03802447552447553
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03883136094674556,
+              "accepted_share_valid": 0.04589160839160839
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 0.6953467541520795,
+          "min_j": 0.25726177558698254,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.09615384615384616,
+              "accepted_share_valid": 0.11363636363636363
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14312130177514792,
+              "accepted_share_valid": 0.16914335664335664
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.21930473372781065,
+              "accepted_share_valid": 0.25917832167832167
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260606,
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "noise": [
+        0.0,
+        0.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.031949131803501445,
+          "min_j": 0.00017301269384532638,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.09911242603550297,
+              "accepted_share_valid": 0.11713286713286714
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1264792899408284,
+              "accepted_share_valid": 0.14947552447552448
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.15199704142011836,
+              "accepted_share_valid": 0.17963286713286714
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 0.15097133191743412,
+          "min_j": 0.1153563195949325,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.026627218934911243,
+              "accepted_share_valid": 0.03146853146853147
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03365384615384615,
+              "accepted_share_valid": 0.03977272727272727
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.039571005917159764,
+              "accepted_share_valid": 0.046765734265734264
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 2.086243301023198,
+          "min_j": 2.0387116193267376,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.07618343195266272,
+              "accepted_share_valid": 0.09003496503496504
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11242603550295859,
+              "accepted_share_valid": 0.13286713286713286
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.15754437869822485,
+              "accepted_share_valid": 0.1861888111888112
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260607,
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "noise": [
+        0.0,
+        0.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.2504129799000648,
+          "min_j": 8.077837039358384e-09,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08838757396449703,
+              "accepted_share_valid": 0.10445804195804195
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11316568047337278,
+              "accepted_share_valid": 0.13374125874125875
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1338757396449704,
+              "accepted_share_valid": 0.15821678321678323
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 4.599129352061656,
+          "min_j": 2.575976315075056,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.011094674556213017,
+              "accepted_share_valid": 0.013111888111888112
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.01664201183431953,
+              "accepted_share_valid": 0.019667832167832168
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.021079881656804734,
+              "accepted_share_valid": 0.024912587412587412
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 11.26648970369192,
+          "min_j": 8.275308686770327,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": false,
+              "accepted_share_plotted": 0.03476331360946745,
+              "accepted_share_valid": 0.04108391608391608
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": false,
+              "accepted_share_plotted": 0.09393491124260354,
+              "accepted_share_valid": 0.11101398601398602
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260608,
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "noise": [
+        0.0,
+        0.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.08250110323163422,
+          "min_j": 1.4370040604718584e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.09911242603550297,
+              "accepted_share_valid": 0.11713286713286714
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1268491124260355,
+              "accepted_share_valid": 0.14991258741258742
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14940828402366865,
+              "accepted_share_valid": 0.17657342657342656
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 4.9781474134524935,
+          "min_j": 3.5872919349388663,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.009245562130177515,
+              "accepted_share_valid": 0.010926573426573426
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.014792899408284023,
+              "accepted_share_valid": 0.017482517482517484
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.01849112426035503,
+              "accepted_share_valid": 0.021853146853146852
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 6.181254332609871,
+          "min_j": 6.181254332609871,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.017011834319526627,
+              "accepted_share_valid": 0.020104895104895104
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.04807692307692308,
+              "accepted_share_valid": 0.056818181818181816
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.09578402366863906,
+              "accepted_share_valid": 0.1131993006993007
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260609,
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "noise": [
+        0.0,
+        0.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.41860479657951966,
+          "min_j": 3.8969048655084893e-07,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10022189349112426,
+              "accepted_share_valid": 0.11844405594405595
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1283284023668639,
+              "accepted_share_valid": 0.15166083916083917
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14977810650887574,
+              "accepted_share_valid": 0.1770104895104895
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 0.9980285833060196,
+          "min_j": 0.7907333813159303,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.029585798816568046,
+              "accepted_share_valid": 0.03496503496503497
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03883136094674556,
+              "accepted_share_valid": 0.04589160839160839
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.046227810650887574,
+              "accepted_share_valid": 0.054632867132867136
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 9.618478810331386,
+          "min_j": 4.4103281470251465,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.048446745562130175,
+              "accepted_share_valid": 0.05725524475524475
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": false,
+              "accepted_share_plotted": 0.09911242603550297,
+              "accepted_share_valid": 0.11713286713286714
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.16346153846153846,
+              "accepted_share_valid": 0.19318181818181818
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260610,
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "noise": [
+        0.0,
+        0.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 1.8370668414368394,
+          "min_j": 2.0017381725921626e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08949704142011834,
+              "accepted_share_valid": 0.10576923076923077
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11538461538461539,
+              "accepted_share_valid": 0.13636363636363635
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1338757396449704,
+              "accepted_share_valid": 0.15821678321678323
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 27.815137038335834,
+          "min_j": 25.12238620514265,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 14.31658506106136,
+          "min_j": 12.166981511345272,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260605,
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 1.110084784946491,
+          "min_j": 2.472719924695039e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10022189349112426,
+              "accepted_share_valid": 0.11844405594405595
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1235207100591716,
+              "accepted_share_valid": 0.145979020979021
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14792899408284024,
+              "accepted_share_valid": 0.17482517482517482
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 1.9851385371709334,
+          "min_j": 0.15570101557601135,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03365384615384615,
+              "accepted_share_valid": 0.03977272727272727
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.04363905325443787,
+              "accepted_share_valid": 0.051573426573426576
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.052884615384615384,
+              "accepted_share_valid": 0.0625
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 2.9076354821259995,
+          "min_j": 2.4869877234758015,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.18010355029585798,
+              "accepted_share_valid": 0.21284965034965034
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.3187869822485207,
+              "accepted_share_valid": 0.3767482517482518
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.39829881656804733,
+              "accepted_share_valid": 0.47071678321678323
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260606,
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 1.718229107572635,
+          "min_j": 5.124392952844629e-06,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.09652366863905325,
+              "accepted_share_valid": 0.11407342657342658
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1227810650887574,
+              "accepted_share_valid": 0.1451048951048951
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14349112426035504,
+              "accepted_share_valid": 0.16958041958041958
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 5.2164717978095805,
+          "min_j": 1.9621998006682437,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.020340236686390532,
+              "accepted_share_valid": 0.02403846153846154
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.029215976331360947,
+              "accepted_share_valid": 0.034527972027972025
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03587278106508876,
+              "accepted_share_valid": 0.042395104895104896
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 1.8751637423510414,
+          "min_j": 1.4167338131203129,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1815828402366864,
+              "accepted_share_valid": 0.2145979020979021
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.27477810650887574,
+              "accepted_share_valid": 0.32473776223776224
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.3613165680473373,
+              "accepted_share_valid": 0.42701048951048953
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260607,
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.8580259226908575,
+          "min_j": 7.561548777123081e-07,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08912721893491124,
+              "accepted_share_valid": 0.10533216783216784
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11353550295857988,
+              "accepted_share_valid": 0.13417832167832167
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1346153846153846,
+              "accepted_share_valid": 0.1590909090909091
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 1.4015954782289806,
+          "min_j": 0.29360211907753697,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.042899408284023666,
+              "accepted_share_valid": 0.050699300699300696
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.05436390532544379,
+              "accepted_share_valid": 0.06424825174825174
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.06767751479289941,
+              "accepted_share_valid": 0.07998251748251749
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 0.1228746134717138,
+          "min_j": 0.07593875743112785,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.33210059171597633,
+              "accepted_share_valid": 0.3924825174825175
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.4755917159763314,
+              "accepted_share_valid": 0.5620629370629371
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.5562130177514792,
+              "accepted_share_valid": 0.6573426573426573
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260608,
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.6889705607764086,
+          "min_j": 4.821536860843867e-07,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10133136094674557,
+              "accepted_share_valid": 0.11975524475524475
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.12721893491124261,
+              "accepted_share_valid": 0.15034965034965034
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14977810650887574,
+              "accepted_share_valid": 0.1770104895104895
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 7.743327453470367,
+          "min_j": 2.2252878325242627,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.020710059171597635,
+              "accepted_share_valid": 0.024475524475524476
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03106508875739645,
+              "accepted_share_valid": 0.03671328671328671
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.04105029585798817,
+              "accepted_share_valid": 0.048513986013986016
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 7.587108543892783,
+          "min_j": 4.473411798914751,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0628698224852071,
+              "accepted_share_valid": 0.0743006993006993
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1224112426035503,
+              "accepted_share_valid": 0.14466783216783216
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.19674556213017752,
+              "accepted_share_valid": 0.23251748251748253
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260609,
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 2.576716821976748,
+          "min_j": 3.608347233944887e-06,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.09504437869822485,
+              "accepted_share_valid": 0.11232517482517483
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1201923076923077,
+              "accepted_share_valid": 0.14204545454545456
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14275147928994084,
+              "accepted_share_valid": 0.1687062937062937
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 4.068981631033476,
+          "min_j": 0.44116915415213964,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03106508875739645,
+              "accepted_share_valid": 0.03671328671328671
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.040680473372781065,
+              "accepted_share_valid": 0.04807692307692308
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.04955621301775148,
+              "accepted_share_valid": 0.05856643356643357
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 4.134793216502987,
+          "min_j": 4.077856573053516,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1812130177514793,
+              "accepted_share_valid": 0.21416083916083917
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.28587278106508873,
+              "accepted_share_valid": 0.33784965034965037
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.40273668639053256,
+              "accepted_share_valid": 0.47596153846153844
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260610,
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 6.4714153724747465,
+          "min_j": 5.336143237620752e-07,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08764792899408284,
+              "accepted_share_valid": 0.10358391608391608
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": false,
+              "accepted_share_plotted": 0.11242603550295859,
+              "accepted_share_valid": 0.13286713286713286
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": false,
+              "accepted_share_plotted": 0.1312869822485207,
+              "accepted_share_valid": 0.15515734265734266
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 18.556877073115402,
+          "min_j": 10.906716748721344,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 10.466678527157002,
+          "min_j": 8.19244640924217,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": false,
+              "accepted_share_plotted": 0.027736686390532544,
+              "accepted_share_valid": 0.03277972027972028
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11871301775147929,
+              "accepted_share_valid": 0.14029720279720279
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260605,
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "noise": [
+        2.0,
+        2.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 10.894781838178202,
+          "min_j": 3.693883027986163e-06,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08801775147928995,
+              "accepted_share_valid": 0.10402097902097902
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": false,
+              "accepted_share_plotted": 0.11131656804733728,
+              "accepted_share_valid": 0.13155594405594406
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": false,
+              "accepted_share_plotted": 0.1305473372781065,
+              "accepted_share_valid": 0.15428321678321677
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 18.92738223088874,
+          "min_j": 0.35834607009320874,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.04696745562130177,
+              "accepted_share_valid": 0.05550699300699301
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.059541420118343194,
+              "accepted_share_valid": 0.07036713286713286
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": false,
+              "accepted_share_plotted": 0.07174556213017752,
+              "accepted_share_valid": 0.08479020979020979
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 5.7249644113757325,
+          "min_j": 2.376539399360488,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.6305473372781065,
+              "accepted_share_valid": 0.7451923076923077
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8099112426035503,
+              "accepted_share_valid": 0.9571678321678322
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260606,
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "noise": [
+        2.0,
+        2.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 12.88238866299135,
+          "min_j": 0.00025107851084275873,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08875739644970414,
+              "accepted_share_valid": 0.1048951048951049
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": false,
+              "accepted_share_plotted": 0.11057692307692307,
+              "accepted_share_valid": 0.13068181818181818
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": false,
+              "accepted_share_plotted": 0.13165680473372782,
+              "accepted_share_valid": 0.1555944055944056
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 26.961591343072183,
+          "min_j": 1.9035245472110882,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08727810650887574,
+              "accepted_share_valid": 0.10314685314685315
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.10539940828402367,
+              "accepted_share_valid": 0.12456293706293706
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": false,
+              "accepted_share_plotted": 0.11908284023668639,
+              "accepted_share_valid": 0.14073426573426573
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 13.208348757241932,
+          "min_j": 5.403220517409748,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.10059171597633136,
+              "accepted_share_valid": 0.11888111888111888
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": false,
+              "accepted_share_plotted": 0.3113905325443787,
+              "accepted_share_valid": 0.368006993006993
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": false,
+              "accepted_share_plotted": 0.441198224852071,
+              "accepted_share_valid": 0.521416083916084
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260607,
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "noise": [
+        2.0,
+        2.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 4.67763502446185,
+          "min_j": 2.034971362547567e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08986686390532544,
+              "accepted_share_valid": 0.10620629370629371
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": false,
+              "accepted_share_plotted": 0.11612426035502958,
+              "accepted_share_valid": 0.13723776223776224
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": false,
+              "accepted_share_plotted": 0.13498520710059173,
+              "accepted_share_valid": 0.15952797202797203
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 16.270267626306048,
+          "min_j": 1.9849180900220689,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.05917159763313609,
+              "accepted_share_valid": 0.06993006993006994
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.09837278106508876,
+              "accepted_share_valid": 0.11625874125874126
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": false,
+              "accepted_share_plotted": 0.1275887573964497,
+              "accepted_share_valid": 0.15078671328671328
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 6.211516617692149,
+          "min_j": 1.653257306571544,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.819896449704142,
+              "accepted_share_valid": 0.9689685314685315
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260608,
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "noise": [
+        2.0,
+        2.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 4.704310099599057,
+          "min_j": 5.8383430543762964e-08,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.09393491124260354,
+              "accepted_share_valid": 0.11101398601398602
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": false,
+              "accepted_share_plotted": 0.1205621301775148,
+              "accepted_share_valid": 0.14248251748251747
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": false,
+              "accepted_share_plotted": 0.14312130177514792,
+              "accepted_share_valid": 0.16914335664335664
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 9.735015643639297,
+          "min_j": 0.5432597892660871,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.10613905325443787,
+              "accepted_share_valid": 0.12543706293706294
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.13609467455621302,
+              "accepted_share_valid": 0.16083916083916083
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": false,
+              "accepted_share_plotted": 0.15902366863905326,
+              "accepted_share_valid": 0.18793706293706294
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 4.410053001503488,
+          "min_j": 0.5851974997764182,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.6904585798816568,
+              "accepted_share_valid": 0.8159965034965035
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260609,
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "noise": [
+        2.0,
+        2.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 8.530867803280332,
+          "min_j": 7.072509327966985e-06,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08616863905325443,
+              "accepted_share_valid": 0.10183566433566434
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": false,
+              "accepted_share_plotted": 0.11057692307692307,
+              "accepted_share_valid": 0.13068181818181818
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": false,
+              "accepted_share_plotted": 0.1309171597633136,
+              "accepted_share_valid": 0.1547202797202797
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 18.658167243953102,
+          "min_j": 3.9761337163466712,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.06915680473372782,
+              "accepted_share_valid": 0.08173076923076923
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.10687869822485208,
+              "accepted_share_valid": 0.1263111888111888
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": false,
+              "accepted_share_plotted": 0.1305473372781065,
+              "accepted_share_valid": 0.15428321678321677
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 3.60788121758501,
+          "min_j": 1.0102333982231881,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8321005917159763,
+              "accepted_share_valid": 0.9833916083916084
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260610,
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "noise": [
+        2.0,
+        2.0
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 15.506839504757918,
+          "min_j": 1.751659086670724e-06,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08653846153846154,
+              "accepted_share_valid": 0.10227272727272728
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": false,
+              "accepted_share_plotted": 0.10872781065088757,
+              "accepted_share_valid": 0.1284965034965035
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": false,
+              "accepted_share_plotted": 0.128698224852071,
+              "accepted_share_valid": 0.1520979020979021
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 19.251292351526228,
+          "min_j": 0.5037517280199993,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.07988165680473373,
+              "accepted_share_valid": 0.0944055944055944
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.11390532544378698,
+              "accepted_share_valid": 0.1346153846153846
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": false,
+              "accepted_share_plotted": 0.1372041420118343,
+              "accepted_share_valid": 0.16215034965034966
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 2.2532742128491865,
+          "min_j": 1.568726724637291,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260605,
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 1.110084784946491,
+          "min_j": 2.472719924695039e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10022189349112426,
+              "accepted_share_valid": 0.11844405594405595
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1235207100591716,
+              "accepted_share_valid": 0.145979020979021
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14792899408284024,
+              "accepted_share_valid": 0.17482517482517482
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 1.9851385371709334,
+          "min_j": 0.15570101557601135,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03365384615384615,
+              "accepted_share_valid": 0.03977272727272727
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.04363905325443787,
+              "accepted_share_valid": 0.051573426573426576
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.052884615384615384,
+              "accepted_share_valid": 0.0625
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 2.9076354821259995,
+          "min_j": 2.4869877234758015,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.18010355029585798,
+              "accepted_share_valid": 0.21284965034965034
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.3187869822485207,
+              "accepted_share_valid": 0.3767482517482518
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.39829881656804733,
+              "accepted_share_valid": 0.47071678321678323
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260606,
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 1.718229107572635,
+          "min_j": 5.124392952844629e-06,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.09652366863905325,
+              "accepted_share_valid": 0.11407342657342658
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1227810650887574,
+              "accepted_share_valid": 0.1451048951048951
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14349112426035504,
+              "accepted_share_valid": 0.16958041958041958
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 5.2164717978095805,
+          "min_j": 1.9621998006682437,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.020340236686390532,
+              "accepted_share_valid": 0.02403846153846154
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.029215976331360947,
+              "accepted_share_valid": 0.034527972027972025
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03587278106508876,
+              "accepted_share_valid": 0.042395104895104896
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 1.8751637423510414,
+          "min_j": 1.4167338131203129,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1815828402366864,
+              "accepted_share_valid": 0.2145979020979021
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.27477810650887574,
+              "accepted_share_valid": 0.32473776223776224
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.3613165680473373,
+              "accepted_share_valid": 0.42701048951048953
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260607,
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.8580259226908575,
+          "min_j": 7.561548777123081e-07,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08912721893491124,
+              "accepted_share_valid": 0.10533216783216784
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11353550295857988,
+              "accepted_share_valid": 0.13417832167832167
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1346153846153846,
+              "accepted_share_valid": 0.1590909090909091
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 1.4015954782289806,
+          "min_j": 0.29360211907753697,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.042899408284023666,
+              "accepted_share_valid": 0.050699300699300696
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.05436390532544379,
+              "accepted_share_valid": 0.06424825174825174
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.06767751479289941,
+              "accepted_share_valid": 0.07998251748251749
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 0.1228746134717138,
+          "min_j": 0.07593875743112785,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.33210059171597633,
+              "accepted_share_valid": 0.3924825174825175
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.4755917159763314,
+              "accepted_share_valid": 0.5620629370629371
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.5562130177514792,
+              "accepted_share_valid": 0.6573426573426573
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260608,
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.6889705607764086,
+          "min_j": 4.821536860843867e-07,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10133136094674557,
+              "accepted_share_valid": 0.11975524475524475
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.12721893491124261,
+              "accepted_share_valid": 0.15034965034965034
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14977810650887574,
+              "accepted_share_valid": 0.1770104895104895
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 7.743327453470367,
+          "min_j": 2.2252878325242627,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.020710059171597635,
+              "accepted_share_valid": 0.024475524475524476
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03106508875739645,
+              "accepted_share_valid": 0.03671328671328671
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.04105029585798817,
+              "accepted_share_valid": 0.048513986013986016
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 7.587108543892783,
+          "min_j": 4.473411798914751,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0628698224852071,
+              "accepted_share_valid": 0.0743006993006993
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1224112426035503,
+              "accepted_share_valid": 0.14466783216783216
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.19674556213017752,
+              "accepted_share_valid": 0.23251748251748253
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260609,
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 2.576716821976748,
+          "min_j": 3.608347233944887e-06,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.09504437869822485,
+              "accepted_share_valid": 0.11232517482517483
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1201923076923077,
+              "accepted_share_valid": 0.14204545454545456
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14275147928994084,
+              "accepted_share_valid": 0.1687062937062937
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 4.068981631033476,
+          "min_j": 0.44116915415213964,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.03106508875739645,
+              "accepted_share_valid": 0.03671328671328671
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.040680473372781065,
+              "accepted_share_valid": 0.04807692307692308
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.04955621301775148,
+              "accepted_share_valid": 0.05856643356643357
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 4.134793216502987,
+          "min_j": 4.077856573053516,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1812130177514793,
+              "accepted_share_valid": 0.21416083916083917
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.28587278106508873,
+              "accepted_share_valid": 0.33784965034965037
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.40273668639053256,
+              "accepted_share_valid": 0.47596153846153844
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260610,
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 1.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 6.4714153724747465,
+          "min_j": 5.336143237620752e-07,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08764792899408284,
+              "accepted_share_valid": 0.10358391608391608
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": false,
+              "accepted_share_plotted": 0.11242603550295859,
+              "accepted_share_valid": 0.13286713286713286
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": false,
+              "accepted_share_plotted": 0.1312869822485207,
+              "accepted_share_valid": 0.15515734265734266
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 18.556877073115402,
+          "min_j": 10.906716748721344,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 10.466678527157002,
+          "min_j": 8.19244640924217,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0,
+              "accepted_share_valid": 0.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": false,
+              "accepted_share_plotted": 0.027736686390532544,
+              "accepted_share_valid": 0.03277972027972028
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11871301775147929,
+              "accepted_share_valid": 0.14029720279720279
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260605,
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.25,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.7382820208093218,
+          "min_j": 9.127612296935854e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08727810650887574,
+              "accepted_share_valid": 0.10314685314685315
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11205621301775148,
+              "accepted_share_valid": 0.13243006993006992
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1305473372781065,
+              "accepted_share_valid": 0.15428321678321677
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 3.9388968767102566,
+          "min_j": 0.5894319168087785,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.06619822485207101,
+              "accepted_share_valid": 0.07823426573426573
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11427514792899408,
+              "accepted_share_valid": 0.13505244755244755
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.13979289940828402,
+              "accepted_share_valid": 0.1652097902097902
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 4.132632072455998,
+          "min_j": 0.9780142170865063,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260606,
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.25,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.15721480098428486,
+          "min_j": 5.081310223598288e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.07840236686390532,
+              "accepted_share_valid": 0.09265734265734266
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10318047337278106,
+              "accepted_share_valid": 0.12194055944055944
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.12130177514792899,
+              "accepted_share_valid": 0.14335664335664336
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 4.465088906754087,
+          "min_j": 1.0319096099005116,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.09837278106508876,
+              "accepted_share_valid": 0.11625874125874126
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1246301775147929,
+              "accepted_share_valid": 0.1472902097902098
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14607988165680474,
+              "accepted_share_valid": 0.17263986013986013
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 4.007086422043815,
+          "min_j": 1.8151371989961578,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260607,
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.25,
+      "methods": {
+        "covariance": {
+          "truth_j": 1.3720449532782306,
+          "min_j": 2.4946325320263e-07,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08284023668639054,
+              "accepted_share_valid": 0.0979020979020979
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10724852071005918,
+              "accepted_share_valid": 0.12674825174825174
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1253698224852071,
+              "accepted_share_valid": 0.14816433566433568
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 12.047888820719642,
+          "min_j": 0.18072165947190355,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08616863905325443,
+              "accepted_share_valid": 0.10183566433566434
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.10133136094674557,
+              "accepted_share_valid": 0.11975524475524475
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": false,
+              "accepted_share_plotted": 0.11612426035502958,
+              "accepted_share_valid": 0.13723776223776224
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 15.443943419764999,
+          "min_j": 7.210236481475303,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.0003698224852071006,
+              "accepted_share_valid": 0.00043706293706293706
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": false,
+              "accepted_share_plotted": 0.011094674556213017,
+              "accepted_share_valid": 0.013111888111888112
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": false,
+              "accepted_share_plotted": 0.03328402366863906,
+              "accepted_share_valid": 0.039335664335664336
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260608,
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.25,
+      "methods": {
+        "covariance": {
+          "truth_j": 3.89033324153614,
+          "min_j": 3.275961253301513e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08986686390532544,
+              "accepted_share_valid": 0.10620629370629371
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": false,
+              "accepted_share_plotted": 0.11427514792899408,
+              "accepted_share_valid": 0.13505244755244755
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": false,
+              "accepted_share_plotted": 0.13535502958579881,
+              "accepted_share_valid": 0.15996503496503497
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 5.175222147828293,
+          "min_j": 0.8023565393367366,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.13831360946745563,
+              "accepted_share_valid": 0.16346153846153846
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.15680473372781065,
+              "accepted_share_valid": 0.1853146853146853
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.17825443786982248,
+              "accepted_share_valid": 0.21066433566433568
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 1.56588877951517,
+          "min_j": 0.975176691863199,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260609,
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.25,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.6552431391773967,
+          "min_j": 4.7329872295472235e-06,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08616863905325443,
+              "accepted_share_valid": 0.10183566433566434
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11131656804733728,
+              "accepted_share_valid": 0.13155594405594406
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1309171597633136,
+              "accepted_share_valid": 0.1547202797202797
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 1.0107468294478172,
+          "min_j": 0.3471947069242296,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.13683431952662722,
+              "accepted_share_valid": 0.16171328671328672
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.15865384615384615,
+              "accepted_share_valid": 0.1875
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.17899408284023668,
+              "accepted_share_valid": 0.21153846153846154
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 0.506606349094597,
+          "min_j": 0.3110704152648637,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260610,
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.25,
+      "methods": {
+        "covariance": {
+          "truth_j": 1.1089965327011195,
+          "min_j": 3.443093781031669e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08875739644970414,
+              "accepted_share_valid": 0.1048951048951049
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11242603550295859,
+              "accepted_share_valid": 0.13286713286713286
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.13350591715976332,
+              "accepted_share_valid": 0.1577797202797203
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 1.9837254499571324,
+          "min_j": 0.3846101922215987,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.12980769230769232,
+              "accepted_share_valid": 0.1534090909090909
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.15421597633136094,
+              "accepted_share_valid": 0.18225524475524477
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.17159763313609466,
+              "accepted_share_valid": 0.20279720279720279
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 1.3654507129251012,
+          "min_j": 0.9588697498477037,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260605,
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.002431078890039348,
+          "min_j": 1.5829011991129695e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08727810650887574,
+              "accepted_share_valid": 0.10314685314685315
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11168639053254438,
+              "accepted_share_valid": 0.131993006993007
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1312869822485207,
+              "accepted_share_valid": 0.15515734265734266
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 0.9329792515763717,
+          "min_j": 0.8713635606805018,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14312130177514792,
+              "accepted_share_valid": 0.16914335664335664
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.16346153846153846,
+              "accepted_share_valid": 0.19318181818181818
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1812130177514793,
+              "accepted_share_valid": 0.21416083916083917
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 1.0339467027164349,
+          "min_j": 0.4927311312028866,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260606,
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.7978602319886321,
+          "min_j": 5.703874232404276e-07,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.07914201183431953,
+              "accepted_share_valid": 0.09353146853146853
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10059171597633136,
+              "accepted_share_valid": 0.11888111888111888
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1201923076923077,
+              "accepted_share_valid": 0.14204545454545456
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 6.093659624871819,
+          "min_j": 0.24289111611361505,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.09319526627218935,
+              "accepted_share_valid": 0.11013986013986014
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1179733727810651,
+              "accepted_share_valid": 0.13942307692307693
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.13683431952662722,
+              "accepted_share_valid": 0.16171328671328672
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 11.316992567373216,
+          "min_j": 1.8644002997770814,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.26627218934911245,
+              "accepted_share_valid": 0.3146853146853147
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": false,
+              "accepted_share_plotted": 0.3261834319526627,
+              "accepted_share_valid": 0.38548951048951047
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": false,
+              "accepted_share_plotted": 0.41494082840236685,
+              "accepted_share_valid": 0.49038461538461536
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260607,
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.868135754688203,
+          "min_j": 1.1204178432784525e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08136094674556213,
+              "accepted_share_valid": 0.09615384615384616
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10392011834319527,
+              "accepted_share_valid": 0.12281468531468531
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1257396449704142,
+              "accepted_share_valid": 0.1486013986013986
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 4.977886414139597,
+          "min_j": 0.5994161870327397,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10428994082840237,
+              "accepted_share_valid": 0.12325174825174826
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1268491124260355,
+              "accepted_share_valid": 0.14991258741258742
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.14681952662721892,
+              "accepted_share_valid": 0.17351398601398602
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 7.611803878612058,
+          "min_j": 1.8762707877836085,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": false,
+              "accepted_share_plotted": 0.555103550295858,
+              "accepted_share_valid": 0.6560314685314685
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260608,
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 6.123778620688334,
+          "min_j": 3.894976029744251e-05,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": false,
+              "accepted_share_plotted": 0.08616863905325443,
+              "accepted_share_valid": 0.10183566433566434
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": false,
+              "accepted_share_plotted": 0.10835798816568047,
+              "accepted_share_valid": 0.12805944055944055
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": false,
+              "accepted_share_plotted": 0.12721893491124261,
+              "accepted_share_valid": 0.15034965034965034
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 8.743220784717671,
+          "min_j": 0.12982155641975135,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": false,
+              "accepted_share_plotted": 0.13350591715976332,
+              "accepted_share_valid": 0.1577797202797203
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": false,
+              "accepted_share_plotted": 0.15347633136094674,
+              "accepted_share_valid": 0.18138111888111888
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.17085798816568049,
+              "accepted_share_valid": 0.20192307692307693
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 1.6937928934430593,
+          "min_j": 0.5981424585913335,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260609,
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.36084696788074055,
+          "min_j": 3.9247947937252e-06,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08099112426035503,
+              "accepted_share_valid": 0.09571678321678322
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10281065088757396,
+              "accepted_share_valid": 0.1215034965034965
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1235207100591716,
+              "accepted_share_valid": 0.145979020979021
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 1.1922383784791122,
+          "min_j": 0.4100374813898646,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.10761834319526627,
+              "accepted_share_valid": 0.1271853146853147
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1338757396449704,
+              "accepted_share_valid": 0.15821678321678323
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.15347633136094674,
+              "accepted_share_valid": 0.18138111888111888
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 1.228467390797802,
+          "min_j": 0.5723486839118135,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    },
+    {
+      "seed": 20260610,
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "noise": [
+        0.3,
+        0.3
+      ],
+      "non_gaussian_weight": 0.0,
+      "methods": {
+        "covariance": {
+          "truth_j": 0.48919905219066784,
+          "min_j": 2.8848237893753323e-06,
+          "cutoffs": {
+            "80": {
+              "cutoff": 1.642374415149818,
+              "truth_in": true,
+              "accepted_share_plotted": 0.08616863905325443,
+              "accepted_share_valid": 0.10183566433566434
+            },
+            "90": {
+              "cutoff": 2.705543454095404,
+              "truth_in": true,
+              "accepted_share_plotted": 0.11205621301775148,
+              "accepted_share_valid": 0.13243006993006992
+            },
+            "95": {
+              "cutoff": 3.841458820694124,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1312869822485207,
+              "accepted_share_valid": 0.15515734265734266
+            }
+          }
+        },
+        "standard_dw": {
+          "truth_j": 0.6741812318569488,
+          "min_j": 0.135935559635464,
+          "cutoffs": {
+            "80": {
+              "cutoff": 5.9886166940042465,
+              "truth_in": true,
+              "accepted_share_plotted": 0.15347633136094674,
+              "accepted_share_valid": 0.18138111888111888
+            },
+            "90": {
+              "cutoff": 7.779440339734858,
+              "truth_in": true,
+              "accepted_share_plotted": 0.17381656804733728,
+              "accepted_share_valid": 0.20541958041958042
+            },
+            "95": {
+              "cutoff": 9.487729036781154,
+              "truth_in": true,
+              "accepted_share_plotted": 0.1900887573964497,
+              "accepted_share_valid": 0.22465034965034966
+            }
+          }
+        },
+        "robust_dw": {
+          "truth_j": 1.5921888632447385,
+          "min_j": 0.27204128663015514,
+          "cutoffs": {
+            "80": {
+              "cutoff": 7.289276126648476,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "90": {
+              "cutoff": 9.236356899781123,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            },
+            "95": {
+              "cutoff": 11.070497693516351,
+              "truth_in": true,
+              "accepted_share_plotted": 0.8461538461538461,
+              "accepted_share_valid": 1.0
+            }
+          }
+        }
+      }
+    }
+  ],
+  "finite_summary": [
+    {
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "method": "covariance",
+      "median_truth_j": 0.6435296420896499,
+      "max_truth_j": 6.123778620688334,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.08351824457593687,
+          "min_accepted_share_plotted": 0.07914201183431953,
+          "max_accepted_share_plotted": 0.08727810650887574
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.10657051282051283,
+          "min_accepted_share_plotted": 0.10059171597633136,
+          "max_accepted_share_plotted": 0.11205621301775148
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.12654092702169625,
+          "min_accepted_share_plotted": 0.1201923076923077,
+          "max_accepted_share_plotted": 0.1312869822485207
+        }
+      }
+    },
+    {
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "method": "standard_dw",
+      "median_truth_j": 3.085062396309355,
+      "max_truth_j": 8.743220784717671,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.6666666666666666,
+          "mean_accepted_share_plotted": 0.122534516765286,
+          "min_accepted_share_plotted": 0.09319526627218935,
+          "max_accepted_share_plotted": 0.15347633136094674
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.14490877712031555,
+          "min_accepted_share_plotted": 0.1179733727810651,
+          "max_accepted_share_plotted": 0.17381656804733728
+        },
+        "95": {
+          "truth_in_rate": 1.0,
+          "mean_accepted_share_plotted": 0.16321499013806706,
+          "min_accepted_share_plotted": 0.13683431952662722,
+          "max_accepted_share_plotted": 0.1900887573964497
+        }
+      }
+    },
+    {
+      "scenario": "gaussian_shocks",
+      "group": "nongaussianity_grid",
+      "label": "w=0",
+      "method": "robust_dw",
+      "median_truth_j": 1.642990878343899,
+      "max_truth_j": 11.316992567373216,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.6666666666666666,
+          "mean_accepted_share_plotted": 0.7009985207100592,
+          "min_accepted_share_plotted": 0.26627218934911245,
+          "max_accepted_share_plotted": 0.8461538461538461
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.7594921104536488,
+          "min_accepted_share_plotted": 0.3261834319526627,
+          "max_accepted_share_plotted": 0.8461538461538461
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.7742850098619329,
+          "min_accepted_share_plotted": 0.41494082840236685,
+          "max_accepted_share_plotted": 0.8461538461538461
+        }
+      }
+    },
+    {
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "method": "covariance",
+      "median_truth_j": 9.712824820729267,
+      "max_truth_j": 15.506839504757918,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.0,
+          "mean_accepted_share_plotted": 0.08888067061143984,
+          "min_accepted_share_plotted": 0.08616863905325443,
+          "max_accepted_share_plotted": 0.09393491124260354
+        },
+        "90": {
+          "truth_in_rate": 0.0,
+          "mean_accepted_share_plotted": 0.11298076923076923,
+          "min_accepted_share_plotted": 0.10872781065088757,
+          "max_accepted_share_plotted": 0.1205621301775148
+        },
+        "95": {
+          "truth_in_rate": 0.0,
+          "mean_accepted_share_plotted": 0.13332100591715976,
+          "min_accepted_share_plotted": 0.128698224852071,
+          "max_accepted_share_plotted": 0.14312130177514792
+        }
+      }
+    },
+    {
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "method": "standard_dw",
+      "median_truth_j": 18.79277473742092,
+      "max_truth_j": 26.961591343072183,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.0,
+          "mean_accepted_share_plotted": 0.07476577909270217,
+          "min_accepted_share_plotted": 0.04696745562130177,
+          "max_accepted_share_plotted": 0.10613905325443787
+        },
+        "90": {
+          "truth_in_rate": 0.0,
+          "mean_accepted_share_plotted": 0.10336538461538462,
+          "min_accepted_share_plotted": 0.059541420118343194,
+          "max_accepted_share_plotted": 0.13609467455621302
+        },
+        "95": {
+          "truth_in_rate": 0.0,
+          "mean_accepted_share_plotted": 0.12419871794871795,
+          "min_accepted_share_plotted": 0.07174556213017752,
+          "max_accepted_share_plotted": 0.15902366863905326
+        }
+      }
+    },
+    {
+      "scenario": "noise_high",
+      "group": "noise_grid",
+      "label": "V=(2,2)",
+      "method": "robust_dw",
+      "median_truth_j": 5.06750870643961,
+      "max_truth_j": 13.208348757241932,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.6532914201183432,
+          "min_accepted_share_plotted": 0.10059171597633136,
+          "max_accepted_share_plotted": 0.8461538461538461
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.7509861932938856,
+          "min_accepted_share_plotted": 0.3113905325443787,
+          "max_accepted_share_plotted": 0.8461538461538461
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.7786612426035503,
+          "min_accepted_share_plotted": 0.441198224852071,
+          "max_accepted_share_plotted": 0.8461538461538461
+        }
+      }
+    },
+    {
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "method": "covariance",
+      "median_truth_j": 1.414156946259563,
+      "max_truth_j": 6.4714153724747465,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.5,
+          "mean_accepted_share_plotted": 0.094982741617357,
+          "min_accepted_share_plotted": 0.08764792899408284,
+          "max_accepted_share_plotted": 0.10133136094674557
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.1199457593688363,
+          "min_accepted_share_plotted": 0.11242603550295859,
+          "max_accepted_share_plotted": 0.12721893491124261
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.1416420118343195,
+          "min_accepted_share_plotted": 0.1312869822485207,
+          "max_accepted_share_plotted": 0.14977810650887574
+        }
+      }
+    },
+    {
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "method": "standard_dw",
+      "median_truth_j": 4.642726714421528,
+      "max_truth_j": 18.556877073115402,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.6666666666666666,
+          "mean_accepted_share_plotted": 0.024778106508875738,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.042899408284023666
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.03316074950690335,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.05436390532544379
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.04117357001972387,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.06767751479289941
+        }
+      }
+    },
+    {
+      "scenario": "noise_moderate",
+      "group": "noise_grid",
+      "label": "V=(0.3,0.3)",
+      "method": "robust_dw",
+      "median_truth_j": 3.5212143493144934,
+      "max_truth_j": 10.466678527157002,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.6666666666666666,
+          "mean_accepted_share_plotted": 0.15631163708086784,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.33210059171597633
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.2508629191321499,
+          "min_accepted_share_plotted": 0.027736686390532544,
+          "max_accepted_share_plotted": 0.4755917159763314
+        },
+        "95": {
+          "truth_in_rate": 1.0,
+          "mean_accepted_share_plotted": 0.3390039447731756,
+          "min_accepted_share_plotted": 0.11871301775147929,
+          "max_accepted_share_plotted": 0.5562130177514792
+        }
+      }
+    },
+    {
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "method": "covariance",
+      "median_truth_j": 0.3158951419408582,
+      "max_truth_j": 1.8370668414368394,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.09559911242603551,
+          "min_accepted_share_plotted": 0.08838757396449703,
+          "max_accepted_share_plotted": 0.10022189349112426
+        },
+        "90": {
+          "truth_in_rate": 1.0,
+          "mean_accepted_share_plotted": 0.12228796844181461,
+          "min_accepted_share_plotted": 0.11316568047337278,
+          "max_accepted_share_plotted": 0.1283284023668639
+        },
+        "95": {
+          "truth_in_rate": 1.0,
+          "mean_accepted_share_plotted": 0.14429240631163706,
+          "min_accepted_share_plotted": 0.1338757396449704,
+          "max_accepted_share_plotted": 0.15199704142011836
+        }
+      }
+    },
+    {
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "method": "standard_dw",
+      "median_truth_j": 2.798578967683838,
+      "max_truth_j": 27.815137038335834,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.01664201183431953,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.029585798816568046
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.022682445759368838,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.03883136094674556
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.027366863905325445,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.046227810650887574
+        }
+      }
+    },
+    {
+      "scenario": "noise_none",
+      "group": "noise_grid",
+      "label": "V=(0,0)",
+      "method": "robust_dw",
+      "median_truth_j": 7.899866571470628,
+      "max_truth_j": 14.31658506106136,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.5,
+          "mean_accepted_share_plotted": 0.03963264299802762,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.09615384615384616
+        },
+        "90": {
+          "truth_in_rate": 0.5,
+          "mean_accepted_share_plotted": 0.07291666666666667,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.14312130177514792
+        },
+        "95": {
+          "truth_in_rate": 0.6666666666666666,
+          "mean_accepted_share_plotted": 0.12167159763313608,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.21930473372781065
+        }
+      }
+    },
+    {
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "method": "covariance",
+      "median_truth_j": 1.414156946259563,
+      "max_truth_j": 6.4714153724747465,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.5,
+          "mean_accepted_share_plotted": 0.094982741617357,
+          "min_accepted_share_plotted": 0.08764792899408284,
+          "max_accepted_share_plotted": 0.10133136094674557
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.1199457593688363,
+          "min_accepted_share_plotted": 0.11242603550295859,
+          "max_accepted_share_plotted": 0.12721893491124261
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.1416420118343195,
+          "min_accepted_share_plotted": 0.1312869822485207,
+          "max_accepted_share_plotted": 0.14977810650887574
+        }
+      }
+    },
+    {
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "method": "standard_dw",
+      "median_truth_j": 4.642726714421528,
+      "max_truth_j": 18.556877073115402,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.6666666666666666,
+          "mean_accepted_share_plotted": 0.024778106508875738,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.042899408284023666
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.03316074950690335,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.05436390532544379
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.04117357001972387,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.06767751479289941
+        }
+      }
+    },
+    {
+      "scenario": "strong_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=1",
+      "method": "robust_dw",
+      "median_truth_j": 3.5212143493144934,
+      "max_truth_j": 10.466678527157002,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.6666666666666666,
+          "mean_accepted_share_plotted": 0.15631163708086784,
+          "min_accepted_share_plotted": 0.0,
+          "max_accepted_share_plotted": 0.33210059171597633
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.2508629191321499,
+          "min_accepted_share_plotted": 0.027736686390532544,
+          "max_accepted_share_plotted": 0.4755917159763314
+        },
+        "95": {
+          "truth_in_rate": 1.0,
+          "mean_accepted_share_plotted": 0.3390039447731756,
+          "min_accepted_share_plotted": 0.11871301775147929,
+          "max_accepted_share_plotted": 0.5562130177514792
+        }
+      }
+    },
+    {
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "method": "covariance",
+      "median_truth_j": 0.9236392767552206,
+      "max_truth_j": 3.89033324153614,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.08555226824457594,
+          "min_accepted_share_plotted": 0.07840236686390532,
+          "max_accepted_share_plotted": 0.08986686390532544
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.11008382642998028,
+          "min_accepted_share_plotted": 0.10318047337278106,
+          "max_accepted_share_plotted": 0.11427514792899408
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.12949950690335307,
+          "min_accepted_share_plotted": 0.12130177514792899,
+          "max_accepted_share_plotted": 0.13535502958579881
+        }
+      }
+    },
+    {
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "method": "standard_dw",
+      "median_truth_j": 4.201992891732171,
+      "max_truth_j": 12.047888820719642,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.10928254437869822,
+          "min_accepted_share_plotted": 0.06619822485207101,
+          "max_accepted_share_plotted": 0.13831360946745563
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.13498520710059173,
+          "min_accepted_share_plotted": 0.10133136094674557,
+          "max_accepted_share_plotted": 0.15865384615384615
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.15514053254437868,
+          "min_accepted_share_plotted": 0.11612426035502958,
+          "max_accepted_share_plotted": 0.17899408284023668
+        }
+      }
+    },
+    {
+      "scenario": "weak_nongaussianity",
+      "group": "nongaussianity_grid",
+      "label": "w=0.25",
+      "method": "robust_dw",
+      "median_truth_j": 2.7864876007794925,
+      "max_truth_j": 15.443943419764999,
+      "cutoffs": {
+        "80": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.705189842209073,
+          "min_accepted_share_plotted": 0.0003698224852071006,
+          "max_accepted_share_plotted": 0.8461538461538461
+        },
+        "90": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.7069773175542405,
+          "min_accepted_share_plotted": 0.011094674556213017,
+          "max_accepted_share_plotted": 0.8461538461538461
+        },
+        "95": {
+          "truth_in_rate": 0.8333333333333334,
+          "mean_accepted_share_plotted": 0.7106755424063116,
+          "min_accepted_share_plotted": 0.03328402366863906,
+          "max_accepted_share_plotted": 0.8461538461538461
+        }
+      }
+    }
+  ]
+}

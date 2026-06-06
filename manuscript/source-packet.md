@@ -87,8 +87,9 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 |---|---|---|
 | `replications/svar-noise-recursive-sign-visualization/` | Deterministic sign-noise geometry and no-noise independence-refinement behavior under residual noise. | Use as the starting point for the intuitive figure and standard-DW false-sharpening figure. |
 | `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | Manuscript-local M0020-corrected companion grid: fixes residual noise and varies structural-shock non-Gaussianity. All rows invert pointwise 10 percent J tests; the robust row uses only mixed higher cumulants and no covariance restriction. | Selected companion visual: use beside the noise grid to show the limitation that robust-DW depends on informative higher moments. |
-| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local M0020-corrected B-plane grid: sign/covariance, standard-DW, and robust-DW rows all invert pointwise 10 percent J tests across three noise levels. The high-noise stress column has standard DW rejecting true `B0` while robust DW contains it. | Selected main visual: organize the paper's evidence around this grid, pending M28/M29 validation and calibration. |
-| `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; M28 must still verify population grids before final evidence or polished paper use. |
+| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local M0020-corrected B-plane grid: sign/covariance, standard-DW, and robust-DW rows all invert pointwise 10 percent J tests across three noise levels. The high-noise stress column has standard DW rejecting true `B0` while robust DW contains it. | Selected main visual: organize the paper's evidence around this grid; M28 first validation passed, M29 calibration remains. |
+| `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; M28 population-grid validation now favors the M0020 grid pair as the main visual spine. |
+| `manuscript/simulations/m28_grid_story_validation.py` | First M28 validation pass for the M0020 grid pair: exact population mixed-moment checks, grid-boundary sensitivity, repeated finite-sample seeds, true-`B0` J diagnostics, and pointwise critical-value sensitivity. | Use as the validation gate supporting the selected visual spine; M29 must still calibrate repeated-sample or bootstrap critical values before coverage claims. |
 | `svar-toolkit/examples/howto/06_sign_restrictions.py` | Verified fixed-draw sign-restriction accepted-set workflow. | Use for baseline sign-set simulations if needed. |
 | `svar-toolkit/examples/howto/12_non_gaussian_cross_moments.py` | Verified fixed-draw higher-moment cross-moment selector. | Use as a comparator or helper for robust higher-moment diagnostics, not as a final estimator without audit. |
 | `svar-toolkit/docs/api/gmm.md` and GMM examples | Reusable moment quadratic engine. | Candidate for the robust DW moment criterion and Monte Carlo wrappers. |
@@ -113,15 +114,16 @@ these tasks:
 2. Build the intuitive geometry figure showing covariance deformation and
    sign-set bias. M0016 created a candidate sign/standard-DW/robust-DW
    population figure from the KnowledgeVault visualization, but the full
-   geometry figure and M28 validation remain open.
+   geometry figure remains optional because the M0020/M28 grid pair now carries
+   the main visual story.
 3. Use the M25 standard-DW J-test inversion derivation: rich stacks empty
    generically under residual noise, while structural-coordinate rescaling
    cases and finite-moment aliases can produce pseudo-zeros.
 4. Use the M24 audit of
    `manuscript/derivations/dw-noise-robust-moments.md`: the local normalized
    Gaussian-noise route conditionally passed, but global aliases, scale loss,
-   and finite-sample behavior still require population-grid and Monte Carlo
-   checks.
+   and finite-sample behavior still require M27 formalization and M29
+   calibrated Monte Carlo checks.
 5. Decide and state the maintained robust noise condition. Gaussian residual
    noise gives clean transformed higher cumulants; broader noise requires a
    different argument.
@@ -131,9 +133,10 @@ these tasks:
    structural-coordinate rescaling exception, added an anisotropic
    diagonal-noise stress case, and confirmed that the provisional
    finite-sample statistic is too permissive for final evidence.
-7. Validate the M0020 figure pair: population moments, repeated seeds,
-   grid-boundary sensitivity, true-`B0` J diagnostics, and critical-value
-   sensitivity.
+7. Completed the first M28 validation pass for the M0020 figure pair:
+   population moments, repeated seeds, grid-boundary sensitivity, true-`B0` J
+   diagnostics, and pointwise critical-value sensitivity support the selected
+   visual spine under the maintained Gaussian residual-noise condition.
 8. Formalize the comparison diagnostic in the same language as the figures:
    standard DW set, robust DW set, overlap/divergence, and interpretation.
 9. Run finite-sample Monte Carlo with repeated-sample or bootstrap critical
@@ -146,9 +149,8 @@ these tasks:
 ## Gaps And Risks
 
 - The standard DW J-test emptying statement is now a working derivation with
-  explicit exceptions; M30 showed that the next evidence step must separate
-  structural-rescaling exceptions from genuinely generic noisy covariance
-  cases on population grids.
+  explicit exceptions; M28 supports the selected high-noise grid story, but
+  M25 still needs a direct proof audit before theorem-level prose.
 - The robust DW route must be explicit about its noise assumption. Gaussian
   additive residual noise is clean for transformed cumulants; non-Gaussian
   transformed noise generally is not.
