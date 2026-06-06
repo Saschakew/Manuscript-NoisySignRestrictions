@@ -7,15 +7,16 @@ Manuscript slug: noise-robust-sign-restricted-svars
 KnowledgeVault link: `../knowledge-vault-link.json`
 
 Current stage: figure-led evidence planning after the M0020-corrected noise
-and non-Gaussianity grid pair, with the first M28 validation pass complete.
+and non-Gaussianity grid pair, with M28 first validation and M27 diagnostic
+formalization complete.
 
-Current focus: formalize the robust-DW comparison diagnostic in the same
-language as the M0020/M28 grid story, then move to calibrated M29
-finite-sample evidence.
+Current focus: calibrated M29 finite-sample evidence around the M0020/M28/M27
+story.
 
-Next recommended action: start M27. Define the reported standard-DW set,
-robust-DW set, overlap/divergence metric, critical-value convention, and
-interpretation boundaries using the M0020 figures and M28 diagnostics.
+Next recommended action: start M29. Use the M27 metric bundle to report
+coverage, accepted-set share or width, empty-set frequency, overlap,
+standard-DW mass outside robust-DW, and least-rejected candidates under
+calibrated repeated-sample or bootstrap critical values.
 
 Active milestone: none. M0021 records the user decision that the M0020 grid
 pair tells the paper's main story and should organize the next plan.
@@ -23,9 +24,10 @@ pair tells the paper's main story and should organize the next plan.
 Active blockers:
 
 - The robust DW derivation passed M24 only as a local normalized
-  Gaussian-noise result, and M28 supports its population truth-inclusion
-  behavior. It still needs M27 formal statement discipline and M29 calibrated
-  finite-sample evidence before becoming final manuscript evidence.
+  Gaussian-noise result. M27 has formalized the reported set and diagnostic
+  language, and M28 supports its population truth-inclusion behavior. M29 still
+  needs calibrated finite-sample evidence before this becomes final manuscript
+  evidence.
 - The M25 standard-DW J-test inversion result is only a working derivation; M28
   supports the high-noise divergence story, but the derivation still needs a
   direct audit before theorem-level prose.
@@ -41,12 +43,12 @@ Active blockers:
   calibrated critical values and coverage-style summaries.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
-- A figure-led section draft should wait until M27 formalizes the diagnostic
-  language and M29 calibrates finite-sample evidence enough to avoid another
-  structural rewrite.
+- A figure-led section draft should wait until M29 calibrates finite-sample
+  evidence enough to avoid another structural rewrite.
 
-Last substantive session: 2026-06-06, completed the first M28 validation pass
-for the M0020 grid pair and promoted M27 as the next task.
+Last substantive session: 2026-06-06, completed M27 by defining the reported
+standard-DW set, robust-DW set, critical-value convention, directional
+overlap/divergence metric, and interpretation boundaries.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

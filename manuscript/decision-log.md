@@ -5,6 +5,27 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Use a directional DW-versus-robust-DW diagnostic
+
+- Origin: Codex execution of user-requested next task
+- User input id: U0023
+- Codex role: selected M27, formalized the comparison object, and updated
+  planning surfaces.
+- Decision: The manuscript should compare standard DW and robust DW in the
+  same normalized impact chart. The main warning metric is directional:
+  standard-DW accepted mass outside the robust-DW set indicates that no-noise
+  covariance-target precision may not be robust. Robust-DW mass outside
+  standard DW is not itself a warning because the robust set deliberately drops
+  second-moment restrictions.
+- Rationale: The robust set is expected to be wider, so symmetric overlap
+  alone can misclassify honest widening as failure. The directional metric
+  aligns the interpretation with the M0020/M28 visual story and the M24/M25
+  derivations.
+- Consequence for next work: M29 should use the M27 metric bundle when
+  reporting accepted shares, empty-set frequencies, overlap, standard-DW mass
+  outside robust-DW, truth inclusion in simulations, least-rejected candidates,
+  and calibrated critical-value behavior.
+
 ### 2026-06-06 - Treat M28 as passed first validation gate
 
 - Origin: Codex execution of user-requested next task

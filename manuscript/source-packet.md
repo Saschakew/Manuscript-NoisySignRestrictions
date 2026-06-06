@@ -137,8 +137,11 @@ these tasks:
    population moments, repeated seeds, grid-boundary sensitivity, true-`B0` J
    diagnostics, and pointwise critical-value sensitivity support the selected
    visual spine under the maintained Gaussian residual-noise condition.
-8. Formalize the comparison diagnostic in the same language as the figures:
-   standard DW set, robust DW set, overlap/divergence, and interpretation.
+8. Completed M27 comparison-diagnostic formalization in the same language as
+   the figures: reported standard-DW set, robust-DW set, critical-value
+   convention, accepted shares, Jaccard overlap, directional
+   standard-outside-robust warning metric, truth-inclusion simulation
+   diagnostics, and interpretation boundaries.
 9. Run finite-sample Monte Carlo with repeated-sample or bootstrap critical
    values.
 10. Report coverage, accepted-set share or width, empty-set frequency, overlap

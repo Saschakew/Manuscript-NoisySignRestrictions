@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T12:42:14Z",
+  "updated_at": "2026-06-06T12:54:15Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -444,6 +444,28 @@
         "milestone_number": 19,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/19",
         "tag_name": "manuscript-milestones/M0022-m28-grid-validation"
+      }
+    },
+    {
+      "id": "M0023-formalize-robust-dw-diagnostic",
+      "sequence": 23,
+      "title": "Formalize robust DW diagnostic",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T12:46:20Z",
+      "closed_at": "2026-06-06T12:54:15Z",
+      "start_commit": "c02a3a5a8eac9448236f940b9908e68239cf09c6",
+      "snapshot_ref": "manuscript-milestones/M0023-formalize-robust-dw-diagnostic",
+      "summary": "Formalized the M27 robust-DW comparison diagnostic and moved the next recommended task to M29 calibration.",
+      "user_input_ids": [
+        "U0023-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0023-formalize-robust-dw-diagnostic.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 20,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/20",
+        "tag_name": "manuscript-milestones/M0023-formalize-robust-dw-diagnostic"
       }
     }
   ]

@@ -72,13 +72,14 @@
     {
       "id": "def:standard-dw-refined-set",
       "type": "definition",
-      "status": "planned",
-      "draft_location": "draft.md#3-standard-dw-under-residual-noise",
-      "description": "Standard Drautzburg-Wright-style sign-admissible set built from no-noise covariance-factor candidates whose recovered shocks satisfy higher-moment independence restrictions.",
+      "status": "formalized-for-diagnostic",
+      "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#3-standard-dw-under-residual-noise",
+      "description": "M27 common-chart reported standard-DW set: sign-admissible normalized candidates whose standardized recovered shocks pass a J-test stack containing the no-noise covariance moment and finite higher-moment independence restrictions.",
       "depends_on": [
         "def:noisy-sign-pseudo-set"
       ],
-      "source": "vault/papers/Refining set-identification in VARs through independence.md"
+      "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md",
+      "source": "vault/papers/Refining set-identification in VARs through independence.md; manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
     {
       "id": "prop:standard-dw-misspecification",
@@ -111,17 +112,17 @@
     {
       "id": "def:robust-dw-higher-moment-set",
       "type": "definition",
-      "status": "audited-working-derivation",
+      "status": "formalized-for-diagnostic",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Robust DW-style sign-restricted candidate set that searches over a normalized impact space and uses mixed higher cumulants of B^{-1}u, rather than no-noise covariance factorization.",
+      "description": "Robust DW-style sign-restricted candidate set that searches over a normalized impact space and uses mixed higher cumulants of B^{-1}u, rather than no-noise covariance factorization; M27 defines the reported J-test inversion and keeps second moments as nuisance inputs only inside fourth cumulants.",
       "depends_on": [
         "def:diagonal-noise-svar",
         "ass:gaussian-residual-noise",
         "ass:unit-variance-normalization"
       ],
-      "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "verification_status": "M24 conditional audit passed for a local normalized Gaussian-noise route; M28 population/repeated-seed validation passed, while M29 calibrated finite-sample evidence remains pending",
-      "source": "manuscript/derivations/dw-noise-robust-moments.md"
+      "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md",
+      "verification_status": "M24 conditional audit passed for a local normalized Gaussian-noise route; M27 formalized the reported set and diagnostic comparison; M28 population/repeated-seed validation passed, while M29 calibrated finite-sample evidence remains pending",
+      "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
     {
       "id": "eq:dw-higher-cumulant-moment-stack",
@@ -153,15 +154,27 @@
     {
       "id": "prop:dw-robust-comparison-diagnostic",
       "type": "proposition",
-      "status": "planned",
-      "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Planned diagnostic statement: agreement between standard DW and robust DW sets is reassuring, while divergence warns that standard DW precision may be driven by residual-noise or covariance-target misspecification.",
+      "status": "formalized-for-m29",
+      "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#5-monte-carlo-robustness-check",
+      "description": "M27 diagnostic statement: standard-DW accepted mass outside the robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while robust accepted mass outside standard DW mainly records the information deliberately lost by dropping second moments.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "def:robust-dw-higher-moment-set"
       ],
-      "proof_status": "simulation-and-interpretation-pending",
-      "source": "manuscript/paper-plan.md"
+      "proof_status": "M27 formalization complete; M29 calibrated simulation evidence pending",
+      "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md",
+      "source": "manuscript/derivations/dw-robust-comparison-diagnostic.md"
+    },
+    {
+      "id": "eq:dw-robust-directional-overlap",
+      "type": "equation",
+      "status": "formalized-for-m29",
+      "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#5-monte-carlo-robustness-check",
+      "description": "M27 overlap metric bundle for the common normalized chart: accepted shares, symmetric Jaccard overlap, directional containment q_{S|R}=mu(S cap R)/mu(S), and warning share d_{S not subset R}=1-q_{S|R}.",
+      "depends_on": [
+        "prop:dw-robust-comparison-diagnostic"
+      ],
+      "source": "manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
     {
       "id": "fig:sign-noise-geometry",
@@ -201,7 +214,7 @@
       "type": "table",
       "status": "triage-output-created",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and divergence warnings. M35 created an exploratory early screen; it is cautionary rather than final evidence because the provisional statistic is permissive under moderate noise and weak higher moments.",
+      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and directional divergence warnings using the M27 metric bundle. M35 created an exploratory early screen; it is cautionary rather than final evidence because the provisional statistic is permissive under moderate noise and weak higher moments.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],

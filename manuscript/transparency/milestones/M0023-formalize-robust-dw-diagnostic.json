@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "M0023-formalize-robust-dw-diagnostic",
+  "sequence": 23,
+  "title": "Formalize robust DW diagnostic",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T12:46:20Z",
+  "closed_at": "2026-06-06T12:54:15Z",
+  "start_commit": "c02a3a5a8eac9448236f940b9908e68239cf09c6",
+  "snapshot_ref": "manuscript-milestones/M0023-formalize-robust-dw-diagnostic",
+  "summary": "Formalized the M27 robust-DW comparison diagnostic and moved the next recommended task to M29 calibration.",
+  "user_inputs": [
+    {
+      "id": "U0023-001",
+      "milestone_id": "M0023-formalize-robust-dw-diagnostic",
+      "captured_at": "2026-06-06T12:46:20Z",
+      "source": "chat",
+      "text": "Work on manuscript in goal mode by picking the next task; selected M27 to formalize the robust DW accepted set and comparison diagnostic."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0023-001",
+      "milestone_id": "M0023-formalize-robust-dw-diagnostic",
+      "captured_at": "2026-06-06T12:54:15Z",
+      "description": "Created the diagnostic method note and updated the registry, plan, map, dashboard, task board, draft notes, provenance, source packet, workplan, and logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T12:54:15Z",
+      "description": "python scripts/check_manuscript.py: passed; JSON parse: passed; git diff --check: passed with line-ending warnings only"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/dw-robust-comparison-diagnostic.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0023-formalize-robust-dw-diagnostic.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 20,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/20",
+    "tag_name": "manuscript-milestones/M0023-formalize-robust-dw-diagnostic"
+  }
+}

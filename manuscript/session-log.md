@@ -8,6 +8,21 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Formalize robust DW comparison diagnostic
+
+- Request or goal: work on the manuscript in goal mode by picking the next
+  task.
+- Files changed: `manuscript/derivations/dw-robust-comparison-diagnostic.md`,
+  planning surfaces, draft notes, provenance, logs, and M0023 transparency
+  files.
+- Summary of work: selected M27, defined the reported standard-DW set,
+  robust-DW set, critical-value convention, accepted-share and overlap
+  measures, the directional standard-outside-robust warning metric,
+  truth-inclusion simulation diagnostics, and interpretation boundaries. M27
+  is now complete and M29 is the next recommended task.
+- Next recommended action: start M29 calibrated finite-sample Monte Carlo
+  evidence using the M27 metric bundle.
+
 ### 2026-06-06 - Validate M0020 grid-pair story
 
 - Request or goal: pick the next manuscript task and work on it in goal mode.

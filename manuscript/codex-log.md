@@ -11,6 +11,30 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0023 M27 diagnostic formalization
+
+- Request: work on the manuscript in goal mode by picking the next task.
+- Actions taken: selected M27 from the task board; opened local transparency
+  milestone M0023 and GitHub milestone #20; created
+  `manuscript/derivations/dw-robust-comparison-diagnostic.md`; formalized the
+  reported standard-DW set, robust-DW set, critical-value convention, accepted
+  shares, Jaccard overlap, directional standard-outside-robust warning metric,
+  truth-inclusion simulation diagnostics, and interpretation boundaries;
+  updated the registry, paper plan, paper map, dashboard, task board, source
+  packet, workplan, draft notes, citation provenance, decision log, session
+  log, and Codex log.
+- Files changed: `manuscript/derivations/dw-robust-comparison-diagnostic.md`,
+  planning surfaces, draft notes, provenance, logs, and M0023 transparency
+  files.
+- Checks run: formal registry and M0023 manifest JSON parse passed; `python
+  scripts/check_manuscript.py` passed with the expected open-milestone warning
+  before closure; `git diff --check` passed with line-ending normalization
+  warnings only; `python scripts/check_manuscript.py` passed again after
+  closing M0023.
+- Open uncertainties: M29 still needs calibrated repeated-sample or bootstrap
+  critical values before reporting final coverage, width, empty-set, overlap,
+  or divergence evidence.
+
 ### 2026-06-06 - M0022 M28 grid story validation
 
 - Request: pick the next manuscript task and work on it in goal mode.

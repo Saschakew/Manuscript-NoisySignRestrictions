@@ -12,9 +12,10 @@ sign-set movement, standard-DW truth rejection under high residual noise,
 robust-DW truth inclusion, and robust-DW widening as higher moments weaken.
 M28 completed the first validation pass for that story with exact population
 moments, grid-boundary sensitivity, repeated finite-sample seeds, and
-pointwise critical-value sensitivity. The evidence queue is now centered on
-formalizing the diagnostic language and calibrating finite-sample critical
-values.
+pointwise critical-value sensitivity. M27 formalized the reported
+standard-DW set, robust-DW set, critical-value convention, directional
+overlap/divergence metric, and interpretation boundaries. The evidence queue
+is now centered on calibrating finite-sample critical values.
 
 The active paper no longer treats the previous constructive route as part of
 the main plan. The first version is a short simultaneous-SVAR
@@ -29,8 +30,8 @@ model VAR lags or dynamic impulse responses.
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. |
-| M5. Evidence package | doing | M0020 selected the figure pair as the visual spine; M28 validates the population/repeated-seed grid story and M29 quantifies it with calibrated finite-sample Monte Carlo. |
+| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M27 has stated the comparison diagnostic. |
+| M5. Evidence package | doing | M0020 selected the figure pair as the visual spine; M28 validates the population/repeated-seed grid story and M29 quantifies it with calibrated finite-sample Monte Carlo using the M27 metrics. |
 | M6. First complete draft | todo | After M28 validation, all sections have figure-led prose and source trails. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
@@ -49,9 +50,9 @@ model VAR lags or dynamic impulse responses.
 5. Robust-DW derivation review: check cumulant-to-moment algebra, fourth-order
    covariance subtractions, local rank, scale loss, and finite-sample bias
    wording.
-6. Diagnostic interpretation review: verify that DW-versus-robust-DW
-   divergence is described as a warning, not proof of literal measurement
-   error.
+6. Diagnostic interpretation review: use the M27 directional metric and verify
+   that DW-versus-robust-DW divergence is described as a warning, not proof of
+   literal measurement error.
 7. Evidence design: use the M0020 figure pair as the visual spine; use the
    M28 population/repeated-seed validation as the first gate before expanding
    simulations to no-noise agreement, noisy disagreement, weak-moment widening,

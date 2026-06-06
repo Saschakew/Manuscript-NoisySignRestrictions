@@ -46,8 +46,9 @@ reported beside the standard DW set as a practical robustness check.
    depends on informative higher moments and becomes wide when the shocks are
    close to Gaussian.
 6. The practical recommendation is simple: report both the standard DW set and
-   the robust DW set. Agreement is reassuring; divergence is a warning that the
-   usual covariance-target refinement should not be trusted.
+   the robust DW set in the same normalized chart. Standard-DW mass outside the
+   robust set is the warning object; robust mass outside the standard set often
+   just records the information lost by dropping second moments.
 
 ## Section Jobs
 
@@ -75,6 +76,7 @@ reported beside the standard DW set as a practical robustness check.
 - `prop:standard-dw-misspecification`
 - `prop:robust-dw-higher-moment-validity`
 - `prop:dw-robust-comparison-diagnostic`
+- `eq:dw-robust-directional-overlap`
 - `fig:sign-noise-geometry`
 - `fig:standard-dw-false-sharpening`
 - `fig:dw-robust-set-comparison`
@@ -99,6 +101,9 @@ and proof or output status.
 - Derivation of the robust higher-moment stack from
   `derivations/dw-noise-robust-moments.md`.
 - M28 population-grid and repeated-draw validation of the M0020 grid pair.
+- M27 formal diagnostic note defining the reported standard-DW set, robust-DW
+  set, critical-value convention, directional overlap metric, and interpretation
+  boundaries.
 - Monte Carlo comparison of standard sign, standard DW, and robust DW sets
   using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and
@@ -108,7 +113,6 @@ and proof or output status.
 
 - The standard DW J-test inversion result is now a working derivation; it still
   needs audit before prose promotion.
-- The M0020-corrected grid pair is the selected visual spine, and M28 supports
-  the population/repeated-seed layer of the story. The remaining evidence gate
-  is M29: calibrated repeated-sample or bootstrap critical values, coverage,
-  width, empty-set, overlap, and divergence summaries.
+- M27 has formalized the comparison diagnostic. The remaining evidence gate is
+  M29: calibrated repeated-sample or bootstrap critical values, coverage,
+  width, empty-set, overlap, and directional divergence summaries.
