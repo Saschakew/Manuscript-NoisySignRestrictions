@@ -11,6 +11,32 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0036 Relative-noise covariance figure
+
+- Request: user corrected the absolute bounded-noise screen and asked to bound
+  residual noise relative to structural-shock variance, then show Figure 1.
+- Actions taken: opened local transparency milestone M0036 and GitHub
+  milestone #33; added `--robust-mode relative` to the Figure 1 script;
+  implemented the profiled covariance-decomposition screen
+  `0 <= nu_i <= 0.5 Var(epsilon_i)`; rendered
+  `fig_sign_dw_relative_noise_robust_grid.png`; documented fixed-draw
+  diagnostics; updated draft, registry, planning surfaces, provenance, figure
+  indexes, simulation notes, and logs; and made M40 the audit gate for the
+  signal-to-noise restriction.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png`, manuscript
+  control surfaces, logs, and M0036 transparency files.
+- Checks run: rendered default, pure, bounded, and relative Figure 1 modes;
+  visually inspected the relative image; `git diff --check` passed with
+  line-ending warnings only; `python scripts/check_manuscript.py` passed before
+  closure with the expected open-milestone warning and passed cleanly after
+  closure; `python -m json.tool manuscript/formal-object-registry.json` passed.
+- Open uncertainties: the relative row is scale-correct compared with the
+  absolute M0035 bound, but its precision still depends on the substantive 50
+  percent signal-to-noise bound. M40 must audit the algebra, finite-sample
+  screen, and interpretability before M28/M29 are rebuilt.
+
 ### 2026-06-06 - M0035 Bounded-noise covariance figure
 
 - Request: user suggested profiling unknown diagonal residual-noise variances

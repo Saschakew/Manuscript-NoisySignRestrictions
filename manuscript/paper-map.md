@@ -9,7 +9,8 @@ Residual noise can bias standard sign-restricted SVAR sets and make
 Drautzburg-Wright-style higher-moment refinement look falsely precise; a
 validity-first robust comparison can use Gaussian-noise higher cumulants, and
 may regain precision only when explicit noise-scale information such as an
-upper bound on diagonal residual-noise variances is defensible.
+upper bound on residual-noise variances relative to shock variances is
+defensible.
 
 ## Paper Contract
 
@@ -21,14 +22,14 @@ upper bound on diagonal residual-noise variances is defensible.
   Drautzburg-Wright-style no-noise higher-moment refinement.
 - Constructive object: robust DW-style set over normalized impact matrices
   using mixed higher cumulants of `B^{-1}u` written as GMM-style moment
-  equations while avoiding recovered-shock zero-covariance targets. M0035 adds
-  a candidate bounded-noise recovered-covariance screen with
-  `0 <= nu_i <= 0.5`.
+  equations while avoiding recovered-shock zero-covariance targets. M0036 adds
+  a candidate covariance-decomposition screen with
+  `0 <= nu_i <= 0.5 Var(epsilon_i)`.
 - Evidence: the M0034 pure Figure 1 variant shows the honest cost of dropping
-  invalid second-order information. The M0035 bounded-noise variant shows that
-  an explicit variance upper bound can recover precision while retaining true
-  `B0`. This bounded screen needs audit before draft-level evidence claims are
-  stable.
+  invalid second-order information. The M0036 relative-noise variant shows that
+  an explicit signal-to-noise upper bound can recover precision while retaining
+  true `B0`. This relative screen needs audit before draft-level evidence
+  claims are stable.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -45,8 +46,8 @@ upper bound on diagonal residual-noise variances is defensible.
 4. The paper's constructive move is to drop invalid zero-covariance
    restrictions and use robust higher-moment restrictions on normalized
    candidate impacts. If the researcher can bound diagonal residual-noise
-   variances, the recovered-shock covariance can be used as an inequality
-   screen rather than a zero moment.
+   variances relative to profiled structural-shock variances, second moments
+   can be used as a covariance-decomposition screen rather than a zero moment.
 5. The companion non-Gaussianity grid states the limitation honestly: robust DW
    depends on informative higher moments and becomes wide when the shocks are
    close to Gaussian.
@@ -64,8 +65,8 @@ upper bound on diagonal residual-noise variances is defensible.
 | 1. Introduction | Motivate the robustness-check problem, position the paper relative to sign restrictions, Drautzburg-Wright, and higher-moment SVAR/GMM, and preview the geometry plus Monte Carlo evidence. | skeleton plus M32 positioning drafted |
 | 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | planned |
 | 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | planned |
-| 4. Robust Higher-Cumulant DW | Define the robust normalized candidate set from mixed higher cumulants, explain why recovered-shock zero covariance and the diagonal-anchor `u` covariance moment are invalid, and derive the bounded-noise recovered-covariance screen as an optional identifying restriction. | needs M0035 audit |
-| 5. Figure-Led Evidence And Monte Carlo Check | Compare the pure and bounded-noise Figure 1 variants; rerun M28/M29-style evidence after the bounded screen is audited. | needs revision |
+| 4. Robust Higher-Cumulant DW | Define the robust normalized candidate set from mixed higher cumulants, explain why recovered-shock zero covariance and the diagonal-anchor `u` covariance moment are invalid, and derive the relative-noise covariance-decomposition screen as an optional identifying restriction. | needs M0036 audit |
+| 5. Figure-Led Evidence And Monte Carlo Check | Compare the pure, absolute-bound, and relative-noise Figure 1 variants; rerun M28/M29-style evidence after the relative screen is audited. | needs revision |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
 
 ## Core Formal Objects
@@ -101,7 +102,13 @@ and proof or output status.
 - M0035 bounded-noise residual grid variant showing the same setting with the
   pure higher-cumulant row intersected with `0 <= nu_i <= 0.5`
   recovered-covariance feasibility; high-noise accepted share falls to 0.066
-  while true `B0` remains included.
+  while true `B0` remains included. This is now a comparison because the
+  absolute variance cap is scale-arbitrary.
+- M0036 relative-noise residual grid variant showing the same setting with the
+  pure higher-cumulant row intersected with the covariance-decomposition
+  feasibility condition `0 <= nu_i <= 0.5 Var(epsilon_i)`; high-noise accepted
+  share is 0.071 of the full grid, 0.084 of the sign-admissible grid, and true
+  `B0` remains included.
 - Existing non-Gaussianity grid still illustrates the weak-higher-moment
   limitation, but its connection to the revised Figure 1 must be checked in
   M39.
@@ -139,5 +146,6 @@ and proof or output status.
   skeleton without treating audit cutoffs as application-ready procedures.
   M32 added the first literature-positioning pass with explicit contribution
   boundaries. The next bottlenecks are M39 evidence/method rebuild, direct M25
-  proof audit before theorem-level wording, and moving figure/table code into
+  proof audit before theorem-level wording, M40 audit of the relative
+  signal-to-noise screen, and moving figure/table code into
   `manuscript/replication/` before sharing.

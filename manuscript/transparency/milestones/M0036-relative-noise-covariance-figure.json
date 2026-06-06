@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "id": "M0036-relative-noise-covariance-figure",
+  "sequence": 36,
+  "title": "Relative noise covariance figure",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T20:10:29Z",
+  "closed_at": "2026-06-06T20:25:29Z",
+  "start_commit": "3befab1ad6f8d577e9dbcb6a59b4a8b1e8802f37",
+  "snapshot_ref": "manuscript-milestones/M0036-relative-noise-covariance-figure",
+  "summary": "Rendered a relative-noise robust Figure 1 candidate and documented the signal-to-noise covariance screen.",
+  "user_inputs": [
+    {
+      "id": "U0036-001",
+      "milestone_id": "M0036-relative-noise-covariance-figure",
+      "captured_at": "2026-06-06T20:10:29Z",
+      "source": "chat",
+      "text": "Show Figure 1 using a covariance screen where residual noise variance is bounded relative to structural shock variance, e.g. noise has at most 50 percent of each structural shock variance."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0036-001",
+      "milestone_id": "M0036-relative-noise-covariance-figure",
+      "captured_at": "2026-06-06T20:25:29Z",
+      "description": "Added --robust-mode relative to the Figure 1 generator."
+    },
+    {
+      "id": "A0036-002",
+      "milestone_id": "M0036-relative-noise-covariance-figure",
+      "captured_at": "2026-06-06T20:25:29Z",
+      "description": "Rendered fig_sign_dw_relative_noise_robust_grid.png and documented fixed-draw diagnostics."
+    },
+    {
+      "id": "A0036-003",
+      "milestone_id": "M0036-relative-noise-covariance-figure",
+      "captured_at": "2026-06-06T20:25:29Z",
+      "description": "Updated draft, registry, planning surfaces, provenance, logs, figure indexes, and simulation notes for M0036."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T20:25:29Z",
+      "description": "rendered default, pure, bounded, and relative Figure 1 modes: passed"
+    },
+    {
+      "captured_at": "2026-06-06T20:25:29Z",
+      "description": "git diff --check: passed with line-ending warnings only"
+    },
+    {
+      "captured_at": "2026-06-06T20:25:29Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T20:25:29Z",
+      "description": "python -m json.tool manuscript/formal-object-registry.json: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/figures/README.md",
+    "manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md",
+    "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.py",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0036-relative-noise-covariance-figure.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 33,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/33",
+    "tag_name": "manuscript-milestones/M0036-relative-noise-covariance-figure"
+  }
+}

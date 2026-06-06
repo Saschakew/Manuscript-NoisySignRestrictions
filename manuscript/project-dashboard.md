@@ -12,18 +12,19 @@ The abstract, introduction, evidence section, M28/M29 validation, and M37
 audit still describe the now-superseded six-moment diagonal-anchor statistic
 and must be revised before further polished Section 2-4 drafting.
 
-Current focus: audit the M0035 bounded-noise covariance-screen candidate. It
-uses pure higher-cumulant moments plus a profiled recovered-covariance
-feasibility screen with `0 <= nu_i <= 0.5`, and it visually restores much of
-the precision lost by the pure robust row.
+Current focus: audit the M0036 relative-noise covariance-screen candidate. It
+uses pure higher-cumulant moments plus a profiled covariance-decomposition
+screen with `0 <= nu_i <= 0.5 Var(epsilon_i)`, and it visually restores much
+of the precision lost by the pure robust row while avoiding the arbitrary
+absolute `nu_i <= 0.5` scale.
 
-Next recommended action: audit the bounded-noise covariance screen before
+Next recommended action: audit the relative-noise covariance screen before
 rebuilding M28/M29 or drafting Section 4. The audit should check the algebra,
-the role of the `0.5` upper bound as identifying information, finite-sample
-behavior of the inequality screen, and whether the assumption is acceptable
-for the paper's story.
+the role of the 50 percent signal-to-noise bound as identifying information,
+finite-sample behavior of the equality-plus-inequality screen, and whether the
+assumption is acceptable for the paper's story.
 
-Active milestone: M0035, bounded noise covariance figure.
+Active milestone: M0036, relative noise covariance figure.
 
 Active blockers:
 
@@ -47,8 +48,13 @@ Active blockers:
   second-order information.
 - M0035 rendered `fig_sign_dw_bounded_noise_robust_grid.png`. The high-noise
   bounded row contains true `B0` and accepts about 0.066 of the full plotted
-  grid, but this precision comes from the explicit `0 <= nu_i <= 0.5` noise
-  bound and needs a method audit.
+  grid, but this precision comes from the explicit absolute `0 <= nu_i <= 0.5`
+  noise bound and is now a comparison rather than the preferred candidate.
+- M0036 rendered `fig_sign_dw_relative_noise_robust_grid.png`. The high-noise
+  relative row contains true `B0` and accepts about 0.071 of the full plotted
+  grid, or 0.084 of the sign-admissible grid. Its precision comes from the
+  explicit `nu_i <= 0.5 Var(epsilon_i)` signal-to-noise restriction and needs
+  a method audit before promotion.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
 - The first figure-led skeleton now uses the refreshed M29 chi-square rows as
@@ -57,9 +63,9 @@ Active blockers:
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
 
-Last substantive session: 2026-06-06, opened M0035 to test a bounded
-recovered-covariance anchor. Generated the bounded-noise Figure 1 variant and
-recorded it as a promising candidate that needs audit before replacing the
+Last substantive session: 2026-06-06, opened M0036 to test a relative
+noise-to-shock variance screen. Generated the relative-noise Figure 1 variant
+and recorded it as the preferred candidate pending audit before replacing the
 evidence spine.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after

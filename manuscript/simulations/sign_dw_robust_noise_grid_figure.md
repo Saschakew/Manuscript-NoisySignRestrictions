@@ -9,20 +9,25 @@ variances. With free shock scales, the off-diagonal covariance is
 `Sigma_u,12 = b21*sigma_1^2 + b12*sigma_2^2`. The active diagnostic variant is
 documented in `manuscript/simulations/sign_dw_pure_robust_noise_grid_figure.md`.
 
-M0035 candidate: the script also supports `--robust-mode bounded`, documented
+M0035 comparison: the script also supports `--robust-mode bounded`, documented
 in `manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md`. This
 mode uses pure higher cumulants plus a recovered-covariance feasibility screen
 with `0 <= nu_i <= 0.5`.
+
+M0036 candidate: the script also supports `--robust-mode relative`, documented
+in `manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md`. This
+mode uses pure higher cumulants plus a covariance-decomposition feasibility
+screen with `0 <= nu_i <= 0.5 Var(epsilon_i)`. This is the current preferred
+Figure 1 candidate pending M40 audit.
 
 This is the corrected version of the KnowledgeVault B-plane figure requested in
 M0017. It uses the two-by-three sign/DW layout from the synthesis and adds a
 third robust-DW row. The M0020 correction was that all three rows invert
 pointwise finite-sample J statistics at the 10 percent level. The M0030
-revision fixes the high-noise power problem by replacing the pure
-higher-cumulant row with a diagonal-noise robust row: it profiles out diagonal
-residual-noise variances and keeps only the off-diagonal covariance restriction
-that survives `Sigma_u = B B' + V` with diagonal `V`, plus mixed higher
-cumulants of `B^{-1}u`.
+revision attempted to fix the high-noise power problem by adding a diagonal
+noise covariance anchor. M0034 supersedes that row under the active
+diagonal-normalized scale. Use the pure, bounded, or relative modes for current
+scale-correct diagnostics.
 
 Source context:
 

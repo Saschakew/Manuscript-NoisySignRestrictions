@@ -80,3 +80,6 @@
 {"id": "A0035-001", "milestone_id": "M0035-bounded-noise-covariance-figure", "captured_at": "2026-06-06T20:03:44Z", "description": "Derived and implemented the bounded recovered-covariance screen E[e1 e2]=(-b*nu1-a*nu2)/(1-ab)^2 with 0 <= nu_i <= 0.5."}
 {"id": "A0035-002", "milestone_id": "M0035-bounded-noise-covariance-figure", "captured_at": "2026-06-06T20:03:44Z", "description": "Added --robust-mode bounded and rendered fig_sign_dw_bounded_noise_robust_grid.png."}
 {"id": "A0035-003", "milestone_id": "M0035-bounded-noise-covariance-figure", "captured_at": "2026-06-06T20:03:44Z", "description": "Updated manuscript planning, registry, provenance, draft notes, and logs with M40 audit gate."}
+{"id": "A0036-001", "milestone_id": "M0036-relative-noise-covariance-figure", "captured_at": "2026-06-06T20:25:29Z", "description": "Added --robust-mode relative to the Figure 1 generator."}
+{"id": "A0036-002", "milestone_id": "M0036-relative-noise-covariance-figure", "captured_at": "2026-06-06T20:25:29Z", "description": "Rendered fig_sign_dw_relative_noise_robust_grid.png and documented fixed-draw diagnostics."}
+{"id": "A0036-003", "milestone_id": "M0036-relative-noise-covariance-figure", "captured_at": "2026-06-06T20:25:29Z", "description": "Updated draft, registry, planning surfaces, provenance, logs, figure indexes, and simulation notes for M0036."}

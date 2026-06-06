@@ -1,6 +1,7 @@
 # Bounded-Noise Robust DW Noise Grid Variant
 
-Status: M0035 candidate after the M0034 scale correction.
+Status: M0035 comparison after the M0034 scale correction; superseded as
+preferred candidate by the M0036 relative-noise screen.
 
 This note records the Figure 1 variant that adds a bounded diagonal-noise
 covariance screen to the pure higher-cumulant robust-DW row. The screen is not

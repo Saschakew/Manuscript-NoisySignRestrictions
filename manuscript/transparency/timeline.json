@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T20:03:44Z",
+  "updated_at": "2026-06-06T20:25:29Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -731,6 +731,28 @@
         "milestone_number": 32,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/32",
         "tag_name": "manuscript-milestones/M0035-bounded-noise-covariance-figure"
+      }
+    },
+    {
+      "id": "M0036-relative-noise-covariance-figure",
+      "sequence": 36,
+      "title": "Relative noise covariance figure",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T20:10:29Z",
+      "closed_at": "2026-06-06T20:25:29Z",
+      "start_commit": "3befab1ad6f8d577e9dbcb6a59b4a8b1e8802f37",
+      "snapshot_ref": "manuscript-milestones/M0036-relative-noise-covariance-figure",
+      "summary": "Rendered a relative-noise robust Figure 1 candidate and documented the signal-to-noise covariance screen.",
+      "user_input_ids": [
+        "U0036-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0036-relative-noise-covariance-figure.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 33,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/33",
+        "tag_name": "manuscript-milestones/M0036-relative-noise-covariance-figure"
       }
     }
   ]

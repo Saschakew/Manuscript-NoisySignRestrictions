@@ -13,11 +13,17 @@ variances are imposed as an additional scale normalization. The active
 constructive object is therefore the pure higher-cumulant robust-DW set, or a
 future explicitly scaled alternative after M39.
 
-M0035 candidate: the explicitly scaled alternative can use the recovered-shock
-covariance equation
+M0035 comparison candidate: the explicitly scaled alternative can use the
+recovered-shock covariance equation
 `E[e1 e2]=(-b21*nu_1-b12*nu_2)/(1-b12*b21)^2` with
-`0 <= nu_i <= 0.5`. This is a bounded-noise identifying restriction, not a
-normalization.
+`0 <= nu_i <= 0.5`. This absolute bounded-noise restriction is scale-arbitrary.
+
+M0036 preferred candidate pending audit: replace the absolute cap with a
+relative signal-to-noise restriction, `0 <= nu_i <= 0.5 Var(epsilon_i)`. In
+the diagonal-normalized chart, profile structural-shock variances and residual
+noise variances from the sample covariance equations for each candidate `B`.
+This is still identifying information, but it is stated relative to the
+structural shocks rather than in arbitrary units.
 
 The paper studies the simultaneous SVAR impact problem that arises after a
 reduced-form residual has been obtained: what happens when applied researchers
@@ -32,7 +38,8 @@ efficient structural learning.
 The constructive contribution is a robustness check: compute the standard
 Drautzburg-Wright set and compute a Gaussian-noise robust set that drops
 invalid zero-covariance restrictions, keeps mixed higher-cumulant restrictions,
-and optionally applies an explicit bounded-noise recovered-covariance screen.
+and optionally applies an explicit relative-noise covariance-decomposition
+screen.
 When the two sets agree, the usual refinement is less suspicious. When they
 diverge, residual noise or another covariance-target misspecification is
 indicated, and the robust set is the safer object.
@@ -82,13 +89,13 @@ because the least-misspecified candidates are being selected.
 The robust alternative keeps the useful higher-moment idea but replaces the
 fragile no-noise covariance step. It searches over normalized impact matrices,
 imposes economic signs directly on those matrices, profiles diagonal
-residual-noise variances, keeps the off-diagonal covariance restriction that
-diagonal noise cannot bias, and uses higher-order cumulants of candidate
+residual-noise variances and structural-shock variances when a relative
+noise-scale bound is imposed, and uses higher-order cumulants of candidate
 transformed residuals written as GMM-style moment equations. The robust set
 deliberately gives up contaminated diagonal variance targets and recovered-
-shock zero covariance, so it should often be wider than the standard DW set.
-That width is the price of not pretending that the noisy covariance is
-structural.
+shock zero covariance, so it should often be wider than the standard DW set
+unless the researcher adds defensible signal-to-noise information. That width
+is the price of not pretending that the noisy covariance is structural.
 
 ## Proposed Structure
 
@@ -105,12 +112,13 @@ structural.
    planned result that the population DW set should generally be empty under
    misspecification, with finite-sample regions shrinking around
    least-rejected pseudo-candidates.
-4. Diagonal-noise robust DW set: define the normalized robust candidate space,
-   write the off-diagonal covariance and higher-cumulant restrictions as moment
-   equations, and explain why diagonal noise variances are profiled out. State
-   the local identification and consistency claims with the M37 caveats:
-   normalized bivariate chart, diagonal Gaussian residual noise, optional
-   nonnegative profiled-variance screening, and pointwise critical values.
+4. Robust higher-cumulant DW set: define the normalized robust candidate space,
+   write the mixed higher-cumulant restrictions as moment equations, explain
+   why recovered-shock zero covariance and the old off-diagonal `u` covariance
+   anchor are not imposed, and present the relative-noise covariance screen as
+   optional identifying information. State claims with the M0034/M0036 caveats:
+   normalized bivariate chart, diagonal Gaussian residual noise, explicit
+   signal-to-noise bound, and pointwise critical values.
 5. Figure-led evidence and Monte Carlo robustness check: use the M0030 revised grid
    pair as the reader's main visual guide. First show the residual-noise grid
    that moves the sign set, makes standard DW reject the truth in the high-noise
@@ -140,15 +148,20 @@ structural.
   no-noise higher-moment independence restrictions.
 - Robust DW candidate:
   a normalized impact matrix `B` not required to satisfy `B B' = Sigma_u`.
-- Diagonal-noise covariance anchor:
-  `Cov(u_1,u_2) = b12 + b21` in the normalized bivariate chart, with diagonal
-  noise variances profiled out.
+- Superseded diagonal-noise covariance anchor:
+  `Cov(u_1,u_2) = b12 + b21` is invalid in the diagonal-normalized chart unless
+  unit shock variances are imposed as an additional scale normalization.
+- Relative-noise covariance screen:
+  for `B=[[1,b12],[b21,1]]`, find shock variances `s_i` and residual-noise
+  variances `nu_i` satisfying the sample covariance decomposition and
+  `0 <= nu_i <= 0.5 s_i`.
 - Robust DW transformed residual:
   `z_t(B) = B^{-1} u_t`.
 - Robust DW moment stack:
-  the off-diagonal residual covariance anchor plus mixed third central moments
-  and fourth cumulants of `z_t(B)`, written as raw moment equations with
-  covariance products subtracted.
+  mixed third central moments and fourth cumulants of `z_t(B)`, written as raw
+  moment equations with covariance products subtracted; optional second-order
+  information enters only through the explicit relative-noise covariance
+  screen.
 - Robustness check:
   compare the standard DW accepted set with the robust DW accepted set in the
   common normalized chart. Report accepted shares, overlap, standard-DW mass
@@ -169,13 +182,13 @@ structural.
   structural-coordinate rescaling cases or finite-moment aliases, the set can
   instead contain pseudo-true candidates. Finite-sample inversion can still
   return a falsely narrow least-rejected region.
-- Proposition 3, diagonal-noise robust DW validity: under the maintained
-  diagonal Gaussian residual-noise conditions, the off-diagonal covariance
-  anchor and the higher-cumulant moment stack for `z_t(B)` have zero population
-  value at the true normalized impact matrix. The contaminated diagonal
-  variance targets and the recovered-shock zero-covariance restriction are not
-  imposed. M37 conditionally clears this as a local normalized result, not as a
-  global scale-identification or coverage theorem.
+- Proposition 3, robust DW validity: under the maintained diagonal Gaussian
+  residual-noise conditions, the higher-cumulant moment stack for `z_t(B)` has
+  zero population value at the true normalized impact matrix. The contaminated
+  recovered-shock zero-covariance restriction and superseded diagonal-anchor
+  `u` covariance moment are not imposed. Optional second-order precision comes
+  from an explicit relative noise-to-shock variance restriction, not from DW
+  independence moments.
 - Proposition 4, robust set comparison: M27 formalizes the diagnostic in
   `manuscript/derivations/dw-robust-comparison-diagnostic.md`. The key warning
   is directional: standard-DW accepted mass outside robust-DW indicates that
@@ -226,14 +239,13 @@ structural.
 - The first literature-positioning pass is drafted in the introduction. It
   still needs final citation-style cleanup when the References section is
   converted from TODO to shareable prose.
-- Section 4 prose must incorporate the M37 estimator caveats: the off-diagonal
-  covariance anchor is tied to the normalized bivariate chart and diagonal
-  residual-noise covariance; the current plotted diagnostic profiles diagonal
-  variances without enforcing nonnegative variance inequalities; `chi2_6` is a
-  pointwise benchmark; correlated Gaussian noise requires dropping the
-  covariance anchor; and non-Gaussian residual noise generally invalidates the
-  transformed-cumulant interpretation unless additional noise-cumulant
-  restrictions are modeled.
+- Section 4 prose must incorporate the M0034/M0036 caveats: the old
+  off-diagonal covariance anchor is invalid under `diag(B)=1` without fixed
+  shock variances; the pure robust row uses a five-moment higher-cumulant stack;
+  the relative screen adds an explicit `nu_i <= 0.5 Var(epsilon_i)` identifying
+  restriction; pointwise chi-square cutoffs are only a plotted benchmark; and
+  non-Gaussian residual noise generally invalidates the transformed-cumulant
+  interpretation unless additional noise-cumulant restrictions are modeled.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.
 
@@ -258,8 +270,8 @@ Keep the paper as one clean robustness-check story:
 
 1. Noise biases the standard sign-restricted set.
 2. Standard DW refinement can falsely sharpen the misspecified set.
-3. A diagonal-noise robust DW set profiles contaminated diagonal variances,
-   keeps the off-diagonal covariance anchor, and should be wider when standard
-   DW precision is driven by misspecification.
+3. A robust DW set keeps valid higher cumulants, drops invalid covariance
+   anchors, and should be wider when standard DW precision is driven by
+   misspecification unless defensible signal-to-noise bounds are added.
 4. Comparing the two sets gives a practical diagnostic.
 5. Simulations carry the evidence burden; no application is needed yet.

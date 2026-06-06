@@ -29,6 +29,56 @@ inclusion only by widening accepted sets. Weak and Gaussian structural-shock
 cases show robust DW widening toward its covariance anchor, which supports the
 limitation story rather than a sharp higher-moment identification claim.
 
+## M0036 Relative-Noise Robust Figure 1 Candidate
+
+- Script: `sign_dw_robust_noise_grid_figure.py`
+- Note: `sign_dw_relative_noise_robust_grid_figure.md`
+- Output figure: `../figures/fig_sign_dw_relative_noise_robust_grid.png`
+- Command run:
+
+```powershell
+python manuscript\simulations\sign_dw_robust_noise_grid_figure.py --robust-mode relative
+```
+
+Interpretation: this is the current Figure 1 candidate pending M40 audit. The
+robust-DW row uses the pure five-moment higher-cumulant J statistic and adds a
+candidate-specific covariance-decomposition screen requiring
+`0 <= nu_i <= 0.5 Var(epsilon_i)`. In the high-noise column, true `B0` remains
+inside and the relative row accepts 0.071 of the full plotted grid. The
+precision comes from explicit signal-to-noise information, not from a DW
+moment.
+
+## M0035 Absolute-Bound Robust Figure 1 Comparison
+
+- Script: `sign_dw_robust_noise_grid_figure.py`
+- Note: `sign_dw_bounded_noise_robust_grid_figure.md`
+- Output figure: `../figures/fig_sign_dw_bounded_noise_robust_grid.png`
+- Command run:
+
+```powershell
+python manuscript\simulations\sign_dw_robust_noise_grid_figure.py --robust-mode bounded
+```
+
+Interpretation: this comparison uses the absolute `0 <= nu_i <= 0.5` noise
+variance cap. It is no longer the preferred candidate because the cap is
+scale-arbitrary relative to the M0036 signal-to-noise screen.
+
+## M0034 Pure Robust Figure 1 Diagnostic
+
+- Script: `sign_dw_robust_noise_grid_figure.py`
+- Note: `sign_dw_pure_robust_noise_grid_figure.md`
+- Output figure: `../figures/fig_sign_dw_pure_robust_noise_grid.png`
+- Command run:
+
+```powershell
+python manuscript\simulations\sign_dw_robust_noise_grid_figure.py --robust-mode pure
+```
+
+Interpretation: this diagnostic drops all second-order anchors from the robust
+row. In the high-noise column, true `B0` remains inside but the accepted share
+rises to 0.459 of the full plotted grid, showing the precision cost of using
+only valid higher-cumulant moments.
+
 ## M0030 Non-Gaussianity Companion Grid
 
 - Script: `sign_dw_robust_nongaussianity_grid_figure.py`
@@ -40,12 +90,11 @@ limitation story rather than a sharp higher-moment identification claim.
 python manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py
 ```
 
-Interpretation: this selected companion to the M0030 noise grid fixes residual
+Interpretation: this historical companion to the M0030 noise grid fixes residual
 noise at `V=(0.2,0.2)` and weakens structural-shock non-Gaussianity across
-columns. All rows invert pointwise 10 percent J tests. It is meant to show the
-honest limitation: the robust-DW higher-cumulant component loses power when
-higher moments are weak, leaving the off-diagonal covariance anchor to carry
-the row.
+columns. All rows invert pointwise 10 percent J tests. Its robust row used the
+now-superseded off-diagonal covariance anchor, so rebuild it after M40 if the
+relative screen becomes the evidence spine.
 
 ## M28 Grid Story Validation
 
@@ -80,11 +129,10 @@ repeated/bootstrap cutoffs as calibration audits.
 python manuscript\simulations\sign_dw_robust_noise_grid_figure.py
 ```
 
-Interpretation: this is the selected main story figure. All rows invert
-pointwise 10 percent J tests. The robust-DW row uses the diagonal-noise
-off-diagonal covariance restriction plus mixed higher cumulants, and the
-lower high-noise column `V=(0.5,0.5)` shows standard DW rejecting true `B0`
-while robust DW contains it without accepting the whole chart.
+Interpretation: this is the superseded M0030 diagonal-anchor figure. All rows
+invert pointwise 10 percent J tests, but M0034 invalidated the robust-row
+off-diagonal covariance anchor under the active `diag(B)=1` scale. Use the
+M0036 relative mode for the current Figure 1 candidate.
 
 ## M0016 Sign, Standard DW, And Robust DW Noise Figure
 

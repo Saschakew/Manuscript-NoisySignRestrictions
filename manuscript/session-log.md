@@ -8,6 +8,25 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Render relative-noise covariance Figure 1
+
+- Request or goal: replace the absolute residual-noise variance bound with a
+  scale-correct restriction that noise variance is at most 50 percent of the
+  corresponding structural-shock variance, and show Figure 1.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png`, the new
+  relative-figure note, planning/control surfaces, logs, and M0036
+  transparency files.
+- Summary of work: opened local transparency milestone M0036 and GitHub
+  milestone #33; added `--robust-mode relative`; implemented a profiled
+  covariance-decomposition screen over shock variances `s_i` and noise
+  variances `nu_i`; rendered the relative-noise robust row; and recorded that
+  the candidate restores precision only by adding explicit signal-to-noise
+  information.
+- Next recommended action: run M40 to audit the relative covariance screen
+  before replacing the evidence spine or drafting theorem-level Section 4
+  prose.
+
 ### 2026-06-06 - Test bounded-noise covariance Figure 1
 
 - Request or goal: consider a new covariance anchor based on `E[e1 e2]` with

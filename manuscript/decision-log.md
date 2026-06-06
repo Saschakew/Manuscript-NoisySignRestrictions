@@ -5,6 +5,28 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Use relative noise-to-shock variance screen as candidate
+
+- Origin: user correction after the M0035 absolute bounded-noise figure.
+- User input id: U0036
+- Codex role: derived the candidate covariance-decomposition feasibility
+  screen, rendered the Figure 1 variant, and recorded the follow-up audit
+  task.
+- Decision: Treat the relative screen `0 <= nu_i <= 0.5 Var(epsilon_i)` as the
+  preferred Figure 1 candidate pending audit. For `B=[[1,a],[b,1]]`, sample
+  covariance `S`, structural variances `s_i`, and diagonal residual-noise
+  variances `nu_i`, require
+  `S11=s1+a^2*s2+nu1`, `S12=b*s1+a*s2`,
+  `S22=b^2*s1+s2+nu2`, and `0 <= nu_i <= 0.5*s_i`.
+- Rationale: The bound is scale-correct because it restricts noise relative to
+  structural-shock variance instead of imposing an arbitrary absolute cap.
+  Precision still comes from substantive signal-to-noise information and must
+  be presented as identifying information, not as a DW moment.
+- Consequence for next work: M40 should audit the algebra, finite-sample
+  equality-plus-inequality behavior, and interpretability of the 50 percent
+  signal-to-noise bound before the relative row replaces the evidence spine or
+  Section 4 prose.
+
 ### 2026-06-06 - Test bounded-noise recovered-covariance screen
 
 - Origin: user suggestion after the pure robust Figure 1 variant.

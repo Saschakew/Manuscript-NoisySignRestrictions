@@ -7,9 +7,10 @@ superseded. Before further Section 4 drafting, run M39 to rebuild the robust
 method/evidence spine around the pure higher-cumulant set or an explicitly
 justified scale model.
 
-M0035 candidate: `--robust-mode bounded` now implements an explicitly bounded
-diagonal-noise recovered-covariance screen with `0 <= nu_i <= 0.5`. Audit this
-screen in M40 before treating the bounded row as the main evidence spine.
+M0036 candidate: `--robust-mode relative` now implements an explicit
+signal-to-noise covariance screen with `0 <= nu_i <= 0.5 Var(epsilon_i)`.
+Audit this screen in M40 before treating the relative row as the main evidence
+spine. The M0035 absolute `nu_i <= 0.5` screen remains a comparison only.
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
@@ -51,8 +52,8 @@ dynamic impulse responses.
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0035 proposes a bounded-noise covariance screen, but M40 must audit it before theorem-level prose; the M25 standard-DW proof audit remains open. |
-| M5. Evidence package | needs-rebuild | M0035 created a bounded-noise Figure 1 candidate. M28/M29 evidence must be rebuilt after M40 because the old robust row used the superseded diagonal-anchor statistic. |
+| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 proposes a relative noise-to-shock variance screen, but M40 must audit it before theorem-level prose; the M25 standard-DW proof audit remains open. |
+| M5. Evidence package | needs-rebuild | M0036 created a relative-noise Figure 1 candidate. M28/M29 evidence must be rebuilt after M40 because the old robust row used the superseded diagonal-anchor statistic. |
 | M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section around now-superseded figures and M29 table; M32 added the first literature-positioning pass; sections 2-4, evidence, and the conclusion still need prose after M40/M39. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
@@ -62,19 +63,20 @@ dynamic impulse responses.
 1. Scope and contribution: verify that the paper is a robustness-check note,
    not a broad higher-moment SVAR survey.
 2. Notation and assumptions: audit the additive-noise model, scale
-   normalization, bounded-noise covariance screen, Gaussian-noise condition for
-   robust transformed cumulants, and sign-labeling conventions.
+   normalization, relative noise-to-shock covariance screen, Gaussian-noise
+   condition for robust transformed cumulants, and sign-labeling conventions.
 3. Noisy sign-set review: check the covariance pseudo-set, column-rescaling
    obstruction, and intuition in the first figure.
 4. Standard-DW misspecification review: prove or weaken the claim that the
    population DW set becomes empty under residual noise; list special cases.
-5. Robust-DW derivation review: M40 should check the M0035 bounded
-   recovered-covariance screen, including algebra, finite-sample inequality
-   behavior, and the substantive interpretation of the `0.5` upper bound.
+5. Robust-DW derivation review: M40 should check the M0036 relative
+   covariance-decomposition screen, including algebra, finite-sample
+   equality-plus-inequality behavior, and the substantive interpretation of
+   the 50 percent noise-to-shock variance bound.
 6. Diagnostic interpretation review: use the M27 directional metric and verify
    that DW-versus-robust-DW divergence is described as a warning, not proof of
    literal measurement error.
-7. Evidence design: treat the M0035 bounded-noise Figure 1 as a candidate
+7. Evidence design: treat the M0036 relative-noise Figure 1 as a candidate
    visual spine; rebuild M28/M29-style validation after M40.
 8. Simulation adversary: before accepting any figure, check whether the DGP,
    grids, critical values, cumulant estimators, or plotting choices could make

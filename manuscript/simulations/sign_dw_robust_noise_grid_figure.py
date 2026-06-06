@@ -12,6 +12,10 @@ the diagonal-noise off-diagonal covariance anchor.
 Pass ``--robust-mode bounded`` to plot the pure row intersected with the
 candidate recovered-covariance values attainable from diagonal residual-noise
 variances bounded by 0.5.
+
+Pass ``--robust-mode relative`` to plot the pure row intersected with the
+candidate covariance decompositions where each diagonal residual-noise variance
+is at most half of the corresponding structural shock variance.
 """
 
 from __future__ import annotations
@@ -28,6 +32,7 @@ OUTPUT_DIR = ROOT / "manuscript" / "figures"
 OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_robust_noise_grid.png"
 PURE_OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_pure_robust_noise_grid.png"
 BOUNDED_OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_bounded_noise_robust_grid.png"
+RELATIVE_OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_relative_noise_robust_grid.png"
 
 TRUE_B12 = -0.25
 TRUE_B21 = 0.80
@@ -38,6 +43,7 @@ SAMPLE_SIZE = 500
 GRID_POINTS = 121
 RANDOM_SEED = 20260605
 NOISE_VARIANCE_UPPER_BOUND = 0.5
+RELATIVE_NOISE_RATIO = 0.5
 
 CHI2_90_DF1 = 2.705543454095404
 CHI2_90_DF4 = 7.779440339734858
@@ -146,6 +152,11 @@ def sample_moment_covariance(moment_values: np.ndarray) -> np.ndarray:
     return centered.T @ centered / moment_values.shape[0]
 
 
+def sample_residual_covariance(residuals: np.ndarray) -> np.ndarray:
+    centered = residuals - residuals.mean(axis=0, keepdims=True)
+    return centered.T @ centered / centered.shape[0]
+
+
 def regularized_inverse(covariance: np.ndarray) -> np.ndarray:
     covariance = np.atleast_2d(np.asarray(covariance, dtype=float))
     covariance = 0.5 * (covariance + covariance.T)
@@ -251,6 +262,72 @@ def bounded_noise_covariance_feasible(b12: float, b21: float, residuals: np.ndar
     return lower <= recovered_covariance <= upper
 
 
+def update_interval_from_inequality(
+    lower: float,
+    upper: float,
+    coefficient: float,
+    bound: float,
+    tolerance: float = 1e-10,
+) -> tuple[float, float] | None:
+    if abs(coefficient) <= tolerance:
+        if bound >= -tolerance:
+            return lower, upper
+        return None
+    threshold = bound / coefficient
+    if coefficient > 0.0:
+        upper = min(upper, threshold)
+    else:
+        lower = max(lower, threshold)
+    if lower <= upper + tolerance:
+        return lower, upper
+    return None
+
+
+def relative_noise_covariance_feasible(
+    b12: float,
+    b21: float,
+    residuals: np.ndarray,
+    ratio: float = RELATIVE_NOISE_RATIO,
+    tolerance: float = 1e-8,
+) -> bool:
+    covariance = sample_residual_covariance(residuals)
+    s11 = float(covariance[0, 0])
+    s12 = float(covariance[0, 1])
+    s22 = float(covariance[1, 1])
+
+    equality = np.array([b21, b12], dtype=float)
+    norm_squared = float(equality @ equality)
+    if norm_squared <= tolerance:
+        return abs(s12) <= tolerance and s11 > 0.0 and s22 > 0.0
+
+    point = equality * (s12 / norm_squared)
+    direction = np.array([-b12, b21], dtype=float)
+    lower = -math.inf
+    upper = math.inf
+    eps = 1e-10
+
+    inequalities = [
+        (np.array([-1.0, 0.0]), -eps),
+        (np.array([0.0, -1.0]), -eps),
+        (np.array([1.0, b12 * b12]), s11),
+        (np.array([-(1.0 + ratio), -(b12 * b12)]), -s11),
+        (np.array([b21 * b21, 1.0]), s22),
+        (np.array([-(b21 * b21), -(1.0 + ratio)]), -s22),
+    ]
+    for normal, bound in inequalities:
+        interval = update_interval_from_inequality(
+            lower,
+            upper,
+            float(normal @ direction),
+            float(bound - normal @ point),
+            tolerance=tolerance,
+        )
+        if interval is None:
+            return False
+        lower, upper = interval
+    return True
+
+
 def offdiagonal_covariance_values(
     residuals: np.ndarray,
     b12: float,
@@ -333,7 +410,7 @@ def evaluate_standard_grid(
 def robust_mode_cutoff(robust_mode: str) -> float:
     if robust_mode == "diagonal":
         return CHI2_90_DF6
-    if robust_mode in {"pure", "bounded"}:
+    if robust_mode in {"pure", "bounded", "relative"}:
         return CHI2_90_DF5
     raise ValueError(f"unknown robust mode: {robust_mode}")
 
@@ -345,6 +422,8 @@ def robust_mode_title(robust_mode: str) -> str:
         return "Pure robust DW J-test"
     if robust_mode == "bounded":
         return "Bounded-noise robust DW"
+    if robust_mode == "relative":
+        return "Relative-noise robust DW"
     raise ValueError(f"unknown robust mode: {robust_mode}")
 
 
@@ -355,13 +434,15 @@ def robust_mode_summary(robust_mode: str) -> str:
         return "pure robust DW uses only mixed higher cumulants"
     if robust_mode == "bounded":
         return "bounded robust DW uses pure cumulants plus 0 <= noise variances <= 0.5"
+    if robust_mode == "relative":
+        return "relative robust DW uses pure cumulants plus noise variances <= 0.5 shock variances"
     raise ValueError(f"unknown robust mode: {robust_mode}")
 
 
 def robust_mode_statistic(b12: float, b21: float, residuals: np.ndarray, robust_mode: str) -> float:
     if robust_mode == "diagonal":
         return robust_j_statistic(b12, b21, residuals)
-    if robust_mode in {"pure", "bounded"}:
+    if robust_mode in {"pure", "bounded", "relative"}:
         return pure_robust_j_statistic(b12, b21, residuals)
     raise ValueError(f"unknown robust mode: {robust_mode}")
 
@@ -379,6 +460,8 @@ def robust_mode_accepts(
         return False
     if robust_mode == "bounded":
         return bounded_noise_covariance_feasible(b12, b21, residuals)
+    if robust_mode == "relative":
+        return relative_noise_covariance_feasible(b12, b21, residuals)
     return True
 
 
@@ -491,6 +574,8 @@ def plot(robust_mode: str = "diagonal", output_path: Path | None = None) -> Path
             output_path = PURE_OUTPUT_PATH
         elif robust_mode == "bounded":
             output_path = BOUNDED_OUTPUT_PATH
+        elif robust_mode == "relative":
+            output_path = RELATIVE_OUTPUT_PATH
         else:
             output_path = OUTPUT_PATH
 
@@ -611,7 +696,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--robust-mode",
-        choices=["diagonal", "pure", "bounded"],
+        choices=["diagonal", "pure", "bounded", "relative"],
         default="diagonal",
         help="Bottom-row robust statistic to plot.",
     )
