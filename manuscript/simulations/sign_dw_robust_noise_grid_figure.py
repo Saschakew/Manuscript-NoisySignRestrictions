@@ -1,18 +1,15 @@
-"""Build the corrected sign/DW/robust-DW B-plane noise grid figure.
+"""Build the sign/DW/pure-robust-DW B-plane noise grid figure.
 
 This figure reproduces the KnowledgeVault B-plane layout with three noise
-columns and adds a third robust-DW row. Unlike the older fixed-score version,
-all rows use pointwise finite-sample N-test statistics of the form
-
-    J(B) = N mean(f)' S(B)^-1 mean(f)
-
-with chi-square reference cutoffs.
+columns and adds a third robust-DW row.  The top two rows use pointwise
+finite-sample N-test statistics.  The bottom row is the pure robust-DW
+population set using only mixed higher cumulants and no second-moment
+restriction.
 """
 
 from __future__ import annotations
 
 import math
-from dataclasses import dataclass
 from pathlib import Path
 
 import numpy as np
@@ -32,18 +29,15 @@ GRID_POINTS = 121
 RANDOM_SEED = 20260605
 
 CHI2_95_DF1 = 3.841458820694124
-CHI2_95_DF2 = 5.991464547107979
 CHI2_95_DF4 = 9.487729036781154
+CHI2_95_DF5 = 11.070497693516351
+ROBUST_POPULATION_CUTOFF = CHI2_95_DF5 / SAMPLE_SIZE
+STRUCTURAL_CHI2_DF = 5.0
+STRUCTURAL_THIRD_CUMULANT = math.sqrt(8.0 / STRUCTURAL_CHI2_DF)
+STRUCTURAL_FOURTH_CUMULANT = 12.0 / STRUCTURAL_CHI2_DF
 
 MOMENTS_COVARIANCE = ((1, 1),)
 MOMENTS_DW = ((1, 1), (2, 1), (1, 2), (2, 2))
-
-
-@dataclass(frozen=True)
-class RobustSummary:
-    moments: np.ndarray
-    covariance: np.ndarray
-    nobs: int
 
 
 def standardize_columns(values: np.ndarray) -> np.ndarray:
@@ -55,10 +49,10 @@ def standardize_columns(values: np.ndarray) -> np.ndarray:
 
 
 def primitive_draws(sample_size: int = SAMPLE_SIZE, seed: int = RANDOM_SEED) -> tuple[np.ndarray, np.ndarray]:
-    """Use the same skewed primitive design as the KnowledgeVault B-plane lab."""
+    """Use skewed structural shocks and Gaussian residual noise."""
     rng = np.random.default_rng(seed)
-    structural = standardize_columns(rng.chisquare(df=5.0, size=(sample_size, 2)))
-    noise = standardize_columns(rng.chisquare(df=5.0, size=(sample_size, 2)))
+    structural = standardize_columns(rng.chisquare(df=STRUCTURAL_CHI2_DF, size=(sample_size, 2)))
+    noise = standardize_columns(rng.normal(size=(sample_size, 2)))
     return structural, noise
 
 
@@ -151,6 +145,38 @@ def j_statistic(shocks: np.ndarray, powers: tuple[tuple[int, int], ...]) -> floa
     return float(shocks.shape[0] * sample_mean @ inverse @ sample_mean)
 
 
+def pure_robust_population_score(b12_mesh: np.ndarray, b21_mesh: np.ndarray) -> np.ndarray:
+    """Population robust-DW score using mixed higher cumulants only.
+
+    For standardized chi-square(df) structural shocks, the third cumulant is
+    sqrt(8 / df) and the fourth cumulant is 12 / df.  The additive residual
+    noise is Gaussian, so it contributes no cumulants above order two.
+    """
+    determinant = 1.0 - b12_mesh * b21_mesh
+    valid = np.abs(determinant) > 1e-10
+    alpha = np.full_like(b12_mesh, np.nan, dtype=float)
+    beta = np.full_like(b12_mesh, np.nan, dtype=float)
+    c = np.full_like(b12_mesh, np.nan, dtype=float)
+    d = np.full_like(b12_mesh, np.nan, dtype=float)
+    alpha[valid] = (1.0 - b12_mesh[valid] * TRUE_B21) / determinant[valid]
+    beta[valid] = (TRUE_B12 - b12_mesh[valid]) / determinant[valid]
+    c[valid] = (TRUE_B21 - b21_mesh[valid]) / determinant[valid]
+    d[valid] = (1.0 - b21_mesh[valid] * TRUE_B12) / determinant[valid]
+
+    c112 = STRUCTURAL_THIRD_CUMULANT * (alpha * alpha * c + beta * beta * d)
+    c122 = STRUCTURAL_THIRD_CUMULANT * (alpha * c * c + beta * d * d)
+    c1112 = STRUCTURAL_FOURTH_CUMULANT * (alpha**3 * c + beta**3 * d)
+    c1122 = STRUCTURAL_FOURTH_CUMULANT * (alpha * alpha * c * c + beta * beta * d * d)
+    c1222 = STRUCTURAL_FOURTH_CUMULANT * (alpha * c**3 + beta * d**3)
+    return (
+        (c112 / 2.0) ** 2
+        + (c122 / 2.0) ** 2
+        + (c1112 / 6.0) ** 2
+        + (c1122 / 6.0) ** 2
+        + (c1222 / 6.0) ** 2
+    )
+
+
 def evaluate_standard_grid(
     residuals: np.ndarray,
     nu1: float,
@@ -186,79 +212,6 @@ def evaluate_standard_grid(
         dw_j,
         dw_accepted,
     )
-
-
-def robust_summary(residuals: np.ndarray) -> RobustSummary:
-    residuals = residuals - residuals.mean(axis=0, keepdims=True)
-    x = residuals[:, 0]
-    y = residuals[:, 1]
-    nobs = residuals.shape[0]
-
-    m11 = float(np.mean(x * y))
-    m20 = float(np.mean(x * x))
-    m02 = float(np.mean(y * y))
-    m31 = float(np.mean((x**3) * y))
-    m22 = float(np.mean((x**2) * (y**2)))
-    m13 = float(np.mean(x * (y**3)))
-
-    k1112 = m31 - 3.0 * m20 * m11
-    k1122 = m22 - m20 * m02 - 2.0 * m11 * m11
-    k1222 = m13 - 3.0 * m02 * m11
-    moments = np.array([m11, k1112, k1122, k1222], dtype=float)
-
-    influence = np.column_stack(
-        [
-            x * y,
-            (x**3) * y - 3.0 * (m11 * x**2 + m20 * x * y),
-            (x**2) * (y**2) - m02 * x**2 - m20 * y**2 - 4.0 * m11 * x * y,
-            x * (y**3) - 3.0 * (m11 * y**2 + m02 * x * y),
-        ]
-    )
-    return RobustSummary(moments, sample_moment_covariance(influence), nobs)
-
-
-def robust_nuisance_design(a: float, b: float) -> np.ndarray:
-    return np.array(
-        [
-            [0.0, 0.0],
-            [b, a**3],
-            [b * b, a * a],
-            [b**3, a],
-        ],
-        dtype=float,
-    )
-
-
-def robust_j_statistic(summary: RobustSummary, a: float, b: float) -> tuple[float, np.ndarray]:
-    weight = regularized_inverse(summary.covariance)
-    base = np.array([a + b, 0.0, 0.0, 0.0], dtype=float)
-    design = robust_nuisance_design(a, b)
-    centered_moments = summary.moments - base
-    normal_matrix = design.T @ weight @ design
-    if np.linalg.cond(normal_matrix) > 1e12:
-        return math.nan, np.full(2, math.nan)
-    lambdas = np.linalg.solve(normal_matrix, design.T @ weight @ centered_moments)
-    residual = centered_moments - design @ lambdas
-    return float(summary.nobs * residual @ weight @ residual), lambdas
-
-
-def evaluate_robust_grid(
-    residuals: np.ndarray,
-    b12_grid: np.ndarray,
-    b21_grid: np.ndarray,
-) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
-    summary = robust_summary(residuals)
-    b12_mesh, b21_mesh = np.meshgrid(b12_grid, b21_grid)
-    j_values = np.full_like(b12_mesh, np.nan, dtype=float)
-    rows, cols = np.where((b21_mesh >= 0.0) & (np.abs(1.0 - b12_mesh * b21_mesh) > 1e-10))
-    for row, col in zip(rows, cols):
-        j_values[row, col], _ = robust_j_statistic(
-            summary,
-            float(b12_mesh[row, col]),
-            float(b21_mesh[row, col]),
-        )
-    accepted = np.isfinite(j_values) & (j_values <= CHI2_95_DF2)
-    return b12_mesh, b21_mesh, j_values, accepted
 
 
 def shade(ax, b12_mesh: np.ndarray, b21_mesh: np.ndarray, mask: np.ndarray, color: str, alpha: float) -> None:
@@ -344,7 +297,13 @@ def plot() -> Path:
             dw_j,
             dw_accepted,
         ) = evaluate_standard_grid(residuals, nu1, nu2, b12_grid, b21_grid)
-        _, _, robust_j, robust_accepted = evaluate_robust_grid(residuals, b12_grid, b21_grid)
+        robust_score = pure_robust_population_score(b12_mesh, b21_mesh)
+        robust_accepted = (
+            (b21_mesh >= 0.0)
+            & (np.abs(1.0 - b12_mesh * b21_mesh) > 1e-10)
+            & np.isfinite(robust_score)
+            & (robust_score <= ROBUST_POPULATION_CUTOFF)
+        )
 
         ax = axes[0, col]
         shade(ax, b12_mesh, b21_mesh, covariance_accepted, "#9bc9a6", 0.9)
@@ -361,18 +320,18 @@ def plot() -> Path:
 
         ax = axes[2, col]
         shade(ax, b12_mesh, b21_mesh, robust_accepted, "#67a9cf", 0.88)
-        if np.isfinite(robust_j).any() and robust_accepted.any():
+        if np.isfinite(robust_score).any() and robust_accepted.any():
             ax.contour(
                 b12_mesh,
                 b21_mesh,
-                robust_j,
-                levels=[CHI2_95_DF2],
+                robust_score,
+                levels=[ROBUST_POPULATION_CUTOFF],
                 colors=["#2166ac"],
                 linewidths=1.2,
             )
         draw_covariance_contour(ax, b12_mesh, b21_mesh, correlation)
-        ax.set_title(f"Robust DW N-test, V=({nu1:g},{nu2:g})")
-        ax.text(-1.22, 1.16, min_label(robust_j), color="#2166ac", fontsize=9)
+        ax.set_title(f"Robust DW: higher cumulants only, V=({nu1:g},{nu2:g})")
+        ax.text(-1.22, 1.16, f"min score {np.nanmin(robust_score):.3g}", color="#2166ac", fontsize=9)
 
     for ax in axes.flat:
         add_common_panel_style(ax, b12_grid, b21_grid)
@@ -386,8 +345,8 @@ def plot() -> Path:
     fig.suptitle(
         (
             "Diagonal normalization: B = [[1, b12], [b21, 1]]; sign restriction b21 >= 0\n"
-            f"N={SAMPLE_SIZE}; pointwise cutoffs: sign/cov df=1 {CHI2_95_DF1:.2f}, "
-            f"standard DW df=4 {CHI2_95_DF4:.2f}, robust DW df=2 {CHI2_95_DF2:.2f}"
+            f"Top/middle: N={SAMPLE_SIZE} pointwise tests with Gaussian residual noise; "
+            "bottom: population robust DW with no second moments"
         ),
         fontsize=13,
     )

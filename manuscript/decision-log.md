@@ -5,6 +5,24 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Define grid robust rows as pure higher-cumulant sets
+
+- Origin: user-originated correction
+- User input id: U0019
+- Codex role: corrected the figure scripts and documentation.
+- Decision: In both grid figures, the robust-DW row must represent the pure
+  robust object: mixed higher cumulants only, no cross-covariance restriction,
+  and no second-moment target. The sign and standard-DW rows can remain
+  finite-sample N-test rows, but the robust row is a population
+  higher-cumulant set until M29 supplies calibrated finite-sample inference.
+- Rationale: The paper's main claim is that robust DW gives up second-moment
+  information to avoid noisy covariance misspecification. A row that includes
+  cross covariance would not show that object and would not become uninformative
+  when structural shocks are Gaussian.
+- Consequence for next work: Captions and prose must explicitly say that the
+  robust rows are pure higher-cumulant population sets; M28/M29 still need to
+  turn this visual object into audited simulation evidence.
+
 ### 2026-06-06 - Pair the noise grid with a non-Gaussianity grid
 
 - Origin: user-originated

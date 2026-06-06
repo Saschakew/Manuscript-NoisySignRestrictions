@@ -4,9 +4,10 @@ Status: corrected exploratory manuscript-local figure candidate.
 
 This is the corrected version of the KnowledgeVault B-plane figure requested in
 M0017. It uses the two-by-three sign/DW layout from the synthesis and adds a
-third robust-DW row. The important correction relative to the older figure is
-that the accepted sets are not drawn from an artificial fixed population-score
-cutoff such as `0.02`. They use finite-sample pointwise N-test statistics.
+third robust-DW row. The M0019 correction is that the bottom row now uses the
+pure robust-DW higher-cumulant population set: it does not use cross covariance
+or any other second-moment restriction. The top and middle rows still use
+finite-sample pointwise N-test statistics.
 
 Source context:
 
@@ -43,12 +44,18 @@ figure:
 V = (0, 0), (0.3, 0.3), (1, 1).
 ```
 
+The structural shocks are standardized chi-square shocks with `df=5`. The
+additive residual noise is Gaussian and standardized before applying the
+diagonal noise variance. This keeps the residual-noise covariance distortion in
+the sign and standard-DW rows, while ensuring that the pure robust-DW
+higher-cumulant row is not contaminated by non-Gaussian transformed noise.
+
 The grid is `B(b12,b21) = [[1,b12],[b21,1]]`, with the sign restriction
 `b21 >= 0`.
 
 ## Test Cutoffs
 
-All rows use the finite-sample statistic
+The top and middle rows use the finite-sample statistic
 
 ```text
 J(B) = N mean(f(B))' S(B)^(-1) mean(f(B))
@@ -60,9 +67,10 @@ with `N=500`.
   `chi2_1(0.95) = 3.84`.
 - Middle row: standard DW row, testing covariance, two co-skewness moments,
   and one fourth cross moment; cutoff `chi2_4(0.95) = 9.49`.
-- Bottom row: robust DW row, testing cross covariance plus mixed fourth
-  cumulants with two profiled structural fourth-cumulant nuisance parameters;
-  cutoff `chi2_2(0.95) = 5.99`.
+- Bottom row: pure robust-DW row, using the population mixed third and fourth
+  cumulant score only. It uses no covariance restriction and no covariance
+  target. The visual cutoff is `chi2_5(0.95)/N`, applied to the normalized
+  higher-cumulant score.
 
 ## Interpretation
 
@@ -71,12 +79,12 @@ shows how standard DW refines that band using recovered-shock independence
 moments under the no-noise two-shock representation. The accepted region moves
 away from the true no-noise `B0` as the covariance target becomes noisy.
 
-The bottom row shows the robust-DW profiled moment set. Because this statistic
-uses cross covariance and mixed fourth cumulants that are clean under diagonal
-idiosyncratic noise, the robust accepted set remains wider and continues to
-contain the true `B0` in this design.
+The bottom row shows the pure robust-DW higher-cumulant set. Because the row
+uses only structural higher cumulants and the residual noise is Gaussian, it is
+invariant across the three noise columns. It remains wider than the standard-DW
+row and continues to contain the true `B0` in this design.
 
-This is still a candidate figure. The row uses chi-square reference cutoffs
-from the KnowledgeVault synthesis, but final evidence should still check
-bootstrap or repeated-sample critical values and weak-moment behavior in M28
-and M29.
+This is still a candidate figure. The top and middle rows use chi-square
+reference cutoffs from the KnowledgeVault synthesis, while the bottom row is a
+population-score visualization. Final evidence should still check bootstrap or
+repeated-sample critical values and weak-moment behavior in M28 and M29.

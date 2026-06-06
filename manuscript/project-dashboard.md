@@ -6,18 +6,19 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: early evidence gate after the M35 Monte Carlo triage, M0017
-corrected noise grid, and M0018 non-Gaussianity companion grid.
+Current stage: early evidence gate after the M35 Monte Carlo triage and the
+M0019-corrected noise and non-Gaussianity grid pair.
 
-Current focus: run population-grid verification before promoting the M0017 and
-M0018 candidate grid figures or investing in a larger replication suite.
+Current focus: run population-grid verification before promoting the
+M0019-corrected candidate grid figures or investing in a larger replication
+suite.
 
 Next recommended action: start M28 population-grid checks for
 structural-rescaling exceptions, generic anisotropic-noise pseudo-zeros,
 robust-DW truth inclusion, finite-stack aliases, and weak-moment widening.
 
-Active milestone: none. M0018 records the companion grid that varies
-structural-shock non-Gaussianity to show robust-DW weak-moment widening.
+Active milestone: none. M0019 records the correction that both grid figures'
+robust-DW rows use only higher cumulants and no second moments.
 
 Active blockers:
 
@@ -31,17 +32,20 @@ Active blockers:
   an anisotropic diagonal-noise stress case, but the provisional
   scale-normalized finite-sample statistic is still too permissive for final
   evidence.
-- The intuitive sign/DW/robust-DW evidence now has M0017 and M0018 candidate
-  outputs with N-test cutoffs, but they are not final evidence until M28/M29
-  check critical values, weak moments, and standard-DW pseudo-set behavior.
+- The intuitive sign/DW/robust-DW evidence now has an M0019-corrected candidate
+  grid pair. The sign and standard-DW rows use N-test cutoffs; the robust-DW
+  rows are pure population higher-cumulant sets. They are not final evidence
+  until M28/M29 check critical values, weak moments, and standard-DW pseudo-set
+  behavior.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
 - The first draft should wait until the new formal statements and evidence plan
   are stable enough to prevent another structural rewrite.
 
-Last substantive session: 2026-06-06, added M0018 as a non-Gaussianity
-companion grid to M0017, fixing residual noise and weakening structural
-higher moments across columns.
+Last substantive session: 2026-06-06, corrected both grid figures so the
+robust-DW rows remove second moments; the noise grid now uses a pure
+higher-cumulant robust row and the non-Gaussianity grid expands to the whole
+admissible graph under Gaussian shocks.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "id": "M0019-correct-non-gaussianity-robust-row",
+  "sequence": 19,
+  "title": "Correct non-Gaussianity robust row",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T10:40:45Z",
+  "closed_at": "2026-06-06T10:55:44Z",
+  "start_commit": "b8f4b52ab814f0f4ede97daf59373384f5a6ed44",
+  "snapshot_ref": "manuscript-milestones/M0019-correct-non-gaussianity-robust-row",
+  "summary": "Corrected both grid figures so robust-DW rows use only population higher cumulants and no second moments.",
+  "user_inputs": [
+    {
+      "id": "U0019-001",
+      "milestone_id": "M0019-correct-non-gaussianity-robust-row",
+      "captured_at": "2026-06-06T10:40:45Z",
+      "source": "chat",
+      "text": "User correctly pointed out that robust DW should widen to the whole graph when structural shocks are Gaussian, because pure robust DW uses only higher moments and no second moments; correct the non-Gaussianity figure accordingly."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0019-001",
+      "milestone_id": "M0019-correct-non-gaussianity-robust-row",
+      "captured_at": "2026-06-06T10:55:44Z",
+      "description": "Replaced the noise-grid profiled covariance-plus-cumulant robust row with a pure higher-cumulant population score."
+    },
+    {
+      "id": "A0019-002",
+      "milestone_id": "M0019-correct-non-gaussianity-robust-row",
+      "captured_at": "2026-06-06T10:55:44Z",
+      "description": "Aligned the non-Gaussianity companion population cumulants with the standardized chi-square(5) shock design and kept the Gaussian column as the full admissible graph."
+    },
+    {
+      "id": "A0019-003",
+      "milestone_id": "M0019-correct-non-gaussianity-robust-row",
+      "captured_at": "2026-06-06T10:55:44Z",
+      "description": "Regenerated fig_sign_dw_robust_noise_grid.png and fig_sign_dw_robust_nongaussianity_grid.png and updated figure notes, registry, dashboard, task board, and logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T10:55:44Z",
+      "description": "python manuscript\\simulations\\sign_dw_robust_noise_grid_figure.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T10:55:44Z",
+      "description": "python manuscript\\simulations\\sign_dw_robust_nongaussianity_grid_figure.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T10:55:44Z",
+      "description": "python -m py_compile manuscript\\simulations\\sign_dw_robust_noise_grid_figure.py manuscript\\simulations\\sign_dw_robust_nongaussianity_grid_figure.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T10:55:44Z",
+      "description": "formal registry and M0019 manifest JSON validation: passed"
+    },
+    {
+      "captured_at": "2026-06-06T10:55:44Z",
+      "description": "numerical mask sanity check: Gaussian-shock robust row equals admissible half-plane"
+    },
+    {
+      "captured_at": "2026-06-06T10:55:44Z",
+      "description": "python scripts\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/figures/README.md",
+    "manuscript/figures/fig_sign_dw_robust_noise_grid.png",
+    "manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.py",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0019-correct-non-gaussianity-robust-row.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 16,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/16",
+    "tag_name": "manuscript-milestones/M0019-correct-non-gaussianity-robust-row"
+  }
+}

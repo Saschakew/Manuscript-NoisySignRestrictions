@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T10:37:38Z",
+  "updated_at": "2026-06-06T10:55:44Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -356,6 +356,28 @@
         "milestone_number": 15,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/15",
         "tag_name": "manuscript-milestones/M0018-add-non-gaussianity-grid-figure"
+      }
+    },
+    {
+      "id": "M0019-correct-non-gaussianity-robust-row",
+      "sequence": 19,
+      "title": "Correct non-Gaussianity robust row",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T10:40:45Z",
+      "closed_at": "2026-06-06T10:55:44Z",
+      "start_commit": "b8f4b52ab814f0f4ede97daf59373384f5a6ed44",
+      "snapshot_ref": "manuscript-milestones/M0019-correct-non-gaussianity-robust-row",
+      "summary": "Corrected both grid figures so robust-DW rows use only population higher cumulants and no second moments.",
+      "user_input_ids": [
+        "U0019-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0019-correct-non-gaussianity-robust-row.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 16,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/16",
+        "tag_name": "manuscript-milestones/M0019-correct-non-gaussianity-robust-row"
       }
     }
   ]

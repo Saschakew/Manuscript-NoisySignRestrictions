@@ -11,6 +11,38 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0019 pure robust row correction
+
+- Request: correct the robust-DW grid rows so they use higher moments only and
+  no second moments; verify whether the earlier noise-grid figure had used the
+  correct pure robust DW definition.
+- Actions taken: corrected
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` and
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` so the
+  robust rows use a population mixed-higher-cumulant score only; removed the
+  obsolete cross-covariance/profiling robust row from the noise grid; aligned
+  the companion grid's cumulants with the standardized chi-square(5) shock
+  calibration; updated simulation notes, registry, figure/source indexes, and
+  logs.
+- Files changed:
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_robust_noise_grid.png`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png`, planning
+  surfaces, logs, and M0019 transparency files.
+- Checks run: regenerated both corrected figures; `python -m py_compile
+  manuscript\simulations\sign_dw_robust_noise_grid_figure.py
+  manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py`
+  passed; formal registry and M0019 manifest JSON validation passed; numerical
+  mask sanity check passed (`Gaussian shocks` robust row equals the admissible
+  half-plane); `python scripts/check_manuscript.py` passed before closure with
+  the expected open-milestone warning.
+- Open uncertainties: the corrected robust rows are population visualizations;
+  M28/M29 still need to verify aliases, weak-moment behavior, and calibrated
+  critical values before final manuscript use.
+
 ### 2026-06-06 - M0018 non-Gaussianity companion grid
 
 - Request: create a second figure like the corrected sign/DW/robust-DW grid,

@@ -8,6 +8,25 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Correct pure robust rows in grid figures
+
+- Request or goal: check whether the earlier noise-grid figure used the
+  correct robust DW without second moments, and correct the robust rows after
+  the user pointed out the Gaussian-shock limit.
+- Files changed:
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.md`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md`, both
+  rendered figure PNGs, planning surfaces, logs, and M0019 transparency files.
+- Summary of work: removed the cross-covariance/profiling robust row from the
+  grid scripts, replaced it with a population mixed-higher-cumulant score, made
+  the residual noise Gaussian where the pure robust row is used, and aligned
+  the population cumulants with the standardized chi-square(5) shock design.
+- Next recommended action: use the corrected grid pair only as candidate
+  evidence until M28 verifies population aliases and M29 calibrates
+  finite-sample critical values for the robust set.
+
 ### 2026-06-06 - Add non-Gaussianity companion grid
 
 - Request or goal: add a second figure like the corrected sign/DW/robust-DW

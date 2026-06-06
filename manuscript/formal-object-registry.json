@@ -179,7 +179,7 @@
       "type": "figure",
       "status": "candidate-output-created",
       "draft_location": "draft.md#3-standard-dw-under-residual-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "M0017 corrected candidate figure showing sign/covariance and standard-DW accepted B-plane sets across increasing diagonal residual noise using finite-sample N-test cutoffs.",
+      "description": "M0019-corrected candidate figure showing sign/covariance and standard-DW accepted B-plane sets across increasing diagonal residual noise using finite-sample N-test cutoffs; the companion robust row is a pure higher-cumulant population set with no second moments.",
       "depends_on": [
         "prop:standard-dw-misspecification"
       ],
@@ -190,11 +190,11 @@
       "type": "figure",
       "status": "candidate-output-created",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "M0017 corrected candidate grid comparing sign/covariance, standard DW, and robust DW accepted B-plane sets across increasing diagonal residual noise using finite-sample N-test cutoffs. M0018 adds a companion grid that varies structural-shock non-Gaussianity to show weak-moment widening.",
+      "description": "M0019-corrected candidate grids comparing sign/covariance, standard DW, and robust DW accepted B-plane sets. The noise grid uses finite-sample N-test cutoffs in the sign and standard-DW rows and a pure higher-cumulant population robust-DW row with no second moments. The non-Gaussianity companion grid uses the same pure robust-DW row and expands to the whole admissible graph under Gaussian shocks.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "Preferred candidates: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. Candidate only until M28 verifies robust-DW truth inclusion, aliases, and weak-moment widening and M29 calibrates critical values."
+      "output_source": "Preferred candidates: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Both grid figures were corrected in M0019 to remove second moments from the robust row. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. Candidate only until M28 verifies robust-DW truth inclusion, aliases, and weak-moment widening and M29 calibrates critical values."
     },
     {
       "id": "table:monte-carlo-coverage-width",
