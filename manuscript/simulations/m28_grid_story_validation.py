@@ -1,4 +1,4 @@
-"""Validate the M0020 sign/DW/robust-DW grid-pair story.
+"""Validate the M0030 sign/DW/robust-DW grid-pair story.
 
 This script is the first M28 validation gate. It keeps the selected figure
 generators unchanged and records separate diagnostics for:
@@ -38,17 +38,17 @@ CRITICAL_VALUES = {
     "80": {
         "covariance": 1.642374415149818,
         "standard_dw": 5.9886166940042465,
-        "robust_dw": 7.289276126648476,
+        "robust_dw": 8.558059720250668,
     },
     "90": {
         "covariance": base.CHI2_90_DF1,
         "standard_dw": base.CHI2_90_DF4,
-        "robust_dw": base.CHI2_90_DF5,
+        "robust_dw": base.CHI2_90_DF6,
     },
     "95": {
         "covariance": 3.841458820694124,
         "standard_dw": 9.487729036781154,
-        "robust_dw": 11.070497693516351,
+        "robust_dw": 12.591587243743977,
     },
 }
 
@@ -75,18 +75,18 @@ NOISE_SCENARIOS = (
     Scenario(
         group="noise_grid",
         name="noise_moderate",
-        label="V=(0.3,0.3)",
-        noise=(0.3, 0.3),
+        label="V=(0.2,0.2)",
+        noise=(0.2, 0.2),
         non_gaussian_weight=1.0,
         note="Moderate Gaussian residual noise; strong chi-square higher moments.",
     ),
     Scenario(
         group="noise_grid",
         name="noise_high",
-        label="V=(2,2)",
-        noise=(2.0, 2.0),
+        label="V=(0.5,0.5)",
+        noise=(0.5, 0.5),
         non_gaussian_weight=1.0,
-        note="High Gaussian residual noise; selected false-sharpening stress case.",
+        note="Lower high Gaussian residual-noise stress case after M0030.",
     ),
 )
 
@@ -95,7 +95,7 @@ NONGAUSSIANITY_SCENARIOS = (
         group="nongaussianity_grid",
         name="strong_nongaussianity",
         label="w=1",
-        noise=(0.3, 0.3),
+        noise=(0.2, 0.2),
         non_gaussian_weight=1.0,
         note="Fixed moderate residual noise with strong structural higher moments.",
     ),
@@ -103,7 +103,7 @@ NONGAUSSIANITY_SCENARIOS = (
         group="nongaussianity_grid",
         name="weak_nongaussianity",
         label="w=0.25",
-        noise=(0.3, 0.3),
+        noise=(0.2, 0.2),
         non_gaussian_weight=0.25,
         note="Fixed moderate residual noise with weakened structural higher moments.",
     ),
@@ -111,7 +111,7 @@ NONGAUSSIANITY_SCENARIOS = (
         group="nongaussianity_grid",
         name="gaussian_shocks",
         label="w=0",
-        noise=(0.3, 0.3),
+        noise=(0.2, 0.2),
         non_gaussian_weight=0.0,
         note="Fixed moderate residual noise with Gaussian structural shocks.",
     ),
@@ -224,8 +224,10 @@ def population_robust_dw_moments(
         return None
     loadings, _ = components
     third, fourth = structural_cumulants(scenario.non_gaussian_weight)
+    offdiagonal_covariance = base.TRUE_B12 + base.TRUE_B21 - (b12 + b21)
     return np.array(
         [
+            offdiagonal_covariance,
             mixed_third(loadings, third, (2, 1)),
             mixed_third(loadings, third, (1, 2)),
             mixed_fourth(loadings, fourth, (3, 1)),
@@ -528,7 +530,7 @@ def verdict_for_population(pop_record: dict[str, Any]) -> str:
     standard = method_record(pop_record, "standard_dw")
     robust = method_record(pop_record, "robust_dw")
     if pop_record["scenario"] == "gaussian_shocks":
-        return "robust all-null expected"
+        return "covariance-anchor limit"
     if robust["truth_is_zero"] and not standard["truth_is_zero"]:
         return "supports divergence"
     if robust["truth_is_zero"] and standard["truth_is_zero"]:
@@ -573,7 +575,7 @@ def write_note(payload: dict[str, Any]) -> None:
     lines = [
         "# M28 Grid Story Validation",
         "",
-        "Status: completed first M28 validation pass for the selected M0020 grid pair.",
+        "Status: completed validation pass for the selected M0030 revised grid pair.",
         "",
         "This note validates the figure story without changing the figure generators. "
         "It combines exact population moment diagnostics with repeated fixed-design "
@@ -619,7 +621,8 @@ def write_note(payload: dict[str, Any]) -> None:
             "under Gaussian residual noise whenever structural higher moments are present, "
             "while the standard DW population moments become nonzero when the noisy "
             "covariance target moves away from the no-noise impact matrix. With Gaussian "
-            "structural shocks, the robust higher-cumulant stack is all-null by design.",
+            "structural shocks, the robust higher-cumulant substack is all-null by design, "
+            "but the off-diagonal covariance anchor remains informative under diagonal noise.",
             "",
             "## Boundary Sensitivity",
             "",
@@ -730,7 +733,7 @@ def write_note(payload: dict[str, Any]) -> None:
             "the pointwise 10 percent cutoff, while robust DW usually contains it.",
             "- The non-Gaussianity companion behaves as intended: weakening higher moments "
             "widens the robust accepted region, and the Gaussian-shock case is an "
-            "all-null population limit rather than identifying evidence.",
+            "covariance-anchor limit rather than higher-moment identifying evidence.",
             "- This is not yet final evidence. M29 still needs calibrated repeated-sample "
             "or bootstrap critical values before the manuscript reports coverage or size claims.",
             "",
@@ -777,7 +780,7 @@ def main() -> int:
     finite_records = finite_seed_records(ALL_SCENARIOS, seeds, args.finite_grid_points)
     payload = {
         "schema_version": 1,
-        "description": "M28 validation of the M0020 grid-pair story.",
+        "description": "M28 validation of the M0030 revised grid-pair story.",
         "configuration": {
             "population_grid_points": args.population_grid_points,
             "finite_grid_points": args.finite_grid_points,

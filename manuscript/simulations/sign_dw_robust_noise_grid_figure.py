@@ -1,10 +1,11 @@
-"""Build the sign/DW/pure-robust-DW B-plane noise grid figure.
+"""Build the sign/DW/diagonal-noise-robust-DW B-plane noise grid figure.
 
 This figure reproduces the KnowledgeVault B-plane layout with three noise
 columns and adds a third robust-DW row.  All rows invert pointwise finite-sample
-J statistics at the 10 percent level.  The robust-DW row uses mixed higher
-cumulants only; second moments enter fourth-cumulant estimation as nuisance
-terms, not as restrictions.
+J statistics at the 10 percent level.  The robust-DW row profiles out diagonal
+residual-noise variances: it uses the clean off-diagonal covariance restriction
+from Sigma_u = B B' + V with diagonal V, plus mixed higher cumulants of
+B^{-1}u.  It does not impose the no-noise recovered-shock covariance target.
 """
 
 from __future__ import annotations
@@ -19,11 +20,11 @@ ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = ROOT / "manuscript" / "figures"
 OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_robust_noise_grid.png"
 
-TRUE_B12 = -0.45
-TRUE_B21 = 0.70
+TRUE_B12 = -0.25
+TRUE_B21 = 0.80
 TRUE_MATRIX = np.array([[1.0, TRUE_B12], [TRUE_B21, 1.0]], dtype=float)
 
-NOISE_LEVELS = ((0.0, 0.0), (0.3, 0.3), (2.0, 2.0))
+NOISE_LEVELS = ((0.0, 0.0), (0.2, 0.2), (0.5, 0.5))
 SAMPLE_SIZE = 500
 GRID_POINTS = 121
 RANDOM_SEED = 20260605
@@ -31,6 +32,7 @@ RANDOM_SEED = 20260605
 CHI2_90_DF1 = 2.705543454095404
 CHI2_90_DF4 = 7.779440339734858
 CHI2_90_DF5 = 9.236356899781123
+CHI2_90_DF6 = 10.644640675668422
 TEST_LEVEL = 0.10
 STRUCTURAL_CHI2_DF = 5.0
 STRUCTURAL_THIRD_CUMULANT = math.sqrt(8.0 / STRUCTURAL_CHI2_DF)
@@ -197,11 +199,53 @@ def robust_j_statistic_from_shocks(shocks: np.ndarray) -> float:
     return float(shocks.shape[0] * moments @ inverse @ moments)
 
 
-def robust_j_statistic(b12: float, b21: float, residuals: np.ndarray) -> float:
+def pure_robust_j_statistic(b12: float, b21: float, residuals: np.ndarray) -> float:
     shocks = candidate_shocks(b12, b21, residuals)
     if shocks is None:
         return math.nan
     return robust_j_statistic_from_shocks(shocks)
+
+
+def offdiagonal_covariance_values(
+    residuals: np.ndarray,
+    b12: float,
+    b21: float,
+) -> tuple[np.ndarray, np.ndarray]:
+    """Return the diagonal-noise-robust off-diagonal covariance moment."""
+    centered = residuals - residuals.mean(axis=0, keepdims=True)
+    observations = centered[:, 0] * centered[:, 1] - (b12 + b21)
+    return np.array([float(np.mean(observations))], dtype=float), observations[:, None]
+
+
+def diagonal_noise_robust_values(
+    b12: float,
+    b21: float,
+    residuals: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray] | None:
+    shocks = candidate_shocks(b12, b21, residuals)
+    if shocks is None:
+        return None
+    covariance_moment, covariance_influence = offdiagonal_covariance_values(
+        residuals,
+        b12,
+        b21,
+    )
+    cumulant_moments, cumulant_influence = robust_higher_cumulant_values(shocks)
+    return (
+        np.concatenate([covariance_moment, cumulant_moments]),
+        np.column_stack([covariance_influence[:, 0], cumulant_influence]),
+    )
+
+
+def robust_j_statistic(b12: float, b21: float, residuals: np.ndarray) -> float:
+    values = diagonal_noise_robust_values(b12, b21, residuals)
+    if values is None:
+        return math.nan
+    moments, influence = values
+    inverse = regularized_inverse(sample_moment_covariance(influence))
+    if not np.all(np.isfinite(inverse)):
+        return math.nan
+    return float(residuals.shape[0] * moments @ inverse @ moments)
 
 
 def evaluate_standard_grid(
@@ -255,7 +299,7 @@ def evaluate_robust_grid(
             float(b21_mesh[row, col]),
             residuals,
         )
-    robust_accepted = np.isfinite(robust_j) & (robust_j <= CHI2_90_DF5)
+    robust_accepted = np.isfinite(robust_j) & (robust_j <= CHI2_90_DF6)
     return b12_mesh, b21_mesh, robust_j, robust_accepted
 
 
@@ -391,7 +435,7 @@ def plot() -> Path:
                 b12_mesh,
                 b21_mesh,
                 robust_j,
-                levels=[CHI2_90_DF5],
+                levels=[CHI2_90_DF6],
                 colors=["#2166ac"],
                 linewidths=1.2,
             )
@@ -400,7 +444,7 @@ def plot() -> Path:
         ax.text(
             -1.22,
             1.16,
-            f"{min_label(robust_j)}\n{truth_label(true_robust_j, CHI2_90_DF5)}",
+            f"{min_label(robust_j)}\n{truth_label(true_robust_j, CHI2_90_DF6)}",
             color="#2166ac",
             fontsize=9,
         )
@@ -418,7 +462,7 @@ def plot() -> Path:
         (
             "Diagonal normalization: B = [[1, b12], [b21, 1]]; sign restriction b21 >= 0\n"
             f"N={SAMPLE_SIZE}; all rows invert pointwise 10% J tests; "
-            "robust DW uses mixed higher cumulants only"
+            "robust DW profiles diagonal noise and adds mixed higher cumulants"
         ),
         fontsize=13,
     )

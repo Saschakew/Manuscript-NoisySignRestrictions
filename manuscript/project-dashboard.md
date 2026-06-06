@@ -6,10 +6,11 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: first figure-led drafting pass started. The abstract,
-introduction, and evidence section now use the M0020-corrected noise and
-non-Gaussianity grid pair, M28 validation, M27 diagnostic formalization, and
-the larger M29 chi-square-primary Monte Carlo pass as the manuscript spine.
+Current stage: first figure-led drafting pass started, then revised after the
+M0030 high-noise power audit. The abstract, introduction, and evidence section
+now use the M0030 diagonal-noise robust grid pair, refreshed M28 validation,
+M27 diagnostic formalization, and the refreshed M29 chi-square-primary Monte
+Carlo pass as the manuscript spine.
 
 Current focus: write the literature-positioning pass that distinguishes this
 paper from Drautzburg-Wright under the no-noise null, sign-set inference, and
@@ -22,12 +23,14 @@ Active milestone: none. M0028 records the first figure-led drafting pass.
 
 Active blockers:
 
-- The robust DW derivation passed M24 only as a local normalized
-  Gaussian-noise result. M27 has formalized the reported set and diagnostic
-  language, M28 supports its population truth-inclusion behavior, and the
-  larger M29 run now gives draft-level chi-square-primary Monte Carlo
-  evidence plus repeated-sample, oracle, and truth-point residual-bootstrap
-  calibration audits.
+- The robust DW derivation passed M24 as a local normalized Gaussian-noise
+  result and was revised in M0030 to use diagonal-noise second-moment
+  information: the reported robust row now profiles diagonal noise variances,
+  keeps the off-diagonal covariance restriction, and adds higher cumulants.
+  M28 supports its population truth-inclusion behavior, and the refreshed M29
+  run gives draft-level chi-square-primary Monte Carlo evidence plus
+  repeated-sample, oracle, and truth-point residual-bootstrap calibration
+  audits.
 - The M25 standard-DW J-test inversion result is only a working derivation; M28
   supports the high-noise divergence story, but the derivation still needs a
   direct audit before theorem-level prose.
@@ -36,27 +39,26 @@ Active blockers:
   an anisotropic diagonal-noise stress case, but the provisional
   scale-normalized finite-sample statistic is still too permissive for final
   evidence.
-- The intuitive sign/DW/robust-DW evidence now has a selected M0020 visual
-  spine, and M28 supports the story on exact population moments, grid-boundary
-  checks, repeated seeds, and pointwise critical-value sensitivity. M29's
-  expanded pass supports the high-noise divergence story under the same
-  chi-square cutoffs applied researchers would use. The audit cutoffs quantify
-  the calibration cost; the truth-bootstrap convention restores truth
-  inclusion only by widening the reported sets.
+- The intuitive sign/DW/robust-DW evidence now has a selected M0030 visual
+  spine with lower high noise `V=(0.5,0.5)`. M28 supports the story on exact
+  population moments, grid-boundary checks, repeated seeds, and pointwise
+  critical-value sensitivity. M29's refreshed pass supports the high-noise
+  divergence story under the same chi-square cutoffs applied researchers would
+  use. The audit cutoffs quantify the calibration cost; the truth-bootstrap
+  convention restores truth inclusion by widening the reported sets.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
-- The first figure-led skeleton now uses the larger M29 chi-square rows as
+- The first figure-led skeleton now uses the refreshed M29 chi-square rows as
   draft-level evidence and reserves repeated/bootstrap rows for
   robustness-audit language. Final publication replication should still move
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
 
-Last substantive session: 2026-06-06, completed M31 by replacing the
-TODO-only abstract, introduction, and evidence section with a figure-led
-skeleton. The draft now introduces the residual-noise pseudo-set, the
-standard-DW false-sharpening warning, the robust higher-cumulant comparison
-set, Figure 1 for the residual-noise grid, Figure 2 for the non-Gaussianity
-grid, and Table 1 for the M29 chi-square-primary Monte Carlo support.
+Last substantive session: 2026-06-06, revised the evidence spine after the
+high-noise power audit. The reported robust-DW object now uses the
+diagonal-noise off-diagonal covariance restriction plus higher cumulants; the
+figures, M28 validation, M29 Monte Carlo table, and draft prose were refreshed
+around the lower high-noise `V=(0.5,0.5)` scenario.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

@@ -92,16 +92,34 @@ covariance-whitened DW inversion: it retains the covariance moment and then
 adds higher-moment restrictions. Under residual noise, the M25 derivation says
 that this no-noise covariance target is the fragile component.
 
-## 3. Robust-DW Higher-Moment Set
+## 3. Diagonal-Noise Robust-DW Set
 
 The robust-DW row uses the same normalized candidate `B`, but it does not
-standardize `z_t(B)` to impose unit variances and it does not restrict cross
-covariance. It uses mixed higher cumulants of the centered transformed
-residuals:
+standardize `z_t(B)` to impose unit variances and it does not restrict
+recovered-shock cross covariance. The M0030 revision uses the maintained
+diagonal residual-noise structure to add one valid second-moment restriction.
+If
+
+$$
+\Sigma_u=B_0B_0' + V,\qquad V\text{ diagonal},
+$$
+
+then the off-diagonal covariance of `u_t` is not shifted by residual noise.
+In the normalized bivariate chart, the covariance component is
+
+$$
+\widehat g_{C,T}(B)
+=
+\widehat{\operatorname{Cov}}(u_1,u_2)-(b_{12}+b_{21}).
+$$
+
+The higher-moment component still uses mixed higher cumulants of the centered
+transformed residuals:
 
 $$
 \widehat g_{R,T}(B)=
 \begin{bmatrix}
+\widehat g_{C,T}(B)\\
 \widehat\kappa_{112}(B)\\
 \widehat\kappa_{122}(B)\\
 \widehat\kappa_{1112}(B)\\
@@ -132,6 +150,12 @@ and analogously for `\widehat\kappa_{1222}`. The covariance terms
 `\widehat s_{ij}` are nuisance quantities used to compute cumulants. They are
 not restrictions such as `s_{11}=1`, `s_{22}=1`, or `s_{12}=0`.
 
+The important distinction is that `\widehat g_{C,T}` restricts the
+off-diagonal covariance of the observed residuals after profiling diagonal
+noise variances. It is not the standard-DW moment
+`\widehat E(\tilde z_1\tilde z_2)=0`, which is generally false at true `B0`
+under residual noise.
+
 The robust-DW set is
 
 $$
@@ -155,9 +179,14 @@ $$
 
 Under the maintained Gaussian residual-noise condition and the local rank
 conditions in `dw-noise-robust-moments.md`, the true normalized impact matrix
-has zero population robust moments. The set may still be wide when structural
-higher moments are weak, and it may fail under non-Gaussian residual noise
-unless the transformed residual-noise cumulants used in the stack vanish.
+has zero population robust moments. Under diagonal residual noise, the
+off-diagonal covariance component adds power without imposing the false
+no-noise covariance target. If the residual-noise covariance is unrestricted
+rather than diagonal, the off-diagonal covariance component should be dropped
+and the pure higher-cumulant set should be reported instead. The set may still
+be wide when structural higher moments are weak, and it may fail under
+non-Gaussian residual noise unless the transformed residual-noise cumulants
+used in the stack vanish.
 
 ## 4. Critical-Value Convention
 
@@ -175,7 +204,7 @@ chi-square guide values at `alpha=0.10`:
 $$
 c_S=\chi^2_4(0.90)=7.78,
 \qquad
-c_R=\chi^2_5(0.90)=9.24.
+c_R=\chi^2_6(0.90)=10.64.
 $$
 
 The sign/covariance row separately uses `\chi^2_1(0.90)=2.71`. These cutoffs
@@ -235,7 +264,8 @@ q_{R|S}=\frac{\mu(S\cap R)}{\mu(R)}
 $$
 
 is useful for describing width, but a low `q_{R|S}` is not itself a warning
-because robust-DW deliberately discards second-moment restrictions.
+because robust-DW deliberately discards the contaminated diagonal variance
+targets and the recovered-shock covariance restriction.
 
 For simulation designs where the true normalized impact matrix is known,
 also report
@@ -264,9 +294,11 @@ The warning is about covariance-target misspecification. It is not proof that
 literal measurement error is present.
 
 A wide robust-DW set is not a failure of the diagnostic. It can mean that the
-second-moment target is being avoided and that higher moments are weak. The
-M0020 non-Gaussianity grid is the intended visual example: as structural
-higher moments disappear, robust-DW should become wide or all-null.
+contaminated no-noise covariance target is being avoided and that higher
+moments are weak. The M0030 non-Gaussianity grid is the intended visual
+example: as structural higher moments disappear, robust-DW falls back toward
+the off-diagonal covariance band rather than claiming sharp higher-moment
+identification.
 
 An empty robust-DW set is a separate stress signal. It may reflect invalid
 Gaussian-noise assumptions, non-Gaussian transformed residual noise, poor
@@ -279,13 +311,16 @@ standard-DW false precision.
 *Proposition 4 (`prop:dw-robust-comparison-diagnostic`, diagnostic
 interpretation).* *Fix a normalized candidate chart and a common sign screen.
 Let `S` be the reported standard-DW J-test inversion that includes the
-no-noise covariance moment, and let `R` be the robust-DW J-test inversion based
-only on mixed higher cumulants of `B^{-1}u`. Under the maintained
-Gaussian-noise route, disagreement should be interpreted directionally:
+no-noise recovered-shock covariance moment, and let `R` be the robust-DW
+J-test inversion that profiles diagonal residual-noise variances, keeps the
+off-diagonal residual covariance restriction, and adds mixed higher cumulants
+of `B^{-1}u`. Under the maintained diagonal Gaussian-noise route, disagreement
+should be interpreted directionally:
 standard-DW accepted mass outside the robust set warns that no-noise
 covariance-target precision may be driven by residual-noise
 misspecification, while robust accepted mass outside the standard set mainly
-records the information deliberately lost by dropping second moments. The
+records the information deliberately lost by profiling out diagonal noise
+variances and dropping recovered-shock covariance restrictions. The
 comparison is a robustness diagnostic, not a proof of residual noise, and its
 finite-sample calibration must be reported with the critical-value convention
 used to construct both sets.*

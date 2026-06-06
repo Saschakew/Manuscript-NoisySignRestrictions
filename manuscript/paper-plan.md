@@ -17,29 +17,32 @@ smaller accepted set can be an artifact of misspecification rather than more
 efficient structural learning.
 
 The constructive contribution is a robustness check: compute the standard
-Drautzburg-Wright set and compute a noise-robust higher-moment set that drops
-second-moment restrictions. When the two sets agree, the usual refinement is
-less suspicious. When they diverge, residual noise or another covariance-target
-misspecification is indicated, and the robust set is the safer object.
+Drautzburg-Wright set and compute a diagonal-noise robust set that profiles
+diagonal residual-noise variances, keeps the clean off-diagonal covariance
+restriction, and adds higher-cumulant restrictions. When the two sets agree,
+the usual refinement is less suspicious. When they diverge, residual noise or
+another covariance-target misspecification is indicated, and the robust set is
+the safer object.
 
-The paper's visual spine is now the M0020 grid pair. The first grid varies
-residual noise and shows the main warning: noisy covariance moves the sign set,
-standard DW can reject the true normalized `B0`, and robust DW remains wider
-and contains it. The companion grid fixes residual noise and weakens structural
-non-Gaussianity, showing the honest limitation: robust DW is not magic; when
-higher moments carry little information, the robust set becomes wide.
-The first M28 validation pass supports this grid-pair story with exact
+The paper's visual spine is now the M0030 revised grid pair. The first grid
+varies residual noise and shows the main warning: noisy covariance moves the
+sign set, standard DW can reject the true normalized `B0`, and robust DW
+contains it without accepting the whole chart. The companion grid fixes
+residual noise and weakens structural non-Gaussianity, showing the honest
+limitation: robust DW is not magic; when higher moments carry little
+information, the robust set widens toward the covariance anchor.
+The refreshed M28 validation pass supports this grid-pair story with exact
 population moment diagnostics, grid-boundary checks, repeated finite-sample
-seeds, and pointwise critical-value sensitivity. M27 now fixes the comparison
-language: standard-DW accepted mass outside the robust-DW set is the
+seeds, and pointwise critical-value sensitivity. M27/M0030 now fix the
+comparison language: standard-DW accepted mass outside the robust-DW set is the
 directional warning metric, while robust-DW mass outside standard DW mainly
-records the information lost by dropping second moments. The larger M29
-Monte Carlo pass now uses the standard pointwise chi-square critical values
-that a researcher would use when unaware of residual noise as the main applied
-reading; under that benchmark, the high-noise standard-DW set misses true
-`B0` much more often than the robust set. Repeated-sample, oracle truth, and
-truth-point bootstrap cutoffs are secondary audits of finite-sample size and
-calibration cost.
+records the information lost by profiling diagonal noise and dropping
+recovered-shock covariance restrictions. The refreshed M29 Monte Carlo pass
+uses the standard pointwise chi-square critical values that a researcher would
+use when unaware of residual noise as the main applied reading; under that
+benchmark, the high-noise standard-DW set misses true `B0` much more often than
+the robust set. Repeated-sample, oracle truth, and truth-point bootstrap
+cutoffs are secondary audits of finite-sample size and calibration cost.
 
 ## Why It Matters
 
@@ -63,13 +66,16 @@ objects are not the true structural shocks. Asymptotically, the no-noise DW set
 may become empty; in finite samples, it can become small and look precise
 because the least-misspecified candidates are being selected.
 
-The robust alternative keeps the useful higher-moment idea but removes the
-fragile covariance step. It searches over normalized impact matrices, imposes
-economic signs directly on those matrices, and uses higher-order cumulants of
-candidate transformed residuals written as GMM-style moment equations. The
-robust set deliberately gives up second-moment information, so it should often
-be wider than the standard DW set. That width is the price of not pretending
-that the noisy covariance is structural.
+The robust alternative keeps the useful higher-moment idea but replaces the
+fragile no-noise covariance step. It searches over normalized impact matrices,
+imposes economic signs directly on those matrices, profiles diagonal
+residual-noise variances, keeps the off-diagonal covariance restriction that
+diagonal noise cannot bias, and uses higher-order cumulants of candidate
+transformed residuals written as GMM-style moment equations. The robust set
+deliberately gives up contaminated diagonal variance targets and recovered-
+shock zero covariance, so it should often be wider than the standard DW set.
+That width is the price of not pretending that the noisy covariance is
+structural.
 
 ## Proposed Structure
 
@@ -85,14 +91,14 @@ that the noisy covariance is structural.
    misspecification, with finite-sample regions shrinking around
    least-rejected pseudo-candidates.
 4. Robust DW higher-moment set: define the normalized robust candidate space,
-   write the higher-cumulant restrictions as moment equations, and explain why
-   second moments are excluded as structural restrictions. State the local
-   identification and consistency claims only after audit.
-5. Figure-led evidence and Monte Carlo robustness check: use the M0020 grid
+   write the off-diagonal covariance and higher-cumulant restrictions as moment
+   equations, and explain why diagonal noise variances are profiled out. State
+   the local identification and consistency claims only after audit.
+5. Figure-led evidence and Monte Carlo robustness check: use the M0030 revised grid
    pair as the reader's main visual guide. First show the residual-noise grid
    that moves the sign set, makes standard DW reject the truth in the high-noise
-   column, and leaves robust DW wider. Then show the non-Gaussianity grid that
-   makes weak higher moments visible. Use population-grid and Monte Carlo
+   column, and leaves robust DW informative. Then show the non-Gaussianity grid
+   that makes weak higher moments visible. Use population-grid and Monte Carlo
    checks to validate, calibrate, and summarize the same story.
 6. Conclusion: recommend reporting the robust DW set beside the standard DW
    set as a diagnostic for covariance-target misspecification. Defer empirical
@@ -117,11 +123,15 @@ that the noisy covariance is structural.
   no-noise higher-moment independence restrictions.
 - Robust DW candidate:
   a normalized impact matrix `B` not required to satisfy `B B' = Sigma_u`.
+- Diagonal-noise covariance anchor:
+  `Cov(u_1,u_2) = b12 + b21` in the normalized bivariate chart, with diagonal
+  noise variances profiled out.
 - Robust DW transformed residual:
   `z_t(B) = B^{-1} u_t`.
 - Robust DW moment stack:
-  mixed third central moments and fourth cumulants of `z_t(B)`, written as raw
-  moment equations with covariance products subtracted.
+  the off-diagonal residual covariance anchor plus mixed third central moments
+  and fourth cumulants of `z_t(B)`, written as raw moment equations with
+  covariance products subtracted.
 - Robustness check:
   compare the standard DW accepted set with the robust DW accepted set in the
   common normalized chart. Report accepted shares, overlap, standard-DW mass
@@ -151,13 +161,15 @@ that the noisy covariance is structural.
   is directional: standard-DW accepted mass outside robust-DW indicates that
   apparent no-noise covariance-target precision may not be robust, while
   robust-DW mass outside standard DW usually reflects the information
-  deliberately lost by dropping second moments. The comparison is a warning,
-  not literal proof of measurement error.
-- Simulation result: the M0020 grid pair should become the main evidence
+  deliberately lost by profiling diagonal noise and dropping recovered-shock
+  covariance restrictions. The comparison is a warning, not literal proof of
+  measurement error.
+- Simulation result: the M0030 revised grid pair is the main evidence
   figure package if validation passes. Monte Carlo evidence should then
   quantify the same visual story: sign-set bias, standard DW false-sharpening
-  or truth rejection under residual noise, robust DW widening under noise, and
-  robust DW loss of information under weak or Gaussian higher moments.
+  or truth rejection under residual noise, robust DW truth inclusion without
+  whole-chart acceptance, and robust DW loss of higher-moment information under
+  weak or Gaussian higher moments.
 
 ## Evidence Plan
 
@@ -166,13 +178,12 @@ that the noisy covariance is structural.
   noise. The high-noise column should remain the narrative anchor where
   standard DW rejects true `B0` and robust DW contains it.
 - Main visual figure 2, non-Gaussianity grid: hold residual noise fixed and
-  weaken structural-shock higher moments. Use it to show that robust DW becomes
-  wide as the identifying higher-moment signal weakens and becomes
-  uninformative in the Gaussian limit.
+  weaken structural-shock higher moments. Use it to show that robust DW widens
+  toward the covariance anchor as the identifying higher-moment signal weakens.
 - Validation grid checks: M28 reran the same story on population and
   repeated-draw grids, checking that the visual is not an artifact of one seed,
   one grid boundary, or the pointwise chi-square cutoff.
-- Monte Carlo table: M29's larger pass reports true-`B0` coverage-style
+- Monte Carlo table: M29's refreshed pass reports true-`B0` coverage-style
   inclusion, accepted-set share, empty-set frequency, standard-DW versus
   robust-DW overlap, the M27 directional divergence metric, and
   least-rejected candidates across no-noise, moderate-noise, high-noise,
@@ -180,9 +191,9 @@ that the noisy covariance is structural.
   chi-square rows are the primary applied benchmark because they match the
   standard DW critical values a researcher would use under the no-noise null.
   No-noise repeated, oracle scenario truth, and truth-point residual-bootstrap
-  cutoffs are calibration audits. The 240-calibration, 120-evaluation run is
-  sufficient for the first figure-led draft; final publication replication can
-  still rerun a heavier table from `manuscript/replication/`.
+  cutoffs are calibration audits. The 120-calibration, 60-evaluation refreshed
+  run is sufficient for the first figure-led draft; final publication
+  replication can still rerun a heavier table from `manuscript/replication/`.
 - Stress cases: weak higher moments, near-Gaussian structural shocks, high
   noise, non-Gaussian noise that violates the robust route if Gaussianity is
   maintained, anisotropic noise, near-boundary signs, and small macro samples.
@@ -222,6 +233,8 @@ Keep the paper as one clean robustness-check story:
 
 1. Noise biases the standard sign-restricted set.
 2. Standard DW refinement can falsely sharpen the misspecified set.
-3. A robust DW higher-moment set drops second moments and should be wider.
+3. A diagonal-noise robust DW set profiles contaminated diagonal variances,
+   keeps the off-diagonal covariance anchor, and should be wider when standard
+   DW precision is driven by misspecification.
 4. Comparing the two sets gives a practical diagnostic.
 5. Simulations carry the evidence burden; no application is needed yet.

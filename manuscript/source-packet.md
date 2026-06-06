@@ -86,11 +86,11 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | Vault path | What it validates or illustrates | Manuscript action |
 |---|---|---|
 | `replications/svar-noise-recursive-sign-visualization/` | Deterministic sign-noise geometry and no-noise independence-refinement behavior under residual noise. | Use as the starting point for the intuitive figure and standard-DW false-sharpening figure. |
-| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | Manuscript-local M0020-corrected companion grid: fixes residual noise and varies structural-shock non-Gaussianity. All rows invert pointwise 10 percent J tests; the robust row uses only mixed higher cumulants and no covariance restriction. | Selected companion visual: use beside the noise grid to show the limitation that robust-DW depends on informative higher moments. |
-| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local M0020-corrected B-plane grid: sign/covariance, standard-DW, and robust-DW rows all invert pointwise 10 percent J tests across three noise levels. The high-noise stress column has standard DW rejecting true `B0` while robust DW contains it. | Selected main visual: organize the paper's evidence around this grid; M28 first validation passed, and M29 now treats the same chi-square cutoffs as the primary applied benchmark. |
-| `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; M28 population-grid validation now favors the M0020 grid pair as the main visual spine. |
-| `manuscript/simulations/m28_grid_story_validation.py` | First M28 validation pass for the M0020 grid pair: exact population mixed-moment checks, grid-boundary sensitivity, repeated finite-sample seeds, true-`B0` J diagnostics, and pointwise critical-value sensitivity. | Use as the validation gate supporting the selected visual spine; M29 uses the pointwise chi-square critical values as the primary applied benchmark and reports calibration audits separately. |
-| `manuscript/simulations/m29_calibrated_monte_carlo.py` | Larger M29 finite-sample pass on the same B-plane: chi-square guide, no-noise repeated-sample calibration, oracle scenario truth calibration, and truth-point residual bootstrap with M27 accepted-share, overlap, divergence, truth-inclusion, and least-rejected metrics. The larger run uses 240 calibration replications, 120 evaluation replications, 40 truth-bootstrap replications per evaluation sample, and a 41-by-41 grid. | Use the chi-square rows as the main applied evidence: high-noise standard DW includes true `B0` in 0.325 of evaluation samples, while robust DW includes it in 0.908. Use repeated/bootstrap rows only as audits of size and calibration cost. Weak and Gaussian structural-shock rows document honest robust-DW widening. |
+| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | Manuscript-local M0030 revised companion grid: fixes residual noise and varies structural-shock non-Gaussianity. All rows invert pointwise 10 percent J tests; the robust row uses the off-diagonal covariance anchor plus mixed higher cumulants. | Selected companion visual: use beside the noise grid to show the limitation that robust-DW's higher-cumulant component depends on informative higher moments. |
+| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local M0030 revised B-plane grid: sign/covariance, standard-DW, and diagonal-noise robust-DW rows all invert pointwise 10 percent J tests across three noise levels. The lower high-noise stress column `V=(0.5,0.5)` has standard DW rejecting true `B0` while robust DW contains it without accepting the whole chart. | Selected main visual: organize the paper's evidence around this grid; refreshed M28 validation passed, and refreshed M29 now treats the same chi-square cutoffs as the primary applied benchmark. |
+| `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; refreshed M28 population-grid validation now favors the M0030 grid pair as the main visual spine. |
+| `manuscript/simulations/m28_grid_story_validation.py` | Refreshed M28 validation pass for the M0030 grid pair: exact population mixed-moment and off-diagonal covariance checks, grid-boundary sensitivity, repeated finite-sample seeds, true-`B0` J diagnostics, and pointwise critical-value sensitivity. | Use as the validation gate supporting the selected visual spine; M29 uses the pointwise chi-square critical values as the primary applied benchmark and reports calibration audits separately. |
+| `manuscript/simulations/m29_calibrated_monte_carlo.py` | Refreshed M29 finite-sample pass on the same B-plane: chi-square guide, no-noise repeated-sample calibration, oracle scenario truth calibration, and truth-point residual bootstrap with M27 accepted-share, overlap, divergence, truth-inclusion, and least-rejected metrics. The refreshed run uses 120 calibration replications, 60 evaluation replications, 20 truth-bootstrap replications per evaluation sample, and a 41-by-41 grid. | Use the chi-square rows as the main applied evidence: high-noise standard DW includes true `B0` in 0.050 of evaluation samples, while robust DW includes it in 0.900. Use repeated/bootstrap rows only as audits of size and calibration cost. Weak and Gaussian structural-shock rows document honest robust-DW widening toward the covariance anchor. |
 | `svar-toolkit/examples/howto/06_sign_restrictions.py` | Verified fixed-draw sign-restriction accepted-set workflow. | Use for baseline sign-set simulations if needed. |
 | `svar-toolkit/examples/howto/12_non_gaussian_cross_moments.py` | Verified fixed-draw higher-moment cross-moment selector. | Use as a comparator or helper for robust higher-moment diagnostics, not as a final estimator without audit. |
 | `svar-toolkit/docs/api/gmm.md` and GMM examples | Reusable moment quadratic engine. | Candidate for the robust DW moment criterion and Monte Carlo wrappers. |
@@ -115,7 +115,7 @@ these tasks:
 2. Build the intuitive geometry figure showing covariance deformation and
    sign-set bias. M0016 created a candidate sign/standard-DW/robust-DW
    population figure from the KnowledgeVault visualization, but the full
-   geometry figure remains optional because the M0020/M28 grid pair now carries
+   geometry figure remains optional because the M0030/M28 grid pair now carries
    the main visual story.
 3. Use the M25 standard-DW J-test inversion derivation: rich stacks empty
    generically under residual noise, while structural-coordinate rescaling
@@ -134,10 +134,10 @@ these tasks:
    structural-coordinate rescaling exception, added an anisotropic
    diagonal-noise stress case, and confirmed that the provisional
    finite-sample statistic is too permissive for final evidence.
-7. Completed the first M28 validation pass for the M0020 figure pair:
+7. Completed and refreshed the M28 validation pass for the M0030 figure pair:
    population moments, repeated seeds, grid-boundary sensitivity, true-`B0` J
    diagnostics, and pointwise critical-value sensitivity support the selected
-   visual spine under the maintained Gaussian residual-noise condition.
+    visual spine under the maintained diagonal Gaussian residual-noise condition.
 8. Completed M27 comparison-diagnostic formalization in the same language as
    the figures: reported standard-DW set, robust-DW set, critical-value
    convention, accepted shares, Jaccard overlap, directional
@@ -147,13 +147,13 @@ these tasks:
    U0026: standard pointwise chi-square critical values are the primary applied
    benchmark because they are what a standard-DW researcher would use under the
    no-noise null.
-10. Completed the larger M29 chi-square-primary run with 240 calibration
-    replications, 120 evaluation replications, 40 truth-bootstrap replications
+10. Completed the refreshed M29 chi-square-primary run with 120 calibration
+    replications, 60 evaluation replications, 20 truth-bootstrap replications
     per evaluation sample, and a 41-by-41 grid. Under the primary cutoffs,
-    high-noise standard DW includes true `B0` in 0.325 of evaluation samples,
-    while robust DW includes it in 0.908. Weak and Gaussian structural-shock
-    cases keep robust DW wide, with mean robust accepted shares of 0.914 and
-    0.913.
+    high-noise standard DW includes true `B0` in 0.050 of evaluation samples,
+    while robust DW includes it in 0.900. Weak and Gaussian structural-shock
+    cases widen robust DW toward the covariance anchor, with mean robust
+    accepted shares of 0.172 and 0.158.
 11. The robust DW comparison is ready for a figure-led draft as a
     robustness-check result, with audit cutoffs described as calibration-cost
     diagnostics rather than application-ready procedures.

@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T15:10:19Z",
+  "updated_at": "2026-06-06T16:33:25Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -599,6 +599,28 @@
         "milestone_number": 26,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/26",
         "tag_name": "manuscript-milestones/M0029-verify-figure-one-noise-columns"
+      }
+    },
+    {
+      "id": "M0030-investigate-figure-power-problem",
+      "sequence": 30,
+      "title": "Investigate Figure Power Problem",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T15:53:28Z",
+      "closed_at": "2026-06-06T16:33:25Z",
+      "start_commit": "e384d0f19b9b21e534388831fe49e40e5876e4f3",
+      "snapshot_ref": "manuscript-milestones/M0030-investigate-figure-power-problem",
+      "summary": "Solved the high-noise robust-DW power problem by replacing the reported pure robust row with a diagonal-noise robust statistic that stacks the off-diagonal covariance anchor with mixed higher cumulants, lowering the high-noise column to V=(0.5,0.5), regenerating figures, and refreshing M28/M29 evidence.",
+      "user_input_ids": [
+        "U0030-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0030-investigate-figure-power-problem.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 27,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/27",
+        "tag_name": "manuscript-milestones/M0030-investigate-figure-power-problem"
       }
     }
   ]

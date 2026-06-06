@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "id": "M0030-investigate-figure-power-problem",
+  "sequence": 30,
+  "title": "Investigate Figure Power Problem",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T15:53:28Z",
+  "closed_at": "2026-06-06T16:33:25Z",
+  "start_commit": "e384d0f19b9b21e534388831fe49e40e5876e4f3",
+  "snapshot_ref": "manuscript-milestones/M0030-investigate-figure-power-problem",
+  "summary": "Solved the high-noise robust-DW power problem by replacing the reported pure robust row with a diagonal-noise robust statistic that stacks the off-diagonal covariance anchor with mixed higher cumulants, lowering the high-noise column to V=(0.5,0.5), regenerating figures, and refreshing M28/M29 evidence.",
+  "user_inputs": [
+    {
+      "id": "U0030-001",
+      "milestone_id": "M0030-investigate-figure-power-problem",
+      "captured_at": "2026-06-06T15:53:28Z",
+      "source": "chat",
+      "text": "Investigate the robust-DW finite-sample power loss in the high-noise residual-noise figure, avoid V=(2,2), and find a defensible DGP or inference solution for the manuscript evidence."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0030-001",
+      "milestone_id": "M0030-investigate-figure-power-problem",
+      "captured_at": "2026-06-06T16:33:25Z",
+      "description": "Revised robust-DW statistic, DGP, figures, simulations, draft, registry, and planning surfaces."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T16:33:25Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before close"
+    },
+    {
+      "captured_at": "2026-06-06T16:33:25Z",
+      "description": "git diff --check: passed"
+    },
+    {
+      "captured_at": "2026-06-06T16:33:25Z",
+      "description": "formal registry and M28/M29 JSON parse: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/dw-noise-robust-moments.md",
+    "manuscript/derivations/dw-robust-comparison-diagnostic.md",
+    "manuscript/draft.md",
+    "manuscript/figures/README.md",
+    "manuscript/figures/fig_sign_dw_robust_noise_grid.png",
+    "manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/m28_grid_story_validation.md",
+    "manuscript/simulations/m28_grid_story_validation.py",
+    "manuscript/simulations/m29_calibrated_monte_carlo.md",
+    "manuscript/simulations/m29_calibrated_monte_carlo.py",
+    "manuscript/simulations/output/m28_grid_story_validation.json",
+    "manuscript/simulations/output/m29_calibrated_monte_carlo.json",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.py",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0030-investigate-figure-power-problem.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 27,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/27",
+    "tag_name": "manuscript-milestones/M0030-investigate-figure-power-problem"
+  }
+}

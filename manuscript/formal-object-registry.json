@@ -114,14 +114,14 @@
       "type": "definition",
       "status": "formalized-for-diagnostic",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Robust DW-style sign-restricted candidate set that searches over a normalized impact space and uses mixed higher cumulants of B^{-1}u, rather than no-noise covariance factorization; M27 defines the reported J-test inversion and keeps second moments as nuisance inputs only inside fourth cumulants.",
+      "description": "Robust DW-style sign-restricted candidate set that searches over a normalized impact space, profiles diagonal residual-noise variances, uses the off-diagonal residual covariance restriction, and adds mixed higher cumulants of B^{-1}u rather than imposing no-noise recovered-shock covariance.",
       "depends_on": [
         "def:diagonal-noise-svar",
         "ass:gaussian-residual-noise",
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md",
-      "verification_status": "M24 conditional audit passed for a local normalized Gaussian-noise route; M27 formalized the reported set and diagnostic comparison; M28 population/repeated-seed validation passed; the larger M29 finite-sample pass supports the high-noise divergence story under primary chi-square cutoffs and shows truth-bootstrap widening as a calibration-cost audit",
+      "verification_status": "M24 conditional audit passed for the local normalized Gaussian-noise higher-cumulant route; M0030 added the diagonal-noise off-diagonal covariance restriction to solve the high-noise power problem; refreshed M28 population/repeated-seed validation passed; refreshed M29 finite-sample pass supports the high-noise divergence story under primary chi-square cutoffs and shows truth-bootstrap widening as a calibration-cost audit",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
     {
@@ -129,12 +129,12 @@
       "type": "equation",
       "status": "audited-working-derivation",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Moment-equation representation of the robust DW stack: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with second moments entering only as covariance products inside fourth cumulants.",
+      "description": "Moment-equation representation of the robust DW stack: the off-diagonal residual covariance restriction under diagonal noise, third mixed central moments, and fourth mixed cumulants of z(B)=B^{-1}u, with transformed second moments also entering as covariance products inside fourth cumulants.",
       "depends_on": [
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions; M28 population verification passed; larger M29 chi-square-primary finite-sample pass completed, with repeated-sample, oracle, and truth-bootstrap cutoffs retained as audits",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions; M0030 added and validated the diagonal-noise covariance anchor; refreshed M28 population verification passed; refreshed M29 chi-square-primary finite-sample pass completed, with repeated-sample, oracle, and truth-bootstrap cutoffs retained as audits",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
@@ -142,13 +142,13 @@
       "type": "proposition",
       "status": "audited-working-derivation",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise, while second moments are contaminated; in the bivariate normalized system, local identification follows when each structural shock has a nonzero third or fourth cumulant.",
+      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise; under diagonal residual noise, the off-diagonal residual covariance is also clean after profiling diagonal variances. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "proof_status": "conditional-local-rank-audit-passed; M28 grid validation passed; larger M29 chi-square-primary simulation pass completed for draft evidence",
+      "proof_status": "conditional-local-rank-audit-passed; M0030 diagonal-noise covariance anchor added; refreshed M28 grid validation passed; refreshed M29 chi-square-primary simulation pass completed for draft evidence",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
@@ -156,12 +156,12 @@
       "type": "proposition",
       "status": "formalized-for-m29",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#5-monte-carlo-robustness-check",
-      "description": "M27 diagnostic statement: standard-DW accepted mass outside the robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while robust accepted mass outside standard DW mainly records the information deliberately lost by dropping second moments.",
+      "description": "M27/M0030 diagnostic statement: standard-DW accepted mass outside the robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while robust accepted mass outside standard DW mainly records the information deliberately lost by profiling diagonal noise variances and dropping recovered-shock covariance restrictions.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "def:robust-dw-higher-moment-set"
       ],
-      "proof_status": "M27 formalization complete; larger M29 chi-square-primary simulation pass completed for draft evidence",
+      "proof_status": "M27 formalization complete; M0030 robust statistic revision complete; refreshed M29 chi-square-primary simulation pass completed for draft evidence",
       "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md",
       "source": "manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
@@ -181,7 +181,7 @@
       "type": "figure",
       "status": "planned",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "Intuitive sign-set geometry is now covered by the top row of the selected M0020 residual-noise grid, which shows sign/covariance accepted sets moving as residual noise increases.",
+      "description": "Intuitive sign-set geometry is now covered by the top row of the selected M0030 residual-noise grid, which shows sign/covariance accepted sets moving as residual noise increases.",
       "depends_on": [
         "prop:noisy-sign-pseudo-set"
       ],
@@ -192,33 +192,33 @@
       "type": "figure",
       "status": "selected-story-figure",
       "draft_location": "draft.md#3-standard-dw-under-residual-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "Selected residual-noise story figure showing sign/covariance, standard-DW, and robust-DW accepted B-plane sets across increasing Gaussian residual noise using pointwise 10 percent finite-sample J-test cutoffs. The high-noise stress column has standard DW rejecting true B0 while robust DW contains it.",
+      "description": "Selected residual-noise story figure showing sign/covariance, standard-DW, and diagonal-noise robust-DW accepted B-plane sets across increasing Gaussian residual noise using pointwise 10 percent finite-sample J-test cutoffs. The lower high-noise stress column V=(0.5,0.5) has standard DW rejecting true B0 while robust DW contains it without accepting the whole chart.",
       "depends_on": [
         "prop:standard-dw-misspecification"
       ],
-      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. M28 first validation passed; M29 expanded pass supports the high-noise truth-rejection story under the same chi-square cutoffs applied researchers would use; repeated/bootstrap cutoffs are audits."
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png. Earlier exploratory support: manuscript/simulations/sign_dw_robust_noise_figure.py and manuscript/figures/fig_sign_dw_robust_noise_comparison.png. M0030 revised the DGP and robust statistic; refreshed M28 validation passed; refreshed M29 pass supports the high-noise truth-rejection story under the same chi-square cutoffs applied researchers would use; repeated/bootstrap cutoffs are audits."
     },
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
       "status": "selected-story-figure",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Selected grid-pair story comparing sign/covariance, standard DW, and robust DW accepted B-plane sets. Both grids invert pointwise 10 percent finite-sample J tests in all rows. The residual-noise grid shows standard-DW truth rejection and robust-DW truth inclusion; the non-Gaussianity grid shows robust-DW widening as higher moments weaken.",
+      "description": "Selected grid-pair story comparing sign/covariance, standard DW, and diagonal-noise robust DW accepted B-plane sets. Both grids invert pointwise 10 percent finite-sample J tests in all rows. The residual-noise grid shows standard-DW truth rejection and robust-DW truth inclusion; the non-Gaussianity grid shows robust-DW widening toward the covariance anchor as higher moments weaken.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. Both grid figures were corrected in M0020 to invert pointwise 10 percent J tests in all rows while keeping the robust rows free of second-moment restrictions. M28 validated truth inclusion, boundary sensitivity, repeated seeds, and weak-moment widening at the first gate; the larger M29 pass supports the high-noise divergence and weak-moment widening readings under primary chi-square cutoffs."
+      "output_source": "Selected visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py, manuscript/simulations/sign_dw_robust_noise_grid_figure.md, manuscript/figures/fig_sign_dw_robust_noise_grid.png; manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py, manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md, manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png. M0030 revised both grids to use the diagonal-noise robust row with chi2_6 cutoffs. Refreshed M28 validated truth inclusion, boundary sensitivity, repeated seeds, and weak-moment widening at the first gate; the refreshed M29 pass supports the high-noise divergence and weak-moment readings under primary chi-square cutoffs."
     },
     {
       "id": "table:monte-carlo-coverage-width",
       "type": "table",
-      "status": "m29-larger-pass-complete",
+      "status": "m29-refreshed-pass-complete",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Monte Carlo summary of true-B coverage-style inclusion, set width, empty-set frequency, standard-DW versus robust-DW overlap, and directional divergence warnings using the M27 metric bundle. The larger M29 finite-sample pass uses chi-square, no-noise repeated, oracle scenario truth, and truth-point residual-bootstrap cutoffs. User decision U0026 makes the chi-square rows the primary applied benchmark because these are the standard critical values a researcher would use under the no-noise DW null. The audit cutoffs quantify finite-sample size and calibration cost. The larger run uses 240 calibration replications, 120 evaluation replications, 40 truth-bootstrap replications per evaluation sample, and a 41-by-41 grid.",
+      "description": "Monte Carlo summary of true-B coverage-style inclusion, set width, empty-set frequency, standard-DW versus robust-DW overlap, and directional divergence warnings using the M27 metric bundle. The refreshed M29 finite-sample pass uses chi-square, no-noise repeated, oracle scenario truth, and truth-point residual-bootstrap cutoffs. User decision U0026 makes the chi-square rows the primary applied benchmark because these are the standard critical values a researcher would use under the no-noise DW null. The audit cutoffs quantify finite-sample size and calibration cost. The refreshed run uses 120 calibration replications, 60 evaluation replications, 20 truth-bootstrap replications per evaluation sample, and a 41-by-41 grid.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
-      "output_source": "M29 larger-pass output: manuscript/simulations/m29_calibrated_monte_carlo.py, manuscript/simulations/m29_calibrated_monte_carlo.md, manuscript/simulations/output/m29_calibrated_monte_carlo.json. Under primary chi-square cutoffs, high-noise standard DW includes true B0 in 0.325 of evaluation samples while robust DW includes it in 0.908. Earlier M35 exploratory support: manuscript/simulations/m35_jtest_monte_carlo_triage.py, manuscript/simulations/m35_jtest_monte_carlo_triage.md, manuscript/simulations/output/m35_jtest_monte_carlo_summary.json."
+      "output_source": "M29 refreshed output: manuscript/simulations/m29_calibrated_monte_carlo.py, manuscript/simulations/m29_calibrated_monte_carlo.md, manuscript/simulations/output/m29_calibrated_monte_carlo.json. Under primary chi-square cutoffs, high-noise standard DW includes true B0 in 0.050 of evaluation samples while robust DW includes it in 0.900. Earlier M35 exploratory support: manuscript/simulations/m35_jtest_monte_carlo_triage.py, manuscript/simulations/m35_jtest_monte_carlo_triage.md, manuscript/simulations/output/m35_jtest_monte_carlo_summary.json."
     },
     {
       "id": "audit:robust-dw-derivation",
@@ -250,7 +250,7 @@
       "type": "audit",
       "status": "done",
       "draft_location": "simulations/m28_grid_story_validation.md",
-      "description": "First M28 validation gate for the M0020 grid pair. Exact population moment diagnostics support robust-DW truth zeros under Gaussian residual noise, standard-DW divergence under noisy covariance targets, and weak/Gaussian higher-moment widening. Repeated finite-sample seeds support the high-noise visual story at pointwise chi-square cutoffs, while leaving calibrated coverage evidence to M29.",
+      "description": "Refreshed M28 validation gate for the M0030 revised grid pair. Exact population moment diagnostics support robust-DW truth zeros under diagonal Gaussian residual noise, standard-DW divergence under noisy covariance targets, and weak/Gaussian higher-moment widening toward the covariance anchor. Repeated finite-sample seeds support the high-noise visual story at pointwise chi-square cutoffs, while M29 supplies calibrated evidence.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "prop:standard-dw-misspecification",

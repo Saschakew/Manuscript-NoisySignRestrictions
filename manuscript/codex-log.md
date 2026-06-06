@@ -11,6 +11,32 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0030 High-noise power fix
+
+- Request: user rejected `V=(2,2)`, asked for an investigation of the
+  high-noise robust-DW power problem, and suggested considering a robust-DW
+  modification that uses second moments while staying robust.
+- Actions taken: opened M0030 and GitHub milestone #27; diagnosed the pure
+  higher-cumulant power failure; implemented the diagonal-noise robust statistic
+  using the off-diagonal covariance anchor plus mixed higher cumulants; lowered
+  the high-noise grid column to `V=(0.5,0.5)`; regenerated both figures; reran
+  M28 validation and a refreshed M29 Monte Carlo pass; updated draft prose,
+  derivation notes, registry, source packet, dashboard, task board, paper map,
+  simulation notes, and logs.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`,
+  figure PNGs, M28/M29 scripts and outputs, `manuscript/draft.md`,
+  derivation/diagnostic notes, planning surfaces, logs, and M0030 transparency
+  files.
+- Checks run: figure scripts passed; `m28_grid_story_validation.py` passed;
+  `m29_calibrated_monte_carlo.py --calibration-reps 120 --evaluation-reps 60
+  --bootstrap-reps 20 --grid-points 41` passed. Final manuscript checks are run
+  before closing M0030.
+- Open uncertainties: the diagonal-noise covariance anchor depends on diagonal
+  residual-noise covariance. If the paper later allows unrestricted Gaussian
+  residual-noise covariance, the reported robust row must revert to the pure
+  higher-cumulant object or add new valid covariance restrictions.
+
 ### 2026-06-06 - M0029 Figure 1 orientation clarification
 
 - Request: user corrected the Figure 1 interpretation and clarified that the

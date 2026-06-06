@@ -457,8 +457,8 @@ Sample cumulant estimators can have finite-sample bias unless unbiased
 estimators are generally not exactly unbiased. The defensible claim is
 population correctness and asymptotic centering, not finite-sample unbiasedness.
 
-The price of robustness is efficiency and scale information. The robust system
-does not use
+The price of pure higher-cumulant robustness is efficiency and scale
+information. The pure system does not use
 
 $$
 \Sigma_u=B B'
@@ -471,6 +471,68 @@ restricted, or if one uses clean off-diagonal `u` covariance under diagonal
 noise, second moments can add information. The pure robust DW-like route
 omits those restrictions to avoid imposing a false no-noise covariance target.
 
+### 7.1 Diagonal-Noise Second-Moment Information
+
+The active sign-restriction paper maintains diagonal residual noise in the
+reduced-form residual coordinates. In that case the second moments contain one
+clean bivariate restriction that the no-noise DW covariance moment does not
+use correctly. If
+
+$$
+\Sigma_u=B_0B_0' + V,\qquad V=\operatorname{diag}(\nu_1,\nu_2),
+$$
+
+then the off-diagonal covariance is unaffected by `V`:
+
+$$
+\Sigma_{u,12}=(B_0B_0')_{12}.
+$$
+
+In the normalized chart
+
+$$
+B(b_{12},b_{21})=
+\begin{bmatrix}
+1 & b_{12}\\
+b_{21} & 1
+\end{bmatrix},
+$$
+
+this becomes the candidate restriction
+
+$$
+g_C(B)=E(u_1u_2)-(b_{12}+b_{21})=0.
+$$
+
+Equivalently, one can write the covariance system as
+
+$$
+\Sigma_u-BB'=V(B),
+$$
+
+profile the diagonal elements of `V(B)`, and retain only the off-diagonal
+equality, optionally adding the inequalities `V_{ii}(B)\ge 0` as a separate
+admissibility screen. This is not the no-noise recovered-shock covariance
+restriction. It does not require `Cov\{z_1(B),z_2(B)\}=0`, and at the true
+`B_0` the recovered shocks can remain cross-correlated because transformed
+residual noise is generally cross-correlated.
+
+The resulting diagonal-noise robust stack is
+
+$$
+G_D(B)=
+\begin{bmatrix}
+g_C(B)\\
+G_H(B)
+\end{bmatrix}.
+$$
+
+This stack uses second moments, but only the component that diagonal residual
+noise cannot bias. It is more informative than the pure higher-cumulant stack
+in high-noise finite samples. It is also less general: if residual noise has
+unknown off-diagonal covariance, `g_C(B)` is no longer robust and the paper
+should report the pure higher-cumulant set instead.
+
 ## 8. Manuscript Consequence
 
 This gives two sign-plus-higher-moment approaches:
@@ -480,12 +542,19 @@ This gives two sign-plus-higher-moment approaches:
    no-noise recovered-shock independence. This approach uses second moments as
    if `Sigma_u=B_0B_0'`, so it targets a noisy pseudo-object when `V\neq 0`.
 
-2. Noise-robust under Gaussian residual noise: search over a normalized impact
-   space, impose sign restrictions directly on candidate impacts, and use
-   mixed higher cumulants of `B^{-1}u` written as raw-moment/cumulant GMM
-   equations. This approach does not use second moments as structural
-   restrictions, so it is less efficient but robust to unknown additive
-   Gaussian noise.
+2. Noise-robust under unrestricted Gaussian residual-noise covariance: search
+   over a normalized impact space, impose sign restrictions directly on
+   candidate impacts, and use mixed higher cumulants of `B^{-1}u` written as
+   raw-moment/cumulant GMM equations. This pure approach does not use second
+   moments as structural restrictions, so it is less efficient but robust to
+   arbitrary additive Gaussian noise covariance.
+
+3. More informative under diagonal residual noise: stack the pure
+   higher-cumulant moments with the off-diagonal covariance restriction
+   `E(u_1u_2)=b_{12}+b_{21}` after profiling the diagonal noise variances.
+   This is the revised reported robust-DW object for the diagonal-noise
+   simulations. It uses second moments without imposing the false no-noise
+   covariance target.
 
 This route is not a general solution for unrestricted non-Gaussian residual
 noise. If `eta_t` is non-Gaussian, then `B^{-1}\eta_t` generally has nonzero

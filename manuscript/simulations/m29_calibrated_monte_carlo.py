@@ -1,6 +1,6 @@
 """Calibrated Monte Carlo pass for the M29 evidence gate.
 
-This script keeps the M0020/M28 B-plane design and reports the M27 metric
+This script keeps the M0030 revised B-plane design and reports the M27 metric
 bundle under three pointwise critical-value conventions:
 
 * the chi-square 90 percent guide used in the figures;
@@ -60,39 +60,39 @@ SCENARIOS = (
     Scenario(
         name="moderate_noise",
         label="Moderate Gaussian noise",
-        noise=(0.3, 0.3),
+        noise=(0.2, 0.2),
         non_gaussian_weight=1.0,
         residual_noise="gaussian",
-        note="The M0020 moderate-noise column with informative higher moments.",
+        note="The M0030 moderate-noise column with informative higher moments.",
     ),
     Scenario(
         name="high_noise",
         label="High Gaussian noise",
-        noise=(2.0, 2.0),
+        noise=(0.5, 0.5),
         non_gaussian_weight=1.0,
         residual_noise="gaussian",
-        note="The M0020 stress column where standard DW rejects true B0 under chi-square guides.",
+        note="The M0030 lower high-noise stress column where standard DW rejects true B0 under chi-square guides.",
     ),
     Scenario(
         name="weak_moments",
         label="Weak structural higher moments",
-        noise=(0.3, 0.3),
+        noise=(0.2, 0.2),
         non_gaussian_weight=0.25,
         residual_noise="gaussian",
-        note="Companion-grid limitation case: robust DW should widen as higher moments weaken.",
+        note="Companion-grid limitation case: robust DW should widen toward the covariance-anchor band as higher moments weaken.",
     ),
     Scenario(
         name="gaussian_shocks",
         label="Gaussian structural shocks",
-        noise=(0.3, 0.3),
+        noise=(0.2, 0.2),
         non_gaussian_weight=0.0,
         residual_noise="gaussian",
-        note="All-null robust higher-cumulant population limit.",
+        note="Higher-cumulant all-null limit; diagonal-noise covariance anchor remains.",
     ),
     Scenario(
         name="skewed_residual_noise",
         label="Skewed residual noise",
-        noise=(0.3, 0.3),
+        noise=(0.2, 0.2),
         non_gaussian_weight=1.0,
         residual_noise="skewed",
         note="Misspecified-noise stress case that violates the maintained Gaussian-noise route.",
@@ -345,8 +345,8 @@ def cutoff_catalog(
             "name": "chi_square_90",
             "label": "Chi-square 90%",
             "standard_dw": base.CHI2_90_DF4,
-            "robust_dw": base.CHI2_90_DF5,
-            "description": "Same pointwise guide used in the M0020 grid figures.",
+            "robust_dw": base.CHI2_90_DF6,
+            "description": "Same pointwise guide used in the M0030 revised grid figures.",
         },
         {
             "name": "no_noise_repeated_90",
@@ -584,7 +584,7 @@ def write_note(payload: dict[str, Any]) -> None:
         "",
         "Status: larger chi-square-primary finite-sample evidence pass for M29, not the final replication package.",
         "",
-        "This pass keeps the M0020/M28 normalized B-plane. The main applied benchmark uses the standard pointwise chi-square critical values a researcher would use under the maintained no-noise DW null; repeated-sample, oracle, and truth-bootstrap cutoffs are reported as calibration audits.",
+        "This pass keeps the M0030 revised normalized B-plane. The main applied benchmark uses the standard pointwise chi-square critical values a researcher would use under the maintained no-noise DW null; repeated-sample, oracle, and truth-bootstrap cutoffs are reported as calibration audits.",
         "",
         "## Configuration",
         "",
@@ -668,7 +668,7 @@ def write_note(payload: dict[str, Any]) -> None:
             "That is the calibration cost of forcing the misspecified standard-DW statistic to cover the truth.",
             "- The same high-noise oracle cutoff raises the standard-DW accepted share to "
             f"{fmt(high_oracle['standard_dw']['mean_accepted_share'])}, so the apparent precision is not free once the cutoff is truth-calibrated.",
-            "- Weak and Gaussian structural-shock cases keep robust DW wide under the primary chi-square benchmark: mean robust shares are "
+            "- Weak and Gaussian structural-shock cases show the robust set falling back toward its diagonal-noise covariance anchor under the primary chi-square benchmark: mean robust shares are "
             f"{fmt(summary_lookup[('weak_moments', 'chi_square_90')]['robust_dw']['mean_accepted_share'])} and "
             f"{fmt(summary_lookup[('gaussian_shocks', 'chi_square_90')]['robust_dw']['mean_accepted_share'])}. This supports the limitation story rather than a sharp identification claim.",
         ]
@@ -692,7 +692,7 @@ def write_note(payload: dict[str, Any]) -> None:
             "- The no-noise repeated calibration is a size-check audit for the maintained no-noise benchmark. It should preserve the no-noise sanity case while still exposing residual-noise divergence.",
             "- The scenario-specific truth calibration is an oracle diagnostic. When its standard-DW cutoff is much larger than the no-noise cutoff, the standard DW statistic is paying a calibration cost under residual noise rather than delivering free precision.",
             "- The truth-residual bootstrap is sample-specific and less parametric, but it still uses true `B0` and can make robust sets almost uninformative; treat it as an evidence audit rather than the final applied cutoff rule.",
-            "- The Gaussian-shock case is expected to make robust DW wide or weak because the higher-cumulant signal disappears.",
+            "- The Gaussian-shock case is expected to make the higher-cumulant substack uninformative; under the M0030 robust statistic the off-diagonal covariance anchor can still restrict the chart.",
             "- The skewed-residual-noise case is a maintained-assumption stress test. Robust DW is not expected to retain the clean Gaussian-noise interpretation there.",
             "",
             "Machine-readable output: `manuscript/simulations/output/m29_calibrated_monte_carlo.json`.",
@@ -733,7 +733,7 @@ def main() -> int:
             "true_b21": base.TRUE_B21,
             "chi_square_cutoffs": {
                 "standard_dw": base.CHI2_90_DF4,
-                "robust_dw": base.CHI2_90_DF5,
+                "robust_dw": base.CHI2_90_DF6,
             },
             "primary_cutoff_convention": "chi_square_90",
             "audit_cutoff_conventions": [

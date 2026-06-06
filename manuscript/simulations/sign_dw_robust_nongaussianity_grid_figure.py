@@ -3,8 +3,9 @@
 This companion to sign_dw_robust_noise_grid_figure.py fixes moderate residual
 noise and changes only the strength of structural-shock higher moments. All
 rows invert pointwise finite-sample J statistics at the 10 percent level. The
-bottom row is the pure robust-DW higher-cumulant J test: it deliberately does
-not use the covariance moment or any other second-moment restriction.
+bottom row is the diagonal-noise robust-DW J test: it uses the off-diagonal
+covariance restriction that survives diagonal residual noise, plus mixed
+higher cumulants of transformed residuals.
 """
 
 from __future__ import annotations
@@ -24,7 +25,7 @@ ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = ROOT / "manuscript" / "figures"
 OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_robust_nongaussianity_grid.png"
 
-FIXED_NOISE = (0.3, 0.3)
+FIXED_NOISE = (0.2, 0.2)
 NON_GAUSSIANITY_LEVELS = (
     ("Strong non-Gaussianity", 1.00),
     ("Weak non-Gaussianity", 0.25),
@@ -135,7 +136,7 @@ def plot() -> Path:
                 b12_mesh,
                 b21_mesh,
                 robust_j,
-                levels=[base.CHI2_90_DF5],
+                levels=[base.CHI2_90_DF6],
                 colors=["#2166ac"],
                 linewidths=1.2,
             )
@@ -143,10 +144,10 @@ def plot() -> Path:
         ax.set_title("Robust DW J-test")
         robust_label_lines = [
             base.min_label(robust_j),
-            base.truth_label(true_robust_j, base.CHI2_90_DF5),
+            base.truth_label(true_robust_j, base.CHI2_90_DF6),
         ]
         if non_gaussian_weight == 0.0:
-            robust_label_lines.insert(0, "pop all-null")
+            robust_label_lines.insert(0, "cumulants all-null")
         ax.text(-1.22, 1.16, "\n".join(robust_label_lines), color="#2166ac", fontsize=9)
 
     for ax in axes.flat:
@@ -160,9 +161,10 @@ def plot() -> Path:
 
     fig.suptitle(
         (
-            "Same B-plane and fixed residual noise V=(0.3,0.3); columns weaken structural non-Gaussianity\n"
+            f"Same B-plane and fixed residual noise V=({FIXED_NOISE[0]:g},{FIXED_NOISE[1]:g}); "
+            "columns weaken structural non-Gaussianity\n"
             f"N={base.SAMPLE_SIZE}; all rows invert pointwise 10% J tests; "
-            "robust DW uses mixed higher cumulants only"
+            "robust DW profiles diagonal noise and adds mixed higher cumulants"
         ),
         fontsize=13,
     )

@@ -8,6 +8,26 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Solve high-noise robust-DW power problem
+
+- Request or goal: investigate why the high-noise robust-DW row lost power,
+  avoid `V=(2,2)`, and consider a robust-DW modification that can use valid
+  second-moment information.
+- Files changed: robust-DW derivation and diagnostic notes, residual-noise and
+  non-Gaussianity figure generators and PNGs, M28 and M29 simulation scripts
+  and outputs, draft evidence prose, planning/control surfaces, logs, and
+  M0030 transparency files.
+- Summary of work: diagnosed the pure higher-cumulant finite-sample power
+  failure under large symmetric Gaussian noise. Implemented the
+  diagonal-noise robust statistic that stacks `Cov(u1,u2)=b12+b21` with mixed
+  higher cumulants, lowered the selected high-noise scenario to `V=(0.5,0.5)`,
+  regenerated the two grid figures, reran M28 validation, and refreshed the
+  M29 Monte Carlo pass. Under primary chi-square cutoffs, the refreshed
+  high-noise row has standard DW truth inclusion `0.050` and robust DW truth
+  inclusion `0.900`.
+- Next recommended action: continue with M32 literature positioning after the
+  M0030 milestone is closed, committed, tagged, and pushed.
+
 ### 2026-06-06 - Verify Figure 1 residual-noise orientation
 
 - Request or goal: respond to the user's correction about the first

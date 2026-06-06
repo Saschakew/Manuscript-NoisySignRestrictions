@@ -5,6 +5,29 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Replace pure robust row with diagonal-noise robust statistic
+
+- Origin: user correction and methodological suggestion
+- User input id: U0030
+- Codex role: investigated, implemented, validated, and aligned evidence.
+- Decision: Do not use `V=(2,2)` in the residual-noise story figure. The
+  reported robust-DW row should no longer be the pure higher-cumulant row for
+  the diagonal-noise design. It should stack the diagonal-noise robust
+  off-diagonal covariance restriction `Cov(u1,u2)=b12+b21` with the mixed
+  higher-cumulant restrictions of `B^{-1}u`.
+- Rationale: With the previous symmetric high-noise DGP, standard DW rejected
+  true `B0` only when Gaussian noise was large enough to dilute the
+  higher-cumulant signal, making the pure robust set nearly the whole chart.
+  The off-diagonal covariance restriction is valid under diagonal residual
+  noise because diagonal noise does not shift `Sigma_{u,12}`, but it avoids the
+  false standard-DW restriction that recovered shocks must have zero
+  covariance.
+- Consequence for next work: The selected figures, M28 validation, M29 Monte
+  Carlo table, draft prose, and registry now use the M0030 revised robust
+  statistic and lower high-noise column `V=(0.5,0.5)`. If future versions allow
+  unrestricted residual-noise covariance, the off-diagonal covariance anchor
+  must be dropped and the pure higher-cumulant set should be reported instead.
+
 ### 2026-06-06 - Keep Figure 1 as method rows and noise columns
 
 - Origin: user correction
