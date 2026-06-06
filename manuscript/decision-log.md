@@ -5,6 +5,28 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Pivot active paper to robust DW comparison
+
+- Origin: user-originated
+- User input id: U0011
+- Codex role: implemented and logged
+- Decision: The active manuscript plan is now a robust-DW comparison paper.
+  The paper should first show noisy sign-set bias, then show how standard
+  Drautzburg-Wright refinement can falsely shrink a misspecified set under
+  residual noise, then propose a robust DW higher-moment set that drops
+  second-moment restrictions, and finally compare the standard and robust sets
+  as a practical robustness check.
+- Rationale: This gives the manuscript a cleaner structure and a sharper
+  applied recommendation than the previous candidate route. It also keeps the
+  higher-moment idea close to the main comparator while making the efficiency
+  cost of noise robustness explicit.
+- Alternatives considered: retaining the previous constructive route in the
+  active paper, or adding an empirical application before the formal/simulation
+  package is stable.
+- Consequence for next work: Audit the robust DW derivation, prove or weaken
+  the standard-DW asymptotic-empty claim, design the intuitive sign-noise
+  figure, and build Monte Carlo comparisons before drafting polished prose.
+
 ### 2026-06-06 - Treat Gaussian-noise DW-like moments as a candidate route
 
 - Origin: user-originated
@@ -17,16 +39,15 @@ decisions.
   mixed higher cumulants of `B^{-1}u` written as GMM-style moment equations.
 - Rationale: Under Gaussian additive residual noise, higher cumulants of
   candidate transformed residuals are not shifted by the noise, but second
-  moments are shifted. This gives a cleaner restricted alternative to the
-  broader BR-style observed-residual route, at the cost of assuming Gaussian
-  noise and discarding structural second-moment information.
-- Alternatives considered: continuing only with the BR-style observed-residual
+  moments are shifted. This gives a cleaner restricted route at the cost of
+  assuming Gaussian noise and discarding structural second-moment information.
+- Alternatives considered: continuing with the previous observed-residual
   cumulant route, or treating standard no-noise DW covariance whitening as
   valid under residual noise.
 - Consequence for next work: Audit the new derivation, especially the
   cumulant-to-moment algebra, scale normalization, local rank conditions,
-  finite-sample bias wording, and whether this route should replace or sit
-  beside the BR-style section.
+  finite-sample bias wording, and whether this route can carry the active
+  constructive section.
 
 ### 2026-06-05 - Formal object typography and proof endings
 

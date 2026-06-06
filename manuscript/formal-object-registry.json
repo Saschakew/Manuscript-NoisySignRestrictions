@@ -9,31 +9,31 @@
       "type": "definition",
       "status": "planned",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "Observed reduced-form residual model u_t = B0 epsilon_t + eta_t with unit-variance structural shocks and diagonal idiosyncratic residual noise.",
+      "description": "Observed reduced-form residual model u_t = B0 epsilon_t + eta_t with unit-variance structural shocks and additive residual noise.",
       "depends_on": [],
       "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
     },
     {
-      "id": "ass:diagonal-idiosyncratic-noise",
+      "id": "ass:gaussian-residual-noise",
       "type": "assumption",
       "status": "planned",
-      "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "Noise is independent of structural shocks and idiosyncratic across residual equations, so V is diagonal and mixed noise cumulants vanish.",
+      "draft_location": "draft.md#4-robust-dw-higher-moment-set",
+      "description": "For the robust transformed-cumulant route, additive residual noise is independent of structural shocks and Gaussian, so every linear transform of the noise has zero cumulants above order two.",
       "depends_on": [
         "def:diagonal-noise-svar"
       ],
-      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
+      "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
       "id": "ass:unit-variance-normalization",
       "type": "assumption",
       "status": "planned",
-      "draft_location": "draft.md#4-robust-sign-inversion",
-      "description": "Structural shocks are normalized to unit variance; otherwise diagonal residual variance can be relabeled as shock variance.",
+      "draft_location": "draft.md#4-robust-dw-higher-moment-set",
+      "description": "Structural shocks are normalized to unit variance, and robust-DW candidate impacts are restricted to a normalized nonsingular space to fix scale.",
       "depends_on": [
         "def:diagonal-noise-svar"
       ],
-      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
+      "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
       "id": "def:noisy-sign-pseudo-set",
@@ -51,319 +51,188 @@
       "type": "proposition",
       "status": "planned",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "If V is nonzero, the standard sign-restricted population set is based on B0 B0' + V and generally contains neither B0 nor a positive column-rescaling B0 D.",
+      "description": "If V is nonzero, the standard sign-restricted population set is based on B0 B0' + V and generally differs from the no-noise economic sign set.",
       "depends_on": [
-        "def:noisy-sign-pseudo-set",
-        "ass:diagonal-idiosyncratic-noise"
+        "def:noisy-sign-pseudo-set"
       ],
       "proof_status": "sketch-in-source",
-      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
+      "source": "vault/syntheses/Noisy residuals in recursive and sign-restricted SVARs.md"
     },
     {
       "id": "eq:column-rescaling-obstruction",
       "type": "equation",
       "status": "planned",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "B0(D^2 - I)B0' = V, equivalently D^2 - I = B0^{-1} V B0^{-1'}; the right side is generally not diagonal.",
+      "description": "B0(D^2 - I)B0' = V, equivalently D^2 - I = B0^{-1} V B0^{-1'}, showing why positive column rescaling generally cannot absorb additive residual noise.",
       "depends_on": [
         "prop:noisy-sign-pseudo-set"
       ],
       "source": "vault/syntheses/Noisy residuals in recursive and sign-restricted SVARs.md"
     },
     {
-      "id": "def:no-noise-independence-refined-set",
+      "id": "def:standard-dw-refined-set",
       "type": "definition",
       "status": "planned",
-      "draft_location": "draft.md#3-no-noise-independence-refinement",
-      "description": "Set of sign-admissible no-noise covariance factors whose recovered shocks B^{-1} u_t satisfy an independence criterion.",
+      "draft_location": "draft.md#3-standard-dw-under-residual-noise",
+      "description": "Standard Drautzburg-Wright-style sign-admissible set built from no-noise covariance-factor candidates whose recovered shocks satisfy higher-moment independence restrictions.",
       "depends_on": [
         "def:noisy-sign-pseudo-set"
       ],
       "source": "vault/papers/Refining set-identification in VARs through independence.md"
     },
     {
-      "id": "prop:generic-empty-independence-refinement",
+      "id": "prop:standard-dw-misspecification",
       "type": "proposition",
       "status": "planned",
-      "draft_location": "draft.md#3-no-noise-independence-refinement",
-      "description": "Under independent non-Gaussian structural shocks and diagonal idiosyncratic residual noise, a no-noise K-shock demixing generally cannot produce mutually independent recovered shocks from the larger primitive source vector.",
+      "draft_location": "draft.md#3-standard-dw-under-residual-noise",
+      "description": "Planned result: under residual noise, standard DW recovered shocks are not structural shocks, so no-noise higher-moment restrictions generally fail at B0; the population set may be empty, while finite samples can produce falsely small least-rejected regions.",
       "depends_on": [
-        "def:no-noise-independence-refined-set",
-        "ass:diagonal-idiosyncratic-noise"
+        "def:standard-dw-refined-set",
+        "def:diagonal-noise-svar"
       ],
       "proof_status": "missing",
-      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
+      "source": "vault/syntheses/Noisy residuals in recursive and sign-restricted SVARs.md"
     },
     {
-      "id": "def:dw-gaussian-noise-higher-moment-set",
+      "id": "def:robust-dw-higher-moment-set",
       "type": "definition",
       "status": "working-derivation",
-      "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#3-no-noise-independence-refinement",
-      "description": "Drautzburg-Wright-like sign-restricted candidate set that searches over a normalized impact space and uses mixed higher cumulants of B^{-1}u, rather than the no-noise covariance factorization, under additive Gaussian residual noise.",
+      "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
+      "description": "Robust DW-style sign-restricted candidate set that searches over a normalized impact space and uses mixed higher cumulants of B^{-1}u, rather than no-noise covariance factorization.",
       "depends_on": [
         "def:diagonal-noise-svar",
-        "def:no-noise-independence-refined-set"
+        "ass:gaussian-residual-noise",
+        "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "verification_status": "M0010 working derivation complete; pending adversarial audit, simulation checks, and paper-structure decision",
-      "source": "vault/papers/Refining set-identification in VARs through independence.md"
+      "verification_status": "M0010 working derivation complete; pending M24 adversarial audit and simulation checks",
+      "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
       "id": "eq:dw-higher-cumulant-moment-stack",
       "type": "equation",
       "status": "working-derivation",
-      "draft_location": "derivations/dw-noise-robust-moments.md",
-      "description": "Moment-equation representation of the DW-like robust stack: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with second moments entering only as nuisance covariance products inside fourth cumulants.",
+      "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
+      "description": "Moment-equation representation of the robust DW stack: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with second moments entering only as covariance products inside fourth cumulants.",
       "depends_on": [
-        "def:dw-gaussian-noise-higher-moment-set"
+        "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
-      "verification_status": "Pending independent algebra review and population verification",
+      "verification_status": "Pending M24 independent algebra review and population verification",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
-      "id": "prop:dw-gaussian-noise-local-identification",
+      "id": "prop:robust-dw-higher-moment-validity",
       "type": "proposition",
       "status": "working-derivation",
-      "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#3-no-noise-independence-refinement",
-      "description": "Working local identification claim: in the bivariate normalized system, mixed higher cumulants of B(a,b)^{-1}u identify (a0,b0) locally under Gaussian residual noise when each structural shock has a nonzero third or fourth cumulant and 1-a0 b0 is nonzero.",
+      "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
+      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise, while second moments are contaminated; in the bivariate normalized system, local identification follows when each structural shock has a nonzero third or fourth cumulant.",
       "depends_on": [
-        "def:dw-gaussian-noise-higher-moment-set",
-        "eq:dw-higher-cumulant-moment-stack",
-        "ass:unit-variance-normalization"
+        "def:robust-dw-higher-moment-set",
+        "eq:dw-higher-cumulant-moment-stack"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
       "proof_status": "working-derivation-pending-audit",
       "source": "manuscript/derivations/dw-noise-robust-moments.md"
     },
     {
-      "id": "audit:dw-noise-robust-moment-route",
-      "type": "audit",
-      "status": "planned",
-      "draft_location": "review-log.md; derivations/dw-noise-robust-moments.md",
-      "description": "Adversarial review of the Gaussian-noise DW-like higher-moment route, checking cumulant-to-moment algebra, second-moment nuisance treatment, normalization, local rank, and whether the route should replace or sit beside the BR-style observed-residual route.",
-      "depends_on": [
-        "def:dw-gaussian-noise-higher-moment-set",
-        "prop:dw-gaussian-noise-local-identification"
-      ],
-      "source": "manuscript/task-board.md"
-    },
-    {
-      "id": "def:br-sign-inverted-set",
-      "type": "definition",
-      "status": "defined-pending-criteria",
-      "draft_location": "derivations/br-applicability.md; draft.md#4-robust-sign-inversion",
-      "description": "Bivariate diagonal-normalized BR-style profiled cumulant set that profiles structural cumulants and diagonal-noise cumulants as needed, then intersects verified candidate matrices with sign labels; defined as distinct from direct quasi-JADE.",
-      "depends_on": [
-        "def:diagonal-noise-svar",
-        "ass:unit-variance-normalization",
-        "audit:br-applicability"
-      ],
-      "derivation": "manuscript/derivations/br-applicability.md",
-      "verification_status": "M07 applicability boundary complete; pending M08 adversarial review and M09 profiled criteria",
-      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
-    },
-    {
-      "id": "def:br-profiled-cumulant-system",
-      "type": "definition",
-      "status": "audited-working-map",
-      "draft_location": "derivations/bivariate-cumulant-map.md; draft.md#4-robust-sign-inversion",
-      "description": "Complete bivariate cumulant system through fourth order with structural cumulants and diagonal noise cumulants profiled as nuisance parameters; audited as a working map, but still pending profiled-criterion, rank, and simulation verification.",
-      "depends_on": [
-        "def:diagonal-noise-svar",
-        "ass:diagonal-idiosyncratic-noise",
-        "ass:unit-variance-normalization"
-      ],
-      "derivation": "manuscript/derivations/bivariate-cumulant-map.md",
-      "verification_status": "M06 adversarial cumulant-map audit complete; pending M09 profiled criteria and M12 symbolic/population verification",
-      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
-    },
-    {
-      "id": "eq:bivariate-cumulant-map",
-      "type": "equation",
-      "status": "audited-working-map",
-      "draft_location": "derivations/bivariate-cumulant-map.md",
-      "description": "Expanded second-, third-, and fourth-order cumulant equations for B(a,b) = [[1,a],[b,1]], including nuisance noise cumulants nu_i, tau_i, and rho_i; M06 confirmed the coefficient pattern and corrected clean-equation versus identifying-restriction language.",
-      "depends_on": [
-        "def:br-profiled-cumulant-system",
-        "ass:diagonal-idiosyncratic-noise",
-        "ass:unit-variance-normalization"
-      ],
-      "derivation": "manuscript/derivations/bivariate-cumulant-map.md",
-      "verification_status": "M06 adversarial audit complete; pending M12 symbolic/population verification",
-      "source": "manuscript/derivations/bivariate-cumulant-map.md"
-    },
-    {
-      "id": "audit:br-applicability",
-      "type": "audit",
-      "status": "boundary-documented-pending-adversarial-review",
-      "draft_location": "derivations/br-applicability.md; review-log.md",
-      "description": "Applicability boundary showing that full Bonhomme-Robin quasi-JADE does not directly cover the bivariate L=K=2 SVAR because the clean-pair rank conditions fail; M08 still needs to attack this argument.",
-      "depends_on": [
-        "def:br-profiled-cumulant-system"
-      ],
-      "derivation": "manuscript/derivations/br-applicability.md",
-      "verification_status": "M07 boundary argument complete; pending M08 adversarial applicability review",
-      "source": "vault/papers/Consistent noisy independent component analysis.md"
-    },
-    {
-      "id": "eq:br-j-statistic",
-      "type": "equation",
-      "status": "planned",
-      "draft_location": "draft.md#4-robust-sign-inversion",
-      "description": "Minimal J_4(a,b) and stacked J_stack(a,b) profiled criteria; they must be kept distinct from mapped variance diagnostics and restricted no-noise J tests.",
-      "depends_on": [
-        "def:br-profiled-cumulant-system"
-      ],
-      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
-    },
-    {
-      "id": "ass:br-local-rank",
-      "type": "assumption",
-      "status": "planned",
-      "draft_location": "draft.md#4-robust-sign-inversion",
-      "description": "Bivariate fourth-cumulant rank condition a0 kappa_2 != b0 kappa_1 together with nonsingularity 1-a0 b0 != 0; must be rederived from the corrected cumulant map.",
-      "depends_on": [
-        "def:br-profiled-cumulant-system"
-      ],
-      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
-    },
-    {
-      "id": "prop:robust-sign-inversion",
+      "id": "prop:dw-robust-comparison-diagnostic",
       "type": "proposition",
       "status": "planned",
-      "draft_location": "draft.md#4-robust-sign-inversion",
-      "description": "To-be-verified result: under diagonal noise, correct signs, compactness, valid nuisance profiling, and local rank, the bivariate BR-style profiled inversion targets the robust population set and contains B0.",
+      "draft_location": "draft.md#5-monte-carlo-robustness-check",
+      "description": "Planned diagnostic statement: agreement between standard DW and robust DW sets is reassuring, while divergence warns that standard DW precision may be driven by residual-noise or covariance-target misspecification.",
       "depends_on": [
-        "def:br-profiled-cumulant-system",
-        "audit:br-applicability",
-        "ass:diagonal-idiosyncratic-noise",
-        "ass:br-local-rank"
+        "def:standard-dw-refined-set",
+        "def:robust-dw-higher-moment-set"
       ],
-      "proof_status": "blocked-on-derivation-and-simulation-verification",
-      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
-    },
-    {
-      "id": "def:mapped-noise-set",
-      "type": "definition",
-      "status": "planned",
-      "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
-      "description": "Image of the robust accepted B(a,b) set under nu_1(a)=sigma_11-(1+a^2) and nu_2(b)=sigma_22-(1+b^2).",
-      "depends_on": [
-        "def:br-sign-inverted-set",
-        "ass:unit-variance-normalization"
-      ],
-      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
-    },
-    {
-      "id": "prop:consistent-noise-diagnostic",
-      "type": "proposition",
-      "status": "planned",
-      "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
-      "description": "To-be-verified diagnostic result: if the profiled cumulant set is consistent and true diagonal noise is bounded away from zero, the mapped noise set excludes the no-noise origin asymptotically; under no noise it covers the origin at the intended rate.",
-      "depends_on": [
-        "def:mapped-noise-set",
-        "prop:robust-sign-inversion"
-      ],
-      "proof_status": "blocked-on-derivation-and-simulation-verification",
-      "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
-    },
-    {
-      "id": "def:restricted-no-noise-j-test",
-      "type": "definition",
-      "status": "planned",
-      "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
-      "description": "Restricted J test that sets selected diagonal noise cumulants to zero and compares the no-noise SVAR fit with the unrestricted profiled cumulant fit.",
-      "depends_on": [
-        "def:br-profiled-cumulant-system"
-      ],
-      "source": "vault/syntheses/Bonhomme-Robin noise-robust SVAR moment inversion.md"
-    },
-    {
-      "id": "audit:br-derivation-adversarial-review",
-      "type": "audit",
-      "status": "cumulant-map-audit-complete",
-      "draft_location": "review-log.md; derivations/bivariate-cumulant-map.md",
-      "description": "Adversarial review of the BR-style derivation. M06 completed the cumulant-map portion, checking cumulant algebra, nuisance treatment, undefined objects, and overinterpretation; rank claims and boundary cases remain for M09/M10.",
-      "depends_on": [
-        "def:br-profiled-cumulant-system",
-        "ass:br-local-rank"
-      ],
-      "source": "manuscript/task-board.md"
-    },
-    {
-      "id": "audit:br-simulation-adversarial-review",
-      "type": "audit",
-      "status": "planned",
-      "draft_location": "review-log.md",
-      "description": "Adversarial review of BR-style verification simulations, checking DGP normalization, cumulant estimators, grids, critical values, seeds, failure cases, and interpretation.",
-      "depends_on": [
-        "prop:robust-sign-inversion",
-        "prop:consistent-noise-diagnostic"
-      ],
-      "source": "manuscript/task-board.md"
+      "proof_status": "simulation-and-interpretation-pending",
+      "source": "manuscript/paper-plan.md"
     },
     {
       "id": "fig:sign-noise-geometry",
       "type": "figure",
-      "status": "candidate",
+      "status": "planned",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "Sign-boundary movement, response ellipse deformation, and column-rescaling obstruction under diagonal noise.",
+      "description": "Intuitive figure showing covariance ellipse deformation, sign-boundary movement, and standard sign-set bias under additive residual noise.",
       "depends_on": [
         "prop:noisy-sign-pseudo-set"
       ],
-      "output_source": "KnowledgeVault/replications/svar-noise-recursive-sign-visualization/figures/fig_sign_restriction_noise_geometry.png"
+      "output_source": "planned manuscript-local simulation"
     },
     {
-      "id": "fig:independence-refinement-noise",
+      "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "candidate",
-      "draft_location": "draft.md#3-no-noise-independence-refinement",
-      "description": "No-noise independence-refinement score under residual noise, including empty-set and high-noise reopening behavior.",
+      "status": "planned",
+      "draft_location": "draft.md#3-standard-dw-under-residual-noise; draft.md#5-monte-carlo-robustness-check",
+      "description": "Figure showing standard DW accepted sets shrinking, emptying, or selecting least-rejected pseudo-candidates as residual noise increases.",
       "depends_on": [
-        "prop:generic-empty-independence-refinement"
+        "prop:standard-dw-misspecification"
       ],
-      "output_source": "KnowledgeVault/replications/svar-noise-recursive-sign-visualization/figures/fig_independence_detection_noise.png"
+      "output_source": "planned manuscript-local simulation"
     },
     {
-      "id": "fig:br-robust-set-and-noise-map",
+      "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "candidate",
-      "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
-      "description": "BR robust accepted B region and image in implied diagonal-noise space.",
+      "status": "planned",
+      "draft_location": "draft.md#5-monte-carlo-robustness-check",
+      "description": "Overlay or panel comparison of standard DW and robust DW accepted sets under no-noise and noisy DGPs.",
       "depends_on": [
-        "prop:robust-sign-inversion",
-        "def:mapped-noise-set"
+        "prop:dw-robust-comparison-diagnostic"
       ],
-      "output_source": "KnowledgeVault/replications/bonhomme-robin-noise-robust-svar/figures/fig_br_robust_set_and_noise_map.png"
+      "output_source": "planned manuscript-local simulation"
     },
     {
-      "id": "fig:noise-path-diagnostic",
-      "type": "figure",
-      "status": "candidate",
-      "draft_location": "draft.md#5-noise-diagnostic-and-evidence",
-      "description": "Path of common diagonal noise and implied diagnostic behavior.",
+      "id": "table:monte-carlo-coverage-width",
+      "type": "table",
+      "status": "planned",
+      "draft_location": "draft.md#5-monte-carlo-robustness-check",
+      "description": "Monte Carlo summary of true-B coverage, set width, empty-set frequency, standard-DW versus robust-DW overlap, and divergence warnings.",
       "depends_on": [
-        "prop:consistent-noise-diagnostic"
+        "fig:dw-robust-set-comparison"
       ],
-      "output_source": "KnowledgeVault/replications/bonhomme-robin-noise-robust-svar/figures/fig_br_noise_path_diagnostic.png"
+      "output_source": "planned manuscript-local simulation"
+    },
+    {
+      "id": "audit:robust-dw-derivation",
+      "type": "audit",
+      "status": "planned",
+      "draft_location": "review-log.md; derivations/dw-noise-robust-moments.md",
+      "description": "Adversarial review of the robust DW derivation, checking cumulant-to-moment algebra, second-moment exclusion, normalization, local rank, global aliases, maintained noise assumptions, and bias language.",
+      "depends_on": [
+        "prop:robust-dw-higher-moment-validity"
+      ],
+      "source": "manuscript/task-board.md"
+    },
+    {
+      "id": "audit:dw-noise-simulation-design",
+      "type": "audit",
+      "status": "planned",
+      "draft_location": "review-log.md",
+      "description": "Adversarial review of simulation design and interpretation for noisy sign-set bias, standard DW false sharpening, and robust DW comparison.",
+      "depends_on": [
+        "prop:dw-robust-comparison-diagnostic",
+        "fig:sign-noise-geometry",
+        "fig:standard-dw-false-sharpening",
+        "fig:dw-robust-set-comparison"
+      ],
+      "source": "manuscript/task-board.md"
     }
   ],
   "open_audits": [
     {
-      "id": "audit:initial-objects",
+      "id": "audit:robust-dw-route-gate",
       "status": "open",
-      "question": "Which planned objects should be promoted into main-text statements after Proposition 2 and the BR-style profiled cumulant results are independently derived, simulated, and adversarially reviewed?"
+      "question": "Does the robust DW higher-moment derivation survive adversarial audit strongly enough to become the constructive method in the paper?"
     },
     {
-      "id": "audit:br-verification-gate",
+      "id": "audit:standard-dw-empty-set-gate",
       "status": "open",
-      "question": "Do analytic derivations and simulations actually verify the BR-style profiled cumulant inversion and mapped noise diagnostic, or should those claims be weakened or removed?"
+      "question": "Can the paper prove the standard DW asymptotic-empty claim under residual noise, or should the claim be weakened to misspecified population objective plus finite-sample false sharpening?"
     },
     {
-      "id": "audit:dw-gaussian-route-gate",
+      "id": "audit:simulation-story-gate",
       "status": "open",
-      "question": "Does the Gaussian-noise DW-like higher-moment derivation survive adversarial audit strongly enough to simplify the paper structure, or should it remain a restricted benchmark beside the broader BR-style observed-residual route?"
+      "question": "Do the planned Monte Carlo figures convincingly show noisy sign-set bias, standard DW false sharpening, and robust DW widening or divergence without overstating diagnostics?"
     }
   ]
 }

@@ -6,6 +6,7 @@ Use this file for actual review passes and resulting decisions.
 
 | Date | Pass | Reviewer | Outcome | Follow-up tasks |
 |---|---|---|---|---|
+| 2026-06-06 | robust DW plan pivot | Codex planning review | Active manuscript plan now centers on noisy sign-set bias, standard DW misspecification/false sharpening, robust DW higher moments that drop second moments, and Monte Carlo overlap/divergence evidence. Previous constructive-route labels were removed from active planning surfaces. | Audit the robust DW derivation; prove or weaken standard-DW asymptotic emptiness; design geometry and Monte Carlo evidence. |
 | 2026-06-05 | BR correction and plan audit | Codex self-review | Earlier plan over-claimed the Bonhomme-Robin connection. Updated plan now treats the bivariate method as BR-style and unverified until derivation and simulation checks pass. | Derive cumulant map; audit derivation; build symbolic, population, and Monte Carlo verification; audit simulation interpretation. |
 | 2026-06-05 | scope and contribution | Codex self-review | Revised first plan from a broader seven-section paper with optional empirical illustration into a shorter theory-and-simulation note. | Keep empirical illustration, dynamic signs, and `K > 2` generalization deferred until Propositions 1-4 and the simulation package are stable. |
 | 2026-06-05 | M06 bivariate cumulant-map audit | Codex adversarial self-review | No coefficient or index errors were found in the expanded second-, third-, and fourth-order cumulant map. The audit corrected classification language so clean mixed third cumulants are not overstated as identifying restrictions after unrestricted `gamma` profiling, and clarified that inequality restrictions on noise moments are diagnostics or admissibility conditions rather than overidentifying equalities. | Use the audited map as a working input for M07 and M09; still derive profiled criteria, local rank, and symbolic/population verification before drafting BR-style result claims. |
@@ -41,9 +42,8 @@ Suggested passes:
 - Citation provenance.
 - Notation and assumptions.
 - Theorem or derivation gaps.
-- BR applicability and nuisance-cumulant treatment.
 - Adversarial derivation audit.
-- DW-like Gaussian-noise route audit.
+- Robust DW route audit.
 - Adversarial simulation audit.
 - Adversarial interpretation/story audit.
 - Simulation or empirical design.

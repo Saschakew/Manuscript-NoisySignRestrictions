@@ -5,107 +5,99 @@ changing section structure or drafting substantial prose.
 
 ## One-Sentence Claim
 
-Sign-restricted SVARs with idiosyncratic residual noise rotate a noisy
-covariance factor rather than the structural covariance, so no-noise
-independence refinements can create false finite-sample precision; the
-constructive claim is a to-be-verified Bonhomme-Robin-style profiled cumulant
-inversion, not a direct import of the full Bonhomme-Robin quasi-JADE theorem.
+Residual noise can bias standard sign-restricted SVAR sets and make
+Drautzburg-Wright-style higher-moment refinement look falsely precise; a
+noise-robust higher-moment set that drops second-moment restrictions should be
+reported beside the standard DW set as a practical robustness check.
 
 ## Paper Contract
 
 - Paper type: short theory-and-simulation note.
-- Scope: bivariate diagonal-normalized impact model in the main text, with
-  dynamic signs and `K > 2` treated as appendix/follow-up.
-- Benchmark or setting: standard sign-restricted covariance rotations and
-  Drautzburg-Wright-style no-noise independence refinement.
-- Candidate simplification under audit: a Gaussian-noise
-  Drautzburg-Wright-like higher-cumulant inversion that drops no-noise
-  covariance restrictions and searches over a normalized impact space.
-- Evidence: formal results plus deterministic geometry and Monte Carlo figures,
-  with the BR-style result gated by independent derivation, population checks,
-  finite-sample simulations, and adversarial reviews.
-- Excluded: first-version empirical application, correlated or serially
-  dependent noise, common stochastic volatility, nonlinear shock models, and a
-  full reusable package implementation.
+- Scope: bivariate impact model in the main text, with dynamic signs and
+  `K > 2` extensions deferred.
+- Benchmark: standard sign-restricted covariance rotations and
+  Drautzburg-Wright-style no-noise higher-moment refinement.
+- Constructive object: robust DW-style higher-moment set over normalized impact
+  matrices, using higher cumulants written as GMM-style moment equations and
+  excluding second moments as structural restrictions.
+- Evidence: intuitive geometry figure, standard DW misspecification figure,
+  robust-DW comparison figure, and Monte Carlo coverage/width/overlap tables.
+- Excluded: first-version empirical application and broad noise models beyond
+  the maintained robust-noise assumptions.
 
 ## Reader Path
 
-1. The reader knows that sign restrictions filter orthogonal rotations of a
-   reduced-form covariance factor and usually leave an admissible set.
+1. The reader knows that sign restrictions filter rotations of a covariance
+   factor and that DW uses higher moments to refine a sign-admissible set.
 2. The problem appears when observed residuals are `B0 epsilon_t + eta_t`:
-   the covariance factor is built from `B0 B0' + V`, so even economically
-   correct signs are imposed on a noisy pseudo-object.
-3. Adding no-noise independence tests helps diagnose misspecification when
-   powerful, but under residual noise the recovered shocks are mixtures of
-   more primitive sources than the model allows; finite samples can leave a
-   narrow least-rejected set.
-4. The paper's move is to separate labeling from denoising, but to verify the
-   denoising logic itself: derive the bivariate cumulant equations, profile
-   nuisance structural and noise cumulants, use signs only to label columns,
-   then map accepted matrices into implied diagonal noise.
-5. The limitation is part of the result: high-order moments can be weak, the
-   diagnostic is conditional on diagonal-noise and normalization assumptions,
-   and honest weak sets are preferable to pseudo-precision.
+   the covariance factor is built from `B0 B0' + V`, so the sign set is already
+   a noisy pseudo-set.
+3. DW-style refinement does not automatically fix this, because recovered
+   shocks from the noisy candidate system are not the structural shocks.
+   Finite samples may produce a narrow least-rejected set that looks efficient
+   but is actually misspecified.
+4. The paper's constructive move is to drop second-moment restrictions and use
+   robust higher-moment restrictions on normalized candidate impacts.
+5. The practical recommendation is simple: report both the standard DW set and
+   the robust DW set. Agreement is reassuring; divergence is a warning that the
+   usual covariance-target refinement should not be trusted.
 
 ## Section Jobs
 
 | Section | Job | Status |
 |---|---|---|
-| Abstract | State the pseudo-set warning, false-precision channel, BR fix, and limitation. | planned |
-| 1. Introduction | Motivate why sign restrictions are qualitative but their covariance factor is not; preview the fair critique and constructive fix. | planned |
-| 2. Noisy Sign Sets | Define the diagonal-noise SVAR and prove the noisy pseudo-set and rescaling obstruction. | planned |
-| 3. No-Noise Independence Refinement | Explain generic failure of recovered-shock independence, the finite-sample least-rejected-region risk, and the candidate Gaussian-noise higher-cumulant repair that avoids no-noise covariance restrictions. | planned |
-| 4. BR-Style Profiled Inversion | Correct the BR analogy, derive the bivariate cumulant system, classify clean versus nuisance moments, and state only verified rank/consistency claims. | planned |
-| 5. Verification And Evidence | Use analytic checks, population grids, finite-sample simulations, and adversarial DGPs before interpreting the noise diagnostic. | planned |
-| 6. Conclusion | State what the paper teaches and what remains outside the maintained model. | planned |
+| Abstract | State noisy sign-set bias, false DW sharpening, robust DW comparison, and no-application scope. | planned |
+| 1. Introduction | Motivate the robustness-check problem and preview the geometry plus Monte Carlo evidence. | planned |
+| 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | planned |
+| 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | planned |
+| 4. Robust DW Higher Moments | Define the robust normalized candidate set, write cumulant restrictions as moment equations, and explain why second moments are dropped. | planned |
+| 5. Monte Carlo Robustness Check | Compare standard sign, standard DW, and robust DW sets across no-noise, noisy, weak-moment, and misspecified cases. | planned |
+| 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
 
 ## Core Formal Objects
 
 - `def:diagonal-noise-svar`
-- `def:noisy-sign-pseudo-set`
-- `def:no-noise-independence-refined-set`
-- `def:br-sign-inverted-set`
-- `def:br-profiled-cumulant-system`
-- `def:mapped-noise-set`
-- `def:restricted-no-noise-j-test`
-- `ass:diagonal-idiosyncratic-noise`
+- `ass:gaussian-residual-noise`
 - `ass:unit-variance-normalization`
-- `ass:br-local-rank`
-- `audit:br-applicability`
-- `audit:br-derivation-adversarial-review`
-- `audit:br-simulation-adversarial-review`
+- `def:noisy-sign-pseudo-set`
+- `def:standard-dw-refined-set`
+- `def:robust-dw-higher-moment-set`
+- `eq:column-rescaling-obstruction`
+- `eq:dw-higher-cumulant-moment-stack`
 - `prop:noisy-sign-pseudo-set`
-- `prop:generic-empty-independence-refinement`
-- `prop:robust-sign-inversion`
-- `prop:consistent-noise-diagnostic`
+- `prop:standard-dw-misspecification`
+- `prop:robust-dw-higher-moment-validity`
+- `prop:dw-robust-comparison-diagnostic`
 - `fig:sign-noise-geometry`
-- `fig:independence-refinement-noise`
-- `fig:br-robust-set-and-noise-map`
-- `fig:noise-path-diagnostic`
+- `fig:standard-dw-false-sharpening`
+- `fig:dw-robust-set-comparison`
+- `table:monte-carlo-coverage-width`
+- `audit:robust-dw-derivation`
+- `audit:dw-noise-simulation-design`
 
-See `formal-object-registry.json` for exact labels, dependencies, locations, and
-proof or output status.
+See `formal-object-registry.json` for exact labels, dependencies, locations,
+and proof or output status.
 
 ## Main Evidence
 
-- Proof of the covariance pseudo-set and generic column-rescaling obstruction.
-- Bivariate Darmois-Skitovich-style proof sketch for generic no-noise
-  independence-refinement failure under extra diagonal noise sources.
-- Self-derived BR-style profiled cumulant map, determinant condition, and local
-  rank condition; do not cite the original BR theorem as the proof.
-- Deterministic sign-noise geometry figure from
-  `replications/svar-noise-recursive-sign-visualization/`.
-- Independence-refinement/noise path figure showing empty-set and
-  noise-dominated reopening behavior.
-- Rebuilt BR-style accepted-set and implied-noise map after symbolic,
-  population, and finite-sample verification.
-- Weak-cumulant or small-sample stress figure/table to prevent the simulation
-  section from reading as a victory lap.
+- Intuitive sign-noise geometry figure showing covariance deformation and
+  sign-set bias.
+- Algebraic proof of the covariance pseudo-set and column-rescaling
+  obstruction.
+- Proof or carefully bounded conjecture that standard DW recovered-shock
+  restrictions are misspecified under residual noise, with asymptotic emptiness
+  checked later.
+- Derivation of the robust higher-moment stack from
+  `derivations/dw-noise-robust-moments.md`.
+- Monte Carlo comparison of standard sign, standard DW, and robust DW sets.
+- Stress cases that show honest widening, weak-moment uncertainty, and
+  divergence diagnostics.
 
 ## Current Bottlenecks
 
-- The next writing pass should not start with prose polish. It should first
-  adversarially audit the new DW-like Gaussian-noise higher-moment derivation
-  and attack the BR applicability note, then decide whether the constructive
-  paper route is a restricted Gaussian-noise DW-style system, a broader
-  BR-style observed-residual system, or both.
+- The plan is now pivoted, but the robust DW derivation needs adversarial audit
+  before becoming a theorem.
+- The standard DW asymptotic-empty claim under residual noise is still a
+  conjecture to prove or weaken.
+- The first figure and Monte Carlo design need to be specified before drafting
+  polished prose.

@@ -12,7 +12,7 @@
         "type": "vault-path",
         "path_or_url": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md",
         "title": "Research proposal - noise-robust sign-restricted SVARs",
-        "note": "Initial proposal note supplied by the user. It defines the paper's warning about noisy sign-restricted pseudo-sets, the finite-sample risk in no-noise independence refinements, and the now-to-be-verified Bonhomme-Robin-style profiled cumulant inversion."
+        "note": "Initial proposal note supplied by the user. The active paper now uses its warning about noisy sign-restricted pseudo-sets and the finite-sample risk in no-noise Drautzburg-Wright refinements, then develops a robust DW higher-moment comparison set."
       }
     ]
   },

@@ -9,20 +9,18 @@ verification.
 |---|---|---|---|---|
 | LS01 | done | What vault note contains the originating research idea? | User supplied `vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md`. | Proposal located and used as source packet priority 1. |
 | LS02 | done | Which sources define standard sign-restricted SVAR geometry and reporting risks? | `Sign and narrative restrictions in SVARs`; Kilian-Lutkepohl Chapter 13; ARRW sign-zero inference. | Use for background and to avoid treating accepted shares, medians, or penalty selections as structural learning. |
-| LS03 | done | What is the closest no-noise independence-refinement comparator? | Drautzburg-Wright note and related higher-moment cluster. | Use as the fair target: valid test inversion under its maintained no-noise null. |
-| LS04 | done | Which source provides the noise-robust cumulant logic? | Bonhomme-Robin noisy ICA; BR SVAR synthesis; noisy-residual synthesis. | Use for the constructive method section. |
-| LS05 | done | Which sources provide higher-moment caution and finite-sample warnings? | Lewis review; Montiel Olea-Plagborg-Moller-Qian; Guay; Keweloh. | Use to frame weak moment relevance and bootstrap/stress-case evidence. |
-| LS06 | todo | Does the final paper need an empirical illustration? | Search sign-restricted applications with small data and existing vault notes. | Deferred until formal results and simulations are stable. |
-| LS07 | done | What changed after the corrected Bonhomme-Robin notes? | Updated `Bonhomme-Robin noise-robust SVAR moment inversion.md` and `Consistent noisy independent component analysis.md`. | The plan now treats the bivariate method as a BR-style profiled cumulant inversion requiring independent derivation and simulation verification. |
+| LS03 | done | What is the closest no-noise higher-moment refinement comparator? | Drautzburg-Wright note and related higher-moment cluster. | Use as the fair target: valid test inversion under its maintained no-noise null. |
+| LS04 | done | Which sources provide noisy covariance/sign-set geometry? | Noisy-residual synthesis and proposal note. | Use for pseudo-set algebra, sign-boundary movement, and the intuitive first figure. |
+| LS05 | done | Which sources provide higher-moment caution and finite-sample warnings? | Lewis review; Montiel Olea-Plagborg-Moller-Qian; Guay; Keweloh. | Use to frame weak moments, bootstrap/stress-case evidence, and GMM implementation choices. |
+| LS06 | todo | Does the final paper need an empirical illustration? | Search sign-restricted applications with small data and existing vault notes. | Deferred; no application in the first version. |
+| LS08 | todo | What primary source should support the standard-DW asymptotic-empty proof if Darmois-Skitovich is used? | Darmois-Skitovich theorem; higher-moment independence sources. | Needed only if Proposition 2 uses that theorem directly. |
 
 ## Candidate Sources
 
 | Source | Why inspect it? | Status | Citation key |
 |---|---|---|---|
 | Research proposal - noise-robust sign-restricted SVARs | Originating plan and claims. | inspected | n/a |
-| Noisy residuals in recursive and sign-restricted SVARs | Algebra for pseudo covariance target and sign geometry. | inspected | n/a |
-| Bonhomme-Robin noise-robust SVAR moment inversion | Corrected profiled cumulant source and diagnostic caution. | reinspected after correction | n/a |
-| Consistent noisy independent component analysis | Noisy-ICA ancestor; clarifies BR error-cumulant identification, subtraction, and theorem limits. | reinspected after correction | `bonhomme2009ConsistentNoisyIndependentComponent` |
+| Noisy residuals in recursive and sign-restricted SVARs | Algebra for pseudo covariance target, sign geometry, and independence-refinement failure modes. | inspected | n/a |
 | Refining set-identification in VARs through independence | Main no-noise comparator. | inspected | `drautzburg2023RefiningSetIdentificationVars` |
 | Structural VAR Analysis Chapter 13 | Sign-restriction method and reporting cautions. | inspected | `kilian2016StructuralVectorAutoregressiveAnalysis93b03b` |
 | ARRW sign-zero inference | Set-inference and penalty-function warning. | inspected | `arias2018InferenceBasedStructuralVector` |
@@ -33,22 +31,19 @@ verification.
 
 ## Citation Gaps
 
-- Need exact primary citation for the Darmois-Skitovich theorem if Proposition
-  2 uses it directly rather than through the vault's higher-moment notes.
+- Need exact primary citation for the Darmois-Skitovich theorem if the standard
+  DW misspecification result uses it directly.
 - Need decide whether to cite the Keweloh-Wang mean-independence extension in
-  the main text or leave it as a literature-search footnote/deferred contrast.
+  the main text or leave it as a deferred contrast.
 - Need verify if a final empirical illustration adds application-specific
-  sources and data provenance.
-- Need primary-theorem-level confirmation of Bonhomme-Robin's clean-pair rank
-  requirement if the paper quotes the `J=1<K=2` limitation directly.
-- Need manuscript-local derivation evidence before treating the BR-style
-  profiled inversion as a source-backed result.
+  sources and data provenance; first version currently excludes applications.
+- Need source support or original derivation for the exact finite-sample DW
+  moment stack used in the simulations.
 
 ## BibTeX Verification
 
 | Citation key | Source checked | Status | Notes |
 |---|---|---|---|
-| `bonhomme2009ConsistentNoisyIndependentComponent` | Vault BibTeX and paper note | verified | Copied to `bibliography/references.bib`. |
 | `drautzburg2023RefiningSetIdentificationVars` | Vault BibTeX and paper note | verified | Copied to `bibliography/references.bib`. |
 | `kilian2016StructuralVectorAutoregressiveAnalysis93b03b` | Vault BibTeX and paper note | verified | Copied to `bibliography/references.bib`. |
 | `arias2018InferenceBasedStructuralVector` | Vault BibTeX and paper note | verified | Copied to `bibliography/references.bib`. |

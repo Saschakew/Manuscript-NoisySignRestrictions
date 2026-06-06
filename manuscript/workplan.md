@@ -2,15 +2,15 @@
 
 ## Current Stage
 
-Initialized and scoped, with a corrected Bonhomme-Robin verification layer and
-a newly derived Gaussian-noise DW-like higher-moment candidate route.
-The manuscript has a validated KnowledgeVault link, source packet, revised
-paper plan, paper map, first formal-object registry, first bibliography
-snapshot, an audited working bivariate cumulant map, and a working derivation
-of a normalized sign-plus-higher-cumulant system robust to Gaussian residual
-noise. BR-style claims still need an adversarial applicability review,
-profiled criteria, local rank derivation, and simulation verification; the
-DW-like Gaussian route needs its own audit before it can reshape the paper.
+Initialized, scoped, and pivoted to the robust DW comparison paper. The
+manuscript has a validated KnowledgeVault link, a refreshed source packet, a
+new paper plan/map, a working robust-DW derivation, and a task queue centered
+on proof audit and simulation evidence.
+
+The active paper no longer treats the previous constructive route as part of
+the main plan. The first version is a short theory-and-simulation note about
+noisy sign-set bias, standard Drautzburg-Wright false-sharpening, and a robust
+DW higher-moment comparison set.
 
 ## Milestones
 
@@ -18,52 +18,52 @@ DW-like Gaussian route needs its own audit before it can reshape the paper.
 |---|---|---|
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
-| M3. Formal/evidence plan | doing | Core objects are listed, the bivariate cumulant map is audited, the BR-style applicability boundary is documented, and the DW-like Gaussian-noise higher-moment route is derived as a candidate; next exit requires adversarial comparison of the DW and BR routes, profiled criteria or local rank derivations for the chosen route, and a verified simulation plan. |
-| M4. First complete draft | todo | All sections have coherent prose and source trails. |
-| M5. Reproducibility package | todo | Final figures/tables can be regenerated. |
-| M6. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
+| M3. Pivot to robust DW plan | doing | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
+| M4. Formal result package | todo | Noisy sign-set proposition, standard-DW misspecification result, robust-DW validity result, and comparison diagnostic are stated and audited. |
+| M5. Evidence package | todo | Intuitive figure, population grids, and Monte Carlo figures/tables are specified and verified. |
+| M6. First complete draft | todo | All sections have coherent prose and source trails. |
+| M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
+| M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
 
 ## Review Plan
 
-1. Scope and contribution: verify that the paper is a short
-   theory-and-simulation note, not a broad higher-moment SVAR survey.
-2. Notation and assumptions: audit the diagonal-noise model, unit-variance
-   normalization, independence assumptions, and sign-labeling conventions.
-3. BR applicability review: check that the manuscript never presents the
-   bivariate profiled inversion as a direct application of Bonhomme-Robin's
-   full quasi-JADE theorem.
-4. Theorem and derivation gaps: check the rescaling obstruction, generic
-   independence-refinement failure, profiled cumulant rank condition, nuisance
-   treatment, and noise diagnostic.
-5. Derivation adversary: after each proposed result, deliberately search for
-   undefined objects, hidden normalizations, invalid rank claims, logical
-   leaps, and algebraic sign mistakes.
-6. Evidence design: ensure the simulations include weak or inconclusive cases,
-   not only favorable BR recoveries.
-7. Simulation adversary: before accepting any figure, check whether the code,
-   DGP, grids, critical values, or moment estimators could make the result look
-   correct even if the theory is wrong.
-8. Interpretation adversary: after every figure, ask whether the story is
-   actually convincing, whether the conclusion is too strong, and whether a
-   skeptical reader would see an alternative explanation.
+1. Scope and contribution: verify that the paper is a robustness-check note,
+   not a broad higher-moment SVAR survey.
+2. Notation and assumptions: audit the additive-noise model, unit-variance
+   normalization, Gaussian-noise condition for robust transformed cumulants,
+   and sign-labeling conventions.
+3. Noisy sign-set review: check the covariance pseudo-set, column-rescaling
+   obstruction, and intuition in the first figure.
+4. Standard-DW misspecification review: prove or weaken the claim that the
+   population DW set becomes empty under residual noise; list special cases.
+5. Robust-DW derivation review: check cumulant-to-moment algebra, fourth-order
+   covariance subtractions, local rank, scale loss, and finite-sample bias
+   wording.
+6. Diagnostic interpretation review: verify that DW-versus-robust-DW
+   divergence is described as a warning, not proof of literal measurement
+   error.
+7. Evidence design: ensure simulations include no-noise agreement, noisy
+   disagreement, weak-moment widening, and misspecified robust-noise cases.
+8. Simulation adversary: before accepting any figure, check whether the DGP,
+   grids, critical values, cumulant estimators, or plotting choices could make
+   the result look correct even if the theory is wrong.
 9. Citation provenance: map every prior-work paragraph to a vault source and
    mark original contributions clearly.
 10. Reproducibility package: make final figures rebuildable without a local
    KnowledgeVault dependency.
-11. Literature positioning: keep Drautzburg-Wright framed as a valid
-   no-noise test inversion and explain exactly where this paper differs,
-   including the difference between invalid no-noise covariance whitening under
-   residual noise and a Gaussian-noise higher-cumulant adaptation.
-12. Reader path: make sure the constructive fix arrives before the warning feels
-   like a purely negative paper.
+11. Literature positioning: keep Drautzburg-Wright framed as valid under its
+   maintained no-noise null and define this paper as a residual-noise
+   robustness check.
+12. Reader path: make sure the constructive robust set arrives before the
+   warning feels like a purely negative critique.
 
 ## Deferred Extensions
 
 - Empirical illustration or diagnostic rereading of a published sign-restricted
   SVAR.
-- `K > 2` general implementation of a verified BR-style profiled cumulant
-  inversion.
+- `K > 2` general implementation in the main text.
 - Dynamic sign restrictions and IRF-horizon sign sets in the main text.
-- Correlated, serially dependent, or common-factor residual noise.
-- Combining the robust inversion with external instruments or narrative
+- Correlated, serially dependent, common-factor, or stochastic-volatility
+  residual noise.
+- Combining the robust comparison with external instruments or narrative
   restrictions.

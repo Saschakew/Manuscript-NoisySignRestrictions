@@ -6,44 +6,37 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: initialized, scoped, and comparing constructive routes.
+Current stage: active paper pivoted to the robust DW comparison design.
 
-Current focus: adversarially audit the new Gaussian-noise DW-like
-higher-moment route and compare it with the broader BR-style
-observed-residual route before changing the paper structure.
+Current focus: cleanly develop the paper as a noisy sign-set warning plus a
+Drautzburg-Wright versus robust-DW robustness check.
 
-Next recommended action: start M23 by attacking
-`manuscript/derivations/dw-noise-robust-moments.md`, especially the
-cumulant-to-moment algebra, the claim that second moments are only nuisance
-ingredients, the scale normalization, and the local-rank argument. Then run M08
-on the BR applicability argument so the manuscript can choose the right
-constructive route.
+Next recommended action: start M24 by adversarially auditing
+`manuscript/derivations/dw-noise-robust-moments.md`. Check the
+cumulant-to-moment algebra, second-moment exclusion, normalization and scale
+loss, local rank, exact Gaussian-noise condition, and finite-sample bias
+wording. Then run M25 to prove or weaken the standard-DW asymptotic-empty
+claim under residual-noise misspecification.
 
-Active milestone: none. M0010 is closed, committed, tagged, pushed, and its
+Active milestone: none. M0011 is closed, committed, tagged, pushed, and its
 GitHub milestone is closed.
 
 Active blockers:
 
-- Proposition 2 needs a careful genericity statement and explicit special
-  cases.
-- Proposition 3 needs exact regularity conditions, critical-value choice, and
-  proof target.
-- The corrected KnowledgeVault notes show that the original Bonhomme-Robin
-  theorem does not mechanically cover the bivariate `L=K=2` SVAR; the
-  applicability note documents this boundary, but it still needs adversarial
-  attack before M09 builds criteria on it.
-- The Gaussian-noise DW-like route is only a working derivation. It must be
-  audited before the paper treats it as a cleaner replacement for the BR-style
-  observed-residual route.
-- Evidence scripts must be wrapped under `manuscript/replication/` before the
-  paper is shareable.
-- The first draft should wait until formal statements and source trails are
-  stable enough to prevent later rewrites.
+- The robust DW derivation is a working note and needs adversarial audit before
+  becoming a manuscript theorem.
+- The claim that standard DW sets become asymptotically empty under residual
+  noise needs proof or careful weakening.
+- The intuitive sign-noise figure and Monte Carlo design are not yet specified.
+- The robust-DW simulation code must be wrapped under `manuscript/replication/`
+  before the paper is shareable.
+- The first draft should wait until the new formal statements and evidence plan
+  are stable enough to prevent another structural rewrite.
 
-Last substantive session: 2026-06-06, derived a Gaussian-noise
-Drautzburg-Wright-like higher-cumulant route that avoids no-noise covariance
-restrictions, writes fourth cumulants as moment equations with nuisance
-covariance products, and records local bivariate rank conditions.
+Last substantive session: 2026-06-06, pivoted the active paper plan to the
+robust DW comparison design: biased noisy sign sets, standard DW
+false-sharpening under residual noise, robust DW higher moments that drop
+second moments, and Monte Carlo overlap/divergence evidence.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.
@@ -81,10 +74,9 @@ verifying the M0005 transparency snapshot and GitHub milestone closure.
   commits, and milestone tags.
 - Keep KnowledgeVault links explicit in working notes, not hidden in prose.
 - One paper should carry one central idea.
-- Keep the first version bivariate and theory/simulation focused; empirical
-  illustration is optional after the core is stable.
-- Treat BR-style inversion claims as unverified until analytic derivations,
-  simulations, and adversarial reviews support them.
+- The first version is theory/simulation only; no application for now.
+- Treat the robust DW route as a candidate theorem until audit and simulations
+  support it.
 - Every non-original claim needs a source trail or citation.
 - Every original contribution should be marked as such in prose or provenance.
 - Final figures, tables, and replication outputs should be reproducible from

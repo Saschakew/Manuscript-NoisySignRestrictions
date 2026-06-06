@@ -24,50 +24,58 @@ replication/
   output/
 ```
 
-## Commands
-
-Planned final command:
+## Planned Final Command
 
 ```powershell
 python run_all.py
 ```
 
-Initial source assets to inspect, but not yet trust as final evidence:
+Optional staged commands:
 
 ```powershell
-python replications/bonhomme-robin-noise-robust-svar/br_noise_robust_svar.py --figures --test
-python replications/svar-noise-recursive-sign-visualization/noisy_svar_visuals.py --figures --test
-```
-
-Those commands currently live in KnowledgeVault and should become
-manuscript-local wrappers or copied release scripts before this repository is
-shared.
-
-## Bonhomme-Robin Verification Commands To Build
-
-The corrected source packet requires a three-layer verification package before
-the BR-style results are used in the manuscript:
-
-```powershell
-python run_all.py --stage symbolic
+python run_all.py --stage geometry
 python run_all.py --stage population
 python run_all.py --stage monte-carlo
 ```
 
-Planned checks:
+## Evidence To Build
 
-- symbolic or exact numerical checks for the bivariate cumulant equations;
-- population-grid checks showing the criterion is zero at truth, separates
-  false candidates under the rank condition, and becomes weak at rank failure;
-- finite-sample Monte Carlo checks with repeated samples or bootstrap critical
-  values;
-- adversarial DGPs: weak/zero fourth cumulants, Gaussian structural shocks,
-  high diagonal noise, non-diagonal noise, mis-normalized shocks, negative
-  implied variance regions, and noise restrictions that make pure moments
-  misleading;
-- a code-review checklist that verifies seeds, normalization, cumulant
-  estimators, objective scaling, grids, and interpretation before figures move
-  into `draft.md`.
+The active paper needs a three-layer evidence package:
+
+1. Geometry: a bivariate figure showing how additive residual noise changes
+   the covariance ellipse, shifts sign boundaries, and biases the standard
+   sign-restricted set.
+2. Population grids: deterministic checks comparing the standard sign set,
+   standard DW refined set, and robust DW higher-moment set under no-noise and
+   noisy DGPs.
+3. Monte Carlo: finite-sample repeated-sample or bootstrap evidence showing
+   coverage, width, empty-set frequency, and standard-DW versus robust-DW
+   overlap or divergence.
+
+Initial KnowledgeVault asset to inspect, but not yet trust as final evidence:
+
+```powershell
+python replications/svar-noise-recursive-sign-visualization/noisy_svar_visuals.py --figures --test
+```
+
+That command currently lives in KnowledgeVault and should become a
+manuscript-local wrapper or copied release script before this repository is
+shared.
+
+## Planned Checks
+
+- verify the noisy sign-set geometry against analytic covariance formulas;
+- verify standard DW population moments at truth under no noise and under
+  residual noise;
+- verify robust DW higher-cumulant moments at truth under the maintained
+  robust-noise condition;
+- verify that the robust DW set widens or remains honest under weak higher
+  moments;
+- stress DGPs with high noise, near-Gaussian structural shocks, non-diagonal
+  noise, non-Gaussian residual noise if the robust route assumes Gaussian
+  noise, near-boundary signs, and small macro samples;
+- audit seeds, normalization, cumulant estimators, objective scaling, grids,
+  critical values, and interpretation before figures move into `draft.md`.
 
 ## `svar-python` Dependency
 

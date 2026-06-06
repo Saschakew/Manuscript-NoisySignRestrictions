@@ -3,8 +3,8 @@
 Status: working derivation for manuscript design. This note derives a
 Drautzburg-Wright-like higher-moment route that is robust to additive Gaussian
 residual noise. It deliberately separates this route from the no-noise
-covariance-whitened independence refinement and from the more general
-Bonhomme-Robin-style observed-residual cumulant route.
+covariance-whitened independence refinement and keeps broader non-Gaussian
+noise extensions outside the active paper.
 
 Purpose: answer whether sign restrictions plus higher-order moment conditions
 can target the structural impact matrix when residuals contain additive noise.
@@ -472,10 +472,9 @@ This gives two sign-plus-higher-moment approaches:
    restrictions, so it is less efficient but robust to unknown additive
    Gaussian noise.
 
-This route is not a replacement for the BR-style observed-residual cumulant
-route under unrestricted non-Gaussian diagonal noise. If `eta_t` is
-non-Gaussian, then `B^{-1}\eta_t` generally has nonzero mixed higher cumulants
-after transformation, and the DW-like transformed-cumulant restrictions are
-polluted. The BR-style `u`-moment route remains the better-aligned object for
-that broader noise class because it keeps the residual coordinates in which
-diagonal noise is diagonal.
+This route is not a general solution for unrestricted non-Gaussian residual
+noise. If `eta_t` is non-Gaussian, then `B^{-1}\eta_t` generally has nonzero
+mixed higher cumulants after transformation, and the DW-like
+transformed-cumulant restrictions are polluted. The active paper should state
+the maintained robust-noise condition clearly and treat broader noise classes
+as deferred extensions.

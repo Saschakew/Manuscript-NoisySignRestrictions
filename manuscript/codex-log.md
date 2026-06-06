@@ -11,6 +11,28 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - Robust DW plan pivot
+
+- Request: completely update the paper plan around noisy sign-set bias,
+  standard DW false-sharpening under residual noise, a robust DW
+  higher-moment set that drops second moments, and Monte Carlo comparison
+  evidence.
+- Actions taken: rewrote the active paper plan, paper map, draft skeleton,
+  source packet, formal-object registry, dashboard, task board, workplan,
+  citation provenance, literature search, and replication plan around the new
+  robust-DW comparison structure.
+- Files changed: `knowledge-vault-link.json`, `manuscript/source-packet.md`,
+  `manuscript/paper-plan.md`, `manuscript/paper-map.md`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/literature-search.md`,
+  `manuscript/replication/README.md`, `manuscript/draft.md`, logs, and M0011
+  transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed, with the expected
+  warning that M0011 was still open before milestone closure.
+- Open uncertainties: robust DW derivation audit, standard-DW asymptotic-empty
+  proof, intuitive sign-noise figure design, and Monte Carlo implementation.
+
 ### 2026-06-06 - DW-like Gaussian-noise higher moments
 
 - Request: create a derivation file for a Drautzburg-Wright-like
@@ -30,8 +52,8 @@ machine-readable milestone in `transparency/milestones/`.
   warning that M0010 was still open before milestone closure.
 - Open uncertainties: the derivation still needs adversarial audit for
   cumulant-to-moment algebra, normalization, local and global identification,
-  and whether the Gaussian-noise route should replace or accompany the broader
-  BR-style observed-residual route.
+  and whether the Gaussian-noise route can carry the active constructive
+  section.
 
 ### 2026-06-05 - Formal object typography
 

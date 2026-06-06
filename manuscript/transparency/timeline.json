@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T07:28:26Z",
+  "updated_at": "2026-06-06T07:51:48Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -179,6 +179,28 @@
         "milestone_number": 7,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/7",
         "tag_name": "manuscript-milestones/M0010-derive-dw-noise-robust-moments"
+      }
+    },
+    {
+      "id": "M0011-pivot-plan-to-robust-dw",
+      "sequence": 11,
+      "title": "Pivot plan to robust DW",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T07:39:50Z",
+      "closed_at": "2026-06-06T07:51:47Z",
+      "start_commit": "fe7ffddb4a910953afb4737024224d37009fa487",
+      "snapshot_ref": "manuscript-milestones/M0011-pivot-plan-to-robust-dw",
+      "summary": "Pivoted the active manuscript plan to the robust DW comparison structure and removed the old constructive route from active planning surfaces.",
+      "user_input_ids": [
+        "U0011-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0011-pivot-plan-to-robust-dw.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 8,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/8",
+        "tag_name": "manuscript-milestones/M0011-pivot-plan-to-robust-dw"
       }
     }
   ]

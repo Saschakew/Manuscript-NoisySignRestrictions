@@ -8,6 +8,25 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Pivot active plan to robust DW comparison
+
+- Request or goal: completely update the manuscript plan around the new robust
+  DW paper structure and remove the previous constructive route from active
+  planning surfaces.
+- Files changed: `knowledge-vault-link.json`, `manuscript/source-packet.md`,
+  `manuscript/paper-plan.md`, `manuscript/paper-map.md`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/literature-search.md`,
+  `manuscript/replication/README.md`, `manuscript/draft.md`, logs, and M0011
+  transparency files.
+- Summary of work: rewrote the active plan as a noisy sign-set warning plus
+  standard-DW versus robust-DW robustness-check paper, with Monte Carlo
+  evidence and no application in the first version.
+- Next recommended action: audit the robust DW derivation and prove or weaken
+  the standard-DW misspecification/empty-set claim before drafting polished
+  prose.
+
 ### 2026-06-06 - Derive DW-like Gaussian-noise higher moments
 
 - Request or goal: create a new derivation file for a
@@ -23,8 +42,7 @@ For traceable work blocks, pair this human-readable note with a closed
   GMM-style moment equations, shows why second moments remain contaminated by
   noise, and gives bivariate local-rank conditions.
 - Next recommended action: run an adversarial audit of the DW-like route before
-  deciding whether it simplifies the paper structure or remains a restricted
-  benchmark beside the BR-style route.
+  promoting it from working derivation to the active constructive result.
 
 ### 2026-06-05 - Formal object typography rule
 

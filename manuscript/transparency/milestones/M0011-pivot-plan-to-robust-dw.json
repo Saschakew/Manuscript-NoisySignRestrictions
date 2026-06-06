@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "M0011-pivot-plan-to-robust-dw",
+  "sequence": 11,
+  "title": "Pivot plan to robust DW",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T07:39:50Z",
+  "closed_at": "2026-06-06T07:51:47Z",
+  "start_commit": "fe7ffddb4a910953afb4737024224d37009fa487",
+  "snapshot_ref": "manuscript-milestones/M0011-pivot-plan-to-robust-dw",
+  "summary": "Pivoted the active manuscript plan to the robust DW comparison structure and removed the old constructive route from active planning surfaces.",
+  "user_inputs": [
+    {
+      "id": "U0011-001",
+      "milestone_id": "M0011-pivot-plan-to-robust-dw",
+      "captured_at": "2026-06-06T07:39:50Z",
+      "source": "chat",
+      "text": "Update the manuscript plan to the new structure: first show noisy sign-restricted sets are biased with intuitive visualization, then show standard Drautzburg-Wright higher-moment refinements are misspecified under noise and can shrink the set falsely, then propose a robust DW-style higher-moment approach that drops second-moment restrictions, compare DW and robust sets as a robustness check, plan Monte Carlo evidence, defer applications, and remove old Bonhomme-Robin route mentions from the active paper plan and project controls."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0011-001",
+      "milestone_id": "M0011-pivot-plan-to-robust-dw",
+      "captured_at": "2026-06-06T07:51:07Z",
+      "description": "Rewrote the paper plan, paper map, draft skeleton, source packet, dashboard, task board, workplan, registry, citation provenance, literature search, and replication plan around noisy sign-set bias, standard DW false sharpening, robust DW higher moments, and Monte Carlo comparison evidence."
+    },
+    {
+      "id": "A0011-002",
+      "milestone_id": "M0011-pivot-plan-to-robust-dw",
+      "captured_at": "2026-06-06T07:51:07Z",
+      "description": "Removed old constructive-route references from active planning files, the robust-DW derivation note, and the active bibliography snapshot."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T07:51:07Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T07:51:47Z",
+      "description": "python scripts/check_manuscript.py: passed after milestone closure"
+    }
+  ],
+  "changed_files": [
+    "bibliography/references.bib",
+    "knowledge-vault-link.json",
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/dw-noise-robust-moments.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/literature-search.md",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/replication/README.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0011-pivot-plan-to-robust-dw.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 8,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/8",
+    "tag_name": "manuscript-milestones/M0011-pivot-plan-to-robust-dw"
+  }
+}
