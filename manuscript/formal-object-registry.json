@@ -95,6 +95,60 @@
       "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
     },
     {
+      "id": "def:dw-gaussian-noise-higher-moment-set",
+      "type": "definition",
+      "status": "working-derivation",
+      "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#3-no-noise-independence-refinement",
+      "description": "Drautzburg-Wright-like sign-restricted candidate set that searches over a normalized impact space and uses mixed higher cumulants of B^{-1}u, rather than the no-noise covariance factorization, under additive Gaussian residual noise.",
+      "depends_on": [
+        "def:diagonal-noise-svar",
+        "def:no-noise-independence-refined-set"
+      ],
+      "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
+      "verification_status": "M0010 working derivation complete; pending adversarial audit, simulation checks, and paper-structure decision",
+      "source": "vault/papers/Refining set-identification in VARs through independence.md"
+    },
+    {
+      "id": "eq:dw-higher-cumulant-moment-stack",
+      "type": "equation",
+      "status": "working-derivation",
+      "draft_location": "derivations/dw-noise-robust-moments.md",
+      "description": "Moment-equation representation of the DW-like robust stack: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with second moments entering only as nuisance covariance products inside fourth cumulants.",
+      "depends_on": [
+        "def:dw-gaussian-noise-higher-moment-set"
+      ],
+      "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
+      "verification_status": "Pending independent algebra review and population verification",
+      "source": "manuscript/derivations/dw-noise-robust-moments.md"
+    },
+    {
+      "id": "prop:dw-gaussian-noise-local-identification",
+      "type": "proposition",
+      "status": "working-derivation",
+      "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#3-no-noise-independence-refinement",
+      "description": "Working local identification claim: in the bivariate normalized system, mixed higher cumulants of B(a,b)^{-1}u identify (a0,b0) locally under Gaussian residual noise when each structural shock has a nonzero third or fourth cumulant and 1-a0 b0 is nonzero.",
+      "depends_on": [
+        "def:dw-gaussian-noise-higher-moment-set",
+        "eq:dw-higher-cumulant-moment-stack",
+        "ass:unit-variance-normalization"
+      ],
+      "derivation": "manuscript/derivations/dw-noise-robust-moments.md",
+      "proof_status": "working-derivation-pending-audit",
+      "source": "manuscript/derivations/dw-noise-robust-moments.md"
+    },
+    {
+      "id": "audit:dw-noise-robust-moment-route",
+      "type": "audit",
+      "status": "planned",
+      "draft_location": "review-log.md; derivations/dw-noise-robust-moments.md",
+      "description": "Adversarial review of the Gaussian-noise DW-like higher-moment route, checking cumulant-to-moment algebra, second-moment nuisance treatment, normalization, local rank, and whether the route should replace or sit beside the BR-style observed-residual route.",
+      "depends_on": [
+        "def:dw-gaussian-noise-higher-moment-set",
+        "prop:dw-gaussian-noise-local-identification"
+      ],
+      "source": "manuscript/task-board.md"
+    },
+    {
       "id": "def:br-sign-inverted-set",
       "type": "definition",
       "status": "defined-pending-criteria",
@@ -305,6 +359,11 @@
       "id": "audit:br-verification-gate",
       "status": "open",
       "question": "Do analytic derivations and simulations actually verify the BR-style profiled cumulant inversion and mapped noise diagnostic, or should those claims be weakened or removed?"
+    },
+    {
+      "id": "audit:dw-gaussian-route-gate",
+      "status": "open",
+      "question": "Does the Gaussian-noise DW-like higher-moment derivation survive adversarial audit strongly enough to simplify the paper structure, or should it remain a restricted benchmark beside the broader BR-style observed-residual route?"
     }
   ]
 }

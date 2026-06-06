@@ -6,18 +6,21 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: initialized and scoped.
+Current stage: initialized, scoped, and comparing constructive routes.
 
-Current focus: adversarially attack the Bonhomme-Robin applicability argument
-before moving on to profiled criteria and local rank.
+Current focus: adversarially audit the new Gaussian-noise DW-like
+higher-moment route and compare it with the broader BR-style
+observed-residual route before changing the paper structure.
 
-Next recommended action: start M08 by trying to falsify
-`manuscript/derivations/br-applicability.md`, especially the `J=1<K=2` rank
-argument and the claim that the manuscript object must be BR-style rather than
-direct quasi-JADE.
+Next recommended action: start M23 by attacking
+`manuscript/derivations/dw-noise-robust-moments.md`, especially the
+cumulant-to-moment algebra, the claim that second moments are only nuisance
+ingredients, the scale normalization, and the local-rank argument. Then run M08
+on the BR applicability argument so the manuscript can choose the right
+constructive route.
 
-Active milestone: none. M0009 is closed, committed, tagged, and its GitHub
-milestone is closed.
+Active milestone: none. M0010 is closed, committed, tagged, pushed, and its
+GitHub milestone is closed.
 
 Active blockers:
 
@@ -29,14 +32,18 @@ Active blockers:
   theorem does not mechanically cover the bivariate `L=K=2` SVAR; the
   applicability note documents this boundary, but it still needs adversarial
   attack before M09 builds criteria on it.
+- The Gaussian-noise DW-like route is only a working derivation. It must be
+  audited before the paper treats it as a cleaner replacement for the BR-style
+  observed-residual route.
 - Evidence scripts must be wrapped under `manuscript/replication/` before the
   paper is shareable.
 - The first draft should wait until formal statements and source trails are
   stable enough to prevent later rewrites.
 
-Last substantive session: 2026-06-05, documented why Bonhomme-Robin
-quasi-JADE does not directly identify the bivariate `L=K=2` SVAR and defined
-the manuscript object as a BR-style profiled inversion.
+Last substantive session: 2026-06-06, derived a Gaussian-noise
+Drautzburg-Wright-like higher-cumulant route that avoids no-noise covariance
+restrictions, writes fourth cumulants as moment equations with nuisance
+covariance products, and records local bivariate rank conditions.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

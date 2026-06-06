@@ -8,6 +8,24 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Derive DW-like Gaussian-noise higher moments
+
+- Request or goal: create a new derivation file for a
+  Drautzburg-Wright-like approach robust to additive noise.
+- Files changed: `manuscript/derivations/dw-noise-robust-moments.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/project-dashboard.md`, `manuscript/paper-plan.md`,
+  `manuscript/paper-map.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, logs, and M0010 transparency files.
+- Summary of work: derived a Gaussian-noise higher-cumulant system that
+  searches over normalized impact matrices rather than covariance-whitened
+  rotations, writes the third and fourth cumulant restrictions as
+  GMM-style moment equations, shows why second moments remain contaminated by
+  noise, and gives bivariate local-rank conditions.
+- Next recommended action: run an adversarial audit of the DW-like route before
+  deciding whether it simplifies the paper structure or remains a restricted
+  benchmark beside the BR-style route.
+
 ### 2026-06-05 - Formal object typography rule
 
 - Request or goal: revise the manuscript writing rules for formal statements

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "M0010-derive-dw-noise-robust-moments",
+  "sequence": 10,
+  "title": "Derive DW noise-robust moments",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T07:18:48Z",
+  "closed_at": "2026-06-06T07:28:26Z",
+  "start_commit": "20744b879fcdd54b418dc2ad973a7516a3fd8d20",
+  "snapshot_ref": "manuscript-milestones/M0010-derive-dw-noise-robust-moments",
+  "summary": "Derived a Gaussian-noise DW-like higher-moment route and recorded it as a candidate manuscript structure alongside the BR-style route.",
+  "user_inputs": [
+    {
+      "id": "U0010-001",
+      "milestone_id": "M0010-derive-dw-noise-robust-moments",
+      "captured_at": "2026-06-06T07:18:48Z",
+      "source": "chat",
+      "text": "Create a new derivation file that derives a Drautzburg-Wright-like higher-moment approach robust to additive noise, shows higher moments or cumulants can be written as moment conditions robust to Gaussian noise while second moments are not robust, and contrasts an incorrect no-noise sign-plus-higher-moment approach with a noise-robust higher-moment approach that sacrifices second-moment information."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0010-001",
+      "milestone_id": "M0010-derive-dw-noise-robust-moments",
+      "captured_at": "2026-06-06T07:27:27Z",
+      "description": "Created manuscript/derivations/dw-noise-robust-moments.md with the noisy DW system, robust higher-cumulant moment stack, second-moment failure, bivariate local-rank derivation, and efficiency caveat."
+    },
+    {
+      "id": "A0010-002",
+      "milestone_id": "M0010-derive-dw-noise-robust-moments",
+      "captured_at": "2026-06-06T07:27:27Z",
+      "description": "Updated the formal registry, paper plan, paper map, dashboard, task board, workplan, and logs to mark the route as a working derivation pending adversarial audit."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T07:27:27Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T07:28:26Z",
+      "description": "python scripts/check_manuscript.py: passed after milestone closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/dw-noise-robust-moments.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0010-derive-dw-noise-robust-moments.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 7,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/7",
+    "tag_name": "manuscript-milestones/M0010-derive-dw-noise-robust-moments"
+  }
+}

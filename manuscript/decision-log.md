@@ -5,6 +5,29 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Treat Gaussian-noise DW-like moments as a candidate route
+
+- Origin: user-originated
+- User input id: U0010
+- Codex role: derived and logged
+- Decision: Add a derivation for a Gaussian-noise
+  Drautzburg-Wright-like higher-cumulant route, while keeping it as a
+  candidate structure until adversarial audit. The route drops no-noise
+  covariance whitening, searches over a normalized impact space, and uses
+  mixed higher cumulants of `B^{-1}u` written as GMM-style moment equations.
+- Rationale: Under Gaussian additive residual noise, higher cumulants of
+  candidate transformed residuals are not shifted by the noise, but second
+  moments are shifted. This gives a cleaner restricted alternative to the
+  broader BR-style observed-residual route, at the cost of assuming Gaussian
+  noise and discarding structural second-moment information.
+- Alternatives considered: continuing only with the BR-style observed-residual
+  cumulant route, or treating standard no-noise DW covariance whitening as
+  valid under residual noise.
+- Consequence for next work: Audit the new derivation, especially the
+  cumulant-to-moment algebra, scale normalization, local rank conditions,
+  finite-sample bias wording, and whether this route should replace or sit
+  beside the BR-style section.
+
 ### 2026-06-05 - Formal object typography and proof endings
 
 - Origin: user-originated

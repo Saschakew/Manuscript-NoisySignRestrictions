@@ -43,6 +43,7 @@ Suggested passes:
 - Theorem or derivation gaps.
 - BR applicability and nuisance-cumulant treatment.
 - Adversarial derivation audit.
+- DW-like Gaussian-noise route audit.
 - Adversarial simulation audit.
 - Adversarial interpretation/story audit.
 - Simulation or empirical design.

@@ -2,12 +2,15 @@
 
 ## Current Stage
 
-Initialized and scoped, with a corrected Bonhomme-Robin verification layer.
+Initialized and scoped, with a corrected Bonhomme-Robin verification layer and
+a newly derived Gaussian-noise DW-like higher-moment candidate route.
 The manuscript has a validated KnowledgeVault link, source packet, revised
 paper plan, paper map, first formal-object registry, first bibliography
-snapshot, and an audited working bivariate cumulant map. BR-style claims still
-need an adversarial applicability review, profiled criteria, local rank
-derivation, and simulation verification.
+snapshot, an audited working bivariate cumulant map, and a working derivation
+of a normalized sign-plus-higher-cumulant system robust to Gaussian residual
+noise. BR-style claims still need an adversarial applicability review,
+profiled criteria, local rank derivation, and simulation verification; the
+DW-like Gaussian route needs its own audit before it can reshape the paper.
 
 ## Milestones
 
@@ -15,7 +18,7 @@ derivation, and simulation verification.
 |---|---|---|
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
-| M3. Formal/evidence plan | doing | Core objects are listed, the bivariate cumulant map is audited, and the BR-style applicability boundary is documented; next exit requires adversarial applicability review, profiled criteria, local rank derivation, and a verified simulation plan. |
+| M3. Formal/evidence plan | doing | Core objects are listed, the bivariate cumulant map is audited, the BR-style applicability boundary is documented, and the DW-like Gaussian-noise higher-moment route is derived as a candidate; next exit requires adversarial comparison of the DW and BR routes, profiled criteria or local rank derivations for the chosen route, and a verified simulation plan. |
 | M4. First complete draft | todo | All sections have coherent prose and source trails. |
 | M5. Reproducibility package | todo | Final figures/tables can be regenerated. |
 | M6. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
@@ -48,7 +51,9 @@ derivation, and simulation verification.
 10. Reproducibility package: make final figures rebuildable without a local
    KnowledgeVault dependency.
 11. Literature positioning: keep Drautzburg-Wright framed as a valid
-   no-noise test inversion and explain exactly where this paper differs.
+   no-noise test inversion and explain exactly where this paper differs,
+   including the difference between invalid no-noise covariance whitening under
+   residual noise and a Gaussian-noise higher-cumulant adaptation.
 12. Reader path: make sure the constructive fix arrives before the warning feels
    like a purely negative paper.
 

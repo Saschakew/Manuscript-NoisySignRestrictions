@@ -18,6 +18,9 @@ inversion, not a direct import of the full Bonhomme-Robin quasi-JADE theorem.
   dynamic signs and `K > 2` treated as appendix/follow-up.
 - Benchmark or setting: standard sign-restricted covariance rotations and
   Drautzburg-Wright-style no-noise independence refinement.
+- Candidate simplification under audit: a Gaussian-noise
+  Drautzburg-Wright-like higher-cumulant inversion that drops no-noise
+  covariance restrictions and searches over a normalized impact space.
 - Evidence: formal results plus deterministic geometry and Monte Carlo figures,
   with the BR-style result gated by independent derivation, population checks,
   finite-sample simulations, and adversarial reviews.
@@ -51,7 +54,7 @@ inversion, not a direct import of the full Bonhomme-Robin quasi-JADE theorem.
 | Abstract | State the pseudo-set warning, false-precision channel, BR fix, and limitation. | planned |
 | 1. Introduction | Motivate why sign restrictions are qualitative but their covariance factor is not; preview the fair critique and constructive fix. | planned |
 | 2. Noisy Sign Sets | Define the diagonal-noise SVAR and prove the noisy pseudo-set and rescaling obstruction. | planned |
-| 3. No-Noise Independence Refinement | Explain generic failure of recovered-shock independence and the finite-sample least-rejected-region risk. | planned |
+| 3. No-Noise Independence Refinement | Explain generic failure of recovered-shock independence, the finite-sample least-rejected-region risk, and the candidate Gaussian-noise higher-cumulant repair that avoids no-noise covariance restrictions. | planned |
 | 4. BR-Style Profiled Inversion | Correct the BR analogy, derive the bivariate cumulant system, classify clean versus nuisance moments, and state only verified rank/consistency claims. | planned |
 | 5. Verification And Evidence | Use analytic checks, population grids, finite-sample simulations, and adversarial DGPs before interpreting the noise diagnostic. | planned |
 | 6. Conclusion | State what the paper teaches and what remains outside the maintained model. | planned |
@@ -102,5 +105,7 @@ proof or output status.
 ## Current Bottlenecks
 
 - The next writing pass should not start with prose polish. It should first
-  adversarially attack the BR applicability note, then derive the profiled
-  `J_4` and `J_stack` criteria from the audited cumulant map.
+  adversarially audit the new DW-like Gaussian-noise higher-moment derivation
+  and attack the BR applicability note, then decide whether the constructive
+  paper route is a restricted Gaussian-noise DW-style system, a broader
+  BR-style observed-residual system, or both.

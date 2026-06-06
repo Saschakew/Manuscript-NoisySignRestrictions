@@ -10,10 +10,10 @@ Sign restrictions are not automatically robust to residual noise: with
 diagonal idiosyncratic noise, the standard sign-restricted SVAR rotates a noisy
 covariance factor and targets a pseudo-set, while no-noise independence
 refinements can create false finite-sample precision. The constructive part is
-now a conjectured and to-be-verified Bonhomme-Robin-style profiled cumulant
-inversion: stack the bivariate SVAR cumulant equations, profile structural and
-diagonal-noise cumulants, use signs for labels, and test whether the resulting
-diagnostics really distinguish no-noise from noisy residuals.
+now under comparison between two routes: a narrower Gaussian-noise
+Drautzburg-Wright-like higher-cumulant inversion that drops no-noise covariance
+restrictions, and a broader but heavier Bonhomme-Robin-style observed-residual
+profiled cumulant inversion.
 
 ## Why It Matters
 
@@ -27,12 +27,12 @@ least-rejected region of a false no-noise model rather than evidence of sharp
 structural learning.
 
 The constructive value is that the same higher-moment idea may be redirected,
-but only after verification. Bonhomme-Robin do not simply discard pure own
-moments. They identify and subtract error cumulants using clean-pair
-restrictions, then identify loadings from denoised cumulants. In the bivariate
-`L=K=2` SVAR, the original BR theorem does not apply mechanically, so our paper
-must derive the profiled bivariate moment result itself and then check it by
-simulation before relying on it.
+but only after verification. One possible simplification assumes Gaussian
+residual noise: then mixed higher cumulants of candidate transformed residuals
+are not shifted by the noise, while no-noise second-moment restrictions remain
+invalid. The broader route keeps non-Gaussian diagonal noise in view through
+Bonhomme-Robin-style observed-residual cumulants, but that route has a heavier
+derivation burden and cannot rely mechanically on the original BR theorem.
 
 ## Proposed Structure
 
@@ -44,9 +44,11 @@ simulation before relying on it.
    include the positive column-rescaling obstruction.
 3. No-noise independence refinement under residual noise: explain why recovered
    shocks are mixtures of more primitive sources than observed coordinates;
-   state a generic emptiness result and the finite-sample false-precision
-   channel.
-4. Bonhomme-Robin correction and bivariate profiled inversion: explain what BR
+   state a generic emptiness result, the finite-sample false-precision
+   channel, and the Gaussian-noise higher-cumulant repair that avoids using
+   no-noise second moments.
+4. Bonhomme-Robin correction and bivariate profiled inversion: if the broader
+   non-Gaussian-noise route remains in the paper, explain what BR
    actually identify, state why the bivariate SVAR is only BR-style, derive the
    cumulant map, identify which moments restrict `(a,b)` and which profile
    nuisance noise cumulants, and state the rank condition only after proof.
@@ -69,6 +71,10 @@ simulation before relying on it.
   `P_0 P_0' = B0 B0'`, `R(P_0 Q) >= 0`.
 - Independence-refined no-noise set:
   accepted rotations for which `B^{-1} u_t` appears mutually independent.
+- Gaussian-noise DW-like robust set:
+  normalized sign-admissible candidates for which mixed third cumulants and
+  fourth cumulants of `B^{-1}u_t` vanish, with fourth cumulants written as
+  raw-moment equations using covariance terms only as nuisance products.
 - Bivariate robust normalized matrix:
   `B(a,b) = [[1, a], [b, 1]]`.
 - Minimal fourth-cumulant vector:
@@ -95,6 +101,11 @@ simulation before relying on it.
   noise, a K-coordinate demixing generally cannot recover mutually independent
   shocks from 2K primitive sources; finite-sample inversion can still leave a
   narrow least-rejected region.
+- Candidate Proposition 2b, Gaussian-noise higher-cumulant repair: under
+  additive Gaussian residual noise, mixed higher cumulants of `B^{-1}u_t`
+  are not shifted by the noise, while second moments remain contaminated; in
+  the bivariate normalized system, local identification follows when each
+  structural shock has a nonzero third or fourth cumulant.
 - Proposition 3, bivariate profiled cumulant inversion: after we derive it,
   show that the minimal fourth-cumulant system or the stacked profiled system
   contains `B0` under diagonal noise and locally identifies `(a0,b0)` under

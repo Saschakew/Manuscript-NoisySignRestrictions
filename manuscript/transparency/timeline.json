@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-05T21:42:45Z",
+  "updated_at": "2026-06-06T07:28:26Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -157,6 +157,28 @@
         "milestone_number": 6,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/6",
         "tag_name": "manuscript-milestones/M0009-clarify-br-applicability"
+      }
+    },
+    {
+      "id": "M0010-derive-dw-noise-robust-moments",
+      "sequence": 10,
+      "title": "Derive DW noise-robust moments",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T07:18:48Z",
+      "closed_at": "2026-06-06T07:28:26Z",
+      "start_commit": "20744b879fcdd54b418dc2ad973a7516a3fd8d20",
+      "snapshot_ref": "manuscript-milestones/M0010-derive-dw-noise-robust-moments",
+      "summary": "Derived a Gaussian-noise DW-like higher-moment route and recorded it as a candidate manuscript structure alongside the BR-style route.",
+      "user_input_ids": [
+        "U0010-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0010-derive-dw-noise-robust-moments.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 7,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/7",
+        "tag_name": "manuscript-milestones/M0010-derive-dw-noise-robust-moments"
       }
     }
   ]

@@ -11,6 +11,28 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - DW-like Gaussian-noise higher moments
+
+- Request: create a derivation file for a Drautzburg-Wright-like
+  higher-moment approach robust to additive noise, contrasting it with the
+  invalid no-noise second-moment system.
+- Actions taken: created
+  `manuscript/derivations/dw-noise-robust-moments.md`; derived why Gaussian
+  noise drops out of higher cumulants of `B^{-1}u` but not second moments;
+  wrote third and fourth cumulants as moment equations suitable for GMM; and
+  recorded the local bivariate rank condition and efficiency tradeoff.
+- Files changed: `manuscript/derivations/dw-noise-robust-moments.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/project-dashboard.md`, `manuscript/paper-plan.md`,
+  `manuscript/paper-map.md`, `manuscript/task-board.md`,
+  `manuscript/workplan.md`, logs, and the M0010 transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed, with the expected
+  warning that M0010 was still open before milestone closure.
+- Open uncertainties: the derivation still needs adversarial audit for
+  cumulant-to-moment algebra, normalization, local and global identification,
+  and whether the Gaussian-noise route should replace or accompany the broader
+  BR-style observed-residual route.
+
 ### 2026-06-05 - Formal object typography
 
 - Request: update manuscript writing rules for propositions, definitions, and
