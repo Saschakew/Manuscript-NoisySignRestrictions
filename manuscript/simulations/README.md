@@ -5,6 +5,22 @@ Use this folder for exploratory simulation designs and design notes.
 Final shareable code that reproduces manuscript figures and tables belongs in
 `../replication/`.
 
+## M0017 Corrected Sign/DW/Robust-DW Noise Grid
+
+- Script: `sign_dw_robust_noise_grid_figure.py`
+- Note: `sign_dw_robust_noise_grid_figure.md`
+- Output figure: `../figures/fig_sign_dw_robust_noise_grid.png`
+- Command run:
+
+```powershell
+python manuscript\simulations\sign_dw_robust_noise_grid_figure.py
+```
+
+Interpretation: this is the corrected version of the KnowledgeVault B-plane
+figure the user requested. It uses the finite-sample pointwise N-test statistic
+with chi-square cutoffs, not the older artificial fixed score cutoff, and adds
+the robust-DW profiled moment row.
+
 ## M0016 Sign, Standard DW, And Robust DW Noise Figure
 
 - Script: `sign_dw_robust_noise_figure.py`

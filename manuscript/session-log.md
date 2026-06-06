@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Rebuild requested B-plane grid with robust row
+
+- Request or goal: correct the previous figure to match the KnowledgeVault
+  two-row by three-column B-plane figure and add a robust-DW row; use the
+  corrected N-test cutoff rather than the artificial fixed score cutoff.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_robust_noise_grid.png`, planning surfaces,
+  logs, and M0017 transparency files.
+- Summary of work: rebuilt the sign/covariance and standard-DW B-plane rows
+  with `N=500` pointwise chi-square cutoffs, added a robust-DW profiled moment
+  row with the two-degree chi-square guide, and rendered the corrected 3-by-3
+  figure.
+- Next recommended action: use this as the preferred candidate visual and run
+  M28/M29 before finalizing it as manuscript evidence.
+
 ### 2026-06-06 - Replicate sign/DW noise figure and add robust DW
 
 - Request or goal: check the KnowledgeVault synthesis figure on sign

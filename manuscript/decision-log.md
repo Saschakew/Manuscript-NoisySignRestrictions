@@ -5,6 +5,26 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Use N-test cutoffs for the requested grid figure
+
+- Origin: user-originated correction
+- User input id: U0017
+- Codex role: rebuilt the requested B-plane grid figure and added the robust
+  row.
+- Decision: The preferred candidate figure for the sign/DW/robust-DW visual is
+  now the M0017 3-by-3 B-plane grid, not the M0016 three-panel figure. The
+  M0017 figure uses finite-sample pointwise N-test statistics with chi-square
+  cutoffs, rather than the older artificial fixed population-score cutoff.
+- Rationale: The KnowledgeVault synthesis explicitly distinguishes the older
+  fixed-score visual from the corrected finite-sample J/N-test figure. The
+  manuscript visual should use the statistic whose accepted regions have an
+  inferential interpretation.
+- Alternatives considered: keeping the M0016 figure as the main visual, or
+  reproducing the old 2-by-3 grid with the artificial `0.02` cutoff.
+- Consequence for next work: Treat `fig_sign_dw_robust_noise_grid.png` as the
+  preferred candidate, while still requiring M28/M29 checks for population
+  behavior, weak moments, and calibrated critical values.
+
 ### 2026-06-06 - Treat M0016 figure as intuition, not final evidence
 
 - Origin: user-originated

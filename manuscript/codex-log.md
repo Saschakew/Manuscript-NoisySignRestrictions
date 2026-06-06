@@ -11,6 +11,32 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0017 corrected sign/DW/robust-DW grid
+
+- Request: correct the figure to the KnowledgeVault two-row by three-column
+  B-plane layout, with sign restrictions on top, DW below, noise levels by
+  column, and an added robust-DW row; use the corrected N-test cutoff instead
+  of the artificial fixed J-score cutoff.
+- Actions taken: inspected the synthesis sections for the finite-sample
+  pointwise J/N-test cutoffs and the robust profiled moment statistic; created
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`; rendered
+  `manuscript/figures/fig_sign_dw_robust_noise_grid.png`; added the
+  explanatory simulation note and updated the relevant control files.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_noise_grid_figure.md`,
+  `manuscript/figures/fig_sign_dw_robust_noise_grid.png`, planning surfaces,
+  logs, and M0017 transparency files.
+- Checks run: `python
+  manuscript\simulations\sign_dw_robust_noise_grid_figure.py` passed;
+  `python -m py_compile
+  manuscript\simulations\sign_dw_robust_noise_grid_figure.py` passed; formal
+  registry and M0017 manifest JSON validation passed;
+  `python scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning.
+- Open uncertainties: the row cutoffs are pointwise chi-square guides; final
+  evidence still needs M28/M29 checks for population behavior, weak moments,
+  and bootstrap or repeated-sample critical values.
+
 ### 2026-06-06 - M0016 sign/DW/robust-DW candidate figure
 
 - Request: check the KnowledgeVault synthesis page on sign restrictions and
