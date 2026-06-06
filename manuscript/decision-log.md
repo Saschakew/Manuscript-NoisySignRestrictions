@@ -5,6 +5,26 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Treat M29 truth bootstrap as a calibration-cost audit
+
+- Origin: Codex execution of user-requested next task
+- User input id: U0025
+- Codex role: selected the active M29 follow-up, added a truth-point
+  residual-bootstrap cutoff convention, reran the expanded Monte Carlo pass,
+  and updated planning surfaces.
+- Decision: The truth-point residual bootstrap should be treated as an
+  evidence audit, not as the final applied cutoff rule. It restores high-noise
+  truth inclusion for both standard DW and robust DW, but only by widening
+  accepted sets; in the high-noise case, the robust set covers essentially the
+  full plotted chart under the bootstrap convention.
+- Rationale: Under no-noise repeated calibration, the high-noise standard-DW
+  truth-inclusion rate remains about 0.333 while robust DW remains about
+  0.875. Under the truth bootstrap, both reach 1.000, but the high-noise
+  accepted shares are about 0.325 for standard DW and 1.000 for robust DW.
+- Consequence for next work: M29 still needs a larger final run and a
+  calibration convention that is either application-feasible or explicitly
+  presented as an oracle diagnostic before final coverage-style claims.
+
 ### 2026-06-06 - Treat M29 as passed first calibrated evidence gate
 
 - Origin: Codex execution of user-requested next task

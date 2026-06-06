@@ -11,6 +11,33 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0025 M29 truth-bootstrap expansion
+
+- Request: work on the manuscript in goal mode by picking the next task.
+- Actions taken: selected the active M29 follow-up; opened local transparency
+  milestone M0025 and GitHub milestone #22; added a truth-point
+  residual-bootstrap cutoff convention to
+  `manuscript/simulations/m29_calibrated_monte_carlo.py`; ran a smoke test and
+  the default expanded Monte Carlo; regenerated
+  `manuscript/simulations/m29_calibrated_monte_carlo.md` and
+  `manuscript/simulations/output/m29_calibrated_monte_carlo.json`; updated the
+  dashboard, paper plan, paper map, source packet, task board, workplan,
+  formal registry, simulation index, review log, decision log, session log,
+  and Codex log.
+- Files changed: M29 simulation script, M29 Markdown and JSON outputs,
+  planning surfaces, logs, and M0025 transparency files.
+- Checks run: `python -m py_compile
+  manuscript\simulations\m29_calibrated_monte_carlo.py` passed; smoke test
+  passed; `python manuscript\simulations\m29_calibrated_monte_carlo.py`
+  passed with 80 calibration replications, 24 evaluation replications, 40
+  truth-bootstrap replications per evaluation sample, and a 41-by-41 grid;
+  formal registry JSON parse passed; `python scripts/check_manuscript.py`
+  passed.
+- Open uncertainties: M29 is still not final. The truth bootstrap is an oracle
+  calibration-cost audit because it uses true `B0` and can make robust sets
+  nearly uninformative. The next M29 step is a larger final run and a defensible
+  calibration convention.
+
 ### 2026-06-06 - M0024 M29 calibrated Monte Carlo first pass
 
 - Request: work on the manuscript in goal mode by picking the next task.

@@ -8,15 +8,17 @@ KnowledgeVault link: `../knowledge-vault-link.json`
 
 Current stage: figure-led evidence validation after the M0020-corrected noise
 and non-Gaussianity grid pair, with M28 first validation, M27 diagnostic
-formalization, and an M29 calibrated Monte Carlo first pass complete.
+formalization, and an expanded M29 calibrated Monte Carlo pass complete.
 
-Current focus: expand M29 from the first repeated-sample calibration pass into
-a final finite-sample evidence package around the M0020/M28/M27 story.
+Current focus: finish M29 by moving from oracle truth-point calibration audits
+to a final finite-sample evidence package around the M0020/M28/M27 story.
 
-Next recommended action: audit and expand M29. The first pass uses 80
-calibration replications, 24 evaluation replications, a 41-by-41 B-plane grid,
-and three pointwise cutoff conventions. A final table still needs a larger
-run or bootstrap-calibrated critical values before coverage claims become
+Next recommended action: audit the expanded M29 design and decide the final
+calibration rule. The current pass uses 80 calibration replications, 24
+evaluation replications, 40 residual-bootstrap replications per evaluation
+sample, a 41-by-41 B-plane grid, and four pointwise cutoff conventions. A final
+table still needs a larger run and either an application-feasible bootstrap or
+a clearly labeled oracle diagnostic convention before coverage claims become
 draft-level evidence.
 
 Active milestone: none. M0021 records the user decision that the M0020 grid
@@ -27,8 +29,9 @@ Active blockers:
 - The robust DW derivation passed M24 only as a local normalized
   Gaussian-noise result. M27 has formalized the reported set and diagnostic
   language, M28 supports its population truth-inclusion behavior, and M29 now
-  has a first calibrated finite-sample pass. Final evidence still needs a
-  larger or bootstrap-calibrated run.
+  has repeated-sample plus truth-point residual-bootstrap calibration audits.
+  Final evidence still needs a larger run and an application-feasible
+  calibration convention.
 - The M25 standard-DW J-test inversion result is only a working derivation; M28
   supports the high-noise divergence story, but the derivation still needs a
   direct audit before theorem-level prose.
@@ -39,21 +42,25 @@ Active blockers:
   evidence.
 - The intuitive sign/DW/robust-DW evidence now has a selected M0020 visual
   spine, and M28 supports the story on exact population moments, grid-boundary
-  checks, repeated seeds, and pointwise critical-value sensitivity. M29's first
-  pass supports the high-noise divergence story and quantifies a large
-  standard-DW cutoff inflation, but the figures are still not final evidence
-  until the M29 calibration is expanded.
+  checks, repeated seeds, and pointwise critical-value sensitivity. M29's
+  expanded pass supports the high-noise divergence story and quantifies a large
+  standard-DW cutoff inflation; its truth-bootstrap convention restores truth
+  inclusion only by widening the reported sets, so the figures are still not
+  final evidence until a final calibration rule is chosen.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
 - A figure-led section draft should wait until M29 calibrates finite-sample
-  evidence enough to avoid another structural rewrite, though the first-pass
+  evidence enough to avoid another structural rewrite, though the expanded
   reading is now strong enough to outline the evidence subsection.
 
-Last substantive session: 2026-06-06, completed a first M29 calibrated Monte
-Carlo pass. The run reports chi-square, no-noise repeated, and
-scenario-specific oracle truth cutoffs; the high-noise standard-DW cutoff
-inflates from about 8.9 under no-noise calibration to about 31.4 under oracle
-truth calibration, while robust-DW cutoffs remain near 9-10.
+Last substantive session: 2026-06-06, expanded the M29 calibrated Monte Carlo
+pass with a truth-point residual-bootstrap convention. The high-noise
+standard-DW truth inclusion remains 0.292 under the chi-square guide and 0.333
+under no-noise repeated calibration, while robust DW remains 0.917 and 0.875.
+The oracle standard-DW cutoff still inflates from about 8.9 under no-noise
+calibration to about 31.4 under high-noise truth calibration; the
+truth-bootstrap convention restores high-noise truth inclusion for both
+methods but makes the robust set essentially cover the plotted chart.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

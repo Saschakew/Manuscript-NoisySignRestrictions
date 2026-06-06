@@ -8,6 +8,25 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Expand M29 calibrated Monte Carlo evidence
+
+- Request or goal: work on the manuscript in goal mode by picking the next
+  task.
+- Files changed: `manuscript/simulations/m29_calibrated_monte_carlo.py`,
+  `manuscript/simulations/m29_calibrated_monte_carlo.md`,
+  `manuscript/simulations/output/m29_calibrated_monte_carlo.json`, planning
+  surfaces, logs, and M0025 transparency files.
+- Summary of work: selected the active M29 follow-up, added a
+  truth-point residual-bootstrap cutoff convention, reran the expanded
+  calibrated Monte Carlo, and recorded that bootstrap truth inclusion is bought
+  by much wider accepted sets. The high-noise standard-DW truth-inclusion rate
+  remains about 0.333 under no-noise repeated calibration, while robust DW
+  remains about 0.875; under the truth bootstrap both reach 1.000, but the
+  high-noise robust set covers essentially the full plotted chart.
+- Next recommended action: audit the truth-bootstrap design, choose a final
+  calibration convention, and run a larger final M29 table before drafting
+  coverage-style evidence claims.
+
 ### 2026-06-06 - M29 calibrated Monte Carlo first pass
 
 - Request or goal: work on the manuscript in goal mode by picking the next

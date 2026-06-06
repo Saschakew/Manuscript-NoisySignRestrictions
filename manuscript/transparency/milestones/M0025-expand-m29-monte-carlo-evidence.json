@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "id": "M0025-expand-m29-monte-carlo-evidence",
+  "sequence": 25,
+  "title": "Expand M29 Monte Carlo Evidence",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T13:29:08Z",
+  "closed_at": "2026-06-06T13:41:22Z",
+  "start_commit": "ee05807b12b3c385e6ff1c2609b2323acf276aa9",
+  "snapshot_ref": "manuscript-milestones/M0025-expand-m29-monte-carlo-evidence",
+  "summary": "Expanded M29 with a truth-point residual-bootstrap calibration audit and updated evidence status.",
+  "user_inputs": [
+    {
+      "id": "U0025-001",
+      "milestone_id": "M0025-expand-m29-monte-carlo-evidence",
+      "captured_at": "2026-06-06T13:29:08Z",
+      "source": "chat",
+      "text": "Work on manuscript in goal mode; pick the next task and work on it."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0025-001",
+      "milestone_id": "M0025-expand-m29-monte-carlo-evidence",
+      "captured_at": "2026-06-06T13:41:22Z",
+      "description": "Added truth-point residual-bootstrap cutoffs to manuscript/simulations/m29_calibrated_monte_carlo.py."
+    },
+    {
+      "id": "A0025-002",
+      "milestone_id": "M0025-expand-m29-monte-carlo-evidence",
+      "captured_at": "2026-06-06T13:41:22Z",
+      "description": "Regenerated the expanded M29 Markdown and JSON outputs with 80 calibration reps, 24 evaluation reps, 40 bootstrap reps, and a 41-by-41 grid."
+    },
+    {
+      "id": "A0025-003",
+      "milestone_id": "M0025-expand-m29-monte-carlo-evidence",
+      "captured_at": "2026-06-06T13:41:22Z",
+      "description": "Updated planning surfaces, formal registry, simulation index, review log, decision log, session log, and Codex log to record the bootstrap audit boundary."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T13:41:22Z",
+      "description": "python -m py_compile manuscript\\\\simulations\\\\m29_calibrated_monte_carlo.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T13:41:22Z",
+      "description": "python manuscript\\\\simulations\\\\m29_calibrated_monte_carlo.py --calibration-reps 3 --evaluation-reps 2 --bootstrap-reps 3 --grid-points 9: passed"
+    },
+    {
+      "captured_at": "2026-06-06T13:41:22Z",
+      "description": "python manuscript\\\\simulations\\\\m29_calibrated_monte_carlo.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T13:41:22Z",
+      "description": "python -m json.tool manuscript\\\\formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-06T13:41:22Z",
+      "description": "python scripts\\\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/m29_calibrated_monte_carlo.md",
+    "manuscript/simulations/m29_calibrated_monte_carlo.py",
+    "manuscript/simulations/output/m29_calibrated_monte_carlo.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0025-expand-m29-monte-carlo-evidence.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 22,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/22",
+    "tag_name": "manuscript-milestones/M0025-expand-m29-monte-carlo-evidence"
+  }
+}

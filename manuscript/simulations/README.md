@@ -5,7 +5,7 @@ Use this folder for exploratory simulation designs and design notes.
 Final shareable code that reproduces manuscript figures and tables belongs in
 `../replication/`.
 
-## M29 Calibrated Monte Carlo First Pass
+## M29 Calibrated Monte Carlo Expanded Pass
 
 - Script: `m29_calibrated_monte_carlo.py`
 - Note: `m29_calibrated_monte_carlo.md`
@@ -16,17 +16,20 @@ Final shareable code that reproduces manuscript figures and tables belongs in
 python manuscript\simulations\m29_calibrated_monte_carlo.py
 ```
 
-Interpretation: this first M29 pass keeps the M0020/M28 B-plane and reports
-the M27 metric bundle under three pointwise cutoff conventions: the
-chi-square guide, a no-noise repeated-sample calibration applied to every
-scenario, and an oracle scenario-specific truth calibration. The high-noise
-case supports the visual warning: standard DW includes true `B0` in only about
-one third of evaluation samples under the no-noise repeated calibration,
-while robust DW includes it in most samples. The high-noise oracle
-standard-DW cutoff rises sharply, showing the calibration cost of forcing the
-misspecified statistic to cover the truth. This remains a first pass, not the
-final manuscript table; M29 still needs a larger or bootstrap-calibrated
-evidence run before coverage claims are final.
+Interpretation: this expanded M29 pass keeps the M0020/M28 B-plane and reports
+the M27 metric bundle under four pointwise cutoff conventions: the chi-square
+guide, a no-noise repeated-sample calibration applied to every scenario, an
+oracle scenario-specific truth calibration, and a truth-point residual
+bootstrap. The high-noise case supports the visual warning: standard DW
+includes true `B0` in only about one third of evaluation samples under the
+no-noise repeated calibration, while robust DW includes it in most samples.
+The high-noise oracle standard-DW cutoff rises sharply, showing the calibration
+cost of forcing the misspecified statistic to cover the truth. The
+truth-bootstrap convention restores truth inclusion for both methods only by
+widening accepted sets, with the high-noise robust set essentially covering the
+plotted chart. This remains an evidence gate, not the final manuscript table;
+M29 still needs a larger run and a final calibration convention before
+coverage claims are final.
 
 ## M0020 Non-Gaussianity Companion Grid
 

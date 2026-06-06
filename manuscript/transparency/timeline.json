@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T13:13:27Z",
+  "updated_at": "2026-06-06T13:41:22Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -488,6 +488,28 @@
         "milestone_number": 21,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/21",
         "tag_name": "manuscript-milestones/M0024-m29-calibrated-monte-carlo-first-pass"
+      }
+    },
+    {
+      "id": "M0025-expand-m29-monte-carlo-evidence",
+      "sequence": 25,
+      "title": "Expand M29 Monte Carlo Evidence",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T13:29:08Z",
+      "closed_at": "2026-06-06T13:41:22Z",
+      "start_commit": "ee05807b12b3c385e6ff1c2609b2323acf276aa9",
+      "snapshot_ref": "manuscript-milestones/M0025-expand-m29-monte-carlo-evidence",
+      "summary": "Expanded M29 with a truth-point residual-bootstrap calibration audit and updated evidence status.",
+      "user_input_ids": [
+        "U0025-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0025-expand-m29-monte-carlo-evidence.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 22,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/22",
+        "tag_name": "manuscript-milestones/M0025-expand-m29-monte-carlo-evidence"
       }
     }
   ]

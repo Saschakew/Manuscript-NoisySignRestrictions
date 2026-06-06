@@ -6,7 +6,9 @@ bundle under three pointwise critical-value conventions:
 * the chi-square 90 percent guide used in the figures;
 * a no-noise repeated-sample 90 percent calibration applied to all scenarios;
 * an oracle scenario-specific truth calibration, used only as a diagnostic
-  for how much the cutoff must move to keep the true B0 in repeated samples.
+  for how much the cutoff must move to keep the true B0 in repeated samples;
+* a sample-specific residual bootstrap at the true B0, used as an audit of
+  whether bootstrap calibration changes the first-pass reading.
 
 The output is a first evidence pass, not the final replication package.
 """
@@ -109,6 +111,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--sample-size", type=int, default=base.SAMPLE_SIZE)
     parser.add_argument("--calibration-reps", type=int, default=80)
     parser.add_argument("--evaluation-reps", type=int, default=24)
+    parser.add_argument("--bootstrap-reps", type=int, default=40)
     parser.add_argument("--grid-points", type=int, default=41)
     return parser.parse_args()
 
@@ -179,6 +182,25 @@ def quantile_or_nan(values: list[float | None], probability: float) -> float:
     if finite.size == 0:
         return math.nan
     return float(np.quantile(finite, probability))
+
+
+def bootstrap_truth_cutoffs(
+    residuals: np.ndarray,
+    seed: int,
+    reps: int,
+) -> dict[str, float]:
+    truth_js: dict[str, list[float | None]] = {"standard_dw": [], "robust_dw": []}
+    rng = np.random.default_rng(seed)
+    sample_size = residuals.shape[0]
+    for _ in range(reps):
+        indices = rng.integers(0, sample_size, size=sample_size)
+        values = truth_j_values(residuals[indices])
+        for method, value in values.items():
+            truth_js[method].append(value)
+    return {
+        method: quantile_or_nan(values, 0.90)
+        for method, values in truth_js.items()
+    }
 
 
 def calibrate_truth_cutoffs(
@@ -314,10 +336,11 @@ def set_metrics(
 def cutoff_catalog(
     truth_cutoffs: dict[str, dict[str, float]],
     scenario_name: str,
+    bootstrap_cutoffs: dict[str, float] | None = None,
 ) -> list[dict[str, Any]]:
     no_noise_cutoffs = truth_cutoffs["no_noise"]
     scenario_cutoffs = truth_cutoffs[scenario_name]
-    return [
+    catalog = [
         {
             "name": "chi_square_90",
             "label": "Chi-square 90%",
@@ -340,6 +363,17 @@ def cutoff_catalog(
             "description": "Oracle scenario-specific true-B0 cutoff; diagnostic only, not application-feasible.",
         },
     ]
+    if bootstrap_cutoffs is not None:
+        catalog.append(
+            {
+                "name": "truth_residual_bootstrap_90",
+                "label": "Truth residual bootstrap 90%",
+                "standard_dw": bootstrap_cutoffs["standard_dw"],
+                "robust_dw": bootstrap_cutoffs["robust_dw"],
+                "description": "Sample-specific residual bootstrap at true B0; diagnostic only, because true B0 is known only in simulations.",
+            }
+        )
+    return catalog
 
 
 def evaluate_records(
@@ -348,6 +382,7 @@ def evaluate_records(
     base_seed: int,
     sample_size: int,
     reps: int,
+    bootstrap_reps: int,
     grid_points: int,
 ) -> list[dict[str, Any]]:
     b12_grid, b21_grid = make_grid(grid_points)
@@ -373,7 +408,15 @@ def evaluate_records(
             )
             _, _, robust_j, _ = base.evaluate_robust_grid(residuals, b12_grid, b21_grid)
             truth_j = truth_j_values(residuals)
-            for convention in cutoff_catalog(truth_cutoffs, scenario.name):
+            bootstrap_seed = seed_for(base_seed, 3, scenario_index, rep)
+            bootstrap_cutoffs = None
+            if bootstrap_reps > 0:
+                bootstrap_cutoffs = bootstrap_truth_cutoffs(
+                    residuals,
+                    bootstrap_seed,
+                    bootstrap_reps,
+                )
+            for convention in cutoff_catalog(truth_cutoffs, scenario.name, bootstrap_cutoffs):
                 metrics = set_metrics(
                     standard_j,
                     robust_j,
@@ -389,6 +432,12 @@ def evaluate_records(
                         "cutoff_convention": convention["name"],
                         "rep": rep,
                         "seed": seed,
+                        "bootstrap_seed": bootstrap_seed
+                        if convention["name"] == "truth_residual_bootstrap_90"
+                        else None,
+                        "bootstrap_reps": bootstrap_reps
+                        if convention["name"] == "truth_residual_bootstrap_90"
+                        else None,
                         "cutoffs": {
                             "standard_dw": finite_float(convention["standard_dw"]),
                             "robust_dw": finite_float(convention["robust_dw"]),
@@ -428,7 +477,12 @@ def median_optional(values: list[float | int | bool | None]) -> float | None:
 def summarize(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
     rows: list[dict[str, Any]] = []
     scenario_names = [scenario.name for scenario in SCENARIOS]
-    convention_names = ["chi_square_90", "no_noise_repeated_90", "scenario_truth_repeated_90"]
+    convention_names = [
+        "chi_square_90",
+        "no_noise_repeated_90",
+        "scenario_truth_repeated_90",
+        "truth_residual_bootstrap_90",
+    ]
     for scenario_name in scenario_names:
         for convention_name in convention_names:
             subset = [
@@ -519,22 +573,24 @@ def write_note(payload: dict[str, Any]) -> None:
         "chi_square_90": "chi-square",
         "no_noise_repeated_90": "no-noise repeated",
         "scenario_truth_repeated_90": "scenario truth",
+        "truth_residual_bootstrap_90": "truth bootstrap",
     }
     summary_lookup = {
         (row["scenario"], row["cutoff_convention"]): row
         for row in payload["summary"]
     }
     lines: list[str] = [
-        "# M29 Calibrated Monte Carlo First Pass",
+        "# M29 Calibrated Monte Carlo Expanded Pass",
         "",
-        "Status: first calibrated finite-sample evidence pass for M29, not the final replication table.",
+        "Status: expanded calibrated finite-sample evidence pass for M29, not the final replication table.",
         "",
-        "This pass keeps the M0020/M28 normalized B-plane and reports the M27 metric bundle under three critical-value conventions.",
+        "This pass keeps the M0020/M28 normalized B-plane and reports the M27 metric bundle under repeated-sample and bootstrap critical-value conventions.",
         "",
         "## Configuration",
         "",
         f"- Calibration replications per scenario: `{payload['configuration']['calibration_reps']}`",
         f"- Evaluation replications per scenario: `{payload['configuration']['evaluation_reps']}`",
+        f"- Bootstrap replications per evaluation sample: `{payload['configuration']['bootstrap_reps']}`",
         f"- Sample size: `{payload['configuration']['sample_size']}`",
         f"- Evaluation grid: `{payload['configuration']['grid_points']} x {payload['configuration']['grid_points']}` plus the true `B0` point.",
         f"- True normalized B0: `b12={base.TRUE_B12:g}`, `b21={base.TRUE_B21:g}`.",
@@ -544,8 +600,9 @@ def write_note(payload: dict[str, Any]) -> None:
         "- `chi_square_90`: the pointwise 90 percent chi-square guide used in the M0020 figures.",
         "- `no_noise_repeated_90`: repeated-sample true-`B0` calibration in the no-noise strong-moment DGP, then applied to every scenario.",
         "- `scenario_truth_repeated_90`: oracle repeated-sample true-`B0` calibration inside each scenario. This is diagnostic only because applications do not know the true `B0` or DGP.",
+        "- `truth_residual_bootstrap_90`: sample-specific residual-bootstrap true-`B0` calibration. This is also diagnostic only because true `B0` is known only in simulations.",
         "",
-        "## Scenario Cutoffs",
+        "## Repeated-Sample Scenario Cutoffs",
         "",
         "| Scenario | Standard scenario cutoff | Robust scenario cutoff | Note |",
         "|---|---:|---:|---|",
@@ -591,14 +648,14 @@ def write_note(payload: dict[str, Any]) -> None:
     high_chi = summary_lookup[("high_noise", "chi_square_90")]
     high_null = summary_lookup[("high_noise", "no_noise_repeated_90")]
     high_oracle = summary_lookup[("high_noise", "scenario_truth_repeated_90")]
+    high_bootstrap = summary_lookup.get(("high_noise", "truth_residual_bootstrap_90"))
     weak_null = summary_lookup[("weak_moments", "no_noise_repeated_90")]
     gaussian_null = summary_lookup[("gaussian_shocks", "no_noise_repeated_90")]
-    skewed_null = summary_lookup[("skewed_residual_noise", "no_noise_repeated_90")]
 
     lines.extend(
         [
             "",
-            "## First-Pass Outcome",
+            "## Expanded-Pass Outcome",
             "",
             "- In the high Gaussian-noise stress case, standard DW includes true `B0` in only "
             f"{fmt(high_chi['standard_dw']['truth_in_rate'])} of evaluation samples under the "
@@ -616,13 +673,26 @@ def write_note(payload: dict[str, Any]) -> None:
             "- Weak and Gaussian structural-shock cases keep robust DW wide under the no-noise repeated cutoff: mean robust shares are "
             f"{fmt(weak_null['robust_dw']['mean_accepted_share'])} and "
             f"{fmt(gaussian_null['robust_dw']['mean_accepted_share'])}. This supports the limitation story rather than a sharp identification claim.",
-            "- The skewed-residual-noise stress case has high robust truth inclusion in this first pass, but the maintained Gaussian-noise interpretation is invalid there; it remains a stress case, not a robustness guarantee.",
+        ]
+    )
+    if high_bootstrap is not None:
+        lines.append(
+            "- The high-noise truth-residual bootstrap gives standard-DW truth inclusion "
+            f"{fmt(high_bootstrap['standard_dw']['truth_in_rate'])} and robust-DW truth inclusion "
+            f"{fmt(high_bootstrap['robust_dw']['truth_in_rate'])}, with mean accepted shares "
+            f"{fmt(high_bootstrap['standard_dw']['mean_accepted_share'])} and "
+            f"{fmt(high_bootstrap['robust_dw']['mean_accepted_share'])}; it is a calibration-cost audit, not an application-ready recipe."
+        )
+    lines.extend(
+        [
+            "- The skewed-residual-noise stress case has high robust truth inclusion in this pass, but the maintained Gaussian-noise interpretation is invalid there; it remains a stress case, not a robustness guarantee.",
             "",
             "## Reading",
             "",
             "- The no-noise repeated calibration is the cleanest first size check for the maintained no-noise benchmark. It should preserve the no-noise sanity case while still exposing residual-noise divergence.",
             "- The high-noise Gaussian case is the main stress case from the visual spine. Under the figure-style and no-noise-calibrated cutoffs, standard DW should reject true `B0` more often than robust DW.",
             "- The scenario-specific truth calibration is an oracle diagnostic. When its standard-DW cutoff is much larger than the no-noise cutoff, the standard DW statistic is paying a calibration cost under residual noise rather than delivering free precision.",
+            "- The truth-residual bootstrap is sample-specific and less parametric, but it still uses true `B0` and can make robust sets almost uninformative; treat it as an evidence audit rather than the final applied cutoff rule.",
             "- The Gaussian-shock case is expected to make robust DW wide or weak because the higher-cumulant signal disappears.",
             "- The skewed-residual-noise case is a maintained-assumption stress test. Robust DW is not expected to retain the clean Gaussian-noise interpretation there.",
             "",
@@ -646,15 +716,17 @@ def main() -> int:
         args.seed,
         args.sample_size,
         args.evaluation_reps,
+        args.bootstrap_reps,
         args.grid_points,
     )
     payload = {
-        "description": "M29 first calibrated Monte Carlo pass for standard-DW versus robust-DW comparison.",
+        "description": "M29 expanded calibrated Monte Carlo pass for standard-DW versus robust-DW comparison.",
         "configuration": {
             "seed": args.seed,
             "sample_size": args.sample_size,
             "calibration_reps": args.calibration_reps,
             "evaluation_reps": args.evaluation_reps,
+            "bootstrap_reps": args.bootstrap_reps,
             "grid_points": args.grid_points,
             "grid_window": list(GRID_WINDOW),
             "true_B0": base.TRUE_MATRIX.tolist(),

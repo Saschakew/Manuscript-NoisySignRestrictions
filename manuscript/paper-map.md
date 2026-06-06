@@ -25,8 +25,9 @@ reported beside the standard DW set as a practical robustness check.
   shows sign-set movement, standard-DW truth rejection, and robust-DW widening;
   the non-Gaussianity grid shows why robust DW becomes wide when higher moments
   weaken. M28 validates the first population/repeated-seed layer of this story;
-  M29 now adds a first calibrated finite-sample pass, while final evidence
-  still needs larger or bootstrap-calibrated critical values.
+  M29 now adds repeated-sample and truth-bootstrap calibrated finite-sample
+  diagnostics, while final evidence still needs a larger run and a final
+  calibration convention.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -105,9 +106,10 @@ and proof or output status.
 - M27 formal diagnostic note defining the reported standard-DW set, robust-DW
   set, critical-value convention, directional overlap metric, and interpretation
   boundaries.
-- M29 first calibrated Monte Carlo pass comparing standard DW and robust DW
+- M29 expanded calibrated Monte Carlo pass comparing standard DW and robust DW
   sets using the grid pair's scenarios plus weak-moment, Gaussian-shock, and
-  skewed-residual-noise stress cases.
+  skewed-residual-noise stress cases. It reports chi-square, no-noise repeated,
+  oracle scenario truth, and truth-point residual-bootstrap cutoffs.
 - Final Monte Carlo comparison of standard sign, standard DW, and robust DW
   sets using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and
@@ -117,7 +119,7 @@ and proof or output status.
 
 - The standard DW J-test inversion result is now a working derivation; it still
   needs audit before prose promotion.
-- M27 has formalized the comparison diagnostic. M29's first calibrated pass
+- M27 has formalized the comparison diagnostic. M29's expanded calibrated pass
   supports the high-noise divergence story, but the remaining evidence gate is
-  a larger or bootstrap-calibrated pass with coverage, width, empty-set,
-  overlap, and directional divergence summaries.
+  a larger final pass and a calibration rule that does not overstate the
+  oracle truth-point bootstrap diagnostics.
