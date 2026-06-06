@@ -18,8 +18,10 @@ overlap/divergence metric, and interpretation boundaries. The larger M29
 Monte Carlo pass now uses chi-square, no-noise repeated, oracle scenario
 truth, and truth-point residual-bootstrap cutoffs. User decision U0026 makes
 the standard pointwise chi-square rows the primary applied benchmark; the other
-cutoffs are calibration audits. The evidence queue is now ready to feed a
-figure-led first draft.
+cutoffs are calibration audits. M31 has now started the first figure-led draft
+by replacing the TODO-only abstract, introduction, and evidence section with a
+source-traced skeleton around the residual-noise grid, the non-Gaussianity
+grid, and the M29 chi-square-primary table.
 
 The active paper no longer treats the previous constructive route as part of
 the main plan. The first version is a short simultaneous-SVAR
@@ -36,7 +38,7 @@ model VAR lags or dynamic impulse responses.
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
 | M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M27 has stated the comparison diagnostic. |
 | M5. Evidence package | done-for-draft | M0020 selected the figure pair as the visual spine; M28 validates the population/repeated-seed grid story and the larger M29 run supplies chi-square-primary evidence plus repeated-sample and truth-bootstrap audit diagnostics using the M27 metrics. |
-| M6. First complete draft | todo | After M29, all sections have figure-led prose and source trails. |
+| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section around the selected figures and M29 table; sections 2-4, conclusion, and literature positioning still need prose. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
 

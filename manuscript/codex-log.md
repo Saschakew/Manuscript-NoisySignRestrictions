@@ -11,6 +11,24 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0028 M31 figure-led skeleton
+
+- Request: work on the manuscript in goal mode by picking the next task.
+- Actions taken: selected M31 from the task board; opened local transparency
+  milestone M0028 and GitHub milestone #25; drafted the abstract,
+  introduction, and evidence section around the selected residual-noise grid,
+  non-Gaussianity grid, and M29 chi-square-primary Monte Carlo table; updated
+  citation provenance, dashboard, paper plan, paper map, task board, workplan,
+  user input log, decision log, session log, and Codex log.
+- Files changed: `manuscript/draft.md`, planning/provenance surfaces, logs,
+  and M0028 transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed before closure with
+  the expected open-milestone warning and passed again after closure; `git diff
+  --check` passed with line-ending normalization warnings only.
+- Open uncertainties: sections 2-4 remain prose skeletons, M25 still needs a
+  direct proof audit before theorem-level wording, and final sharing still
+  requires a `manuscript/replication/` wrapper for figures and tables.
+
 ### 2026-06-06 - M0027 larger M29 chi-square-primary table
 
 - Request: work on the manuscript in goal mode by picking the next task.

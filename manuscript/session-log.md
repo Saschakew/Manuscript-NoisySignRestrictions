@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Draft M31 figure-led skeleton
+
+- Request or goal: work on the manuscript in goal mode by picking the next
+  task.
+- Files changed: `manuscript/draft.md`, `manuscript/citation-provenance.md`,
+  planning surfaces, logs, and M0028 transparency files.
+- Summary of work: selected M31, opened local transparency milestone M0028 and
+  GitHub milestone #25, and replaced the TODO-only abstract, introduction, and
+  evidence section with a figure-led skeleton. The draft now presents the
+  residual-noise pseudo-set warning, the standard-DW false-sharpening problem,
+  the robust higher-cumulant comparison set, Figure 1 for the residual-noise
+  grid, Figure 2 for the non-Gaussianity grid, and Table 1 for the M29
+  chi-square-primary evidence.
+- Next recommended action: start M32 by drafting the literature-positioning
+  pass with explicit citation trails and contribution boundaries.
+
 ### 2026-06-06 - Run larger M29 chi-square-primary table
 
 - Request or goal: work on the manuscript in goal mode by picking the next

@@ -6,16 +6,84 @@ Date: 2026-06-05
 
 ## Abstract
 
-TODO: State the noisy sign-set bias, the false-precision risk in standard
-Drautzburg-Wright refinement, the robust higher-moment comparison set, the
-Monte Carlo evidence, and the no-application scope in one compact paragraph.
+Sign-restricted SVARs are usually presented as qualitative restrictions, but
+the set they report is built from a covariance target. This paper studies the
+simultaneous impact problem when the reduced-form residual is contaminated by
+additive residual noise. In that case the usual sign-restricted set rotates a
+factor of `B0 B0' + V`, not a factor of the structural covariance `B0 B0'`, so
+the population sign set becomes a noisy pseudo-set. Drautzburg-Wright-style
+higher-moment refinement remains well motivated under its no-noise maintained
+null, but under residual noise it can sharpen the wrong target and return a
+small accepted set that looks more informative than it is. The paper proposes a
+robust comparison set that drops second-moment restrictions and inverts mixed
+higher-cumulant moments of normalized candidate shocks. In the main simulation
+design, the standard pointwise chi-square benchmark includes the true
+normalized impact matrix in only 0.325 of high-noise evaluation samples, while
+the robust set includes it in 0.908. The robust set is deliberately wider,
+especially when structural higher moments are weak. The recommendation is
+therefore diagnostic: report standard DW and robust DW together, and treat
+standard-DW precision unsupported by the robust set as a warning rather than as
+evidence of sharper structural learning.
+
+<!-- SOURCE-TRAIL: Use the M0020 grid pair, M27 diagnostic note, M28 validation note, and M29 larger Monte Carlo note. -->
+<!-- CONTRIBUTION-NOTE: The abstract's original contribution is the residual-noise pseudo-set warning and the DW-versus-robust-DW comparison diagnostic. -->
 
 ## 1. Introduction
 
-TODO: Motivate why sign restrictions can be qualitatively agnostic but still
-depend on a fragile covariance target. Present the paper as a robustness-check
-proposal: compute the standard DW set and a robust higher-moment set that drops
-second-moment restrictions.
+Applied sign-restricted SVAR work often begins after the reduced-form residual
+`u_t` has already been estimated. The next step is usually an impact
+decomposition: find candidate structural impact matrices whose implied signs
+match the researcher's qualitative restrictions. Under the no-noise benchmark,
+the reduced-form covariance is `Sigma_u = B0 B0'`, so rotating a covariance
+factor is a natural way to explore observationally equivalent structural
+models. This paper asks what happens when the residual being decomposed is not
+only structural signal but also contains additive residual noise.
+
+<!-- SOURCE-TRAIL: Use sign-restriction overview sources, `kilian2016StructuralVectorAutoregressiveAnalysis93b03b`, and `arias2018InferenceBasedStructuralVector`. -->
+
+The issue is not that sign restrictions are quantitative after all. The issue
+is that the qualitative filter is applied to a covariance object. With
+`u_t = B0 epsilon_t + eta_t` and `E eta_t eta_t' = V`, the covariance factor
+being rotated solves `P_* P_*' = B0 B0' + V`. Unless the noise happens to be
+absorbed by a harmless structural-coordinate rescaling, the resulting sign set
+is a pseudo-set: it is internally coherent for the noisy covariance, but it is
+not the no-noise economic set one would have reported from `B0 B0'`.
+
+<!-- SOURCE-TRAIL: Use `vault/syntheses/Noisy residuals in recursive and sign-restricted SVARs.md` and the M25 column-rescaling obstruction. -->
+
+Drautzburg-Wright-style refinement then creates a sharper version of the same
+problem. Under its maintained no-noise null, independence restrictions on
+recovered shocks are a useful way to refine a sign-admissible set. Under
+residual noise, however, the recovered shocks from a noisy covariance-factor
+candidate are not the structural shocks. A higher-moment test can therefore
+reject the true normalized impact matrix while accepting a small region around
+a least-rejected noisy target. The paper treats this as a robustness problem,
+not as a criticism of the no-noise DW procedure on its own terms.
+
+<!-- SOURCE-TRAIL: Use `drautzburg2023RefiningSetIdentificationVars` for the maintained-null comparator and `manuscript/derivations/standard-dw-j-test-under-noise.md` for the M25 working misspecification result. -->
+<!-- TODO-NOTE: Do not promote the generic emptying result to theorem wording until the M25 proof audit is complete. -->
+
+The constructive move is to report a second, deliberately less efficient set.
+In a common normalized impact chart, the robust DW set applies the same sign
+screen but drops all second-moment restrictions. It forms
+`z_t(B)=B^{-1}u_t` and inverts mixed higher-cumulant restrictions of `z_t(B)`.
+Under the maintained Gaussian residual-noise route, additive noise changes
+second moments but not the higher cumulants used in this robust stack. The
+price is visible: when structural shocks are close to Gaussian or higher
+moments are weak, the robust set becomes wide.
+
+<!-- SOURCE-TRAIL: Use `manuscript/derivations/dw-noise-robust-moments.md`, `manuscript/derivations/dw-robust-comparison-diagnostic.md`, and higher-moment SVAR caution sources. -->
+
+The paper is organized around this comparison. Figure 1 varies Gaussian
+residual noise and shows the main warning: the sign/covariance set moves,
+standard DW can exclude the true normalized impact matrix, and robust DW
+remains wider while containing it. Figure 2 holds residual noise fixed and
+weakens structural non-Gaussianity, showing the limitation that robust DW needs
+informative higher moments. Table 1 then reports the same story in the larger
+M29 Monte Carlo pass using the standard pointwise chi-square critical values
+that an applied standard-DW researcher would use under the no-noise null.
+
+<!-- SOURCE-TRAIL: Use M28 for population/repeated-seed validation and M29 for the larger chi-square-primary Monte Carlo table. -->
 
 <!-- SOURCE-TRAIL: Use sign-restriction overview sources, Drautzburg-Wright, and the noisy-residual synthesis. -->
 <!-- CONTRIBUTION-NOTE: The original contribution is the noise-bias warning plus the standard-DW versus robust-DW comparison. -->
@@ -58,10 +126,117 @@ restrictions.
 
 ## 5. Monte Carlo Robustness Check
 
-TODO: Present the simulation design and evidence package. Show the standard
-sign set, standard DW set, robust DW set, and the overlap/divergence diagnostic
-under no noise, moderate noise, high noise, weak higher moments, and
-misspecification cases.
+This section should be read as the evidence map for the first draft. The two
+figures give the reader the geometry first; the Monte Carlo table then checks
+whether the same comparison survives repeated finite-sample draws. All three
+objects use the same normalized bivariate impact chart and the same sign
+screen, so the standard-DW and robust-DW accepted sets can be compared directly.
+
+<!-- SOURCE-TRAIL: Use M27 for the common reporting chart, accepted shares, overlap, warning-rate, and truth-inclusion diagnostics. -->
+
+### 5.1 Residual-Noise Grid
+
+Figure 1 is the main story figure. Each column increases Gaussian residual
+noise. The first row shows the standard sign/covariance set. The second row
+adds the standard DW moment stack, including the no-noise covariance moment.
+The third row uses the robust DW stack, which keeps the sign screen and mixed
+higher cumulants but drops the second-moment restrictions. The high-noise
+column is the narrative anchor: standard DW looks sharp but rejects the true
+normalized `B0`, while robust DW is wider and contains it.
+
+![Figure 1. Residual-noise grid.](figures/fig_sign_dw_robust_noise_grid.png)
+
+**Figure 1. Residual-noise grid.** Rows report the sign/covariance set,
+standard-DW set, and robust-DW set in the common normalized `B(b12,b21)` chart.
+Columns increase Gaussian residual noise. All rows invert pointwise 10 percent
+J tests. The robust-DW row uses mixed higher cumulants only and does not impose
+second-moment restrictions. The high-noise column shows the paper's main
+warning: standard DW rejects true `B0` under the researcher-facing cutoff,
+while robust DW contains it.
+
+<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_robust_noise_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py`; validation in `simulations/m28_grid_story_validation.md`; M29 finite-sample support in `simulations/m29_calibrated_monte_carlo.md`. -->
+
+M28 checks the figure's population logic before the draft leans on it. At the
+true normalized `B0`, the standard-DW population moment norm rises from
+essentially zero with no noise to `0.116` in the high-noise case, while the
+robust-DW population norm remains numerically zero under the maintained
+Gaussian residual-noise condition. The same validation pass checks grid-window
+sensitivity and repeated finite-sample seeds; the high-noise standard-DW row
+rejects true `B0` across those repeated seeds at the pointwise 10 percent
+cutoff, while robust DW contains it in most draws.
+
+<!-- TODO-NOTE: Translate the M28 diagnostics into final prose only after deciding how much numerical validation belongs in the main text versus an appendix. -->
+
+### 5.2 Non-Gaussianity Grid
+
+Figure 2 states the main limitation immediately after the main warning. It
+holds residual noise fixed and weakens the structural shocks' higher moments
+across columns. The robust-DW set stays noise-robust only because the maintained
+Gaussian residual-noise condition leaves higher cumulants unshifted. It is not
+a free source of precision. When structural higher moments weaken, robust DW
+widens; in the Gaussian-shock limit, the population higher-cumulant stack is
+all-null and the robust row becomes essentially uninformative.
+
+![Figure 2. Non-Gaussianity grid.](figures/fig_sign_dw_robust_nongaussianity_grid.png)
+
+**Figure 2. Non-Gaussianity grid.** Rows match Figure 1, but residual noise is
+fixed while structural-shock non-Gaussianity weakens across columns. All rows
+invert pointwise 10 percent J tests. The figure explains why the robust set is
+a robustness check rather than a uniformly sharper estimator: when the
+higher-moment signal fades, the robust set widens and can become
+uninformative.
+
+<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_robust_nongaussianity_grid.png`; generator `simulations/sign_dw_robust_nongaussianity_grid_figure.py`; M28 population and repeated-seed validation. -->
+
+This limitation matters for the paper's recommendation. A wide robust set is
+not a failed diagnostic by itself. It records the information deliberately lost
+by dropping the noisy covariance target. The warning object is directional:
+standard-DW accepted mass outside the robust-DW set, or standard-DW rejection
+of the truth in simulations when robust DW still contains it.
+
+<!-- SOURCE-TRAIL: Use `manuscript/derivations/dw-robust-comparison-diagnostic.md` for the directional interpretation rule. -->
+
+### 5.3 Monte Carlo Table
+
+Table 1 reports the larger M29 finite-sample pass under the chi-square
+critical values used as the main applied benchmark. The table is not a final
+replication package, but it is strong enough for a first figure-led draft. The
+high-noise row is the key comparison: standard DW includes true `B0` in only
+0.325 of evaluation samples, while robust DW includes it in 0.908. The weak
+and Gaussian structural-shock rows show the limitation from Figure 2 in
+quantitative form: robust accepted shares are about 0.914 and 0.913, so the
+robust object is wide when higher moments carry little identifying content.
+
+**Table 1. Chi-square-primary Monte Carlo comparison.** The entries are M29
+evaluation averages under standard pointwise chi-square critical values.
+`S truth` and `R truth` are true-`B0` inclusion rates for standard DW and robust
+DW. `S share` and `R share` are accepted-set shares on the normalized grid.
+`d_S_not_subset_R` is the directional share of standard-DW accepted mass not
+supported by robust DW. `Warning rate` fires when standard DW misses truth
+while robust DW contains it, or when the directional unsupported-mass metric is
+large enough to flag divergence.
+
+| Scenario | S truth | R truth | S share | R share | d_S_not_subset_R | Warning rate |
+|---|---:|---:|---:|---:|---:|---:|
+| No noise, strong moments | 0.892 | 0.917 | 0.029 | 0.102 | 0.107 | 0.167 |
+| Moderate Gaussian noise | 0.825 | 0.917 | 0.043 | 0.268 | 0.081 | 0.217 |
+| High Gaussian noise | 0.325 | 0.908 | 0.132 | 0.842 | 0.069 | 0.658 |
+| Weak structural higher moments | 0.833 | 0.925 | 0.164 | 0.914 | 0.062 | 0.225 |
+| Gaussian structural shocks | 0.867 | 0.933 | 0.165 | 0.913 | 0.053 | 0.183 |
+| Skewed residual noise | 0.717 | 0.917 | 0.036 | 0.192 | 0.079 | 0.292 |
+
+<!-- SOURCE-TRAIL: M29 larger run in `simulations/m29_calibrated_monte_carlo.md` and machine-readable output `simulations/output/m29_calibrated_monte_carlo.json`. -->
+
+The audit rows in M29 should stay secondary in the main text. No-noise
+repeated calibration is a size check for the maintained no-noise benchmark.
+Scenario-specific truth calibration is an oracle diagnostic: in the high-noise
+case the standard-DW cutoff must rise sharply to cover true `B0`, and the
+accepted set becomes much wider. The truth-point residual bootstrap is also an
+audit because it uses the known simulation truth and often restores truth
+inclusion by making accepted sets nearly uninformative. These rows quantify
+calibration cost; they are not the applied procedure being critiqued.
+
+<!-- DESIGN-NOTE: Keep chi-square rows as the central evidence after U0026. Use repeated-sample, oracle, and bootstrap cutoffs only to explain finite-sample size and calibration cost. -->
 
 <!-- SOURCE-TRAIL: Use KnowledgeVault replication assets only as starting points; final figure commands must live in `replication/README.md`. -->
 <!-- SOURCE-TRAIL: Use `derivations/dw-robust-comparison-diagnostic.md` for the M27 definitions of the reported standard-DW set, robust-DW set, critical-value convention, directional overlap metric, and interpretation boundaries. -->

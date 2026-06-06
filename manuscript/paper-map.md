@@ -56,12 +56,12 @@ reported beside the standard DW set as a practical robustness check.
 
 | Section | Job | Status |
 |---|---|---|
-| Abstract | State noisy sign-set bias, false DW sharpening, robust DW comparison, and no-application scope. | planned |
-| 1. Introduction | Motivate the robustness-check problem and preview the geometry plus Monte Carlo evidence. | planned |
+| Abstract | State noisy sign-set bias, false DW sharpening, robust DW comparison, and no-application scope. | skeleton drafted |
+| 1. Introduction | Motivate the robustness-check problem and preview the geometry plus Monte Carlo evidence. | skeleton drafted |
 | 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | planned |
 | 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | planned |
 | 4. Robust DW Higher Moments | Define the robust normalized candidate set, write cumulant restrictions as moment equations, and explain why second moments are dropped. | planned |
-| 5. Figure-Led Evidence And Monte Carlo Check | Use the two M0020 grids as the main visual story, then validate and quantify the same claims with population-grid and Monte Carlo checks. | planned |
+| 5. Figure-Led Evidence And Monte Carlo Check | Use the two M0020 grids as the main visual story, then validate and quantify the same claims with population-grid and Monte Carlo checks. | skeleton drafted |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
 
 ## Core Formal Objects
@@ -120,7 +120,8 @@ and proof or output status.
 
 - The standard DW J-test inversion result is now a working derivation; it still
   needs audit before prose promotion.
-- M27 has formalized the comparison diagnostic, and the larger M29 run now
-  supports the high-noise divergence story under researcher-facing chi-square
-  cutoffs. The next bottleneck is converting the figure-led evidence into
-  disciplined prose without overstating the audit cutoffs.
+- M31 has converted the figure-led evidence into a first disciplined draft
+  skeleton without treating audit cutoffs as application-ready procedures. The
+  next bottlenecks are literature positioning, direct M25 proof audit before
+  theorem-level wording, and moving figure/table code into
+  `manuscript/replication/` before sharing.

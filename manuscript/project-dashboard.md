@@ -6,21 +6,19 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: evidence gate complete for figure-led drafting after the
-M0020-corrected noise and non-Gaussianity grid pair, with M28 first
-validation, M27 diagnostic formalization, and the larger M29
-chi-square-primary Monte Carlo pass complete.
+Current stage: first figure-led drafting pass started. The abstract,
+introduction, and evidence section now use the M0020-corrected noise and
+non-Gaussianity grid pair, M28 validation, M27 diagnostic formalization, and
+the larger M29 chi-square-primary Monte Carlo pass as the manuscript spine.
 
-Current focus: draft the figure-led section skeleton around the validated
-two-grid story, using M29's chi-square rows as the main applied evidence and
-audit rows only for calibration-cost language.
+Current focus: write the literature-positioning pass that distinguishes this
+paper from Drautzburg-Wright under the no-noise null, sign-set inference, and
+higher-moment SVAR GMM without turning the paper into a broad survey.
 
-Next recommended action: start M31 by drafting the figure-led introduction
-and evidence-section skeleton with source trails: noise grid first,
-non-Gaussianity grid second, chi-square M29 table as the quantitative support.
+Next recommended action: start M32 by drafting the first literature-positioning
+pass with explicit citation trails and clear contribution boundaries.
 
-Active milestone: none. M0021 records the user decision that the M0020 grid
-pair tells the paper's main story and should organize the next plan.
+Active milestone: none. M0028 records the first figure-led drafting pass.
 
 Active blockers:
 
@@ -47,18 +45,18 @@ Active blockers:
   inclusion only by widening the reported sets.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
-- A figure-led section draft can now use the larger M29 chi-square rows as
-  draft-level evidence and reserve repeated/bootstrap rows for robustness-audit
-  language. Final publication replication should still move the code into
-  `manuscript/replication/` and can rerun a heavier table if needed.
+- The first figure-led skeleton now uses the larger M29 chi-square rows as
+  draft-level evidence and reserves repeated/bootstrap rows for
+  robustness-audit language. Final publication replication should still move
+  the code into `manuscript/replication/` and can rerun a heavier table if
+  needed.
 
-Last substantive session: 2026-06-06, ran the larger M29
-chi-square-primary table with 240 calibration replications, 120 evaluation
-replications, 40 truth-bootstrap replications per evaluation sample, and a
-41-by-41 B-plane grid. Under the primary chi-square cutoffs, high-noise
-standard-DW truth inclusion is 0.325, while robust DW is 0.908. Weak and
-Gaussian structural-shock cases keep robust DW wide, with mean robust accepted
-shares of 0.914 and 0.913.
+Last substantive session: 2026-06-06, completed M31 by replacing the
+TODO-only abstract, introduction, and evidence section with a figure-led
+skeleton. The draft now introduces the residual-noise pseudo-set, the
+standard-DW false-sharpening warning, the robust higher-cumulant comparison
+set, Figure 1 for the residual-noise grid, Figure 2 for the non-Gaussianity
+grid, and Table 1 for the M29 chi-square-primary Monte Carlo support.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

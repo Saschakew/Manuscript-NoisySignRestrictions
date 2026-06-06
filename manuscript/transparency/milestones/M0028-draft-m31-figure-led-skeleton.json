@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "M0028-draft-m31-figure-led-skeleton",
+  "sequence": 28,
+  "title": "Draft M31 Figure-Led Skeleton",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T14:48:08Z",
+  "closed_at": "2026-06-06T14:54:55Z",
+  "start_commit": "7e7d03d19211a0202cf54c43bf9a801a4875087a",
+  "snapshot_ref": "manuscript-milestones/M0028-draft-m31-figure-led-skeleton",
+  "summary": "Drafted the M31 figure-led manuscript skeleton around the two-grid story and M29 chi-square-primary evidence.",
+  "user_inputs": [
+    {
+      "id": "U0028-001",
+      "milestone_id": "M0028-draft-m31-figure-led-skeleton",
+      "captured_at": "2026-06-06T14:48:08Z",
+      "source": "chat",
+      "text": "Work on manuscript. Pick next task and work on it in /goal mode."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0028-001",
+      "milestone_id": "M0028-draft-m31-figure-led-skeleton",
+      "captured_at": "2026-06-06T14:54:55Z",
+      "description": "Selected M31 as the next manuscript task and drafted the abstract, introduction, and evidence section around Figure 1, Figure 2, and Table 1."
+    },
+    {
+      "id": "A0028-002",
+      "milestone_id": "M0028-draft-m31-figure-led-skeleton",
+      "captured_at": "2026-06-06T14:54:55Z",
+      "description": "Updated citation provenance, planning surfaces, and durable logs so M31 is done and M32 literature positioning is next."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T14:54:55Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T14:54:55Z",
+      "description": "git diff --check: passed with line-ending normalization warnings only"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0028-draft-m31-figure-led-skeleton.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 25,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/25",
+    "tag_name": "manuscript-milestones/M0028-draft-m31-figure-led-skeleton"
+  }
+}

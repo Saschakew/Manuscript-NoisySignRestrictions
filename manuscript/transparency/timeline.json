@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T14:37:06Z",
+  "updated_at": "2026-06-06T14:54:55Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -554,6 +554,28 @@
         "milestone_number": 24,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/24",
         "tag_name": "manuscript-milestones/M0027-m29-larger-chi-square-monte-carlo"
+      }
+    },
+    {
+      "id": "M0028-draft-m31-figure-led-skeleton",
+      "sequence": 28,
+      "title": "Draft M31 Figure-Led Skeleton",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T14:48:08Z",
+      "closed_at": "2026-06-06T14:54:55Z",
+      "start_commit": "7e7d03d19211a0202cf54c43bf9a801a4875087a",
+      "snapshot_ref": "manuscript-milestones/M0028-draft-m31-figure-led-skeleton",
+      "summary": "Drafted the M31 figure-led manuscript skeleton around the two-grid story and M29 chi-square-primary evidence.",
+      "user_input_ids": [
+        "U0028-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0028-draft-m31-figure-led-skeleton.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 25,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/25",
+        "tag_name": "manuscript-milestones/M0028-draft-m31-figure-led-skeleton"
       }
     }
   ]

@@ -189,16 +189,17 @@ that the noisy covariance is structural.
 
 ## What Is Missing
 
-- A figure-led first draft using the M0020 grid pair and larger M29 table.
-  Coverage-style language should stay tied to the simulation design and avoid
-  presenting audit cutoffs as application-ready procedures.
+- Sections 2-4 still need prose that turns the noisy sign-set algebra,
+  standard-DW misspecification result, and robust higher-cumulant set into
+  disciplined manuscript text.
+- The literature-positioning pass should distinguish this paper from
+  Drautzburg-Wright under the no-noise null, sign-set inference, and
+  higher-moment SVAR GMM.
 - A decision on the precise robust noise assumption: Gaussian additive noise is
   clean for transformed cumulants; broader non-Gaussian noise would need a
   different argument.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.
-- A concise literature-positioning paragraph distinguishing the paper from
-  Drautzburg-Wright, sign-restriction inference, and higher-moment SVAR GMM.
 
 ## Page Budget And Scope Exclusions
 

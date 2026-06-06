@@ -5,6 +5,23 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Start the draft with the figure-led evidence spine
+
+- Origin: Codex execution of user-requested next task
+- User input id: U0028
+- Codex role: selected M31, drafted the first figure-led prose skeleton, and
+  aligned planning surfaces.
+- Decision: The first draft should introduce the paper through the selected
+  visual spine: Figure 1 for the residual-noise warning, Figure 2 for the
+  weak-higher-moment limitation, and Table 1 for the larger M29
+  chi-square-primary Monte Carlo support.
+- Rationale: M28 and M29 already support the two-grid story at draft level.
+  Starting with figures lets the paper make the robustness-check argument
+  before moving into theorem-level prose that still needs direct proof audit.
+- Consequence for next work: M32 should write the literature-positioning pass.
+  Sections 2-4 still need disciplined prose, and the M25 result should not be
+  promoted to theorem language until its proof audit is complete.
+
 ### 2026-06-06 - Treat larger M29 as draft evidence gate complete
 
 - Origin: Codex execution of user-requested next task
