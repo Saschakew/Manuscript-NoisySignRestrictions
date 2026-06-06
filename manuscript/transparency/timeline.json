@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T14:12:48Z",
+  "updated_at": "2026-06-06T14:37:06Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -532,6 +532,28 @@
         "milestone_number": 23,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/23",
         "tag_name": "manuscript-milestones/M0026-use-standard-chi-square-cutoffs"
+      }
+    },
+    {
+      "id": "M0027-m29-larger-chi-square-monte-carlo",
+      "sequence": 27,
+      "title": "M29 larger chi-square Monte Carlo",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-06T14:22:12Z",
+      "closed_at": "2026-06-06T14:37:05Z",
+      "start_commit": "085a64349bde35485921fc15f8926df98da01238",
+      "snapshot_ref": "manuscript-milestones/M0027-m29-larger-chi-square-monte-carlo",
+      "summary": "Ran the larger M29 chi-square-primary Monte Carlo table, marked M29 complete for draft evidence, and updated planning/log surfaces so M31 figure-led drafting is next.",
+      "user_input_ids": [
+        "U0027-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0027-m29-larger-chi-square-monte-carlo.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 24,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/24",
+        "tag_name": "manuscript-milestones/M0027-m29-larger-chi-square-monte-carlo"
       }
     }
   ]

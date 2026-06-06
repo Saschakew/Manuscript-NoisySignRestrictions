@@ -11,6 +11,30 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-06 - M0027 larger M29 chi-square-primary table
+
+- Request: work on the manuscript in goal mode by picking the next task.
+- Actions taken: selected the active M29 follow-up; opened local transparency
+  milestone M0027 and GitHub milestone #24; benchmarked the M29 simulation
+  functions; ran the larger M29 Monte Carlo with 240 calibration replications,
+  120 evaluation replications, 40 truth-bootstrap replications per evaluation
+  sample, and a 41-by-41 grid; updated the M29 note labels, simulation index,
+  dashboard, paper plan, paper map, source packet, task board, workplan,
+  formal registry, user input log, decision log, review log, session log, and
+  Codex log.
+- Files changed: M29 simulation script and outputs, planning surfaces, logs,
+  and M0027 transparency files.
+- Checks run: M29 function timing smoke checks passed; larger M29 command
+  passed; `python -m py_compile
+  manuscript\simulations\m29_calibrated_monte_carlo.py` passed; formal
+  registry and M29 output JSON parse passed; `python scripts/check_manuscript.py`
+  passed with the expected open-milestone warning before closure; `git diff
+  --check` passed with line-ending normalization warnings only.
+- Open uncertainties: the evidence is ready for a first figure-led draft, but
+  final sharing still requires a `manuscript/replication/` wrapper and the M25
+  standard-DW derivation still needs direct proof audit before theorem-level
+  prose.
+
 ### 2026-06-06 - M0026 M29 chi-square cutoff convention
 
 - Request: user clarified that standard DW should use the standard chi-square

@@ -5,6 +5,26 @@ decisions.
 
 ## Entries
 
+### 2026-06-06 - Treat larger M29 as draft evidence gate complete
+
+- Origin: Codex execution of user-requested next task
+- User input id: U0027
+- Codex role: selected the active M29 follow-up, ran the larger Monte Carlo
+  table, interpreted the output, and aligned planning surfaces.
+- Decision: M29 is complete for the first figure-led draft. The main reported
+  benchmark should be the larger chi-square-primary run with 240 calibration
+  replications, 120 evaluation replications, 40 truth-bootstrap replications
+  per evaluation sample, and a 41-by-41 grid. Audit cutoffs remain secondary
+  calibration-cost diagnostics.
+- Rationale: Under primary chi-square cutoffs, the high-noise stress case has
+  standard DW including true `B0` in 0.325 of evaluation samples, while robust
+  DW includes it in 0.908. Weak and Gaussian structural-shock scenarios keep
+  robust DW wide, with mean accepted shares of 0.914 and 0.913, matching the
+  intended limitation story.
+- Consequence for next work: Move to M31 figure-led drafting. Coverage-style
+  language should remain simulation-design-specific, and final sharing still
+  requires a replication wrapper under `manuscript/replication/`.
+
 ### 2026-06-06 - Use chi-square cutoffs as the primary applied benchmark
 
 - Origin: user-originated cutoff-convention decision

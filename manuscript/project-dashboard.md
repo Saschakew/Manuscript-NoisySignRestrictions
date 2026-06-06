@@ -6,20 +6,18 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: figure-led evidence validation after the M0020-corrected noise
-and non-Gaussianity grid pair, with M28 first validation, M27 diagnostic
-formalization, and an expanded M29 calibrated Monte Carlo pass complete.
+Current stage: evidence gate complete for figure-led drafting after the
+M0020-corrected noise and non-Gaussianity grid pair, with M28 first
+validation, M27 diagnostic formalization, and the larger M29
+chi-square-primary Monte Carlo pass complete.
 
-Current focus: finish M29 with standard pointwise chi-square critical values
-as the primary applied benchmark, because those are the cutoffs a researcher
-would use when applying standard DW without accounting for residual noise.
+Current focus: draft the figure-led section skeleton around the validated
+two-grid story, using M29's chi-square rows as the main applied evidence and
+audit rows only for calibration-cost language.
 
-Next recommended action: run a larger M29 table with the chi-square convention
-as the main reported benchmark and keep no-noise repeated, oracle truth, and
-truth-bootstrap cutoffs as secondary calibration audits. The current pass uses
-80 calibration replications, 24 evaluation replications, 40 residual-bootstrap
-replications per evaluation sample, a 41-by-41 B-plane grid, and four
-pointwise cutoff conventions.
+Next recommended action: start M31 by drafting the figure-led introduction
+and evidence-section skeleton with source trails: noise grid first,
+non-Gaussianity grid second, chi-square M29 table as the quantitative support.
 
 Active milestone: none. M0021 records the user decision that the M0020 grid
 pair tells the paper's main story and should organize the next plan.
@@ -28,10 +26,10 @@ Active blockers:
 
 - The robust DW derivation passed M24 only as a local normalized
   Gaussian-noise result. M27 has formalized the reported set and diagnostic
-  language, M28 supports its population truth-inclusion behavior, and M29 now
-  has chi-square primary evidence plus repeated-sample and truth-point
-  residual-bootstrap calibration audits. Final evidence still needs a larger
-  chi-square-primary run.
+  language, M28 supports its population truth-inclusion behavior, and the
+  larger M29 run now gives draft-level chi-square-primary Monte Carlo
+  evidence plus repeated-sample, oracle, and truth-point residual-bootstrap
+  calibration audits.
 - The M25 standard-DW J-test inversion result is only a working derivation; M28
   supports the high-noise divergence story, but the derivation still needs a
   direct audit before theorem-level prose.
@@ -49,16 +47,18 @@ Active blockers:
   inclusion only by widening the reported sets.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
-- A figure-led section draft can use chi-square rows as the main applied
-  evidence and reserve repeated/bootstrap rows for robustness-audit language.
-  The final table should still use more evaluation replications before
-  coverage-style numbers become draft-level evidence.
+- A figure-led section draft can now use the larger M29 chi-square rows as
+  draft-level evidence and reserve repeated/bootstrap rows for robustness-audit
+  language. Final publication replication should still move the code into
+  `manuscript/replication/` and can rerun a heavier table if needed.
 
-Last substantive session: 2026-06-06, recorded the user decision to make
-standard pointwise chi-square cutoffs the main applied M29 benchmark. Under
-those cutoffs, high-noise standard-DW truth inclusion is 0.292, while robust DW
-is 0.917. Repeated-sample, oracle truth, and truth-bootstrap cutoffs remain
-secondary audits of finite-sample size and calibration cost.
+Last substantive session: 2026-06-06, ran the larger M29
+chi-square-primary table with 240 calibration replications, 120 evaluation
+replications, 40 truth-bootstrap replications per evaluation sample, and a
+41-by-41 B-plane grid. Under the primary chi-square cutoffs, high-noise
+standard-DW truth inclusion is 0.325, while robust DW is 0.908. Weak and
+Gaussian structural-shock cases keep robust DW wide, with mean robust accepted
+shares of 0.914 and 0.913.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

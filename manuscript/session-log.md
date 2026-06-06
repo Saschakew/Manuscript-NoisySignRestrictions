@@ -8,6 +8,25 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-06 - Run larger M29 chi-square-primary table
+
+- Request or goal: work on the manuscript in goal mode by picking the next
+  task.
+- Files changed: `manuscript/simulations/m29_calibrated_monte_carlo.py`,
+  `manuscript/simulations/m29_calibrated_monte_carlo.md`,
+  `manuscript/simulations/output/m29_calibrated_monte_carlo.json`, planning
+  surfaces, logs, and M0027 transparency files.
+- Summary of work: selected the active M29 evidence follow-up, opened local
+  transparency milestone M0027 and GitHub milestone #24, ran the larger
+  chi-square-primary Monte Carlo table with 240 calibration replications, 120
+  evaluation replications, 40 truth-bootstrap replications per evaluation
+  sample, and a 41-by-41 grid. Under the primary chi-square cutoffs,
+  high-noise standard DW includes true `B0` in 0.325 of evaluation samples,
+  while robust DW includes it in 0.908. Weak and Gaussian structural-shock
+  cases keep robust DW wide, matching the limitation story.
+- Next recommended action: start M31 by drafting the figure-led introduction
+  and evidence-section skeleton with source trails.
+
 ### 2026-06-06 - Record M29 chi-square cutoff convention
 
 - Request or goal: respond to the user's cutoff-convention correction.

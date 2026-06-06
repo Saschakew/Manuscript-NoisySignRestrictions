@@ -33,13 +33,13 @@ population moment diagnostics, grid-boundary checks, repeated finite-sample
 seeds, and pointwise critical-value sensitivity. M27 now fixes the comparison
 language: standard-DW accepted mass outside the robust-DW set is the
 directional warning metric, while robust-DW mass outside standard DW mainly
-records the information lost by dropping second moments. M29 has added an
-expanded Monte Carlo pass. The main applied reading uses the standard
-pointwise chi-square critical values that a researcher would use when unaware
-of residual noise; under that benchmark, the high-noise standard-DW set misses
-true `B0` much more often than the robust set. Repeated-sample, oracle truth,
-and truth-point bootstrap cutoffs are secondary audits of finite-sample size
-and calibration cost. M29 is not yet the final manuscript table.
+records the information lost by dropping second moments. The larger M29
+Monte Carlo pass now uses the standard pointwise chi-square critical values
+that a researcher would use when unaware of residual noise as the main applied
+reading; under that benchmark, the high-noise standard-DW set misses true
+`B0` much more often than the robust set. Repeated-sample, oracle truth, and
+truth-point bootstrap cutoffs are secondary audits of finite-sample size and
+calibration cost.
 
 ## Why It Matters
 
@@ -172,7 +172,7 @@ that the noisy covariance is structural.
 - Validation grid checks: M28 reran the same story on population and
   repeated-draw grids, checking that the visual is not an artifact of one seed,
   one grid boundary, or the pointwise chi-square cutoff.
-- Monte Carlo table: M29's expanded pass reports true-`B0` coverage-style
+- Monte Carlo table: M29's larger pass reports true-`B0` coverage-style
   inclusion, accepted-set share, empty-set frequency, standard-DW versus
   robust-DW overlap, the M27 directional divergence metric, and
   least-rejected candidates across no-noise, moderate-noise, high-noise,
@@ -180,27 +180,24 @@ that the noisy covariance is structural.
   chi-square rows are the primary applied benchmark because they match the
   standard DW critical values a researcher would use under the no-noise null.
   No-noise repeated, oracle scenario truth, and truth-point residual-bootstrap
-  cutoffs are calibration audits. A final table still needs a larger
-  chi-square-primary run.
+  cutoffs are calibration audits. The 240-calibration, 120-evaluation run is
+  sufficient for the first figure-led draft; final publication replication can
+  still rerun a heavier table from `manuscript/replication/`.
 - Stress cases: weak higher moments, near-Gaussian structural shocks, high
   noise, non-Gaussian noise that violates the robust route if Gaussianity is
   maintained, anisotropic noise, near-boundary signs, and small macro samples.
 
 ## What Is Missing
 
-- A final finite-sample evidence pass for the M0020 grid pair: M29 has
-  chi-square-primary evidence plus repeated-sample and truth-point
-  residual-bootstrap diagnostics, but final draft claims still need a larger
-  run with true-`B0` coverage, accepted-set width, empty-set frequency,
-  overlap, and divergence diagnostics.
+- A figure-led first draft using the M0020 grid pair and larger M29 table.
+  Coverage-style language should stay tied to the simulation design and avoid
+  presenting audit cutoffs as application-ready procedures.
 - A decision on the precise robust noise assumption: Gaussian additive noise is
   clean for transformed cumulants; broader non-Gaussian noise would need a
   different argument.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.
-- A figure-led first draft once M29 finalizes the grid-pair evidence enough to
-  avoid another structural rewrite, plus a concise literature-positioning
-  paragraph distinguishing the paper from
+- A concise literature-positioning paragraph distinguishing the paper from
   Drautzburg-Wright, sign-restriction inference, and higher-moment SVAR GMM.
 
 ## Page Budget And Scope Exclusions

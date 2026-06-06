@@ -5,7 +5,7 @@ Use this folder for exploratory simulation designs and design notes.
 Final shareable code that reproduces manuscript figures and tables belongs in
 `../replication/`.
 
-## M29 Calibrated Monte Carlo Expanded Pass
+## M29 Larger Chi-Square-Primary Monte Carlo Pass
 
 - Script: `m29_calibrated_monte_carlo.py`
 - Note: `m29_calibrated_monte_carlo.md`
@@ -13,21 +13,21 @@ Final shareable code that reproduces manuscript figures and tables belongs in
 - Command run:
 
 ```powershell
-python manuscript\simulations\m29_calibrated_monte_carlo.py
+python manuscript\simulations\m29_calibrated_monte_carlo.py --calibration-reps 240 --evaluation-reps 120 --bootstrap-reps 40 --grid-points 41
 ```
 
-Interpretation: this expanded M29 pass keeps the M0020/M28 B-plane and reports
+Interpretation: this larger M29 pass keeps the M0020/M28 B-plane and reports
 the M27 metric bundle under four pointwise cutoff conventions. The chi-square
 rows are the primary applied benchmark because they match the critical values a
 standard-DW researcher would use when unaware of residual noise. The high-noise
-case supports the visual warning: standard DW includes true `B0` in only 0.292
+case supports the visual warning: standard DW includes true `B0` in only 0.325
 of evaluation samples under the chi-square guide, while robust DW includes it
-in 0.917. No-noise repeated, oracle scenario truth, and truth-point residual
+in 0.908. No-noise repeated, oracle scenario truth, and truth-point residual
 bootstrap cutoffs are calibration audits. The high-noise oracle standard-DW
 cutoff rises sharply, and the truth-bootstrap convention restores truth
-inclusion only by widening accepted sets. This remains an evidence gate, not
-the final manuscript table; M29 still needs a larger chi-square-primary run
-before coverage-style claims are final.
+inclusion only by widening accepted sets. Weak and Gaussian structural-shock
+cases keep robust DW wide, which supports the limitation story rather than a
+sharp identification claim.
 
 ## M0020 Non-Gaussianity Companion Grid
 
@@ -98,8 +98,8 @@ python manuscript\simulations\sign_dw_robust_noise_figure.py
 Interpretation: this is an exploratory population figure candidate. It
 replicates the KnowledgeVault sign/standard-DW noise visualization and adds a
 robust-DW normalized higher-cumulant panel under Gaussian residual noise. M28
-now favors the M0020 grid pair as the main visual spine, while M29 calibration
-remains open before final manuscript evidence.
+now favors the M0020 grid pair as the main visual spine, and M29 supplies the
+larger finite-sample evidence gate for drafting.
 
 ## M35 Early J-Test Monte Carlo Triage
 

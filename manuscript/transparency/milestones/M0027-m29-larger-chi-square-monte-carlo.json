@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "id": "M0027-m29-larger-chi-square-monte-carlo",
+  "sequence": 27,
+  "title": "M29 larger chi-square Monte Carlo",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-06T14:22:12Z",
+  "closed_at": "2026-06-06T14:37:05Z",
+  "start_commit": "085a64349bde35485921fc15f8926df98da01238",
+  "snapshot_ref": "manuscript-milestones/M0027-m29-larger-chi-square-monte-carlo",
+  "summary": "Ran the larger M29 chi-square-primary Monte Carlo table, marked M29 complete for draft evidence, and updated planning/log surfaces so M31 figure-led drafting is next.",
+  "user_inputs": [
+    {
+      "id": "U0027-001",
+      "milestone_id": "M0027-m29-larger-chi-square-monte-carlo",
+      "captured_at": "2026-06-06T14:22:12Z",
+      "source": "chat",
+      "text": "Pick the next manuscript task and complete a focused manuscript work block in goal mode; selected M29 larger chi-square-primary Monte Carlo evidence."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0027-001",
+      "milestone_id": "M0027-m29-larger-chi-square-monte-carlo",
+      "captured_at": "2026-06-06T14:37:05Z",
+      "description": "Selected M29 as the next active task from the task board."
+    },
+    {
+      "id": "A0027-002",
+      "milestone_id": "M0027-m29-larger-chi-square-monte-carlo",
+      "captured_at": "2026-06-06T14:37:05Z",
+      "description": "Ran M29 with 240 calibration replications, 120 evaluation replications, 40 truth-bootstrap replications per evaluation sample, and a 41-by-41 grid."
+    },
+    {
+      "id": "A0027-003",
+      "milestone_id": "M0027-m29-larger-chi-square-monte-carlo",
+      "captured_at": "2026-06-06T14:37:05Z",
+      "description": "Updated M29 outputs, planning surfaces, formal registry, simulation index, and human-readable logs; marked M29 done and M31 next."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-06T14:37:05Z",
+      "description": "python manuscript\\\\simulations\\\\m29_calibrated_monte_carlo.py --calibration-reps 240 --evaluation-reps 120 --bootstrap-reps 40 --grid-points 41: passed"
+    },
+    {
+      "captured_at": "2026-06-06T14:37:05Z",
+      "description": "python -m py_compile manuscript\\\\simulations\\\\m29_calibrated_monte_carlo.py: passed"
+    },
+    {
+      "captured_at": "2026-06-06T14:37:05Z",
+      "description": "formal registry and M29 output JSON parse: passed"
+    },
+    {
+      "captured_at": "2026-06-06T14:37:05Z",
+      "description": "python scripts\\\\check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-06T14:37:05Z",
+      "description": "git diff --check: passed with line-ending normalization warnings only"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/m29_calibrated_monte_carlo.md",
+    "manuscript/simulations/m29_calibrated_monte_carlo.py",
+    "manuscript/simulations/output/m29_calibrated_monte_carlo.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0027-m29-larger-chi-square-monte-carlo.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 24,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/24",
+    "tag_name": "manuscript-milestones/M0027-m29-larger-chi-square-monte-carlo"
+  }
+}

@@ -1,4 +1,4 @@
-"""First calibrated Monte Carlo pass for the M29 evidence gate.
+"""Calibrated Monte Carlo pass for the M29 evidence gate.
 
 This script keeps the M0020/M28 B-plane design and reports the M27 metric
 bundle under three pointwise critical-value conventions:
@@ -10,7 +10,7 @@ bundle under three pointwise critical-value conventions:
 * a sample-specific residual bootstrap at the true B0, used as an audit of
   whether bootstrap calibration changes the first-pass reading.
 
-The output is a first evidence pass, not the final replication package.
+The output is a finite-sample evidence gate, not the final replication package.
 """
 
 from __future__ import annotations
@@ -580,9 +580,9 @@ def write_note(payload: dict[str, Any]) -> None:
         for row in payload["summary"]
     }
     lines: list[str] = [
-        "# M29 Calibrated Monte Carlo Expanded Pass",
+        "# M29 Calibrated Monte Carlo Larger Pass",
         "",
-        "Status: expanded finite-sample evidence pass for M29, not the final replication table.",
+        "Status: larger chi-square-primary finite-sample evidence pass for M29, not the final replication package.",
         "",
         "This pass keeps the M0020/M28 normalized B-plane. The main applied benchmark uses the standard pointwise chi-square critical values a researcher would use under the maintained no-noise DW null; repeated-sample, oracle, and truth-bootstrap cutoffs are reported as calibration audits.",
         "",

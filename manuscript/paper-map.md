@@ -24,11 +24,10 @@ reported beside the standard DW set as a practical robustness check.
 - Evidence: the M0020 grid pair is the visual spine. The residual-noise grid
   shows sign-set movement, standard-DW truth rejection, and robust-DW widening;
   the non-Gaussianity grid shows why robust DW becomes wide when higher moments
-  weaken. M28 validates the first population/repeated-seed layer of this story;
-  M29 now makes standard pointwise chi-square cutoffs the primary applied
-  benchmark, with repeated-sample and truth-bootstrap diagnostics kept as
-  calibration audits. Final evidence still needs a larger chi-square-primary
-  run.
+  weaken. M28 validates the first population/repeated-seed layer of this story.
+  The larger M29 run uses standard pointwise chi-square cutoffs as the primary
+  applied benchmark, with repeated-sample and truth-bootstrap diagnostics kept
+  as calibration audits.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -107,7 +106,7 @@ and proof or output status.
 - M27 formal diagnostic note defining the reported standard-DW set, robust-DW
   set, critical-value convention, directional overlap metric, and interpretation
   boundaries.
-- M29 expanded Monte Carlo pass comparing standard DW and robust DW
+- M29 larger chi-square-primary Monte Carlo pass comparing standard DW and robust DW
   sets using the grid pair's scenarios plus weak-moment, Gaussian-shock, and
   skewed-residual-noise stress cases. It reports chi-square, no-noise repeated,
   oracle scenario truth, and truth-point residual-bootstrap cutoffs, with
@@ -121,7 +120,7 @@ and proof or output status.
 
 - The standard DW J-test inversion result is now a working derivation; it still
   needs audit before prose promotion.
-- M27 has formalized the comparison diagnostic. M29's expanded pass supports
-  the high-noise divergence story under researcher-facing chi-square cutoffs,
-  but the remaining evidence gate is a larger chi-square-primary final pass
-  that reports audit cutoffs without overstating them.
+- M27 has formalized the comparison diagnostic, and the larger M29 run now
+  supports the high-noise divergence story under researcher-facing chi-square
+  cutoffs. The next bottleneck is converting the figure-led evidence into
+  disciplined prose without overstating the audit cutoffs.
