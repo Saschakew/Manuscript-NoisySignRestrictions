@@ -16,18 +16,11 @@ Final shareable code that reproduces manuscript figures and tables belongs in
 python manuscript\simulations\m29_calibrated_monte_carlo.py --calibration-reps 120 --evaluation-reps 60 --bootstrap-reps 20 --grid-points 41
 ```
 
-Interpretation: this refreshed M29 pass keeps the M0030 revised B-plane and reports
-the M27 metric bundle under four pointwise cutoff conventions. The chi-square
-rows are the primary applied benchmark because they match the critical values a
-standard-DW researcher would use when unaware of residual noise. The high-noise
-case supports the visual warning: standard DW includes true `B0` in only 0.050
-of evaluation samples under the chi-square guide, while robust DW includes it
-in 0.900. No-noise repeated, oracle scenario truth, and truth-point residual
-bootstrap cutoffs are calibration audits. The high-noise oracle standard-DW
-cutoff rises sharply, and the truth-bootstrap convention restores truth
-inclusion only by widening accepted sets. Weak and Gaussian structural-shock
-cases show robust DW widening toward its covariance anchor, which supports the
-limitation story rather than a sharp higher-moment identification claim.
+Interpretation: this refreshed M29 pass keeps the M0030 revised B-plane and
+reports the M27 metric bundle under four pointwise cutoff conventions. It is
+historical for the current robust row because M0034-M0036 superseded the
+diagonal-anchor statistic. Reuse the reporting metrics when rebuilding the
+variance-ratio Monte Carlo under M45.
 
 ## M0036 Relative-Noise Robust Figure 1 Candidate
 
@@ -40,13 +33,15 @@ limitation story rather than a sharp higher-moment identification claim.
 python manuscript\simulations\sign_dw_robust_noise_grid_figure.py --robust-mode relative
 ```
 
-Interpretation: this is the current Figure 1 candidate pending M40 audit. The
-robust-DW row uses the pure five-moment higher-cumulant J statistic and adds a
-candidate-specific covariance-decomposition screen requiring
+Interpretation: this is the current Figure 1 candidate after the M40
+conditional audit. The robust-DW row uses the pure five-moment
+higher-cumulant J statistic and adds a candidate-specific
+covariance-decomposition screen requiring
 `0 <= nu_i <= 0.5 Var(epsilon_i)`. In the high-noise column, true `B0` remains
 inside and the relative row accepts 0.071 of the full plotted grid. The
 precision comes from explicit signal-to-noise information, not from a DW
-moment.
+moment. M43-M45 must still rebuild Figure 2, Figure 3, validation, and Monte
+Carlo evidence before final claims.
 
 ## M0035 Absolute-Bound Robust Figure 1 Comparison
 
@@ -93,8 +88,8 @@ python manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py
 Interpretation: this historical companion to the M0030 noise grid fixes residual
 noise at `V=(0.2,0.2)` and weakens structural-shock non-Gaussianity across
 columns. All rows invert pointwise 10 percent J tests. Its robust row used the
-now-superseded off-diagonal covariance anchor, so rebuild it after M40 if the
-relative screen becomes the evidence spine.
+now-superseded off-diagonal covariance anchor, so rebuild it under M43 with
+the variance-ratio robust row.
 
 ## M28 Grid Story Validation
 

@@ -1,7 +1,7 @@
 # Relative-Noise Robust DW Noise Grid Variant
 
 Status: M0036 candidate after the M0034 scale correction and M0035 absolute
-bound screen.
+bound screen; M40 conditionally audited the screen algebra and interpretation.
 
 This note records the Figure 1 variant that bounds diagonal residual-noise
 variances relative to profiled structural-shock variances. The bottom row uses
@@ -81,3 +81,24 @@ similar to the absolute `nu_i <= 0.5` screen because the simulated structural
 shocks have variance close to one, but the interpretation is different. The
 precision comes from a signal-to-noise restriction, not from an arbitrary
 absolute variance unit.
+
+## M40 Audit Note
+
+M40 conditionally passed the relative screen as a population
+covariance-decomposition restriction. The audit confirmed that the implemented
+linear feasibility problem matches the displayed equations and that the
+`rho=0.5` bound is scale-correct relative to profiled structural-shock
+variances. It must still be presented as substantive identifying information.
+
+A small repeated-draw screen check at the true `B0` gave the following pass
+rates over 250 draws:
+
+| Sample size | `V=(0,0)` | `V=(0.2,0.2)` | `V=(0.5,0.5)` |
+|---:|---:|---:|---:|
+| `T=500` | 0.916 | 0.992 | 0.944 |
+| `T=1000` | 0.988 | 1.000 | 0.972 |
+| `T=2000` | 1.000 | 1.000 | 1.000 |
+
+This is reassuring for the current calibration, but it is not a coverage
+result. The full M28/M29-style validation and Monte Carlo package still needs
+to be rebuilt after Figure 2 and Figure 3 are updated.

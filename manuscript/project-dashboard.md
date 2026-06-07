@@ -12,22 +12,21 @@ M0036 now gives the replacement proposal: variance-ratio robust DW, combining
 valid higher-cumulant moments with a profiled covariance-decomposition screen
 where residual noise variances are bounded relative to structural-shock
 variances. M0038 added formula-first Section 2-4 draft skeletons around this
-proposal, but the M25 standard-DW proof audit and M40 variance-ratio screen
-audit remain open.
+proposal. M0039/M40 conditionally passed the variance-ratio screen algebra and
+interpretation, but the M25 standard-DW proof audit and M43-M45 evidence
+rebuilds remain open.
 
-Current focus: audit the variance-ratio robust DW screen before turning the
-Section 4 sketch into theorem-level prose or rebuilding the companion
-evidence. Do not yet rebuild Figure 2, create Figure 3, or treat the
-variance-ratio precision as final evidence.
+Current focus: clean the draft and rebuild the evidence package around the
+audited variance-ratio proposal. Do not yet treat the variance-ratio precision
+as final evidence.
 
-Next recommended action: run M40, the adversarial audit of the variance-ratio
-robust DW screen. After M40, clean remaining manuscript math delimiters,
-update Figure 2 to use the variance-ratio robust row, add the new Figure 3
-sample-size grid, and rebuild validation/Monte Carlo evidence around the same
-proposal.
+Next recommended action: run M42, the manuscript math-delimiter cleanup. After
+M42, update Figure 2 to use the variance-ratio robust row, add the new Figure
+3 sample-size grid, and rebuild validation/Monte Carlo evidence around the
+same proposal.
 
-Active milestone: none after M0038 closes; latest work block is M0038, sketch
-Sections 2-4 with formulas.
+Active milestone: none after M0039 closes; latest work block is M0039/M40,
+audit variance-ratio robust DW screen.
 
 Active blockers:
 
@@ -57,10 +56,12 @@ Active blockers:
   relative row contains true `B0` and accepts about 0.071 of the full plotted
   grid, or 0.084 of the sign-admissible grid. Its precision comes from the
   explicit `nu_i <= 0.5 Var(epsilon_i)` signal-to-noise restriction; this is
-  now the manuscript proposal, with audit and evidence rebuild still required.
+  now the manuscript proposal. M40 conditionally passed the screen algebra and
+  interpretation; evidence rebuild is still required.
 - Sections 2-4 now have a formula-first prose sketch from M0038. The sketch is
   deliberately cautious: Proposition 2 still depends on the M25 proof audit,
-  and Proposition 3 still depends on the M40 variance-ratio screen audit.
+  and Proposition 3 still depends on M43-M45 evidence rebuilds before final
+  theorem or evidence wording.
 - Manuscript-wide math-format cleanup remains open under M42. Sections 2-4 use
   inline `\(...\)` and display `\begin{equation}...\end{equation}` math, but
   earlier/later draft sections still contain some Markdown backtick math.
@@ -71,15 +72,15 @@ Active blockers:
   fixed.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
-- The first figure-led skeleton now uses the refreshed M29 chi-square rows as
-  draft-level evidence and reserves repeated/bootstrap rows for
-  robustness-audit language. Final publication replication should still move
-  the code into `manuscript/replication/` and can rerun a heavier table if
-  needed.
+- The first figure-led skeleton still contains the refreshed M29 chi-square
+  rows as historical placeholders. They should not be read as evidence for the
+  variance-ratio robust row until M45 rebuilds the Monte Carlo package.
+  Final publication replication should still move the code into
+  `manuscript/replication/` and can rerun a heavier table if needed.
 
-Last substantive session: 2026-06-07, opened M0038 to complete M41 by
-drafting formula-first Sections 2-4 around the noisy sign pseudo-set,
-standard-DW misspecification sketch, and variance-ratio robust DW proposal.
+Last substantive session: 2026-06-07, opened M0039 to complete M40 by auditing
+the variance-ratio robust DW covariance screen, conditionally passing the
+algebra and implementation, and recording finite-sample cautions.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

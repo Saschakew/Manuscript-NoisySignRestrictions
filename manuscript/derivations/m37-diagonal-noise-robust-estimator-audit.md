@@ -1,6 +1,12 @@
 # M37 Diagonal-Noise Robust Estimator Audit
 
-Status: conditional pass for theorem-level drafting.
+Status: historical conditional pass, superseded by the M0034 scale correction.
+
+M0034 later invalidated this audit's active pass judgment for the reported
+six-moment diagonal-anchor object. In the `diag(B)=1` chart, the off-diagonal
+covariance equation contains structural-shock variances unless unit shock
+variances are imposed as an additional scale normalization. Use this note as a
+record of the superseded M0030 object, not as the current Section 4 route.
 
 Audit date: 2026-06-06.
 

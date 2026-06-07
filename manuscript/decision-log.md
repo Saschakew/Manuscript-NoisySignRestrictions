@@ -5,6 +5,28 @@ decisions.
 
 ## Entries
 
+### 2026-06-07 - Clear variance-ratio screen for proposal prose
+
+- Origin: Codex-selected M40 audit after the user asked to continue manuscript
+  work in goal mode.
+- User input id: U0039
+- Codex role: audited the variance-ratio covariance screen, checked the
+  implementation, ran a small repeated-draw truth-screen sanity check, and
+  updated the draft, registry, planning surfaces, and logs.
+- Decision: Treat the M0036 variance-ratio screen as conditionally cleared for
+  careful Section 4 proposal prose. The algebra is valid for
+  `S = B diag(s_1,s_2) B' + diag(nu_1,nu_2)` with
+  `0 <= nu_i <= 0.5 s_i`, and the implementation matches the resulting
+  linear feasibility problem.
+- Rationale: The screen avoids the M0034 double-normalization error by
+  profiling structural-shock variances and residual-noise variances. Its
+  precision comes from explicit signal-to-noise identifying information, not
+  from a DW moment or a normalization.
+- Consequence for next work: Do not claim coverage or final evidence yet.
+  M43-M45 still need to rebuild Figure 2, add Figure 3, and rerun validation
+  and Monte Carlo evidence for the variance-ratio proposal. M42 math cleanup
+  is the next low-risk draft maintenance step.
+
 ### 2026-06-06 - Adopt variance-ratio robust DW as the proposal
 
 - Origin: user planning instruction after inspecting the M0036 relative-noise

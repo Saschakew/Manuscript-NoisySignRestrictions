@@ -8,6 +8,23 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-07 - Audit variance-ratio robust DW screen
+
+- Request or goal: work on the manuscript in goal mode, choose the next task,
+  and complete a substantive manuscript work block.
+- Files changed: `manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md`,
+  `manuscript/derivations/dw-noise-robust-moments.md`,
+  `manuscript/draft.md`, `manuscript/formal-object-registry.json`,
+  planning/control surfaces, logs, and M0039 transparency files.
+- Summary of work: selected M40 and completed the adversarial audit of the
+  M0036 variance-ratio robust DW covariance screen. The audit conditionally
+  passes the algebra and implementation, records that `rho=0.5` is substantive
+  signal-to-noise information, and documents a small repeated-draw check of the
+  hard finite-sample screen at the true `B0`.
+- Next recommended action: run M42, the manuscript-wide math delimiter
+  cleanup, then rebuild Figure 2, add Figure 3, and rerun M28/M29-style
+  evidence under M43-M45.
+
 ### 2026-06-07 - Sketch Sections 2-4 with formulas
 
 - Request or goal: work on the manuscript in goal mode, choose the next task,

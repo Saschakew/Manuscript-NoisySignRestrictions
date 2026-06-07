@@ -67,7 +67,7 @@ without reusing invalid covariance anchors.
 | 1. Introduction | Motivate the robustness-check problem, position the paper relative to sign restrictions, Drautzburg-Wright, and higher-moment SVAR/GMM, and preview the geometry plus Monte Carlo evidence. | skeleton plus M32 positioning drafted |
 | 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | formula sketch drafted; proof polish pending |
 | 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | formula sketch drafted; M25 proof audit pending |
-| 4. Variance-Ratio Robust DW | Define the robust normalized candidate set from mixed higher cumulants, explain why recovered-shock zero covariance and the diagonal-anchor `u` covariance moment are invalid, and derive the variance-ratio covariance-decomposition screen as the proposal. | formula sketch drafted; M40 screen audit pending |
+| 4. Variance-Ratio Robust DW | Define the robust normalized candidate set from mixed higher cumulants, explain why recovered-shock zero covariance and the diagonal-anchor `u` covariance moment are invalid, and derive the variance-ratio covariance-decomposition screen as the proposal. | formula sketch drafted; M40 screen audit conditionally passed |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuild Figure 2 with the variance-ratio robust row, add Figure 3 varying `T=500,1000,2000`, and then rerun M28/M29-style evidence. | needs rebuild |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
 
@@ -125,15 +125,14 @@ and proof or output status.
   `derivations/dw-noise-robust-moments.md`; the post-M0030 diagonal-anchor
   estimator audit is superseded by the M0034 scale correction.
 - M28 population-grid and repeated-draw validation of the M0030 revised grid
-  pair is superseded for the robust row and must be rerun after M39.
+  pair is superseded for the robust row and must be rerun after M43-M44.
 - M27 formal diagnostic note defining the reported standard-DW set, robust-DW
   set, critical-value convention, directional overlap metric, and interpretation
   boundaries.
-- M29 refreshed chi-square-primary Monte Carlo pass comparing standard DW and robust DW
-  sets using the grid pair's scenarios plus weak-moment, Gaussian-shock, and
-  skewed-residual-noise stress cases. It reports chi-square, no-noise repeated,
-  oracle scenario truth, and truth-point residual-bootstrap cutoffs, with
-  chi-square as the primary applied benchmark.
+- M29 refreshed chi-square-primary Monte Carlo pass is historical for the
+  current robust row because it used the superseded diagonal-anchor statistic.
+  Reuse its metric bundle and cutoff conventions when rebuilding the
+  variance-ratio Monte Carlo evidence.
 - Final Monte Carlo comparison of standard sign, standard DW, and robust DW
   sets using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and
@@ -150,11 +149,12 @@ and proof or output status.
   skeleton without treating audit cutoffs as application-ready procedures.
   M32 added the first literature-positioning pass with explicit contribution
   boundaries. The next bottlenecks are M39 evidence/method rebuild, direct M25
-  proof audit before theorem-level wording, Section 2-4 formula drafting,
-  manuscript math-format cleanup, Figure 2/Figure 3 rebuilds, M40 audit of the
-  variance-ratio screen, and moving figure/table code into
+  proof audit before theorem-level wording, manuscript math-format cleanup,
+  Figure 2/Figure 3 rebuilds, M45 validation/Monte Carlo rebuild, and moving
+  figure/table code into
   `manuscript/replication/` before sharing.
 - M0038 converted the Section 2-4 TODO stubs into formula-first draft
-  skeletons. The next bottleneck is not more skeleton prose; it is auditing the
-  M0036 variance-ratio screen and the M25 standard-DW proof conditions before
-  theorem-level wording.
+  skeletons. M0039/M40 conditionally passed the M0036 variance-ratio screen.
+  The next bottleneck is not more skeleton prose; it is cleaning math
+  formatting, rebuilding the variance-ratio evidence, and auditing the M25
+  standard-DW proof conditions before theorem-level wording.

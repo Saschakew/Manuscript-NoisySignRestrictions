@@ -121,7 +121,7 @@
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "verification_status": "M24 conditional audit passed for the pure local normalized Gaussian-noise higher-cumulant route. M0030/M37 added and audited a six-moment diagonal-anchor variant, but M0034 supersedes that variant: under diag(B)=1 the off-diagonal covariance is Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2 unless unit shock variances are imposed as an extra scale normalization. M0036 supplies the variance-ratio proposal; M40-M45 must audit, draft, rebuild figures, and rebuild evidence around it.",
+      "verification_status": "M24 conditional audit passed for the pure local normalized Gaussian-noise higher-cumulant route. M0030/M37 added and audited a six-moment diagonal-anchor variant, but M0034 supersedes that variant: under diag(B)=1 the off-diagonal covariance is Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2 unless unit shock variances are imposed as an extra scale normalization. M0036 supplies the variance-ratio proposal, and M40 conditionally passed its covariance-screen algebra and interpretation. M43-M45 must still rebuild Figure 2, add Figure 3, and rebuild validation and Monte Carlo evidence around it.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
@@ -134,7 +134,7 @@
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 only as a pointwise guide pending M39 evidence rebuild.",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 only as a pointwise guide pending the M43-M45 evidence rebuild.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
@@ -148,36 +148,36 @@
         "eq:dw-higher-cumulant-moment-stack"
       ],
       "derivation": "manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md",
-      "verification_status": "M0035 figure diagnostic generated; algebra and finite-sample interpretation still need M40 adversarial audit before theorem-level prose or M28/M29 rebuild.",
+      "verification_status": "M0035 figure diagnostic generated; the absolute bound is now a historical comparison after M0036/M40 because its upper cap is scale-arbitrary. Do not use it as the active theorem-level object without a separate audit.",
       "source": "manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md"
     },
     {
       "id": "eq:relative-noise-covariance-screen",
       "type": "equation",
-      "status": "sketched-in-draft-needs-audit",
+      "status": "audited-conditional-pass-after-m40",
       "draft_location": "simulations/sign_dw_relative_noise_robust_grid_figure.md; draft.md#4-robust-dw-higher-moment-set",
       "description": "M0036 variance-ratio robust DW proposal: for B=[[1,a],[b,1]], sample covariance S, structural-shock variances s_i, and diagonal residual noise variances nu_i, require S11=s1+a^2*s2+nu1, S12=b*s1+a*s2, S22=b^2*s1+s2+nu2, and 0 <= nu_i <= 0.5*s_i. This profiles shock and noise variances in the diagonal-normalized chart rather than imposing unit shock variances. M0038 inserted the equality-plus-inequality screen in Section 4.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack"
       ],
-      "derivation": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md",
-      "verification_status": "M0036 figure diagnostic generated; algebra, finite-sample equality-plus-inequality behavior, and interpretation of the 50 percent signal-to-noise bound still need M40 adversarial audit before theorem-level prose or M28/M29 rebuild.",
-      "source": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md"
+      "derivation": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md",
+      "verification_status": "M40 conditional pass: the covariance-screen algebra and implementation match the profiled variance-ratio model, and the 50 percent bound is defensible only as explicit signal-to-noise identifying information. The hard sample screen can still exclude truth in finite samples, so M43-M45 must rebuild figures, validation, and Monte Carlo evidence before final evidence claims.",
+      "source": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md"
     },
     {
       "id": "prop:robust-dw-higher-moment-validity",
       "type": "proposition",
-      "status": "sketched-in-draft-needs-m40-audit",
+      "status": "sketched-in-draft-after-m40-conditional-pass",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant. The M0036 variance-ratio robust DW proposal adds the relative noise-to-shock variance screen as extra identifying information. M0038 added a cautious Proposition 3 sketch; M40 still must audit the screen before theorem-level wording.",
+      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant. The M0036 variance-ratio robust DW proposal adds the relative noise-to-shock variance screen as extra identifying information. M0038 added a cautious Proposition 3 sketch; M40 conditionally passed the screen algebra and interpretation, while M43-M45 still must rebuild the evidence package.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack",
         "eq:relative-noise-covariance-screen"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M0036 variance-ratio screen is now the proposal and needs M40 audit before theorem-level wording.",
+      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M40 conditionally passed the M0036 variance-ratio screen as a population feasibility restriction, but finite-sample evidence and Figure 2/Figure 3 rebuilds remain pending.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
@@ -190,7 +190,7 @@
         "def:standard-dw-refined-set",
         "def:robust-dw-higher-moment-set"
       ],
-      "proof_status": "M27 formalization complete for the older comparison metric, but M0034 supersedes the diagonal-anchor robust set used in M29. Recompute metrics after M39.",
+      "proof_status": "M27 formalization complete for the older comparison metric, but M0034 supersedes the diagonal-anchor robust set used in M29. Recompute metrics under M45 after Figure 2 and Figure 3 are rebuilt.",
       "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md",
       "source": "manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
@@ -289,6 +289,18 @@
       "source": "manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
+      "id": "audit:relative-noise-covariance-screen",
+      "type": "audit",
+      "status": "done",
+      "draft_location": "derivations/m40-variance-ratio-robust-dw-screen-audit.md; review-log.md",
+      "description": "M40 adversarial audit of the M0036 variance-ratio covariance screen. Conditional pass: the profiled covariance-decomposition algebra and implementation match the normalized bivariate chart, and the 50 percent noise-to-shock variance bound is defensible only as explicit signal-to-noise identifying information. The hard finite-sample screen can still exclude truth, so M43-M45 must rebuild figures, validation, and Monte Carlo evidence before final claims.",
+      "depends_on": [
+        "eq:relative-noise-covariance-screen",
+        "prop:robust-dw-higher-moment-validity"
+      ],
+      "source": "manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md"
+    },
+    {
       "id": "audit:dw-noise-simulation-design",
       "type": "audit",
       "status": "triage-audit-complete",
@@ -321,11 +333,6 @@
       "id": "audit:standard-dw-j-test-gate",
       "status": "open",
       "question": "Does the M25 standard-DW J-test derivation survive audit, especially the rich-stack generic emptying claim, structural-rescaling exception, and finite-moment alias caveats?"
-    },
-    {
-      "id": "audit:relative-noise-covariance-screen",
-      "status": "open",
-      "question": "Does the M0036 relative-noise covariance screen correctly profile shock and noise variances in the diag(B)=1 chart, and is the 50 percent noise-to-shock variance bound defensible as an identifying restriction?"
     }
   ]
 }

@@ -54,18 +54,15 @@ higher moments carry little information, the robust set widens even under the
 variance-ratio screen. Figure 3 should vary sample size `T=500,1000,2000`
 while holding the Figure 1 structural non-Gaussianity and Figure 2 residual
 noise fixed.
-The refreshed M28 validation pass supports this grid-pair story with exact
-population moment diagnostics, grid-boundary checks, repeated finite-sample
-seeds, and pointwise critical-value sensitivity. M27/M0030 now fix the
-comparison language: standard-DW accepted mass outside the robust-DW set is the
-directional warning metric, while robust-DW mass outside standard DW mainly
-records the information lost by profiling diagonal noise and dropping
-recovered-shock covariance restrictions. The refreshed M29 Monte Carlo pass
-uses the standard pointwise chi-square critical values that a researcher would
-use when unaware of residual noise as the main applied reading; under that
-benchmark, the high-noise standard-DW set misses true `B0` much more often than
-the robust set. Repeated-sample, oracle truth, and truth-point bootstrap
-cutoffs are secondary audits of finite-sample size and calibration cost.
+The old M28 validation and M29 Monte Carlo passes are now historical for the
+robust row because they used the superseded diagonal-anchor statistic. Their
+metric bundle remains useful: standard-DW accepted mass outside the robust-DW
+set is the directional warning metric, while robust-DW mass outside standard
+DW mainly records the information lost by profiling diagonal noise and dropping
+recovered-shock covariance restrictions. The rebuilt M45 table should keep
+standard pointwise chi-square critical values as the main applied reading, with
+repeated-sample, oracle truth, and truth-point bootstrap cutoffs as secondary
+audits of finite-sample size and calibration cost.
 
 ## Why It Matters
 
@@ -194,7 +191,8 @@ is the price of not pretending that the noisy covariance is structural.
   recovered-shock zero-covariance restriction and superseded diagonal-anchor
   `u` covariance moment are not imposed. Optional second-order precision comes
   from an explicit relative noise-to-shock variance restriction, not from DW
-  independence moments.
+  independence moments. M40 conditionally passes the covariance-screen algebra
+  and interpretation for proposal prose.
 - Proposition 4, robust set comparison: M27 formalizes the diagnostic in
   `manuscript/derivations/dw-robust-comparison-diagnostic.md`. The key warning
   is directional: standard-DW accepted mass outside robust-DW indicates that
@@ -203,12 +201,10 @@ is the price of not pretending that the noisy covariance is structural.
   deliberately lost by profiling diagonal noise and dropping recovered-shock
   covariance restrictions. The comparison is a warning, not literal proof of
   measurement error.
-- Simulation result: the M0030 revised grid pair is the main evidence
-  figure package if validation passes. Monte Carlo evidence should then
-  quantify the same visual story: sign-set bias, standard DW false-sharpening
-  or truth rejection under residual noise, robust DW truth inclusion without
-  whole-chart acceptance, and robust DW loss of higher-moment information under
-  weak or Gaussian higher moments.
+- Simulation result: the M0036 relative-noise Figure 1 is the current proposal
+  visual. Figure 2, Figure 3, and the Monte Carlo table still need to be
+  rebuilt for the variance-ratio robust row before the paper makes final
+  evidence claims.
 
 ## Evidence Plan
 
@@ -225,20 +221,17 @@ is the price of not pretending that the noisy covariance is structural.
   Figure 2 noise calibration fixed. Use it to show whether the variance-ratio
   robust set tightens with sample size while the maintained signal-to-noise
   restriction stays fixed.
-- Validation grid checks: M28 reran the same story on population and
-  repeated-draw grids, checking that the visual is not an artifact of one seed,
-  one grid boundary, or the pointwise chi-square cutoff.
-- Monte Carlo table: M29's refreshed pass reports true-`B0` coverage-style
-  inclusion, accepted-set share, empty-set frequency, standard-DW versus
-  robust-DW overlap, the M27 directional divergence metric, and
-  least-rejected candidates across no-noise, moderate-noise, high-noise,
-  weak-moment, Gaussian-shock, and skewed-residual-noise stress cases. The
-  chi-square rows are the primary applied benchmark because they match the
-  standard DW critical values a researcher would use under the no-noise null.
-  No-noise repeated, oracle scenario truth, and truth-point residual-bootstrap
-  cutoffs are calibration audits. The 120-calibration, 60-evaluation refreshed
-  run is sufficient for the first figure-led draft; final publication
-  replication can still rerun a heavier table from `manuscript/replication/`.
+- Validation grid checks: rerun M28-style population and repeated-draw checks
+  after Figure 2 and Figure 3 are rebuilt. The old M28 pass is historical for
+  the robust row because it used the superseded diagonal-anchor statistic.
+- Monte Carlo table: rerun M29-style evidence for the variance-ratio robust
+  proposal. Reuse the same reporting metrics: true-`B0` inclusion, accepted-set
+  share, empty-set frequency, standard-DW versus robust-DW overlap, the M27
+  directional divergence metric, and least-rejected candidates across no-noise,
+  moderate-noise, high-noise, weak-moment, Gaussian-shock, and
+  skewed-residual-noise stress cases. Standard pointwise chi-square rows should
+  remain the primary applied benchmark, with no-noise repeated, oracle truth,
+  and bootstrap rows as calibration audits.
 - Stress cases: weak higher moments, near-Gaussian structural shocks, high
   noise, non-Gaussian noise that violates the robust route if Gaussianity is
   maintained, anisotropic noise, near-boundary signs, and small macro samples.
@@ -247,8 +240,10 @@ is the price of not pretending that the noisy covariance is structural.
 
 - Sections 2-4 now have M0038 formula-first prose sketches for the noisy
   sign-set algebra, standard-DW misspecification result, and variance-ratio
-  robust DW proposal. They still need proof polishing, M25/M40 audit outcomes,
-  and final citation-style cleanup before becoming polished manuscript prose.
+  robust DW proposal. M40 conditionally passed the variance-ratio screen; they
+  still need proof polishing, the M25 standard-DW audit outcome, evidence
+  rebuilds, and final citation-style cleanup before becoming polished
+  manuscript prose.
 - Future drafting cleanup should replace manuscript math written in Markdown
   backticks with inline `\(...\)` and display
   `\begin{equation}...\end{equation}` environments where appropriate.

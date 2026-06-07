@@ -25,7 +25,7 @@ diagnostic: report standard DW and robust DW together, and treat standard-DW
 precision unsupported by the robust set as a warning rather than as evidence of
 sharper structural learning.
 
-<!-- SOURCE-TRAIL: Use the M0036 relative-noise Figure 1 candidate, the M0035 absolute-bound comparison, the M0034 pure robust variant, and the M24 higher-cumulant derivation. Treat M0030/M37/M28/M29 diagonal-anchor evidence as superseded until M39/M40 rebuilds it. -->
+<!-- SOURCE-TRAIL: Use the M0036 relative-noise Figure 1 candidate, the M40 screen audit, the M0035 absolute-bound comparison, the M0034 pure robust variant, and the M24 higher-cumulant derivation. Treat M0030/M37/M28/M29 diagonal-anchor evidence as superseded until M43-M45 rebuilds the evidence package. -->
 <!-- CONTRIBUTION-NOTE: The abstract's original contribution is the residual-noise pseudo-set warning and the DW-versus-robust-DW comparison diagnostic. -->
 
 ## 1. Introduction
@@ -123,9 +123,9 @@ remains wider while containing it once explicit relative noise-scale
 information is added. Figure 2 holds residual noise fixed and weakens
 structural non-Gaussianity, showing the limitation that robust DW's
 higher-cumulant component needs informative higher moments. Table 1 must be
-rebuilt after the relative-noise screen is audited.
+rebuilt after the Figure 2/Figure 3 and M28/M29-style evidence rebuild.
 
-<!-- SOURCE-TRAIL: Use M0036 for the current Figure 1 candidate. M28/M29 must be rebuilt after M40. -->
+<!-- SOURCE-TRAIL: Use M0036 and the M40 audit for the current Figure 1 candidate. M28/M29 must be rebuilt after M43-M44. -->
 
 <!-- SOURCE-TRAIL: Use sign-restriction overview sources, Drautzburg-Wright, and the noisy-residual synthesis. -->
 <!-- CONTRIBUTION-NOTE: The original contribution is the noise-bias warning plus the standard-DW versus robust-DW comparison. -->
@@ -488,12 +488,14 @@ as extra signal-to-noise information; it does not impose recovered-shock zero
 covariance or the superseded \(S_{12}=a+b\) diagonal-anchor restriction.*
 
 This proposition is the current constructive sketch, not a finished theorem.
-The M40 audit still has to check the relative screen algebra, the
-equality-plus-inequality finite-sample behavior, and whether the 50 percent
-noise-to-shock bound is presented as a defensible applied restriction.
+The M40 audit conditionally clears the relative screen algebra and the
+interpretation of the 50 percent noise-to-shock bound as identifying
+information. It also warns that the hard equality-plus-inequality screen can
+exclude the true candidate in finite samples, so M43-M45 still have to rebuild
+the evidence before the paper treats this as a final robust-DW object.
 
-<!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, `simulations/sign_dw_relative_noise_robust_grid_figure.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
-<!-- TODO-NOTE: Audit the M0036 relative-noise screen before theorem wording: the 50 percent noise-to-shock variance bound is identifying information, not a normalization. -->
+<!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, `derivations/m40-variance-ratio-robust-dw-screen-audit.md`, `simulations/sign_dw_relative_noise_robust_grid_figure.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
+<!-- TODO-NOTE: Do not promote the M0036 relative-noise screen to final theorem or evidence language until M43-M45 rebuild the figures and Monte Carlo checks. The 50 percent noise-to-shock variance bound is identifying information, not a normalization. -->
 
 ## 5. Monte Carlo Robustness Check
 
@@ -529,8 +531,8 @@ adds the covariance-decomposition feasibility screen implied by
 high-noise column shows the paper's main warning: standard DW rejects true
 `B0` under the researcher-facing cutoff, while relative robust DW contains it.
 
-<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_relative_noise_robust_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative`; diagnostic note `simulations/sign_dw_relative_noise_robust_grid_figure.md`. M28/M29 diagonal-anchor evidence is superseded until M39/M40. -->
-<!-- TODO-NOTE: Do not claim coverage or final evidence from this figure until the relative-noise screen has been audited and M28/M29-style checks rerun. -->
+<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_relative_noise_robust_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative`; diagnostic note `simulations/sign_dw_relative_noise_robust_grid_figure.md`; audit note `derivations/m40-variance-ratio-robust-dw-screen-audit.md`. M28/M29 diagonal-anchor evidence is superseded until M43-M45. -->
+<!-- TODO-NOTE: Do not claim coverage or final evidence from this figure until M28/M29-style checks rerun for the variance-ratio robust set. -->
 
 M28 checks the figure's population logic before the draft leans on it. At the
 true normalized `B0`, the standard-DW population moment norm rises from
@@ -578,10 +580,11 @@ when robust DW still contains it.
 
 Table 1 is currently stale for the robust row. The refreshed M29 finite-sample
 pass used the superseded diagonal-anchor statistic, so its numbers should not
-be read as evidence for the relative-noise robust set. After M40 audits the
-relative screen, the Monte Carlo table should be rerun with the same reporting
-metrics: true-`B0` inclusion, accepted shares, empty-set frequencies, overlap,
-and the directional standard-outside-robust warning metric.
+be read as evidence for the relative-noise robust set. After Figure 2 and
+Figure 3 are rebuilt, the Monte Carlo table should be rerun with the same
+reporting metrics: true-`B0` inclusion, accepted shares, empty-set
+frequencies, overlap, and the directional standard-outside-robust warning
+metric.
 
 **Table 1. Superseded chi-square-primary Monte Carlo comparison.** The entries
 are M29 evaluation averages under standard pointwise chi-square critical
@@ -613,7 +616,7 @@ audit because it uses the known simulation truth and often restores truth
 inclusion by making accepted sets nearly uninformative. These rows quantify
 calibration cost; they are not the applied procedure being critiqued.
 
-<!-- DESIGN-NOTE: Rebuild the chi-square-primary table after M40; the current M29 table is retained only as historical context. -->
+<!-- DESIGN-NOTE: Rebuild the chi-square-primary table after M43-M44; the current M29 table is retained only as historical context. -->
 
 <!-- SOURCE-TRAIL: Use KnowledgeVault replication assets only as starting points; final figure commands must live in `replication/README.md`. -->
 <!-- SOURCE-TRAIL: Use `derivations/dw-robust-comparison-diagnostic.md` for the M27 definitions of the reported standard-DW set, robust-DW set, critical-value convention, directional overlap metric, and interpretation boundaries. -->

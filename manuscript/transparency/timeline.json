@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-07T07:24:57Z",
+  "updated_at": "2026-06-07T12:59:28Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -797,6 +797,28 @@
         "milestone_number": 35,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/35",
         "tag_name": "manuscript-milestones/M0038-sketch-sections-2-4-with-formulas"
+      }
+    },
+    {
+      "id": "M0039-audit-variance-ratio-robust-dw-screen",
+      "sequence": 39,
+      "title": "Audit variance-ratio robust DW screen",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-07T12:40:28Z",
+      "closed_at": "2026-06-07T12:59:28Z",
+      "start_commit": "6837f5e8bb5386a591728a8842c03bf3c31a7189",
+      "snapshot_ref": "manuscript-milestones/M0039-audit-variance-ratio-robust-dw-screen",
+      "summary": "Audited the variance-ratio robust DW covariance screen and conditionally cleared it for proposal prose while keeping evidence rebuild gates open.",
+      "user_input_ids": [
+        "U0039-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0039-audit-variance-ratio-robust-dw-screen.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 36,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/36",
+        "tag_name": "manuscript-milestones/M0039-audit-variance-ratio-robust-dw-screen"
       }
     }
   ]

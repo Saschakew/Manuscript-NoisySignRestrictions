@@ -11,13 +11,18 @@ normalized, Gaussian-noise derivation. The cumulant algebra and local-rank
 calculation survived the audit. The result is not yet a global identification
 theorem, a scale-identification result, or a finite-sample unbiasedness claim.
 
-M37 audit status: conditionally passed on 2026-06-06 for the post-M0030
-diagonal-noise robust estimator; see
-`manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md`.
-The six-moment object is valid as a local normalized bivariate diagnostic
-under diagonal Gaussian residual noise, with explicit caveats about scale,
-optional nonnegative profiled-variance screening, pointwise `chi2_6` cutoffs,
-and correlated or non-Gaussian residual-noise fallbacks.
+M37 audit status: historical. The post-M0030 diagonal-anchor audit initially
+cleared a six-moment object, but M0034 later superseded that pass judgment:
+under `diag(B)=1`, the off-diagonal covariance equation also contains
+structural-shock variances unless unit shock variances are imposed as a second
+scale normalization.
+
+M40 audit status: conditionally passed on 2026-06-07 for the M0036
+variance-ratio covariance screen; see
+`manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md`.
+The active proposal is the pure higher-cumulant inversion intersected with a
+profiled covariance-decomposition screen
+`0 <= nu_i <= rho Var(epsilon_i)`, usually with `rho=0.5`.
 
 Purpose: answer whether sign restrictions plus higher-order moment conditions
 can target the structural impact matrix when residuals contain additive noise.
@@ -479,67 +484,62 @@ restricted, or if one uses clean off-diagonal `u` covariance under diagonal
 noise, second moments can add information. The pure robust DW-like route
 omits those restrictions to avoid imposing a false no-noise covariance target.
 
-### 7.1 Diagonal-Noise Second-Moment Information
+### 7.1 Scale-Profiled Variance-Ratio Screen
 
 The active sign-restriction paper maintains diagonal residual noise in the
-reduced-form residual coordinates. In that case the second moments contain one
-clean bivariate restriction that the no-noise DW covariance moment does not
-use correctly. If
+reduced-form residual coordinates, but the M0034 scale correction changes how
+second moments may be used. In the diagonal-normalized chart,
 
 $$
-\Sigma_u=B_0B_0' + V,\qquad V=\operatorname{diag}(\nu_1,\nu_2),
-$$
-
-then the off-diagonal covariance is unaffected by `V`:
-
-$$
-\Sigma_{u,12}=(B_0B_0')_{12}.
-$$
-
-In the normalized chart
-
-$$
-B(b_{12},b_{21})=
+B(a,b)=
 \begin{bmatrix}
-1 & b_{12}\\
-b_{21} & 1
+1 & a\\
+b & 1
 \end{bmatrix},
 $$
 
-this becomes the candidate restriction
+the off-diagonal covariance is not simply `a+b` once structural-shock
+variances are allowed to vary. With
 
 $$
-g_C(B)=E(u_1u_2)-(b_{12}+b_{21})=0.
+\operatorname{Var}(\varepsilon)=\operatorname{diag}(s_1,s_2),
+\qquad
+\operatorname{Var}(\eta)=\operatorname{diag}(\nu_1,\nu_2),
 $$
 
-Equivalently, one can write the covariance system as
+the covariance equations for a candidate are
 
 $$
-\Sigma_u-BB'=V(B),
+\begin{aligned}
+S_{11} &= s_1+a^2s_2+\nu_1,\\
+S_{12} &= bs_1+as_2,\\
+S_{22} &= b^2s_1+s_2+\nu_2.
+\end{aligned}
 $$
 
-profile the diagonal elements of `V(B)`, and retain only the off-diagonal
-equality, optionally adding the inequalities `V_{ii}(B)\ge 0` as a separate
-admissibility screen. This is not the no-noise recovered-shock covariance
-restriction. It does not require `Cov\{z_1(B),z_2(B)\}=0`, and at the true
-`B_0` the recovered shocks can remain cross-correlated because transformed
-residual noise is generally cross-correlated.
-
-The resulting diagonal-noise robust stack is
+The M0036 proposal adds the explicit signal-to-noise restriction
 
 $$
-G_D(B)=
-\begin{bmatrix}
-g_C(B)\\
-G_H(B)
-\end{bmatrix}.
+s_i>0,\qquad 0\le \nu_i\le \rho s_i,
 $$
 
-This stack uses second moments, but only the component that diagonal residual
-noise cannot bias. It is more informative than the pure higher-cumulant stack
-in high-noise finite samples. It is also less general: if residual noise has
-unknown off-diagonal covariance, `g_C(B)` is no longer robust and the paper
-should report the pure higher-cumulant set instead.
+usually with `rho=0.5`. After profiling the residual-noise variances, this is
+the linear feasibility screen
+
+$$
+\begin{aligned}
+s_1+a^2s_2 &\le S_{11}\le (1+\rho)s_1+a^2s_2,\\
+b^2s_1+s_2 &\le S_{22}\le b^2s_1+(1+\rho)s_2,\\
+S_{12} &= bs_1+as_2.
+\end{aligned}
+$$
+
+This screen is not a no-noise recovered-shock covariance restriction and not a
+free normalization. It is additional identifying information. The active
+variance-ratio robust DW set is the pure higher-cumulant inversion intersected
+with this covariance-decomposition feasibility screen. If residual noise has
+unknown off-diagonal covariance, the screen must be replaced or dropped, while
+the pure higher-cumulant set remains the Gaussian-noise fallback.
 
 ## 8. Manuscript Consequence
 
@@ -557,12 +557,12 @@ This gives two sign-plus-higher-moment approaches:
    moments as structural restrictions, so it is less efficient but robust to
    arbitrary additive Gaussian noise covariance.
 
-3. More informative under diagonal residual noise: stack the pure
-   higher-cumulant moments with the off-diagonal covariance restriction
-   `E(u_1u_2)=b_{12}+b_{21}` after profiling the diagonal noise variances.
-   This is the revised reported robust-DW object for the diagonal-noise
-   simulations. It uses second moments without imposing the false no-noise
-   covariance target.
+3. More informative under diagonal residual noise with an explicit
+   signal-to-noise bound: intersect the pure higher-cumulant inversion with
+   the variance-ratio covariance-decomposition screen
+   `0 <= nu_i <= rho Var(epsilon_i)`. This uses second moments without
+   imposing the false no-noise covariance target, but its precision comes from
+   substantive identifying information rather than DW alone.
 
 This route is not a general solution for unrestricted non-Gaussian residual
 noise. If `eta_t` is non-Gaussian, then `B^{-1}\eta_t` generally has nonzero

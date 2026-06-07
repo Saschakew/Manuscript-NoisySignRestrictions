@@ -18,7 +18,7 @@ M0036 candidate: the script also supports `--robust-mode relative`, documented
 in `manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md`. This
 mode uses pure higher cumulants plus a covariance-decomposition feasibility
 screen with `0 <= nu_i <= 0.5 Var(epsilon_i)`. This is the current preferred
-Figure 1 candidate pending M40 audit.
+Figure 1 candidate after the M40 conditional audit.
 
 This is the corrected version of the KnowledgeVault B-plane figure requested in
 M0017. It uses the two-by-three sign/DW layout from the synthesis and adds a

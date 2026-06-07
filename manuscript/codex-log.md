@@ -11,6 +11,29 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-07 - M0039 Audit variance-ratio robust DW screen
+
+- Request: user asked Codex to work on the manuscript in goal mode, pick the
+  next task, and complete a substantive manuscript work block.
+- Actions taken: selected M40; opened local transparency milestone M0039 and
+  GitHub milestone #36; created
+  `manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md`;
+  checked the relative covariance-screen algebra and implementation; ran a
+  250-draw repeated-screen sanity check at the true `B0`; updated the draft,
+  formal registry, planning surfaces, and logs.
+- Files changed: the new M40 audit note,
+  `manuscript/derivations/dw-noise-robust-moments.md`,
+  `manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md`,
+  `manuscript/draft.md`, `manuscript/formal-object-registry.json`, project
+  planning/control files, logs, and M0039 transparency files.
+- Checks run: `python -m json.tool manuscript/formal-object-registry.json`
+  passed; `git diff --check` passed with line-ending warnings only;
+  `python scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning and passed cleanly after closure.
+- Open uncertainties: M25 still needs to audit the standard-DW proof gate, and
+  M43-M45 still need to rebuild Figure 2, add Figure 3, and rerun validation
+  and Monte Carlo evidence for the variance-ratio robust DW proposal.
+
 ### 2026-06-07 - M0038 Sketch Sections 2-4 formulas
 
 - Request: user asked Codex to work on the manuscript in goal mode, pick the
