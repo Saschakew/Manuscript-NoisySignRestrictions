@@ -11,19 +11,23 @@ scale-normalization error in the M0030/M37 diagonal-anchor robust-DW object.
 M0036 now gives the replacement proposal: variance-ratio robust DW, combining
 valid higher-cumulant moments with a profiled covariance-decomposition screen
 where residual noise variances are bounded relative to structural-shock
-variances.
+variances. M0038 added formula-first Section 2-4 draft skeletons around this
+proposal, but the M25 standard-DW proof audit and M40 variance-ratio screen
+audit remain open.
 
-Current focus: align the paper plan and future task sequence around the
-variance-ratio robust DW proposal. The current work block is planning only:
-do not yet draft Sections 2-4, rebuild Figure 2, create Figure 3, or perform
-the math-format cleanup.
+Current focus: audit the variance-ratio robust DW screen before turning the
+Section 4 sketch into theorem-level prose or rebuilding the companion
+evidence. Do not yet rebuild Figure 2, create Figure 3, or treat the
+variance-ratio precision as final evidence.
 
-Next recommended action: sketch Sections 2-4 with the important formulas using
-proper manuscript math delimiters, then update Figure 2 to use the
-variance-ratio robust row, add the new Figure 3 sample-size grid, and rebuild
-the validation/Monte Carlo evidence around the same proposal.
+Next recommended action: run M40, the adversarial audit of the variance-ratio
+robust DW screen. After M40, clean remaining manuscript math delimiters,
+update Figure 2 to use the variance-ratio robust row, add the new Figure 3
+sample-size grid, and rebuild validation/Monte Carlo evidence around the same
+proposal.
 
-Active milestone: M0037, plan variance-ratio proposal.
+Active milestone: none after M0038 closes; latest work block is M0038, sketch
+Sections 2-4 with formulas.
 
 Active blockers:
 
@@ -54,9 +58,12 @@ Active blockers:
   grid, or 0.084 of the sign-admissible grid. Its precision comes from the
   explicit `nu_i <= 0.5 Var(epsilon_i)` signal-to-noise restriction; this is
   now the manuscript proposal, with audit and evidence rebuild still required.
-- Sections 2-4 still need a formula-first prose sketch. Future drafting should
-  use inline `\(...\)` and display `\begin{equation}...\end{equation}` math,
-  not Markdown backtick math.
+- Sections 2-4 now have a formula-first prose sketch from M0038. The sketch is
+  deliberately cautious: Proposition 2 still depends on the M25 proof audit,
+  and Proposition 3 still depends on the M40 variance-ratio screen audit.
+- Manuscript-wide math-format cleanup remains open under M42. Sections 2-4 use
+  inline `\(...\)` and display `\begin{equation}...\end{equation}` math, but
+  earlier/later draft sections still contain some Markdown backtick math.
 - Figure 2 must be rebuilt so its robust row uses the variance-ratio proposal
   rather than the superseded diagonal-anchor statistic.
 - A new Figure 3 should vary sample size `T=500,1000,2000`, holding the
@@ -70,9 +77,9 @@ Active blockers:
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
 
-Last substantive session: 2026-06-06, opened M0037 to update the paper plan
-and next tasks around the variance-ratio robust DW proposal without yet
-drafting Sections 2-4 or generating the next figures.
+Last substantive session: 2026-06-07, opened M0038 to complete M41 by
+drafting formula-first Sections 2-4 around the noisy sign pseudo-set,
+standard-DW misspecification sketch, and variance-ratio robust DW proposal.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

@@ -132,40 +132,367 @@ rebuilt after the relative-noise screen is audited.
 
 ## 2. Noisy Sign Sets
 
-TODO: Define the additive-noise SVAR, the standard sign-restricted covariance
-rotation set, and the no-noise economic sign set. State and prove the noisy
-pseudo-set result and the column-rescaling obstruction. Include an intuitive
-figure that shows how residual noise moves or deforms the sign set.
+The first object is the residual being decomposed. The paper does not model
+VAR lag estimation, dynamic responses, or horizon-specific signs in the main
+text. It starts from an already obtained reduced-form residual and asks which
+impact matrices can be reported from it. The maintained simultaneous model is
 
-<!-- SOURCE-TRAIL: Use the proposal note and `Noisy residuals in recursive and sign-restricted SVARs.md`. -->
+\begin{equation}
+u_t = B_0\varepsilon_t+\eta_t,\qquad
+E(\varepsilon_t)=0,\qquad
+E(\varepsilon_t\varepsilon_t')=I,
+\qquad
+E(\eta_t\eta_t')=V .
+\end{equation}
+
+The structural shocks and residual noise are uncorrelated, and the first
+version keeps diagonal residual noise as the economic interpretation used in
+the figures. The observed covariance is therefore
+
+\begin{equation}
+\Sigma_u = E(u_tu_t') = B_0B_0' + V .
+\end{equation}
+
+*Definition 1 (`def:diagonal-noise-svar`, additive-noise impact model).* *The
+first-version model is the bivariate simultaneous residual system
+\(u_t=B_0\varepsilon_t+\eta_t\), where \(B_0\) is nonsingular, the structural
+shocks have zero mean, unit variances, and mutually independent components,
+and the additive residual noise is mean zero, independent of the structural
+shocks, and has covariance \(V\). The main figures use diagonal \(V\), but the
+impact-only scope does not include VAR lag dynamics or impulse-response
+horizons.*
+
+Under the no-noise benchmark, a sign-restricted SVAR rotates a factor of
+\(B_0B_0'\). Let \(P_0P_0'=B_0B_0'\) and let \(R(B)\ge 0\) denote the chosen
+sign screen in the normalized impact chart. The no-noise economic set is
+
+\begin{equation}
+\mathcal S_0 =
+\{P_0Q: Q'Q=I,\ R(P_0Q)\ge 0\}.
+\end{equation}
+
+With residual noise, the standard procedure instead rotates a factor of the
+observed covariance. If \(P_*P_*'=\Sigma_u=B_0B_0'+V\), the reported
+population sign set is
+
+\begin{equation}
+\mathcal S_* =
+\{P_*Q: Q'Q=I,\ R(P_*Q)\ge 0\}.
+\end{equation}
+
+*Definition 2 (`def:noisy-sign-pseudo-set`, noisy sign pseudo-set).* *The
+noisy sign pseudo-set is the population sign-restricted set \(\mathcal S_*\)
+obtained by rotating a factor of \(B_0B_0'+V\) rather than a factor of
+\(B_0B_0'\). It is a valid set for the noisy covariance target and generally
+not the same object as the no-noise economic sign set \(\mathcal S_0\).*
+
+The distinction is mechanical but consequential. If the noisy factor could be
+interpreted as harmless structural-column rescaling, there would be a positive
+diagonal matrix \(D\) such that
+
+\begin{equation}
+B_0D^2B_0' = B_0B_0' + V .
+\end{equation}
+
+Equivalently, residual noise would have to satisfy the structural-coordinate
+rescaling condition
+
+\begin{equation}
+B_0(D^2-I)B_0' = V,
+\qquad
+D^2-I = B_0^{-1}VB_0^{-1'} .
+\label{eq:column-rescaling-obstruction}
+\end{equation}
+
+For generic residual noise this transformed matrix is not diagonal and cannot
+be absorbed by column scales. The sign screen is then applied to the wrong
+covariance shape. This is why the first row of Figure 1 is already informative:
+before higher moments enter, residual noise moves the set being filtered.
+
+*Proposition 1 (`prop:noisy-sign-pseudo-set`, noisy sign pseudo-set).* *If
+\(V\neq 0\), the standard population sign-restricted set \(\mathcal S_*\)
+rotates a factor of \(B_0B_0'+V\). Except in special cases where
+\(B_0^{-1}VB_0^{-1'}\) is diagonal up to the accepted column-label convention,
+\(\mathcal S_*\) differs from the no-noise economic set \(\mathcal S_0\).
+Thus the reported sign set is generally a noisy covariance pseudo-set rather
+than the structural set one would have obtained from \(B_0B_0'\).*
+
+This proposition is intentionally modest. It does not say sign restrictions
+are conceptually wrong. It says that the qualitative sign filter inherits the
+covariance target supplied to it. If that target is noisy, the population set
+can be biased before any finite-sample uncertainty is considered.
+
+<!-- SOURCE-TRAIL: Use the proposal note, `Noisy residuals in recursive and sign-restricted SVARs.md`, and the M25 column-rescaling obstruction. -->
 <!-- DESIGN-NOTE: Keep the paper simultaneous and impact-only. Treat `u_t` as given; do not introduce VAR lag equations, dynamic IRFs, or horizon-specific sign restrictions in this version. -->
-<!-- TODO-NOTE: Make this section visual and intuitive before the algebra. -->
+<!-- TODO-NOTE: Later polish should decide whether Proposition 1 receives a short proof in the main text or a proof sketch in an appendix. -->
 
 ## 3. Standard DW Under Residual Noise
 
-TODO: Explain the standard no-noise Drautzburg-Wright refinement, why it is
-well motivated under its maintained null, and why residual noise contaminates
-the recovered-shock object. State the planned misspecification result: the
-population refined set should generally be empty under noise, while finite
-samples can still return a falsely small least-rejected set.
+The standard Drautzburg-Wright-style refinement is best understood as a
+maintained-null procedure. Under the no-noise model, a covariance factor
+\(P_0\) can be rotated into a candidate impact matrix, and the recovered shocks
+at the correct rotation are the structural shocks. Higher-moment independence
+restrictions are then a meaningful way to refine a sign-admissible set.
+
+With residual noise, the same recovered object is different. A standard
+candidate uses \(P_*P_*'=\Sigma_u\), so for each orthogonal \(Q\),
+
+\begin{equation}
+B(Q)=P_*Q,
+\qquad
+e_t(Q)=B(Q)^{-1}u_t=Q'P_*^{-1}u_t .
+\end{equation}
+
+These recovered shocks are normalized for the noisy covariance:
+
+\begin{equation}
+\operatorname{Var}\{e_t(Q)\}=I .
+\end{equation}
+
+That normalization is exactly the problem. It is true because \(P_*P_*'\)
+factors \(B_0B_0'+V\), not because \(B(Q)\) is a structural impact matrix.
+Substituting the additive-noise model gives
+
+\begin{equation}
+e_t(Q)=M(Q)\varepsilon_t+\zeta_t(Q),
+\qquad
+M(Q)=Q'P_*^{-1}B_0,\qquad
+\zeta_t(Q)=Q'P_*^{-1}\eta_t .
+\end{equation}
+
+If the residual noise is Gaussian, it does not add higher cumulants, but the
+mixing matrix \(M(Q)\) is generally not diagonal. A rich higher-moment
+independence stack can vanish only when the candidate recovers structural
+coordinates up to scale, sign, and label. This requires
+
+\begin{equation}
+M(Q)=D\Pi,
+\end{equation}
+
+where \(D\) is nonsingular diagonal and \(\Pi\) is a signed permutation matrix
+consistent with the sign-label convention. Combining this with the covariance
+factorization imposes
+
+\begin{equation}
+B_0^{-1}VB_0^{-1'}=\Pi'D^{-2}\Pi-I .
+\end{equation}
+
+The right side is diagonal up to labels. Hence, outside structural-coordinate
+rescaling cases and finite-moment aliases, no covariance-whitened standard-DW
+candidate can both factor the noisy covariance and recover independent
+structural shocks.
+
+Let \(\widehat g_{S,T}(Q)\) be the standard no-noise moment stack, including
+the recovered-shock covariance moment and the finite higher-moment
+independence restrictions. The sample inversion is
+
+\begin{equation}
+\mathcal Q_{DW,T}(c_S)=
+\left\{
+Q: R(P_*Q)\ge 0,\quad
+J_{S,T}(Q)=
+T\widehat g_{S,T}(Q)'\widehat W_{S,T}\widehat g_{S,T}(Q)
+\le c_S
+\right\}.
+\label{eq:standard-dw-j-test-inversion}
+\end{equation}
+
+In population, the corresponding criterion is
+\(J_{S,\infty}(Q)=g_{S,\infty}(Q)'Wg_{S,\infty}(Q)\). When the population
+moment vector is bounded away from zero on the sign-admissible set, the
+accepted set empties asymptotically for fixed pointwise critical values. In
+finite samples, however, the researcher can still see a small accepted region
+near
+
+\begin{equation}
+Q^\dagger\in\arg\min_Q J_{S,\infty}(Q),
+\end{equation}
+
+which is a least-rejected noisy pseudo-candidate, not evidence that residual
+noise has been solved.
+
+*Proposition 2 (`prop:standard-dw-misspecification`, standard DW under
+residual noise).* *In the simultaneous residual model, standard DW inversion
+searches over factors of \(\Sigma_u=B_0B_0'+V\). With independent Gaussian
+residual noise, independent non-Gaussian structural shocks, and a rich
+higher-moment independence stack, the population accepted set is generically
+empty unless residual noise is equivalent to a diagonal structural-coordinate
+rescaling, up to sign and label aliases. With finite moment stacks, accidental
+zeros can instead produce pseudo-candidates. When no population zero exists,
+finite-sample inversion can still look falsely precise by concentrating near a
+least-rejected noisy target \(Q^\dagger\).*
+
+The proposition should remain at this sketch level until the M25 proof audit
+is complete. The important reader-facing point is already available: standard
+DW is not being criticized under its own no-noise null. The misspecification
+comes from applying that null to residuals whose covariance target is
+\(B_0B_0'+V\).
 
 <!-- SOURCE-TRAIL: Use Drautzburg-Wright, higher-moment SVAR caution sources, and the noisy-residual synthesis. -->
 <!-- SOURCE-TRAIL: Use `derivations/standard-dw-j-test-under-noise.md` for the M25 J-test inversion result: rich-stack generic emptying, structural-rescaling exceptions, finite-moment aliases, and least-rejected pseudo-candidates. -->
-<!-- TODO-NOTE: Be fair: the target is not to criticize DW under its own null, but to show what changes under residual noise. -->
-<!-- TODO-NOTE: Do not state generic emptying without the M25 assumptions and exceptions. -->
+<!-- TODO-NOTE: Do not promote Proposition 2 beyond sketch wording until the M25 assumptions and exceptions are audited directly. -->
 
 ## 4. Robust DW Higher-Moment Set
 
-TODO: Define the robust normalized candidate space, candidate transformed
-residuals `z_t(B)=B^{-1}u_t`, the pure higher-moment stack, and the optional
-relative-noise covariance-decomposition screen. Explain that recovered-shock
-zero covariance is not imposed, the M0030 diagonal-anchor `u` covariance
-moment is invalid under `diag(B)=1` without also imposing unit shock
-variances, and the fourth-order restrictions are cumulants written as moment
-equations.
+The robust set changes the search space before it changes the moments. Instead
+of rotating a factor of \(\Sigma_u\), it reports candidates in a fixed
+normalized impact chart,
 
-<!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
-<!-- TODO-NOTE: State the exact robust noise assumption. Gaussian residual noise is clean for transformed higher cumulants; broader noise requires another argument. -->
+\begin{equation}
+B(a,b)=
+\begin{bmatrix}
+1 & a\\
+b & 1
+\end{bmatrix},
+\qquad
+1-ab\neq 0 .
+\end{equation}
+
+The sign screen is imposed directly on \(B(a,b)\). For each candidate, define
+transformed residuals
+
+\begin{equation}
+z_t(B)=B^{-1}u_t
+=B^{-1}B_0\varepsilon_t+B^{-1}\eta_t .
+\end{equation}
+
+The maintained route is Gaussian residual noise.
+
+*Assumption 1 (`ass:gaussian-residual-noise`, robust-noise condition).* *The
+residual noise is independent of the structural shocks and Gaussian. Therefore
+every linear transform \(B^{-1}\eta_t\) has zero cumulants above order two.
+This assumption is what makes transformed higher cumulants robust; it does not
+make recovered-shock variances or cross-covariances equal to their no-noise
+targets.*
+
+Let \(s_{ij}(B)=E\{z_i(B)z_j(B)\}\). The pure robust moment stack uses the
+mixed third cumulants and mixed fourth cumulants of \(z_t(B)\):
+
+\begin{equation}
+G_H(B)=
+\begin{bmatrix}
+\kappa_{112}(B)\\
+\kappa_{122}(B)\\
+\kappa_{1112}(B)\\
+\kappa_{1122}(B)\\
+\kappa_{1222}(B)
+\end{bmatrix}.
+\label{eq:dw-higher-cumulant-moment-stack}
+\end{equation}
+
+With centered observations, the third cumulants are
+
+\begin{equation}
+\kappa_{112}(B)=E\{z_1(B)^2z_2(B)\},
+\qquad
+\kappa_{122}(B)=E\{z_1(B)z_2(B)^2\}.
+\end{equation}
+
+The fourth restrictions must be cumulants, not raw fourth moments:
+
+\begin{equation}
+\begin{aligned}
+\kappa_{1112}(B)
+&=E\{z_1(B)^3z_2(B)\}-3s_{11}(B)s_{12}(B),\\
+\kappa_{1122}(B)
+&=E\{z_1(B)^2z_2(B)^2\}
+-s_{11}(B)s_{22}(B)-2s_{12}(B)^2,\\
+\kappa_{1222}(B)
+&=E\{z_1(B)z_2(B)^3\}-3s_{22}(B)s_{12}(B).
+\end{aligned}
+\end{equation}
+
+The covariance terms \(s_{ij}(B)\) are nuisance ingredients needed to compute
+fourth cumulants. They are not restrictions such as
+\(s_{11}(B)=1\), \(s_{22}(B)=1\), or \(s_{12}(B)=0\). This is the main
+difference from the standard DW recovered-shock covariance target.
+
+The pure robust higher-cumulant set is
+
+\begin{equation}
+\mathcal R_{H,T}(c_H)=
+\left\{
+B\in\mathcal B_N:
+R(B)\ge 0,\quad
+T\widehat G_H(B)'\widehat W_{H,T}\widehat G_H(B)\le c_H
+\right\},
+\end{equation}
+
+where \(\mathcal B_N\) is the nonsingular normalized chart after sign and label
+conventions. Under Assumption 1, \(G_H(B_0)=0\) at the true normalized impact
+matrix. This validity comes from cumulants of order three and higher. It does
+not recover scale by itself and can be wide when the structural shocks have
+weak higher moments.
+
+*Definition 3 (`def:robust-dw-higher-moment-set`, robust DW higher-moment
+set).* *The pure robust DW set is the sign-admissible inversion of the mixed
+higher-cumulant statistic \(T\widehat G_H(B)'\widehat W_{H,T}\widehat G_H(B)\)
+over the normalized candidate space \(\mathcal B_N\). It deliberately drops
+the no-noise covariance factorization \(BB'=\Sigma_u\), the unit-variance
+recovered-shock restrictions, and the recovered-shock zero-covariance moment.*
+
+The M0034 scale correction matters here. In the diagonal-normalized chart,
+writing the off-diagonal covariance as \(a+b\) is only valid if the structural
+shock variances are fixed at one after normalization. That is a second scale
+normalization. The variance-ratio proposal instead profiles the structural
+shock variances and residual-noise variances for each candidate. Let
+\(S\) denote the sample residual covariance and let
+\(\operatorname{Var}(\varepsilon)=\operatorname{diag}(s_1,s_2)\) and
+\(\operatorname{Var}(\eta)=\operatorname{diag}(\nu_1,\nu_2)\). For
+\(B(a,b)\), the covariance-decomposition screen asks whether there exist
+\(s_1,s_2,\nu_1,\nu_2\) such that
+
+\begin{equation}
+\begin{aligned}
+S_{11} &= s_1+a^2s_2+\nu_1,\\
+S_{12} &= bs_1+as_2,\\
+S_{22} &= b^2s_1+s_2+\nu_2,\\
+s_i &>0,\qquad 0\le \nu_i\le \rho s_i,\qquad \rho=0.5 .
+\end{aligned}
+\label{eq:relative-noise-covariance-screen}
+\end{equation}
+
+Equivalently, the diagonal covariance equations can be written as inequalities
+after profiling \(\nu_i\):
+
+\begin{equation}
+\begin{aligned}
+s_1+a^2s_2 &\le S_{11}\le (1+\rho)s_1+a^2s_2,\\
+b^2s_1+s_2 &\le S_{22}\le b^2s_1+(1+\rho)s_2,\\
+S_{12} &= bs_1+as_2 .
+\end{aligned}
+\end{equation}
+
+The variance-ratio robust set intersects the pure higher-cumulant inversion
+with this feasibility screen:
+
+\begin{equation}
+\mathcal R_{\rho,T}(c_H)=
+\{B\in\mathcal R_{H,T}(c_H):
+\eqref{eq:relative-noise-covariance-screen}\ \text{is feasible}\}.
+\end{equation}
+
+The bound \(\nu_i\le 0.5s_i\) is not a normalization. It is identifying
+information: residual-noise variance in each coordinate is assumed to be at
+most one half of the corresponding structural-shock variance after the
+candidate impact normalization. That is why the robust row can regain
+precision relative to the pure higher-cumulant fallback.
+
+*Proposition 3 (`prop:robust-dw-higher-moment-validity`, robust higher-moment
+validity).* *Under the normalized bivariate chart, independent structural
+shocks, Assumption 1, and the local higher-cumulant rank condition that each
+shock has at least one nonzero third or fourth cumulant in the stack, the true
+normalized impact matrix has \(G_H(B_0)=0\). The variance-ratio set
+\(\mathcal R_{\rho,T}\) adds the covariance-decomposition feasibility screen
+as extra signal-to-noise information; it does not impose recovered-shock zero
+covariance or the superseded \(S_{12}=a+b\) diagonal-anchor restriction.*
+
+This proposition is the current constructive sketch, not a finished theorem.
+The M40 audit still has to check the relative screen algebra, the
+equality-plus-inequality finite-sample behavior, and whether the 50 percent
+noise-to-shock bound is presented as a defensible applied restriction.
+
+<!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, `simulations/sign_dw_relative_noise_robust_grid_figure.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
 <!-- TODO-NOTE: Audit the M0036 relative-noise screen before theorem wording: the 50 percent noise-to-shock variance bound is identifying information, not a normalization. -->
 
 ## 5. Monte Carlo Robustness Check

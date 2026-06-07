@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-06T20:39:11Z",
+  "updated_at": "2026-06-07T07:24:57Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -775,6 +775,28 @@
         "milestone_number": 34,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/34",
         "tag_name": "manuscript-milestones/M0037-plan-variance-ratio-proposal"
+      }
+    },
+    {
+      "id": "M0038-sketch-sections-2-4-with-formulas",
+      "sequence": 38,
+      "title": "Sketch Sections 2-4 with formulas",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-07T07:16:33Z",
+      "closed_at": "2026-06-07T07:24:57Z",
+      "start_commit": "43859f479eb3f660e8d5ff008e1c4c6a3ce5ed7f",
+      "snapshot_ref": "manuscript-milestones/M0038-sketch-sections-2-4-with-formulas",
+      "summary": "Drafted formula-first Sections 2-4 for the noisy sign pseudo-set, standard-DW misspecification sketch, and variance-ratio robust DW proposal.",
+      "user_input_ids": [
+        "U0038-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0038-sketch-sections-2-4-with-formulas.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 35,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/35",
+        "tag_name": "manuscript-milestones/M0038-sketch-sections-2-4-with-formulas"
       }
     }
   ]

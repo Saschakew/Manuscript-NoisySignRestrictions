@@ -8,6 +8,26 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-07 - Sketch Sections 2-4 with formulas
+
+- Request or goal: work on the manuscript in goal mode, choose the next task,
+  and complete a substantive manuscript work block.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/project-dashboard.md`, `manuscript/paper-map.md`,
+  `manuscript/paper-plan.md`, `manuscript/source-packet.md`,
+  `manuscript/task-board.md`, `manuscript/workplan.md`, logs, and M0038
+  transparency files.
+- Summary of work: selected M41 and replaced the Section 2-4 TODO stubs with
+  formula-first skeletons for the noisy sign pseudo-set, standard-DW
+  misspecification under residual noise, and the variance-ratio robust DW
+  proposal. The new draft uses `\(...\)` and
+  `\begin{equation}...\end{equation}` delimiters in these sections and keeps
+  M25/M40 audit caveats visible.
+- Next recommended action: run M40 to audit the variance-ratio covariance
+  screen before theorem-level Section 4 prose or Figure 2/Figure 3 evidence
+  rebuilds.
+
 ### 2026-06-06 - Plan variance-ratio robust DW proposal
 
 - Request or goal: update the paper plan and future tasks so the

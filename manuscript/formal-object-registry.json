@@ -7,18 +7,18 @@
     {
       "id": "def:diagonal-noise-svar",
       "type": "definition",
-      "status": "covered-by-selected-grid",
+      "status": "sketched-in-draft",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "Simultaneous impact-only observed residual model u_t = B0 epsilon_t + eta_t with unit-variance structural shocks and additive residual noise; VAR lags and dynamic responses are outside the first paper.",
+      "description": "Simultaneous impact-only observed residual model u_t = B0 epsilon_t + eta_t with unit-variance structural shocks and additive residual noise; VAR lags and dynamic responses are outside the first paper. M0038 added a formula-first Definition 1 in Section 2.",
       "depends_on": [],
       "source": "vault/syntheses/Research proposal - noise-robust sign-restricted SVARs.md"
     },
     {
       "id": "ass:gaussian-residual-noise",
       "type": "assumption",
-      "status": "planned",
+      "status": "sketched-in-draft",
       "draft_location": "draft.md#4-robust-dw-higher-moment-set",
-      "description": "For the robust transformed-cumulant route, additive residual noise is independent of structural shocks and Gaussian, so every linear transform of the noise has zero cumulants above order two.",
+      "description": "For the robust transformed-cumulant route, additive residual noise is independent of structural shocks and Gaussian, so every linear transform of the noise has zero cumulants above order two. M0038 added this as Assumption 1 in the Section 4 formula sketch.",
       "depends_on": [
         "def:diagonal-noise-svar"
       ],
@@ -27,9 +27,9 @@
     {
       "id": "ass:unit-variance-normalization",
       "type": "assumption",
-      "status": "needs-revision-after-m0034",
+      "status": "revised-in-draft-after-m0038",
       "draft_location": "draft.md#4-robust-dw-higher-moment-set",
-      "description": "Scale must be fixed once, not twice. M0034 flags that the manuscript cannot simultaneously use the diagonal-normalized chart diag(B)=1 and also impose unit shock variances when deriving second-order restrictions. The revised robust-DW object should either use a unit-variance impact scale, profile shock variances in a diagonal-normalized chart, or avoid second-order anchors.",
+      "description": "Scale must be fixed once, not twice. M0034 flags that the manuscript cannot simultaneously use the diagonal-normalized chart diag(B)=1 and also impose unit shock variances when deriving second-order restrictions. M0038 Section 4 now sketches the active route: profile shock variances and residual-noise variances in a diagonal-normalized chart, while keeping pure higher cumulants as the validity backbone.",
       "depends_on": [
         "def:diagonal-noise-svar"
       ],
@@ -38,9 +38,9 @@
     {
       "id": "def:noisy-sign-pseudo-set",
       "type": "definition",
-      "status": "planned",
+      "status": "sketched-in-draft",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "Population sign-restricted set built from a covariance factor P_* P_*' = B0 B0' + V and restrictions R(P_* Q) >= 0.",
+      "description": "Population sign-restricted set built from a covariance factor P_* P_*' = B0 B0' + V and restrictions R(P_* Q) >= 0. M0038 added this as Definition 2 in Section 2.",
       "depends_on": [
         "def:diagonal-noise-svar"
       ],
@@ -49,9 +49,9 @@
     {
       "id": "prop:noisy-sign-pseudo-set",
       "type": "proposition",
-      "status": "planned",
+      "status": "sketched-in-draft",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "If V is nonzero, the standard sign-restricted population set is based on B0 B0' + V and generally differs from the no-noise economic sign set.",
+      "description": "If V is nonzero, the standard sign-restricted population set is based on B0 B0' + V and generally differs from the no-noise economic sign set. M0038 added a cautious Proposition 1 statement in Section 2.",
       "depends_on": [
         "def:noisy-sign-pseudo-set"
       ],
@@ -61,9 +61,9 @@
     {
       "id": "eq:column-rescaling-obstruction",
       "type": "equation",
-      "status": "planned",
+      "status": "sketched-in-draft",
       "draft_location": "draft.md#2-noisy-sign-sets",
-      "description": "B0(D^2 - I)B0' = V, equivalently D^2 - I = B0^{-1} V B0^{-1'}, showing why positive column rescaling generally cannot absorb additive residual noise.",
+      "description": "B0(D^2 - I)B0' = V, equivalently D^2 - I = B0^{-1} V B0^{-1'}, showing why positive column rescaling generally cannot absorb additive residual noise. M0038 inserted the equation with label eq:column-rescaling-obstruction in Section 2.",
       "depends_on": [
         "prop:noisy-sign-pseudo-set"
       ],
@@ -72,9 +72,9 @@
     {
       "id": "def:standard-dw-refined-set",
       "type": "definition",
-      "status": "formalized-for-diagnostic",
+      "status": "sketched-in-draft",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#3-standard-dw-under-residual-noise",
-      "description": "M27 common-chart reported standard-DW set: sign-admissible normalized candidates whose standardized recovered shocks pass a J-test stack containing the no-noise covariance moment and finite higher-moment independence restrictions.",
+      "description": "M27 common-chart reported standard-DW set: sign-admissible normalized candidates whose standardized recovered shocks pass a J-test stack containing the no-noise covariance moment and finite higher-moment independence restrictions. M0038 added the Section 3 formula sketch for the covariance-whitened recovered shocks and J-test inversion.",
       "depends_on": [
         "def:noisy-sign-pseudo-set"
       ],
@@ -84,9 +84,9 @@
     {
       "id": "prop:standard-dw-misspecification",
       "type": "proposition",
-      "status": "working-derivation",
+      "status": "sketched-in-draft-needs-audit",
       "draft_location": "draft.md#3-standard-dw-under-residual-noise",
-      "description": "M25 working result: under residual noise, standard DW recovered shocks are not structural shocks. A rich covariance-whitened J-test inversion is generically empty in population, except for structural-coordinate rescaling cases or finite-moment aliases; finite samples can produce falsely small least-rejected regions around pseudo-candidates.",
+      "description": "M25 working result: under residual noise, standard DW recovered shocks are not structural shocks. A rich covariance-whitened J-test inversion is generically empty in population, except for structural-coordinate rescaling cases or finite-moment aliases; finite samples can produce falsely small least-rejected regions around pseudo-candidates. M0038 added a cautious Proposition 2 sketch, still pending the M25 proof audit.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "def:diagonal-noise-svar"
@@ -98,9 +98,9 @@
     {
       "id": "eq:standard-dw-j-test-inversion",
       "type": "equation",
-      "status": "working-derivation",
+      "status": "sketched-in-draft-needs-audit",
       "draft_location": "derivations/standard-dw-j-test-under-noise.md; draft.md#3-standard-dw-under-residual-noise",
-      "description": "Population and sample J-test inversion for standard covariance-whitened DW candidates: g_infty(Q)'Wg_infty(Q) and T ghat(Q)'What ghat(Q), with asymptotic rejection when the population criterion is bounded away from zero.",
+      "description": "Population and sample J-test inversion for standard covariance-whitened DW candidates: g_infty(Q)'Wg_infty(Q) and T ghat(Q)'What ghat(Q), with asymptotic rejection when the population criterion is bounded away from zero. M0038 inserted the sample inversion in Section 3.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "prop:standard-dw-misspecification"
@@ -112,9 +112,9 @@
     {
       "id": "def:robust-dw-higher-moment-set",
       "type": "definition",
-      "status": "needs-revision-after-m0034",
+      "status": "sketched-in-draft-after-m0038",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Robust DW-style sign-restricted candidate set that searches over a normalized impact space and uses mixed higher cumulants of B^{-1}u rather than imposing no-noise recovered-shock covariance. The M0030 off-diagonal residual covariance anchor is superseded after M0034 because it double-normalizes scale in the diag(B)=1 chart unless unit shock variances are separately imposed.",
+      "description": "Robust DW-style sign-restricted candidate set that searches over a normalized impact space and uses mixed higher cumulants of B^{-1}u rather than imposing no-noise recovered-shock covariance. The M0030 off-diagonal residual covariance anchor is superseded after M0034 because it double-normalizes scale in the diag(B)=1 chart unless unit shock variances are separately imposed. M0038 added Definition 3 and the variance-ratio proposal sketch in Section 4.",
       "depends_on": [
         "def:diagonal-noise-svar",
         "ass:gaussian-residual-noise",
@@ -127,9 +127,9 @@
     {
       "id": "eq:dw-higher-cumulant-moment-stack",
       "type": "equation",
-      "status": "needs-revision-after-m0034",
+      "status": "sketched-in-draft-after-m0038",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Moment-equation representation of the robust DW stack after M0034: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with transformed second moments entering only as covariance products inside fourth cumulants. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1.",
+      "description": "Moment-equation representation of the robust DW stack after M0034: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with transformed second moments entering only as covariance products inside fourth cumulants. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1. M0038 inserted the five-moment stack and fourth-cumulant formulas in Section 4.",
       "depends_on": [
         "def:robust-dw-higher-moment-set"
       ],
@@ -154,9 +154,9 @@
     {
       "id": "eq:relative-noise-covariance-screen",
       "type": "equation",
-      "status": "proposal-needs-audit",
+      "status": "sketched-in-draft-needs-audit",
       "draft_location": "simulations/sign_dw_relative_noise_robust_grid_figure.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "M0036 variance-ratio robust DW proposal: for B=[[1,a],[b,1]], sample covariance S, structural-shock variances s_i, and diagonal residual noise variances nu_i, require S11=s1+a^2*s2+nu1, S12=b*s1+a*s2, S22=b^2*s1+s2+nu2, and 0 <= nu_i <= 0.5*s_i. This profiles shock and noise variances in the diagonal-normalized chart rather than imposing unit shock variances.",
+      "description": "M0036 variance-ratio robust DW proposal: for B=[[1,a],[b,1]], sample covariance S, structural-shock variances s_i, and diagonal residual noise variances nu_i, require S11=s1+a^2*s2+nu1, S12=b*s1+a*s2, S22=b^2*s1+s2+nu2, and 0 <= nu_i <= 0.5*s_i. This profiles shock and noise variances in the diagonal-normalized chart rather than imposing unit shock variances. M0038 inserted the equality-plus-inequality screen in Section 4.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack"
@@ -168,9 +168,9 @@
     {
       "id": "prop:robust-dw-higher-moment-validity",
       "type": "proposition",
-      "status": "proposal-needs-audit-after-m0036",
+      "status": "sketched-in-draft-needs-m40-audit",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant. The M0036 variance-ratio robust DW proposal adds the relative noise-to-shock variance screen as extra identifying information.",
+      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant. The M0036 variance-ratio robust DW proposal adds the relative noise-to-shock variance screen as extra identifying information. M0038 added a cautious Proposition 3 sketch; M40 still must audit the screen before theorem-level wording.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack",

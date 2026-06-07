@@ -245,10 +245,10 @@ is the price of not pretending that the noisy covariance is structural.
 
 ## What Is Missing
 
-- Sections 2-4 still need prose that turns the noisy sign-set algebra,
-  standard-DW misspecification result, and variance-ratio robust DW proposal
-  into disciplined manuscript text. The next drafting task should at least
-  sketch the important formulas.
+- Sections 2-4 now have M0038 formula-first prose sketches for the noisy
+  sign-set algebra, standard-DW misspecification result, and variance-ratio
+  robust DW proposal. They still need proof polishing, M25/M40 audit outcomes,
+  and final citation-style cleanup before becoming polished manuscript prose.
 - Future drafting cleanup should replace manuscript math written in Markdown
   backticks with inline `\(...\)` and display
   `\begin{equation}...\end{equation}` environments where appropriate.

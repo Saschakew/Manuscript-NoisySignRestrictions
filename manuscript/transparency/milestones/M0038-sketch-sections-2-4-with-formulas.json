@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "id": "M0038-sketch-sections-2-4-with-formulas",
+  "sequence": 38,
+  "title": "Sketch Sections 2-4 with formulas",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-07T07:16:33Z",
+  "closed_at": "2026-06-07T07:24:57Z",
+  "start_commit": "43859f479eb3f660e8d5ff008e1c4c6a3ce5ed7f",
+  "snapshot_ref": "manuscript-milestones/M0038-sketch-sections-2-4-with-formulas",
+  "summary": "Drafted formula-first Sections 2-4 for the noisy sign pseudo-set, standard-DW misspecification sketch, and variance-ratio robust DW proposal.",
+  "user_inputs": [
+    {
+      "id": "U0038-001",
+      "milestone_id": "M0038-sketch-sections-2-4-with-formulas",
+      "captured_at": "2026-06-07T07:16:33Z",
+      "source": "chat",
+      "text": "User asked Codex to work on the manuscript in goal mode, pick the next task, and complete a substantive work block."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0038-001",
+      "milestone_id": "M0038-sketch-sections-2-4-with-formulas",
+      "captured_at": "2026-06-07T07:24:18Z",
+      "description": "Selected task M41 from the manuscript task board and drafted Sections 2-4 with core formulas and cautious formal statements."
+    },
+    {
+      "id": "A0038-002",
+      "milestone_id": "M0038-sketch-sections-2-4-with-formulas",
+      "captured_at": "2026-06-07T07:24:18Z",
+      "description": "Updated the formal registry, task board, dashboard, paper map, paper plan, source packet, workplan, user input log, session log, and Codex log."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-07T07:24:18Z",
+      "description": "python -m json.tool manuscript\\\\formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-07T07:24:18Z",
+      "description": "git diff --check: passed with line-ending warnings only"
+    },
+    {
+      "captured_at": "2026-06-07T07:24:18Z",
+      "description": "python scripts\\\\check_manuscript.py: passed with only the expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-07T07:24:57Z",
+      "description": "python scripts\\\\check_manuscript.py: passed cleanly after milestone closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0038-sketch-sections-2-4-with-formulas.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 35,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/35",
+    "tag_name": "manuscript-milestones/M0038-sketch-sections-2-4-with-formulas"
+  }
+}

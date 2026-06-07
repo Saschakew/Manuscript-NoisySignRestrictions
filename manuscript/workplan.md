@@ -13,6 +13,11 @@ clean manuscript math into `\(...\)` and `\begin{equation}` form, update
 Figure 2, add Figure 3 with `T=500,1000,2000`, and then rebuild validation and
 Monte Carlo evidence.
 
+M0038 drafting update: Sections 2-4 now have formula-first skeletons using
+proper manuscript math delimiters. The Section 3 statement remains conditional
+on the M25 standard-DW proof audit, and the Section 4 variance-ratio robust DW
+statement remains conditional on the M40 screen audit.
+
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
 new paper plan/map, an audited working robust-DW derivation, a working
@@ -54,7 +59,7 @@ dynamic impulse responses.
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
 | M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 must audit it before theorem-level claims; the M25 standard-DW proof audit remains open. |
 | M5. Evidence package | needs-rebuild | M0036 created the variance-ratio Figure 1 proposal. Figure 2 must be updated, Figure 3 must be added, and M28/M29 evidence must be rebuilt because the old robust rows used the superseded diagonal-anchor statistic. |
-| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section around now-superseded figures and M29 table; M32 added the first literature-positioning pass; Sections 2-4 need a formula-first sketch using proper manuscript math delimiters. |
+| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section around now-superseded figures and M29 table; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4. Remaining draft gates are the M25/M40 audits, manuscript-wide math cleanup, updated figures, and rebuilt evidence. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
 

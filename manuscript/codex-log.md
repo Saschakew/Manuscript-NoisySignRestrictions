@@ -11,6 +11,24 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-07 - M0038 Sketch Sections 2-4 formulas
+
+- Request: user asked Codex to work on the manuscript in goal mode, pick the
+  next task, and complete a substantive work block.
+- Actions taken: selected M41; opened local transparency milestone M0038 and
+  GitHub milestone #35; drafted formula-first Sections 2-4 for the noisy sign
+  pseudo-set, standard-DW misspecification sketch, and variance-ratio robust DW
+  proposal; updated the formal registry, planning surfaces, and logs.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/formal-object-registry.json`, project planning/control files,
+  logs, and M0038 transparency files.
+- Checks run: `python -m json.tool manuscript/formal-object-registry.json`
+  passed; `git diff --check` passed with line-ending warnings only;
+  `python scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning and passed cleanly after closure.
+- Open uncertainties: the M25 standard-DW proof audit and M40 variance-ratio
+  screen audit still block theorem-level prose and evidence rebuilds.
+
 ### 2026-06-06 - M0037 Plan variance-ratio proposal
 
 - Request: user accepted the variance-ratio bound as the good solution and

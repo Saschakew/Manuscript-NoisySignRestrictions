@@ -183,8 +183,9 @@ these tasks:
     remains valid under Gaussian residual noise, but the off-diagonal
     covariance anchor double-normalizes scale in the `diag(B)=1` chart unless
     unit shock variances are also imposed. M0036 supplies the active
-    variance-ratio scale model; M41-M45 should now draft formulas, clean math
-    formatting, update Figure 2, add Figure 3, and rebuild evidence.
+    variance-ratio scale model; M0038 completed the M41 formula sketch for
+    Sections 2-4. M40 and M42-M45 should now audit the screen, clean remaining
+    math formatting, update Figure 2, add Figure 3, and rebuild evidence.
 
 ## Gaps And Risks
 

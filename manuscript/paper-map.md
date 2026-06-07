@@ -65,9 +65,9 @@ without reusing invalid covariance anchors.
 |---|---|---|
 | Abstract | State noisy sign-set bias, false DW sharpening, robust DW comparison, and no-application scope. | skeleton drafted |
 | 1. Introduction | Motivate the robustness-check problem, position the paper relative to sign restrictions, Drautzburg-Wright, and higher-moment SVAR/GMM, and preview the geometry plus Monte Carlo evidence. | skeleton plus M32 positioning drafted |
-| 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | future formula sketch |
-| 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | future formula sketch |
-| 4. Variance-Ratio Robust DW | Define the robust normalized candidate set from mixed higher cumulants, explain why recovered-shock zero covariance and the diagonal-anchor `u` covariance moment are invalid, and derive the variance-ratio covariance-decomposition screen as the proposal. | future formula sketch plus audit |
+| 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | formula sketch drafted; proof polish pending |
+| 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | formula sketch drafted; M25 proof audit pending |
+| 4. Variance-Ratio Robust DW | Define the robust normalized candidate set from mixed higher cumulants, explain why recovered-shock zero covariance and the diagonal-anchor `u` covariance moment are invalid, and derive the variance-ratio covariance-decomposition screen as the proposal. | formula sketch drafted; M40 screen audit pending |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuild Figure 2 with the variance-ratio robust row, add Figure 3 varying `T=500,1000,2000`, and then rerun M28/M29-style evidence. | needs rebuild |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
 
@@ -154,3 +154,7 @@ and proof or output status.
   manuscript math-format cleanup, Figure 2/Figure 3 rebuilds, M40 audit of the
   variance-ratio screen, and moving figure/table code into
   `manuscript/replication/` before sharing.
+- M0038 converted the Section 2-4 TODO stubs into formula-first draft
+  skeletons. The next bottleneck is not more skeleton prose; it is auditing the
+  M0036 variance-ratio screen and the M25 standard-DW proof conditions before
+  theorem-level wording.
