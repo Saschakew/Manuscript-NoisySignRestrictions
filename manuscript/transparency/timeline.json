@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-07T12:59:28Z",
+  "updated_at": "2026-06-07T18:30:53Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -819,6 +819,28 @@
         "milestone_number": 36,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/36",
         "tag_name": "manuscript-milestones/M0039-audit-variance-ratio-robust-dw-screen"
+      }
+    },
+    {
+      "id": "M0040-m42-m45-math-and-evidence-rebuild",
+      "sequence": 40,
+      "title": "M42-M45 math and evidence rebuild",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-07T17:55:17Z",
+      "closed_at": "2026-06-07T18:30:53Z",
+      "start_commit": "e09bc3ea7ea70ae8575533eadf96d907796eae67",
+      "snapshot_ref": "manuscript-milestones/M0040-m42-m45-math-and-evidence-rebuild",
+      "summary": "Completed M42-M45: cleaned draft math delimiters, rebuilt Figure 2 with the variance-ratio robust row, added Figure 3 sample-size grid, and rebuilt lightweight M45 validation/Monte Carlo evidence.",
+      "user_input_ids": [
+        "U0040-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0040-m42-m45-math-and-evidence-rebuild.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 37,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/37",
+        "tag_name": "manuscript-milestones/M0040-m42-m45-math-and-evidence-rebuild"
       }
     }
   ]

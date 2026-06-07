@@ -8,6 +8,24 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-07 - Rebuild variance-ratio figures and evidence
+
+- Request or goal: run M42 math-delimiter cleanup, rebuild Figure 2 with the
+  variance-ratio robust row, add the Figure 3 sample-size grid, and rebuild
+  validation/Monte Carlo evidence around the same proposal.
+- Files changed: `manuscript/draft.md`, Figure 2 and Figure 3 scripts and
+  notes, M45 evidence script and outputs, `manuscript/formal-object-registry.json`,
+  planning/control surfaces, logs, and M0040 transparency files.
+- Summary of work: completed M42-M45. Cleaned remaining draft math backticks,
+  regenerated `fig_sign_dw_robust_nongaussianity_grid.png`, created
+  `fig_sign_dw_sample_size_robust_grid.png`, and ran
+  `m45_variance_ratio_evidence.py`. The primary high-noise Monte Carlo row now
+  reports standard-DW truth inclusion 0.000 and variance-ratio robust-DW truth
+  inclusion 0.875.
+- Next recommended action: run M34, a full adversarial scope and logic review
+  of the rebuilt figure-led draft and M45 evidence, while keeping the M25 proof
+  audit and replication wrapper open.
+
 ### 2026-06-07 - Audit variance-ratio robust DW screen
 
 - Request or goal: work on the manuscript in goal mode, choose the next task,

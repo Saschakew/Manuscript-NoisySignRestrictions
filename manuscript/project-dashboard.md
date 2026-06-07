@@ -6,24 +6,22 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: first figure-led drafting pass started, then M0034 exposed a
-scale-normalization error in the M0030/M37 diagonal-anchor robust-DW object.
-M0036 now gives the replacement proposal: variance-ratio robust DW, combining
-valid higher-cumulant moments with a profiled covariance-decomposition screen
-where residual noise variances are bounded relative to structural-shock
-variances. M0038 added formula-first Section 2-4 draft skeletons around this
-proposal. M0039/M40 conditionally passed the variance-ratio screen algebra and
-interpretation, but the M25 standard-DW proof audit and M43-M45 evidence
-rebuilds remain open.
+Current stage: first figure-led drafting pass is now rebuilt around the M0036
+variance-ratio robust DW proposal. M0038 added formula-first Section 2-4 draft
+skeletons, M0039/M40 conditionally passed the variance-ratio screen algebra
+and interpretation, and M0040 completed the immediate M42-M45 cleanup and
+evidence rebuild: math delimiters, Figure 2, Figure 3, and a lightweight M45
+validation/Monte Carlo pass.
 
-Current focus: clean the draft and rebuild the evidence package around the
-audited variance-ratio proposal. Do not yet treat the variance-ratio precision
-as final evidence.
+Current focus: audit and polish the now-rebuilt evidence package. The
+variance-ratio proposal has working figures and finite-sample diagnostics, but
+the hard covariance-decomposition screen still needs careful prose treatment
+and the standard-DW J-test proof audit remains open.
 
-Next recommended action: run M42, the manuscript math-delimiter cleanup. After
-M42, update Figure 2 to use the variance-ratio robust row, add the new Figure
-3 sample-size grid, and rebuild validation/Monte Carlo evidence around the
-same proposal.
+Next recommended action: run M34, a full adversarial scope and logic review of
+the figure-led draft and M45 evidence. Stress-test whether the variance-ratio
+screen is described as identifying information, whether Figure 3 is not
+overread, and whether the M25 proof caveats are visible enough.
 
 Active milestone: none after M0039 closes; latest work block is M0039/M40,
 audit variance-ratio robust DW screen.
@@ -57,30 +55,30 @@ Active blockers:
   grid, or 0.084 of the sign-admissible grid. Its precision comes from the
   explicit `nu_i <= 0.5 Var(epsilon_i)` signal-to-noise restriction; this is
   now the manuscript proposal. M40 conditionally passed the screen algebra and
-  interpretation; evidence rebuild is still required.
+  interpretation; M45 rebuilt the lightweight validation and Monte Carlo
+  evidence around this proposal.
 - Sections 2-4 now have a formula-first prose sketch from M0038. The sketch is
   deliberately cautious: Proposition 2 still depends on the M25 proof audit,
-  and Proposition 3 still depends on M43-M45 evidence rebuilds before final
-  theorem or evidence wording.
-- Manuscript-wide math-format cleanup remains open under M42. Sections 2-4 use
-  inline `\(...\)` and display `\begin{equation}...\end{equation}` math, but
-  earlier/later draft sections still contain some Markdown backtick math.
-- Figure 2 must be rebuilt so its robust row uses the variance-ratio proposal
-  rather than the superseded diagonal-anchor statistic.
-- A new Figure 3 should vary sample size `T=500,1000,2000`, holding the
-  Figure 1 structural non-Gaussianity and Figure 2 residual-noise calibration
-  fixed.
+  and Proposition 3 still needs final proof and heavier replication before
+  theorem-level wording.
+- Manuscript-wide math-format cleanup was completed under M42. Remaining
+  backticks in `draft.md` are reserved for paths, citation keys, object labels,
+  table labels, commands, and code identifiers.
+- Figure 2 has been rebuilt with the variance-ratio robust row, and Figure 3
+  now varies sample size `T=500,1000,2000`. The M45 fixed-grid diagnostics and
+  Monte Carlo table support the evidence sequence, but the run is still a
+  lightweight evidence gate rather than the final replication package.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
-- The first figure-led skeleton still contains the refreshed M29 chi-square
-  rows as historical placeholders. They should not be read as evidence for the
-  variance-ratio robust row until M45 rebuilds the Monte Carlo package.
-  Final publication replication should still move the code into
-  `manuscript/replication/` and can rerun a heavier table if needed.
+- The draft now contains the M45 chi-square-primary Monte Carlo rows for the
+  variance-ratio robust row. Final publication replication should still move
+  the code into `manuscript/replication/` and can rerun a heavier table if
+  needed.
 
-Last substantive session: 2026-06-07, opened M0039 to complete M40 by auditing
-the variance-ratio robust DW covariance screen, conditionally passing the
-algebra and implementation, and recording finite-sample cautions.
+Last substantive session: 2026-06-07, opened M0040 to complete M42-M45 by
+cleaning manuscript math delimiters, rebuilding Figure 2 and Figure 3 around
+the variance-ratio robust row, and running the M45 validation/Monte Carlo
+evidence pass.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

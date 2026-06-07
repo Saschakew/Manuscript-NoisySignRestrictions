@@ -5,6 +5,25 @@ decisions.
 
 ## Entries
 
+### 2026-06-07 - Treat M45 as lightweight variance-ratio evidence gate
+
+- Origin: user instruction to run M42-M45 around the variance-ratio proposal.
+- User input id: U0040
+- Codex role: cleaned the draft math delimiters, rebuilt Figure 2, added
+  Figure 3, created and ran the M45 evidence script, and updated the draft,
+  registry, planning surfaces, and logs.
+- Decision: Use the M45 chi-square-primary Monte Carlo table as the current
+  draft evidence for the variance-ratio robust DW proposal, while labeling it
+  a lightweight evidence gate rather than the final replication package.
+- Rationale: The M45 run applies the hard variance-ratio screen in every
+  accepted-set and truth-inclusion calculation. Under primary chi-square
+  cutoffs, the high Gaussian-noise row gives standard-DW truth inclusion 0.000
+  and variance-ratio robust-DW truth inclusion 0.875, with a robust
+  truth-feasible rate of 0.958.
+- Consequence for next work: Run an adversarial scope/evidence review before
+  theorem-level or final evidence wording. The M25 standard-DW proof audit and
+  manuscript-local replication wrapper remain open.
+
 ### 2026-06-07 - Clear variance-ratio screen for proposal prose
 
 - Origin: Codex-selected M40 audit after the user asked to continue manuscript

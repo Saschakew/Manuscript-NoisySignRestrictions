@@ -5,7 +5,28 @@ Use this folder for exploratory simulation designs and design notes.
 Final shareable code that reproduces manuscript figures and tables belongs in
 `../replication/`.
 
+## M45 Variance-Ratio Evidence Rebuild
+
+- Script: `m45_variance_ratio_evidence.py`
+- Note: `m45_variance_ratio_evidence.md`
+- Machine-readable output: `output/m45_variance_ratio_evidence.json`
+- Command run:
+
+```powershell
+python manuscript\simulations\m45_variance_ratio_evidence.py
+```
+
+Interpretation: this is the active lightweight evidence gate for the M0036
+variance-ratio robust DW proposal. It applies the hard relative
+covariance-decomposition screen in every accepted-set and truth-inclusion
+calculation. Under the primary chi-square convention, the high Gaussian-noise
+row gives standard-DW truth inclusion 0.000 and variance-ratio robust-DW truth
+inclusion 0.875, with robust truth-feasible rate 0.958.
+
 ## M29 Refreshed Chi-Square-Primary Monte Carlo Pass
+
+Historical note: M29 used the superseded diagonal-anchor robust row. The active
+variance-ratio evidence gate is M45 above.
 
 - Script: `m29_calibrated_monte_carlo.py`
 - Note: `m29_calibrated_monte_carlo.md`
@@ -19,8 +40,8 @@ python manuscript\simulations\m29_calibrated_monte_carlo.py --calibration-reps 1
 Interpretation: this refreshed M29 pass keeps the M0030 revised B-plane and
 reports the M27 metric bundle under four pointwise cutoff conventions. It is
 historical for the current robust row because M0034-M0036 superseded the
-diagonal-anchor statistic. Reuse the reporting metrics when rebuilding the
-variance-ratio Monte Carlo under M45.
+diagonal-anchor statistic. M45 reuses the reporting metrics for the
+variance-ratio Monte Carlo rebuild.
 
 ## M0036 Relative-Noise Robust Figure 1 Candidate
 
@@ -40,8 +61,8 @@ covariance-decomposition screen requiring
 `0 <= nu_i <= 0.5 Var(epsilon_i)`. In the high-noise column, true `B0` remains
 inside and the relative row accepts 0.071 of the full plotted grid. The
 precision comes from explicit signal-to-noise information, not from a DW
-moment. M43-M45 must still rebuild Figure 2, Figure 3, validation, and Monte
-Carlo evidence before final claims.
+moment. M45 now supplies a lightweight validation and Monte Carlo rebuild; final
+claims still need adversarial evidence review and replication packaging.
 
 ## M0035 Absolute-Bound Robust Figure 1 Comparison
 
@@ -74,7 +95,7 @@ row. In the high-noise column, true `B0` remains inside but the accepted share
 rises to 0.459 of the full plotted grid, showing the precision cost of using
 only valid higher-cumulant moments.
 
-## M0030 Non-Gaussianity Companion Grid
+## M43 Non-Gaussianity Companion Grid
 
 - Script: `sign_dw_robust_nongaussianity_grid_figure.py`
 - Note: `sign_dw_robust_nongaussianity_grid_figure.md`
@@ -85,11 +106,27 @@ only valid higher-cumulant moments.
 python manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py
 ```
 
-Interpretation: this historical companion to the M0030 noise grid fixes residual
-noise at `V=(0.2,0.2)` and weakens structural-shock non-Gaussianity across
-columns. All rows invert pointwise 10 percent J tests. Its robust row used the
-now-superseded off-diagonal covariance anchor, so rebuild it under M43 with
-the variance-ratio robust row.
+Interpretation: this companion grid fixes residual noise at `V=(0.2,0.2)` and
+weakens structural-shock non-Gaussianity across columns. All rows invert
+pointwise 10 percent J tests. Its robust row now uses the M0036 variance-ratio
+proposal: pure mixed higher-cumulant J inversion plus the relative
+covariance-decomposition screen.
+
+## M44 Sample-Size Grid
+
+- Script: `sign_dw_sample_size_robust_grid_figure.py`
+- Note: `sign_dw_sample_size_robust_grid_figure.md`
+- Output figure: `../figures/fig_sign_dw_sample_size_robust_grid.png`
+- Command run:
+
+```powershell
+python manuscript\simulations\sign_dw_sample_size_robust_grid_figure.py
+```
+
+Interpretation: this new Figure 3 fixes strong structural non-Gaussianity and
+moderate residual noise, then varies `T=500`, `T=1000`, and `T=2000`. In the
+rendered fixed draw, standard DW misses the true normalized impact at larger
+sample sizes while variance-ratio robust DW remains truth-containing.
 
 ## M28 Grid Story Validation
 

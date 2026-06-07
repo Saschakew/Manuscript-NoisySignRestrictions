@@ -11,6 +11,30 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-07 - M0040 Rebuild variance-ratio figures and evidence
+
+- Request: user asked Codex to follow the proposed next actions: M42 math
+  cleanup, M43 Figure 2 update, M44 Figure 3 sample-size grid, and M45
+  validation/Monte Carlo rebuild for the variance-ratio proposal.
+- Actions taken: opened local transparency milestone M0040 and GitHub
+  milestone #37; cleaned math delimiters in `manuscript/draft.md`; patched and
+  regenerated Figure 2 with the `relative` robust row; added and rendered the
+  Figure 3 sample-size grid; created and ran
+  `manuscript/simulations/m45_variance_ratio_evidence.py`; updated the draft,
+  formal registry, planning surfaces, source packet, and logs.
+- Files changed: `manuscript/draft.md`, figure scripts and notes,
+  `manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png`,
+  `manuscript/figures/fig_sign_dw_sample_size_robust_grid.png`,
+  `manuscript/simulations/m45_variance_ratio_evidence.md`,
+  `manuscript/simulations/output/m45_variance_ratio_evidence.json`,
+  planning/control files, logs, and M0040 transparency files.
+- Checks run: figure scripts completed; M45 evidence script completed;
+  `python -m json.tool manuscript/formal-object-registry.json` passed. Final
+  manuscript checks are run before milestone closure.
+- Open uncertainties: M45 is a lightweight evidence gate, not the final
+  replication package. M25 still needs proof audit, and M34 should review the
+  full figure-led logic before polishing final theorem/evidence wording.
+
 ### 2026-06-07 - M0039 Audit variance-ratio robust DW screen
 
 - Request: user asked Codex to work on the manuscript in goal mode, pick the

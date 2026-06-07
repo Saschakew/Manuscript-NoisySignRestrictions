@@ -121,7 +121,7 @@
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "verification_status": "M24 conditional audit passed for the pure local normalized Gaussian-noise higher-cumulant route. M0030/M37 added and audited a six-moment diagonal-anchor variant, but M0034 supersedes that variant: under diag(B)=1 the off-diagonal covariance is Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2 unless unit shock variances are imposed as an extra scale normalization. M0036 supplies the variance-ratio proposal, and M40 conditionally passed its covariance-screen algebra and interpretation. M43-M45 must still rebuild Figure 2, add Figure 3, and rebuild validation and Monte Carlo evidence around it.",
+      "verification_status": "M24 conditional audit passed for the pure local normalized Gaussian-noise higher-cumulant route. M0030/M37 added and audited a six-moment diagonal-anchor variant, but M0034 supersedes that variant: under diag(B)=1 the off-diagonal covariance is Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2 unless unit shock variances are imposed as an extra scale normalization. M0036 supplies the variance-ratio proposal, M40 conditionally passed its covariance-screen algebra and interpretation, and M45 rebuilt lightweight figure, validation, and Monte Carlo evidence around it.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
@@ -134,7 +134,7 @@
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 only as a pointwise guide pending the M43-M45 evidence rebuild.",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 as the pointwise guide in the M45 evidence rebuild.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
@@ -162,7 +162,7 @@
         "eq:dw-higher-cumulant-moment-stack"
       ],
       "derivation": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md",
-      "verification_status": "M40 conditional pass: the covariance-screen algebra and implementation match the profiled variance-ratio model, and the 50 percent bound is defensible only as explicit signal-to-noise identifying information. The hard sample screen can still exclude truth in finite samples, so M43-M45 must rebuild figures, validation, and Monte Carlo evidence before final evidence claims.",
+      "verification_status": "M40 conditional pass: the covariance-screen algebra and implementation match the profiled variance-ratio model, and the 50 percent bound is defensible only as explicit signal-to-noise identifying information. M45 rebuilt lightweight figures, validation, and Monte Carlo evidence; the hard sample screen can still exclude truth in finite samples and needs careful final-claim wording.",
       "source": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md"
     },
     {
@@ -170,27 +170,27 @@
       "type": "proposition",
       "status": "sketched-in-draft-after-m40-conditional-pass",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-robust-dw-higher-moment-set",
-      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant. The M0036 variance-ratio robust DW proposal adds the relative noise-to-shock variance screen as extra identifying information. M0038 added a cautious Proposition 3 sketch; M40 conditionally passed the screen algebra and interpretation, while M43-M45 still must rebuild the evidence package.",
+      "description": "Working result: under additive Gaussian residual noise, mixed higher cumulants of B^{-1}u are not shifted by noise. In the bivariate normalized system, local higher-cumulant identification follows when each structural shock has a nonzero third or fourth cumulant. The M0036 variance-ratio robust DW proposal adds the relative noise-to-shock variance screen as extra identifying information. M0038 added a cautious Proposition 3 sketch; M40 conditionally passed the screen algebra and interpretation; M45 rebuilt lightweight evidence.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack",
         "eq:relative-noise-covariance-screen"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M40 conditionally passed the M0036 variance-ratio screen as a population feasibility restriction, but finite-sample evidence and Figure 2/Figure 3 rebuilds remain pending.",
+      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M40 conditionally passed the M0036 variance-ratio screen as a population feasibility restriction. M45 rebuilt lightweight finite-sample evidence and Figures 2-3; final theorem wording still needs proof review and final replication treatment.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {
       "id": "prop:dw-robust-comparison-diagnostic",
       "type": "proposition",
-      "status": "needs-revision-after-m0034",
+      "status": "recomputed-after-m45",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#5-monte-carlo-robustness-check",
-      "description": "Diagnostic statement to revise after M0034: standard-DW accepted mass outside a valid pure robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while a large pure robust-DW set records the information lost by dropping invalid second-order restrictions.",
+      "description": "Diagnostic statement after M45: standard-DW accepted mass outside the variance-ratio robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while a large robust-DW set records the information lost by dropping invalid recovered-shock covariance restrictions and profiling diagonal noise.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "def:robust-dw-higher-moment-set"
       ],
-      "proof_status": "M27 formalization complete for the older comparison metric, but M0034 supersedes the diagonal-anchor robust set used in M29. Recompute metrics under M45 after Figure 2 and Figure 3 are rebuilt.",
+      "proof_status": "M27 formalization complete for the comparison metric. M45 recomputed the metric bundle for the variance-ratio robust set after Figure 2 and Figure 3 were rebuilt.",
       "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md",
       "source": "manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
@@ -231,38 +231,38 @@
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "needs-rebuild-after-m0036",
+      "status": "rebuilt-after-m0040",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Grid-pair story after M0036. Figure 1 now uses the variance-ratio robust DW proposal. Figure 2 must be rebuilt with the same robust row, and Figure 3 must be added as a sample-size grid.",
+      "description": "Grid story after M0036 and M0040. Figure 1 uses the variance-ratio robust DW proposal, Figure 2 now uses the same robust row while varying structural non-Gaussianity, and Figure 3 adds the sample-size grid.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic",
         "eq:relative-noise-covariance-screen"
       ],
-      "output_source": "M0036 relative Figure 1 variant: manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png and manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md. Future outputs: rebuilt Figure 2 with variance-ratio robust DW and new Figure 3 varying T=500,1000,2000. Existing M0030/M28/M29 outputs are superseded for the robust row and must be rebuilt."
+      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png and manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md. Figure 2: manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png and manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py. Figure 3: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png and manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py. M45 validation output: manuscript/simulations/m45_variance_ratio_evidence.md and manuscript/simulations/output/m45_variance_ratio_evidence.json."
     },
     {
       "id": "fig:sample-size-robust-grid",
       "type": "figure",
-      "status": "planned-after-m0037",
+      "status": "created-after-m0040",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Planned Figure 3: a sample-size grid with T=500, T=1000, and T=2000, holding the Figure 1 structural non-Gaussianity calibration and Figure 2 residual-noise calibration fixed. It should show finite-sample tightening or persistence of the variance-ratio robust DW set.",
+      "description": "Figure 3: a sample-size grid with T=500, T=1000, and T=2000, holding the Figure 1 structural non-Gaussianity calibration and Figure 2 residual-noise calibration fixed. In the fixed draw, standard DW misses the truth at larger sample sizes while variance-ratio robust DW remains truth-containing.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "eq:relative-noise-covariance-screen",
         "prop:robust-dw-higher-moment-validity"
       ],
-      "output_source": "Future task M44."
+      "output_source": "M44 output: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png; generator manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py; diagnostic note manuscript/simulations/sign_dw_sample_size_robust_grid_figure.md."
     },
     {
       "id": "table:monte-carlo-coverage-width",
       "type": "table",
-      "status": "needs-revision-after-m0034",
+      "status": "rebuilt-after-m45",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Monte Carlo summary must be rebuilt after M0034 because the M29 robust row used the superseded diagonal-anchor statistic. The revised table should compare standard DW with the pure higher-cumulant robust set and the M0036 variance-ratio robust DW proposal.",
+      "description": "M45 chi-square-primary Monte Carlo summary for standard DW versus the variance-ratio robust DW proposal. The hard covariance-decomposition screen is applied to accepted grid points and truth-inclusion calculations. Primary high-noise row: standard-DW truth inclusion 0.000, robust-DW truth inclusion 0.875, robust truth-feasible rate 0.958.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
-      "output_source": "Superseded M29 output: manuscript/simulations/m29_calibrated_monte_carlo.py, manuscript/simulations/m29_calibrated_monte_carlo.md, manuscript/simulations/output/m29_calibrated_monte_carlo.json. Rebuild under future task M45."
+      "output_source": "M45 output: manuscript/simulations/m45_variance_ratio_evidence.py, manuscript/simulations/m45_variance_ratio_evidence.md, and manuscript/simulations/output/m45_variance_ratio_evidence.json. Superseded historical M29 output remains manuscript/simulations/m29_calibrated_monte_carlo.md."
     },
     {
       "id": "audit:robust-dw-derivation",
@@ -293,7 +293,7 @@
       "type": "audit",
       "status": "done",
       "draft_location": "derivations/m40-variance-ratio-robust-dw-screen-audit.md; review-log.md",
-      "description": "M40 adversarial audit of the M0036 variance-ratio covariance screen. Conditional pass: the profiled covariance-decomposition algebra and implementation match the normalized bivariate chart, and the 50 percent noise-to-shock variance bound is defensible only as explicit signal-to-noise identifying information. The hard finite-sample screen can still exclude truth, so M43-M45 must rebuild figures, validation, and Monte Carlo evidence before final claims.",
+      "description": "M40 adversarial audit of the M0036 variance-ratio covariance screen. Conditional pass: the profiled covariance-decomposition algebra and implementation match the normalized bivariate chart, and the 50 percent noise-to-shock variance bound is defensible only as explicit signal-to-noise identifying information. M45 has now rebuilt lightweight figures, validation, and Monte Carlo evidence; the hard finite-sample screen still needs careful prose and final replication treatment before final claims.",
       "depends_on": [
         "eq:relative-noise-covariance-screen",
         "prop:robust-dw-higher-moment-validity"
@@ -317,15 +317,29 @@
     {
       "id": "audit:m28-grid-story-validation",
       "type": "audit",
-      "status": "done",
+      "status": "historical-superseded-for-robust-row",
       "draft_location": "simulations/m28_grid_story_validation.md",
-      "description": "Refreshed M28 validation gate for the M0030 revised grid pair. Exact population moment diagnostics support robust-DW truth zeros under diagonal Gaussian residual noise, standard-DW divergence under noisy covariance targets, and weak/Gaussian higher-moment widening toward the covariance anchor. Repeated finite-sample seeds support the high-noise visual story at pointwise chi-square cutoffs, while M29 supplies calibrated evidence.",
+      "description": "Refreshed M28 validation gate for the M0030 revised grid pair. It is historical after M0034/M0036 because the robust row used the superseded diagonal-anchor statistic. M45 supplies the active variance-ratio evidence gate.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "prop:standard-dw-misspecification",
         "prop:robust-dw-higher-moment-validity"
       ],
       "source": "manuscript/simulations/m28_grid_story_validation.md"
+    },
+    {
+      "id": "audit:m45-variance-ratio-evidence",
+      "type": "audit",
+      "status": "done-lightweight",
+      "draft_location": "simulations/m45_variance_ratio_evidence.md; draft.md#5-monte-carlo-robustness-check",
+      "description": "M45 validation and Monte Carlo evidence for the M0036 variance-ratio robust DW proposal. The run rebuilds fixed-grid diagnostics for Figures 1-3 and a chi-square-primary Monte Carlo table with 60 calibration replications, 24 evaluation replications, and a 41-by-41 grid. It applies the hard relative covariance screen in every accepted-set and truth-inclusion calculation.",
+      "depends_on": [
+        "fig:dw-robust-set-comparison",
+        "fig:sample-size-robust-grid",
+        "table:monte-carlo-coverage-width",
+        "eq:relative-noise-covariance-screen"
+      ],
+      "source": "manuscript/simulations/m45_variance_ratio_evidence.md; manuscript/simulations/output/m45_variance_ratio_evidence.json"
     }
   ],
   "open_audits": [

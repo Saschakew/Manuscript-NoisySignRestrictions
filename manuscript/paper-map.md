@@ -27,8 +27,8 @@ without reusing invalid covariance anchors.
 - Evidence: the M0034 pure Figure 1 variant shows the honest cost of dropping
   invalid second-order information. The M0036 variance-ratio Figure 1 shows
   that an explicit signal-to-noise upper bound can recover precision while
-  retaining true `B0`. Figure 2 must be updated and Figure 3 must be added
-  before the evidence sequence is complete.
+  retaining true `B0`. M0040 rebuilt Figure 2, added Figure 3, and supplied a
+  lightweight M45 validation/Monte Carlo table for the active proposal.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -46,13 +46,12 @@ without reusing invalid covariance anchors.
    restrictions, use robust higher-moment restrictions on normalized candidate
    impacts, and add a variance-ratio covariance-decomposition screen that
    profiles structural-shock and residual-noise variances.
-5. The companion non-Gaussianity grid should be rebuilt so the robust row uses
-   the variance-ratio proposal and states the limitation honestly: robust DW
-   depends on informative higher moments and becomes wide when the shocks are
-   close to Gaussian.
-6. The new sample-size grid should show whether the variance-ratio robust set
-   tightens as `T` increases from 500 to 1000 to 2000 with non-Gaussianity and
-   noise held fixed.
+5. The companion non-Gaussianity grid now uses the variance-ratio proposal and
+   states the limitation honestly: robust DW depends on informative higher
+   moments and becomes wide when the shocks are close to Gaussian.
+6. The sample-size grid shows whether the variance-ratio robust set tightens
+   as `T` increases from 500 to 1000 to 2000 with non-Gaussianity and noise
+   held fixed.
 7. The practical recommendation is simple: report both the standard DW set and
    the robust DW set in the same normalized chart. Standard-DW mass outside the
    robust set is the warning object; robust mass outside the standard set often
@@ -68,7 +67,7 @@ without reusing invalid covariance anchors.
 | 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | formula sketch drafted; proof polish pending |
 | 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | formula sketch drafted; M25 proof audit pending |
 | 4. Variance-Ratio Robust DW | Define the robust normalized candidate set from mixed higher cumulants, explain why recovered-shock zero covariance and the diagonal-anchor `u` covariance moment are invalid, and derive the variance-ratio covariance-decomposition screen as the proposal. | formula sketch drafted; M40 screen audit conditionally passed |
-| 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuild Figure 2 with the variance-ratio robust row, add Figure 3 varying `T=500,1000,2000`, and then rerun M28/M29-style evidence. | needs rebuild |
+| 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | rebuilt; needs adversarial review |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
 
 ## Core Formal Objects
@@ -112,10 +111,10 @@ and proof or output status.
   feasibility condition `0 <= nu_i <= 0.5 Var(epsilon_i)`; high-noise accepted
   share is 0.071 of the full grid, 0.084 of the sign-admissible grid, and true
   `B0` remains included. This is the active Figure 1 proposal.
-- Figure 2 must be rebuilt so the robust row uses the variance-ratio proposal
-  while varying structural-shock non-Gaussianity.
-- Figure 3 must be added with `T=500`, `T=1000`, and `T=2000`, holding the
-  Figure 1 non-Gaussianity and Figure 2 noise calibration fixed.
+- Rebuilt Figure 2 uses the variance-ratio robust row while varying
+  structural-shock non-Gaussianity.
+- New Figure 3 varies `T=500`, `T=1000`, and `T=2000`, holding the Figure 1
+  non-Gaussianity and Figure 2 noise calibration fixed.
 - Algebraic proof of the covariance pseudo-set and column-rescaling
   obstruction.
 - M25 working derivation showing that standard DW recovered-shock restrictions
@@ -124,15 +123,15 @@ and proof or output status.
 - Derivation of the pure higher-cumulant robust moment stack from
   `derivations/dw-noise-robust-moments.md`; the post-M0030 diagonal-anchor
   estimator audit is superseded by the M0034 scale correction.
-- M28 population-grid and repeated-draw validation of the M0030 revised grid
-  pair is superseded for the robust row and must be rerun after M43-M44.
+- M45 fixed-grid diagnostics rebuild the M28-style checks for the
+  variance-ratio robust row, including Figure 1, Figure 2, and Figure 3
+  scenarios.
 - M27 formal diagnostic note defining the reported standard-DW set, robust-DW
   set, critical-value convention, directional overlap metric, and interpretation
   boundaries.
-- M29 refreshed chi-square-primary Monte Carlo pass is historical for the
-  current robust row because it used the superseded diagonal-anchor statistic.
-  Reuse its metric bundle and cutoff conventions when rebuilding the
-  variance-ratio Monte Carlo evidence.
+- M45 refreshed chi-square-primary Monte Carlo evidence for the current
+  variance-ratio robust row; the historical M29 pass remains superseded because
+  it used the diagonal-anchor statistic.
 - Final Monte Carlo comparison of standard sign, standard DW, and robust DW
   sets using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and
@@ -148,11 +147,9 @@ and proof or output status.
 - M31 has converted the figure-led evidence into a first disciplined draft
   skeleton without treating audit cutoffs as application-ready procedures.
   M32 added the first literature-positioning pass with explicit contribution
-  boundaries. The next bottlenecks are M39 evidence/method rebuild, direct M25
-  proof audit before theorem-level wording, manuscript math-format cleanup,
-  Figure 2/Figure 3 rebuilds, M45 validation/Monte Carlo rebuild, and moving
-  figure/table code into
-  `manuscript/replication/` before sharing.
+  boundaries. The next bottlenecks are direct M25 proof audit before
+  theorem-level wording, adversarial review of the new M45 evidence, and moving
+  figure/table code into `manuscript/replication/` before sharing.
 - M0038 converted the Section 2-4 TODO stubs into formula-first draft
   skeletons. M0039/M40 conditionally passed the M0036 variance-ratio screen.
   The next bottleneck is not more skeleton prose; it is cleaning math

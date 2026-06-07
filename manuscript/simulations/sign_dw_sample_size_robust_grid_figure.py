@@ -1,12 +1,11 @@
-"""Build a sign/DW/robust-DW grid varying structural non-Gaussianity.
+"""Build a sign/DW/relative-robust-DW grid varying sample size.
 
-This companion to sign_dw_robust_noise_grid_figure.py fixes moderate residual
-noise and changes only the strength of structural-shock higher moments. All
-rows invert pointwise finite-sample J statistics at the 10 percent level. The
-bottom row uses the M0036 variance-ratio robust-DW proposal: the pure mixed
-higher-cumulant J statistic intersected with the covariance-decomposition
-screen in which each diagonal residual-noise variance is at most half of the
-corresponding structural-shock variance.
+This companion to the residual-noise and non-Gaussianity grids fixes the
+structural-shock calibration and residual-noise variance, then varies only the
+finite-sample size.  The bottom row uses the M0036 variance-ratio robust-DW
+proposal: pure mixed higher-cumulant J inversion intersected with the
+covariance-decomposition screen in which each diagonal residual-noise variance
+is at most half of the corresponding structural-shock variance.
 """
 
 from __future__ import annotations
@@ -24,40 +23,33 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = ROOT / "manuscript" / "figures"
-OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_robust_nongaussianity_grid.png"
+OUTPUT_PATH = OUTPUT_DIR / "fig_sign_dw_sample_size_robust_grid.png"
+
+FIXED_NOISE = (0.2, 0.2)
+SAMPLE_SIZE_LEVELS = (
+    ("T=500", 500),
+    ("T=1000", 1000),
+    ("T=2000", 2000),
+)
 ROBUST_MODE = "relative"
 ROBUST_CUTOFF = base.robust_mode_cutoff(ROBUST_MODE)
 
-FIXED_NOISE = (0.2, 0.2)
-NON_GAUSSIANITY_LEVELS = (
-    ("Strong non-Gaussianity", 1.00),
-    ("Weak non-Gaussianity", 0.25),
-    ("Gaussian shocks", 0.00),
-)
 
-
-def structural_and_noise_draws(non_gaussian_weight: float) -> tuple[np.ndarray, np.ndarray]:
+def structural_and_noise_draws(sample_size: int) -> tuple[np.ndarray, np.ndarray]:
     rng = np.random.default_rng(base.RANDOM_SEED)
-    skewed = base.standardize_columns(rng.chisquare(df=base.STRUCTURAL_CHI2_DF, size=(base.SAMPLE_SIZE, 2)))
-    gaussian = base.standardize_columns(rng.normal(size=(base.SAMPLE_SIZE, 2)))
-    structural = math.sqrt(non_gaussian_weight) * skewed + math.sqrt(1.0 - non_gaussian_weight) * gaussian
-    structural = base.standardize_columns(structural)
-    noise = base.standardize_columns(rng.normal(size=(base.SAMPLE_SIZE, 2)))
+    structural = base.standardize_columns(
+        rng.chisquare(df=base.STRUCTURAL_CHI2_DF, size=(sample_size, 2))
+    )
+    noise = base.standardize_columns(rng.normal(size=(sample_size, 2)))
     return structural, noise
 
 
-def simulate_residuals(non_gaussian_weight: float) -> np.ndarray:
-    structural, noise = structural_and_noise_draws(non_gaussian_weight)
-    nu1, nu2 = FIXED_NOISE
+def simulate_residuals(sample_size: int) -> np.ndarray:
+    structural, noise = structural_and_noise_draws(sample_size)
     residuals = structural @ base.TRUE_MATRIX.T
-    residuals[:, 0] += math.sqrt(nu1) * noise[:, 0]
-    residuals[:, 1] += math.sqrt(nu2) * noise[:, 1]
+    residuals[:, 0] += math.sqrt(FIXED_NOISE[0]) * noise[:, 0]
+    residuals[:, 1] += math.sqrt(FIXED_NOISE[1]) * noise[:, 1]
     return residuals - residuals.mean(axis=0, keepdims=True)
-
-
-def excess_kurtosis(values: np.ndarray) -> np.ndarray:
-    standardized = base.standardize_columns(values)
-    return np.mean(standardized**4, axis=0) - 3.0
 
 
 def plot() -> Path:
@@ -77,15 +69,9 @@ def plot() -> Path:
         constrained_layout=True,
     )
 
-    for col, (label, non_gaussian_weight) in enumerate(NON_GAUSSIANITY_LEVELS):
-        structural, noise = structural_and_noise_draws(non_gaussian_weight)
+    for col, (label, sample_size) in enumerate(SAMPLE_SIZE_LEVELS):
+        residuals = simulate_residuals(sample_size)
         nu1, nu2 = FIXED_NOISE
-        residuals = structural @ base.TRUE_MATRIX.T
-        residuals[:, 0] += math.sqrt(nu1) * noise[:, 0]
-        residuals[:, 1] += math.sqrt(nu2) * noise[:, 1]
-        residuals = residuals - residuals.mean(axis=0, keepdims=True)
-        kurtosis = excess_kurtosis(structural)
-
         (
             b12_mesh,
             b21_mesh,
@@ -122,12 +108,10 @@ def plot() -> Path:
             true_robust_j,
         )
 
-        column_title = f"{label}\nw={non_gaussian_weight:g}; sample excess kurt=({kurtosis[0]:.2f},{kurtosis[1]:.2f})"
-
         ax = axes[0, col]
         base.shade(ax, b12_mesh, b21_mesh, covariance_accepted, "#9bc9a6", 0.9)
         base.draw_covariance_contour(ax, b12_mesh, b21_mesh, correlation)
-        ax.set_title(f"{column_title}\nSign/covariance J-test")
+        ax.set_title(f"{label}\nSign/covariance J-test")
         ax.text(
             -1.22,
             1.16,
@@ -162,13 +146,13 @@ def plot() -> Path:
             )
         base.draw_covariance_contour(ax, b12_mesh, b21_mesh, correlation)
         ax.set_title("Relative-noise robust DW")
-        robust_label_lines = [
-            base.min_label(robust_j),
-            base.truth_label_with_status(true_robust_j, true_robust_accepted),
-        ]
-        if non_gaussian_weight == 0.0:
-            robust_label_lines.insert(0, "cumulants all-null")
-        ax.text(-1.22, 1.16, "\n".join(robust_label_lines), color="#2166ac", fontsize=9)
+        ax.text(
+            -1.22,
+            1.16,
+            f"{base.min_label(robust_j)}\n{base.truth_label_with_status(true_robust_j, true_robust_accepted)}",
+            color="#2166ac",
+            fontsize=9,
+        )
 
     for ax in axes.flat:
         base.add_common_panel_style(ax, b12_grid, b21_grid)
@@ -181,9 +165,8 @@ def plot() -> Path:
 
     fig.suptitle(
         (
-            f"Same B-plane and fixed residual noise V=({FIXED_NOISE[0]:g},{FIXED_NOISE[1]:g}); "
-            "columns weaken structural non-Gaussianity\n"
-            f"N={base.SAMPLE_SIZE}; all rows invert pointwise 10% J tests; "
+            f"Same B-plane, strong structural non-Gaussianity, and fixed residual noise V=({FIXED_NOISE[0]:g},{FIXED_NOISE[1]:g})\n"
+            "columns vary sample size; all rows invert pointwise 10% J tests; "
             + base.robust_mode_summary(ROBUST_MODE)
         ),
         fontsize=13,

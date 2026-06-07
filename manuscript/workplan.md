@@ -7,17 +7,17 @@ superseded. M0036 supplies the replacement: variance-ratio robust DW, which
 uses valid higher-cumulant moments plus an explicit signal-to-noise covariance
 screen with `0 <= nu_i <= 0.5 Var(epsilon_i)`.
 
-M0037 planning update: treat the variance-ratio robust DW screen as the paper's
-proposal. The next work is to sketch Sections 2-4 with the important formulas,
-clean manuscript math into `\(...\)` and `\begin{equation}` form, update
-Figure 2, add Figure 3 with `T=500,1000,2000`, and then rebuild validation and
-Monte Carlo evidence.
+M0040 update: the variance-ratio robust DW screen is now the paper's active
+proposal with rebuilt first-pass evidence. Sections 2-4 have formula-first
+skeletons, manuscript math delimiters have been cleaned, Figure 2 uses the
+variance-ratio robust row, Figure 3 adds the `T=500,1000,2000` sample-size
+grid, and M45 supplies lightweight validation and Monte Carlo evidence.
 
-M0038 drafting update: Sections 2-4 now have formula-first skeletons using
-proper manuscript math delimiters. The Section 3 statement remains conditional
-on the M25 standard-DW proof audit, and the Section 4 variance-ratio robust DW
-statement now has a conditional M40 screen audit pass, with evidence rebuilds
-still pending.
+M0038/M0040 drafting update: Sections 2-4 now have formula-first skeletons
+using proper manuscript math delimiters. The Section 3 statement remains
+conditional on the M25 standard-DW proof audit, and the Section 4
+variance-ratio robust DW statement has a conditional M40 screen audit pass and
+M45 lightweight evidence.
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
@@ -26,19 +26,19 @@ standard-DW J-test inversion derivation, a first M35 early Monte Carlo triage,
 and an M30 audit of that triage. M0030 revised the residual-noise grid and
 non-Gaussianity grid into the former visual spine, but M0034/M0036 superseded
 the robust rows: the new visual spine should use variance-ratio robust DW in
-Figure 1, rebuild Figure 2, and add the Figure 3 sample-size grid.
+  Figure 1, rebuilt Figure 2, and added the Figure 3 sample-size grid.
 M28 completed a refreshed validation pass for the old grid story, and M29
 completed a chi-square-primary Monte Carlo pass, but both are historical for
 the current robust row because M0034-M0036 superseded the diagonal-anchor
 statistic. M27/M0030 formalized the reported standard-DW set, robust-DW set,
 critical-value convention, directional overlap/divergence metric, and
-interpretation boundaries; reuse that metric bundle in the M45 rebuild. User
+  interpretation boundaries; M45 reuses that metric bundle. User
 decision U0026 still makes standard pointwise chi-square rows the primary
 applied benchmark; the other cutoffs are calibration audits. M31 started the
 first figure-led draft by
 replacing the TODO-only abstract, introduction, and evidence section with a
 source-traced skeleton around the residual-noise grid, the non-Gaussianity
-grid, and the M29 chi-square-primary table. M37 directly audited the
+  grid, and the historical M29 chi-square-primary table. M37 directly audited the
 post-M0030 robust estimator, but M0034 later superseded that pass judgment
 under the active scale normalization. M32 added the first literature-positioning
 pass inside the introduction, distinguishing the paper from sign-set
@@ -59,8 +59,8 @@ dynamic impulse responses.
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
 | M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; the M25 standard-DW proof audit remains open. |
-| M5. Evidence package | needs-rebuild | M0036 created the variance-ratio Figure 1 proposal. Figure 2 must be updated, Figure 3 must be added, and M28/M29 evidence must be rebuilt because the old robust rows used the superseded diagonal-anchor statistic. |
-| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section around now-superseded figures and M29 table; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen. Remaining draft gates are the M25 audit, manuscript-wide math cleanup, updated figures, and rebuilt evidence. |
+| M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo. Remaining work is adversarial evidence review and final replication packaging. |
+| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040 updated figures and evidence. Remaining draft gates are the M25 proof audit, M34 logic review, and replication wrapper. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
 
@@ -78,14 +78,14 @@ dynamic impulse responses.
 5. Robust-DW derivation review: M40 conditionally passed the M0036 relative
    covariance-decomposition screen, including algebra, finite-sample
    equality-plus-inequality behavior, and the substantive interpretation of
-   the 50 percent noise-to-shock variance bound. Future review should focus on
-   the M43-M45 evidence rebuild.
+    the 50 percent noise-to-shock variance bound. Future review should focus on
+    final-claim wording for the hard finite-sample screen.
 6. Diagnostic interpretation review: use the M27 directional metric and verify
    that DW-versus-robust-DW divergence is described as a warning, not proof of
    literal measurement error.
-7. Evidence design: treat the M0036 variance-ratio Figure 1 as the proposal
-   visual spine; update Figure 2, add the `T=500,1000,2000` Figure 3, and then
-   rebuild M28/M29-style validation.
+7. Evidence design: treat the Figure 1/Figure 2/Figure 3 sequence and M45
+   table as the current visual spine; run an adversarial review before turning
+   lightweight evidence into final evidence claims.
 8. Simulation adversary: before accepting any figure, check whether the DGP,
    grids, critical values, cumulant estimators, or plotting choices could make
    the result look correct even if the theory is wrong.
