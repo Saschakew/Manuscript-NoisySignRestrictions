@@ -274,7 +274,7 @@ can be biased before any finite-sample uncertainty is considered.
 
 \comment{now we break it: what happens when there is noise? Even at B_0, the shocks recovered by e=B_0^-1 u are correlated and also the third and fourth order moments are dependent (because they are a mixture of the same noise)! we get pushed away from B_0}.
 
-\comment{the current proposition 2 only searches for 
+\comment{the current proposition 2 only searches for rotations of uncorrelated shocks? 
 
 
 
