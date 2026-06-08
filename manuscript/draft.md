@@ -39,7 +39,7 @@ sharper structural learning.
 
 ## 1. Introduction
 
-\comment{Maybe we can start with an introduction like this: The } 
+\comment{Maybe we can start with an introduction like this: The underlying idea of sign} 
 
 Applied sign-restricted SVAR work often begins after the reduced-form residual
 \(u_t\) has already been estimated. The next step is usually an impact
