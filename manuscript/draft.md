@@ -394,6 +394,8 @@ comes from applying that null to residuals whose covariance target is
 
 \comment{In the second part we then show how we can make dw moments robust to gaussian noise and this helps us to get again efficency}.
 
+\comment{In the end we show the third row of figure 1. to illustrate the approach}
+
 The robust set changes the search space before it changes the moments. Instead
 of rotating a factor of \(\Sigma_u\), it reports candidates in a fixed
 normalized impact chart,
