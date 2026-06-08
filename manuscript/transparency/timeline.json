@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-08T12:35:31Z",
+  "updated_at": "2026-06-08T13:05:41Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -885,6 +885,28 @@
         "milestone_number": 39,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/39",
         "tag_name": "manuscript-milestones/M0042-m34-adversarial-review"
+      }
+    },
+    {
+      "id": "M0043-track-dw-moment-comments",
+      "sequence": 43,
+      "title": "Track DW moment comments",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-08T13:01:47Z",
+      "closed_at": "2026-06-08T13:05:41Z",
+      "start_commit": "5568464b1c2baece594542d565c6338aff6312a0",
+      "snapshot_ref": "manuscript-milestones/M0043-track-dw-moment-comments",
+      "summary": "Added priority task M48 for the user's DW moment-definition, noisy derivation, normalization, code-audit, and rebuild comments.",
+      "user_input_ids": [
+        "U0043-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0043-track-dw-moment-comments.json",
+      "github": {
+        "repository": "",
+        "milestone_number": null,
+        "milestone_url": "",
+        "tag_name": "manuscript-milestones/M0043-track-dw-moment-comments"
       }
     }
   ]

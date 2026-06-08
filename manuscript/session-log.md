@@ -8,6 +8,25 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-08 - Insert DW moment comments task
+
+- Request or goal: insert a task to work through the user's comments on the
+  standard-DW fourth-order moment definition, the Figure 1 implementation, the
+  noisy Section 4 moment derivations, and a possible switch from `diag(B)=1`
+  to \(\operatorname{Var}(\epsilon)=1\).
+- Files changed: `manuscript/task-board.md`,
+  `manuscript/project-dashboard.md`, `manuscript/paper-map.md`,
+  `manuscript/user-input-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and M0043 transparency files.
+- Summary of work: opened local transparency milestone M0043, confirmed the
+  Figure 1 script's standard-DW row uses raw standardized product moments with
+  target \(E[e_1^2e_2^2]=1\) while the robust row computes cumulants, and
+  added M48 as a priority-1 audit and derivation task.
+- Next recommended action: run M48 before revising Section 3 or rebuilding
+  evidence. GitHub milestone creation remains unrepaired for M0043 because
+  `gh` is unavailable locally and the visible GitHub connector has no
+  milestone-creation tool.
+
 ### 2026-06-08 - M34 adversarial review and GitHub milestone repair
 
 - Request or goal: after GitHub CLI login, finish the missing GitHub milestone

@@ -15,18 +15,24 @@ and the variance-ratio robust construction. M0040 remains the current
 evidence rebuild for Figure 2, Figure 3, and the lightweight M45 Monte Carlo
 pass.
 
-Current focus: move from M34 review into the two hard gates. The revised draft
-now conditionally passes the adversarial scope, logic, and style review after
-claim-tightening edits, but the standard-DW J-test proof audit remains open and
+Current focus: move from M34 review into the hard gates. The revised draft now
+conditionally passes the adversarial scope, logic, and style review after
+claim-tightening edits, but M48 must first reconcile the standard-DW moment
+definition, noisy higher-moment derivations, Figure 1 implementation, and
+normalization chart. The M47 standard-DW J-test proof audit remains open, and
 the evidence package is still lightweight until the replication wrapper exists.
 
-Next recommended action: run M47, the direct M25 proof audit. Verify the
-rich-stack generic emptying claim, the structural-coordinate rescaling
-exception, finite-moment aliases, and the compactness or bounded-away-from-zero
-step before promoting Proposition 2 beyond sketch language.
+Next recommended action: run M48. Verify whether DW's fourth-order entries are
+raw standardized product moments or cumulants, compare that result to the
+Figure 1 implementation, derive the noisy third- and fourth-order moments at
+\(B=B_0\), and decide whether to migrate the manuscript from `diag(B)=1` to
+\(\operatorname{Var}(\epsilon)=1\) before rebuilding figures or Monte Carlo
+evidence.
 
-Active milestone: none after M0042 closes; latest work block is the M34
-adversarial review and GitHub milestone repair.
+Active milestone: none after M0043 closes; latest work block is the M48 task
+insertion for the user's DW moment and normalization comments. The GitHub issue
+milestone was not created in this block because `gh` is unavailable locally and
+the visible GitHub connector has no milestone-creation tool.
 
 Active blockers:
 
@@ -84,10 +90,13 @@ Active blockers:
   variance-ratio robust row. Final publication replication should still move
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
+- M48 is now open after the user's June 8 comments. Do not treat the current
+  Section 3 fourth-order cumulant wording as settled until DW's source moment
+  stack is checked against the Figure 1 implementation and the noisy Section 4
+  moment formulas are derived under the candidate unit-variance normalization.
 
-Last substantive session: 2026-06-08, opened M0042 to finish the missing
-GitHub milestone linkage for M0041 and run M34, the adversarial scope, logic,
-and style review of the revised draft and M45 evidence.
+Last substantive session: 2026-06-08, opened M0043 to record the user's DW
+moment-definition and normalization comments as task M48.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

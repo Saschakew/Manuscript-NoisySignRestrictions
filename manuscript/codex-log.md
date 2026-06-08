@@ -11,6 +11,27 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-08 - M0043 Track DW moment comments
+
+- Request: user asked Codex to insert a task for comments questioning the
+  Section 3 standard-DW fourth-order cumulant wording, asking how Figure 1
+  computes DW moments, suggesting possible unit structural-shock variance
+  normalization, and requesting explicit noisy Section 4 moment derivations.
+- Actions taken: opened local transparency milestone M0043; checked the Figure
+  1 script enough to see that the standard-DW row uses raw standardized product
+  moments through `MOMENTS_DW = ((1,1),(2,1),(1,2),(2,2))`, while the robust row
+  computes mixed cumulants; added M48 to the task board; and updated the
+  dashboard, paper map, and user-input log to keep the issue visible.
+- Files changed: `manuscript/task-board.md`,
+  `manuscript/project-dashboard.md`, `manuscript/paper-map.md`,
+  `manuscript/user-input-log.md`, human-readable logs, and M0043 transparency
+  files.
+- Checks run: `python scripts/check_manuscript.py` passed.
+- Open uncertainties: M48 still needs the actual DW source check, full noisy
+  moment derivations, normalization decision, and any figure or Monte Carlo
+  rebuilds. The GitHub issue milestone was not created because `gh` is not
+  available locally and the visible GitHub connector has no milestone tool.
+
 ### 2026-06-08 - M0042 M34 adversarial review
 
 - Request: user logged in to GitHub CLI, asked Codex to finish the GitHub

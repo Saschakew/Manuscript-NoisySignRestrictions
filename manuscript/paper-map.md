@@ -66,7 +66,7 @@ without reusing invalid covariance anchors.
 | 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust residual-noise-to-signal fix, and preview the evidence. | revised after M34 claim-tightening; literature positioning retained |
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
 | 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the covariance plus higher-moment J stack, then show how noise can make refinement falsely precise. | rewritten after revision comments; M25 proof audit pending |
-| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher cumulants to regain efficiency without imposing invalid recovered-shock covariance. | revised after M34 claim-tightening; M40/M45 support but final theorem wording pending |
+| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher cumulants to regain efficiency without imposing invalid recovered-shock covariance. | revised after M34 claim-tightening; M48 must audit noisy moment formulas and normalization before final wording |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | reviewed after M34; still lightweight until replication wrapper |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
@@ -157,3 +157,10 @@ and proof or output status.
   variance-ratio robust construction. M34 conditionally passed the revised
   draft after tightening terminology and evidence claims. Remaining bottlenecks
   are proof audit, final replication packaging, and final export cleanup.
+- M48 must reconcile the standard-DW moment definition and the robust cumulant
+  construction before any final Section 3 or Section 4 wording. In particular,
+  check whether DW's fourth-order GMM entries are raw standardized product
+  moments minus the no-noise pair target rather than cumulants, derive the
+  noisy \(B=B_0\) third- and fourth-order moments under independent structural
+  and residual components, and decide whether the paper should move from the
+  `diag(B)=1` chart to \(\operatorname{Var}(\epsilon_i)=1\).

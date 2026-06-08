@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "id": "M0043-track-dw-moment-comments",
+  "sequence": 43,
+  "title": "Track DW moment comments",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-08T13:01:47Z",
+  "closed_at": "2026-06-08T13:05:41Z",
+  "start_commit": "5568464b1c2baece594542d565c6338aff6312a0",
+  "snapshot_ref": "manuscript-milestones/M0043-track-dw-moment-comments",
+  "summary": "Added priority task M48 for the user's DW moment-definition, noisy derivation, normalization, code-audit, and rebuild comments.",
+  "user_inputs": [
+    {
+      "id": "U0043-001",
+      "milestone_id": "M0043-track-dw-moment-comments",
+      "captured_at": "2026-06-08T13:01:47Z",
+      "source": "chat",
+      "text": "Insert a task to work through the user's comments on DW fourth-order moments, Section 4 noisy moment derivations, Figure 1 code, and possible unit-variance normalization."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0043-001",
+      "milestone_id": "M0043-track-dw-moment-comments",
+      "captured_at": "2026-06-08T13:05:41Z",
+      "description": "Inserted M48 in the task board and updated the dashboard, paper map, user-input log, session log, and Codex log."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-08T13:05:41Z",
+      "description": "python scripts/check_manuscript.py: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0043-track-dw-moment-comments.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md"
+  ],
+  "github": {
+    "repository": "",
+    "milestone_number": null,
+    "milestone_url": "",
+    "tag_name": "manuscript-milestones/M0043-track-dw-moment-comments"
+  }
+}
