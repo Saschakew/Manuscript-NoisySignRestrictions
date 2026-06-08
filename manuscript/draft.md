@@ -270,6 +270,8 @@ can be biased before any finite-sample uncertainty is considered.
 
 \comment{then we make it explicit and define the third- and fourth-order moment conditions E[epslion_1t^2 epsilon_2t]=0,... and so on and so on.}
 
+\comment{then explain how the new J-Test inversion looks like}
+
 
 
 The standard Drautzburg-Wright-style refinement is best understood as a
