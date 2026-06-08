@@ -155,6 +155,8 @@ rebuilt after the Figure 2/Figure 3 and M28/M29-style evidence rebuild.
 
 ## 2. Noisy Sign Sets
 
+\comment{Maybe the title of the section should be: Sign restrictions and noisy SVAR models
+
 The first object is the residual being decomposed. The paper does not model
 VAR lag estimation, dynamic responses, or horizon-specific signs in the main
 text. It starts from an already obtained reduced-form residual and asks which
