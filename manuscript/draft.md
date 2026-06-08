@@ -45,7 +45,7 @@ In contrast to other identification approaches like zero-restrictions or proxy v
 
 \comment{the second paragraph could discuss the Drautzburg-Wright-style refinement. here is a sketch of the paragraph: While sign restrictions impose little structure and are rather robust, except for the noise issue, the price of robustness is efficiency - we only get an identified set, not a point estimator. Thats where  Drautzburg-Wright enter: They can use non-Gaussian structural shocks to sharpen the set and get more efficiecncy. Then we need to bring down the hammer again, whats the consequence of noise for the DW refinement: refinement itself is biased and noise may even lead to a false sense of precicion, when in truce it gets more biased.}
 
-\comment{the third paragraph then exlains our solution: We can ref}
+\comment{the third paragraph then exlains our solution: We allow for a information noise ratio, which makes us robust to noise within this max ratio. We refine the set using information from non-Gaussian structural shock. The idea is}
 
 
 
