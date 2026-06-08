@@ -47,7 +47,7 @@ In contrast to other identification approaches like zero-restrictions or proxy v
 
 \comment{the third paragraph then exlains our solution: We allow for a information noise ratio, which makes us robust to noise within this max ratio. We refine the set using information from non-Gaussian structural shock. This works by extending DW like refinement such that it is blind to Gaussian noise and thus allows a refinement of the set in the presence of gaussian noise.  }
 
-\comment{fourth paragraph discusses we need to end with our simulation evidence discussing
+\comment{fourth paragraph discusses  our simulation evidence -  
 
 Applied sign-restricted SVAR work often begins after the reduced-form residual
 \(u_t\) has already been estimated. The next step is usually an impact
