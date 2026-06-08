@@ -96,7 +96,11 @@ moments or from substantive noise-scale bounds.
 
 <!-- SOURCE-TRAIL: Use `manuscript/derivations/dw-noise-robust-moments.md`, `manuscript/derivations/dw-robust-comparison-diagnostic.md`, and higher-moment SVAR caution sources. -->
 
+
+
 ### 1.1 Literature Positioning
+
+\comment{lets leave the literature as it is for know. we will improve this later on}
 
 This paper is closest to three literatures, but it uses them for a narrow
 robustness question rather than for a broad survey. The first is the
