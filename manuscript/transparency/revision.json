@@ -4,15 +4,15 @@
   "draft_path": "manuscript/draft.md",
   "id": "Revision-20260608-070142",
   "integrated_at": "",
-  "issue_number": null,
-  "issue_url": "",
+  "issue_number": 1,
+  "issue_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/issues/1",
   "revision_path": "manuscript/revisions/Revision-20260608-070142/revision.md",
   "schema_version": 1,
   "source_commit": "ede841430e9e4a6d29ba39d867639bc8b4f34930",
   "source_milestone_id": "M0040-m42-m45-math-and-evidence-rebuild",
   "source_milestone_title": "M42-M45 math and evidence rebuild",
   "source_snapshot_ref": "manuscript-milestones/M0040-m42-m45-math-and-evidence-rebuild",
-  "status": "open",
-  "submitted_at": "",
-  "updated_at": "2026-06-08T09:31:29Z"
+  "status": "submitted",
+  "submitted_at": "2026-06-08T09:31:52Z",
+  "updated_at": "2026-06-08T09:31:52Z"
 }
