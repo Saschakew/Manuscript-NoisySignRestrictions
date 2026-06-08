@@ -165,6 +165,9 @@ rebuilt after the Figure 2/Figure 3 and M28/M29-style evidence rebuild.
 
 \comment{maybe we can end the section by showing the first column of Figure 1? lets visualize how noise slowly pushes the set away from B0.}
 
+
+\comment{maybe we can end the section by showing the first column of Figure 1? lets visualize how noise slowly pushes the set away from B0.}
+
 The first object is the residual being decomposed. The paper does not model
 VAR lag estimation, dynamic responses, or horizon-specific signs in the main
 text. It starts from an already obtained reduced-form residual and asks which
