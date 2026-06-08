@@ -39,7 +39,8 @@ sharper structural learning.
 
 ## 1. Introduction
 
-\comment{Maybe we can start with an introduction like this: The underlying idea of a sign restricted SVAR is to find the set of impact matrices which is in line with economically motivated sign restrictions on the impact matrix and uncorrelated structural shocks (the sentence is not good...but i hope you get the idea, to state intuitively what sign restrictions do. important, explaint that it). } 
+\comment{Maybe we can start with an introduction like this: The underlying idea of a sign restricted SVAR is to find the set of impact matrices which is in line with economically motivated sign restrictions on the impact matrix and uncorrelated structural shocks (the sentence is not good...but i hope you get the idea, to state intuitively what sign restrictions do. important, explaint that it relies on finding uncorrelated structural shocks, because thats the thing which leads to a bias once we allow for noise but dont take care of it in the sign restriction step). 
+} 
 
 Applied sign-restricted SVAR work often begins after the reduced-form residual
 \(u_t\) has already been estimated. The next step is usually an impact
