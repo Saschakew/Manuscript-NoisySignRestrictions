@@ -12,6 +12,7 @@ This paper shows that that idiosyncratic noise in the SVAR can lead to a bias, s
 Without accounting for the noise, refinments based on non-Gaussianity worsen the problem, sharpen the wrong target, and return a
 small accepted set that looks more informative than it is.
 We propose a novel refinement of sign restricted SVARs, which seperates non-Gaussian structural shocks from Gaussian noise. 
+...we still need to mention that the 
 }
 
 Sign-restricted SVARs are usually presented as qualitative restrictions, but
