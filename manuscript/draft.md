@@ -7,7 +7,8 @@ Date: 2026-06-05
 ## Abstract
 
 \comment{I will leave the old abstract below and sketch a new abstract here:
-Sign restrictions allow to set identify the impact of structural shocks. In a  non-Gaussian SVAR, the identified set can be sharpened by using 
+Sign restrictions allow to set identify the impact of structural shocks. In a  non-Gaussian SVAR, the identified set can be sharpened by using information in higher-moments.
+This paper 
 }
 
 Sign-restricted SVARs are usually presented as qualitative restrictions, but
