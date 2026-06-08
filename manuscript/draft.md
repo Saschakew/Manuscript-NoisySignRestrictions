@@ -279,7 +279,7 @@ can be biased before any finite-sample uncertainty is considered.
 \comment{if the proposition 2 I sketeched is correct, we can then discuss what the asymptotically empty set means, it means that the set may shrink and it looks like we get precicsion, but in truth, its misspecification and we get pushed away!}
 
 
-\comment{similar to seciton 2, we should end with the second row of figure 2 to illustrate what is happening}
+\comment{similar to seciton 2, we should end with the second row of figure 1 to illustrate what is happening}
 
 
 The standard Drautzburg-Wright-style refinement is best understood as a
