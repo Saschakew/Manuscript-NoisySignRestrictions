@@ -6,7 +6,8 @@ Date: 2026-06-05
 
 ## Abstract
 
-\comment{}
+\comment{I will leave the old abstract below and sketch a new abstract here:
+}
 
 Sign-restricted SVARs are usually presented as qualitative restrictions, but
 the set they report is built from a covariance target. This paper studies the
