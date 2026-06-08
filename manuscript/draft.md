@@ -266,7 +266,7 @@ can be biased before any finite-sample uncertainty is considered.
 
 \comment{lets start again with DW in a no-noise SVAR. lets first show how it works before we show how it breaks.}
 
-\comment{ first paragraph something like: 
+\comment{ first paragraph something like: sign restrictions 
 
 The standard Drautzburg-Wright-style refinement is best understood as a
 maintained-null procedure. Under the no-noise model, a covariance factor
