@@ -9,7 +9,7 @@ Date: 2026-06-05
 \comment{I will leave the old abstract below and sketch a new abstract here:
 Sign restrictions allow to set identify the impact of structural shocks. In a  non-Gaussian SVAR, the identified set can be sharpened by using information in higher-moments.
 This paper shows that that idiosyncratic noise in the SVAR can lead to a bias, such that the identified set no longer contains the true impact matrix.
-
+Refin
 }
 
 Sign-restricted SVARs are usually presented as qualitative restrictions, but
