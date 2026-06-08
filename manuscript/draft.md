@@ -11,7 +11,7 @@ Sign restrictions allow to set identify the impact of structural shocks. In a  n
 This paper shows that that idiosyncratic noise in the SVAR can lead to a bias, such that the identified set no longer contains the true impact matrix.
 Without accounting for the noise, refinments based on non-Gaussianity worsen the problem, sharpen the wrong target, and return a
 small accepted set that looks more informative than it is.
-We propose a novel refinement of sign restricted SVAR
+We propose a novel refinement of sign restricted SVARs using 
 }
 
 Sign-restricted SVARs are usually presented as qualitative restrictions, but
