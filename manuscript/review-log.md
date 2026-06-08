@@ -6,6 +6,7 @@ Use this file for actual review passes and resulting decisions.
 
 | Date | Pass | Reviewer | Outcome | Follow-up tasks |
 |---|---|---|---|---|
+| 2026-06-08 | M34 adversarial scope, logic, and style review | Codex adversarial manuscript review | Conditional pass after targeted fixes. The M0041 front-half rewrite now follows the revision spirit: it starts from no-noise sign restrictions, recovered-shock orthogonality, residual-noise bias, standard DW under its maintained null, and then the variance-ratio robust construction. M34 tightened visible claims by replacing confusing information/noise wording with a residual-noise-to-signal ratio, softening abstract simulation claims to match the lightweight M45 evidence, adding an explicit skewed-residual-noise stress-case caveat, updating citation provenance from historical M29 to current M45 evidence, and drafting the conclusion. | Next gates remain M25 proof audit and M33 replication wrapper. Do not promote Proposition 2 to theorem language until the standard-DW proof audit is complete. Keep M45 as lightweight evidence until final replication packaging or a heavier run. Final shareable draft still needs references/citation cleanup and export preparation. |
 | 2026-06-08 | M0041 revision-comments compliance review | Codex style/content self-review | Pass with open follow-ups. The abstract now states sign-restricted set identification, residual-noise bias, false higher-moment precision, the information/noise-ratio robust refinement, and simulation evidence. The introduction now starts from signs plus recovered-shock orthogonality, then explains how idiosyncratic residual noise breaks that robustness, then introduces DW as a no-noise efficiency refinement and the robust proposal as the fix. Section 2 now introduces every core variable in the no-noise SVAR before adding noise, states the rescaling exception, discusses possible sign-boundary movement, and adds a J-test inversion view. Section 3 now explains DW under no noise before showing how noise breaks the moment stack. Section 4 now starts with the information/noise ratio and then adds Gaussian-noise-blind higher cumulants. | Run M34 as a broader adversarial style/logic review. The optional sign-flip figure suggested in the revision comments is not generated in M0041; the mechanism is now explained in prose and Figure 1 remains the continuous set-movement visual. M25 proof audit and replication wrapper remain open. |
 | 2026-06-07 | M40 variance-ratio robust DW screen audit | Codex adversarial method review | Conditional pass for proposal-level Section 4 prose. The profiled covariance-decomposition screen matches `S = B diag(s_1,s_2) B' + diag(nu_1,nu_2)` with `0 <= nu_i <= 0.5 s_i`, avoids the M0034 double-normalization error, and is implemented as the correct linear feasibility problem. The 50 percent bound is substantive signal-to-noise identifying information, not a DW moment or normalization. A small 250-draw truth-screen check was reassuring but showed the hard sample screen can still exclude truth at `T=500`. | Use `manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md` when revising Section 4. Keep M43-M45 open: rebuild Figure 2, add Figure 3, and rerun validation/Monte Carlo evidence before final claims. |
 | 2026-06-06 | M37 diagonal-noise robust estimator audit | Codex adversarial method review | Historical conditional pass, now superseded by the M0034 scale correction. The post-M0030 robust statistic was coherent only when the off-diagonal covariance anchor could be written without free structural-shock variances; M0034 showed that this double-normalized scale under the active `diag(B)=1` chart. | Use `manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md` only as the record of the retired M0030 object. Use the M40 audit for the current variance-ratio screen. |
@@ -29,6 +30,66 @@ Use this file for actual review passes and resulting decisions.
 | 2026-06-05 | scope and contribution | Codex self-review | Revised first plan from a broader seven-section paper with optional empirical illustration into a shorter theory-and-simulation note. | Keep empirical illustration, dynamic signs, and `K > 2` generalization deferred until Propositions 1-4 and the simulation package are stable. |
 | 2026-06-05 | M06 bivariate cumulant-map audit | Codex adversarial self-review | No coefficient or index errors were found in the expanded second-, third-, and fourth-order cumulant map. The audit corrected classification language so clean mixed third cumulants are not overstated as identifying restrictions after unrestricted `gamma` profiling, and clarified that inequality restrictions on noise moments are diagnostics or admissibility conditions rather than overidentifying equalities. | Use the audited map as a working input for M07 and M09; still derive profiled criteria, local rank, and symbolic/population verification before drafting BR-style result claims. |
 | 2026-06-05 | M07 BR applicability clarification | Codex method review | Direct Bonhomme-Robin quasi-JADE does not cover the bivariate `L=K=2` SVAR: independent bivariate errors supply one clean pair, so the all-kurtotic `Q_J` rank condition cannot reach `K=2`, and the skewness route does not cover two factors with `L=2`. The manuscript object is a BR-style profiled inversion, not quasi-JADE. | Run M08 to attack this boundary argument before relying on it; then derive profiled criteria and local rank in M09. |
+
+## M34 Adversarial Scope, Logic, And Style Review
+
+Scope: `manuscript/draft.md`, `manuscript/paper-map.md`,
+`manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+`manuscript/formal-object-registry.json`, M40 screen audit, M45 evidence note,
+and the M25 standard-DW derivation note.
+
+Decision: conditional pass for the revised draft as a disciplined first-draft
+manuscript, not yet as a shareable final paper.
+
+Checklist outcome:
+
+- Revision spirit: passed after M0041 and M34. The front half now uses the
+  order requested by the revision comments: no-noise SVAR, recovered-shock
+  orthogonality, noisy residuals, standard DW under the no-noise null, and the
+  robust variance-ratio construction.
+- One-paper scope: passed. The draft stays in a bivariate simultaneous impact
+  model and does not drift into VAR lag dynamics, dynamic impulse responses,
+  empirical applications, or general `K`-variable implementation.
+- Variance-ratio screen: passed with caveat. The screen is now described in
+  visible prose as a maximum residual-noise-to-signal ratio, not as automatic
+  information or a normalization. Its precision is explicitly identifying
+  information.
+- Evidence language: passed after fixes. The abstract now says "current
+  simulation designs" and "usually keeps" rather than making an unconditional
+  coverage claim. Section 5 now states that the skewed-residual-noise row
+  violates the Gaussian-noise route and is only a stress case.
+- Figure 3 interpretation: passed with caveat. The prose calls it a fixed draw
+  and does not turn the sample-size grid into a coverage claim.
+- Proposition 2: open. The draft properly labels the statement as a sketch and
+  keeps TODO notes tied to the M25 proof audit. This must remain a blocker for
+  theorem-level wording.
+- Proposition 3: conditional. The population validity statement is acceptable
+  under the normalized chart, Gaussian residual noise, local rank, and
+  maintained variance-ratio bound, but final theorem wording still needs proof
+  review and final replication treatment.
+- Shareability: incomplete. The conclusion is now drafted, but the References
+  section remains a TODO, `Author` is still a placeholder, and the figure/table
+  rebuild path still needs the M33 replication wrapper.
+
+Changes made during M34:
+
+- Replaced reader-facing "information/noise ratio" language with
+  residual-noise-to-signal or variance-ratio language.
+- Softened abstract simulation claims to match M45's lightweight evidence and
+  finite-sample hard-screen caveats.
+- Added a warning that the skewed-residual-noise row violates Assumption 1.
+- Replaced the conclusion TODO with a concise diagnostic conclusion.
+- Updated citation provenance so the active Monte Carlo table points to M45
+  rather than the superseded M29 robust row.
+
+Next recommended work:
+
+1. Run the M25 standard-DW proof audit before strengthening Proposition 2.
+2. Build the M33 manuscript-local replication wrapper before calling the
+   evidence package shareable.
+3. Clean References, author/date metadata, and export-facing source trails.
+4. Consider a separate sign-flip visual only if a later reader pass still
+   finds the continuous Figure 1 movement too indirect.
 
 ## M06 Bivariate Cumulant-Map Audit
 

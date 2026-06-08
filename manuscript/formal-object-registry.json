@@ -18,7 +18,7 @@
       "type": "assumption",
       "status": "rewritten-in-draft-after-m0041",
       "draft_location": "draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "For the robust transformed-cumulant route, additive residual noise is independent of structural shocks and Gaussian, so every linear transform of the noise has zero cumulants above order two. M0041 rewrote Section 4 so this assumption appears after the information/noise covariance screen and explains why higher cumulants are blind to Gaussian noise.",
+      "description": "For the robust transformed-cumulant route, additive residual noise is independent of structural shocks and Gaussian, so every linear transform of the noise has zero cumulants above order two. Section 4 places this assumption after the residual-noise-to-signal covariance screen and explains why higher cumulants are blind to Gaussian noise.",
       "depends_on": [
         "def:diagonal-noise-svar"
       ],
@@ -126,7 +126,7 @@
       "type": "definition",
       "status": "rewritten-in-draft-after-m0041",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "Variance-ratio robust DW set that searches over a normalized impact space, imposes sign restrictions and the covariance-decomposition screen 0 <= nu_i <= rho s_i, and uses mixed higher cumulants of B^{-1}u rather than no-noise recovered-shock covariance. M0041 rewrote Section 4 to start with the information/noise bound and then add Gaussian-noise-blind higher cumulants.",
+      "description": "Variance-ratio robust DW set that searches over a normalized impact space, imposes sign restrictions and the covariance-decomposition screen 0 <= nu_i <= rho s_i, and uses mixed higher cumulants of B^{-1}u rather than no-noise recovered-shock covariance. Section 4 starts with the residual-noise-to-signal bound and then adds Gaussian-noise-blind higher cumulants.",
       "depends_on": [
         "def:diagonal-noise-svar",
         "ass:gaussian-residual-noise",
@@ -168,7 +168,7 @@
       "type": "equation",
       "status": "rewritten-in-draft-after-m0041",
       "draft_location": "simulations/sign_dw_relative_noise_robust_grid_figure.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "M0036 variance-ratio robust DW proposal, now placed at the start of Section 4 after M0041: for B=[[1,a],[b,1]], sample covariance S, structural-shock variances s_i, and diagonal residual-noise variances nu_i, require S11=s1+a^2*s2+nu1, S12=b*s1+a*s2, S22=b^2*s1+s2+nu2, and 0 <= nu_i <= rho*s_i. The draft describes rho as a researcher-chosen information/noise ratio, with rho=0.5 in the simulations.",
+      "description": "M0036 variance-ratio robust DW proposal, now placed at the start of Section 4 after M0041: for B=[[1,a],[b,1]], sample covariance S, structural-shock variances s_i, and diagonal residual-noise variances nu_i, require S11=s1+a^2*s2+nu1, S12=b*s1+a*s2, S22=b^2*s1+s2+nu2, and 0 <= nu_i <= rho*s_i. The draft describes rho as a researcher-chosen maximum residual-noise-to-signal ratio, with rho=0.5 in the simulations.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack"

@@ -5,6 +5,21 @@ decisions.
 
 ## Entries
 
+### 2026-06-08 - Use residual-noise-to-signal wording for the variance-ratio screen
+
+- Origin: M34 adversarial scope, logic, and style review.
+- User input id: U0042
+- Decision: In reader-facing prose, describe \(\rho\) as a maximum
+  residual-noise-to-signal variance ratio, or more generally as the
+  variance-ratio screen, rather than as a maximum information/noise ratio.
+- Rationale: The maintained condition is \(\nu_i\le \rho s_i\), so \(\rho\)
+  caps residual-noise variance relative to structural-shock variance. Calling
+  it a maximum information/noise ratio is directionally confusing and risks
+  making the identifying information look automatic.
+- Consequence for next work: Keep using variance-ratio or
+  residual-noise-to-signal language in draft prose, captions, abstracts, and
+  future replication notes. Older logs may retain historical terminology.
+
 ### 2026-06-08 - Rewrite front half for SVAR-reader formulation
 
 - Origin: user instruction to incorporate the revision branch comments.

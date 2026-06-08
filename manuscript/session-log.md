@@ -8,6 +8,26 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-08 - M34 adversarial review and GitHub milestone repair
+
+- Request or goal: after GitHub CLI login, finish the missing GitHub milestone
+  linkage and then run M34, the adversarial scope, logic, and style review of
+  the revised manuscript and M45 evidence.
+- Files changed: M0041 and M0042 transparency files, `manuscript/draft.md`,
+  `manuscript/review-log.md`, `manuscript/task-board.md`,
+  `manuscript/project-dashboard.md`, `manuscript/paper-map.md`,
+  `manuscript/workplan.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/writing-feedback-log.md`,
+  and human-readable logs.
+- Summary of work: created and closed GitHub milestone #38 for M0041, opened
+  local M0042 and GitHub milestone #39 for M34, ran the adversarial review,
+  tightened the variance-ratio language, softened abstract simulation claims,
+  added a skewed-residual-noise stress-case caveat, updated citation provenance
+  from historical M29 to current M45 evidence, and drafted the conclusion.
+- Next recommended action: run M47, the direct M25 standard-DW proof audit,
+  before strengthening Proposition 2 or theorem-level language. M33 replication
+  wrapping remains the next shareability gate after proof review.
+
 ### 2026-06-08 - Incorporate revision comments into front-half prose
 
 - Request or goal: incorporate the new revision comments, rewriting the

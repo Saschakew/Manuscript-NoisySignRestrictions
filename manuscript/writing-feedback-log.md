@@ -16,6 +16,6 @@ process.
   uncorrelated recovered shocks can remain dependent, so non-Gaussian higher
   moments sharpen the set. Only then introduce residual-noise misspecification
   and false precision.
-- Present the robust proposal by starting with the researcher-chosen
-  information/noise ratio, then add Gaussian-noise-blind higher cumulants as
-  the efficiency-recovery step.
+- Present the robust proposal by starting with the researcher-chosen maximum
+  residual-noise-to-signal variance ratio, then add Gaussian-noise-blind higher
+  cumulants as the efficiency-recovery step.

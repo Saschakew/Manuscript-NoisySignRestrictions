@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "id": "M0042-m34-adversarial-review",
+  "sequence": 42,
+  "title": "M34 adversarial review",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-08T12:26:01Z",
+  "closed_at": "2026-06-08T12:35:30Z",
+  "start_commit": "068dd3a374ea1c288d9995ae09bf62590899903b",
+  "snapshot_ref": "manuscript-milestones/M0042-m34-adversarial-review",
+  "summary": "Finished the missing GitHub milestone linkage for M0041 and completed M34 adversarial scope, logic, and style review with targeted claim-tightening edits, review-log findings, updated planning surfaces, and a drafted conclusion.",
+  "user_inputs": [
+    {
+      "id": "U0042-001",
+      "milestone_id": "M0042-m34-adversarial-review",
+      "captured_at": "2026-06-08T12:26:01Z",
+      "source": "chat",
+      "text": "After logging in to GitHub, finish the missing GitHub milestone linkage and proceed with M34: a full adversarial scope, logic, and style review of the revised manuscript and evidence."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0042-001",
+      "milestone_id": "M0042-m34-adversarial-review",
+      "captured_at": "2026-06-08T12:35:30Z",
+      "description": "Created GitHub milestone #38 for M0041, opened GitHub milestone #39 for M34, tightened variance-ratio language, softened evidence claims, added stress-case caveat, updated logs and task board, and marked M34 done."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-08T12:35:30Z",
+      "description": "python scripts/check_manuscript.py: passed with KnowledgeVault path warnings"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0041-incorporate-revision-comments.json",
+    "manuscript/transparency/milestones/M0042-m34-adversarial-review.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md",
+    "manuscript/writing-feedback-log.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 39,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/39",
+    "tag_name": "manuscript-milestones/M0042-m34-adversarial-review"
+  }
+}

@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-08T09:51:31Z",
+  "updated_at": "2026-06-08T12:35:31Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -859,10 +859,32 @@
       ],
       "milestone_path": "manuscript/transparency/milestones/M0041-incorporate-revision-comments.json",
       "github": {
-        "repository": "",
-        "milestone_number": null,
-        "milestone_url": "",
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 38,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/38",
         "tag_name": "manuscript-milestones/M0041-incorporate-revision-comments"
+      }
+    },
+    {
+      "id": "M0042-m34-adversarial-review",
+      "sequence": 42,
+      "title": "M34 adversarial review",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-08T12:26:01Z",
+      "closed_at": "2026-06-08T12:35:30Z",
+      "start_commit": "068dd3a374ea1c288d9995ae09bf62590899903b",
+      "snapshot_ref": "manuscript-milestones/M0042-m34-adversarial-review",
+      "summary": "Finished the missing GitHub milestone linkage for M0041 and completed M34 adversarial scope, logic, and style review with targeted claim-tightening edits, review-log findings, updated planning surfaces, and a drafted conclusion.",
+      "user_input_ids": [
+        "U0042-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0042-m34-adversarial-review.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 39,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/39",
+        "tag_name": "manuscript-milestones/M0042-m34-adversarial-review"
       }
     }
   ]

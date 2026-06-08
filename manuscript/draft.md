@@ -19,14 +19,13 @@ contain the true impact matrix. Higher-moment refinement can then sharpen the
 wrong target, producing a small accepted set that looks precise while moving
 further away from the structural object of interest. This paper proposes a
 noise-robust refinement that separates non-Gaussian structural shocks from
-Gaussian residual noise. The researcher states a maximum information/noise
-ratio, interpreted as an upper bound on residual-noise variance relative to
-structural-shock variance, and higher cumulants are used only in forms that
-are blind to Gaussian noise. Simulations show the intended pattern: standard
-sign restrictions drift under noise, standard higher-moment refinement can
-exclude the truth, and the robust refinement keeps the true impact matrix in
-the reported set while regaining precision when the information/noise bound is
-informative.
+Gaussian residual noise. The researcher states a maximum ratio of residual-noise
+variance to structural-signal variance, and higher cumulants are used only in
+forms that are blind to Gaussian noise. In the current simulation designs,
+standard sign restrictions drift under noise, standard higher-moment refinement
+can exclude the truth, and the robust refinement usually keeps the true impact
+matrix in the reported set while regaining precision when the variance-ratio
+bound is informative.
 
 <!-- SOURCE-TRAIL: Use the M0036 relative-noise Figure 1 candidate, the M40 screen audit, the M0035 absolute-bound comparison, the M0034 pure robust variant, the M24 higher-cumulant derivation, and the M45 evidence rebuild. -->
 <!-- CONTRIBUTION-NOTE: The abstract's original contribution is the residual-noise pseudo-set warning and the DW-versus-robust-DW comparison diagnostic. -->
@@ -80,7 +79,7 @@ The proposed solution keeps the logic of sign restrictions but changes the
 maintained model. Instead of pretending that all variation in \(u_t\) is
 structural signal, the researcher reports impact matrices that are compatible
 with signs, with diagonal Gaussian residual noise, and with an explicit
-information/noise bound. In the bivariate version used here, the bound is
+residual-noise-to-signal bound. In the bivariate version used here, the bound is
 \(\nu_i\le \rho s_i\): residual-noise variance in coordinate \(i\) can be at
 most a fraction \(\rho\) of the corresponding structural-shock variance. This
 bound makes the sign-restricted set robust to noise up to the specified ratio.
@@ -103,7 +102,7 @@ robust set widens, and that widening is part of the diagnostic.
 The simulation evidence follows the same sequence. Figure 1 varies Gaussian
 residual noise. The standard sign-restricted set moves away from the true
 impact matrix, standard DW refinement can become tight while excluding the
-truth, and the robust information/noise-ratio refinement remains
+truth, and the variance-ratio robust refinement remains
 truth-containing in the high-noise design. Figure 2 weakens structural
 non-Gaussianity and shows the limitation: without informative higher moments,
 robust refinement is wider. Figure 3 varies the sample size, and Table 1
@@ -480,11 +479,11 @@ s_i &>0,\qquad 0\le \nu_i\le \rho s_i .
 \label{eq:relative-noise-covariance-screen}
 \end{equation}
 
-The scalar \(\rho\) is the information/noise ratio chosen by the researcher.
-The simulations use \(\rho=0.5\): each residual-noise variance may be at most
-one half of the corresponding structural-shock variance. A larger \(\rho\)
-makes the sign set more robust to noise but less precise. A smaller \(\rho\)
-recovers precision only by assuming a cleaner signal.
+The scalar \(\rho\) is the maximum residual-noise-to-signal ratio chosen by the
+researcher. The simulations use \(\rho=0.5\): each residual-noise variance may
+be at most one half of the corresponding structural-shock variance. A larger
+\(\rho\) makes the sign set more robust to noise but less precise. A smaller
+\(\rho\) recovers precision only by assuming a cleaner signal.
 
 Equivalently, after profiling out \(\nu_1,\nu_2\), the screen is
 
@@ -589,7 +588,7 @@ non-Gaussianity to refine the noise-robust sign set.*
 
 The third row of Figure 1 illustrates the construction. It starts from the
 same sign restrictions as the standard procedure, allows residual noise up to
-the specified information/noise ratio, and then sharpens the remaining set
+the specified residual-noise-to-signal ratio, and then sharpens the remaining set
 with cumulants that Gaussian noise cannot shift. The result is not a uniformly
 smaller set. It is a different robustness object: precision is reported only
 when it survives the stated noise allowance and the higher-moment restrictions.
@@ -718,6 +717,11 @@ grid, with 60 truth-calibration replications retained as audit output.
 
 <!-- SOURCE-TRAIL: M45 rebuilt run in `simulations/m45_variance_ratio_evidence.md` and machine-readable output `simulations/output/m45_variance_ratio_evidence.json`. Historical M29 outputs remain in `simulations/m29_calibrated_monte_carlo.md` but used the superseded diagonal-anchor robust row. -->
 
+The skewed-residual-noise row is a stress case, not validation of the robust
+Gaussian-noise route. It violates Assumption 1, so its favorable truth-inclusion
+numbers should not be read as evidence that the same cumulant argument covers
+non-Gaussian residual noise without additional restrictions.
+
 The audit rows stay secondary. The no-noise repeated calibration is a size
 check, while the scenario-truth calibration is an oracle diagnostic. In the
 high-noise case, scenario-truth calibration raises the standard-DW accepted
@@ -733,10 +737,27 @@ procedure being critiqued.
 
 ## 6. Conclusion
 
-TODO: Restate the practical recommendation: report the robust DW set beside the
-standard DW set. If they overlap, the standard refinement is less suspect; if
-they diverge, treat standard DW precision as a warning sign rather than
-evidence of sharper structural learning.
+This paper studies a narrow robustness problem in sign-restricted SVARs. If the
+observed reduced-form residual contains additive idiosyncratic noise, the usual
+covariance factor is a factor of \(B_0B_0'+V\), not \(B_0B_0'\). The standard
+sign-restricted set can therefore be a noisy pseudo-set, and a
+Drautzburg-Wright-style higher-moment refinement can sharpen that pseudo-set
+instead of the structural impact matrix.
+
+The proposed response is diagnostic. Report the standard DW set beside a
+variance-ratio robust DW set that allows diagonal Gaussian residual noise,
+uses only Gaussian-noise-blind higher cumulants for refinement, and adds
+second-moment precision only through an explicit residual-noise-to-signal
+bound. Agreement between the two sets makes the standard refinement less
+suspect. Divergence, especially standard-DW precision that is not supported by
+the robust set, should be read as a warning about covariance-target
+misspecification rather than as evidence of sharper structural learning.
+
+The first version deliberately keeps the scope small: a bivariate simultaneous
+impact model, no empirical application, no dynamic impulse responses, and no
+claim that the robust comparison proves literal measurement error. The next
+step is to audit the standard-DW proof and move the figure and table code into
+a self-contained replication package.
 
 ## References
 

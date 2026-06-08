@@ -8,7 +8,7 @@ changing section structure or drafting substantial prose.
 Residual noise can bias standard sign-restricted SVAR sets and make
 Drautzburg-Wright-style higher-moment refinement look falsely precise; a
 variance-ratio robust DW comparison can use Gaussian-noise higher cumulants
-plus an explicit residual-noise-to-shock-variance bound to recover precision
+plus an explicit residual-noise-to-signal variance bound to recover precision
 without reusing invalid covariance anchors.
 
 ## Paper Contract
@@ -62,13 +62,13 @@ without reusing invalid covariance anchors.
 
 | Section | Job | Status |
 |---|---|---|
-| Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the information/noise-ratio robust refinement, and simulation evidence. | rewritten after revision comments |
-| 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust information/noise-ratio fix, and preview the evidence. | rewritten after revision comments; literature positioning retained |
+| Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the variance-ratio robust refinement, and simulation evidence. | revised after M34 claim-tightening |
+| 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust residual-noise-to-signal fix, and preview the evidence. | revised after M34 claim-tightening; literature positioning retained |
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
 | 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the covariance plus higher-moment J stack, then show how noise can make refinement falsely precise. | rewritten after revision comments; M25 proof audit pending |
-| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio information/noise screen, then add Gaussian-noise-blind higher cumulants to regain efficiency without imposing invalid recovered-shock covariance. | rewritten after revision comments; M40/M45 support but final theorem wording pending |
-| 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | rebuilt; needs adversarial review |
-| 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
+| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher cumulants to regain efficiency without imposing invalid recovered-shock covariance. | revised after M34 claim-tightening; M40/M45 support but final theorem wording pending |
+| 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | reviewed after M34; still lightweight until replication wrapper |
+| 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
 ## Core Formal Objects
 
@@ -154,5 +154,6 @@ and proof or output status.
   the revision comments. The front half now starts from SVAR-reader language:
   standard no-noise sign restrictions, recovered-shock orthogonality, the
   noise-induced failure, DW's no-noise higher-moment logic, and then the
-  variance-ratio robust construction. Remaining bottlenecks are proof audit,
-  final replication packaging, and a full adversarial logic/style review.
+  variance-ratio robust construction. M34 conditionally passed the revised
+  draft after tightening terminology and evidence claims. Remaining bottlenecks
+  are proof audit, final replication packaging, and final export cleanup.

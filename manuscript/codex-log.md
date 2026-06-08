@@ -11,6 +11,30 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-08 - M0042 M34 adversarial review
+
+- Request: user logged in to GitHub CLI, asked Codex to finish the GitHub
+  milestone issue, and then proceed with M34.
+- Actions taken: created closed GitHub milestone #38 for the previously closed
+  M0041 revision-comments work; opened local transparency milestone M0042 and
+  GitHub milestone #39 for M34; reviewed the revised draft, M40 screen audit,
+  M45 evidence, formal registry, and planning surfaces; tightened visible
+  variance-ratio terminology; softened simulation claims in the abstract;
+  added a skewed-residual-noise stress-case caveat; updated citation
+  provenance to M45; drafted the conclusion; and recorded M34 findings in the
+  review log.
+- Files changed: `manuscript/draft.md`, `manuscript/review-log.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`,
+  `manuscript/writing-feedback-log.md`, human-readable logs, and M0041/M0042
+  transparency files.
+- Checks run: final manuscript checks are run before closing M0042.
+- Open uncertainties: Proposition 2 still depends on the M25 proof audit; M45
+  remains lightweight evidence; the final figure/table rebuild path still
+  needs M33; References and export cleanup remain open.
+
 ### 2026-06-08 - M0041 Incorporate revision comments
 
 - Request: user asked Codex to inspect the new revision, address many comments

@@ -11,24 +11,22 @@ M0036 variance-ratio robust DW proposal and the M0041 revision comments.
 M0041 rewrote the abstract, introduction, and Sections 2-4 so the front half
 starts from SVAR-reader language: no-noise sign restrictions, recovered-shock
 orthogonality, residual-noise bias, DW's no-noise higher-moment refinement,
-and the information/noise-ratio robust construction. M0040 remains the current
+and the variance-ratio robust construction. M0040 remains the current
 evidence rebuild for Figure 2, Figure 3, and the lightweight M45 Monte Carlo
 pass.
 
-Current focus: review the M0041 front-half rewrite against the revision
-comments and then audit the now-rebuilt evidence package. The variance-ratio
-proposal has working figures and finite-sample diagnostics, but the hard
-covariance-decomposition screen still needs careful final-claim wording and
-the standard-DW J-test proof audit remains open.
+Current focus: move from M34 review into the two hard gates. The revised draft
+now conditionally passes the adversarial scope, logic, and style review after
+claim-tightening edits, but the standard-DW J-test proof audit remains open and
+the evidence package is still lightweight until the replication wrapper exists.
 
-Next recommended action: run M34, a full adversarial scope, logic, and style
-review of the revised figure-led draft and M45 evidence. Stress-test whether
-the new SVAR-facing exposition answers the revision comments, whether the
-variance-ratio screen is described as identifying information, whether Figure 3
-is not overread, and whether the M25 proof caveats are visible enough.
+Next recommended action: run M47, the direct M25 proof audit. Verify the
+rich-stack generic emptying claim, the structural-coordinate rescaling
+exception, finite-moment aliases, and the compactness or bounded-away-from-zero
+step before promoting Proposition 2 beyond sketch language.
 
-Active milestone: none after M0039 closes; latest work block is M0039/M40,
-audit variance-ratio robust DW screen.
+Active milestone: none after M0042 closes; latest work block is the M34
+adversarial review and GitHub milestone repair.
 
 Active blockers:
 
@@ -64,10 +62,15 @@ Active blockers:
 - Sections 2-4 now have an M0041 revision-driven rewrite rather than only the
   M0038 formula sketch. The prose is deliberately SVAR-first: define the
   no-noise sign-restricted object, add residual noise, explain standard DW
-  under its no-noise null, then introduce the information/noise-ratio robust
+  under its no-noise null, then introduce the residual-noise-to-signal robust
   construction. Proposition 2 still depends on the M25 proof audit, and
   Proposition 3 still needs final proof and heavier replication before
   theorem-level wording.
+- M34 completed a full adversarial scope, logic, and style review. It tightened
+  variance-ratio terminology, softened simulation claims in the abstract,
+  added a visible skewed-residual-noise stress-case caveat, drafted the
+  conclusion, and updated citation provenance to point the active Monte Carlo
+  table at M45 rather than historical M29 evidence.
 - Manuscript-wide math-format cleanup was completed under M42. Remaining
   backticks in `draft.md` are reserved for paths, citation keys, object labels,
   table labels, commands, and code identifiers.
@@ -82,9 +85,9 @@ Active blockers:
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
 
-Last substantive session: 2026-06-08, opened M0041 to incorporate revision
-comments from revision branch `Revision-20260608-070142` by rewriting the
-abstract, introduction, and Sections 2-4 around simpler SVAR-facing language.
+Last substantive session: 2026-06-08, opened M0042 to finish the missing
+GitHub milestone linkage for M0041 and run M34, the adversarial scope, logic,
+and style review of the revised draft and M45 evidence.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

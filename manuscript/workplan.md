@@ -13,11 +13,12 @@ skeletons, manuscript math delimiters have been cleaned, Figure 2 uses the
 variance-ratio robust row, Figure 3 adds the `T=500,1000,2000` sample-size
 grid, and M45 supplies lightweight validation and Monte Carlo evidence.
 
-M0038/M0040 drafting update: Sections 2-4 now have formula-first skeletons
-using proper manuscript math delimiters. The Section 3 statement remains
-conditional on the M25 standard-DW proof audit, and the Section 4
-variance-ratio robust DW statement has a conditional M40 screen audit pass and
-M45 lightweight evidence.
+M0038/M0040/M0042 drafting update: Sections 2-4 now have formula-first
+skeletons using proper manuscript math delimiters, and M0042 completed the M34
+adversarial scope, logic, and style review after the M0041 revision rewrite.
+The Section 3 statement remains conditional on the M25 standard-DW proof audit,
+and the Section 4 variance-ratio robust DW statement has a conditional M40
+screen audit pass and M45 lightweight evidence.
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
@@ -59,8 +60,8 @@ dynamic impulse responses.
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
 | M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; the M25 standard-DW proof audit remains open. |
-| M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo. Remaining work is adversarial evidence review and final replication packaging. |
-| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040 updated figures and evidence. Remaining draft gates are the M25 proof audit, M34 logic review, and replication wrapper. |
+| M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo; M0042 completed the M34 adversarial evidence-language review. Remaining work is final replication packaging and, if needed, a heavier run. |
+| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040 updated figures and evidence; M0042 completed the M34 logic/style review and drafted the conclusion. Remaining draft gates are the M25 proof audit, M33 replication wrapper, references cleanup, and export preparation. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
 
@@ -84,8 +85,9 @@ dynamic impulse responses.
    that DW-versus-robust-DW divergence is described as a warning, not proof of
    literal measurement error.
 7. Evidence design: treat the Figure 1/Figure 2/Figure 3 sequence and M45
-   table as the current visual spine; run an adversarial review before turning
-   lightweight evidence into final evidence claims.
+   table as the current visual spine. M34 completed the adversarial review and
+   kept the evidence language lightweight; final evidence claims still require
+   replication packaging or a heavier run.
 8. Simulation adversary: before accepting any figure, check whether the DGP,
    grids, critical values, cumulant estimators, or plotting choices could make
    the result look correct even if the theory is wrong.
