@@ -2,4 +2,4 @@
 
 Source milestone: M42-M45 math and evidence rebuild
 
-Describe the requested changes for this revision here.
+Overall, the whole language and formulas in the draft are not 
