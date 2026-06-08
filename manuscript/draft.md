@@ -45,9 +45,9 @@ In contrast to other identification approaches like zero-restrictions or proxy v
 
 \comment{the second paragraph could discuss the Drautzburg-Wright-style refinement. here is a sketch of the paragraph: While sign restrictions impose little structure and are rather robust, except for the noise issue, the price of robustness is efficiency - we only get an identified set, not a point estimator. Thats where  Drautzburg-Wright enter: They can use non-Gaussian structural shocks to sharpen the set and get more efficiecncy. Then we need to bring down the hammer again, whats the consequence of noise for the DW refinement: refinement itself is biased and noise may even lead to a false sense of precicion, when in truce it gets more biased.}
 
-\comment{the third paragraph then exlains our solution: We allow for a information noise ratio, which makes us robust to noise within this max ratio. We refine the set using information from non-Gaussian structural shock. This works by extending DW like refinement such that it is blind to Gaussian noise and thus allows a refinement of the set in the presence of gaussian noise. we need to end with our simulation evidence discussing }
+\comment{the third paragraph then exlains our solution: We allow for a information noise ratio, which makes us robust to noise within this max ratio. We refine the set using information from non-Gaussian structural shock. This works by extending DW like refinement such that it is blind to Gaussian noise and thus allows a refinement of the set in the presence of gaussian noise.  }
 
-
+\comment{fourth paragraph discusses
 
 Applied sign-restricted SVAR work often begins after the reduced-form residual
 \(u_t\) has already been estimated. The next step is usually an impact
