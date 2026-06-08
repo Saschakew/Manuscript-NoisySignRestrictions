@@ -161,6 +161,8 @@ rebuilt after the Figure 2/Figure 3 and M28/M29-style evidence rebuild.
 
 \comment{maybe we can also have a paragraph discussing when noise even leads to a sign flip?}
 
+\comment{In the last part of the section, we should 
+
 The first object is the residual being decomposed. The paper does not model
 VAR lag estimation, dynamic responses, or horizon-specific signs in the main
 text. It starts from an already obtained reduced-form residual and asks which
