@@ -386,7 +386,7 @@ comes from applying that null to residuals whose covariance target is
 
 ## 4. Robust DW Higher-Moment Set
 
-\comment{This section is also terrible. once you finished section 2 and 3, your task is to re-write this section in a }
+\comment{This section is also terrible. once you finished section 2 and 3, your task is to re-write this section in a}
 
 The robust set changes the search space before it changes the moments. Instead
 of rotating a factor of \(\Sigma_u\), it reports candidates in a fixed
