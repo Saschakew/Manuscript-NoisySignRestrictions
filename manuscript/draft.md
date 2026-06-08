@@ -43,7 +43,7 @@ sharper structural learning.
 In contrast to other identification approaches like zero-restrictions or proxy variables, sign restrictions impose very little structure, the sign of the shock's impact and the assumption of uncorrelated shocks, and are thus regarded as robust, because they leave little room for misspecification (again, the sentence is not good but i hope you get the point).
 (now we need to bring down the hammer and show that noise breaks the robustness, maybe something like the following) However, we show that if variables are affected by idiosyncratic, the shocks recovered from a standard sign restricted SVAR are no longer uncorreltated, and consequently, the set identified by sign restriction is biased any may no longer contain the true impact matrix.    } 
 
-\comment{the second paragraph could discuss the }
+\comment{the second paragraph could discuss the Drautzburg-Wright-style refinement}
 
 Applied sign-restricted SVAR work often begins after the reduced-form residual
 \(u_t\) has already been estimated. The next step is usually an impact
