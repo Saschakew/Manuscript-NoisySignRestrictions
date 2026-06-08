@@ -276,7 +276,7 @@ can be biased before any finite-sample uncertainty is considered.
 
 \comment{the current proposition 2 only searches for rotations of uncorrelated shocks? can we talk about a general case e=B^-1 u and u = B_0 epsilon + v? is there a B which leads to independent e? what is the consequence for the set of the j inversion, asymptotically? thats our proposition 2!}
 
-\comment{if the proposition 2 I sketeched is correct, we can then discuss what the asymptotically empty set means, it means that the set may shrink and it looks like we get precicsion, but in truth, its misspecification
+\comment{if the proposition 2 I sketeched is correct, we can then discuss what the asymptotically empty set means, it means that the set may shrink and it looks like we get precicsion, but in truth, its misspecification and we get pushed away!}
 
 
 
