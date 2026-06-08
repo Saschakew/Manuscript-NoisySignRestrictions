@@ -159,7 +159,7 @@ rebuilt after the Figure 2/Figure 3 and M28/M29-style evidence rebuild.
 
 \comment{the section requires a simple proposition which states the conditions such that B_0 is no longer contained in the missspecified (because it ignore noise) sign restricted svar.}
 
-\comment{maybe we can also have a paragraph discussing when noise
+\comment{maybe we can also have a paragraph discussing when noise even leads to a sign flip?}
 
 The first object is the residual being decomposed. The paper does not model
 VAR lag estimation, dynamic responses, or horizon-specific signs in the main
