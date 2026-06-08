@@ -6,22 +6,26 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: first figure-led drafting pass is now rebuilt around the M0036
-variance-ratio robust DW proposal. M0038 added formula-first Section 2-4 draft
-skeletons, M0039/M40 conditionally passed the variance-ratio screen algebra
-and interpretation, and M0040 completed the immediate M42-M45 cleanup and
-evidence rebuild: math delimiters, Figure 2, Figure 3, and a lightweight M45
-validation/Monte Carlo pass.
+Current stage: the first figure-led drafting pass is now revised around the
+M0036 variance-ratio robust DW proposal and the M0041 revision comments.
+M0041 rewrote the abstract, introduction, and Sections 2-4 so the front half
+starts from SVAR-reader language: no-noise sign restrictions, recovered-shock
+orthogonality, residual-noise bias, DW's no-noise higher-moment refinement,
+and the information/noise-ratio robust construction. M0040 remains the current
+evidence rebuild for Figure 2, Figure 3, and the lightweight M45 Monte Carlo
+pass.
 
-Current focus: audit and polish the now-rebuilt evidence package. The
-variance-ratio proposal has working figures and finite-sample diagnostics, but
-the hard covariance-decomposition screen still needs careful prose treatment
-and the standard-DW J-test proof audit remains open.
+Current focus: review the M0041 front-half rewrite against the revision
+comments and then audit the now-rebuilt evidence package. The variance-ratio
+proposal has working figures and finite-sample diagnostics, but the hard
+covariance-decomposition screen still needs careful final-claim wording and
+the standard-DW J-test proof audit remains open.
 
-Next recommended action: run M34, a full adversarial scope and logic review of
-the figure-led draft and M45 evidence. Stress-test whether the variance-ratio
-screen is described as identifying information, whether Figure 3 is not
-overread, and whether the M25 proof caveats are visible enough.
+Next recommended action: run M34, a full adversarial scope, logic, and style
+review of the revised figure-led draft and M45 evidence. Stress-test whether
+the new SVAR-facing exposition answers the revision comments, whether the
+variance-ratio screen is described as identifying information, whether Figure 3
+is not overread, and whether the M25 proof caveats are visible enough.
 
 Active milestone: none after M0039 closes; latest work block is M0039/M40,
 audit variance-ratio robust DW screen.
@@ -57,9 +61,12 @@ Active blockers:
   now the manuscript proposal. M40 conditionally passed the screen algebra and
   interpretation; M45 rebuilt the lightweight validation and Monte Carlo
   evidence around this proposal.
-- Sections 2-4 now have a formula-first prose sketch from M0038. The sketch is
-  deliberately cautious: Proposition 2 still depends on the M25 proof audit,
-  and Proposition 3 still needs final proof and heavier replication before
+- Sections 2-4 now have an M0041 revision-driven rewrite rather than only the
+  M0038 formula sketch. The prose is deliberately SVAR-first: define the
+  no-noise sign-restricted object, add residual noise, explain standard DW
+  under its no-noise null, then introduce the information/noise-ratio robust
+  construction. Proposition 2 still depends on the M25 proof audit, and
+  Proposition 3 still needs final proof and heavier replication before
   theorem-level wording.
 - Manuscript-wide math-format cleanup was completed under M42. Remaining
   backticks in `draft.md` are reserved for paths, citation keys, object labels,
@@ -75,10 +82,9 @@ Active blockers:
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
 
-Last substantive session: 2026-06-07, opened M0040 to complete M42-M45 by
-cleaning manuscript math delimiters, rebuilding Figure 2 and Figure 3 around
-the variance-ratio robust row, and running the M45 validation/Monte Carlo
-evidence pass.
+Last substantive session: 2026-06-08, opened M0041 to incorporate revision
+comments from revision branch `Revision-20260608-070142` by rewriting the
+abstract, introduction, and Sections 2-4 around simpler SVAR-facing language.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

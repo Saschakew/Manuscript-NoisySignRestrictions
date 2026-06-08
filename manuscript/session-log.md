@@ -8,6 +8,26 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-08 - Incorporate revision comments into front-half prose
+
+- Request or goal: incorporate the new revision comments, rewriting the
+  abstract, introduction, and Sections 2-4 carefully and then reviewing the
+  result against the spirit of the comments.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/paper-map.md`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  human-readable logs, and M0041 transparency files.
+- Summary of work: found the revision on GitHub issue #1 and branch
+  `Revision-20260608-070142`. Rewrote the front half so it first explains
+  no-noise sign-restricted SVARs, recovered-shock orthogonality, and J-test
+  inversion; then introduces additive residual noise and the noisy covariance
+  pseudo-set; then explains DW under the no-noise null and how noise creates
+  false precision; and finally presents the information/noise-ratio robust DW
+  construction before the evidence section.
+- Next recommended action: run M34, an adversarial scope, logic, and style
+  review of the revised draft and M45 evidence, while keeping the M25 proof
+  audit and replication wrapper open.
+
 ### 2026-06-07 - Rebuild variance-ratio figures and evidence
 
 - Request or goal: run M42 math-delimiter cleanup, rebuild Figure 2 with the

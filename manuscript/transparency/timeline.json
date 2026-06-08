@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-07T18:30:53Z",
+  "updated_at": "2026-06-08T09:51:31Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -841,6 +841,28 @@
         "milestone_number": 37,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/37",
         "tag_name": "manuscript-milestones/M0040-m42-m45-math-and-evidence-rebuild"
+      }
+    },
+    {
+      "id": "M0041-incorporate-revision-comments",
+      "sequence": 41,
+      "title": "Incorporate revision comments",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-08T09:35:49Z",
+      "closed_at": "2026-06-08T09:51:31Z",
+      "start_commit": "ede841430e9e4a6d29ba39d867639bc8b4f34930",
+      "snapshot_ref": "manuscript-milestones/M0041-incorporate-revision-comments",
+      "summary": "Incorporated revision comments by rewriting the abstract, introduction, and Sections 2-4 around SVAR-reader language, recovered-shock orthogonality, residual-noise bias, no-noise DW refinement, and the information/noise-ratio robust construction.",
+      "user_input_ids": [
+        "U0041-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0041-incorporate-revision-comments.json",
+      "github": {
+        "repository": "",
+        "milestone_number": null,
+        "milestone_url": "",
+        "tag_name": "manuscript-milestones/M0041-incorporate-revision-comments"
       }
     }
   ]

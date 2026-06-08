@@ -5,6 +5,29 @@ decisions.
 
 ## Entries
 
+### 2026-06-08 - Rewrite front half for SVAR-reader formulation
+
+- Origin: user instruction to incorporate the revision branch comments.
+- User input id: U0041
+- Codex role: read GitHub issue #1 and revision branch
+  `Revision-20260608-070142`, extracted the inline comments, rewrote the
+  abstract, introduction, and Sections 2-4, and updated registry/planning
+  surfaces.
+- Decision: The front half should start from the language an SVAR reader
+  expects: no-noise sign restrictions identify a set of impact matrices using
+  signs and recovered-shock orthogonality; residual noise breaks that
+  orthogonality and shifts the covariance target; DW refinement should first
+  be explained under its no-noise higher-moment logic; the robust proposal
+  should start with the researcher-chosen information/noise ratio and then add
+  Gaussian-noise-blind higher cumulants.
+- Rationale: The revision comments identified the previous draft as too hard
+  to read for an SVAR audience and too quick to introduce notation without
+  explaining the standard no-noise object. The new ordering makes the failure
+  mode and the proposed fix visible before the heavier formulas.
+- Consequence for next work: Run M34 as an adversarial logic and style review
+  of the revised draft. The M25 proof audit and final replication wrapper
+  remain open before theorem-level or shareable-paper claims.
+
 ### 2026-06-07 - Treat M45 as lightweight variance-ratio evidence gate
 
 - Origin: user instruction to run M42-M45 around the variance-ratio proposal.

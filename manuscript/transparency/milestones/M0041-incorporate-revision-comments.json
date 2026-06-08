@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "M0041-incorporate-revision-comments",
+  "sequence": 41,
+  "title": "Incorporate revision comments",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-08T09:35:49Z",
+  "closed_at": "2026-06-08T09:51:31Z",
+  "start_commit": "ede841430e9e4a6d29ba39d867639bc8b4f34930",
+  "snapshot_ref": "manuscript-milestones/M0041-incorporate-revision-comments",
+  "summary": "Incorporated revision comments by rewriting the abstract, introduction, and Sections 2-4 around SVAR-reader language, recovered-shock orthogonality, residual-noise bias, no-noise DW refinement, and the information/noise-ratio robust construction.",
+  "user_inputs": [
+    {
+      "id": "U0041-001",
+      "milestone_id": "M0041-incorporate-revision-comments",
+      "captured_at": "2026-06-08T09:35:49Z",
+      "source": "chat",
+      "text": "Incorporate the new revision with many comments by carefully rewriting the abstract, introduction, and Sections 2, 3, and 4, then review the manuscript against the spirit of the comments."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0041-001",
+      "milestone_id": "M0041-incorporate-revision-comments",
+      "captured_at": "2026-06-08T09:51:31Z",
+      "description": "Rewrote front-half manuscript prose and updated registry, planning surfaces, review log, and human-readable logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-08T09:51:31Z",
+      "description": "python scripts/check_manuscript.py: passed with KnowledgeVault path warnings before closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0041-incorporate-revision-comments.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/writing-feedback-log.md"
+  ],
+  "github": {
+    "repository": "",
+    "milestone_number": null,
+    "milestone_url": "",
+    "tag_name": "manuscript-milestones/M0041-incorporate-revision-comments"
+  }
+}

@@ -62,11 +62,11 @@ without reusing invalid covariance anchors.
 
 | Section | Job | Status |
 |---|---|---|
-| Abstract | State noisy sign-set bias, false DW sharpening, robust DW comparison, and no-application scope. | skeleton drafted |
-| 1. Introduction | Motivate the robustness-check problem, position the paper relative to sign restrictions, Drautzburg-Wright, and higher-moment SVAR/GMM, and preview the geometry plus Monte Carlo evidence. | skeleton plus M32 positioning drafted |
-| 2. Noisy Sign Sets | Define the additive-noise SVAR and show, visually and algebraically, how standard sign sets become biased pseudo-sets. | formula sketch drafted; proof polish pending |
-| 3. Standard DW Under Noise | Explain the no-noise DW refinement, why noise contaminates recovered shocks, and why the refined set can become empty or falsely small. | formula sketch drafted; M25 proof audit pending |
-| 4. Variance-Ratio Robust DW | Define the robust normalized candidate set from mixed higher cumulants, explain why recovered-shock zero covariance and the diagonal-anchor `u` covariance moment are invalid, and derive the variance-ratio covariance-decomposition screen as the proposal. | formula sketch drafted; M40 screen audit conditionally passed |
+| Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the information/noise-ratio robust refinement, and simulation evidence. | rewritten after revision comments |
+| 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust information/noise-ratio fix, and preview the evidence. | rewritten after revision comments; literature positioning retained |
+| 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
+| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the covariance plus higher-moment J stack, then show how noise can make refinement falsely precise. | rewritten after revision comments; M25 proof audit pending |
+| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio information/noise screen, then add Gaussian-noise-blind higher cumulants to regain efficiency without imposing invalid recovered-shock covariance. | rewritten after revision comments; M40/M45 support but final theorem wording pending |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | rebuilt; needs adversarial review |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | planned |
 
@@ -150,8 +150,9 @@ and proof or output status.
   boundaries. The next bottlenecks are direct M25 proof audit before
   theorem-level wording, adversarial review of the new M45 evidence, and moving
   figure/table code into `manuscript/replication/` before sharing.
-- M0038 converted the Section 2-4 TODO stubs into formula-first draft
-  skeletons. M0039/M40 conditionally passed the M0036 variance-ratio screen.
-  The next bottleneck is not more skeleton prose; it is cleaning math
-  formatting, rebuilding the variance-ratio evidence, and auditing the M25
-  standard-DW proof conditions before theorem-level wording.
+- M0041 rewrote the abstract, introduction, and Sections 2-4 in response to
+  the revision comments. The front half now starts from SVAR-reader language:
+  standard no-noise sign restrictions, recovered-shock orthogonality, the
+  noise-induced failure, DW's no-noise higher-moment logic, and then the
+  variance-ratio robust construction. Remaining bottlenecks are proof audit,
+  final replication packaging, and a full adversarial logic/style review.

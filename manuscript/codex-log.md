@@ -11,6 +11,31 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-08 - M0041 Incorporate revision comments
+
+- Request: user asked Codex to inspect the new revision, address many comments
+  on formulation and writing style, rewrite the abstract, introduction, and
+  Sections 2-4 step by step, and review the result against the spirit of the
+  comments.
+- Actions taken: opened local transparency milestone M0041; found the revision
+  via GitHub issue #1 and branch `Revision-20260608-070142`; extracted the
+  inline comments from the branch draft; rewrote the abstract, introduction,
+  and Sections 2-4 around SVAR-reader language; added the explicit no-noise
+  sign-set J-test equation `eq:no-noise-sign-j-set`; updated the formal
+  registry, paper map, dashboard, task board, and human-readable logs.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/paper-map.md`,
+  `manuscript/project-dashboard.md`, `manuscript/task-board.md`,
+  `manuscript/user-input-log.md`, `manuscript/decision-log.md`,
+  `manuscript/session-log.md`, `manuscript/codex-log.md`, and M0041
+  transparency files.
+- Checks run: final manuscript checks are run before closing M0041.
+- Open uncertainties: the M25 standard-DW proof audit remains open, and the
+  final shareable replication wrapper is still needed. The revision also
+  suggested a possible separate sign-flip figure; the current draft addresses
+  the sign-flip mechanism in prose and uses Figure 1 for continuous set
+  movement, leaving the standalone sign-flip design as future optional work.
+
 ### 2026-06-07 - M0040 Rebuild variance-ratio figures and evidence
 
 - Request: user asked Codex to follow the proposed next actions: M42 math
