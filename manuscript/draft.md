@@ -272,7 +272,7 @@ can be biased before any finite-sample uncertainty is considered.
 
 \comment{then explain how the new J-Test inversion looks like}
 
-\comment{now we break it: what happens when there is noise? Even at B_0, the shocks recovered by e=B_0^-1 u are correlated and also the third and fourth order moments are dependent!
+\comment{now we break it: what happens when there is noise? Even at B_0, the shocks recovered by e=B_0^-1 u are correlated and also the third and fourth order moments are dependent (because they are a mixture of the same noise)!
 
 
 
