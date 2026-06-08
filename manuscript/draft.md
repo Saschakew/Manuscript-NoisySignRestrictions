@@ -155,7 +155,7 @@ rebuilt after the Figure 2/Figure 3 and M28/M29-style evidence rebuild.
 
 ## 2. Noisy Sign Sets
 
-\comment{Maybe the title of the section should be: Sign restrictions and noisy SVAR models. The section would first introduce a standard no-noise SVAR and explain how sign restrictions identify a set of impact matrices which are in line with sign restrictions and uncorrelated shocks. Afterwards, we introduce a  noisy SVAR and show that the structural shocks recovered from the misspecified no-noise svar  are no longer uncorrelated. then we show the impact on the identified set, i.e. the bias. But we need to keep it simple and also introduce every variable. the current version throws arround }
+\comment{Maybe the title of the section should be: Sign restrictions and noisy SVAR models. The section would first introduce a standard no-noise SVAR and explain how sign restrictions identify a set of impact matrices which are in line with sign restrictions and uncorrelated shocks. Afterwards, we introduce a  noisy SVAR and show that the structural shocks recovered from the misspecified no-noise svar  are no longer uncorrelated. then we show the impact on the identified set, i.e. the bias. But we need to keep it simple and also introduce every variable. the current version throws arround a bunch of variables without ever explaining what they are. }
 
 The first object is the residual being decomposed. The paper does not model
 VAR lag estimation, dynamic responses, or horizon-specific signs in the main
