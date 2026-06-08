@@ -161,7 +161,7 @@ rebuilt after the Figure 2/Figure 3 and M28/M29-style evidence rebuild.
 
 \comment{maybe we can also have a paragraph discussing when noise even leads to a sign flip?}
 
-\comment{In the last part of the section, we should introduce an inversion of a J-Test instead of the rotation approach we used in the rest of the section. The difference is, that finding rotations always only yields uncorrelated shocks by construction. The inversion of J-Test yields all B matrices in line with the H0 of uncorrelated shock. So the J-test basically uses the moment condition of uncorrelated shocks 
+\comment{In the last part of the section, we should introduce an inversion of a J-Test instead of the rotation approach we used in the rest of the section. The difference is, that finding rotations always only yields uncorrelated shocks by construction. The inversion of J-Test yields all B matrices in line with the H0 of uncorrelated shock. So the J-test basically uses the moment condition of uncorrelated shocks, and as a restriction the sign restrictions.}
 
 The first object is the residual being decomposed. The paper does not model
 VAR lag estimation, dynamic responses, or horizon-specific signs in the main
