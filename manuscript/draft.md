@@ -39,6 +39,8 @@ sharper structural learning.
 
 ## 1. Introduction
 
+\comment{} 
+
 Applied sign-restricted SVAR work often begins after the reduced-form residual
 \(u_t\) has already been estimated. The next step is usually an impact
 decomposition: find candidate structural impact matrices whose implied signs
