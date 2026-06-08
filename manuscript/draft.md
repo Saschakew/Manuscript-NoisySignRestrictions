@@ -264,7 +264,7 @@ can be biased before any finite-sample uncertainty is considered.
 
 ## 3. Standard DW Under Residual Noise
 
-\comment{lets start again 
+\comment{lets start again with DW in a no-noise SVAR. lets first show how it works before we show how it breaks.}
 
 The standard Drautzburg-Wright-style refinement is best understood as a
 maintained-null procedure. Under the no-noise model, a covariance factor
