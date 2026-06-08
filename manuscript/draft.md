@@ -6,6 +6,7 @@ Date: 2026-06-05
 
 ## Abstract
 
+
 Sign-restricted SVARs are usually presented as qualitative restrictions, but
 the set they report is built from a covariance target. This paper studies the
 simultaneous impact problem when the reduced-form residual is contaminated by
