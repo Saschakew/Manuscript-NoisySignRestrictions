@@ -388,7 +388,7 @@ comes from applying that null to residuals whose covariance target is
 
 \comment{This section is also terrible. once you finished section 2 and 3, your task is to re-write this section. i think we should start with the information/noise bound. it make sign restrictions even more robust by allowing for noise. but the cost is less efficiency, sets get wider.}
 
-\comment{In the second part we then show how we can make dw moments robust to gaussian noise and this helps us to get a
+\comment{In the second part we then show how we can make dw moments robust to gaussian noise and this helps us to get again efficency).
 
 The robust set changes the search space before it changes the moments. Instead
 of rotating a factor of \(\Sigma_u\), it reports candidates in a fixed
