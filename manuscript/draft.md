@@ -268,7 +268,7 @@ can be biased before any finite-sample uncertainty is considered.
 
 \comment{ first paragraph something like: sign restrictions identify set of impact matrices B which yield uncorrelated shocks e=B^-1 u. DWs argument is that if u=B_0 epsilon with non gaussian epsilon, than the recovered shocks e from sign restrictions are uncorrelated, but can be highly dependent. the point is well known in the whole non-gaussian identification literature. dw then refine the set by imposing higher-order moment conditions which discard candidate B which yield shocks with third- and fourth order dependencies. this refines the set identified by sign restrictions }
 
-\comment{then we make it explicit and 
+\comment{then we make it explicit and define the 
 
 
 
