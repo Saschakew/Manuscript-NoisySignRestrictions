@@ -272,7 +272,7 @@ can be biased before any finite-sample uncertainty is considered.
 
 \comment{then explain how the new J-Test inversion looks like}
 
-\comment{now we break it: what happens when there is noise? 
+\comment{now we break it: what happens when there is noise? the shocks
 
 
 
