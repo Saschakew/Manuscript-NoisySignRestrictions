@@ -264,6 +264,8 @@ can be biased before any finite-sample uncertainty is considered.
 
 ## 3. Standard DW Under Residual Noise
 
+\comment{lets start again 
+
 The standard Drautzburg-Wright-style refinement is best understood as a
 maintained-null procedure. Under the no-noise model, a covariance factor
 \(P_0\) can be rotated into a candidate impact matrix, and the recovered shocks
