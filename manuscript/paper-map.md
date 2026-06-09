@@ -7,9 +7,9 @@ changing section structure or drafting substantial prose.
 
 Residual noise can bias standard sign-restricted SVAR sets and make
 Drautzburg-Wright-style higher-moment refinement look falsely precise; a
-variance-ratio robust DW comparison can use Gaussian-noise higher cumulants
-plus an explicit residual-noise-to-signal variance bound to recover precision
-without reusing invalid covariance anchors.
+variance-ratio robust DW comparison can use Gaussian-noise-blind higher-moment
+conditions plus an explicit residual-noise-to-signal variance bound to recover
+precision without reusing invalid covariance anchors.
 
 ## Paper Contract
 
@@ -23,10 +23,11 @@ without reusing invalid covariance anchors.
   `1222`, while GMM2 drops only `1122`. The current evidence code is not yet
   source-correct and must be rebuilt under M52.
 - Constructive object: robust DW-style set over normalized impact matrices
-  using mixed higher cumulants of `B^{-1}u` written as GMM-style moment
-  equations while avoiding recovered-shock zero-covariance targets. M0036 is
-  now the variance-ratio robust DW proposal: add the covariance-decomposition
-  screen `0 <= nu_i <= 0.5 Var(epsilon_i)`.
+  using mixed higher-moment equations for `B^{-1}u`, including the required
+  fourth-order covariance-product subtractions, while avoiding recovered-shock
+  zero-covariance targets. M0036 is now the variance-ratio robust DW proposal:
+  add the covariance-decomposition screen
+  `0 <= nu_i <= 0.5 Var(epsilon_i)`.
 - Evidence: the M0034 pure Figure 1 variant shows the honest cost of dropping
   invalid second-order information. The M0036 variance-ratio Figure 1 shows
   that an explicit signal-to-noise upper bound can recover precision while
@@ -69,7 +70,7 @@ without reusing invalid covariance anchors.
 | 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust residual-noise-to-signal fix, and preview the evidence. | revised after M34 claim-tightening; literature positioning retained |
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
 | 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M52 must rebuild figures/MC with a source-correct standard-DW menu; M25 proof audit pending |
-| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher cumulants to regain efficiency without imposing invalid recovered-shock covariance. | M49 noisy product derivations complete; final proof and replication still pending |
+| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. | M49 noisy product derivations complete; M53 must rewrite the display as moment conditions rather than visible cumulant notation; final proof and replication still pending |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | reviewed after M34; still lightweight until replication wrapper |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 

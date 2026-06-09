@@ -106,3 +106,5 @@
 {"id": "A0048-001", "milestone_id": "M0048-m49-dw-source-audit", "captured_at": "2026-06-09T09:47:42Z", "description": "Created manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md."}
 {"id": "A0048-002", "milestone_id": "M0048-m49-dw-source-audit", "captured_at": "2026-06-09T09:47:42Z", "description": "Updated draft, registry, task board, source packet, dashboard, paper map, provenance, and logs."}
 {"id": "A0048-003", "milestone_id": "M0048-m49-dw-source-audit", "captured_at": "2026-06-09T09:47:42Z", "description": "Created manuscript/tasks/M52-standard-dw-source-correct-rebuild.md."}
+{"id": "A0049-001", "milestone_id": "M0049-plan-dw-notation-rewrite", "captured_at": "2026-06-09T10:50:27Z", "description": "Created manuscript/tasks/M53-dw-and-robust-moment-notation-rewrite.md."}
+{"id": "A0049-002", "milestone_id": "M0049-plan-dw-notation-rewrite", "captured_at": "2026-06-09T10:50:27Z", "description": "Updated task board, dashboard, paper map, workplan, formal registry, and logs to route M53 before M52."}

@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-09T09:49:43Z",
+  "updated_at": "2026-06-09T10:57:06Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1017,6 +1017,28 @@
         "milestone_number": 44,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/44",
         "tag_name": "manuscript-milestones/M0048-m49-dw-source-audit"
+      }
+    },
+    {
+      "id": "M0049-plan-dw-notation-rewrite",
+      "sequence": 49,
+      "title": "Plan DW notation rewrite",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T10:15:32Z",
+      "closed_at": "2026-06-09T10:57:06Z",
+      "start_commit": "df6eff11a6e0d4b814b194cfb581ce75f351117d",
+      "snapshot_ref": "manuscript-milestones/M0049-plan-dw-notation-rewrite",
+      "summary": "Planned M53 as the packet-backed DW and robust moment notation rewrite: replace Section 3 h_i(B) notation with e_t(B), and recast Section 4 robust restrictions as explicit moment conditions before M52 evidence work.",
+      "user_input_ids": [
+        "U0049-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0049-plan-dw-notation-rewrite.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 45,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/45",
+        "tag_name": "manuscript-milestones/M0049-plan-dw-notation-rewrite"
       }
     }
   ]

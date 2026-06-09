@@ -5,6 +5,23 @@ decisions.
 
 ## Entries
 
+### 2026-06-09 - Prefer recovered-shock moment notation in Sections 3-4
+
+- Decision type: notation and exposition planning.
+- Decision: the next notation rewrite should use the already defined recovered
+  shocks \(e_t(B)=B^{-1}u_t\) in the Section 3 DW moment display rather than
+  introducing `h_i(B)`. Section 4 should present the robust restrictions as
+  explicit GMM-style moment conditions rather than foregrounding cumulant
+  notation.
+- Rationale: at the true no-noise impact matrix,
+  \(e_t(B_0)=\varepsilon_t\), and \(\varepsilon_t\) is mean zero with unit
+  variances by normalization. The paper should keep the notation close to this
+  SVAR object while preserving M49's distinction between DW raw fourth-product
+  conditions and the robust fourth-order covariance-product subtractions.
+- Consequence for next work: M53 has been created as a packet-backed task to
+  execute this notation rewrite before returning to the M52 evidence rebuild.
+- User input: U0049.
+
 ### 2026-06-09 - Source-correct DW menu requires evidence rebuild
 
 - Origin: M49 execution of the user's DW moment-definition and noisy-moment

@@ -11,6 +11,25 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-09 - M0049 Plan DW notation rewrite
+
+- Request: user asked Codex to plan a task replacing the Section 3 `h_i(B)`
+  notation with `e_t(B)` and rewriting Section 4 so robust restrictions are
+  shown as moment conditions rather than visible cumulant notation.
+- Actions taken: opened M0049 and GitHub milestone 45; created packet-backed
+  M53 in `manuscript/tasks/M53-dw-and-robust-moment-notation-rewrite.md`;
+  updated the task board, dashboard, paper map, workplan, formal registry, and
+  human-readable logs so M53 runs before the M52 evidence rebuild.
+- Files changed: M53 task packet, task board, dashboard, paper map, workplan,
+  formal registry, decision/user/session logs, Codex log, and transparency
+  files.
+- Checks run: `python -m json.tool manuscript/formal-object-registry.json`
+  passed; `python scripts/check_manuscript.py` passed with the expected
+  open-milestone warning before closure; `git diff --check` passed with
+  line-ending warnings only. A clean post-close manuscript check also passed.
+- Open uncertainties: M53 still needs to execute the actual draft rewrite.
+  M52 remains the separate source-correct standard-DW evidence rebuild gate.
+
 ### 2026-06-09 - M0048 M49 DW source audit
 
 - Request: user asked Codex to continue the manuscript work and go on with M49.

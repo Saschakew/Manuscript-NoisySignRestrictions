@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-09 - Plan M53 DW and robust moment notation rewrite
+
+- Request or goal: plan a new task to replace the Section 3 `h_i(B)` DW
+  notation with recovered-shock notation and rewrite Section 4 robust
+  conditions as moment equations rather than visible cumulant notation.
+- Files changed: `manuscript/tasks/M53-dw-and-robust-moment-notation-rewrite.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, and logs/transparency files.
+- Summary of work: created packet-backed M53 with the original user prompt,
+  required reads, scientific claim ledger, stop conditions, and acceptance
+  criteria; routed M53 before M52 so notation is cleaned before the
+  source-correct evidence rebuild.
+- Next recommended action: execute M53, then return to M52 for the standard-DW
+  evidence rebuild.
+
 ### 2026-06-09 - Complete M49 DW source and noisy-moment audit
 
 - Request or goal: continue the manuscript workflow by executing the M49
