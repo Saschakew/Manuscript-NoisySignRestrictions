@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-09T09:01:51Z",
+  "updated_at": "2026-06-09T09:49:43Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -995,6 +995,28 @@
         "milestone_number": 43,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/43",
         "tag_name": "manuscript-milestones/M0047-clarify-next-task-workflow"
+      }
+    },
+    {
+      "id": "M0048-m49-dw-source-audit",
+      "sequence": 48,
+      "title": "M49 DW source audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T09:23:10Z",
+      "closed_at": "2026-06-09T09:49:43Z",
+      "start_commit": "8bf2e509a805da78d2e8551a2132902bec53982f",
+      "snapshot_ref": "manuscript-milestones/M0048-m49-dw-source-audit",
+      "summary": "Completed the M49 DW source and noisy-moment audit; corrected the draft source menu; classified current standard-DW evidence as historical hybrid; created M52 for the source-correct rebuild.",
+      "user_input_ids": [
+        "U0048-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0048-m49-dw-source-audit.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 44,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/44",
+        "tag_name": "manuscript-milestones/M0048-m49-dw-source-audit"
       }
     }
   ]

@@ -1,6 +1,6 @@
 # M49 DW Source And Noisy Moment Audit
 
-Status: `todo`
+Status: `done`
 
 Priority: 1
 
@@ -95,12 +95,12 @@ record the resolved path before proceeding.
 
 | Claim | Required status | Evidence required | Result |
 |---|---|---|---|
-| DW fourth-order GMM entries are raw standardized product moments with two-pair indicator targets, not fourth cumulants. | `raw-source` or `vault-source` | DW equation/page/path; source notation translated to manuscript notation | pending |
-| The exact bivariate DW moment menu includes or excludes `E(e_1^3 e_2)` and `E(e_1 e_2^3)`. | `raw-source` plus translation | DW source and bivariate specialization derivation | pending |
-| Figure 1 standard-DW code implements the source-correct bivariate DW menu. | `code-implemented` plus source-to-code mapping | code path plus source comparison | pending |
-| Third-order cumulants equal the relevant centered raw third GMM moments and are unaffected by additive independent Gaussian noise at `B=B0`. | `derived` | expansion from `z=epsilon+B0^{-1}eta` | pending |
-| Fourth-order robust cumulants differ from DW fourth-product conditions by covariance-product subtractions that matter in finite samples. | `derived` plus source comparison | raw fourth expansions and cumulant formulas | pending |
-| Switching from `diag(B)=1` to `Var(epsilon)=1` is required or not required for source alignment. | `derived` plus `user-decision` if adopted | normalization comparison and rebuild list | pending |
+| DW fourth-order GMM entries are raw standardized product moments with two-pair indicator targets, not fourth cumulants. | `raw-source` or `vault-source` | DW equation/page/path; source notation translated to manuscript notation | confirmed in M49 |
+| The exact bivariate DW moment menu includes or excludes `E(e_1^3 e_2)` and `E(e_1 e_2^3)`. | `raw-source` plus translation | DW source and bivariate specialization derivation | confirmed: GMM1 includes `1112` and `1222`; GMM2 drops only `1122` |
+| Figure 1 standard-DW code implements the source-correct bivariate DW menu. | `code-implemented` plus source-to-code mapping | code path plus source comparison | failed: current code is a historical hybrid |
+| Third-order cumulants equal the relevant centered raw third GMM moments and are unaffected by additive independent Gaussian noise at `B=B0`. | `derived` | expansion from `z=epsilon+B0^{-1}eta` | confirmed under the M49 assumptions |
+| Fourth-order robust cumulants differ from DW fourth-product conditions by covariance-product subtractions that matter in finite samples. | `derived` plus source comparison | raw fourth expansions and cumulant formulas | confirmed; Section 4 now separates cumulants from DW raw products |
+| Switching from `diag(B)=1` to `Var(epsilon)=1` is required or not required for source alignment. | `derived` plus `user-decision` if adopted | normalization comparison and rebuild list | source menu rebuild required; full chart switch left as user-decision gate |
 
 ## Required Work
 
@@ -189,4 +189,22 @@ record the resolved path before proceeding.
 
 ## Outcome Log
 
-Pending.
+Completed in M0048 on 2026-06-09.
+
+- New audit note:
+  `manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md`.
+- Source outcome: the exact bivariate DW GMM1 higher-moment menu is
+  `112`, `122`, `1112`, `1122`, and `1222`; GMM2 drops only the symmetric
+  `1122` kurtosis condition.
+- Code outcome: Figure 1 and M45 currently implement a historical hybrid
+  statistic with covariance, `112`, `122`, and `1122`; this is not
+  source-correct GMM1 or GMM2.
+- Derivation outcome: the requested noisy moments are derived from
+  `z=epsilon+B0^{-1}eta`; third centered products remain Gaussian-noise-blind
+  at `B0`, while fourth raw products are shifted by covariance-product terms
+  that fourth cumulants subtract.
+- Normalization outcome: source alignment requires a standard-DW moment-menu
+  rebuild; a full switch from the common `diag(B)=1` chart to a
+  unit-variance/rotation chart remains a major user-decision gate.
+- Follow-up task created:
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`.

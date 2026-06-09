@@ -13,17 +13,17 @@ skeletons, manuscript math delimiters have been cleaned, Figure 2 uses the
 variance-ratio robust row, Figure 3 adds the `T=500,1000,2000` sample-size
 grid, and M45 supplies lightweight validation and Monte Carlo evidence.
 
-M0038/M0040/M0042/M0044/M0045/M0046/M0047 drafting update: Sections 2-4 now have
+M0038/M0040/M0042/M0044/M0045/M0046/M0047/M0048 drafting update: Sections 2-4 now have
 formula-first skeletons using proper manuscript math delimiters, and M0042
 completed the M34 adversarial scope, logic, and style review after the M0041
-revision rewrite. M0045 marks M48 as partial and not source-complete: the
-standard-DW moment menu, Figure 1 source match, noisy product-moment
-derivations, and normalization/rebuild decision need M49 before Section 3 or
-Section 4 can treat the DW comparison as settled. M0046 introduces durable
-task hand-off packets under `manuscript/tasks/`; M49 now has the packet
-`manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`. M0047 makes the
-skill explicitly packet-aware for `work on next task` and `plan next tasks`
-prompts.
+revision rewrite. M0045 marks M48 as partial and not source-complete, and M49
+now supplies the source-complete replacement: the bivariate DW GMM1 menu is
+`112`, `122`, `1112`, `1122`, `1222`, GMM2 drops only `1122`, and the current
+Figure 1/M45 standard-DW code is a historical hybrid rather than source-correct
+DW evidence. M0046 introduces durable task hand-off packets under
+`manuscript/tasks/`; M0047 makes the skill explicitly packet-aware for
+`work on next task` and `plan next tasks` prompts; M52 now carries the
+source-correct evidence rebuild packet.
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
@@ -64,8 +64,8 @@ dynamic impulse responses.
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; M0045 quarantines M48 as partial, so M49 must execute `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md` before the M25/M47 standard-DW proof audit proceeds. |
-| M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo; M0042 completed the M34 adversarial evidence-language review. Remaining work is final replication packaging and, if needed, a heavier run. |
+| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; M49 source-audited the DW GMM1/GMM2 moment menu and noisy product derivations; M47 still needs to audit the M25 standard-DW proof gate after M52 repairs the source-correct evidence path. |
+| M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo; M0042 completed the M34 adversarial evidence-language review. M49 now shows the standard-DW evidence row is a historical hybrid, so M52 must rebuild the figures/MC before final evidence claims, followed by final replication packaging and, if needed, a heavier run. |
 | M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040 updated figures and evidence; M0042 completed the M34 logic/style review and drafted the conclusion. Remaining draft gates are the M25 proof audit, M33 replication wrapper, references cleanup, and export preparation. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
@@ -79,11 +79,13 @@ dynamic impulse responses.
    condition for robust transformed cumulants, and sign-labeling conventions.
 3. Noisy sign-set review: check the covariance pseudo-set, column-rescaling
    obstruction, and intuition in the first figure.
-4. Standard-DW misspecification review: first execute
-   `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md` to recover the
-   exact DW moment object from raw source or KnowledgeVault and derive the
-   requested noisy moments; then prove or weaken the claim that the population
-   DW set becomes empty under residual noise and list special cases.
+4. Standard-DW misspecification review: M49 recovered the exact DW GMM1/GMM2
+   moment object from raw source and derived the requested noisy product
+   moments. Next execute
+   `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md` to repair the
+   standard-DW evidence path, then run M47 to prove or weaken the claim that
+   the population DW set becomes empty under residual noise and list special
+   cases.
 5. Robust-DW derivation review: M40 conditionally passed the M0036 relative
    covariance-decomposition screen, including algebra, finite-sample
    equality-plus-inequality behavior, and the substantive interpretation of
@@ -93,9 +95,11 @@ dynamic impulse responses.
    that DW-versus-robust-DW divergence is described as a warning, not proof of
    literal measurement error.
 7. Evidence design: treat the Figure 1/Figure 2/Figure 3 sequence and M45
-   table as the current visual spine. M34 completed the adversarial review and
-   kept the evidence language lightweight; final evidence claims still require
-   replication packaging or a heavier run.
+   table as the current visual spine only for the historical hybrid standard-DW
+   statistic. M34 completed the adversarial review and kept the evidence
+   language lightweight; M52 must rebuild the standard-DW row before final
+   evidence claims, and final evidence still requires replication packaging or
+   a heavier run.
 8. Simulation adversary: before accepting any figure, check whether the DGP,
    grids, critical values, cumulant estimators, or plotting choices could make
    the result look correct even if the theory is wrong.

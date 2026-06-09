@@ -6,35 +6,33 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: workflow hardening after the M48 failure. The first figure-led
-draft remains revised around the M0036 variance-ratio robust DW proposal and
-the M0041 revision comments, but M0045 marks the M48 moment-definition and
-normalization audit as partial and not source-complete. Section 3's displayed
-standard-DW moment stack, the exact bivariate DW GMM menu, the Figure 1
-standard-DW source match, and the normalization/rebuild decision are unsettled
-until M49 redoes the audit from raw source and derivation.
+Current stage: M49 completed the source-first DW moment and noisy-product
+audit after the M48 failure. The exact bivariate Drautzburg-Wright GMM1 menu is
+now source-backed as `112`, `122`, `1112`, `1122`, and `1222`; GMM2 drops only
+the symmetric `1122` condition. The current Figure 1/Figure 2/Figure 3 and M45
+standard-DW rows remain historical hybrid evidence because the code uses
+covariance, `112`, `122`, and `1122`.
 
-Current focus: prevent source-sensitive claims from entering the manuscript
-without provenance. The revised draft still conditionally passes the M34
-adversarial scope, logic, and style review, but M48 no longer clears the DW
-moment-definition gate. The next scientific task must be M49, and it must
-start from the hand-off packet
-`manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`, which preserves the
-user's original comments, raw DW source requirements, and explicit noisy-moment
-derivation obligations.
+Current focus: rebuild the standard-DW evidence before relying on Figure 1 or
+Table 1 as source-correct DW evidence. The revised draft still conditionally
+passes the M34 adversarial scope, logic, and style review, and M49 now clears
+the source-moment menu and noisy-derivation gate, but M52 must repair the code
+and evidence path before the paper leans on the source-correct comparator.
 
-Next recommended action: run M49 before M47. Redo the DW source and noisy
-moment audit under the scientific claim gate by executing
-`manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`; only after the
-standard-DW moment object is source-verified should M47 audit the J-test proof
+Next recommended action: run M52 before M47. Execute
+`manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`; decide whether to
+keep the common `diag(B)=1` B-plane chart with a source-correct higher menu or
+ask for the larger unit-variance/rotation-chart rebuild. After the
+standard-DW evidence is source-correct, M47 can audit the M25 J-test proof
 gate. Keep M33 queued for the manuscript-local replication wrapper.
 
-Active milestone: none after M0047 closed. M0047 made the manuscript skill
-explicitly packet-aware for `work on next task` and `plan next tasks` prompts.
-M0046 added task hand-off packets so high-risk scientific tasks are no longer
-stored only as compressed task-board rows. M0045 previously hardened the
-scientific claim workflow, updated the local manuscript skill, quarantined
-unreliable M48 conclusions, and created GitHub milestone 41 for the same work.
+Active milestone: none. M0048 closed the M49 DW source audit and created GitHub
+milestone 44 for the same work block; the next substantive edit should open a
+new transparency milestone. M0047 made the manuscript skill explicitly
+packet-aware for `work on next task` and `plan next tasks` prompts. M0046
+added task hand-off packets so high-risk scientific tasks are no longer stored
+only as compressed task-board rows. M0045 previously hardened the scientific
+claim workflow and quarantined unreliable M48 conclusions.
 
 Active blockers:
 
@@ -92,16 +90,14 @@ Active blockers:
   variance-ratio robust row. Final publication replication should still move
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
-- M48 result is quarantined. It caught the broad distinction between standard
-  raw/product moments and robust cumulants, but it did not establish the exact
-  bivariate Drautzburg-Wright GMM moment menu from source, did not fully
-  derive the user's requested noisy product moments, and did not justify the
-  normalization/no-rebuild decision. Do not rely on the current Section 3
-  `g_DW` display or the Figure 1 standard-DW source claim until M49.
+- M49 result is complete. It establishes the source-correct bivariate DW GMM1
+  and GMM2 menus, derives the requested noisy product moments, and shows that
+  the current standard-DW figure/MC code is a simplified hybrid. Do not rely on
+  the current Figure 1, Figure 2, Figure 3, or M45 standard-DW rows as
+  source-correct DW evidence until M52 rebuilds them.
 
-Last substantive session: 2026-06-09, completed M0047 to make next-task
-execution and task planning explicitly packet-aware in the local manuscript
-skill, the task-packet workflow reference, and manuscript rules.
+Last substantive session: 2026-06-09, completed M49 source and noisy-moment
+audit and created M52 as the packet-backed standard-DW source-correct rebuild.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

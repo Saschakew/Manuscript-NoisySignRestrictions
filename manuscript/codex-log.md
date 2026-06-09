@@ -11,6 +11,26 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-09 - M0048 M49 DW source audit
+
+- Request: user asked Codex to continue the manuscript work and go on with M49.
+- Actions taken: opened M0048; read the M49 packet, draft, registry, M48
+  warning note, raw Drautzburg-Wright source, KnowledgeVault note, robust
+  derivation, standard-DW proof note, and Figure 1/M45 code; created
+  `manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md`; corrected
+  the draft's Section 3 source menu; flagged the evidence section as
+  historical hybrid evidence; marked M49 done; created packet-backed M52.
+- Files changed: M49 audit note, M52 task packet, draft, source packet,
+  dashboard, paper map, task board, workplan, formal registry, citation
+  provenance, and human-readable logs/transparency files.
+- Checks run: `python -m json.tool manuscript/formal-object-registry.json`
+  passed; `python scripts/check_manuscript.py` passed with the expected
+  open-milestone warning before closure; `git diff --check` passed with
+  line-ending warnings only. A clean post-close manuscript check also passed.
+- Open uncertainties: M52 must rebuild the standard-DW figures and Monte Carlo
+  with a source-correct GMM1 or GMM2 menu. A full unit-variance/rotation-chart
+  migration remains a user-decision gate.
+
 ### 2026-06-09 - M0047 Clarify next-task workflow
 
 - Request: user asked Codex to improve the task workflow so common prompts

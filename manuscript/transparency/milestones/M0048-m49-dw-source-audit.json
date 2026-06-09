@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "id": "M0048-m49-dw-source-audit",
+  "sequence": 48,
+  "title": "M49 DW source audit",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-09T09:23:10Z",
+  "closed_at": "2026-06-09T09:49:43Z",
+  "start_commit": "8bf2e509a805da78d2e8551a2132902bec53982f",
+  "snapshot_ref": "manuscript-milestones/M0048-m49-dw-source-audit",
+  "summary": "Completed the M49 DW source and noisy-moment audit; corrected the draft source menu; classified current standard-DW evidence as historical hybrid; created M52 for the source-correct rebuild.",
+  "user_inputs": [
+    {
+      "id": "U0048-001",
+      "milestone_id": "M0048-m49-dw-source-audit",
+      "captured_at": "2026-06-09T09:23:10Z",
+      "source": "chat",
+      "text": "Continue M49: redo the Drautzburg-Wright source and noisy moment audit from the task packet before relying on Section 3 or Figure 1 claims."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0048-001",
+      "milestone_id": "M0048-m49-dw-source-audit",
+      "captured_at": "2026-06-09T09:47:42Z",
+      "description": "Created manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md."
+    },
+    {
+      "id": "A0048-002",
+      "milestone_id": "M0048-m49-dw-source-audit",
+      "captured_at": "2026-06-09T09:47:42Z",
+      "description": "Updated draft, registry, task board, source packet, dashboard, paper map, provenance, and logs."
+    },
+    {
+      "id": "A0048-003",
+      "milestone_id": "M0048-m49-dw-source-audit",
+      "captured_at": "2026-06-09T09:47:42Z",
+      "description": "Created manuscript/tasks/M52-standard-dw-source-correct-rebuild.md."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-09T09:47:42Z",
+      "description": "python -m json.tool manuscript/formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-09T09:47:42Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-09T09:47:42Z",
+      "description": "git diff --check: passed with line-ending warnings only"
+    },
+    {
+      "captured_at": "2026-06-09T09:49:43Z",
+      "description": "python scripts/check_manuscript.py: passed cleanly after milestone closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md",
+    "manuscript/tasks/M52-standard-dw-source-correct-rebuild.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0048-m49-dw-source-audit.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 44,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/44",
+    "tag_name": "manuscript-milestones/M0048-m49-dw-source-audit"
+  }
+}

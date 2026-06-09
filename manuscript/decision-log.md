@@ -5,6 +5,28 @@ decisions.
 
 ## Entries
 
+### 2026-06-09 - Source-correct DW menu requires evidence rebuild
+
+- Origin: M49 execution of the user's DW moment-definition and noisy-moment
+  comments after M48 was quarantined as source-insufficient.
+- User input id: U0048
+- Decision: Treat the source-correct bivariate Drautzburg-Wright GMM1
+  higher-moment menu as `112`, `122`, `1112`, `1122`, and `1222`; GMM2 drops
+  only the symmetric `1122` kurtosis condition. The current Figure 1/Figure
+  2/Figure 3 and M45 standard-DW rows use a historical hybrid with covariance,
+  `112`, `122`, and `1122`, so they cannot be described as source-correct
+  DW evidence.
+- Rationale: The raw source defines standardized co-skewness and co-kurtosis
+  products, then builds the GMM vector from all third and fourth products with
+  at least two distinct indices, subtracting the two-pair target for fourth
+  products. The manuscript code omitted the singleton fourth products
+  `1112` and `1222`.
+- Consequence for next work: Run M52 before relying on the current evidence
+  package or before M47 promotes the standard-DW proof gate. A full switch from
+  the common `diag(B)=1` chart to the unit-variance/rotation chart remains a
+  user-decision gate because it implies a larger figure and Monte Carlo
+  rebuild.
+
 ### 2026-06-09 - Make next-task prompts packet-aware
 
 - Origin: user asked whether prompts like "work on next task" and "plan next

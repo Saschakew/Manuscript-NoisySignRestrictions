@@ -18,10 +18,10 @@ without reusing invalid covariance anchors.
   reduced-form residual `u_t` as given; omit VAR lag dynamics, dynamic impulse
   responses, horizon-specific sign restrictions, and `K > 2` extensions.
 - Benchmark: standard sign-restricted covariance rotations and a
-  Drautzburg-Wright-style no-noise higher-moment refinement. The exact
-  bivariate DW GMM moment menu is source-pending after M0045; M49 must recover
-  it from the raw source or KnowledgeVault before Section 3 treats it as
-  settled.
+  Drautzburg-Wright-style no-noise higher-moment refinement. M49 source-audited
+  the bivariate DW moment menu: GMM1 uses `112`, `122`, `1112`, `1122`, and
+  `1222`, while GMM2 drops only `1122`. The current evidence code is not yet
+  source-correct and must be rebuilt under M52.
 - Constructive object: robust DW-style set over normalized impact matrices
   using mixed higher cumulants of `B^{-1}u` written as GMM-style moment
   equations while avoiding recovered-shock zero-covariance targets. M0036 is
@@ -68,8 +68,8 @@ without reusing invalid covariance anchors.
 | Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the variance-ratio robust refinement, and simulation evidence. | revised after M34 claim-tightening |
 | 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust residual-noise-to-signal fix, and preview the evidence. | revised after M34 claim-tightening; literature positioning retained |
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
-| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW moment stack, then show how noise can make refinement falsely precise. | M49 required: current `g_DW` display is not source-verified; M25 proof audit pending |
-| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher cumulants to regain efficiency without imposing invalid recovered-shock covariance. | M49 must rederive the noisy third/fourth moment comparisons before final proof and replication |
+| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M52 must rebuild figures/MC with a source-correct standard-DW menu; M25 proof audit pending |
+| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher cumulants to regain efficiency without imposing invalid recovered-shock covariance. | M49 noisy product derivations complete; final proof and replication still pending |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | reviewed after M34; still lightweight until replication wrapper |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
@@ -160,9 +160,9 @@ and proof or output status.
   variance-ratio robust construction. M34 conditionally passed the revised
   draft after tightening terminology and evidence claims. Remaining bottlenecks
   are proof audit, final replication packaging, and final export cleanup.
-- M0045 marks M48 as partial and not source-complete. The current Section 3
-  `g_DW` display, the claim that Figure 1 matches the exact bivariate DW GMM
-  menu, and the normalization/no-rebuild decision are not settled. M49 must
-  execute `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md` from the
-  user's original comments, raw DW source or KnowledgeVault note, and explicit
-  noisy-moment derivations before M47 or final evidence claims proceed.
+- M49 completes the source and noisy-moment audit. The current Section 3 now
+  records the source-correct GMM1/GMM2 menus, but Figure 1, Figure 2, Figure 3,
+  and M45 still use the old simplified hybrid standard-DW statistic. M52 must
+  rebuild the standard-DW evidence before final evidence claims proceed. A full
+  switch from the `diag(B)=1` common chart to the unit-variance/rotation chart
+  remains a user-decision gate because it would require a larger redesign.

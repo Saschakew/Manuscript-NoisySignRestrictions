@@ -113,7 +113,7 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; refreshed M28 population-grid validation now favors the M0030 grid pair as the main visual spine. |
 | `manuscript/simulations/m28_grid_story_validation.py` | Refreshed M28 validation pass for the superseded M0030 grid pair. | Historical for the robust row after M0034/M0035/M0036; do not treat it as evidence for the variance-ratio row. |
 | `manuscript/simulations/m29_calibrated_monte_carlo.py` | Refreshed M29 finite-sample pass for the superseded M0030 robust statistic. | Historical for the robust row after M0034/M0035/M0036; its metric bundle is reused by M45. |
-| `manuscript/simulations/m45_variance_ratio_evidence.py` | M45 rebuilt validation and Monte Carlo evidence for the variance-ratio proposal, applying the hard screen in every grid and truth-inclusion calculation. | Active evidence gate: primary chi-square high-noise row has standard-DW truth inclusion 0.000 and variance-ratio robust truth inclusion 0.875, with robust truth-feasible rate 0.958. |
+| `manuscript/simulations/m45_variance_ratio_evidence.py` | M45 rebuilt validation and Monte Carlo evidence for the variance-ratio proposal, applying the hard screen in every grid and truth-inclusion calculation. | Historical evidence gate after M49: the robust-row logic remains the active variance-ratio check, but the standard-DW comparator is the old hybrid statistic. M52 must rebuild the table with a source-correct standard-DW menu before final evidence claims. |
 | `svar-toolkit/examples/howto/06_sign_restrictions.py` | Verified fixed-draw sign-restriction accepted-set workflow. | Use for baseline sign-set simulations if needed. |
 | `svar-toolkit/examples/howto/12_non_gaussian_cross_moments.py` | Verified fixed-draw higher-moment cross-moment selector. | Use as a comparator or helper for robust higher-moment diagnostics, not as a final estimator without audit. |
 | `svar-toolkit/docs/api/gmm.md` and GMM examples | Reusable moment quadratic engine. | Candidate for the robust DW moment criterion and Monte Carlo wrappers. |
@@ -189,6 +189,12 @@ these tasks:
     Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040
     completed M42-M45 by cleaning math formatting, updating Figure 2, adding
     Figure 3, and rebuilding lightweight validation/Monte Carlo evidence.
+13. M49 source-audited the standard Drautzburg-Wright moment menu and noisy
+    product derivations. Bivariate DW GMM1 uses standardized raw products
+    `112`, `122`, `1112`, `1122`, and `1222`; GMM2 drops only `1122`. The
+    current Figure 1/M45 standard-DW code uses a historical hybrid
+    `covariance`, `112`, `122`, and `1122`, so M52 must rebuild the
+    standard-DW evidence before final figure or Monte Carlo claims.
 
 ## Gaps And Risks
 

@@ -21,11 +21,11 @@ further away from the structural object of interest. This paper proposes a
 noise-robust refinement that separates non-Gaussian structural shocks from
 Gaussian residual noise. The researcher states a maximum ratio of residual-noise
 variance to structural-signal variance, and higher cumulants are used only in
-forms that are blind to Gaussian noise. In the current simulation designs,
-standard sign restrictions drift under noise, standard higher-moment refinement
-can exclude the truth, and the robust refinement usually keeps the true impact
-matrix in the reported set while regaining precision when the variance-ratio
-bound is informative.
+forms that are blind to Gaussian noise. Preliminary simulations with the
+current historical standard-DW hybrid show standard sign restrictions drifting
+under noise, the hybrid higher-moment refinement excluding the truth, and the
+robust refinement usually keeping the true impact matrix in the reported set
+while regaining precision when the variance-ratio bound is informative.
 
 <!-- SOURCE-TRAIL: Use the M0036 relative-noise Figure 1 candidate, the M40 screen audit, the M0035 absolute-bound comparison, the M0034 pure robust variant, the M24 higher-cumulant derivation, and the M45 evidence rebuild. -->
 <!-- CONTRIBUTION-NOTE: The abstract's original contribution is the residual-noise pseudo-set warning and the DW-versus-robust-DW comparison diagnostic. -->
@@ -99,10 +99,10 @@ robust set widens, and that widening is part of the diagnostic.
 
 <!-- SOURCE-TRAIL: Use `manuscript/derivations/dw-noise-robust-moments.md`, `manuscript/derivations/dw-robust-comparison-diagnostic.md`, and higher-moment SVAR caution sources. -->
 
-The simulation evidence follows the same sequence. Figure 1 varies Gaussian
-residual noise. The standard sign-restricted set moves away from the true
-impact matrix, standard DW refinement can become tight while excluding the
-truth, and the variance-ratio robust refinement remains
+The preliminary simulation evidence follows the same sequence. Figure 1 varies
+Gaussian residual noise. The standard sign-restricted set moves away from the
+true impact matrix, the current historical standard-DW hybrid can become tight
+while excluding the truth, and the variance-ratio robust refinement remains
 truth-containing in the high-noise design. Figure 2 weakens structural
 non-Gaussianity and shows the limitation: without informative higher moments,
 robust refinement is wider. Figure 3 varies the sample size, and Table 1
@@ -152,8 +152,9 @@ a noisy covariance target that the robust moments do not support.
 <!-- CONTRIBUTION-NOTE: The original contribution is the DW-versus-robust-DW comparison under residual noise, not the general idea that higher moments can identify SVARs. -->
 
 The paper is organized around this comparison. Figure 1 varies Gaussian
-residual noise and shows the main warning: the sign/covariance set moves,
-standard DW can exclude the true normalized impact matrix, and robust DW
+residual noise and shows the main warning in the current historical hybrid
+implementation: the sign/covariance set moves, the standard-DW row can exclude
+the true normalized impact matrix, and robust DW
 remains wider while containing it once explicit relative noise-scale
 information is added. Figure 2 holds residual noise fixed and weakens
 structural non-Gaussianity, showing the limitation that robust DW's
@@ -335,30 +336,34 @@ If the structural shocks are non-Gaussian and independent, incorrect rotations
 can leave higher-order dependence in the recovered shocks. DW refinement
 shrinks the sign-restricted set by testing those higher-order restrictions.
 
-<!-- TODO-NOTE: M0045 marks the displayed standard-DW moment stack below as not source-verified. Do not rely on it as the bivariate Drautzburg-Wright GMM menu until M49 derives the exact source-correct stack from the raw paper or KnowledgeVault and compares it to Figure 1 code. -->
+<!-- TODO-NOTE: M49 source-audited the bivariate Drautzburg-Wright GMM1 and GMM2 menus, but the current Figure 1/M45 standard-DW code still uses the older simplified hybrid. Do not treat the existing figure or Monte Carlo rows as source-correct standard-DW evidence until M52 rebuilds them. -->
 
-As a provisional placeholder pending M49, the current draft writes the
-standard-DW comparator as the covariance moment, two mixed third product
-moments, and one mixed fourth product moment of centered and standardized
-recovered shocks:
+M49 verifies that Drautzburg and Wright's moment-based refinement uses
+standardized raw co-skewness and co-kurtosis products, not fourth cumulants. In
+the source-native rotation chart, the recovered shocks are already
+covariance-normalized, so the higher-moment GMM vector does not include a
+separate covariance moment. Let \(h_i(B)\) denote the centered, standardized
+recovered shock in coordinate \(i\). The bivariate GMM1 higher-moment menu is
 
 \begin{equation}
-g_{DW}(B)=
+g_{DW,1}(B)=
 \begin{bmatrix}
-E\{e_1(B)e_2(B)\}\\
-E\{e_1(B)^2e_2(B)\}\\
-E\{e_1(B)e_2(B)^2\}\\
-E\{e_1(B)^2e_2(B)^2\}-1
+E\{h_1(B)^2h_2(B)\}\\
+E\{h_1(B)h_2(B)^2\}\\
+E\{h_1(B)^3h_2(B)\}\\
+E\{h_1(B)^2h_2(B)^2\}-1\\
+E\{h_1(B)h_2(B)^3\}
 \end{bmatrix}.
 \end{equation}
 
-The last displayed target is a fourth product target rather than a cumulant
-target. The exact source-correct bivariate DW GMM menu, including whether the
-singleton fourth products \(E\{e_1(B)^3e_2(B)\}\) and
-\(E\{e_1(B)e_2(B)^3\}\) belong in the paper's standard-DW comparator, is an
-open M49 audit item.
+The corresponding GMM2 menu drops only the symmetric fourth product
+\(E\{h_1(B)^2h_2(B)^2\}-1\). It keeps the singleton fourth products
+\(E\{h_1(B)^3h_2(B)\}\) and \(E\{h_1(B)h_2(B)^3\}\). In the manuscript's
+diagonal-normalized B-plane, a no-noise covariance screen may still be added
+to mimic the standard covariance factorization, but that screen is a
+manuscript chart component rather than a DW higher-moment entry.
 
-In the no-noise model, \(g_{DW}(B_0)=0\). A sample inversion keeps
+In the no-noise model, \(g_{DW,1}(B_0)=0\). A sample inversion keeps
 sign-admissible candidates whose estimated moment vector is small:
 
 \begin{equation}
@@ -379,16 +384,17 @@ misleading one. Under the noisy model,
 e_t(B)=B^{-1}B_0\varepsilon_t+B^{-1}\eta_t .
 \end{equation}
 
-At \(B=B_0\), the covariance part of \(g_{DW}(B)\) is generally nonzero:
+At \(B=B_0\), the B-plane no-noise covariance screen is generally nonzero:
 
 \begin{equation}
 E\{e_{1t}(B_0)e_{2t}(B_0)\}
 =\left[B_0^{-1}VB_0^{-1'}\right]_{12}.
 \end{equation}
 
-Thus the standard DW moment stack can reject the true impact matrix before the
-higher moments even matter. If the researcher instead works with rotations of
-the noisy covariance factor \(P_*P_*'=B_0B_0'+V\), the recovered shocks are
+Thus a standard no-noise inversion in the B-plane can reject the true impact
+matrix before the higher moments even matter. If the researcher instead works
+with rotations of the noisy covariance factor \(P_*P_*'=B_0B_0'+V\), the
+recovered shocks are
 uncorrelated by construction, but the candidate impact matrices are factors of
 the noisy covariance. Writing \(B(Q)=P_*Q\),
 
@@ -437,10 +443,13 @@ The proposition is deliberately stated as a working sketch. The paper's
 practical claim does not require accusing DW of failing under its own null.
 The point is narrower: if the no-noise null is applied to residuals that
 contain additive noise, the refinement sharpens a misspecified object. The
-second row of Figure 1 shows this failure mode in the main calibration.
+current second row of Figure 1 illustrates this failure mode for the historical
+simplified hybrid statistic; M52 must rebuild the row with the source-correct
+GMM1 or GMM2 menu before the figure is treated as source-correct DW evidence.
 
 <!-- SOURCE-TRAIL: Use Drautzburg-Wright, higher-moment SVAR caution sources, and the noisy-residual synthesis. -->
 <!-- SOURCE-TRAIL: Use `derivations/standard-dw-j-test-under-noise.md` for the M25 J-test inversion result: rich-stack generic emptying, structural-rescaling exceptions, finite-moment aliases, and least-rejected pseudo-candidates. -->
+<!-- SOURCE-TRAIL: Use `derivations/m49-dw-source-and-noisy-moment-audit.md` for the source-correct bivariate GMM1/GMM2 moment menus and the Figure 1 code mismatch. -->
 <!-- TODO-NOTE: Do not promote Proposition 2 beyond sketch wording until the M25 assumptions and exceptions are audited directly. -->
 
 ## 4. Noise-Robust Sign and DW Sets
@@ -603,6 +612,10 @@ figures give the reader the geometry first; the Monte Carlo table then checks
 whether the same comparison survives repeated finite-sample draws. All reported
 objects use the same normalized bivariate impact chart and the same sign
 screen, so the standard-DW and robust-DW accepted sets can be compared directly.
+After M49, the current standard-DW rows should be read as historical hybrid
+evidence rather than source-correct Drautzburg-Wright GMM1 or GMM2 evidence;
+M52 must rebuild the standard-DW statistic before the evidence package is
+shareable.
 
 <!-- SOURCE-TRAIL: Use M27 for the common reporting chart, accepted shares, overlap, warning-rate, and truth-inclusion diagnostics. -->
 
@@ -610,7 +623,8 @@ screen, so the standard-DW and robust-DW accepted sets can be compared directly.
 
 Figure 1 is the main story figure. Each column increases Gaussian residual
 noise. The first row shows the standard sign/covariance set. The second row
-adds the standard DW moment stack, including the no-noise covariance moment.
+adds the current historical standard-DW hybrid stack, including the no-noise
+covariance moment and a subset of DW-style higher raw products.
 The third row uses the robust DW stack, which keeps the sign screen and mixed
 higher cumulants while replacing invalid zero-covariance anchors with a
 relative-noise covariance screen. The high-noise column is the narrative
@@ -621,23 +635,25 @@ higher-cumulant fallback.
 ![Figure 1. Relative-noise robust residual-noise grid.](figures/fig_sign_dw_relative_noise_robust_grid.png)
 
 **Figure 1. Residual-noise grid.** Rows report the sign/covariance set,
-standard-DW set, and robust-DW set in the common normalized \(B(b_{12},b_{21})\) chart.
+historical standard-DW hybrid set, and robust-DW set in the common normalized \(B(b_{12},b_{21})\) chart.
 Columns increase Gaussian residual noise from \(V=(0,0)\) to \(V=(0.5,0.5)\).
 All rows invert pointwise 10 percent J tests for their displayed moment
-stacks. The robust-DW row uses the pure mixed higher-cumulant J statistic and
+stacks. The current standard-DW row is not yet the M49 source-correct bivariate
+GMM1 or GMM2 menu. The robust-DW row uses the pure mixed higher-cumulant J statistic and
 adds the covariance-decomposition feasibility screen implied by
 \(0\le \nu_i \le 0.5\operatorname{Var}(\varepsilon_i)\) for diagonal residual-noise variances. The
 high-noise column shows the paper's main warning: standard DW rejects true
 \(B_0\) under the researcher-facing cutoff, while relative robust DW contains it.
 
-<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_relative_noise_robust_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative`; diagnostic note `simulations/sign_dw_relative_noise_robust_grid_figure.md`; audit note `derivations/m40-variance-ratio-robust-dw-screen-audit.md`; M45 validation note `simulations/m45_variance_ratio_evidence.md`. -->
+<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_relative_noise_robust_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative`; diagnostic note `simulations/sign_dw_relative_noise_robust_grid_figure.md`; audit note `derivations/m40-variance-ratio-robust-dw-screen-audit.md`; M45 validation note `simulations/m45_variance_ratio_evidence.md`; M49 source audit `derivations/m49-dw-source-and-noisy-moment-audit.md` for the standard-DW source-code mismatch. -->
 
-M45 checks the figure's finite-sample logic before the draft leans on it. In
-the fixed-grid diagnostics, the high-noise column has standard DW missing true
-\(B_0\), while relative robust DW contains it and passes the variance-ratio
-screen. In the repeated-sample Monte Carlo, the high-noise chi-square row gives
-standard-DW truth inclusion of \(0.000\) and robust-DW truth inclusion of
-\(0.875\).
+M45 checks the finite-sample logic for this historical hybrid statistic. In the
+fixed-grid diagnostics, the high-noise column has the hybrid standard-DW row
+missing true \(B_0\), while relative robust DW contains it and passes the
+variance-ratio screen. In the repeated-sample Monte Carlo, the high-noise
+chi-square row gives hybrid standard-DW truth inclusion of \(0.000\) and
+robust-DW truth inclusion of \(0.875\). M52 must rerun this check with the
+source-correct standard-DW menu.
 
 ### 5.2 Non-Gaussianity Grid
 
@@ -677,7 +693,7 @@ when robust DW still contains it.
 Figure 3 asks whether the same comparison tightens as the sample grows. It
 holds the Figure 1 structural non-Gaussianity calibration and Figure 2 residual
 noise fixed, then varies \(T=500,1000,2000\). In this fixed draw, the standard
-DW set becomes smaller and misses the true \(B_0\) at the larger sample sizes,
+DW hybrid set becomes smaller and misses the true \(B_0\) at the larger sample sizes,
 while the variance-ratio robust row keeps the true point and shrinks around
 the covariance-decomposition band.
 
@@ -693,7 +709,8 @@ inversion plus the variance-ratio covariance-decomposition screen.
 ### 5.4 Monte Carlo Table
 
 Table 1 reports the rebuilt M45 Monte Carlo evidence under the primary
-researcher-facing chi-square cutoffs. The robust row is now the variance-ratio
+researcher-facing chi-square cutoffs, using the historical standard-DW hybrid
+statistic. The robust row is now the variance-ratio
 proposal, and the covariance-decomposition screen is applied both to accepted
 grid points and to the truth-inclusion calculation. `S truth` and `R truth`
 are true-\(B_0\) inclusion rates for standard DW and robust DW. `R feasible`
@@ -702,7 +719,7 @@ is feasible at the true \(B_0\). `S share` and `R share` are accepted-set
 shares on the normalized grid. `d_S_not_subset_R` is the directional share of
 standard-DW accepted mass not supported by robust DW.
 
-**Table 1. M45 chi-square-primary Monte Carlo comparison.** Entries are
+**Table 1. M45 chi-square-primary Monte Carlo comparison, pending M52 standard-DW rebuild.** Entries are
 evaluation averages from 24 replications per scenario on a \(41\times 41\)
 grid, with 60 truth-calibration replications retained as audit output.
 
@@ -756,8 +773,9 @@ misspecification rather than as evidence of sharper structural learning.
 The first version deliberately keeps the scope small: a bivariate simultaneous
 impact model, no empirical application, no dynamic impulse responses, and no
 claim that the robust comparison proves literal measurement error. The next
-step is to audit the standard-DW proof and move the figure and table code into
-a self-contained replication package.
+step is to rebuild the standard-DW evidence with the source-correct GMM1 or
+GMM2 menu, then audit the standard-DW proof and move the figure and table code
+into a self-contained replication package.
 
 ## References
 

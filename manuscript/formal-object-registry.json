@@ -84,14 +84,14 @@
     {
       "id": "def:standard-dw-refined-set",
       "type": "definition",
-      "status": "quarantined-needs-m49-source-audit",
+      "status": "source-audited-needs-m52-evidence-rebuild",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#3-drautzburg-wright-refinement-under-noise",
-      "description": "M27 common-chart reported standard-DW set, but M0045 marks the M48 correction as not source-complete. Sign-admissible normalized candidates pass a standard-DW J-test stack, but the exact bivariate Drautzburg-Wright GMM moment menu, the Section 3 display, and the Figure 1 source match need M49 source and derivation audit before they are treated as settled.",
+      "description": "M49 source-audited the bivariate Drautzburg-Wright higher-moment menus. GMM1 uses standardized raw products 112, 122, 1112, 1122, and 1222; GMM2 drops only the symmetric 1122 kurtosis condition. In the manuscript's common B-plane chart, a no-noise covariance screen may be added separately, but it is not a DW higher-moment entry. Figure 1/M45 still use a historical hybrid and need M52 rebuild before source-correct evidence claims.",
       "depends_on": [
         "def:noisy-sign-pseudo-set"
       ],
-      "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md",
-      "source": "vault/papers/Refining set-identification in VARs through independence.md; manuscript/derivations/dw-robust-comparison-diagnostic.md"
+      "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md",
+      "source": "vault/papers/Refining set-identification in VARs through independence.md; raw/drautzburg-2023-refining-set-identification/Refining_set-identification_in_VARs_through_independence.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
     },
     {
       "id": "prop:standard-dw-misspecification",
@@ -103,23 +103,23 @@
         "def:standard-dw-refined-set",
         "def:diagonal-noise-svar"
       ],
-      "proof_status": "M25 working derivation complete; needs audit and early Monte Carlo triage",
-      "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md",
-      "source": "manuscript/derivations/standard-dw-j-test-under-noise.md"
+      "proof_status": "M25 working derivation complete; M49 source-audited the relevant DW GMM1/GMM2 moment menus; M52 must rebuild evidence, and M47 still needs to audit the rich-stack generic emptying and finite-stack alias claims.",
+      "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md",
+      "source": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
     },
     {
       "id": "eq:standard-dw-j-test-inversion",
       "type": "equation",
-      "status": "sketched-in-draft-needs-audit",
+      "status": "source-audited-needs-m52-evidence-rebuild",
       "draft_location": "derivations/standard-dw-j-test-under-noise.md; draft.md#3-drautzburg-wright-refinement-under-noise",
-      "description": "Sample J-test inversion for the standard no-noise DW moment stack g_DW(B). The currently displayed covariance, mixed third-product, and mixed-pair fourth-product stack is not source-verified after M0045; M49 must recover the exact bivariate Drautzburg-Wright moment menu and compare it to the Figure 1 implementation before this equation is promoted.",
+      "description": "Sample J-test inversion for the standard no-noise DW moment stack. M49 source-audited that bivariate DW GMM1 uses 112, 122, 1112, 1122, and 1222, while GMM2 drops only 1122. The draft now separates this source menu from any B-plane covariance screen. The current Figure 1 implementation still uses the historical hybrid covariance, 112, 122, and 1122 stack and must be rebuilt under M52.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "prop:standard-dw-misspecification"
       ],
-      "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md",
-      "verification_status": "M25 working derivation complete; M48 moment-definition audit is partial and insufficient after M0045; needs M49 source and derivation audit before M47 proof audit or draft theorem wording",
-      "source": "manuscript/derivations/standard-dw-j-test-under-noise.md"
+      "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md",
+      "verification_status": "M25 working derivation complete; M49 source and noisy-moment audit complete; M52 evidence rebuild and M47 proof audit remain before theorem-level wording or final evidence claims.",
+      "source": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
     },
     {
       "id": "def:robust-dw-higher-moment-set",
@@ -139,15 +139,15 @@
     {
       "id": "eq:dw-higher-cumulant-moment-stack",
       "type": "equation",
-      "status": "rewritten-in-draft-after-m0041",
+      "status": "rewritten-in-draft-after-m0041-m49-comparison-audited",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "Moment-equation representation of the robust DW stack after M0034: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with transformed second moments entering only as covariance products inside fourth cumulants. M0045 marks the M48 comparison to standard-DW product moments as partial; M49 must rederive the requested noisy moment comparisons before this contrast is finalized. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1.",
+      "description": "Moment-equation representation of the robust DW stack after M0034: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with transformed second moments entering only as covariance products inside fourth cumulants. M49 rederived the requested noisy product moments and confirmed the contrast: third cumulants coincide with centered raw third products under Gaussian residual noise, while fourth cumulants differ from DW raw fourth product moments by covariance-product subtractions. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1.",
       "depends_on": [
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 as the pointwise guide in the M45 evidence rebuild. M0045 marks M48's cumulant/product comparison as partial; M49 must redo the noisy moment derivations before final Section 4 wording.",
-      "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
+      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 as the pointwise guide in the M45 evidence rebuild. M49 completed the standard-product versus robust-cumulant comparison and noisy moment derivations.",
+      "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
     },
     {
       "id": "eq:bounded-noise-recovered-covariance-screen",
@@ -231,33 +231,33 @@
     {
       "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "proposal-figure-after-m0036",
+      "status": "proposal-figure-after-m0036-standard-row-needs-m52-rebuild",
       "draft_location": "draft.md#3-drautzburg-wright-refinement-under-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "Residual-noise story figure after M0036. The variance-ratio robust row uses pure higher-cumulant J inversion plus a covariance-decomposition feasibility screen with 0 <= nu_i <= 0.5 Var(epsilon_i); in the high-noise column standard DW rejects true B0 while variance-ratio robust DW contains it with much smaller accepted share than the pure row.",
+      "description": "Residual-noise story figure after M0036. The variance-ratio robust row uses pure higher-cumulant J inversion plus a covariance-decomposition feasibility screen with 0 <= nu_i <= 0.5 Var(epsilon_i). M49 shows the current standard-DW row is a historical hybrid, not source-correct bivariate DW GMM1/GMM2, so the high-noise standard-DW rejection claim must be rebuilt under M52 before final evidence use.",
       "depends_on": [
         "prop:standard-dw-misspecification",
         "eq:relative-noise-covariance-screen"
       ],
-      "output_source": "M0036 relative variant: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative, manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md, and manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png. M0035 absolute-bound comparison remains manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png. M0034 pure variant remains manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png. The earlier diagonal-anchor output manuscript/figures/fig_sign_dw_robust_noise_grid.png is superseded for the robust row."
+      "output_source": "M0036 relative variant: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative, manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md, and manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M0035 absolute-bound comparison remains manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png. M0034 pure variant remains manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png. The earlier diagonal-anchor output manuscript/figures/fig_sign_dw_robust_noise_grid.png is superseded for the robust row."
     },
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "rebuilt-after-m0040",
+      "status": "rebuilt-after-m0040-standard-row-needs-m52-rebuild",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Grid story after M0036 and M0040. Figure 1 uses the variance-ratio robust DW proposal, Figure 2 now uses the same robust row while varying structural non-Gaussianity, and Figure 3 adds the sample-size grid.",
+      "description": "Grid story after M0036 and M0040. Figure 1 uses the variance-ratio robust DW proposal, Figure 2 now uses the same robust row while varying structural non-Gaussianity, and Figure 3 adds the sample-size grid. M49 shows the standard-DW rows use a historical hybrid and need M52 source-correct rebuild.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic",
         "eq:relative-noise-covariance-screen"
       ],
-      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png and manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md. Figure 2: manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png and manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py. Figure 3: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png and manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py. M45 validation output: manuscript/simulations/m45_variance_ratio_evidence.md and manuscript/simulations/output/m45_variance_ratio_evidence.json."
+      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png and manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md. Figure 2: manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png and manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py. Figure 3: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png and manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py. M45 validation output: manuscript/simulations/m45_variance_ratio_evidence.md and manuscript/simulations/output/m45_variance_ratio_evidence.json. Source-correct standard-DW rebuild packet: manuscript/tasks/M52-standard-dw-source-correct-rebuild.md."
     },
     {
       "id": "fig:sample-size-robust-grid",
       "type": "figure",
-      "status": "created-after-m0040",
+      "status": "created-after-m0040-standard-row-needs-m52-rebuild",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Figure 3: a sample-size grid with T=500, T=1000, and T=2000, holding the Figure 1 structural non-Gaussianity calibration and Figure 2 residual-noise calibration fixed. In the fixed draw, standard DW misses the truth at larger sample sizes while variance-ratio robust DW remains truth-containing.",
+      "description": "Figure 3: a sample-size grid with T=500, T=1000, and T=2000, holding the Figure 1 structural non-Gaussianity calibration and Figure 2 residual-noise calibration fixed. In the fixed draw, the historical standard-DW hybrid misses the truth at larger sample sizes while variance-ratio robust DW remains truth-containing. M52 must rebuild the standard-DW row.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "eq:relative-noise-covariance-screen",
@@ -268,13 +268,13 @@
     {
       "id": "table:monte-carlo-coverage-width",
       "type": "table",
-      "status": "rebuilt-after-m45",
+      "status": "rebuilt-after-m45-standard-row-needs-m52-rebuild",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "M45 chi-square-primary Monte Carlo summary for standard DW versus the variance-ratio robust DW proposal. The hard covariance-decomposition screen is applied to accepted grid points and truth-inclusion calculations. Primary high-noise row: standard-DW truth inclusion 0.000, robust-DW truth inclusion 0.875, robust truth-feasible rate 0.958.",
+      "description": "M45 chi-square-primary Monte Carlo summary for the historical standard-DW hybrid versus the variance-ratio robust DW proposal. The hard covariance-decomposition screen is applied to accepted grid points and truth-inclusion calculations. Primary high-noise row under the hybrid: standard-DW truth inclusion 0.000, robust-DW truth inclusion 0.875, robust truth-feasible rate 0.958. M52 must rebuild the standard-DW comparator before final evidence claims.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
-      "output_source": "M45 output: manuscript/simulations/m45_variance_ratio_evidence.py, manuscript/simulations/m45_variance_ratio_evidence.md, and manuscript/simulations/output/m45_variance_ratio_evidence.json. Superseded historical M29 output remains manuscript/simulations/m29_calibrated_monte_carlo.md."
+      "output_source": "M45 output: manuscript/simulations/m45_variance_ratio_evidence.py, manuscript/simulations/m45_variance_ratio_evidence.md, and manuscript/simulations/output/m45_variance_ratio_evidence.json. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. Superseded historical M29 output remains manuscript/simulations/m29_calibrated_monte_carlo.md."
     },
     {
       "id": "audit:robust-dw-derivation",
@@ -352,18 +352,31 @@
         "eq:relative-noise-covariance-screen"
       ],
       "source": "manuscript/simulations/m45_variance_ratio_evidence.md; manuscript/simulations/output/m45_variance_ratio_evidence.json"
+    },
+    {
+      "id": "audit:m49-dw-source-and-noisy-moment-gate",
+      "type": "audit",
+      "status": "done",
+      "draft_location": "derivations/m49-dw-source-and-noisy-moment-audit.md; draft.md#3-drautzburg-wright-refinement-under-noise",
+      "description": "M49 source and derivation audit. It establishes the exact source-correct bivariate Drautzburg-Wright GMM1 menu as 112, 122, 1112, 1122, and 1222, with GMM2 dropping only 1122; classifies current Figure 1/M45 standard-DW code as a historical hybrid; derives the requested noisy product moments from z=epsilon+B0^{-1}eta; and leaves a full unit-variance/rotation-chart switch as a user-decision gate.",
+      "depends_on": [
+        "def:standard-dw-refined-set",
+        "eq:standard-dw-j-test-inversion",
+        "eq:dw-higher-cumulant-moment-stack"
+      ],
+      "source": "manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md; raw/drautzburg-2023-refining-set-identification/Refining_set-identification_in_VARs_through_independence.md"
     }
   ],
     "open_audits": [
         {
-            "id": "audit:m49-dw-source-and-noisy-moment-gate",
+            "id": "audit:m52-standard-dw-source-correct-rebuild",
             "status": "open",
-            "question": "Execute manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md: what is the exact source-correct Drautzburg-Wright GMM moment menu in the bivariate case, especially raw fourth-product conditions with two-pair indicator targets versus cumulant/covariance-product sums; how does it compare to Figure 1 code; do third-order cumulants coincide with DW-style raw GMM moments and remain noise-unaffected; what are the step-by-step noisy truth moments requested by the user under explicit independence and normalization assumptions; and does the manuscript need a normalization or figure/Monte Carlo rebuild?"
+            "question": "Execute manuscript/tasks/M52-standard-dw-source-correct-rebuild.md: should the manuscript keep the diag(B)=1 common chart with a source-correct standard-DW higher menu plus a separate covariance screen, or switch to a unit-variance/rotation chart; then rebuild Figure 1, Figure 2, Figure 3, and M45-style Monte Carlo evidence with the chosen source-correct standard-DW comparator."
         },
         {
             "id": "audit:standard-dw-j-test-gate",
             "status": "open",
-            "question": "After M49 source-verifies the DW moment object, does the M25 standard-DW J-test derivation survive audit, especially the rich-stack generic emptying claim, structural-rescaling exception, and finite-moment alias caveats?"
+            "question": "After M52 repairs the source-correct standard-DW evidence path, does the M25 standard-DW J-test derivation survive audit, especially the rich-stack generic emptying claim, structural-rescaling exception, and finite-moment alias caveats?"
         }
     ]
 }

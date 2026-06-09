@@ -8,6 +8,23 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-09 - Complete M49 DW source and noisy-moment audit
+
+- Request or goal: continue the manuscript workflow by executing the M49
+  hand-off packet.
+- Files changed: `manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/draft.md`, `manuscript/source-packet.md`,
+  `manuscript/formal-object-registry.json`, planning/provenance surfaces, and
+  logs.
+- Summary of work: read the raw Drautzburg-Wright source and translated the
+  bivariate GMM menus; derived the requested noisy product moments from
+  `z=epsilon+B0^{-1}eta`; classified the existing Figure 1/M45 standard-DW
+  code as a historical hybrid rather than source-correct GMM1 or GMM2; and
+  created M52 as the source-correct evidence rebuild task.
+- Next recommended action: run M52 before relying on the current standard-DW
+  figure/Monte Carlo rows or before M47 audits the standard-DW proof gate.
+
 ### 2026-06-09 - Clarify next-task workflow
 
 - Request or goal: improve the new task workflow so the manuscript skill
