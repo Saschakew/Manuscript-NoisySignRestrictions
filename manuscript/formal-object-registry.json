@@ -124,7 +124,7 @@
     {
       "id": "def:robust-dw-higher-moment-set",
       "type": "definition",
-      "status": "rewritten-in-draft-after-m0050",
+      "status": "rewritten-in-draft-after-m0050-main-text-explanation-gap-after-m0053",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
       "description": "Variance-ratio robust DW set that searches over a normalized impact space, imposes sign restrictions and the covariance-decomposition screen 0 <= nu_i <= rho s_i, and uses mixed higher-order moment conditions for B^{-1}u rather than no-noise recovered-shock covariance. M0050 rewrote Section 4 so the reader-facing display uses explicit moment-condition notation rather than foregrounding cumulant notation.",
       "depends_on": [
@@ -141,12 +141,12 @@
       "type": "equation",
       "status": "rewritten-in-draft-after-m0050",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "Displayed moment-equation representation of the robust DW stack after M0050: G_H(B) lists third mixed central moment conditions and fourth mixed higher-order conditions of z(B)=B^{-1}u, with transformed second moments entering directly through covariance-product subtractions. M49 rederived the requested noisy product moments and confirmed the contrast: third-order robust conditions coincide with centered raw third products under Gaussian residual noise, while fourth-order robust conditions differ from DW raw fourth product moments by covariance-product subtractions. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1.",
+      "description": "Displayed moment-equation representation of the robust DW stack after M0050: G_H(B) lists third mixed central moment conditions and fourth mixed higher-order conditions of z(B)=B^{-1}u, with transformed second moments entering directly through covariance-product subtractions. M49 rederived the requested noisy product moments and confirmed the contrast: third-order robust conditions coincide with centered raw third products under Gaussian residual noise, while fourth-order robust conditions differ from DW raw fourth product moments by covariance-product subtractions. M0053 flags that the main text must now distinguish transformed-noise covariance Omega(B)=Var(B^{-1}eta_t) from full transformed-residual covariance S(B)=Var(B^{-1}u_t), because the fourth-order subtractions use S(B) computed from z(B), not the unobserved noise covariance alone. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1.",
       "depends_on": [
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth-order covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 as the pointwise guide in the M45 evidence rebuild. M49 completed the standard-product versus robust-fourth-condition comparison and noisy moment derivations. M0050 rewrote the displayed Section 4 notation without changing this mathematical object.",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth-order covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 as the pointwise guide in the M45 evidence rebuild. M49 completed the standard-product versus robust-fourth-condition comparison and noisy moment derivations. M0050 rewrote the displayed Section 4 notation without changing this mathematical object. M54 supplied the stepwise transformed-noise derivation; M0053 created M55 to turn that derivation into reader-facing Section 4 prose and prevent S/Omega notation confusion.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
     },
     {
@@ -180,16 +180,16 @@
     {
       "id": "prop:robust-dw-higher-moment-validity",
       "type": "proposition",
-      "status": "rewritten-in-draft-after-m0050",
+      "status": "rewritten-in-draft-after-m0050-main-text-explanation-gap-after-m0053",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "Working result, rewritten in M0041 and cleaned up in M0050: under additive Gaussian residual noise, the mixed higher-order robust moment conditions for B^{-1}u are not shifted by noise once the fourth-order covariance-product subtractions are included. In the bivariate normalized system, local higher-moment identification follows when each structural shock has informative third or fourth higher-order entries. If true diagonal residual-noise variances satisfy nu_i <= rho s_i, the true impact shape also satisfies the variance-ratio covariance screen.",
+      "description": "Working result, rewritten in M0041 and cleaned up in M0050: under additive Gaussian residual noise, the mixed higher-order robust moment conditions for B^{-1}u are not shifted by noise once the fourth-order covariance-product subtractions are included. M54 derived this step by step at B=B0; M0053 flags that the main text still needs to explain why the conditions hold, why the covariance-product terms use full transformed-residual covariances S_ij(B), and how those entries are computed from z_t(B)=B^{-1}u_t. In the bivariate normalized system, local higher-moment identification follows when each structural shock has informative third or fourth higher-order entries. If true diagonal residual-noise variances satisfy nu_i <= rho s_i, the true impact shape also satisfies the variance-ratio covariance screen.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack",
         "eq:relative-noise-covariance-screen"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M40 conditionally passed the M0036 variance-ratio screen as a population feasibility restriction. M45 rebuilt lightweight finite-sample evidence and Figures 2-3; final theorem wording still needs proof review and final replication treatment.",
+      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M40 conditionally passed the M0036 variance-ratio screen as a population feasibility restriction. M45 rebuilt lightweight finite-sample evidence and Figures 2-3. M54 completed the transformed-noise moment derivation, and M0053 created M55 because the main text must explain the B0 validity and S(B)-versus-Omega(B) computation before final theorem wording. Final theorem wording still needs proof review and final replication treatment.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {

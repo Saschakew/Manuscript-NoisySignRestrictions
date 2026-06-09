@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-09T14:31:52Z",
+  "updated_at": "2026-06-09T18:50:42Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1105,6 +1105,28 @@
         "milestone_number": null,
         "milestone_url": "",
         "tag_name": "manuscript-milestones/M0052-m54-stepwise-moment-derivation-and-normalization"
+      }
+    },
+    {
+      "id": "M0053-plan-main-text-moment-explanation",
+      "sequence": 53,
+      "title": "Plan main-text moment explanation",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T18:40:53Z",
+      "closed_at": "2026-06-09T18:50:41Z",
+      "start_commit": "156926bf76288b5119088cc3d64e5675c9671455",
+      "snapshot_ref": "manuscript-milestones/M0053-plan-main-text-moment-explanation",
+      "summary": "Planned M55 as the main-text robust moment explanation task, routed it before M52, and updated planning/log/formal surfaces to require the S(B) versus Omega(B) distinction and candidate-by-candidate moment computation explanation.",
+      "user_input_ids": [
+        "U0053-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0053-plan-main-text-moment-explanation.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 48,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/48",
+        "tag_name": "manuscript-milestones/M0053-plan-main-text-moment-explanation"
       }
     }
   ]

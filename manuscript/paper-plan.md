@@ -113,11 +113,16 @@ is the price of not pretending that the noisy covariance is structural.
    least-rejected pseudo-candidates.
 4. Robust higher-cumulant DW set: define the normalized robust candidate space,
    write the mixed higher-cumulant restrictions as moment equations, explain
-   why recovered-shock zero covariance and the old off-diagonal `u` covariance
-   anchor are not imposed, and present the variance-ratio covariance screen as
-   the proposal's identifying restriction. State claims with the M0034/M0036
-   caveats: normalized bivariate chart, diagonal Gaussian residual noise,
-   explicit signal-to-noise bound, and pointwise critical values.
+   why they hold at `B0` under Gaussian residual noise, explain why recovered-
+   shock zero covariance and the old off-diagonal `u` covariance anchor are not
+   imposed, and present the variance-ratio covariance screen as the proposal's
+   identifying restriction. The main text should not reproduce every M54
+   expansion, but it must distinguish transformed-noise covariance
+   `Omega(B)=Var(B^{-1}eta_t)` from full transformed-residual covariance
+   `S(B)=Var(B^{-1}u_t)` and show how the `S_{ij}(B)` nuisance plug-ins enter
+   the fourth-order conditions. State claims with the M0034/M0036 caveats:
+   normalized bivariate chart, diagonal Gaussian residual noise, explicit
+   signal-to-noise bound, and pointwise critical values.
 5. Figure-led evidence and Monte Carlo robustness check: use the rebuilt
    Figure 1/Figure 2/Figure 3 sequence as the reader's main visual guide. First
    show the residual-noise grid that moves the sign set, makes standard DW
@@ -159,6 +164,14 @@ is the price of not pretending that the noisy covariance is structural.
   `0 <= nu_i <= 0.5 s_i`.
 - Robust DW transformed residual:
   `z_t(B) = B^{-1} u_t`.
+- Transformed-noise covariance:
+  `Omega(B)=Var(B^{-1}eta_t)`. This object is useful for deriving the
+  Gaussian-noise simplification at `B0`, but it is not directly observed in
+  applications.
+- Full transformed-residual covariance:
+  `S(B)=Var(z_t(B))=Var(B^{-1}u_t)`. The fourth-order robust moment equations
+  use entries of `S(B)`, estimated from candidate transformed residuals, as
+  nuisance plug-ins. They do not impose `S_{12}(B)=0`.
 - Robust DW moment stack:
   mixed third central moments and fourth cumulants of `z_t(B)`, written as raw
   moment equations with covariance products subtracted; optional second-order
@@ -186,12 +199,16 @@ is the price of not pretending that the noisy covariance is structural.
   return a falsely narrow least-rejected region.
 - Proposition 3, robust DW validity: under the maintained diagonal Gaussian
   residual-noise conditions, the higher-cumulant moment stack for `z_t(B)` has
-  zero population value at the true normalized impact matrix. The contaminated
-  recovered-shock zero-covariance restriction and superseded diagonal-anchor
-  `u` covariance moment are not imposed. Optional second-order precision comes
-  from an explicit relative noise-to-shock variance restriction, not from DW
-  independence moments. M40 conditionally passes the covariance-screen algebra
-  and interpretation for proposal prose.
+  zero population value at the true normalized impact matrix. The main text
+  should explain this by writing `z_t(B0)=epsilon_t+B0^{-1}eta_t`, using
+  Gaussianity to kill transformed-noise cumulants above order two, and showing
+  why fourth-order raw products need subtractions such as
+  `E[z_1z_2^3]-3S_{22}S_{12}`. The contaminated recovered-shock zero-
+  covariance restriction and superseded diagonal-anchor `u` covariance moment
+  are not imposed. Optional second-order precision comes from an explicit
+  relative noise-to-shock variance restriction, not from DW independence
+  moments. M40 conditionally passes the covariance-screen algebra and
+  interpretation for proposal prose.
 - Proposition 4, robust set comparison: M27 formalizes the diagnostic in
   `manuscript/derivations/dw-robust-comparison-diagnostic.md`. The key warning
   is directional: standard-DW accepted mass outside robust-DW indicates that
@@ -256,6 +273,11 @@ is the price of not pretending that the noisy covariance is structural.
   restriction; pointwise chi-square cutoffs are only a plotted benchmark; and
   non-Gaussian residual noise generally invalidates the transformed-cumulant
   interpretation unless additional noise-cumulant restrictions are modeled.
+- Section 4 prose must also incorporate the M54/M0053 explanation gate: define
+  `Omega(B)` for transformed residual noise and `S(B)` for full transformed
+  observed residuals, state that fourth-order covariance-product subtractions
+  use `S(B)`, and give a practical recipe for computing `S_{ij}(B)` from
+  centered `z_t(B)=B^{-1}u_t` for each candidate `B`.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.
 

@@ -198,6 +198,13 @@ these tasks:
     `diag(B)=1` chart, and left no separate unit-variance/rotation-chart
     switch task for the first paper; M52 must rebuild the standard-DW evidence
     before final figure or Monte Carlo claims.
+14. M0053 adds a main-text explanation gate after M54. Section 4 must explain
+    why the robust moment conditions hold at `B0`, distinguish transformed-
+    noise covariance `Omega(B)=Var(B^{-1}eta_t)` from full transformed-
+    residual covariance `S(B)=Var(B^{-1}u_t)`, and state that the fourth-order
+    covariance-product subtractions use `S(B)` estimated from candidate
+    transformed residuals. M55 is the packet-backed task for this draft update
+    and should run before M52 returns evidence claims to the manuscript.
 
 ## Gaps And Risks
 
@@ -210,6 +217,10 @@ these tasks:
   non-Gaussian transformed residual noise generally invalidates the
   higher-cumulant interpretation unless extra residual-noise cumulant
   restrictions are modeled.
+- The M54 derivation is currently stronger than the main-text explanation.
+  Until M55 runs, Section 4 risks confusing `Omega(B)`, the covariance of
+  transformed noise, with `S(B)`, the covariance of full transformed residuals
+  that is actually used in the fourth-order robust moment equations.
 - Higher moments can be weak in macro samples; the robust set may be wide or
   uninformative, and that is an honest result.
 - The robust set comparison is a diagnostic, not proof of literal measurement

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "id": "M0053-plan-main-text-moment-explanation",
+  "sequence": 53,
+  "title": "Plan main-text moment explanation",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-09T18:40:53Z",
+  "closed_at": "2026-06-09T18:50:41Z",
+  "start_commit": "156926bf76288b5119088cc3d64e5675c9671455",
+  "snapshot_ref": "manuscript-milestones/M0053-plan-main-text-moment-explanation",
+  "summary": "Planned M55 as the main-text robust moment explanation task, routed it before M52, and updated planning/log/formal surfaces to require the S(B) versus Omega(B) distinction and candidate-by-candidate moment computation explanation.",
+  "user_inputs": [
+    {
+      "id": "U0053-001",
+      "milestone_id": "M0053-plan-main-text-moment-explanation",
+      "captured_at": "2026-06-09T18:40:53Z",
+      "source": "chat",
+      "text": "Update the manuscript plan: the main text must properly explain and derive the robust transformed-noise moment conditions from M54, including why they hold at B0, why the moment computation makes sense, and the distinction between full transformed-residual covariances S_ij(B) and transformed-noise covariances."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0053-001",
+      "milestone_id": "M0053-plan-main-text-moment-explanation",
+      "captured_at": "2026-06-09T18:50:41Z",
+      "description": "Created M55 packet and updated task-board, dashboard, paper map, paper plan, source packet, workplan, formal registry, logs, and GitHub milestone metadata."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-09T18:50:41Z",
+      "description": "python scripts/check_manuscript.py: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M55-main-text-robust-moment-explanation.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0053-plan-main-text-moment-explanation.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 48,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/48",
+    "tag_name": "manuscript-milestones/M0053-plan-main-text-moment-explanation"
+  }
+}

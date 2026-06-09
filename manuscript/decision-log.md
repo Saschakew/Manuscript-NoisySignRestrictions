@@ -889,3 +889,26 @@ decisions.
 - Consequence for next work: M52 should rebuild the source-correct
   standard-DW evidence in the retained common chart; any future unit-variance
   chart rewrite would require a separate user decision.
+
+### 2026-06-09 - Explain robust moment computation in the main text before evidence rebuild
+
+- Origin: user correction after discussing the M54 transformed-noise moment
+  notation.
+- User input id: U0053
+- Codex role: converted the correction into a packet-backed writing/derivation
+  task.
+- Decision: Before returning to the source-correct evidence rebuild, Section 4
+  must explain why the robust transformed-noise moment conditions hold at
+  `B0`, why the fourth-order covariance-product subtractions use full
+  transformed-residual covariances `S_{ij}(B)`, and how those entries are
+  computed from `z_t(B)=B^{-1}u_t` for each candidate `B`.
+- Rationale: The M54 derivation is too detailed for the main text, but the
+  current draft could leave readers thinking `s_{ij}` refers to the
+  covariance of transformed noise alone. The paper needs a compact derivation
+  and implementation explanation so the robust moment stack is credible and
+  reproducible.
+- Alternatives considered: leaving the detail in the derivation note and only
+  citing it from Section 4.
+- Consequence for next work: Run M55 before M52. M55 should add the
+  `Omega(B)` versus `S(B)` distinction, representative fourth-order algebra,
+  and the candidate-by-candidate sample computation recipe to the draft.

@@ -870,3 +870,25 @@ For traceable work blocks, pair this human-readable note with a closed
   to keep the manuscript in the common `diag(B)=1` chart.
 - Next recommended action: run M52 in the retained common chart to rebuild the
   source-correct standard-DW evidence path.
+
+### 2026-06-09 - Plan M55 main-text robust moment explanation
+
+- Request or goal: update the plan so the main text properly explains and
+  derives the robust transformed-noise moment conditions from M54, without
+  showing every expansion but making clear why the conditions hold at `B0` and
+  how the moments are computed.
+- Files changed: `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/user-input-log.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and transparency milestone files.
+- Summary of work: created packet-backed M55 and routed it before M52. The new
+  task requires Section 4 to distinguish transformed-noise covariance
+  `Omega(B)` from full transformed-residual covariance `S(B)`, explain why the
+  robust moments hold at `B0`, and show how `S_{ij}(B)` is computed from
+  centered candidate transformed residuals.
+- Check: `python scripts/check_manuscript.py` passed.
+- Next recommended action: execute M55, then return to M52 for the
+  source-correct standard-DW evidence rebuild.

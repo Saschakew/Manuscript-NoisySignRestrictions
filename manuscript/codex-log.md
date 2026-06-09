@@ -1087,3 +1087,22 @@ machine-readable milestone in `transparency/milestones/`.
   surfaces are verified.
 - Open uncertainties: M52 still needs the source-correct standard-DW rebuild;
   the M25 proof audit remains pending afterward.
+
+### 2026-06-09 - M55 main-text moment explanation planned
+
+- Request: update the plan so the main text properly explains the M54 robust
+  transformed-noise moment derivation and computation.
+- Actions taken: created `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  added M55 to the task board, routed M55 before M52 in the dashboard and
+  workplan, and updated the paper plan/map, source packet, formal registry,
+  user-input log, decision log, and session log.
+- Files changed: `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/user-input-log.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`,
+  and transparency milestone files.
+- Checks run: `python scripts/check_manuscript.py` passed.
+- Open uncertainties: M55 still needs to revise Section 4 itself; M52 remains
+  queued behind that clarification.
