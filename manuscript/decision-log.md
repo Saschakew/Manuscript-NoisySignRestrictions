@@ -5,6 +5,29 @@ decisions.
 
 ## Entries
 
+### 2026-06-09 - Use task packets for fragile scientific hand-offs
+
+- Origin: user concern that compressed or poorly specified tasks may have
+  contributed to prior scientific mistakes, especially M48.
+- User input id: U0046
+- Decision: Keep `manuscript/task-board.md` as a compact index, but require
+  durable task packets under `manuscript/tasks/` for priority-1 or fragile
+  scientific tasks involving long prompts, source verification, derivations,
+  code-to-theory comparisons, normalization decisions, simulation rebuilds, or
+  prior failed work.
+- Required packet contents: original user prompt, why the task exists,
+  untrusted prior artifacts, required reads, scientific claim ledger, required
+  work, stop conditions, acceptance criteria, expected outputs, and an outcome
+  log.
+- Rationale: A task-board row compresses too much context and can turn
+  scientific uncertainty into a vague implementation task. A packet preserves
+  the user's concern and gives future agents a contract for evidence,
+  derivation, and stopping.
+- Consequence for next work: M49 must be executed from
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`, not from the
+  task-board row alone. Future fragile tasks should receive packets before
+  execution.
+
 ### 2026-06-09 - Require source and derivation gates for scientific claims
 
 - Origin: user criticism after M48 produced an incorrect or insufficient

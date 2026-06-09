@@ -163,6 +163,6 @@ and proof or output status.
 - M0045 marks M48 as partial and not source-complete. The current Section 3
   `g_DW` display, the claim that Figure 1 matches the exact bivariate DW GMM
   menu, and the normalization/no-rebuild decision are not settled. M49 must
-  redo the audit from the user's original comments, raw DW source or
-  KnowledgeVault note, and explicit noisy-moment derivations before M47 or
-  final evidence claims proceed.
+  execute `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md` from the
+  user's original comments, raw DW source or KnowledgeVault note, and explicit
+  noisy-moment derivations before M47 or final evidence claims proceed.

@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-09T07:34:09Z",
+  "updated_at": "2026-06-09T08:28:20Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -951,6 +951,28 @@
         "milestone_number": 41,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/41",
         "tag_name": "manuscript-milestones/M0045-harden-scientific-workflow"
+      }
+    },
+    {
+      "id": "M0046-improve-task-handoff-workflow",
+      "sequence": 46,
+      "title": "Improve task handoff workflow",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T08:11:20Z",
+      "closed_at": "2026-06-09T08:28:19Z",
+      "start_commit": "5b298b927dd336a0848d44778d17083daa963c75",
+      "snapshot_ref": "manuscript-milestones/M0046-improve-task-handoff-workflow",
+      "summary": "Improved manuscript task hand-off workflow by adding task-packet rules, a reusable packet template, and a self-contained M49 packet preserving the original user prompt and scientific acceptance criteria.",
+      "user_input_ids": [
+        "U0046-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0046-improve-task-handoff-workflow.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 42,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/42",
+        "tag_name": "manuscript-milestones/M0046-improve-task-handoff-workflow"
       }
     }
   ]

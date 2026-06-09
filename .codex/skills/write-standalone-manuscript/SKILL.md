@@ -1,6 +1,6 @@
 ---
 name: write-standalone-manuscript
-description: Write and manage one standalone manuscript repository linked to KnowledgeVault source material. Use for manuscript planning, drafting, formal objects, simulations, citations, logs, transparency milestones, and scientific-claim audits that require raw-source, vault-source, derivation, or code-provenance gates before prose changes.
+description: Write and manage one standalone manuscript repository linked to KnowledgeVault source material. Use for manuscript planning, drafting, formal objects, simulations, citations, logs, transparency milestones, task creation and hand-off packets, and scientific-claim audits that require raw-source, vault-source, derivation, or code-provenance gates before prose changes.
 ---
 
 # Write Standalone Manuscript
@@ -68,9 +68,25 @@ content conversation rather than manuscript work.
 11. Maintain `manuscript/transparency/` for user input, Codex actions, and
     milestone manifests that the external `Manuscript-Timeline` viewer can
     load.
-12. Apply the scientific claim gate before changing mathematical,
+12. Use task packets for fragile or priority-1 scientific tasks.
+13. Apply the scientific claim gate before changing mathematical,
     source-sensitive, or code-sensitive claims.
-13. Run `python scripts/check_manuscript.py` after substantive edits.
+14. Run `python scripts/check_manuscript.py` after substantive edits.
+
+## Task Hand-Off Packets
+
+Keep `manuscript/task-board.md` as a compact index. For priority-1 or fragile
+scientific tasks, create a durable packet under `manuscript/tasks/` and link
+to it from the task-board row.
+
+Use a packet when a task involves raw sources, KnowledgeVault provenance,
+mathematical derivations, code-to-theory mapping, simulations, figure rebuilds,
+normalization choices, prior failed work, or a long/nuanced user prompt.
+
+Before creating or working from a packet, read
+`references/task-packet-workflow.md`. A packet should preserve the original
+user prompt, name untrusted prior artifacts, list required source reads and
+derivations, define stop conditions, and state acceptance criteria.
 
 ## Scientific Claim Gate
 

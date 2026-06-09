@@ -8,6 +8,27 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-09 - Improve task hand-off workflow
+
+- Request or goal: improve the manuscript workflow and local skill for task
+  creation and task management after discussing that compressed tasks may have
+  contributed to prior scientific mistakes.
+- Files changed: `.codex/skills/write-standalone-manuscript/SKILL.md`,
+  `.codex/skills/write-standalone-manuscript/references/task-packet-workflow.md`,
+  `manuscript/manuscript-rules.md`, `manuscript/tasks/_template.md`,
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, and logs/transparency files.
+- Summary of work: made the task board a compact index rather than the full
+  hand-off for fragile scientific work; added a task-packet workflow and
+  template; created a self-contained M49 packet preserving the original user
+  prompt, source obligations, derivation obligations, stop conditions, and
+  acceptance criteria.
+- Next recommended action: execute M49 from
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`, not from the
+  task-board row alone.
+
 ### 2026-06-09 - Harden scientific workflow after M48 failure
 
 - Request or goal: update the manuscript workflows and local skills so future

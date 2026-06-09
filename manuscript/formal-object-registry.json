@@ -358,7 +358,7 @@
         {
             "id": "audit:m49-dw-source-and-noisy-moment-gate",
             "status": "open",
-            "question": "What is the exact source-correct Drautzburg-Wright GMM moment menu in the bivariate case, especially raw fourth-product conditions with two-pair indicator targets versus cumulant/covariance-product sums; how does it compare to Figure 1 code; do third-order cumulants coincide with DW-style raw GMM moments and remain noise-unaffected; what are the step-by-step noisy truth moments requested by the user under explicit independence and normalization assumptions; and does the manuscript need a normalization or figure/Monte Carlo rebuild?"
+            "question": "Execute manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md: what is the exact source-correct Drautzburg-Wright GMM moment menu in the bivariate case, especially raw fourth-product conditions with two-pair indicator targets versus cumulant/covariance-product sums; how does it compare to Figure 1 code; do third-order cumulants coincide with DW-style raw GMM moments and remain noise-unaffected; what are the step-by-step noisy truth moments requested by the user under explicit independence and normalization assumptions; and does the manuscript need a normalization or figure/Monte Carlo rebuild?"
         },
         {
             "id": "audit:standard-dw-j-test-gate",

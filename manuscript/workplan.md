@@ -13,13 +13,15 @@ skeletons, manuscript math delimiters have been cleaned, Figure 2 uses the
 variance-ratio robust row, Figure 3 adds the `T=500,1000,2000` sample-size
 grid, and M45 supplies lightweight validation and Monte Carlo evidence.
 
-M0038/M0040/M0042/M0044/M0045 drafting update: Sections 2-4 now have
+M0038/M0040/M0042/M0044/M0045/M0046 drafting update: Sections 2-4 now have
 formula-first skeletons using proper manuscript math delimiters, and M0042
 completed the M34 adversarial scope, logic, and style review after the M0041
 revision rewrite. M0045 marks M48 as partial and not source-complete: the
 standard-DW moment menu, Figure 1 source match, noisy product-moment
 derivations, and normalization/rebuild decision need M49 before Section 3 or
-Section 4 can treat the DW comparison as settled.
+Section 4 can treat the DW comparison as settled. M0046 introduces durable
+task hand-off packets under `manuscript/tasks/`; M49 now has the packet
+`manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`.
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
@@ -60,7 +62,7 @@ dynamic impulse responses.
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; M0045 quarantines M48 as partial, so M49 must source-verify the DW moment menu and rederive noisy product moments before the M25/M47 standard-DW proof audit proceeds. |
+| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; M0045 quarantines M48 as partial, so M49 must execute `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md` before the M25/M47 standard-DW proof audit proceeds. |
 | M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo; M0042 completed the M34 adversarial evidence-language review. Remaining work is final replication packaging and, if needed, a heavier run. |
 | M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040 updated figures and evidence; M0042 completed the M34 logic/style review and drafted the conclusion. Remaining draft gates are the M25 proof audit, M33 replication wrapper, references cleanup, and export preparation. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
@@ -75,10 +77,11 @@ dynamic impulse responses.
    condition for robust transformed cumulants, and sign-labeling conventions.
 3. Noisy sign-set review: check the covariance pseudo-set, column-rescaling
    obstruction, and intuition in the first figure.
-4. Standard-DW misspecification review: first run M49 to recover the exact DW
-   moment object from raw source or KnowledgeVault and derive the requested
-   noisy moments; then prove or weaken the claim that the population DW set
-   becomes empty under residual noise and list special cases.
+4. Standard-DW misspecification review: first execute
+   `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md` to recover the
+   exact DW moment object from raw source or KnowledgeVault and derive the
+   requested noisy moments; then prove or weaken the claim that the population
+   DW set becomes empty under residual noise and list special cases.
 5. Robust-DW derivation review: M40 conditionally passed the M0036 relative
    covariance-decomposition screen, including algebra, finite-sample
    equality-plus-inequality behavior, and the substantive interpretation of

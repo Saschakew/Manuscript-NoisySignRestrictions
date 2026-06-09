@@ -11,6 +11,25 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-09 - M0046 Improve task hand-off workflow
+
+- Request: user asked Codex to improve task creation and task management after
+  discussing that bad hand-offs may have contributed to poor scientific
+  performance.
+- Actions taken: opened M0046 and GitHub milestone 42; added task-packet
+  workflow rules to the local `write-standalone-manuscript` skill and
+  manuscript rules; created
+  `.codex/skills/write-standalone-manuscript/references/task-packet-workflow.md`;
+  created `manuscript/tasks/_template.md`; created
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`; updated the task
+  board, dashboard, paper map, workplan, and formal registry so M49 is
+  executed from the packet.
+- Files changed: skill files, manuscript rules, `manuscript/tasks/`, planning
+  surfaces, registry, human-readable logs, and M0046 transparency files.
+- Checks run: skill `quick_validate.py` passed; `python scripts\check_manuscript.py` passed with the expected open-milestone warning before closure and passed cleanly after closure; `python -m json.tool manuscript\formal-object-registry.json`, `python -m json.tool manuscript\transparency\milestones\M0046-improve-task-handoff-workflow.json`, and `python -m json.tool manuscript\transparency\timeline.json` passed; `git diff --check` passed with line-ending warnings only.
+- Open uncertainties: M49 itself is still unexecuted; the packet is the
+  hand-off contract for the next scientific audit.
+
 ### 2026-06-09 - M0045 Harden scientific workflow
 
 - Request: user criticized the M48 output as insufficient and asked Codex to

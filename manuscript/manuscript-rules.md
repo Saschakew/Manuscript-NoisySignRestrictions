@@ -87,6 +87,23 @@ When a prior artifact is found unreliable, mark it as partial or superseded in
 the task board, add a warning to the artifact itself, quarantine affected draft
 claims with TODO notes, and create a new source-first task.
 
+## Task Hand-Off Packets
+
+`manuscript/task-board.md` is a compact index. It must not be the only durable
+hand-off for priority-1 or fragile scientific work.
+
+Create a task packet under `manuscript/tasks/` when a task involves a long user
+prompt, a prior failure, raw-source or KnowledgeVault verification,
+mathematical derivation, code-to-theory comparison, normalization choices,
+simulation or figure rebuild decisions, or any source-sensitive claim. Link
+the packet from the task-board row.
+
+A task packet should preserve the original user prompt, name untrusted prior
+artifacts, list required source reads and derivations, include a scientific
+claim ledger, define stop conditions, and state acceptance criteria. A fragile
+scientific task is not complete until its packet's acceptance criteria are
+satisfied or its unresolved points are explicitly recorded.
+
 ## Source Of Truth
 
 `draft.md` contains manuscript prose. `formal-object-registry.json` is an audit

@@ -18,17 +18,22 @@ Current focus: prevent source-sensitive claims from entering the manuscript
 without provenance. The revised draft still conditionally passes the M34
 adversarial scope, logic, and style review, but M48 no longer clears the DW
 moment-definition gate. The next scientific task must be M49, and it must
-start from the user's original comments, the raw DW source or KnowledgeVault
-note, and explicit noisy-moment derivations.
+start from the hand-off packet
+`manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`, which preserves the
+user's original comments, raw DW source requirements, and explicit noisy-moment
+derivation obligations.
 
 Next recommended action: run M49 before M47. Redo the DW source and noisy
-moment audit under the scientific claim gate; only after the standard-DW
-moment object is source-verified should M47 audit the J-test proof gate. Keep
-M33 queued for the manuscript-local replication wrapper.
+moment audit under the scientific claim gate by executing
+`manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`; only after the
+standard-DW moment object is source-verified should M47 audit the J-test proof
+gate. Keep M33 queued for the manuscript-local replication wrapper.
 
-Active milestone: none after M0045 closes. Latest work block hardened the
-scientific workflow, updated the local manuscript skill, quarantined unreliable
-M48 conclusions, and created GitHub milestone 41 for the same work.
+Active milestone: none after M0046 closes. Latest work block added task
+hand-off packets so high-risk scientific tasks are no longer stored only as
+compressed task-board rows. M0045 previously hardened the scientific claim
+workflow, updated the local manuscript skill, quarantined unreliable M48
+conclusions, and created GitHub milestone 41 for the same work.
 
 Active blockers:
 
@@ -93,8 +98,9 @@ Active blockers:
   normalization/no-rebuild decision. Do not rely on the current Section 3
   `g_DW` display or the Figure 1 standard-DW source claim until M49.
 
-Last substantive session: 2026-06-09, completed M0045 to harden scientific
-workflow after the M48 audit was found incomplete and source-insufficient.
+Last substantive session: 2026-06-09, completed M0046 to improve task
+creation and hand-off workflow by adding durable task packets and creating the
+M49 source-audit packet.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.
@@ -111,6 +117,8 @@ verifying the M0005 transparency snapshot and GitHub milestone closure.
   tables, proofs, and dependencies.
 - `workplan.md`: milestones and review plan.
 - `task-board.md`: open tasks and next actions.
+- `tasks/`: durable hand-off packets for fragile or priority-1 scientific
+  tasks; read the packet before executing the task-board row.
 - `citation-provenance.md`: section-level source map and contribution boundary.
 - `literature-search.md`: search questions, citation gaps, and BibTeX
   verification tasks.
