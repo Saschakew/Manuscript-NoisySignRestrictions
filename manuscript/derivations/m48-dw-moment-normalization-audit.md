@@ -1,6 +1,13 @@
 # M48 DW Moment Definition And Normalization Audit
 
-Status: completed audit for draft correction and next-build planning.
+Status: partial and not source-complete after M0045. Do not treat this file as
+a completed audit or as a reliable source for the bivariate DW GMM moment menu.
+It caught the broad fourth-product-versus-cumulant distinction, but it did not
+study DW carefully enough to settle the exact bivariate moment stack, did not
+derive the user's requested noisy product moments step by step, and made a
+premature normalization/no-rebuild decision. M49 must redo this audit from the
+user's original comments, raw DW source or KnowledgeVault notes, and explicit
+derivations.
 
 Audit date: 2026-06-09.
 
@@ -18,33 +25,26 @@ Question: should the standard-DW comparator in Section 3 be described as a
 fourth-cumulant stack, and should the active manuscript migrate from the
 diagonal-normalized impact chart to a unit-variance structural-shock chart?
 
-Answer: no on both. Drautzburg and Wright define standardized co-skewness and
-co-kurtosis product moments. In their Gaussian benchmark, fourth product
-moments take the Isserlis targets: `1` for two equal pairs, `3` for four equal
-indices, and `0` otherwise once cross-correlations are zero. The Figure 1
-standard-DW row implements the bivariate subset of this raw standardized
-co-moment logic. The robust row must remain a cumulant stack because raw
-fourth products are shifted by Gaussian residual-noise covariance terms. The
-paper should keep the common `diag(B)=1` B-plane chart, profile structural
-variances in the robust covariance screen, and use unit-variance language only
-for the no-noise source model and standardized DW co-moment targets.
+Answer status: superseded by M0045. The broad point that fourth-order raw
+products differ from fourth cumulants remains useful, but the exact DW
+moment menu, the Figure 1 source match, and the normalization/rebuild decision
+are not settled by this file.
 
 ## 1. DW Source Moment Definition
 
-The absorbed DW note and raw markdown define co-skewness as a standardized
-third product and co-kurtosis as a standardized fourth product. The source then
-uses Isserlis' theorem for the Gaussian case. With zero cross-correlations, the
-fourth product target is:
+M48 read the absorbed DW note and raw markdown as defining co-skewness through
+standardized third products and co-kurtosis through standardized fourth
+products. M0045 marks this as a partial reading that must be verified again in
+M49 before it supports manuscript prose. The broad fourth-product targets read
+in M48 were:
 
 - `1` when the four indices consist of two distinct equal pairs;
 - `3` when all four indices are equal;
 - `0` otherwise.
 
-Thus the standard-DW comparator is not naturally described as a fourth
-cumulant test. It is a standardized co-moment test of independence-like
-restrictions. Cumulant language is still mathematically nearby, but it hides
-the important target difference: the mixed pair fourth product
-`E(e_i^2 e_j^2)` targets `1`, not `0`.
+Thus the standard-DW comparator should not be called a fourth-cumulant test
+without qualification. The exact source-correct bivariate GMM stack, however,
+remains for M49.
 
 ## 2. Figure 1 Implementation
 
@@ -68,12 +68,11 @@ E(e_1 e_2^2) = 0
 E(e_1^2 e_2^2) = 1
 ```
 
-This is aligned with a bivariate co-skewness/co-kurtosis product-moment
-comparator, not with the six-entry cumulant stack currently described in the
-old Section 3 wording. The script omits the singleton fourth products
-`E(e_1^3 e_2)` and `E(e_1 e_2^3)`, which also have zero DW-style product
-targets under independence and zero cross-correlation. That omission is a
-finite moment-menu choice, not a cumulant/product mismatch.
+This records code behavior only. M0045 rejects the earlier inference that this
+implementation proves the source-correct bivariate DW GMM menu. M49 must
+compare the script to the source and decide whether omitted moments such as
+`E(e_1^3 e_2)` and `E(e_1 e_2^3)` are legitimate omissions, simplifications,
+or errors for the paper's stated comparator.
 
 ## 3. Noisy Truth Moments
 
@@ -132,70 +131,55 @@ kappa_iijj = E(z_i^2 z_j^2) - S_ii S_jj - 2 S_ij^2 = 0
 
 and similarly for the remaining mixed fourth cumulants.
 
-## 4. Normalization Decision
+## 4. Normalization Status After M0045
 
-Keep the manuscript's common B-plane chart:
+No normalization decision is settled by M48. The manuscript currently uses the
+common B-plane chart:
 
 ```text
 B(a,b) = [[1, a],
           [b, 1]]
 ```
 
-with structural-shock variances profiled in the robust covariance screen. Do
-not migrate the whole paper to a unit-variance structural-shock chart.
+with structural-shock variances profiled in the robust covariance screen. The
+user explicitly asked whether the paper should switch to
+`Var(epsilon_i)=1`. M48 did not answer that carefully enough.
 
-Reasons:
+M49 must decide this after the source and noisy-moment audit:
 
-- The standard DW source assumes unit-variance shocks and uses standardized
-  recovered shocks, but that is a comparator convention, not a reason to
-  abandon the common plotted impact-shape chart.
-- The robust variance-ratio screen already fixes the M0034
-  double-normalization problem by profiling `s_i` and `nu_i`.
-- Migrating the paper to `Var(epsilon_i)=1` as the main chart would require
-  rebuilding the figures, Monte Carlo grids, captions, and comparison metrics,
-  and it would make the current `diag(B)=1` visual evidence noncomparable.
-- The active paper's recommendation is to compare standard DW and robust DW in
-  one normalized impact-shape chart; `diag(B)=1` serves that reader path.
+- define precisely which normalization DW uses in the source;
+- distinguish standardization of recovered shocks from normalization of `B`;
+- state what changes under `diag(B)=1` versus `Var(epsilon)=1`;
+- list all figure, Monte Carlo, caption, and registry rebuilds implied by any
+  switch.
 
-The draft should therefore make the split explicit:
+## 5. Rebuild Status After M0045
 
-1. Standard DW comparator: standardized raw co-skewness/co-kurtosis product
-   moments with Gaussian-Isserlis fourth-product targets.
-2. Robust DW construction: mixed higher cumulants of `B^{-1}u`, with
-   covariance terms used only as nuisance ingredients inside fourth cumulants.
-3. Scale information: variance-ratio covariance screen in the
-   diagonal-normalized chart, not a free unit-variance normalization.
+No no-rebuild conclusion is settled by M48. M49 must enumerate rebuild
+requirements after it establishes the source-correct moment menu and
+normalization.
 
-## 5. Rebuild Implications
+Possible rebuild triggers include:
 
-No immediate Figure 1 rebuild is required from the moment-definition audit
-alone because the standard-DW row already implements the raw standardized
-product-moment subset. The immediate required change is prose and registry
-alignment.
+- the standard-DW row omits moments required by the source-correct bivariate
+  DW stack;
+- the paper switches from the `diag(B)=1` chart to a
+  `Var(epsilon)=1` normalization;
+- Section 4's robust cumulant stack changes after the requested noisy-moment
+  derivations;
+- the comparison metric or critical-value degrees of freedom change.
 
-Future optional rebuilds:
+Affected surfaces would include Figure 1, Figure 2, Figure 3, M45-style Monte
+Carlo evidence, captions, formal registry entries, and replication notes.
 
-- Add `E(e_1^3 e_2)` and `E(e_1 e_2^3)` to the standard-DW row if the paper
-  wants a fuller bivariate fourth-product menu. This would change the
-  standard-DW cutoff and would require rebuilding Figure 1, Figure 2,
-  Figure 3, and the M45 Monte Carlo table.
-- Keep the current four-moment standard-DW subset if the paper wants to
-  preserve the established evidence spine. Then captions and derivation notes
-  should call it a bivariate co-moment subset rather than the full DW GMM
-  menu.
-- Do not rebuild solely to migrate to unit-variance normalization unless a
-  later scope decision abandons the common diagonal-normalized B-plane.
+## 6. Manuscript Consequence After M0045
 
-## 6. Manuscript Consequence
+M48 does not resolve the user's comment enough for the current draft gate.
 
-M48 resolves the comment enough for the current draft gate:
+Do now:
 
-- Section 3 should replace "three mixed fourth cumulants" with standardized
-  co-skewness/co-kurtosis product moments.
-- Section 4 should keep the higher-cumulant stack and explain that cumulant
-  subtraction is precisely what removes the Gaussian residual-noise covariance
-  shifts in raw fourth products.
-- The formal registry should mark the standard-DW moment-stack description as
-  audited after M48 and the robust cumulant stack as still active after M48.
-- M47 remains open: this audit does not prove the rich-stack generic emptying
-  claim. It only fixes the moment-definition and normalization gate.
+- keep the Section 3 `g_DW` display behind a TODO note;
+- keep M48 marked partial in planning and review surfaces;
+- run M49 before M47 or any final Section 3/4 prose;
+- treat this file as historical evidence of the failure mode, not as the
+  source of settled manuscript claims.

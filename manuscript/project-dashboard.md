@@ -6,28 +6,29 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: the first figure-led drafting pass is now revised around the
-M0036 variance-ratio robust DW proposal and the M0041 revision comments.
-M0044 completed M48's moment-definition and normalization gate: standard DW is
-now described as a standardized co-skewness/co-kurtosis product-moment
-comparator, while the robust construction remains a Gaussian-noise-blind
-higher-cumulant stack in the diagonal-normalized chart. M0040 remains the
-current evidence rebuild for Figure 2, Figure 3, and the lightweight M45 Monte
-Carlo pass.
+Current stage: workflow hardening after the M48 failure. The first figure-led
+draft remains revised around the M0036 variance-ratio robust DW proposal and
+the M0041 revision comments, but M0045 marks the M48 moment-definition and
+normalization audit as partial and not source-complete. Section 3's displayed
+standard-DW moment stack, the exact bivariate DW GMM menu, the Figure 1
+standard-DW source match, and the normalization/rebuild decision are unsettled
+until M49 redoes the audit from raw source and derivation.
 
-Current focus: move from M48 into the remaining hard gates. The revised draft
-now conditionally passes the adversarial scope, logic, and style review after
-claim-tightening edits, and M48 has reconciled the standard-DW moment
-definition, noisy fourth-product formulas, Figure 1 implementation, and
-normalization chart. The M47 standard-DW J-test proof audit remains open, and
-the evidence package is still lightweight until the replication wrapper exists.
+Current focus: prevent source-sensitive claims from entering the manuscript
+without provenance. The revised draft still conditionally passes the M34
+adversarial scope, logic, and style review, but M48 no longer clears the DW
+moment-definition gate. The next scientific task must be M49, and it must
+start from the user's original comments, the raw DW source or KnowledgeVault
+note, and explicit noisy-moment derivations.
 
-Next recommended action: run M47. Audit the M25 standard-DW proof gate now
-that M48 has fixed the moment-definition language. In parallel planning, keep
+Next recommended action: run M49 before M47. Redo the DW source and noisy
+moment audit under the scientific claim gate; only after the standard-DW
+moment object is source-verified should M47 audit the J-test proof gate. Keep
 M33 queued for the manuscript-local replication wrapper.
 
-Active milestone: none after M0044 closes; latest work block resolved M48 and
-created GitHub milestone 40 for the same work.
+Active milestone: none after M0045 closes. Latest work block hardened the
+scientific workflow, updated the local manuscript skill, quarantined unreliable
+M48 conclusions, and created GitHub milestone 41 for the same work.
 
 Active blockers:
 
@@ -85,17 +86,15 @@ Active blockers:
   variance-ratio robust row. Final publication replication should still move
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
-- M48 result: DW's GMM comparator uses standardized co-skewness and
-  co-kurtosis product moments, not fourth cumulants. Figure 1's standard-DW
-  row matches the bivariate raw-product subset
-  `E(e1e2)`, `E(e1^2e2)`, `E(e1e2^2)`, and
-  `E(e1^2e2^2)-1`. Section 3 has been corrected, Section 4 keeps true
-  cumulants, and the manuscript remains in the `diag(B)=1` chart with
-  profiled structural variances rather than migrating to a full
-  unit-variance impact chart.
+- M48 result is quarantined. It caught the broad distinction between standard
+  raw/product moments and robust cumulants, but it did not establish the exact
+  bivariate Drautzburg-Wright GMM moment menu from source, did not fully
+  derive the user's requested noisy product moments, and did not justify the
+  normalization/no-rebuild decision. Do not rely on the current Section 3
+  `g_DW` display or the Figure 1 standard-DW source claim until M49.
 
-Last substantive session: 2026-06-09, completed M0044/M48 by resolving the DW
-moment-definition and normalization audit.
+Last substantive session: 2026-06-09, completed M0045 to harden scientific
+workflow after the M48 audit was found incomplete and source-insufficient.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

@@ -8,6 +8,27 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-09 - Harden scientific workflow after M48 failure
+
+- Request or goal: update the manuscript workflows and local skills so future
+  scientific claims require source, vault, derivation, or explicit user
+  provenance instead of relying on plausible Codex memory or code behavior.
+- Files changed: `.codex/skills/write-standalone-manuscript/SKILL.md`,
+  `.codex/skills/write-standalone-manuscript/references/scientific-claim-audit.md`,
+  `manuscript/manuscript-rules.md`, `manuscript/draft.md`,
+  `manuscript/derivations/m48-dw-moment-normalization-audit.md`,
+  `manuscript/project-dashboard.md`, `manuscript/paper-map.md`,
+  `manuscript/task-board.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/workplan.md`, `manuscript/decision-log.md`,
+  `manuscript/review-log.md`, and transparency/log files.
+- Summary of work: added a scientific claim gate to the local manuscript skill
+  and manuscript rules, created a detailed claim-audit reference, quarantined
+  M48 as partial and source-insufficient, added M49 as the source-first DW
+  audit, and blocked M47 on M49.
+- Next recommended action: run M49 from the user's original comments, raw DW
+  source or KnowledgeVault note, and explicit noisy moment derivations before
+  any Section 3/4 DW claims or normalization/rebuild decisions are finalized.
+
 ### 2026-06-09 - Resolve DW moment normalization
 
 - Request or goal: work on the manuscript in goal mode by choosing the next
@@ -17,13 +38,13 @@ For traceable work blocks, pair this human-readable note with a closed
   `manuscript/paper-map.md`, `manuscript/task-board.md`,
   `manuscript/formal-object-registry.json`,
   `manuscript/citation-provenance.md`, `manuscript/workplan.md`, and logs.
-- Summary of work: verified that Drautzburg-Wright's GMM comparator uses
-  standardized co-skewness/co-kurtosis product moments, matched that to Figure
-  1's standard-DW implementation, derived noisy truth raw-product formulas, and
-  decided to keep the diagonal-normalized chart with profiled structural
-  variances rather than migrating to a unit-variance impact chart.
-- Next recommended action: run M47, the standard-DW proof audit, before
-  promoting Proposition 2 beyond sketch language.
+- Summary of work at the time: attempted to verify the DW comparator, match it
+  to Figure 1, derive noisy truth raw-product formulas, and decide the
+  normalization chart.
+- M0045 correction: this work block is now marked partial and
+  source-insufficient. It should not be used as the settled DW source audit or
+  as a no-rebuild decision.
+- Next recommended action after M0045: run M49 before M47.
 
 ### 2026-06-08 - Insert DW moment comments task
 

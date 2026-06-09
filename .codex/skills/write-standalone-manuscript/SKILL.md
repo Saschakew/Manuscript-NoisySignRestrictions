@@ -1,6 +1,6 @@
 ---
 name: write-standalone-manuscript
-description: Write and manage one standalone manuscript repository linked to KnowledgeVault source material.
+description: Write and manage one standalone manuscript repository linked to KnowledgeVault source material. Use for manuscript planning, drafting, formal objects, simulations, citations, logs, transparency milestones, and scientific-claim audits that require raw-source, vault-source, derivation, or code-provenance gates before prose changes.
 ---
 
 # Write Standalone Manuscript
@@ -68,7 +68,36 @@ content conversation rather than manuscript work.
 11. Maintain `manuscript/transparency/` for user input, Codex actions, and
     milestone manifests that the external `Manuscript-Timeline` viewer can
     load.
-12. Run `python scripts/check_manuscript.py` after substantive edits.
+12. Apply the scientific claim gate before changing mathematical,
+    source-sensitive, or code-sensitive claims.
+13. Run `python scripts/check_manuscript.py` after substantive edits.
+
+## Scientific Claim Gate
+
+Before adding, revising, or relying on a substantive scientific claim, classify
+the claim as one of:
+
+- `raw-source`: verified directly in the paper, appendix, replication code, or
+  other primary source.
+- `vault-source`: verified in a KnowledgeVault note that cites the underlying
+  source path and citation key.
+- `derived`: proved in the current work block from stated assumptions, with
+  enough algebra for audit.
+- `code-implemented`: observed in repository or replication code. This can
+  describe implementation behavior, but it is not evidence that the behavior is
+  the source-correct theory.
+- `conjectural`: plausible but not yet verified.
+- `user-decision`: an explicit user instruction or durable decision.
+
+Only `raw-source`, `vault-source`, `derived`, or explicit `user-decision`
+claims may enter polished manuscript prose as settled statements.
+`code-implemented` claims may describe code behavior only. `conjectural`
+claims must stay in TODO notes, task boards, derivation files, or discussion
+until verified.
+
+For mathematical or source-sensitive work, read
+`references/scientific-claim-audit.md` and leave a compact audit trail before
+editing the draft or formal registry.
 
 ## Transparency Milestones
 

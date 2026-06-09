@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-09T06:40:39Z",
+  "updated_at": "2026-06-09T07:34:09Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -929,6 +929,28 @@
         "milestone_number": 40,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/40",
         "tag_name": "manuscript-milestones/M0044-resolve-dw-moment-normalization"
+      }
+    },
+    {
+      "id": "M0045-harden-scientific-workflow",
+      "sequence": 45,
+      "title": "Harden scientific workflow",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T07:14:39Z",
+      "closed_at": "2026-06-09T07:34:09Z",
+      "start_commit": "674c93274aa2bda8252a000efaa8a23c489dec3b",
+      "snapshot_ref": "manuscript-milestones/M0045-harden-scientific-workflow",
+      "summary": "Hardened the manuscript workflow after the M48 failure: added scientific claim gates, quarantined M48, added M49 as the source-first DW audit, and made M47 conditional on M49.",
+      "user_input_ids": [
+        "U0045-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0045-harden-scientific-workflow.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 41,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/41",
+        "tag_name": "manuscript-milestones/M0045-harden-scientific-workflow"
       }
     }
   ]

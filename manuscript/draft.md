@@ -335,9 +335,12 @@ If the structural shocks are non-Gaussian and independent, incorrect rotations
 can leave higher-order dependence in the recovered shocks. DW refinement
 shrinks the sign-restricted set by testing those higher-order restrictions.
 
-For centered and standardized recovered shocks, the bivariate moment stack can
-be represented by the covariance moment, two mixed co-skewness moments, and a
-mixed co-kurtosis product moment:
+<!-- TODO-NOTE: M0045 marks the displayed standard-DW moment stack below as not source-verified. Do not rely on it as the bivariate Drautzburg-Wright GMM menu until M49 derives the exact source-correct stack from the raw paper or KnowledgeVault and compares it to Figure 1 code. -->
+
+As a provisional placeholder pending M49, the current draft writes the
+standard-DW comparator as the covariance moment, two mixed third product
+moments, and one mixed fourth product moment of centered and standardized
+recovered shocks:
 
 \begin{equation}
 g_{DW}(B)=
@@ -349,14 +352,11 @@ E\{e_1(B)^2e_2(B)^2\}-1
 \end{bmatrix}.
 \end{equation}
 
-The last target is a co-kurtosis target rather than a cumulant target. It is
-the standardized fourth product value implied by independent unit-variance
-shocks, and it is also the Gaussian-Isserlis value for two equal pairs when
-cross-correlations are zero. A fuller bivariate fourth-order menu could also
-include the singleton co-kurtosis products \(E\{e_1(B)^3e_2(B)\}\) and
-\(E\{e_1(B)e_2(B)^3\}\), which have zero product targets under independence;
-the current figures use the four displayed moments as the standard-DW
-comparator.
+The last displayed target is a fourth product target rather than a cumulant
+target. The exact source-correct bivariate DW GMM menu, including whether the
+singleton fourth products \(E\{e_1(B)^3e_2(B)\}\) and
+\(E\{e_1(B)e_2(B)^3\}\) belong in the paper's standard-DW comparator, is an
+open M49 audit item.
 
 In the no-noise model, \(g_{DW}(B_0)=0\). A sample inversion keeps
 sign-admissible candidates whose estimated moment vector is small:

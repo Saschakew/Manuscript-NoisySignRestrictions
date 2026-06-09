@@ -5,27 +5,40 @@ decisions.
 
 ## Entries
 
+### 2026-06-09 - Require source and derivation gates for scientific claims
+
+- Origin: user criticism after M48 produced an incorrect or insufficient
+  standard-DW moment stack and overconfident normalization conclusion.
+- User input id: U0045
+- Decision: Future mathematical, source-sensitive, and code-sensitive claims
+  must be classified as `raw-source`, `vault-source`, `derived`,
+  `code-implemented`, `conjectural`, or `user-decision` before entering
+  polished manuscript prose. Only `raw-source`, `vault-source`, `derived`, or
+  explicit `user-decision` claims can be stated as settled. Code behavior can
+  describe implementation behavior only unless the source-to-code mapping is
+  separately verified.
+- Rationale: The M48 work treated a local Figure 1 implementation and a broad
+  memory of DW co-moments as enough to write a source-level manuscript claim.
+  That failed the standard needed for a scientific paper.
+- Consequence for next work: M48 is quarantined as partial and
+  source-insufficient. M49 must redo the DW source and noisy moment audit from
+  the user's original comments, raw DW source or KnowledgeVault note, and
+  explicit derivations before M47 or final Section 3/4 claims proceed.
+
 ### 2026-06-09 - Keep standard co-moments separate from robust cumulants
 
 - Origin: M48 audit of the user's DW fourth-order moment and normalization
   comments.
 - User input id: U0044
-- Decision: Describe the standard-DW comparator as a standardized
-  co-skewness/co-kurtosis product-moment test, not as a fourth-cumulant test.
-  Keep the robust DW construction as a higher-cumulant stack because cumulant
-  subtraction removes the Gaussian residual-noise covariance shifts in raw
-  fourth products.
-- Normalization decision: keep the common `diag(B)=1` impact-shape chart and
-  profile structural-shock variances in the variance-ratio covariance screen.
-  Do not migrate the active manuscript to a unit-variance impact chart.
-- Rationale: Drautzburg and Wright's source defines co-skewness/co-kurtosis as
-  standardized product moments with Gaussian-Isserlis targets. Figure 1's
-  standard-DW row already implements the bivariate raw-product subset. The
-  robust row is different by design: raw fourth products are noise-shifted,
-  while mixed fourth cumulants remain Gaussian-noise-blind.
-- Consequence for next work: M48 is done. M47 should audit the standard-DW
-  proof gate. No figure rebuild is required unless a later task adds singleton
-  fourth-product moments to the standard-DW row.
+- Status after M0045: superseded as a closure decision. The broad warning that
+  fourth-order raw products and fourth cumulants are different remains useful,
+  but M48 did not source-verify the exact bivariate DW GMM moment menu, did
+  not fully derive the requested noisy product moments, and did not justify the
+  normalization/no-rebuild conclusion.
+- Decision retained only as provisional: do not describe standard-DW fourth
+  products as robust fourth cumulants without source and derivation support.
+- Consequence for next work: do not treat M48 as done. Run M49 before M47 and
+  before any final figure/Monte Carlo rebuild decision.
 
 ### 2026-06-08 - Use residual-noise-to-signal wording for the variance-ratio screen
 

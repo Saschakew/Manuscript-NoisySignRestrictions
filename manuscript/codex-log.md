@@ -11,14 +11,34 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-09 - M0045 Harden scientific workflow
+
+- Request: user criticized the M48 output as insufficient and asked Codex to
+  carefully update workflows and skills first.
+- Actions taken: opened M0045 and GitHub milestone 41; added a scientific
+  claim gate to the local `write-standalone-manuscript` skill and manuscript
+  rules; created `references/scientific-claim-audit.md`; quarantined M48 in
+  the dashboard, paper map, task board, formal registry, review log, draft
+  TODO note, and M48 derivation note; added M49 as the required source-first
+  DW audit before M47.
+- Files changed: `.codex/skills/write-standalone-manuscript/SKILL.md`,
+  `.codex/skills/write-standalone-manuscript/references/scientific-claim-audit.md`,
+  `manuscript/manuscript-rules.md`, `manuscript/draft.md`,
+  `manuscript/derivations/m48-dw-moment-normalization-audit.md`, planning
+  surfaces, registry, human-readable logs, and M0045 transparency files.
+- Checks run: `python C:\Users\smsakewe\.codex\skills\.system\skill-creator\scripts\quick_validate.py .codex\skills\write-standalone-manuscript` passed; `python scripts\check_manuscript.py` passed with the expected open-milestone warning before closure and passed cleanly after closure; `git diff --check` passed with line-ending warnings only.
+- Open uncertainties: M49 must still read the raw DW source or KnowledgeVault
+  note and derive the requested noisy product moments before Section 3/4 claims
+  or figure/Monte Carlo rebuild decisions are trusted.
+
 ### 2026-06-09 - M48 DW moment-normalization audit
 
 - Request: work on the manuscript in goal mode and pick the next task.
-- Actions taken: selected M48, opened M0044, created GitHub milestone 40,
-  wrote `manuscript/derivations/m48-dw-moment-normalization-audit.md`,
-  corrected Section 3 from fourth-cumulant language to standardized
-  co-skewness/co-kurtosis product moments, and updated planning/provenance
-  surfaces.
+- Actions taken at the time: selected M48, opened M0044, created GitHub
+  milestone 40, wrote
+  `manuscript/derivations/m48-dw-moment-normalization-audit.md`, attempted to
+  correct Section 3 away from fourth-cumulant language, and updated
+  planning/provenance surfaces.
 - Files changed: `manuscript/derivations/m48-dw-moment-normalization-audit.md`,
   `manuscript/draft.md`, `manuscript/project-dashboard.md`,
   `manuscript/paper-map.md`, `manuscript/task-board.md`,
@@ -26,9 +46,11 @@ machine-readable milestone in `transparency/milestones/`.
   `manuscript/citation-provenance.md`, `manuscript/workplan.md`, logs, and
   the M0044 transparency files.
 - Checks run: `python scripts/check_manuscript.py` passed.
-- Open uncertainties: M47 still needs to audit the standard-DW generic
-  emptying proof. No figure rebuild was required by M48 unless a later task
-  chooses to add singleton fourth-product moments to the standard-DW row.
+- M0045 correction: this entry is now historical only. M48 is partial and
+  source-insufficient; do not rely on it as a completed DW source audit, a
+  Figure 1 source-match proof, or a normalization/no-rebuild decision.
+- Open uncertainties: M49 must redo the DW source and noisy moment audit before
+  M47 audits the standard-DW generic emptying proof.
 
 ### 2026-06-08 - M0043 Track DW moment comments
 
