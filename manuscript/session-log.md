@@ -8,6 +8,24 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-09 - Complete M53 DW and robust moment notation rewrite
+
+- Request or goal: execute M53 by replacing the Section 3 `h_i(B)` DW notation
+  with recovered-shock notation and rewriting Section 4 robust conditions as
+  explicit moment equations.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/task-board.md`,
+  `manuscript/tasks/M53-dw-and-robust-moment-notation-rewrite.md`,
+  `manuscript/project-dashboard.md`, `manuscript/paper-map.md`,
+  `manuscript/workplan.md`, logs, and M0050 transparency files.
+- Summary of work: rewrote the DW GMM1/GMM2 display to use
+  \(e_t(B)=B^{-1}u_t\), stated the no-noise normalization
+  \(e_t(B_0)=\varepsilon_t\), and rewrote the robust stack \(G_H(B)\) as
+  explicit third- and fourth-order moment equations with covariance-product
+  subtractions.
+- Next recommended action: execute M52 to rebuild the standard-DW figures and
+  Monte Carlo evidence with the source-correct moment menu.
+
 ### 2026-06-09 - Plan M53 DW and robust moment notation rewrite
 
 - Request or goal: plan a new task to replace the Section 3 `h_i(B)` DW

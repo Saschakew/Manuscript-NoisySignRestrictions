@@ -69,8 +69,8 @@ precision without reusing invalid covariance anchors.
 | Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the variance-ratio robust refinement, and simulation evidence. | revised after M34 claim-tightening |
 | 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust residual-noise-to-signal fix, and preview the evidence. | revised after M34 claim-tightening; literature positioning retained |
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
-| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M52 must rebuild figures/MC with a source-correct standard-DW menu; M25 proof audit pending |
-| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. | M49 noisy product derivations complete; M53 must rewrite the display as moment conditions rather than visible cumulant notation; final proof and replication still pending |
+| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M0050 now displays the menu with \(e_t(B)\); M52 must rebuild figures/MC with a source-correct standard-DW menu; M25 proof audit pending |
+| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. | M49 noisy product derivations complete; M0050 rewrote the display as explicit moment equations with fourth-order covariance-product subtractions; final proof and replication still pending |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | reviewed after M34; still lightweight until replication wrapper |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
@@ -106,12 +106,12 @@ and proof or output status.
   standard-DW truth rejection under lower high residual noise, and pure
   robust-DW truth inclusion with substantial widening.
 - M0035 bounded-noise residual grid variant showing the same setting with the
-  pure higher-cumulant row intersected with `0 <= nu_i <= 0.5`
+  pure higher-moment row intersected with `0 <= nu_i <= 0.5`
   recovered-covariance feasibility; high-noise accepted share falls to 0.066
   while true `B0` remains included. This is now a comparison because the
   absolute variance cap is scale-arbitrary.
 - M0036 relative-noise residual grid variant showing the same setting with the
-  pure higher-cumulant row intersected with the covariance-decomposition
+  pure higher-moment row intersected with the covariance-decomposition
   feasibility condition `0 <= nu_i <= 0.5 Var(epsilon_i)`; high-noise accepted
   share is 0.071 of the full grid, 0.084 of the sign-admissible grid, and true
   `B0` remains included. This is the active Figure 1 proposal.
@@ -124,7 +124,7 @@ and proof or output status.
 - M25 working derivation showing that standard DW recovered-shock restrictions
   are misspecified under residual noise, with the J-test inversion stated as
   generic emptying plus explicit pseudo-zero exceptions.
-- Derivation of the pure higher-cumulant robust moment stack from
+- Derivation of the pure higher-moment robust moment stack from
   `derivations/dw-noise-robust-moments.md`; the post-M0030 diagonal-anchor
   estimator audit is superseded by the M0034 scale correction.
 - M45 fixed-grid diagnostics rebuild the M28-style checks for the

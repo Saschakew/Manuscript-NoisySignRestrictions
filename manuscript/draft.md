@@ -342,23 +342,30 @@ M49 verifies that Drautzburg and Wright's moment-based refinement uses
 standardized raw co-skewness and co-kurtosis products, not fourth cumulants. In
 the source-native rotation chart, the recovered shocks are already
 covariance-normalized, so the higher-moment GMM vector does not include a
-separate covariance moment. Let \(h_i(B)\) denote the centered, standardized
-recovered shock in coordinate \(i\). The bivariate GMM1 higher-moment menu is
+separate covariance moment. The same notation introduced in Section 2 is
+enough: \(e_t(B)=B^{-1}u_t\). In the no-noise benchmark,
+\(e_t(B_0)=\varepsilon_t\), and the structural shocks are centered with unit
+variances by normalization. If the common B-plane chart is used outside the
+source-native rotation normalization, the product moments below are evaluated
+after the usual centering and unit-variance scaling of the recovered-shock
+coordinates \(e_{it}(B)\). No separate headline variable is needed. The
+bivariate GMM1 higher-moment menu is
 
 \begin{equation}
 g_{DW,1}(B)=
 \begin{bmatrix}
-E\{h_1(B)^2h_2(B)\}\\
-E\{h_1(B)h_2(B)^2\}\\
-E\{h_1(B)^3h_2(B)\}\\
-E\{h_1(B)^2h_2(B)^2\}-1\\
-E\{h_1(B)h_2(B)^3\}
+E\{e_{1t}(B)^2e_{2t}(B)\}\\
+E\{e_{1t}(B)e_{2t}(B)^2\}\\
+E\{e_{1t}(B)^3e_{2t}(B)\}\\
+E\{e_{1t}(B)^2e_{2t}(B)^2\}-1\\
+E\{e_{1t}(B)e_{2t}(B)^3\}
 \end{bmatrix}.
 \end{equation}
 
 The corresponding GMM2 menu drops only the symmetric fourth product
-\(E\{h_1(B)^2h_2(B)^2\}-1\). It keeps the singleton fourth products
-\(E\{h_1(B)^3h_2(B)\}\) and \(E\{h_1(B)h_2(B)^3\}\). In the manuscript's
+\(E\{e_{1t}(B)^2e_{2t}(B)^2\}-1\). It keeps the singleton fourth products
+\(E\{e_{1t}(B)^3e_{2t}(B)\}\) and
+\(E\{e_{1t}(B)e_{2t}(B)^3\}\). In the manuscript's
 diagonal-normalized B-plane, a no-noise covariance screen may still be added
 to mimic the standard covariance factorization, but that screen is a
 manuscript chart component rather than a DW higher-moment entry.
@@ -518,54 +525,36 @@ The robust higher-moment route uses the following maintained condition.
 
 *Assumption 1 (`ass:gaussian-residual-noise`, robust-noise condition). The
 residual noise is independent of the structural shocks and Gaussian. Therefore
-every linear transform \(B^{-1}\eta_t\) has zero cumulants above order two.
-This assumption makes transformed higher cumulants robust to Gaussian noise;
-it does not make recovered-shock variances or recovered-shock covariances equal
-to their no-noise targets.*
+every linear transform \(B^{-1}\eta_t\) contributes only through first and
+second moments. This assumption makes the displayed transformed higher-order
+moment conditions robust to Gaussian noise; it does not make recovered-shock
+variances or recovered-shock covariances equal to their no-noise targets.*
 
-Let \(s_{ij}(B)=E\{z_i(B)z_j(B)\}\). The Gaussian-noise-blind moment stack uses
-only mixed cumulants of order three and four:
+Let \(s_{ij}(B)=E\{z_i(B)z_j(B)\}\). The Gaussian-noise-blind moment stack is
+written directly as moment equations:
 
 \begin{equation}
 G_H(B)=
 \begin{bmatrix}
-\kappa_{112}(B)\\
-\kappa_{122}(B)\\
-\kappa_{1112}(B)\\
-\kappa_{1122}(B)\\
-\kappa_{1222}(B)
+E\{z_1(B)^2z_2(B)\}\\
+E\{z_1(B)z_2(B)^2\}\\
+E\{z_1(B)^3z_2(B)\}-3s_{11}(B)s_{12}(B)\\
+E\{z_1(B)^2z_2(B)^2\}
+-s_{11}(B)s_{22}(B)-2s_{12}(B)^2\\
+E\{z_1(B)z_2(B)^3\}-3s_{22}(B)s_{12}(B)
 \end{bmatrix}.
 \label{eq:dw-higher-cumulant-moment-stack}
 \end{equation}
 
-For centered observations,
-
-\begin{equation}
-\kappa_{112}(B)=E\{z_1(B)^2z_2(B)\},
-\qquad
-\kappa_{122}(B)=E\{z_1(B)z_2(B)^2\},
-\end{equation}
-
-and the fourth-order restrictions are cumulants:
-
-\begin{equation}
-\begin{aligned}
-\kappa_{1112}(B)
-&=E\{z_1(B)^3z_2(B)\}-3s_{11}(B)s_{12}(B),\\
-\kappa_{1122}(B)
-&=E\{z_1(B)^2z_2(B)^2\}
--s_{11}(B)s_{22}(B)-2s_{12}(B)^2,\\
-\kappa_{1222}(B)
-&=E\{z_1(B)z_2(B)^3\}-3s_{22}(B)s_{12}(B).
-\end{aligned}
-\end{equation}
-
-The covariance terms \(s_{ij}(B)\) appear only because they are needed to
-compute fourth cumulants. They are not imposed as no-noise restrictions such
-as \(s_{12}(B)=0\) or \(s_{11}(B)=s_{22}(B)=1\). This is the central difference
-from standard DW under residual noise. The distinction matters because raw
+The first two entries are the centered third-product conditions. The last
+three entries are fourth-order conditions with the covariance-product
+subtractions required for Gaussian-noise robustness. The covariance terms
+\(s_{ij}(B)\) are nuisance quantities used to form those fourth-order moment
+conditions. They are not imposed as no-noise restrictions such as
+\(s_{12}(B)=0\) or \(s_{11}(B)=s_{22}(B)=1\). This is the central difference
+from standard DW under residual noise. The distinction matters because DW raw
 fourth products are shifted by Gaussian residual-noise covariance terms, while
-the corresponding fourth cumulants subtract those covariance-product terms.
+the robust fourth-order conditions subtract those covariance-product terms.
 
 *Definition 3 (`def:robust-dw-higher-moment-set`, variance-ratio robust DW
 set). For a researcher-chosen \(\rho\), the variance-ratio robust DW set is the
@@ -579,17 +568,17 @@ The set deliberately drops no-noise covariance factorization, unit-variance
 recovered-shock restrictions, and recovered-shock zero covariance as equality
 moments.*
 
-The pure higher-cumulant fallback is obtained by dropping the covariance
+The pure higher-moment fallback is obtained by dropping the covariance
 screen and keeping only \(R(B)\ge0\) and the \(G_H(B)\) inversion. It is the
-most validity-first object, but it can be wide because higher cumulants alone
+most validity-first object, but it can be wide because higher moments alone
 do not recover all second-moment scale information. The variance-ratio screen
 adds that information back only through an explicit signal-to-noise bound.
 
 *Proposition 3 (`prop:robust-dw-higher-moment-validity`, robust higher-moment
 validity). Under the normalized bivariate chart, independent structural
-shocks, Assumption 1, and the local higher-cumulant rank condition that each
-shock has at least one nonzero third or fourth cumulant in the stack, the true
-normalized impact matrix has \(G_H(B_0)=0\). If the true diagonal
+shocks, Assumption 1, and the local higher-moment rank condition that each
+shock has at least one informative third- or fourth-order entry in the stack,
+the true normalized impact matrix has \(G_H(B_0)=0\). If the true diagonal
 residual-noise variances also satisfy \(\nu_i\le\rho s_i\), then the true
 impact shape satisfies the variance-ratio covariance screen. The robust DW set
 therefore keeps the true impact matrix in the population target while using
@@ -597,10 +586,11 @@ non-Gaussianity to refine the noise-robust sign set.*
 
 The third row of Figure 1 illustrates the construction. It starts from the
 same sign restrictions as the standard procedure, allows residual noise up to
-the specified residual-noise-to-signal ratio, and then sharpens the remaining set
-with cumulants that Gaussian noise cannot shift. The result is not a uniformly
-smaller set. It is a different robustness object: precision is reported only
-when it survives the stated noise allowance and the higher-moment restrictions.
+the specified residual-noise-to-signal ratio, and then sharpens the remaining
+set with moment conditions that Gaussian noise cannot shift. The result is not
+a uniformly smaller set. It is a different robustness object: precision is
+reported only when it survives the stated noise allowance and the higher-moment
+restrictions.
 
 <!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, `derivations/m40-variance-ratio-robust-dw-screen-audit.md`, `simulations/sign_dw_relative_noise_robust_grid_figure.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
 <!-- TODO-NOTE: The 50 percent noise-to-shock variance bound is identifying information, not a normalization. Final theorem wording still needs the M25 proof audit and final replication packaging, but M45 has rebuilt the lightweight evidence for the current variance-ratio row. -->

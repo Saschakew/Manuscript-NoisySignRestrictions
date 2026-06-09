@@ -6,39 +6,38 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: M49 completed the source-first DW moment and noisy-product
-audit after the M48 failure. The exact bivariate Drautzburg-Wright GMM1 menu is
-now source-backed as `112`, `122`, `1112`, `1122`, and `1222`; GMM2 drops only
-the symmetric `1122` condition. The current Figure 1/Figure 2/Figure 3 and M45
-standard-DW rows remain historical hybrid evidence because the code uses
-covariance, `112`, `122`, and `1122`.
+Current stage: M0050 completed the M53 notation rewrite after the M49
+source-first DW moment and noisy-product audit. The exact bivariate
+Drautzburg-Wright GMM1 menu is source-backed as `112`, `122`, `1112`, `1122`,
+and `1222`; GMM2 drops only the symmetric `1122` condition. Section 3 now
+displays that menu with \(e_t(B)=B^{-1}u_t\) recovered-shock notation rather
+than `h_i(B)`, and Section 4 displays the robust stack as explicit moment
+equations with fourth-order covariance-product subtractions. The current
+Figure 1/Figure 2/Figure 3 and M45 standard-DW rows remain historical hybrid
+evidence because the code uses covariance, `112`, `122`, and `1122`.
 
-Current focus: clean the Section 3-4 moment notation, then rebuild the
-standard-DW evidence before relying on Figure 1 or Table 1 as source-correct
-DW evidence. The revised draft still conditionally passes the M34 adversarial
-scope, logic, and style review, and M49 now clears the source-moment menu and
-noisy-derivation gate. M53 should replace the Section 3 `h_i(B)` notation with
-`e_t(B)` and recast Section 4 robust conditions as moment equations; M52 must
-then repair the code and evidence path before the paper leans on the
-source-correct comparator.
+Current focus: rebuild the standard-DW evidence before relying on Figure 1 or
+Table 1 as source-correct DW evidence. The revised draft still conditionally
+passes the M34 adversarial scope, logic, and style review, M49 clears the
+source-moment menu and noisy-derivation gate, and M0050 clears the M53 notation
+gate. M52 must now repair the code and evidence path before the paper leans on
+the source-correct comparator.
 
-Next recommended action: run M53, then M52 before M47. Execute
-`manuscript/tasks/M53-dw-and-robust-moment-notation-rewrite.md` to clean the
-DW and robust moment notation in Sections 3-4. Then execute
+Next recommended action: run M52 before M47. Execute
 `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`; decide whether to
 keep the common `diag(B)=1` B-plane chart with a source-correct higher menu or
 ask for the larger unit-variance/rotation-chart rebuild. After the
 standard-DW evidence is source-correct, M47 can audit the M25 J-test proof
 gate. Keep M33 queued for the manuscript-local replication wrapper.
 
-Active milestone: none. M0049 planned M53, the packet-backed notation rewrite
-task, and created GitHub milestone 45 for the same work block. M0048 closed
-the M49 DW source audit and created GitHub milestone 44. M0047 made the
-manuscript skill explicitly packet-aware for `work on next task` and
-`plan next tasks` prompts. M0046 added task hand-off packets so high-risk
-scientific tasks are no longer stored only as compressed task-board rows.
-M0045 previously hardened the scientific claim workflow and quarantined
-unreliable M48 conclusions.
+Active milestone: none. M0050 completed M53 and created GitHub milestone 46 for
+the notation rewrite work block. M0049 planned M53 and created GitHub milestone
+45 for the planning block. M0048 closed the M49 DW source audit and created
+GitHub milestone 44. M0047 made the manuscript skill explicitly packet-aware
+for `work on next task` and `plan next tasks` prompts. M0046 added task
+hand-off packets so high-risk scientific tasks are no longer stored only as
+compressed task-board rows. M0045 previously hardened the scientific claim
+workflow and quarantined unreliable M48 conclusions.
 
 Active blockers:
 
@@ -46,7 +45,7 @@ Active blockers:
   `diag(B)=1`, the off-diagonal covariance equation is
   `Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2`, not `b12+b21`, unless unit shock
   variances are imposed as an extra scale normalization. The active robust-DW
-  fallback is the pure five-moment higher-cumulant stack.
+  fallback is the pure five-moment higher-moment stack.
 - The M25 standard-DW J-test inversion result is only a working derivation; M28
   supports the high-noise divergence story, but the derivation still needs a
   direct audit before theorem-level prose.
@@ -102,8 +101,9 @@ Active blockers:
   the current Figure 1, Figure 2, Figure 3, or M45 standard-DW rows as
   source-correct DW evidence until M52 rebuilds them.
 
-Last substantive session: 2026-06-09, completed M49 source and noisy-moment
-audit and created M52 as the packet-backed standard-DW source-correct rebuild.
+Last substantive session: 2026-06-09, completed M53 by rewriting Sections 3-4
+notation around \(e_t(B)\) and explicit robust moment equations; M52 remains
+the packet-backed standard-DW source-correct rebuild.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

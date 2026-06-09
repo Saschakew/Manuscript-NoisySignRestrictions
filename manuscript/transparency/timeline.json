@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-09T10:57:06Z",
+  "updated_at": "2026-06-09T11:44:10Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1039,6 +1039,28 @@
         "milestone_number": 45,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/45",
         "tag_name": "manuscript-milestones/M0049-plan-dw-notation-rewrite"
+      }
+    },
+    {
+      "id": "M0050-m53-dw-and-robust-moment-notation-rewrite",
+      "sequence": 50,
+      "title": "M53 DW and robust moment notation rewrite",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T11:12:28Z",
+      "closed_at": "2026-06-09T11:44:09Z",
+      "start_commit": "c98b98980f306950b57850eca6b394ef3f230ce5",
+      "snapshot_ref": "manuscript-milestones/M0050-m53-dw-and-robust-moment-notation-rewrite",
+      "summary": "Completed M53 notation rewrite: Section 3 now uses e_t(B) recovered-shock notation for the source-correct DW menu, and Section 4 now displays the robust stack as explicit moment equations with fourth-order covariance-product subtractions.",
+      "user_input_ids": [
+        "U0050-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0050-m53-dw-and-robust-moment-notation-rewrite.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 46,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/46",
+        "tag_name": "manuscript-milestones/M0050-m53-dw-and-robust-moment-notation-rewrite"
       }
     }
   ]

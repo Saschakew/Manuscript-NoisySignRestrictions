@@ -18,8 +18,8 @@ decisions.
   variances by normalization. The paper should keep the notation close to this
   SVAR object while preserving M49's distinction between DW raw fourth-product
   conditions and the robust fourth-order covariance-product subtractions.
-- Consequence for next work: M53 has been created as a packet-backed task to
-  execute this notation rewrite before returning to the M52 evidence rebuild.
+- Consequence for next work: M0050 executed the packet-backed M53 notation
+  rewrite. The paper can now return to the M52 evidence rebuild.
 - User input: U0049.
 
 ### 2026-06-09 - Source-correct DW menu requires evidence rebuild

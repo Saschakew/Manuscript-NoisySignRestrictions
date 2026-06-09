@@ -1,12 +1,12 @@
 # M53 DW And Robust Moment Notation Rewrite
 
-Status: `todo`
+Status: `done`
 
 Priority: 1
 
 Task-board row: `M53`
 
-Transparency milestone: pending
+Transparency milestone: `M0050-m53-dw-and-robust-moment-notation-rewrite`
 
 ## Original User Prompt
 
@@ -64,11 +64,11 @@ rather than foregrounding cumulant notation.
 
 | Claim | Required status | Evidence required | Result |
 |---|---|---|---|
-| Section 3 should use `e_t(B)=B^{-1}u_t` rather than a new `h_i(B)` notation for the DW moment display. | `user-decision` plus `derived` | User instruction and Section 2 definition; no-noise identity `e_t(B0)=epsilon_t`. | pending |
-| At the true no-noise impact matrix, `e_t(B0)=epsilon_t`, and `epsilon_t` is mean zero with unit variances by normalization. | `derived` | Section 2 model equations. | pending |
-| The Section 3 DW moment display must remain source-correct: GMM1 has `112`, `122`, `1112`, `1122`, and `1222`; GMM2 drops only `1122`. | `raw-source` or `derived-from-M49` | M49 audit and Drautzburg-Wright source path recorded there. | pending |
-| Section 4 can present the robust restrictions as explicit moment equations rather than visible cumulant symbols. | `user-decision` plus `derived` | User instruction plus M49/M24/M40 derivations showing which covariance-product subtractions are required. | pending |
-| Replacing cumulant notation in Section 4 does not license replacing robust fourth conditions with DW raw fourth-product moments. | `derived` | M49 noisy-product derivations and `dw-noise-robust-moments.md`. | pending |
+| Section 3 should use `e_t(B)=B^{-1}u_t` rather than a new `h_i(B)` notation for the DW moment display. | `user-decision` plus `derived` | User instruction and Section 2 definition; no-noise identity `e_t(B0)=epsilon_t`. | passed in M0050 draft rewrite |
+| At the true no-noise impact matrix, `e_t(B0)=epsilon_t`, and `epsilon_t` is mean zero with unit variances by normalization. | `derived` | Section 2 model equations. | passed in M0050 draft rewrite |
+| The Section 3 DW moment display must remain source-correct: GMM1 has `112`, `122`, `1112`, `1122`, and `1222`; GMM2 drops only `1122`. | `raw-source` or `derived-from-M49` | M49 audit and Drautzburg-Wright source path recorded there. | passed; menu preserved |
+| Section 4 can present the robust restrictions as explicit moment equations rather than visible cumulant symbols. | `user-decision` plus `derived` | User instruction plus M49/M24/M40 derivations showing which covariance-product subtractions are required. | passed in M0050 draft rewrite |
+| Replacing cumulant notation in Section 4 does not license replacing robust fourth conditions with DW raw fourth-product moments. | `derived` | M49 noisy-product derivations and `dw-noise-robust-moments.md`. | passed; fourth-order covariance-product subtractions are displayed |
 
 ## Required Work
 
@@ -140,4 +140,11 @@ rather than foregrounding cumulant notation.
 
 ## Outcome Log
 
-Pending.
+M0050 completed the notation rewrite. Section 3 now uses the existing
+recovered-shock notation \(e_t(B)=B^{-1}u_t\) in the source-correct bivariate
+DW GMM1 display, states the no-noise identity \(e_t(B_0)=\varepsilon_t\), and
+keeps source-standardization as prose rather than a new headline variable.
+Section 4 now displays \(G_H(B)\) directly as moment equations: two centered
+third-product entries and three fourth-order entries with the required
+covariance-product subtractions. The rewrite did not touch figures, Monte
+Carlo outputs, or the M52 evidence rebuild gate.

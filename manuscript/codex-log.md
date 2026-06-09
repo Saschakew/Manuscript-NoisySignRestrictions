@@ -11,6 +11,25 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-09 - M0050 M53 notation rewrite
+
+- Request: user asked Codex to work on task M53.
+- Actions taken: opened M0050 and GitHub milestone 46; rewrote Section 3 so
+  the source-correct DW GMM1/GMM2 menu uses \(e_t(B)=B^{-1}u_t\) recovered
+  shocks instead of `h_i(B)`; rewrote Section 4 so the robust stack is shown as
+  explicit moment equations with the fourth-order covariance-product
+  subtractions visible.
+- Files changed: draft, formal registry, task packet, task board, dashboard,
+  paper map, workplan, human-readable logs, and transparency files.
+- Checks run: `python -m json.tool manuscript/formal-object-registry.json`
+  passed; `python scripts/check_manuscript.py` passed with the expected
+  open-milestone warning before closure; `git diff --check` passed with
+  line-ending warnings only; a scoped notation search confirmed no `h_i`,
+  `h_1`, `h_2`, `kappa`, or `\kappa` remain in `draft.md`.
+- Open uncertainties: M52 still must rebuild the standard-DW figure and Monte
+  Carlo evidence with the source-correct DW moment menu; M47 proof audit remains
+  downstream of that evidence repair.
+
 ### 2026-06-09 - M0049 Plan DW notation rewrite
 
 - Request: user asked Codex to plan a task replacing the Section 3 `h_i(B)`
