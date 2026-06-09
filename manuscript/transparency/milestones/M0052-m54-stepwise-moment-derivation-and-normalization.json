@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "id": "M0052-m54-stepwise-moment-derivation-and-normalization",
+  "sequence": 52,
+  "title": "M54 stepwise moment derivation and normalization audit",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-09T14:20:26Z",
+  "closed_at": "2026-06-09T14:31:52Z",
+  "start_commit": "e580a3e56dc612836657f1f906f2a0692c07e151",
+  "snapshot_ref": "manuscript-milestones/M0052-m54-stepwise-moment-derivation-and-normalization",
+  "summary": "Derived the requested transformed-noise moments step by step at B=B0, distinguished general residual-noise moments from Gaussian covariance-product simplifications, retained the manuscript in the common diag(B)=1 chart, and updated the M52 handoff plus planning surfaces.",
+  "user_inputs": [
+    {
+      "id": "U0052-001",
+      "milestone_id": "M0052-m54-stepwise-moment-derivation-and-normalization",
+      "captured_at": "2026-06-09T14:20:26Z",
+      "source": "chat",
+      "text": "Work on task M54: derive transformed-noise moments step by step at B=B0, distinguish independent residual noise from Gaussian covariance-product simplifications, and decide whether the manuscript keeps diag(B)=1 or needs a unit-variance/rotation-chart rewrite task."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0052-001",
+      "milestone_id": "M0052-m54-stepwise-moment-derivation-and-normalization",
+      "captured_at": "2026-06-09T14:31:52Z",
+      "description": "Added manuscript/derivations/m54-stepwise-transformed-noise-moments.md, patched draft.md, and updated task-board, dashboard, paper-map, source-packet, workplan, decision-log, session-log, codex-log, and formal-object-registry.json to reflect the retained chart choice and the unblocked M52 rebuild."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-09T14:31:52Z",
+      "description": "python scripts/check_manuscript.py: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/m54-stepwise-transformed-noise-moments.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M52-standard-dw-source-correct-rebuild.md",
+    "manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0052-m54-stepwise-moment-derivation-and-normalization.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "",
+    "milestone_number": null,
+    "milestone_url": "",
+    "tag_name": "manuscript-milestones/M0052-m54-stepwise-moment-derivation-and-normalization"
+  }
+}

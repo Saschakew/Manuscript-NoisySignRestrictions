@@ -1068,3 +1068,22 @@ machine-readable milestone in `transparency/milestones/`.
 - Open uncertainties: M08 must still attack the applicability argument, and
   M09/M12 must derive and verify the profiled criteria before any robust
   inversion claim is draftable.
+
+### 2026-06-09 - M54 transformed-noise derivation and normalization audit
+
+- Request: work on task M54.
+- Actions taken: wrote a new derivation note for the requested transformed-
+  noise moments at `B=B0`, patched the draft to point to the stepwise
+  expansions, and updated the planning surfaces to keep the manuscript in the
+  common `diag(B)=1` chart.
+- Files changed: `manuscript/derivations/m54-stepwise-transformed-noise-moments.md`,
+  `manuscript/draft.md`, `manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/source-packet.md`,
+  `manuscript/workplan.md`, `manuscript/decision-log.md`,
+  `manuscript/session-log.md`, and transparency milestone files.
+- Checks run: not yet; manuscript check will run after the remaining planning
+  surfaces are verified.
+- Open uncertainties: M52 still needs the source-correct standard-DW rebuild;
+  the M25 proof audit remains pending afterward.

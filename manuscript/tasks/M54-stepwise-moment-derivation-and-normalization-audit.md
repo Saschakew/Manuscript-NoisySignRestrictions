@@ -1,12 +1,12 @@
 # M54 Stepwise Moment Derivation And Normalization Audit
 
-Status: `todo`
+Status: `done`
 
 Priority: 1
 
 Task-board row: `M54`
 
-Transparency milestone: pending
+Transparency milestone: `M0052-m54-stepwise-moment-derivation-and-normalization`
 
 ## Original User Prompt
 
@@ -214,4 +214,14 @@ consistently; this should not happen silently inside a local derivation edit.
 
 ## Outcome Log
 
-Pending.
+### 2026-06-09
+
+- Outcome: completed the stepwise transformed-noise moment derivation and the
+  normalization audit.
+- Derivation note: `manuscript/derivations/m54-stepwise-transformed-noise-moments.md`.
+- Normalization decision: keep the manuscript in the common `diag(B)=1` chart
+  for the first paper; treat the source-native DW unit-variance scaling as an
+  internal recovered-shock standardization, not a manuscript-wide chart
+  switch.
+- Downstream consequence: M52 can proceed as the source-correct standard-DW
+  rebuild in the retained common chart.

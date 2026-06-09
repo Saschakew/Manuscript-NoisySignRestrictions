@@ -521,6 +521,11 @@ z_t(B)=B^{-1}u_t
 =B^{-1}B_0\varepsilon_t+B^{-1}\eta_t .
 \end{equation}
 
+At the truth, \(z_t(B_0)=\varepsilon_t+\xi_t\) with
+\(\xi_t=B_0^{-1}\eta_t\). The step-by-step expansions behind the displayed
+moment equations are recorded in
+`manuscript/derivations/m54-stepwise-transformed-noise-moments.md`.
+
 The robust higher-moment route uses the following maintained condition.
 
 *Assumption 1 (`ass:gaussian-residual-noise`, robust-noise condition). The
@@ -555,6 +560,11 @@ conditions. They are not imposed as no-noise restrictions such as
 from standard DW under residual noise. The distinction matters because DW raw
 fourth products are shifted by Gaussian residual-noise covariance terms, while
 the robust fourth-order conditions subtract those covariance-product terms.
+
+M54 keeps the manuscript in the common `diag(B)=1` chart. The source-native
+DW unit-variance scaling is internal to the recovered-shock standardization in
+Section 3; it does not require a manuscript-wide rotation-chart switch for the
+first paper.
 
 *Definition 3 (`def:robust-dw-higher-moment-set`, variance-ratio robust DW
 set). For a researcher-chosen \(\rho\), the variance-ratio robust DW set is the

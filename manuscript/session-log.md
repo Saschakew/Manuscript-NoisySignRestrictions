@@ -852,3 +852,21 @@ For traceable work blocks, pair this human-readable note with a closed
   when `L=2`. Defined the manuscript object as a BR-style profiled inversion.
 - Next recommended action: run M08 by attacking this applicability argument
   before deriving profiled criteria in M09.
+
+### 2026-06-09 - Complete M54 stepwise transformed-noise derivation
+
+- Request or goal: work on task M54.
+- Files changed: `manuscript/derivations/m54-stepwise-transformed-noise-moments.md`,
+  `manuscript/draft.md`, `manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/source-packet.md`,
+  `manuscript/workplan.md`, `manuscript/decision-log.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/codex-log.md`,
+  and transparency milestone files.
+- Summary of work: derived the requested transformed-noise moments step by
+  step at `B=B0`, separated transformed-noise remainders from Gaussian
+  covariance-product simplifications, and recorded the normalization decision
+  to keep the manuscript in the common `diag(B)=1` chart.
+- Next recommended action: run M52 in the retained common chart to rebuild the
+  source-correct standard-DW evidence path.

@@ -27,9 +27,9 @@
     {
       "id": "ass:unit-variance-normalization",
       "type": "assumption",
-      "status": "revised-in-draft-after-m0038",
+      "status": "retained-in-draft-after-m54",
       "draft_location": "draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "Scale must be fixed once, not twice. M0034 flags that the manuscript cannot simultaneously use the diagonal-normalized chart diag(B)=1 and also impose unit shock variances when deriving second-order restrictions. M0038 Section 4 now sketches the active route: profile shock variances and residual-noise variances in a diagonal-normalized chart, while keeping pure higher cumulants as the validity backbone. M0051 planned M54 to audit whether the manuscript should retain this chart or create a separate unit-variance/rotation-chart rewrite task.",
+      "description": "Scale must be fixed once, not twice. M0034 flags that the manuscript cannot simultaneously use the diagonal-normalized chart diag(B)=1 and also impose unit shock variances when deriving second-order restrictions. M0038 Section 4 sketches the active route: profile shock variances and residual-noise variances in a diagonal-normalized chart, while keeping pure higher cumulants as the validity backbone. M54 audited the requested transformed-noise moments, retained the diag(B)=1 chart for the first paper, and treated the source-native DW unit-variance scaling as internal recovered-shock standardization rather than a manuscript-wide rewrite.",
       "depends_on": [
         "def:diagonal-noise-svar"
       ],
@@ -369,14 +369,9 @@
   ],
     "open_audits": [
         {
-            "id": "audit:m54-stepwise-moment-derivation-and-normalization",
-            "status": "open",
-            "question": "Execute manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md: derive the requested transformed-noise moment patterns step by step at B=B0, distinguish independent residual components from Gaussian transformed-noise covariance-product simplifications, and decide whether the manuscript keeps diag(B)=1 or creates a separate unit-variance/rotation-chart rewrite task before M52."
-        },
-        {
             "id": "audit:m52-standard-dw-source-correct-rebuild",
             "status": "open",
-            "question": "After M54 resolves the derivation and normalization gate, execute manuscript/tasks/M52-standard-dw-source-correct-rebuild.md: rebuild Figure 1, Figure 2, Figure 3, and M45-style Monte Carlo evidence with the chosen source-correct standard-DW comparator."
+            "question": "M54 has resolved the derivation and normalization gate; execute manuscript/tasks/M52-standard-dw-source-correct-rebuild.md: rebuild Figure 1, Figure 2, Figure 3, and M45-style Monte Carlo evidence with the chosen source-correct standard-DW comparator."
         },
         {
             "id": "audit:standard-dw-j-test-gate",

@@ -870,3 +870,22 @@ decisions.
 - Consequence for next work: The next work block should derive the bivariate
   cumulant system, run adversarial derivation reviews, build verification
   simulations, and only then draft the BR-style result.
+
+### 2026-06-09 - Keep the manuscript in the common `diag(B)=1` chart
+
+- Origin: M54 stepwise transformed-noise derivation and normalization audit.
+- User input id: U0052
+- Codex role: analyzed and recorded the normalization decision.
+- Decision: The manuscript keeps the common `diag(B)=1` chart for the first
+  paper. The source-native DW unit-variance scaling stays internal to the
+  recovered-shock standardization in the moment menu and does not trigger a
+  manuscript-wide rotation-chart rewrite.
+- Rationale: The stepwise derivation shows the requested transformed-noise
+  moments can be audited without changing the plotting chart, and the active
+  variance-ratio screen already profiles structural and residual-noise
+  variances in the common chart.
+- Alternatives considered: switching the manuscript to the DW covariance-
+  normalized `Var(epsilon)=I` chart before the evidence rebuild.
+- Consequence for next work: M52 should rebuild the source-correct
+  standard-DW evidence in the retained common chart; any future unit-variance
+  chart rewrite would require a separate user decision.

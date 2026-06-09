@@ -25,9 +25,10 @@ DW evidence. M0046 introduces durable task hand-off packets under
 `work on next task` and `plan next tasks` prompts; M0049 planned M53 and M0050
 completed it by replacing the Section 3 `h_i(B)` display with `e_t(B)` and
 rewriting Section 4 robust conditions as moment equations before the paper
-returns to evidence work. M0051 now inserts M54 before M52 so the
-transformed-noise moment derivation and normalization choice are audited before
-the source-correct evidence rebuild.
+returns to evidence work. M0051 inserted M54 before M52 so the transformed-
+noise moment derivation and normalization choice could be audited before the
+source-correct evidence rebuild; M54 is now complete and keeps the manuscript
+in the common `diag(B)=1` chart.
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
@@ -68,9 +69,9 @@ dynamic impulse responses.
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; M49 source-audited the DW GMM1/GMM2 moment menu and noisy product derivations; M54 must now supply the stepwise transformed-noise moment derivation and normalization audit; M47 still needs to audit the M25 standard-DW proof gate after M52 repairs the source-correct evidence path. |
-| M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo; M0042 completed the M34 adversarial evidence-language review. M49 now shows the standard-DW evidence row is a historical hybrid, so M54 must first settle the derivation/normalization gate and M52 must then rebuild the figures/MC before final evidence claims, followed by final replication packaging and, if needed, a heavier run. |
-| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040 updated figures and evidence; M0042 completed the M34 logic/style review and drafted the conclusion; M0050 completed the Section 3-4 notation rewrite requested after M49. Remaining draft gates are M54 derivation/normalization audit, M52 evidence repair, the M25 proof audit, M33 replication wrapper, references cleanup, and export preparation. |
+| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; M49 source-audited the DW GMM1/GMM2 moment menu and noisy product derivations; M54 completed the stepwise transformed-noise derivation and kept the manuscript in `diag(B)=1`; M47 still needs to audit the M25 standard-DW proof gate after M52 repairs the source-correct evidence path. |
+| M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo; M0042 completed the M34 adversarial evidence-language review. M49 now shows the standard-DW evidence row is a historical hybrid, so M54 has settled the derivation/normalization gate and M52 must now rebuild the figures/MC before final evidence claims, followed by final replication packaging and, if needed, a heavier run. |
+| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040 updated figures and evidence; M0042 completed the M34 logic/style review and drafted the conclusion; M0050 completed the Section 3-4 notation rewrite requested after M49; M54 completed the transformed-noise derivation and normalization audit. Remaining draft gates are M52 evidence repair, the M25 proof audit, M33 replication wrapper, references cleanup, and export preparation. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
 
@@ -85,21 +86,22 @@ dynamic impulse responses.
    obstruction, and intuition in the first figure.
 4. Standard-DW misspecification review: M49 recovered the exact DW GMM1/GMM2
    moment object from raw source and derived the requested noisy product
-   moments. M0050 cleaned the Section 3-4 notation. Next execute M54 to audit
-   the stepwise transformed-noise moment derivation and chart normalization,
-   then execute `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md` to
-   repair the standard-DW evidence path, then run M47 to prove or weaken the
-   claim that the population DW set becomes empty under residual noise and list
-   special cases.
+   moments. M0050 cleaned the Section 3-4 notation. M54 completed the
+   stepwise transformed-noise moment derivation and confirmed the retained
+   `diag(B)=1` chart, so execute
+   `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md` to repair the
+   standard-DW evidence path, then run M47 to prove or weaken the claim that
+   the population DW set becomes empty under residual noise and list special
+   cases.
 5. Robust-DW derivation review: M40 conditionally passed the M0036 relative
    covariance-decomposition screen, including algebra, finite-sample
    equality-plus-inequality behavior, and the substantive interpretation of
     the 50 percent noise-to-shock variance bound. M0050 made the robust
    restrictions read as moment conditions rather than visible cumulant notation
-   while preserving the fourth-order covariance-product subtractions. M54 must
-   now show the intermediate expansion steps and decide whether the current
-   `diag(B)=1` chart remains the right reporting chart. Future review should
-   focus on final-claim wording for the hard finite-sample screen.
+   while preserving the fourth-order covariance-product subtractions. M54
+   completed the intermediate expansion steps and kept the current
+   `diag(B)=1` chart. Future review should focus on final-claim wording for
+   the hard finite-sample screen.
 6. Diagnostic interpretation review: use the M27 directional metric and verify
    that DW-versus-robust-DW divergence is described as a warning, not proof of
    literal measurement error.
