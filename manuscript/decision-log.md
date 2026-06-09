@@ -5,6 +5,28 @@ decisions.
 
 ## Entries
 
+### 2026-06-09 - Keep standard co-moments separate from robust cumulants
+
+- Origin: M48 audit of the user's DW fourth-order moment and normalization
+  comments.
+- User input id: U0044
+- Decision: Describe the standard-DW comparator as a standardized
+  co-skewness/co-kurtosis product-moment test, not as a fourth-cumulant test.
+  Keep the robust DW construction as a higher-cumulant stack because cumulant
+  subtraction removes the Gaussian residual-noise covariance shifts in raw
+  fourth products.
+- Normalization decision: keep the common `diag(B)=1` impact-shape chart and
+  profile structural-shock variances in the variance-ratio covariance screen.
+  Do not migrate the active manuscript to a unit-variance impact chart.
+- Rationale: Drautzburg and Wright's source defines co-skewness/co-kurtosis as
+  standardized product moments with Gaussian-Isserlis targets. Figure 1's
+  standard-DW row already implements the bivariate raw-product subset. The
+  robust row is different by design: raw fourth products are noise-shifted,
+  while mixed fourth cumulants remain Gaussian-noise-blind.
+- Consequence for next work: M48 is done. M47 should audit the standard-DW
+  proof gate. No figure rebuild is required unless a later task adds singleton
+  fourth-product moments to the standard-DW row.
+
 ### 2026-06-08 - Use residual-noise-to-signal wording for the variance-ratio screen
 
 - Origin: M34 adversarial scope, logic, and style review.

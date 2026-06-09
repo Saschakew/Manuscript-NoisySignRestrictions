@@ -86,7 +86,7 @@
       "type": "definition",
       "status": "rewritten-in-draft-after-m0041",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#3-drautzburg-wright-refinement-under-noise",
-      "description": "M27 common-chart reported standard-DW set: sign-admissible normalized candidates whose standardized recovered shocks pass a J-test stack containing the no-noise covariance moment and finite higher-moment independence restrictions. M0041 rewrote Section 3 to first explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, then show how residual noise breaks the same moment stack.",
+      "description": "M27 common-chart reported standard-DW set, corrected by M48: sign-admissible normalized candidates whose standardized recovered shocks pass a J-test stack containing the no-noise covariance moment and standardized co-skewness/co-kurtosis product targets. M0041 rewrote Section 3 to first explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, and M48 corrected the fourth-order language from cumulants to raw standardized product moments.",
       "depends_on": [
         "def:noisy-sign-pseudo-set"
       ],
@@ -112,13 +112,13 @@
       "type": "equation",
       "status": "sketched-in-draft-needs-audit",
       "draft_location": "derivations/standard-dw-j-test-under-noise.md; draft.md#3-drautzburg-wright-refinement-under-noise",
-      "description": "Sample J-test inversion for the standard no-noise DW moment stack g_DW(B), including recovered-shock covariance plus mixed third moments and fourth cumulants. M0041 rewrote the equation over general candidate B before discussing the covariance-factor rotation case.",
+      "description": "Sample J-test inversion for the standard no-noise DW moment stack g_DW(B), including recovered-shock covariance plus standardized mixed third product moments and the bivariate mixed-pair fourth product target E(e_1^2 e_2^2)-1. M48 corrected the draft and registry because DW's source defines co-skewness/co-kurtosis product moments, not fourth cumulants.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "prop:standard-dw-misspecification"
       ],
       "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md",
-      "verification_status": "M25 working derivation complete; needs early MC and audit before draft theorem wording",
+      "verification_status": "M25 working derivation complete; M48 moment-definition audit complete; still needs M47 proof audit before draft theorem wording",
       "source": "manuscript/derivations/standard-dw-j-test-under-noise.md"
     },
     {
@@ -141,12 +141,12 @@
       "type": "equation",
       "status": "rewritten-in-draft-after-m0041",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "Moment-equation representation of the robust DW stack after M0034: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with transformed second moments entering only as covariance products inside fourth cumulants. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1. M0038 inserted the five-moment stack and fourth-cumulant formulas in Section 4.",
+      "description": "Moment-equation representation of the robust DW stack after M0034 and M48: third mixed central moments and fourth mixed cumulants of z(B)=B^{-1}u, with transformed second moments entering only as covariance products inside fourth cumulants. M48 confirms this differs deliberately from the standard-DW co-kurtosis product comparator because raw fourth products are shifted by Gaussian residual-noise covariance terms. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1.",
       "depends_on": [
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 as the pointwise guide in the M45 evidence rebuild.",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth cumulants with covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments and uses chi2_5 as the pointwise guide in the M45 evidence rebuild. M48 confirmed the cumulant/product distinction and kept the robust stack unchanged.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md"
     },
     {

@@ -11,6 +11,25 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-09 - M48 DW moment-normalization audit
+
+- Request: work on the manuscript in goal mode and pick the next task.
+- Actions taken: selected M48, opened M0044, created GitHub milestone 40,
+  wrote `manuscript/derivations/m48-dw-moment-normalization-audit.md`,
+  corrected Section 3 from fourth-cumulant language to standardized
+  co-skewness/co-kurtosis product moments, and updated planning/provenance
+  surfaces.
+- Files changed: `manuscript/derivations/m48-dw-moment-normalization-audit.md`,
+  `manuscript/draft.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/task-board.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/workplan.md`, logs, and
+  the M0044 transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed.
+- Open uncertainties: M47 still needs to audit the standard-DW generic
+  emptying proof. No figure rebuild was required by M48 unless a later task
+  chooses to add singleton fourth-product moments to the standard-DW row.
+
 ### 2026-06-08 - M0043 Track DW moment comments
 
 - Request: user asked Codex to insert a task for comments questioning the

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "id": "M0044-resolve-dw-moment-normalization",
+  "sequence": 44,
+  "title": "Resolve DW moment normalization",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-09T06:34:26Z",
+  "closed_at": "2026-06-09T06:40:39Z",
+  "start_commit": "247e3ee1e6b17055e5138c7bc09a37bf8c6bad4e",
+  "snapshot_ref": "manuscript-milestones/M0044-resolve-dw-moment-normalization",
+  "summary": "Resolved M48 by auditing DW moment definitions, Figure 1 implementation, noisy truth product moments, and the normalization chart.",
+  "user_inputs": [
+    {
+      "id": "U0044-001",
+      "milestone_id": "M0044-resolve-dw-moment-normalization",
+      "captured_at": "2026-06-09T06:34:26Z",
+      "source": "chat",
+      "text": "Work on the next manuscript task in goal mode by resolving M48: verify DW fourth-order moment definitions, compare Figure 1 implementation, derive noisy truth moments, decide the normalization chart, and list rebuild implications."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0044-001",
+      "milestone_id": "M0044-resolve-dw-moment-normalization",
+      "captured_at": "2026-06-09T06:40:39Z",
+      "description": "Created manuscript/derivations/m48-dw-moment-normalization-audit.md."
+    },
+    {
+      "id": "A0044-002",
+      "milestone_id": "M0044-resolve-dw-moment-normalization",
+      "captured_at": "2026-06-09T06:40:39Z",
+      "description": "Corrected Section 3 from fourth-cumulant standard-DW language to standardized co-skewness/co-kurtosis product moments."
+    },
+    {
+      "id": "A0044-003",
+      "milestone_id": "M0044-resolve-dw-moment-normalization",
+      "captured_at": "2026-06-09T06:40:39Z",
+      "description": "Updated registry, planning surfaces, provenance, review, decision, session, and Codex logs; kept robust DW as a cumulant stack in the diag(B)=1 chart."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-09T06:40:39Z",
+      "description": "python scripts/check_manuscript.py: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/m48-dw-moment-normalization-audit.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/review-log.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0044-resolve-dw-moment-normalization.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 40,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/40",
+    "tag_name": "manuscript-milestones/M0044-resolve-dw-moment-normalization"
+  }
+}

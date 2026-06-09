@@ -130,6 +130,37 @@ Suggested passes:
 - Literature positioning.
 - Reader path.
 
+## M48 DW Moment Definition And Normalization Audit
+
+Scope: `manuscript/derivations/m48-dw-moment-normalization-audit.md`,
+`manuscript/draft.md`, the Drautzburg-Wright vault note/raw markdown, and the
+Figure 1/M45 simulation code.
+
+Detailed audit: `manuscript/derivations/m48-dw-moment-normalization-audit.md`.
+
+Checklist outcome:
+
+- DW source moment definition: corrected. DW's GMM comparator uses
+  standardized co-skewness and co-kurtosis product moments with
+  Gaussian-Isserlis fourth-product targets, not fourth cumulants.
+- Figure 1 implementation: passed. The standard-DW row uses demeaned and
+  standardized recovered shocks with moment powers `(1,1)`, `(2,1)`, `(1,2)`,
+  and `(2,2)`, targeting `1` only for `(2,2)`.
+- Noisy raw-product formulas: derived. At `B=B0`, mixed third raw products
+  remain zero under independent Gaussian residual noise, while fourth raw
+  products are shifted by covariance products such as `3 S_ii S_ij` and
+  `S_ii S_jj + 2 S_ij^2`.
+- Robust cumulant route: reaffirmed. Section 4's cumulants subtract these
+  covariance-product terms and therefore remain the Gaussian-noise-blind
+  higher-moment object.
+- Normalization: passed with decision. Keep the `diag(B)=1` common B-plane and
+  profile structural variances in the variance-ratio screen; do not migrate
+  the current evidence spine to a unit-variance impact chart.
+
+Decision: M48 is complete for the draft gate. M47 remains open because this
+audit fixes moment definitions and normalization, not the rich-stack
+misspecification proof.
+
 ## M24 Robust DW Derivation Audit
 
 Scope: `manuscript/derivations/dw-noise-robust-moments.md`.

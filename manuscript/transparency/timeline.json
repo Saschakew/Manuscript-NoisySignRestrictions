@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-08T13:05:41Z",
+  "updated_at": "2026-06-09T06:40:39Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -907,6 +907,28 @@
         "milestone_number": null,
         "milestone_url": "",
         "tag_name": "manuscript-milestones/M0043-track-dw-moment-comments"
+      }
+    },
+    {
+      "id": "M0044-resolve-dw-moment-normalization",
+      "sequence": 44,
+      "title": "Resolve DW moment normalization",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T06:34:26Z",
+      "closed_at": "2026-06-09T06:40:39Z",
+      "start_commit": "247e3ee1e6b17055e5138c7bc09a37bf8c6bad4e",
+      "snapshot_ref": "manuscript-milestones/M0044-resolve-dw-moment-normalization",
+      "summary": "Resolved M48 by auditing DW moment definitions, Figure 1 implementation, noisy truth product moments, and the normalization chart.",
+      "user_input_ids": [
+        "U0044-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0044-resolve-dw-moment-normalization.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 40,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/40",
+        "tag_name": "manuscript-milestones/M0044-resolve-dw-moment-normalization"
       }
     }
   ]

@@ -8,31 +8,26 @@ KnowledgeVault link: `../knowledge-vault-link.json`
 
 Current stage: the first figure-led drafting pass is now revised around the
 M0036 variance-ratio robust DW proposal and the M0041 revision comments.
-M0041 rewrote the abstract, introduction, and Sections 2-4 so the front half
-starts from SVAR-reader language: no-noise sign restrictions, recovered-shock
-orthogonality, residual-noise bias, DW's no-noise higher-moment refinement,
-and the variance-ratio robust construction. M0040 remains the current
-evidence rebuild for Figure 2, Figure 3, and the lightweight M45 Monte Carlo
-pass.
+M0044 completed M48's moment-definition and normalization gate: standard DW is
+now described as a standardized co-skewness/co-kurtosis product-moment
+comparator, while the robust construction remains a Gaussian-noise-blind
+higher-cumulant stack in the diagonal-normalized chart. M0040 remains the
+current evidence rebuild for Figure 2, Figure 3, and the lightweight M45 Monte
+Carlo pass.
 
-Current focus: move from M34 review into the hard gates. The revised draft now
-conditionally passes the adversarial scope, logic, and style review after
-claim-tightening edits, but M48 must first reconcile the standard-DW moment
-definition, noisy higher-moment derivations, Figure 1 implementation, and
+Current focus: move from M48 into the remaining hard gates. The revised draft
+now conditionally passes the adversarial scope, logic, and style review after
+claim-tightening edits, and M48 has reconciled the standard-DW moment
+definition, noisy fourth-product formulas, Figure 1 implementation, and
 normalization chart. The M47 standard-DW J-test proof audit remains open, and
 the evidence package is still lightweight until the replication wrapper exists.
 
-Next recommended action: run M48. Verify whether DW's fourth-order entries are
-raw standardized product moments or cumulants, compare that result to the
-Figure 1 implementation, derive the noisy third- and fourth-order moments at
-\(B=B_0\), and decide whether to migrate the manuscript from `diag(B)=1` to
-\(\operatorname{Var}(\epsilon)=1\) before rebuilding figures or Monte Carlo
-evidence.
+Next recommended action: run M47. Audit the M25 standard-DW proof gate now
+that M48 has fixed the moment-definition language. In parallel planning, keep
+M33 queued for the manuscript-local replication wrapper.
 
-Active milestone: none after M0043 closes; latest work block is the M48 task
-insertion for the user's DW moment and normalization comments. The GitHub issue
-milestone was not created in this block because `gh` is unavailable locally and
-the visible GitHub connector has no milestone-creation tool.
+Active milestone: none after M0044 closes; latest work block resolved M48 and
+created GitHub milestone 40 for the same work.
 
 Active blockers:
 
@@ -90,13 +85,17 @@ Active blockers:
   variance-ratio robust row. Final publication replication should still move
   the code into `manuscript/replication/` and can rerun a heavier table if
   needed.
-- M48 is now open after the user's June 8 comments. Do not treat the current
-  Section 3 fourth-order cumulant wording as settled until DW's source moment
-  stack is checked against the Figure 1 implementation and the noisy Section 4
-  moment formulas are derived under the candidate unit-variance normalization.
+- M48 result: DW's GMM comparator uses standardized co-skewness and
+  co-kurtosis product moments, not fourth cumulants. Figure 1's standard-DW
+  row matches the bivariate raw-product subset
+  `E(e1e2)`, `E(e1^2e2)`, `E(e1e2^2)`, and
+  `E(e1^2e2^2)-1`. Section 3 has been corrected, Section 4 keeps true
+  cumulants, and the manuscript remains in the `diag(B)=1` chart with
+  profiled structural variances rather than migrating to a full
+  unit-variance impact chart.
 
-Last substantive session: 2026-06-08, opened M0043 to record the user's DW
-moment-definition and normalization comments as task M48.
+Last substantive session: 2026-06-09, completed M0044/M48 by resolving the DW
+moment-definition and normalization audit.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

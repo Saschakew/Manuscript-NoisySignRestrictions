@@ -8,6 +8,23 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-09 - Resolve DW moment normalization
+
+- Request or goal: work on the manuscript in goal mode by choosing the next
+  task, which resolved to M48.
+- Files changed: `manuscript/derivations/m48-dw-moment-normalization-audit.md`,
+  `manuscript/draft.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/task-board.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/workplan.md`, and logs.
+- Summary of work: verified that Drautzburg-Wright's GMM comparator uses
+  standardized co-skewness/co-kurtosis product moments, matched that to Figure
+  1's standard-DW implementation, derived noisy truth raw-product formulas, and
+  decided to keep the diagonal-normalized chart with profiled structural
+  variances rather than migrating to a unit-variance impact chart.
+- Next recommended action: run M47, the standard-DW proof audit, before
+  promoting Proposition 2 beyond sketch language.
+
 ### 2026-06-08 - Insert DW moment comments task
 
 - Request or goal: insert a task to work through the user's comments on the

@@ -13,12 +13,13 @@ skeletons, manuscript math delimiters have been cleaned, Figure 2 uses the
 variance-ratio robust row, Figure 3 adds the `T=500,1000,2000` sample-size
 grid, and M45 supplies lightweight validation and Monte Carlo evidence.
 
-M0038/M0040/M0042 drafting update: Sections 2-4 now have formula-first
-skeletons using proper manuscript math delimiters, and M0042 completed the M34
-adversarial scope, logic, and style review after the M0041 revision rewrite.
-The Section 3 statement remains conditional on the M25 standard-DW proof audit,
-and the Section 4 variance-ratio robust DW statement has a conditional M40
-screen audit pass and M45 lightweight evidence.
+M0038/M0040/M0042/M0044 drafting update: Sections 2-4 now have formula-first
+skeletons using proper manuscript math delimiters, M0042 completed the M34
+adversarial scope, logic, and style review after the M0041 revision rewrite,
+and M0044 completed M48 by correcting the standard-DW moment-definition
+language. The Section 3 statement remains conditional on the M25 standard-DW
+proof audit, and the Section 4 variance-ratio robust DW statement has a
+conditional M40 screen audit pass and M45 lightweight evidence.
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
@@ -59,7 +60,7 @@ dynamic impulse responses.
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; the M25 standard-DW proof audit remains open. |
+| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; M48 corrected the standard-DW co-moment versus robust-cumulant distinction; the M25 standard-DW proof audit remains open. |
 | M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo; M0042 completed the M34 adversarial evidence-language review. Remaining work is final replication packaging and, if needed, a heavier run. |
 | M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040 updated figures and evidence; M0042 completed the M34 logic/style review and drafted the conclusion. Remaining draft gates are the M25 proof audit, M33 replication wrapper, references cleanup, and export preparation. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |

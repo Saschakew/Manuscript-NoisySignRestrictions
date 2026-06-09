@@ -335,9 +335,9 @@ If the structural shocks are non-Gaussian and independent, incorrect rotations
 can leave higher-order dependence in the recovered shocks. DW refinement
 shrinks the sign-restricted set by testing those higher-order restrictions.
 
-For centered recovered shocks, the bivariate moment stack can be represented
-by the covariance moment, two mixed third moments, and three mixed fourth
-cumulants:
+For centered and standardized recovered shocks, the bivariate moment stack can
+be represented by the covariance moment, two mixed co-skewness moments, and a
+mixed co-kurtosis product moment:
 
 \begin{equation}
 g_{DW}(B)=
@@ -345,20 +345,18 @@ g_{DW}(B)=
 E\{e_1(B)e_2(B)\}\\
 E\{e_1(B)^2e_2(B)\}\\
 E\{e_1(B)e_2(B)^2\}\\
-\kappa_{1112}^e(B)\\
-\kappa_{1122}^e(B)\\
-\kappa_{1222}^e(B)
+E\{e_1(B)^2e_2(B)^2\}-1
 \end{bmatrix}.
 \end{equation}
 
-The fourth-order entries are cumulants, so for example
-
-\begin{equation}
-\kappa_{1122}^e(B)
-=E\{e_1(B)^2e_2(B)^2\}
--E\{e_1(B)^2\}E\{e_2(B)^2\}
--2E\{e_1(B)e_2(B)\}^2 .
-\end{equation}
+The last target is a co-kurtosis target rather than a cumulant target. It is
+the standardized fourth product value implied by independent unit-variance
+shocks, and it is also the Gaussian-Isserlis value for two equal pairs when
+cross-correlations are zero. A fuller bivariate fourth-order menu could also
+include the singleton co-kurtosis products \(E\{e_1(B)^3e_2(B)\}\) and
+\(E\{e_1(B)e_2(B)^3\}\), which have zero product targets under independence;
+the current figures use the four displayed moments as the standard-DW
+comparator.
 
 In the no-noise model, \(g_{DW}(B_0)=0\). A sample inversion keeps
 sign-admissible candidates whose estimated moment vector is small:
@@ -556,7 +554,9 @@ and the fourth-order restrictions are cumulants:
 The covariance terms \(s_{ij}(B)\) appear only because they are needed to
 compute fourth cumulants. They are not imposed as no-noise restrictions such
 as \(s_{12}(B)=0\) or \(s_{11}(B)=s_{22}(B)=1\). This is the central difference
-from standard DW under residual noise.
+from standard DW under residual noise. The distinction matters because raw
+fourth products are shifted by Gaussian residual-noise covariance terms, while
+the corresponding fourth cumulants subtract those covariance-product terms.
 
 *Definition 3 (`def:robust-dw-higher-moment-set`, variance-ratio robust DW
 set). For a researcher-chosen \(\rho\), the variance-ratio robust DW set is the
