@@ -8,6 +8,22 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-09 - Clarify next-task workflow
+
+- Request or goal: improve the new task workflow so the manuscript skill
+  explicitly handles common prompts like "work on next task" and "plan next
+  tasks."
+- Files changed: `.codex/skills/write-standalone-manuscript/SKILL.md`,
+  `.codex/skills/write-standalone-manuscript/references/task-packet-workflow.md`,
+  `manuscript/manuscript-rules.md`, `manuscript/task-board.md`,
+  `manuscript/project-dashboard.md`, `manuscript/workplan.md`, and logs.
+- Summary of work: added explicit next-task selection and task-planning
+  algorithms to the local manuscript skill; clarified that linked task packets
+  must be read before executing fragile tasks and that fragile or priority-1
+  scientific tasks planned in the future need packets created immediately.
+- Next recommended action: execute M49 from
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`.
+
 ### 2026-06-09 - Improve task hand-off workflow
 
 - Request or goal: improve the manuscript workflow and local skill for task

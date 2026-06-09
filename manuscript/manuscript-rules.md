@@ -104,6 +104,16 @@ claim ledger, define stop conditions, and state acceptance criteria. A fragile
 scientific task is not complete until its packet's acceptance criteria are
 satisfied or its unresolved points are explicitly recorded.
 
+For `work on next task` style requests, select the next task from the dashboard
+and task board, then read the linked packet before doing source work,
+derivations, draft edits, simulations, or registry edits. If the next task is
+fragile or priority 1 and has no packet, create and link the packet first.
+
+For `plan next tasks` style requests, classify each planned task as routine or
+fragile. Create and link packets immediately for fragile or priority-1
+scientific tasks; keep the task-board row short and put the original prompt,
+evidence obligations, stop conditions, and acceptance criteria in the packet.
+
 ## Source Of Truth
 
 `draft.md` contains manuscript prose. `formal-object-registry.json` is an audit

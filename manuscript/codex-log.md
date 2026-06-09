@@ -11,6 +11,27 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-09 - M0047 Clarify next-task workflow
+
+- Request: user asked Codex to improve the task workflow so common prompts
+  like "work on next task" and "plan next tasks" use task packets properly.
+- Actions taken: opened M0047 and GitHub milestone 43; added explicit
+  next-task selection and task-planning algorithms to the local
+  `write-standalone-manuscript` skill; updated the task-packet workflow
+  reference and manuscript rules; recorded M51 as a completed workflow task.
+- Files changed: local manuscript skill, task-packet workflow reference,
+  manuscript rules, task board, dashboard, workplan, and logs/transparency
+  files.
+- Checks run: skill `quick_validate.py` passed; `python
+  scripts\check_manuscript.py` passed with the expected open-milestone warning
+  before closure and passed cleanly after closure; `python -m json.tool
+  manuscript\formal-object-registry.json`, `python -m json.tool
+  manuscript\transparency\milestones\M0047-clarify-next-task-workflow.json`,
+  and `python -m json.tool manuscript\transparency\timeline.json` passed; `git
+  diff --check` passed with line-ending warnings only.
+- Open uncertainties: M49 itself remains unexecuted; the next-task workflow
+  now directs agents to execute its packet first.
+
 ### 2026-06-09 - M0046 Improve task hand-off workflow
 
 - Request: user asked Codex to improve task creation and task management after

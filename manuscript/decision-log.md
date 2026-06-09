@@ -5,6 +5,25 @@ decisions.
 
 ## Entries
 
+### 2026-06-09 - Make next-task prompts packet-aware
+
+- Origin: user asked whether prompts like "work on next task" and "plan next
+  tasks" would actually use the new task-packet structure, then asked to
+  improve the workflow.
+- User input id: U0047
+- Decision: The manuscript skill must explicitly handle next-task execution
+  and task planning. For `work on next task` style prompts, select the task
+  from the dashboard and task board, then read any linked task packet before
+  source work, derivations, edits, or simulations. For `plan next tasks` style
+  prompts, classify each new task as routine or fragile and create linked
+  packets immediately for fragile or priority-1 scientific tasks.
+- Rationale: A packet workflow that exists only as a general rule can still be
+  skipped by a future agent. The user's common prompts need an explicit
+  algorithm in the skill.
+- Consequence for next work: M49 remains the next scientific task, and it must
+  be executed from
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`.
+
 ### 2026-06-09 - Use task packets for fragile scientific hand-offs
 
 - Origin: user concern that compressed or poorly specified tasks may have

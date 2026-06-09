@@ -13,7 +13,7 @@ skeletons, manuscript math delimiters have been cleaned, Figure 2 uses the
 variance-ratio robust row, Figure 3 adds the `T=500,1000,2000` sample-size
 grid, and M45 supplies lightweight validation and Monte Carlo evidence.
 
-M0038/M0040/M0042/M0044/M0045/M0046 drafting update: Sections 2-4 now have
+M0038/M0040/M0042/M0044/M0045/M0046/M0047 drafting update: Sections 2-4 now have
 formula-first skeletons using proper manuscript math delimiters, and M0042
 completed the M34 adversarial scope, logic, and style review after the M0041
 revision rewrite. M0045 marks M48 as partial and not source-complete: the
@@ -21,7 +21,9 @@ standard-DW moment menu, Figure 1 source match, noisy product-moment
 derivations, and normalization/rebuild decision need M49 before Section 3 or
 Section 4 can treat the DW comparison as settled. M0046 introduces durable
 task hand-off packets under `manuscript/tasks/`; M49 now has the packet
-`manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`.
+`manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`. M0047 makes the
+skill explicitly packet-aware for `work on next task` and `plan next tasks`
+prompts.
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a

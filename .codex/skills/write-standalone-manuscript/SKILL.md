@@ -73,6 +73,44 @@ content conversation rather than manuscript work.
     source-sensitive, or code-sensitive claims.
 14. Run `python scripts/check_manuscript.py` after substantive edits.
 
+## Next Task Selection
+
+When the user says `work on next task`, `pick next task`, `continue`, or
+similar:
+
+1. Read `manuscript/project-dashboard.md` and `manuscript/task-board.md`.
+2. Prefer the dashboard's next recommended action unless the user named a
+   different task.
+3. Ignore `done`, `deferred`, and superseded tasks except as historical
+   context.
+4. If the selected row links a packet under `manuscript/tasks/`, read that
+   packet before opening source files or editing anything. The packet is the
+   task contract.
+5. If the selected task is priority 1 or fragile scientific work and has no
+   packet, create the packet first from `manuscript/tasks/_template.md`, link
+   it from `task-board.md`, and only then execute the task.
+6. Open a transparency milestone before edits, then follow the packet's
+   required reads, stop conditions, and acceptance criteria.
+
+## Planning New Tasks
+
+When the user says `plan next tasks`, `insert a task`, `update tasks`, or
+similar:
+
+1. Preserve the user's original prompt in `manuscript/user-input-log.md` and,
+   for fragile tasks, in the task packet.
+2. Split work into task-board rows only after identifying dependencies and
+   blocked-before relationships.
+3. Classify each new task as routine or fragile. Treat source verification,
+   mathematical derivation, code-to-theory comparison, normalization decisions,
+   simulation/figure rebuilds, and prior failed work as fragile.
+4. For each fragile or priority-1 scientific task, create a packet immediately
+   under `manuscript/tasks/` and link it from the task-board row.
+5. Keep task-board rows compact; do not store the full scientific hand-off in a
+   long table cell.
+6. Add acceptance criteria and stop conditions to the packet before marking the
+   planning task complete.
+
 ## Task Hand-Off Packets
 
 Keep `manuscript/task-board.md` as a compact index. For priority-1 or fragile

@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-09T08:28:20Z",
+  "updated_at": "2026-06-09T09:01:51Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -973,6 +973,28 @@
         "milestone_number": 42,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/42",
         "tag_name": "manuscript-milestones/M0046-improve-task-handoff-workflow"
+      }
+    },
+    {
+      "id": "M0047-clarify-next-task-workflow",
+      "sequence": 47,
+      "title": "Clarify next-task workflow",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T08:49:00Z",
+      "closed_at": "2026-06-09T09:01:50Z",
+      "start_commit": "6a898dd0abe88d5673157a717f2895e453d00190",
+      "snapshot_ref": "manuscript-milestones/M0047-clarify-next-task-workflow",
+      "summary": "Clarified next-task and task-planning workflow so common prompts are explicitly packet-aware.",
+      "user_input_ids": [
+        "U0047-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0047-clarify-next-task-workflow.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 43,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/43",
+        "tag_name": "manuscript-milestones/M0047-clarify-next-task-workflow"
       }
     }
   ]

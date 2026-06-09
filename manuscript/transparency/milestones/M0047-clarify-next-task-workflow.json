@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "id": "M0047-clarify-next-task-workflow",
+  "sequence": 47,
+  "title": "Clarify next-task workflow",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-09T08:49:00Z",
+  "closed_at": "2026-06-09T09:01:50Z",
+  "start_commit": "6a898dd0abe88d5673157a717f2895e453d00190",
+  "snapshot_ref": "manuscript-milestones/M0047-clarify-next-task-workflow",
+  "summary": "Clarified next-task and task-planning workflow so common prompts are explicitly packet-aware.",
+  "user_inputs": [
+    {
+      "id": "U0047-001",
+      "milestone_id": "M0047-clarify-next-task-workflow",
+      "captured_at": "2026-06-09T08:49:00Z",
+      "source": "chat",
+      "text": "Improve the manuscript skill so prompts like 'work on next task' read and execute task packets, and prompts like 'plan next tasks' create proper packet-backed tasks when needed."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0047-001",
+      "milestone_id": "M0047-clarify-next-task-workflow",
+      "captured_at": "2026-06-09T09:01:50Z",
+      "description": "Updated the local manuscript skill, task-packet workflow reference, manuscript rules, task board, dashboard, workplan, decision/user/session/Codex logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-09T09:01:50Z",
+      "description": "skill quick_validate.py: passed; python scripts/check_manuscript.py: passed with expected open-milestone warning before closure; python -m json.tool manuscript/formal-object-registry.json: passed; git diff --check: passed with line-ending warnings only"
+    }
+  ],
+  "changed_files": [
+    ".codex/skills/write-standalone-manuscript/SKILL.md",
+    ".codex/skills/write-standalone-manuscript/references/task-packet-workflow.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/manuscript-rules.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0047-clarify-next-task-workflow.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 43,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/43",
+    "tag_name": "manuscript-milestones/M0047-clarify-next-task-workflow"
+  }
+}

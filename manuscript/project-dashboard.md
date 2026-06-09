@@ -29,11 +29,12 @@ moment audit under the scientific claim gate by executing
 standard-DW moment object is source-verified should M47 audit the J-test proof
 gate. Keep M33 queued for the manuscript-local replication wrapper.
 
-Active milestone: none after M0046 closes. Latest work block added task
-hand-off packets so high-risk scientific tasks are no longer stored only as
-compressed task-board rows. M0045 previously hardened the scientific claim
-workflow, updated the local manuscript skill, quarantined unreliable M48
-conclusions, and created GitHub milestone 41 for the same work.
+Active milestone: none after M0047 closed. M0047 made the manuscript skill
+explicitly packet-aware for `work on next task` and `plan next tasks` prompts.
+M0046 added task hand-off packets so high-risk scientific tasks are no longer
+stored only as compressed task-board rows. M0045 previously hardened the
+scientific claim workflow, updated the local manuscript skill, quarantined
+unreliable M48 conclusions, and created GitHub milestone 41 for the same work.
 
 Active blockers:
 
@@ -98,9 +99,9 @@ Active blockers:
   normalization/no-rebuild decision. Do not rely on the current Section 3
   `g_DW` display or the Figure 1 standard-DW source claim until M49.
 
-Last substantive session: 2026-06-09, completed M0046 to improve task
-creation and hand-off workflow by adding durable task packets and creating the
-M49 source-audit packet.
+Last substantive session: 2026-06-09, completed M0047 to make next-task
+execution and task planning explicitly packet-aware in the local manuscript
+skill, the task-packet workflow reference, and manuscript rules.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.
