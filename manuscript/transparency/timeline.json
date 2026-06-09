@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-09T18:50:42Z",
+  "updated_at": "2026-06-09T19:11:01Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1127,6 +1127,28 @@
         "milestone_number": 48,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/48",
         "tag_name": "manuscript-milestones/M0053-plan-main-text-moment-explanation"
+      }
+    },
+    {
+      "id": "M0054-plan-robust-cumulant-gmm-audit",
+      "sequence": 54,
+      "title": "Plan robust cumulant GMM audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T19:04:03Z",
+      "closed_at": "2026-06-09T19:11:00Z",
+      "start_commit": "8f6a92587b3b77cd74494130fa72b35a512b2cb8",
+      "snapshot_ref": "manuscript-milestones/M0054-plan-robust-cumulant-gmm-audit",
+      "summary": "Planned M56 as the robust cumulant GMM/generated-moment audit, routed it before M55 and M52, and updated planning/log/formal surfaces to flag that product-of-sample-moments cumulants may require primitive-moment weighting, augmented nuisance GMM, bootstrap calibration, or provisional evidence wording.",
+      "user_input_ids": [
+        "U0054-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0054-plan-robust-cumulant-gmm-audit.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 49,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/49",
+        "tag_name": "manuscript-milestones/M0054-plan-robust-cumulant-gmm-audit"
       }
     }
   ]

@@ -1106,3 +1106,24 @@ machine-readable milestone in `transparency/milestones/`.
 - Checks run: `python scripts/check_manuscript.py` passed.
 - Open uncertainties: M55 still needs to revise Section 4 itself; M52 remains
   queued behind that clarification.
+
+### 2026-06-09 - M56 generated-moment GMM audit planned
+
+- Request: plan a task to evaluate the concern that robust fourth-cumulant
+  sample moments with plug-in covariance products are not ordinary
+  per-observation GMM moments.
+- Actions taken: created `manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md`,
+  marked M55 as blocked by M56, routed M56 before M55 and M52, and updated the
+  dashboard, task board, paper map, paper plan, source packet, workplan,
+  formal registry, user-input log, decision log, and session log.
+- Files changed: `manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md`,
+  `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/user-input-log.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`, and
+  transparency milestone files.
+- Checks run: `python scripts/check_manuscript.py` passed.
+- Open uncertainties: M56 still needs the derivation and code audit; until it
+  runs, robust-row J-test and chi-square claims remain provisional.

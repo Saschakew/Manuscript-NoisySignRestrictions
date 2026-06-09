@@ -912,3 +912,28 @@ decisions.
 - Consequence for next work: Run M55 before M52. M55 should add the
   `Omega(B)` versus `S(B)` distinction, representative fourth-order algebra,
   and the candidate-by-candidate sample computation recipe to the draft.
+
+### 2026-06-09 - Audit generated-moment inference before explaining or rebuilding robust DW evidence
+
+- Origin: user correction after writing out the sample robust fourth-cumulant
+  with plug-in covariance products.
+- User input id: U0054
+- Codex role: converted the concern into a packet-backed method/proof/simulation
+  task.
+- Decision: Before M55 writes the main-text implementation explanation and
+  before M52 rebuilds evidence, M56 must audit whether concentrated robust
+  fourth-cumulant statistics such as
+  `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)` can be treated with standard GMM
+  J-test theory, or whether the manuscript needs primitive-moment
+  delta-method weighting, augmented nuisance-parameter GMM, bootstrap
+  calibration, or provisional evidence wording.
+- Rationale: The robust moment restriction is valid as a population cumulant
+  equation, but the sample implementation is a nonlinear function of several
+  sample moments. Treating it as an ordinary per-observation moment may
+  understate sampling uncertainty or use the wrong weighting/cutoff. The
+  `S_{ij}(B0)` entries are generally nuisance covariances involving transformed
+  noise, not known constants like unit-variance standardized shocks.
+- Alternatives considered: letting M55 explain the plug-in recipe first and
+  postponing inference details to the evidence rebuild.
+- Consequence for next work: Run M56 first. Only after M56 settles the valid
+  sample criterion should M55 revise Section 4 and M52 rebuild evidence.

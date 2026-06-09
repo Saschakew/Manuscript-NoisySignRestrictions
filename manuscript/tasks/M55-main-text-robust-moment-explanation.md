@@ -11,6 +11,13 @@ as an audit trail, but the main text still needs a reader-facing derivation
 that explains why the robust moment conditions hold at `B0` and how the
 moment entries are computed.
 
+Blocked before execution by: M56. The main text should not explain the sample
+GMM/J-test implementation until
+`manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md` decides
+whether the concentrated fourth-cumulant products require primitive-moment
+delta-method weighting, augmented nuisance-parameter GMM, bootstrap
+calibration, or revised evidence wording.
+
 ## Original User Prompt
 
 > Update the plan: This is something we need to properly explaind and derive
@@ -62,6 +69,7 @@ main text needs a compact explanation that:
 |---|---|---|
 | `manuscript/draft.md` | Locate and revise the Section 4 moment explanation. | draft edits |
 | `manuscript/derivations/m54-stepwise-transformed-noise-moments.md` | Source derivation for the main-text explanation. | all mathematical edits |
+| `manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md` | Upstream generated-moment/GMM audit that determines the valid sample implementation explanation. | all draft edits |
 | `manuscript/derivations/dw-noise-robust-moments.md` | Earlier robust cumulant derivation and moment stack. | all mathematical edits |
 | `manuscript/formal-object-registry.json` | Affected formal objects and status wording. | registry edits |
 | `manuscript/manuscript-rules.md` | Equation labels, object boundaries, and export discipline. | draft edits |

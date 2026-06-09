@@ -205,6 +205,14 @@ these tasks:
     covariance-product subtractions use `S(B)` estimated from candidate
     transformed residuals. M55 is the packet-backed task for this draft update
     and should run before M52 returns evidence claims to the manuscript.
+15. M0054 adds a stronger method/inference gate before M55. The sample fourth-
+    cumulant entries are products of sample averages after plugging in
+    `S_{ij}(B)`, for example
+    `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)`. M56 must audit whether the
+    robust row can be treated as standard GMM, should be written as a smooth
+    primitive-moment/delta-method GMM, should augment nuisance covariance
+    moments, needs bootstrap calibration, or must be downgraded to provisional
+    simulation evidence.
 
 ## Gaps And Risks
 
@@ -221,6 +229,10 @@ these tasks:
   Until M55 runs, Section 4 risks confusing `Omega(B)`, the covariance of
   transformed noise, with `S(B)`, the covariance of full transformed residuals
   that is actually used in the fourth-order robust moment equations.
+- The robust finite-sample J-test treatment is now explicitly unsettled. Until
+  M56 runs, do not describe the concentrated fourth-cumulant statistic as an
+  ordinary standard-GMM moment or rely on naive chi-square cutoffs for final
+  evidence claims.
 - Higher moments can be weak in macro samples; the robust set may be wide or
   uninformative, and that is an honest result.
 - The robust set comparison is a diagnostic, not proof of literal measurement

@@ -120,9 +120,13 @@ is the price of not pretending that the noisy covariance is structural.
    expansion, but it must distinguish transformed-noise covariance
    `Omega(B)=Var(B^{-1}eta_t)` from full transformed-residual covariance
    `S(B)=Var(B^{-1}u_t)` and show how the `S_{ij}(B)` nuisance plug-ins enter
-   the fourth-order conditions. State claims with the M0034/M0036 caveats:
-   normalized bivariate chart, diagonal Gaussian residual noise, explicit
-   signal-to-noise bound, and pointwise critical values.
+   the fourth-order conditions. M56 must now decide how those plug-in
+   covariance products enter the sample GMM/J-test criterion, because the
+   concentrated cumulant is a smooth product of sample moments rather than a
+   simple per-observation sample average. State claims with the M0034/M0036
+   caveats: normalized bivariate chart, diagonal Gaussian residual noise,
+   explicit signal-to-noise bound, and pointwise critical values only if M56
+   supports them.
 5. Figure-led evidence and Monte Carlo robustness check: use the rebuilt
    Figure 1/Figure 2/Figure 3 sequence as the reader's main visual guide. First
    show the residual-noise grid that moves the sign set, makes standard DW
@@ -177,6 +181,12 @@ is the price of not pretending that the noisy covariance is structural.
   moment equations with covariance products subtracted; optional second-order
   information enters only through the explicit variance-ratio covariance
   screen.
+- Robust DW sample criterion:
+  currently unresolved after M0054. The sample fourth-cumulant entries are
+  concentrated smooth functions of primitive sample moments, for example
+  `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)`. M56 must decide whether to use a
+  primitive-moment delta-method weight, an augmented nuisance-parameter GMM
+  system, bootstrap calibration, or provisional simulation wording.
 - Robustness check:
   compare the standard DW accepted set with the robust DW accepted set in the
   common normalized chart. Report accepted shares, overlap, standard-DW mass
@@ -208,7 +218,9 @@ is the price of not pretending that the noisy covariance is structural.
   are not imposed. Optional second-order precision comes from an explicit
   relative noise-to-shock variance restriction, not from DW independence
   moments. M40 conditionally passes the covariance-screen algebra and
-  interpretation for proposal prose.
+  interpretation for proposal prose. M56 must separately audit whether the
+  finite-sample concentrated cumulant statistic has the currently assumed
+  pointwise chi-square interpretation.
 - Proposition 4, robust set comparison: M27 formalizes the diagnostic in
   `manuscript/derivations/dw-robust-comparison-diagnostic.md`. The key warning
   is directional: standard-DW accepted mass outside robust-DW indicates that
@@ -278,6 +290,11 @@ is the price of not pretending that the noisy covariance is structural.
   observed residuals, state that fourth-order covariance-product subtractions
   use `S(B)`, and give a practical recipe for computing `S_{ij}(B)` from
   centered `z_t(B)=B^{-1}u_t` for each candidate `B`.
+- The robust-row inference must incorporate the M0054 generated-moment gate:
+  the product of sample covariance estimates inside fourth cumulants may
+  invalidate naive standard-GMM wording unless M56 derives an equivalent
+  primitive-moment/delta-method or augmented-nuisance GMM representation, or
+  replaces the claim with bootstrap/provisional evidence language.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.
 

@@ -6,41 +6,47 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: M54 is complete, but M0053 added a new planning gate before the
-evidence rebuild. The stepwise transformed-noise derivation confirms that the
-requested moments separate transformed-noise remainders from Gaussian
-covariance-product simplifications, and the normalization audit keeps the
-manuscript in the common `diag(B)=1` chart for the first paper. The exact
-bivariate Drautzburg-Wright GMM1 menu is source-backed as `112`, `122`,
-`1112`, `1122`, and `1222`; GMM2 drops only the symmetric `1122` condition.
-Section 3 now displays that menu with \(e_t(B)=B^{-1}u_t\) recovered-shock
-notation rather than `h_i(B)`, and Section 4 displays the robust stack as
-explicit moment equations with fourth-order covariance-product subtractions.
-M55 must now turn the M54 derivation into a reader-facing main-text
-explanation that distinguishes `Omega(B)=Var(B^{-1}eta_t)` from
-`S(B)=Var(B^{-1}u_t)` and explains how the `S_{ij}(B)` plug-ins are computed.
-The current Figure 1/Figure 2/Figure 3 and M45 standard-DW rows remain
-historical hybrid evidence because the code uses covariance, `112`, `122`, and
-`1122`.
+Current stage: M54 is complete, and M0053/M0054 have exposed two remaining
+robust-moment gates before the evidence rebuild. The stepwise transformed-
+noise derivation confirms that the requested population moments separate
+transformed-noise remainders from Gaussian covariance-product simplifications,
+and the normalization audit keeps the manuscript in the common `diag(B)=1`
+chart for the first paper. The exact bivariate Drautzburg-Wright GMM1 menu is
+source-backed as `112`, `122`, `1112`, `1122`, and `1222`; GMM2 drops only the
+symmetric `1122` condition. Section 3 now displays that menu with
+\(e_t(B)=B^{-1}u_t\) recovered-shock notation rather than `h_i(B)`, and
+Section 4 displays the robust stack as explicit moment equations with
+fourth-order covariance-product subtractions. M56 must now audit whether the
+sample fourth-cumulant products with plug-in covariance estimates are valid
+standard GMM moments, require primitive-moment/delta-method weighting,
+require augmented nuisance-parameter GMM, or need bootstrap/provisional
+calibration. After M56, M55 must turn the M54/M56 result into reader-facing
+main-text prose. The current Figure 1/Figure 2/Figure 3 and M45 standard-DW
+rows remain historical hybrid evidence because the code uses covariance,
+`112`, `122`, and `1122`.
 
-Current focus: revise the main-text explanation of the robust transformed-
-noise moments before rebuilding evidence. The revised draft still
-conditionally passes the M34 adversarial scope, logic, and style review, M49
-clears the source-moment menu and noisy-product gate, M0050 clears the M53
+Current focus: audit the robust cumulant GMM/generated-moment issue before
+rewriting the main-text explanation or rebuilding evidence. The revised draft
+still conditionally passes the M34 adversarial scope, logic, and style review,
+M49 clears the source-moment menu and noisy-product gate, M0050 clears the M53
 notation gate, and M54 clears the transformed-noise derivation and
-normalization gate. M55 is the new writing/derivation bridge from the M54 audit
-trail into Section 4; M52 should proceed only after that bridge is clear.
+normalization gate. M56 is now the method/inference bridge that must precede
+M55's writing bridge and M52's evidence rebuild.
 
-Next recommended action: run M55 before M52 and M47. Execute
-`manuscript/tasks/M55-main-text-robust-moment-explanation.md`; then execute
+Next recommended action: run M56 before M55, M52, and M47. Execute
+`manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md`; then
+execute `manuscript/tasks/M55-main-text-robust-moment-explanation.md` using
+the audited moment/inference route; then execute
 `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md` in the retained
-`diag(B)=1` chart; after the standard-DW evidence is source-correct, M47 can
-audit the M25 J-test proof gate. Keep M33 queued for the manuscript-local
-replication wrapper. A unit-variance/rotation-chart rewrite remains a separate
-future user decision if it is ever requested.
+`diag(B)=1` chart. After the evidence path is source-correct and the robust
+row's inference is settled, M47 can audit the M25 J-test proof gate. Keep M33
+queued for the manuscript-local replication wrapper. A unit-variance/rotation-
+chart rewrite remains a separate future user decision if it is ever requested.
 
-Active milestone: M0053 open. M0053 created GitHub milestone 48 for the
-main-text moment-explanation planning block. M0052 completed M54. M0051 planned
+Active milestone: M0054 open. M0054 created GitHub milestone 49 for the robust
+cumulant GMM/generated-moment audit planning block. M0053 created GitHub
+milestone 48 for the main-text moment-explanation planning block. M0052
+completed M54. M0051 planned
 M54 and created GitHub milestone 47 for the stepwise moment derivation and
 normalization audit. M0050
 completed M53 and created GitHub milestone 46 for the notation rewrite work
@@ -120,14 +126,18 @@ Active blockers:
   fourth-order covariance-product subtractions use full transformed-residual
   covariances `S_{ij}(B)`, and how those entries are computed from
   `z_t(B)=B^{-1}u_t` rather than from unobserved residual noise. M55 must run
-  before M52 returns evidence claims to the draft. A unit-variance/rotation-
-  chart switch would need a separate manuscript-wide update task if the user
-  ever requests one.
+  before M52 returns evidence claims to the draft.
+- M0054 identifies a deeper inference gap that must run before M55: the
+  concentrated fourth-cumulant sample moments are products of sample averages,
+  not simple fixed per-observation moments. M56 must determine whether the
+  robust row needs primitive-moment delta-method GMM, augmented nuisance-
+  parameter GMM, bootstrap calibration, or revised/provisional evidence
+  wording. A unit-variance/rotation-chart switch would need a separate
+  manuscript-wide update task if the user ever requests one.
 
-Last substantive session: 2026-06-09, planned M55 as the packet-backed
-main-text robust moment explanation task after the user noted that M54's
-derivations must be explained and motivated in the draft, especially the
-`S(B)` versus `Omega(B)` distinction.
+Last substantive session: 2026-06-09, planned M56 as the packet-backed robust
+cumulant GMM/generated-moment audit after the user noted that plug-in
+covariance-product cumulants may not support naive standard GMM/J-test theory.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

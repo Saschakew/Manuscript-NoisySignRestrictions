@@ -892,3 +892,28 @@ For traceable work blocks, pair this human-readable note with a closed
 - Check: `python scripts/check_manuscript.py` passed.
 - Next recommended action: execute M55, then return to M52 for the
   source-correct standard-DW evidence rebuild.
+
+### 2026-06-09 - Plan M56 robust cumulant GMM generated-moment audit
+
+- Request or goal: plan a task to evaluate whether robust fourth-cumulant
+  sample moments with plug-in covariance products can use standard GMM/J-test
+  theory, or whether they require primitive-moment delta-method weighting,
+  augmented nuisance-parameter GMM, bootstrap calibration, or revised evidence
+  claims.
+- Files changed: `manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md`,
+  `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/user-input-log.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and transparency milestone files.
+- Summary of work: created packet-backed M56 and routed it before M55 and M52.
+  The new task requires a derivation/code audit of the concentrated robust
+  cumulant statistic, especially whether products of sample averages can be
+  justified through primitive-moment/delta-method GMM, augmented nuisance
+  covariance moments, bootstrap calibration, or only provisional simulation
+  language.
+- Check: `python scripts/check_manuscript.py` passed.
+- Next recommended action: execute M56; then use its result to execute M55;
+  then return to M52.
