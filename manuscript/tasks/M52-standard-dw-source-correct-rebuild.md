@@ -10,6 +10,11 @@ Created after: M49, because the source audit found that the current Figure 1
 and M45 standard-DW code is a simplified hybrid rather than the source-correct
 bivariate Drautzburg-Wright GMM1 or GMM2 higher-moment menu.
 
+Blocked before execution by: M54. The stepwise transformed-noise moment
+derivation and normalization audit must decide whether the manuscript keeps the
+`diag(B)=1` common chart or creates a separate unit-variance/rotation-chart
+rewrite task before this evidence rebuild starts.
+
 ## Original User Prompt
 
 > /goal work on manuscript go on with M49 task
@@ -41,6 +46,7 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
 
 | Path | Purpose | Required before |
 |---|---|---|
+| `manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md` | Upstream derivation and normalization gate that must be completed before M52 starts. | all work |
 | `manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md` | Source-correct moment menu, noisy derivations, and rebuild alternatives. | all work |
 | `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md` | Original user prompt and stop conditions. | scope decisions |
 | `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Figure 1 standard-DW implementation. | code edits |
@@ -60,7 +66,7 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
 
 ## Required Work
 
-1. Decide implementation target:
+1. Confirm that M54 is complete and import its normalization recommendation:
    - smaller repair: keep `diag(B)=1`, add/source-correct the standard-DW
      higher menu in the common chart, and treat covariance as a separate
      no-noise B-plane screen;
@@ -76,6 +82,7 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
 ## Stop Conditions
 
 - Stop if the normalization choice requires a user decision not already given.
+- Stop if M54 is not complete.
 - Stop if the source-correct GMM1/GMM2 implementation cannot be mapped cleanly
   into the selected chart.
 - Stop if old and rebuilt evidence diverge enough that the manuscript's
@@ -101,4 +108,3 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
 ## Outcome Log
 
 Pending.
-

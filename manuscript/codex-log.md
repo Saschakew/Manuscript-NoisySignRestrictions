@@ -11,6 +11,25 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-09 - M0051 Plan moment derivation normalization audit
+
+- Request: user asked Codex to plan a task that derives the transformed-noise
+  moment conditions carefully and audits the `diag(B)=1` versus unit-variance
+  normalization choice.
+- Actions taken: opened M0051 and GitHub milestone 47; created packet-backed
+  M54 in `manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md`;
+  updated M52 so it waits for M54; routed the dashboard, task board, map,
+  workplan, source packet, registry, and logs to run M54 before M52.
+- Files changed: M54 task packet, M52 task packet, task board, dashboard, paper
+  map, workplan, source packet, formal registry, decision/user/session logs,
+  Codex log, and transparency files.
+- Checks run: `python -m json.tool manuscript\formal-object-registry.json`
+  passed; `python scripts\check_manuscript.py` passed with the expected open
+  milestone warning; `git diff --check` passed with line-ending warnings only.
+- Open uncertainties: M54 still needs to execute the derivation and decide
+  whether retaining `diag(B)=1` is defensible or a separate unit-variance chart
+  rewrite task is needed.
+
 ### 2026-06-09 - M0050 M53 notation rewrite
 
 - Request: user asked Codex to work on task M53.

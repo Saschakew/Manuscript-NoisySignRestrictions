@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-09T11:44:10Z",
+  "updated_at": "2026-06-09T12:38:44Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1061,6 +1061,28 @@
         "milestone_number": 46,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/46",
         "tag_name": "manuscript-milestones/M0050-m53-dw-and-robust-moment-notation-rewrite"
+      }
+    },
+    {
+      "id": "M0051-plan-moment-derivation-normalization-audit",
+      "sequence": 51,
+      "title": "Plan moment derivation normalization audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T12:19:12Z",
+      "closed_at": "2026-06-09T12:38:43Z",
+      "start_commit": "6e7428aefff0a7a401accc7dbbed5f56c62b2964",
+      "snapshot_ref": "manuscript-milestones/M0051-plan-moment-derivation-normalization-audit",
+      "summary": "Planned M54 as the stepwise transformed-noise moment derivation and normalization audit before M52.",
+      "user_input_ids": [
+        "U0051-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0051-plan-moment-derivation-normalization-audit.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 47,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/47",
+        "tag_name": "manuscript-milestones/M0051-plan-moment-derivation-normalization-audit"
       }
     }
   ]

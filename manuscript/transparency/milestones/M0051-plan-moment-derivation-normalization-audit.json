@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "id": "M0051-plan-moment-derivation-normalization-audit",
+  "sequence": 51,
+  "title": "Plan moment derivation normalization audit",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-09T12:19:12Z",
+  "closed_at": "2026-06-09T12:38:43Z",
+  "start_commit": "6e7428aefff0a7a401accc7dbbed5f56c62b2964",
+  "snapshot_ref": "manuscript-milestones/M0051-plan-moment-derivation-normalization-audit",
+  "summary": "Planned M54 as the stepwise transformed-noise moment derivation and normalization audit before M52.",
+  "user_inputs": [
+    {
+      "id": "U0051-001",
+      "milestone_id": "M0051-plan-moment-derivation-normalization-audit",
+      "captured_at": "2026-06-09T12:19:12Z",
+      "source": "chat",
+      "text": "User asked to plan a task that carefully derives transformed-noise moment conditions step by step at B=B0, including E[z1^2 z2], E[z1 z2 z3], E[z1^3 z2], E[z1^2 z2^2], E[z1^2 z2 z3], and E[z1 z2 z3 z4], and verifies whether the manuscript should switch from diag(B) normalization to unit-variance epsilon normalization, including whether a separate manuscript-wide update task is needed."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0051-001",
+      "milestone_id": "M0051-plan-moment-derivation-normalization-audit",
+      "captured_at": "2026-06-09T12:35:33Z",
+      "description": "Created manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md with required moment patterns, assumptions, expansion steps, Gaussian/Isserlis gate, and normalization-decision acceptance criteria."
+    },
+    {
+      "id": "A0051-002",
+      "milestone_id": "M0051-plan-moment-derivation-normalization-audit",
+      "captured_at": "2026-06-09T12:35:33Z",
+      "description": "Updated M52 to wait for M54 before the standard-DW evidence rebuild."
+    },
+    {
+      "id": "A0051-003",
+      "milestone_id": "M0051-plan-moment-derivation-normalization-audit",
+      "captured_at": "2026-06-09T12:35:33Z",
+      "description": "Updated the dashboard, task board, paper map, workplan, source packet, formal registry, and logs so M54 runs before M52 and records whether diag(B)=1 is retained or a unit-variance chart rewrite task is needed."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-09T12:35:33Z",
+      "description": "python -m json.tool manuscript\\formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-09T12:35:33Z",
+      "description": "python scripts\\check_manuscript.py: passed with expected open milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-09T12:35:33Z",
+      "description": "git diff --check: passed with line-ending warnings only"
+    },
+    {
+      "captured_at": "2026-06-09T12:36:25Z",
+      "description": "python scripts\\check_manuscript.py: passed cleanly after milestone closure"
+    },
+    {
+      "captured_at": "2026-06-09T12:38:43Z",
+      "description": "python scripts\\check_manuscript.py: passed after final workplan wording cleanup"
+    },
+    {
+      "captured_at": "2026-06-09T12:38:43Z",
+      "description": "git diff --check: passed after final workplan wording cleanup with line-ending warnings only"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M52-standard-dw-source-correct-rebuild.md",
+    "manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0051-plan-moment-derivation-normalization-audit.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 47,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/47",
+    "tag_name": "manuscript-milestones/M0051-plan-moment-derivation-normalization-audit"
+  }
+}

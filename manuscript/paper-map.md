@@ -70,7 +70,7 @@ precision without reusing invalid covariance anchors.
 | 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust residual-noise-to-signal fix, and preview the evidence. | revised after M34 claim-tightening; literature positioning retained |
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
 | 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M0050 now displays the menu with \(e_t(B)\); M52 must rebuild figures/MC with a source-correct standard-DW menu; M25 proof audit pending |
-| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. | M49 noisy product derivations complete; M0050 rewrote the display as explicit moment equations with fourth-order covariance-product subtractions; final proof and replication still pending |
+| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. | M49 noisy product derivations complete; M0050 rewrote the display as explicit moment equations with fourth-order covariance-product subtractions; M54 must now supply the step-by-step moment derivation and normalization audit; final proof and replication still pending |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | reviewed after M34; still lightweight until replication wrapper |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
@@ -167,3 +167,8 @@ and proof or output status.
   rebuild the standard-DW evidence before final evidence claims proceed. A full
   switch from the `diag(B)=1` common chart to the unit-variance/rotation chart
   remains a user-decision gate because it would require a larger redesign.
+- M54 now precedes M52. It must derive the Section 4 transformed-noise moment
+  conditions step by step at \(B=B_0\), distinguish independent residual
+  components from Gaussian transformed-noise simplifications, and decide
+  whether a unit-variance/rotation-chart switch needs a separate manuscript-wide
+  update task.

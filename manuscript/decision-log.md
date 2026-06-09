@@ -5,6 +5,25 @@ decisions.
 
 ## Entries
 
+### 2026-06-09 - Derive transformed-noise moments before evidence rebuild
+
+- Decision type: derivation and normalization planning.
+- Decision: create and execute M54 before M52. M54 must derive the requested
+  transformed-noise moment patterns step by step at \(B=B_0\), explicitly
+  distinguish independent residual-noise coordinates from transformed
+  Gaussian-noise covariance-product simplifications, and audit whether the
+  manuscript keeps the `diag(B)=1` chart or needs a separate
+  unit-variance/rotation-chart rewrite task.
+- Rationale: the existing moment-display rewrite is not enough unless the
+  underlying algebra is shown carefully. A normalization switch would touch
+  Section 2 unit-variance conditions, Section 4 covariance screens, figures,
+  simulation code, captions, and registry objects, so it must not be hidden
+  inside an evidence rebuild.
+- Consequence for next work: execute
+  `manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md`
+  before returning to M52.
+- User input: U0051.
+
 ### 2026-06-09 - Prefer recovered-shock moment notation in Sections 3-4
 
 - Decision type: notation and exposition planning.

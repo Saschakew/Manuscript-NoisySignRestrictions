@@ -16,28 +16,33 @@ equations with fourth-order covariance-product subtractions. The current
 Figure 1/Figure 2/Figure 3 and M45 standard-DW rows remain historical hybrid
 evidence because the code uses covariance, `112`, `122`, and `1122`.
 
-Current focus: rebuild the standard-DW evidence before relying on Figure 1 or
-Table 1 as source-correct DW evidence. The revised draft still conditionally
-passes the M34 adversarial scope, logic, and style review, M49 clears the
-source-moment menu and noisy-derivation gate, and M0050 clears the M53 notation
-gate. M52 must now repair the code and evidence path before the paper leans on
-the source-correct comparator.
+Current focus: derive the transformed-noise moment conditions carefully before
+rebuilding evidence. The revised draft still conditionally passes the M34
+adversarial scope, logic, and style review, M49 clears the source-moment menu
+and noisy-product gate, and M0050 clears the M53 notation gate. The user now
+requested a step-by-step derivation of the robust moment conditions and a
+normalization audit before M52 repairs the code and evidence path.
 
-Next recommended action: run M52 before M47. Execute
-`manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`; decide whether to
-keep the common `diag(B)=1` B-plane chart with a source-correct higher menu or
-ask for the larger unit-variance/rotation-chart rebuild. After the
+Next recommended action: run M54 before M52 and M47. Execute
+`manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md`;
+derive the requested moment patterns at \(B=B_0\), distinguish general
+independent residual noise from Gaussian residual noise, and decide whether the
+manuscript keeps the common `diag(B)=1` B-plane chart or needs a separate
+unit-variance/rotation-chart rewrite task. After M54 resolves that gate, run
+`manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`; after the
 standard-DW evidence is source-correct, M47 can audit the M25 J-test proof
 gate. Keep M33 queued for the manuscript-local replication wrapper.
 
-Active milestone: none. M0050 completed M53 and created GitHub milestone 46 for
-the notation rewrite work block. M0049 planned M53 and created GitHub milestone
-45 for the planning block. M0048 closed the M49 DW source audit and created
-GitHub milestone 44. M0047 made the manuscript skill explicitly packet-aware
-for `work on next task` and `plan next tasks` prompts. M0046 added task
-hand-off packets so high-risk scientific tasks are no longer stored only as
-compressed task-board rows. M0045 previously hardened the scientific claim
-workflow and quarantined unreliable M48 conclusions.
+Active milestone: none. M0051 planned M54 and created GitHub milestone 47 for
+the stepwise moment derivation and normalization audit. M0050 completed M53
+and created GitHub milestone 46 for the notation rewrite work block. M0049
+planned M53 and created GitHub milestone 45 for the planning block. M0048
+closed the M49 DW source audit and created GitHub milestone 44. M0047 made the
+manuscript skill explicitly packet-aware for `work on next task` and
+`plan next tasks` prompts. M0046 added task hand-off packets so high-risk
+scientific tasks are no longer stored only as compressed task-board rows.
+M0045 previously hardened the scientific claim workflow and quarantined
+unreliable M48 conclusions.
 
 Active blockers:
 
@@ -100,10 +105,13 @@ Active blockers:
   the current standard-DW figure/MC code is a simplified hybrid. Do not rely on
   the current Figure 1, Figure 2, Figure 3, or M45 standard-DW rows as
   source-correct DW evidence until M52 rebuilds them.
+- M54 now precedes M52. It must derive the requested transformed-noise moment
+  patterns step by step and decide whether the paper keeps `diag(B)=1` or
+  creates a separate manuscript-wide unit-variance/rotation chart rewrite.
 
-Last substantive session: 2026-06-09, completed M53 by rewriting Sections 3-4
-notation around \(e_t(B)\) and explicit robust moment equations; M52 remains
-the packet-backed standard-DW source-correct rebuild.
+Last substantive session: 2026-06-09, planned M54 as the packet-backed
+stepwise transformed-noise moment derivation and normalization audit that must
+run before the M52 source-correct evidence rebuild.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

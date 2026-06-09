@@ -8,6 +8,23 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-09 - Plan M54 moment derivation and normalization audit
+
+- Request or goal: plan a new task to derive the transformed-noise moment
+  conditions step by step and audit whether the manuscript should retain the
+  `diag(B)=1` chart or switch to unit-variance normalization.
+- Files changed: `manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/workplan.md`,
+  `manuscript/source-packet.md`, `manuscript/formal-object-registry.json`, and
+  logs/transparency files.
+- Summary of work: created packet-backed M54 with the user's requested moment
+  patterns, required step-by-step derivation obligations, normalization audit,
+  stop conditions, and conditional follow-up rule for any unit-variance chart
+  switch; routed M54 before M52.
+- Next recommended action: execute M54 before returning to M52.
+
 ### 2026-06-09 - Complete M53 DW and robust moment notation rewrite
 
 - Request or goal: execute M53 by replacing the Section 3 `h_i(B)` DW notation
