@@ -937,3 +937,28 @@ decisions.
   postponing inference details to the evidence rebuild.
 - Consequence for next work: Run M56 first. Only after M56 settles the valid
   sample criterion should M55 revise Section 4 and M52 rebuild evidence.
+
+### 2026-06-10 - Treat robust fourth cumulants as generated smooth moments
+
+- Origin: M56 robust cumulant GMM generated-moment audit.
+- User input id: U0055
+- Codex role: derived the primitive-moment and augmented nuisance-covariance
+  routes and audited current code behavior.
+- Decision: The robust fourth-cumulant population restrictions remain valid
+  under independent Gaussian residual noise, but their sample versions are
+  generated smooth moments. Final evidence should use primitive-moment
+  delta-method covariance, an equivalent augmented nuisance-covariance GMM
+  system, or bootstrap/repeated-sample calibration. The concentrated
+  expression should not be described as one ordinary fixed row-level GMM
+  moment.
+- Rationale: Terms such as
+  `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)` are nonlinear functions of
+  primitive sample averages. At `B0`, the required covariance entries are
+  nuisance transformed-residual covariances `S(B0)=I+Omega(B0)`, not known
+  no-noise constants.
+- Alternatives considered: treating the current plug-in expression as a
+  standard row-level moment; replacing `S_ij(B0)` by no-noise constants; or
+  downgrading the robust set to a population-only diagnostic.
+- Consequence for next work: M55 should explain the generated-moment route in
+  Section 4. M52 should upgrade or calibrate the robust statistic while
+  rebuilding the source-correct standard-DW evidence.

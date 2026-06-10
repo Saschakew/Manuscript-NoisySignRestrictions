@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "id": "M0055-m56-robust-cumulant-gmm-audit",
+  "sequence": 55,
+  "title": "M56 robust cumulant GMM audit",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-10T13:32:06Z",
+  "closed_at": "2026-06-10T13:51:34Z",
+  "start_commit": "72a5d8a31a320fb88b31acf76a033adcbfe2452f",
+  "snapshot_ref": "manuscript-milestones/M0055-m56-robust-cumulant-gmm-audit",
+  "summary": "Completed M56 robust cumulant GMM generated-moment audit, classified the robust fourth-cumulant statistic as a generated smooth moment, and routed M55/M52 around primitive-delta, augmented-nuisance, or calibrated inference.",
+  "user_inputs": [
+    {
+      "id": "U0055-001",
+      "milestone_id": "M0055-m56-robust-cumulant-gmm-audit",
+      "captured_at": "2026-06-10T13:32:06Z",
+      "source": "chat",
+      "text": "Work on the manuscript by picking the next task and implementing it; selected M56 to audit robust fourth-cumulant generated moments, GMM weighting, chi-square cutoffs, and evidence routing before M55 and M52."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0055-001",
+      "milestone_id": "M0055-m56-robust-cumulant-gmm-audit",
+      "captured_at": "2026-06-10T13:51:06Z",
+      "description": "Created manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md and updated draft, registry, packets, planning surfaces, and logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-10T13:51:06Z",
+      "description": "python scripts/check_manuscript.py: passed before close; only warning was the expected open M0055 milestone"
+    },
+    {
+      "captured_at": "2026-06-10T13:51:34Z",
+      "description": "python scripts/check_manuscript.py: passed after closing M0055"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M52-standard-dw-source-correct-rebuild.md",
+    "manuscript/tasks/M55-main-text-robust-moment-explanation.md",
+    "manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0055-m56-robust-cumulant-gmm-audit.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 50,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/50",
+    "tag_name": "manuscript-milestones/M0055-m56-robust-cumulant-gmm-audit"
+  }
+}

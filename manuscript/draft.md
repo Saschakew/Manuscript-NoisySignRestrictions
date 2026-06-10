@@ -560,6 +560,12 @@ conditions. They are not imposed as no-noise restrictions such as
 from standard DW under residual noise. The distinction matters because DW raw
 fourth products are shifted by Gaussian residual-noise covariance terms, while
 the robust fourth-order conditions subtract those covariance-product terms.
+M56 further clarifies the sample implementation: the fourth-order entries are
+generated smooth moments because they plug sample covariance estimates into
+the cumulant equations. Their weighting should therefore come from a
+primitive-moment delta-method covariance, an equivalent augmented nuisance-
+covariance system, or an explicit calibration route, not from treating each
+concentrated expression as one primitive row-level moment.
 
 M54 keeps the manuscript in the common `diag(B)=1` chart. The source-native
 DW unit-variance scaling is internal to the recovered-shock standardization in
@@ -576,7 +582,8 @@ T\widehat G_H(B)'\widehat W_{H,T}\widehat G_H(B)\le c_H .
 \]
 The set deliberately drops no-noise covariance factorization, unit-variance
 recovered-shock restrictions, and recovered-shock zero covariance as equality
-moments.*
+moments. In finite samples, \(\widehat W_{H,T}\) must account for the generated
+covariance-product entries in \(\widehat G_H(B)\).*
 
 The pure higher-moment fallback is obtained by dropping the covariance
 screen and keeping only \(R(B)\ge0\) and the \(G_H(B)\) inversion. It is the
@@ -603,7 +610,7 @@ reported only when it survives the stated noise allowance and the higher-moment
 restrictions.
 
 <!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, `derivations/m40-variance-ratio-robust-dw-screen-audit.md`, `simulations/sign_dw_relative_noise_robust_grid_figure.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
-<!-- TODO-NOTE: The 50 percent noise-to-shock variance bound is identifying information, not a normalization. Final theorem wording still needs the M25 proof audit and final replication packaging, but M45 has rebuilt the lightweight evidence for the current variance-ratio row. -->
+<!-- TODO-NOTE: The 50 percent noise-to-shock variance bound is identifying information, not a normalization. Final theorem wording still needs the M25 proof audit and final replication packaging. M56 classifies the current robust evidence as approximate/provisional until M52 implements full primitive/delta, augmented-nuisance, or calibrated generated-moment inference. -->
 
 ## 5. Monte Carlo Robustness Check
 
@@ -613,9 +620,12 @@ whether the same comparison survives repeated finite-sample draws. All reported
 objects use the same normalized bivariate impact chart and the same sign
 screen, so the standard-DW and robust-DW accepted sets can be compared directly.
 After M49, the current standard-DW rows should be read as historical hybrid
-evidence rather than source-correct Drautzburg-Wright GMM1 or GMM2 evidence;
-M52 must rebuild the standard-DW statistic before the evidence package is
-shareable.
+evidence rather than source-correct Drautzburg-Wright GMM1 or GMM2 evidence.
+After M56, the current robust rows should also be read as lightweight
+generated-moment evidence: the code uses an approximate delta-method influence
+matrix, but final evidence should implement the full primitive/centering
+covariance, an augmented nuisance-covariance system, or calibration. M52 must
+rebuild both sides before the evidence package is shareable.
 
 <!-- SOURCE-TRAIL: Use M27 for the common reporting chart, accepted shares, overlap, warning-rate, and truth-inclusion diagnostics. -->
 
@@ -637,13 +647,15 @@ higher-cumulant fallback.
 **Figure 1. Residual-noise grid.** Rows report the sign/covariance set,
 historical standard-DW hybrid set, and robust-DW set in the common normalized \(B(b_{12},b_{21})\) chart.
 Columns increase Gaussian residual noise from \(V=(0,0)\) to \(V=(0.5,0.5)\).
-All rows invert pointwise 10 percent J tests for their displayed moment
+All rows invert pointwise 10 percent criteria for their displayed moment
 stacks. The current standard-DW row is not yet the M49 source-correct bivariate
-GMM1 or GMM2 menu. The robust-DW row uses the pure mixed higher-cumulant J statistic and
-adds the covariance-decomposition feasibility screen implied by
+GMM1 or GMM2 menu. The robust-DW row uses the current generated-moment
+higher-cumulant criterion and adds the covariance-decomposition feasibility screen implied by
 \(0\le \nu_i \le 0.5\operatorname{Var}(\varepsilon_i)\) for diagonal residual-noise variances. The
 high-noise column shows the paper's main warning: standard DW rejects true
 \(B_0\) under the researcher-facing cutoff, while relative robust DW contains it.
+M56 classifies the robust-row inference as provisional until M52 upgrades or
+calibrates the generated-moment weighting.
 
 <!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_relative_noise_robust_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative`; diagnostic note `simulations/sign_dw_relative_noise_robust_grid_figure.md`; audit note `derivations/m40-variance-ratio-robust-dw-screen-audit.md`; M45 validation note `simulations/m45_variance_ratio_evidence.md`; M49 source audit `derivations/m49-dw-source-and-noisy-moment-audit.md` for the standard-DW source-code mismatch. -->
 
@@ -653,7 +665,8 @@ missing true \(B_0\), while relative robust DW contains it and passes the
 variance-ratio screen. In the repeated-sample Monte Carlo, the high-noise
 chi-square row gives hybrid standard-DW truth inclusion of \(0.000\) and
 robust-DW truth inclusion of \(0.875\). M52 must rerun this check with the
-source-correct standard-DW menu.
+source-correct standard-DW menu and the M56 robust generated-moment upgrade or
+calibration.
 
 ### 5.2 Non-Gaussianity Grid
 
@@ -671,8 +684,8 @@ does the remaining work.
 
 **Figure 2. Non-Gaussianity grid.** Rows match Figure 1, but residual noise is
 fixed while structural-shock non-Gaussianity weakens across columns. All rows
-invert pointwise 10 percent J tests. The robust row uses the same
-variance-ratio proposal as Figure 1: pure mixed higher-cumulant J inversion
+invert pointwise 10 percent criteria. The robust row uses the same
+variance-ratio proposal as Figure 1: generated mixed higher-cumulant inversion
 plus the screen \(0\le \nu_i\le 0.5\operatorname{Var}(\varepsilon_i)\). The
 figure explains why the robust set is a robustness check rather than a
 uniformly sharper estimator.
@@ -701,7 +714,7 @@ the covariance-decomposition band.
 
 **Figure 3. Sample-size grid.** Rows match Figures 1 and 2. Columns vary the
 sample size with strong structural higher moments and fixed residual noise
-\(V=(0.2,0.2)\). The robust row again uses pure mixed higher-cumulant J
+\(V=(0.2,0.2)\). The robust row again uses generated mixed higher-cumulant
 inversion plus the variance-ratio covariance-decomposition screen.
 
 <!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_sample_size_robust_grid.png`; generator `simulations/sign_dw_sample_size_robust_grid_figure.py`; M45 validation note `simulations/m45_variance_ratio_evidence.md`. -->
@@ -719,9 +732,11 @@ is feasible at the true \(B_0\). `S share` and `R share` are accepted-set
 shares on the normalized grid. `d_S_not_subset_R` is the directional share of
 standard-DW accepted mass not supported by robust DW.
 
-**Table 1. M45 chi-square-primary Monte Carlo comparison, pending M52 standard-DW rebuild.** Entries are
+**Table 1. M45 chi-square-primary Monte Carlo comparison, pending M52 evidence rebuild.** Entries are
 evaluation averages from 24 replications per scenario on a \(41\times 41\)
-grid, with 60 truth-calibration replications retained as audit output.
+grid, with 60 truth-calibration replications retained as audit output. After
+M56, the robust rows are provisional generated-moment evidence until M52
+upgrades or calibrates the robust statistic.
 
 | Scenario | S truth | R truth | R feasible | S share | R share | d_S_not_subset_R | Warning rate |
 |---|---:|---:|---:|---:|---:|---:|---:|
@@ -748,7 +763,7 @@ procedure being critiqued.
 
 <!-- SOURCE-TRAIL: Use KnowledgeVault replication assets only as starting points; final figure commands must live in `replication/README.md`. -->
 <!-- SOURCE-TRAIL: Use `derivations/dw-robust-comparison-diagnostic.md` for the M27 definitions of the reported standard-DW set, robust-DW set, critical-value convention, directional overlap metric, and interpretation boundaries. -->
-<!-- DESIGN-NOTE: Use standard pointwise chi-square critical values as the primary applied M45 benchmark; repeated-sample and oracle cutoffs are audit rows only. -->
+<!-- DESIGN-NOTE: M45 used standard pointwise chi-square critical values as the primary applied benchmark; M56 now requires primitive/delta, augmented-nuisance, or calibrated treatment for final robust generated-moment evidence. Repeated-sample and oracle cutoffs remain audit rows only. -->
 <!-- TODO-NOTE: In future simulation tables, report accepted shares, empty-set frequencies, Jaccard overlap, standard-DW mass outside robust-DW, truth inclusion, and least-rejected candidates. -->
 <!-- TODO-NOTE: Report inconclusive and weak cases honestly. -->
 

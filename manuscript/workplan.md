@@ -31,10 +31,11 @@ source-correct evidence rebuild; M54 is now complete and keeps the manuscript
 in the common `diag(B)=1` chart. M0053 adds M55 before M52: Section 4 must now
 explain the M54 moment logic in reader-facing prose, including the distinction
 between transformed-noise covariance `Omega(B)` and full transformed-residual
-covariance `S(B)`. M0054 inserts M56 before M55 because the sample
-fourth-cumulant entries use products of sample averages; the robust row's
-finite-sample GMM/J-test treatment must be audited before prose and evidence
-claims settle.
+covariance `S(B)`. M0054 inserted M56 before M55 because the sample
+fourth-cumulant entries use products of sample averages; M56 is now complete.
+It shows that the robust entries are generated smooth moments with a
+primitive/delta or augmented-nuisance route, while the current robust evidence
+remains provisional until M52 upgrades or calibrates the statistic.
 
 Initialized, scoped, and pivoted to the robust DW comparison paper. The
 manuscript has a validated KnowledgeVault link, a refreshed source packet, a
@@ -75,9 +76,9 @@ dynamic impulse responses.
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; M49 source-audited the DW GMM1/GMM2 moment menu and noisy product derivations; M54 completed the stepwise transformed-noise derivation and kept the manuscript in `diag(B)=1`; M56 must audit the robust cumulant generated-moment/GMM issue before M55 translates the robust-moment validity argument into main-text derivation prose, M52 repairs the source-correct evidence path, and M47 audits the M25 proof gate. |
-| M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo; M0042 completed the M34 adversarial evidence-language review. M49 now shows the standard-DW evidence row is a historical hybrid, so M54 has settled the derivation/normalization gate; M56 must settle whether the robust-row statistic needs primitive-moment weighting, augmented nuisance GMM, bootstrap calibration, or provisional wording; M55 should then clarify Section 4's moment computation; then M52 must rebuild the figures/MC before final evidence claims, followed by final replication packaging and, if needed, a heavier run. |
-| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040 updated figures and evidence; M0042 completed the M34 logic/style review and drafted the conclusion; M0050 completed the Section 3-4 notation rewrite requested after M49; M54 completed the transformed-noise derivation and normalization audit. Remaining draft gates are M56 robust cumulant GMM/generated-moment audit, M55 main-text moment explanation, M52 evidence repair, the M25 proof audit, M33 replication wrapper, references cleanup, and export preparation. |
+| M4. Formal result package | doing | Noisy sign-set proposition, standard-DW J-test result, robust-DW validity result, and comparison diagnostic are stated and audited. M0036 variance-ratio robust DW is now the proposal; M40 conditionally passed its covariance screen; M49 source-audited the DW GMM1/GMM2 moment menu and noisy product derivations; M54 completed the stepwise transformed-noise derivation and kept the manuscript in `diag(B)=1`; M56 completed the robust cumulant generated-moment/GMM audit. M55 should now translate the robust-moment validity and generated-moment route into main-text derivation prose, then M52 repairs the source-correct evidence path, and M47 audits the M25 proof gate. |
+| M5. Evidence package | doing | M0040 rebuilt the immediate evidence package around the variance-ratio proposal: Figure 2, Figure 3, and M45 validation/Monte Carlo; M0042 completed the M34 adversarial evidence-language review. M49 now shows the standard-DW evidence row is a historical hybrid, M54 has settled the derivation/normalization gate, and M56 has settled the robust generated-moment route at the derivation level. M55 should clarify Section 4's moment computation; then M52 must rebuild the figures/MC with a source-correct standard-DW row and a full primitive/delta, augmented-nuisance, or calibrated robust generated-moment statistic before final evidence claims, followed by final replication packaging and, if needed, a heavier run. |
+| M6. First complete draft | doing | M31 drafted the abstract, introduction, and evidence section; M32 added the first literature-positioning pass; M0038 drafted formula-first Sections 2-4; M40 conditionally passed the variance-ratio screen; M0040 updated figures and evidence; M0042 completed the M34 logic/style review and drafted the conclusion; M0050 completed the Section 3-4 notation rewrite requested after M49; M54 completed the transformed-noise derivation and normalization audit; M56 completed the generated-moment audit. Remaining draft gates are M55 main-text moment explanation, M52 evidence repair, the M25 proof audit, M33 replication wrapper, references cleanup, and export preparation. |
 | M7. Reproducibility package | todo | Final figures/tables can be regenerated from `manuscript/replication/`. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
 
@@ -109,19 +110,21 @@ dynamic impulse responses.
    `diag(B)=1` chart. M55 must now review the draft-level explanation: define
    `Omega(B)=Var(B^{-1}eta_t)`, define `S(B)=Var(B^{-1}u_t)`, make clear that
    the fourth-order subtractions use `S(B)`, and include a practical
-   candidate-by-candidate computation recipe. M56 must run before M55 to audit
-   the generated-moment GMM problem created by products of sample covariance
-   estimates inside the fourth cumulants. Future review should also focus on
+   candidate-by-candidate computation recipe. M56 now supplies the generated-
+   moment GMM route: primitive-moment delta weighting or augmented nuisance
+   covariance moments, with calibration preferred for final evidence when
+   finite-sample behavior is unstable. Future review should also focus on
    final-claim wording for the hard finite-sample screen.
 6. Diagnostic interpretation review: use the M27 directional metric and verify
    that DW-versus-robust-DW divergence is described as a warning, not proof of
    literal measurement error.
 7. Evidence design: treat the Figure 1/Figure 2/Figure 3 sequence and M45
    table as the current visual spine only for the historical hybrid standard-DW
-   statistic. M34 completed the adversarial review and kept the evidence
-   language lightweight; M52 must rebuild the standard-DW row before final
-   evidence claims, and final evidence still requires replication packaging or
-   a heavier run.
+   statistic and only as lightweight/provisional for the current robust
+   generated-moment statistic. M34 completed the adversarial review and kept
+   the evidence language lightweight; M52 must rebuild the standard-DW row and
+   upgrade or calibrate the robust row before final evidence claims, and final
+   evidence still requires replication packaging or a heavier run.
 8. Simulation adversary: before accepting any figure, check whether the DGP,
    grids, critical values, cumulant estimators, or plotting choices could make
    the result look correct even if the theory is wrong.

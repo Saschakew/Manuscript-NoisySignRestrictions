@@ -1,12 +1,12 @@
 # M56 Robust Cumulant GMM Generated-Moment Audit
 
-Status: `todo`
+Status: `done`
 
 Priority: 1
 
 Task-board row: `M56`
 
-Transparency milestone: pending
+Transparency milestone: M0055
 
 Created after: M55 planning. This task must run before M55 writes the main
 text explanation and before M52 rebuilds evidence, because it can change the
@@ -100,11 +100,11 @@ shock chart.
 
 | Claim | Required status | Evidence required | Result |
 |---|---|---|---|
-| The concentrated sample cumulant `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)` is a smooth function of primitive sample moments, not a simple fixed per-observation sample mean. | `derived` | Write primitive vector and transformation explicitly. | pending |
-| Standard asymptotic inference can be recovered by applying GMM/minimum-distance theory to the primitive moment vector or by augmenting nuisance covariance moments. | `derived` plus source support if cited | Derivation and, if used, GMM source. | pending |
-| The current robust DW simulation code uses a valid or invalid weighting/cutoff for the concentrated cumulant statistic. | `code-implemented` plus derivation | Exact code path and theoretical mapping. | pending |
-| In the robust noisy model, `S_{ij}(B0)` cannot generally be replaced by known constants without extra assumptions. | `derived` | M54 equations and normalization audit. | pending |
-| Any revised robust-row critical value or bootstrap calibration is valid for the reported procedure. | `derived` plus `code-implemented` | Derivation, code path, and simulation output. | pending |
+| The concentrated sample cumulant `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)` is a smooth function of primitive sample moments, not a simple fixed per-observation sample mean. | `derived` | Wrote primitive vector and transformation explicitly in `manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`. | passed |
+| Standard asymptotic inference can be recovered by applying GMM/minimum-distance theory to the primitive moment vector or by augmenting nuisance covariance moments. | `derived` plus source context | M56 derives the delta-method and augmented nuisance-covariance routes; KnowledgeVault and `svar-toolkit` GMM docs support the row-level moment discipline but not as a standalone proof for this generated statistic. | passed conditionally |
+| The current robust DW simulation code uses a valid or invalid weighting/cutoff for the concentrated cumulant statistic. | `code-implemented` plus derivation | M56 shows the code uses analytic known-zero-mean delta influence rows, so it is better than the invalid naive statistic but still approximate/provisional because mean-centering terms, regularization, and finite-sample calibration remain unsettled. | approximate/provisional |
+| In the robust noisy model, `S_{ij}(B0)` cannot generally be replaced by known constants without extra assumptions. | `derived` | M54 plus M56: `S(B0)=I+Omega(B0)`, so the entries are unknown nuisance covariances unless a new noise-covariance assumption fixes them. | passed |
+| Any revised robust-row critical value or bootstrap calibration is valid for the reported procedure. | `derived` plus `code-implemented` | M56 recommends full primitive-moment delta weighting, augmented nuisance GMM, or bootstrap/repeated-sample calibration in M52; no new final critical value was implemented in this task. | deferred to M52 |
 
 ## Required Work
 
@@ -178,4 +178,15 @@ shock chart.
 
 ## Outcome Log
 
-Pending.
+Completed on 2026-06-10 in
+`manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`.
+Outcome: the population robust cumulant restrictions remain valid under the
+maintained Gaussian residual-noise route, but the sample fourth-cumulant
+entries are generated smooth moments. The current code already uses analytic
+known-zero-mean delta influence rows, so it is approximate rather than the
+invalid naive statistic. Final evidence should upgrade the robust row to a
+full primitive-moment delta-method criterion including mean-centering nuisance
+terms, an equivalent augmented nuisance-covariance GMM system, or bootstrap/
+repeated-sample calibration. M55 is now unblocked for prose, and M52 must carry
+the robust generated-moment implementation/calibration requirement into the
+figure and Monte Carlo rebuild.

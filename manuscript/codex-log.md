@@ -1127,3 +1127,25 @@ machine-readable milestone in `transparency/milestones/`.
 - Checks run: `python scripts/check_manuscript.py` passed.
 - Open uncertainties: M56 still needs the derivation and code audit; until it
   runs, robust-row J-test and chi-square claims remain provisional.
+
+### 2026-06-10 - M56 generated-moment GMM audit completed
+
+- Request: continue the manuscript goal by implementing the next task.
+- Actions taken: wrote
+  `manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`,
+  updated the M56/M55/M52 packets, softened current draft evidence language,
+  and updated the dashboard, task board, paper map, paper plan, source packet,
+  workplan, formal registry, decision log, and session log.
+- Outcome: the robust fourth-cumulant population restrictions remain valid
+  under the maintained Gaussian residual-noise route, but the sample
+  fourth-cumulant entries are generated smooth moments. The current robust
+  code uses approximate known-zero-mean delta influence rows, so it is not the
+  invalid naive statistic, but final evidence should use full primitive/
+  centering covariance, augmented nuisance-covariance GMM, or calibrated
+  cutoffs.
+- Checks run: `python scripts/check_manuscript.py` passed. The only warning
+  before close was the expected open transparency milestone warning.
+- Open uncertainties: M55 still needs to translate the M54/M56 route into
+  Section 4 prose. M52 still needs to implement or calibrate the robust
+  generated-moment statistic while rebuilding the source-correct standard-DW
+  comparator.

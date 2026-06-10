@@ -11,12 +11,13 @@ as an audit trail, but the main text still needs a reader-facing derivation
 that explains why the robust moment conditions hold at `B0` and how the
 moment entries are computed.
 
-Blocked before execution by: M56. The main text should not explain the sample
-GMM/J-test implementation until
-`manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md` decides
-whether the concentrated fourth-cumulant products require primitive-moment
-delta-method weighting, augmented nuisance-parameter GMM, bootstrap
-calibration, or revised evidence wording.
+Unblocked by: M56. The main text should use
+`manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`:
+the fourth-cumulant sample entries are generated smooth moments. They may be
+handled by primitive-moment delta-method weighting or an equivalent augmented
+nuisance-covariance GMM system, while bootstrap/repeated-sample calibration is
+safer for final evidence. Do not describe them as ordinary fixed row-level
+GMM moments.
 
 ## Original User Prompt
 
@@ -49,6 +50,10 @@ main text needs a compact explanation that:
 - gives enough bivariate algebra to make the displayed moment equations
   believable without expanding every product in the main text; and
 - explains how the sample moments are computed for each candidate `B`.
+- explains that the sample fourth-cumulant entries are smooth functions of
+  primitive sample moments, so their covariance must come from a delta-method,
+  augmented-nuisance, or bootstrap route rather than from treating the
+  concentrated expression as one primitive row-level moment.
 
 ## Do Not Trust Without Rechecking
 
@@ -82,6 +87,7 @@ main text needs a compact explanation that:
 | If residual noise is Gaussian and independent of the shocks, transformed-noise cumulants above order two vanish. | `derived` | Linear transformation of Gaussian noise plus M54. | pending |
 | The fourth-order robust conditions subtract products of `S_{ij}(B)=E[z_i(B)z_j(B)]`, not products of `Omega_{ij}(B)` alone. | `derived` | M54 equations and cumulant algebra. | pending |
 | The sample implementation computes `S_{ij}(B)` from centered `z_t(B)=B^{-1}u_t` for every candidate `B`. | `code-implemented` only if tied to scripts; otherwise `derived` for formula | M54 plus relevant simulation code if cited. | pending |
+| The sample fourth-cumulant entries are generated smooth moments rather than primitive row-level moments. | `derived` | M56 primitive-vector and augmented-nuisance derivation. | passed-upstream |
 
 ## Required Work
 
@@ -101,6 +107,10 @@ main text needs a compact explanation that:
    - add a concise sample recipe: transform residuals by candidate `B`, center
      them, compute sample `S_{ij}(B)`, then plug those entries into the
      moment equations;
+   - state that this plug-in recipe creates generated smooth moments whose
+     weighting/cutoff must use primitive-moment delta-method covariance,
+     augmented nuisance covariance moments, or bootstrap/repeated-sample
+     calibration;
    - avoid implying that the unobserved `eta_t` or `xi_t` must be recovered in
      applications.
 4. Registry and plan updates:

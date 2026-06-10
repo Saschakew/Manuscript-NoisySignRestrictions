@@ -203,16 +203,18 @@ these tasks:
     noise covariance `Omega(B)=Var(B^{-1}eta_t)` from full transformed-
     residual covariance `S(B)=Var(B^{-1}u_t)`, and state that the fourth-order
     covariance-product subtractions use `S(B)` estimated from candidate
-    transformed residuals. M55 is the packet-backed task for this draft update
-    and should run before M52 returns evidence claims to the manuscript.
-15. M0054 adds a stronger method/inference gate before M55. The sample fourth-
-    cumulant entries are products of sample averages after plugging in
-    `S_{ij}(B)`, for example
-    `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)`. M56 must audit whether the
-    robust row can be treated as standard GMM, should be written as a smooth
-    primitive-moment/delta-method GMM, should augment nuisance covariance
-    moments, needs bootstrap calibration, or must be downgraded to provisional
-    simulation evidence.
+    transformed residuals. M56 is now complete, so M55 should explain the
+    generated-moment route rather than treating the plug-in cumulants as
+    ordinary fixed row-level moments.
+15. M0055 completed the M56 method/inference gate. The sample fourth-cumulant
+    entries are products of sample averages after plugging in `S_{ij}(B)`, for
+    example `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)`. M56 derives the
+    primitive-moment delta-method map and an equivalent augmented
+    nuisance-covariance GMM route. It classifies the current robust code as
+    approximate/provisional: the code uses known-zero-mean delta influence rows
+    rather than the invalid naive statistic, but final evidence should add the
+    full primitive/centering covariance, use augmented nuisance moments, or
+    bootstrap/repeated-sample calibration.
 
 ## Gaps And Risks
 
@@ -229,10 +231,12 @@ these tasks:
   Until M55 runs, Section 4 risks confusing `Omega(B)`, the covariance of
   transformed noise, with `S(B)`, the covariance of full transformed residuals
   that is actually used in the fourth-order robust moment equations.
-- The robust finite-sample J-test treatment is now explicitly unsettled. Until
-  M56 runs, do not describe the concentrated fourth-cumulant statistic as an
-  ordinary standard-GMM moment or rely on naive chi-square cutoffs for final
-  evidence claims.
+- The robust finite-sample J-test treatment is now routed but not fully
+  implemented. M56 shows the concentrated fourth-cumulant statistic is a
+  generated smooth moment with a primitive-moment delta-method or augmented
+  nuisance-GMM interpretation. Until M52 upgrades or calibrates the code, do
+  not describe the current robust rows as final standard-GMM chi-square
+  evidence.
 - Higher moments can be weak in macro samples; the robust set may be wide or
   uninformative, and that is an honest result.
 - The robust set comparison is a diagnostic, not proof of literal measurement

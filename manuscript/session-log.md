@@ -917,3 +917,29 @@ For traceable work blocks, pair this human-readable note with a closed
 - Check: `python scripts/check_manuscript.py` passed.
 - Next recommended action: execute M56; then use its result to execute M55;
   then return to M52.
+
+### 2026-06-10 - Complete M56 robust cumulant GMM generated-moment audit
+
+- Request or goal: continue the manuscript goal by executing the next open
+  task, M56, before moving on to the next task.
+- Files changed: `manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`,
+  `manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md`,
+  `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/draft.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/workplan.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and transparency milestone files.
+- Summary of work: derived the primitive-moment delta-method map and the
+  equivalent augmented nuisance-covariance GMM formulation for robust fourth
+  cumulants, audited the current robust code path, and classified current
+  robust evidence as approximate/provisional rather than final chi-square
+  inference.
+- Check: `python scripts/check_manuscript.py` passed; the pre-close warning
+  only noted the open M0055 transparency milestone.
+- Next recommended action: execute M55 so Section 4 explains the M54/M56
+  robust moment route; then execute M52 to rebuild the source-correct
+  standard-DW row and upgrade or calibrate the robust generated-moment
+  statistic.

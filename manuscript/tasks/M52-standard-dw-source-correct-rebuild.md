@@ -10,12 +10,14 @@ Created after: M49, because the source audit found that the current Figure 1
 and M45 standard-DW code is a simplified hybrid rather than the source-correct
 bivariate Drautzburg-Wright GMM1 or GMM2 higher-moment menu.
 
-Blocked before execution by: M54, now completed. The stepwise transformed-
-noise moment derivation and normalization audit keeps the manuscript in the
-`diag(B)=1` common chart and treats the source-native DW unit-variance
-standardization as internal to the recovered-shock moment menu rather than a
-manuscript-wide chart switch. M52 can therefore proceed as the source-correct
-standard-DW rebuild in the retained common chart.
+Blocked before execution by: M55. M54 and M56 are now completed. M54 keeps the
+manuscript in the `diag(B)=1` common chart and treats the source-native DW
+unit-variance standardization as internal to the recovered-shock moment menu
+rather than a manuscript-wide chart switch. M56 shows that the robust
+fourth-cumulant entries are valid generated smooth moments, but final evidence
+should upgrade or calibrate the robust-row weighting. Run M55 first so Section
+4 explains that route, then execute M52 as the source-correct standard-DW and
+robust-generated-moment evidence rebuild in the retained common chart.
 
 ## Original User Prompt
 
@@ -42,6 +44,9 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
   source-correct standard-DW evidence.
 - Any chi-square degrees of freedom tied to the old four-moment standard-DW
   hybrid statistic.
+- Any final robust-row chi-square claim that uses the current approximate
+  known-zero-mean delta influence rows without the M56 primitive-moment or
+  bootstrap/calibration upgrade.
 - Any silent no-rebuild conclusion from M48.
 
 ## Required Reads
@@ -49,6 +54,7 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
 | Path | Purpose | Required before |
 |---|---|---|
 | `manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md` | Upstream derivation and normalization gate that must be completed before M52 starts. | all work |
+| `manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md` | Generated-moment route for the robust fourth-cumulant statistic and classification of current robust evidence. | robust code edits and evidence wording |
 | `manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md` | Source-correct moment menu, noisy derivations, and rebuild alternatives. | all work |
 | `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md` | Original user prompt and stop conditions. | scope decisions |
 | `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Figure 1 standard-DW implementation. | code edits |
@@ -64,6 +70,7 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
 |---|---|---|---|
 | The rebuilt standard-DW row implements bivariate DW GMM1 or GMM2. | `raw-source` plus `code-implemented` | M49 source menu and exact code path. | pending |
 | The chosen chart is `diag(B)=1` common-chart. | `derived` plus `user-decision` only if changing chart later | M54 normalization audit and current planning surfaces. | retained-diag-b1-after-m54 |
+| The rebuilt robust row uses a valid generated-moment route. | `derived` plus `code-implemented` | M56 delta-method or augmented-nuisance route, patched code, and output diagnostics; bootstrap/repeated-sample calibration if used for reported critical values. | pending |
 | The rebuilt figures and Monte Carlo evidence support the same qualitative warning. | `code-implemented` plus simulation audit | Rerun outputs, diagnostics, and updated captions. | pending |
 
 ## Required Work
@@ -74,10 +81,17 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
    - do not reopen the unit-variance/orthogonal-rotation chart unless the user
      explicitly requests a manuscript-wide rewrite later.
 2. Patch the standard-DW moment menu, targets, cutoffs, and labels.
-3. Rerender Figure 1, Figure 2, and Figure 3 if the plotted accepted sets
+3. Upgrade or calibrate the robust generated-moment statistic:
+   - implement full primitive-moment delta-method weighting, including
+     sample-mean nuisance terms; or
+   - implement the equivalent augmented nuisance-covariance GMM; or
+   - use bootstrap/repeated-sample calibration and label the cutoff convention
+     explicitly.
+4. Rerender Figure 1, Figure 2, and Figure 3 if the plotted accepted sets
    change.
-4. Rerun an M45-style evidence table with the rebuilt standard-DW statistic.
-5. Update draft captions, Section 3, citation provenance, formal registry,
+5. Rerun an M45-style evidence table with the rebuilt standard-DW statistic
+   and the upgraded/calibrated robust generated-moment route.
+6. Update draft captions, Section 3, citation provenance, formal registry,
    task board, dashboard, paper map, workplan, and logs.
 
 ## Stop Conditions
@@ -86,6 +100,8 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
 - Stop if M54 is not complete.
 - Stop if the source-correct GMM1/GMM2 implementation cannot be mapped cleanly
   into the selected chart.
+- Stop if the M56 robust generated-moment route cannot be implemented or
+  calibrated without redesigning the evidence section.
 - Stop if old and rebuilt evidence diverge enough that the manuscript's
   Figure 1/Monte Carlo narrative needs redesign rather than local updating.
 
@@ -95,6 +111,9 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
   manuscript hybrid.
 - The code implements that menu explicitly and no longer calls the old hybrid
   source-correct DW.
+- The robust row no longer relies on unqualified naive chi-square wording for
+  generated fourth-cumulant products; it uses a primitive/delta, augmented
+  nuisance, or labeled calibration route.
 - Figure/table captions state the chart, moment menu, and cutoff degrees of
   freedom.
 - Rebuilt outputs are recorded in simulation notes and the formal registry.
