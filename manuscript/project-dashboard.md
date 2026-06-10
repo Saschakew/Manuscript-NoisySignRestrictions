@@ -6,7 +6,7 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: M55 is complete. The stepwise M54 derivation confirms that the
+Current stage: M52 is complete. The stepwise M54 derivation confirms that the
 requested population moments separate transformed-noise remainders from
 Gaussian covariance-product simplifications, and the normalization audit keeps
 the manuscript in the common `diag(B)=1` chart for the first paper. M56
@@ -16,32 +16,33 @@ results into reader-facing Section 4 prose: the draft distinguishes
 transformed-noise covariance `Omega(B)=Var(B^{-1}eta_t)` from full
 transformed-residual covariance `S(B)=Var(B^{-1}u_t)`, shows why the robust
 moments hold at `B0`, gives representative fourth-order algebra, and states
-the candidate-by-candidate sample recipe.
+the candidate-by-candidate sample recipe. M52 rebuilt the evidence path:
+standard DW now uses the source-correct bivariate GMM1 higher-moment menu
+`112`, `122`, `1112`, `1122`, and `1222`, intersected with a separate
+no-noise covariance screen in the common B-plane, and the robust row now uses
+full central-moment delta weighting for generated fourth-cumulant entries.
 
-Current focus: rebuild the evidence. The revised draft still conditionally
+Current focus: proof audit and replication packaging. The revised draft still conditionally
 passes the M34 adversarial scope, logic, and style review; M49 clears the
 source-moment menu and noisy-product gate; M0050 clears the M53 notation gate;
 M54 clears the transformed-noise derivation and normalization gate; M56 clears
 the generated-moment routing gate; and M55 clears the main-text explanation
-gate. The current Figure 1/Figure 2/Figure 3 and M45 standard-DW rows remain
-historical hybrid evidence because the code uses covariance, `112`, `122`,
-and `1122`; the robust rows are also lightweight until M52 upgrades or
-calibrates the generated-moment statistic.
+gate. M52 now clears the source-correct evidence gate. The active Figure 1,
+Figure 2, Figure 3, and Table 1 use the M52 GMM1-plus-covariance-screen
+standard comparator and the M56 central-delta robust generated-moment route.
 
-Next recommended action: execute
-`manuscript/tasks/M52-standard-dw-source-correct-rebuild.md` in the retained
-`diag(B)=1` chart, including the M56 robust-statistic upgrade or calibration.
-After the evidence path is source-correct and the robust row's inference is
-implemented, M47 can audit the M25 J-test proof gate. Keep M33 queued for the
-manuscript-local replication wrapper. A unit-variance/rotation-chart rewrite
-remains a separate future user decision if it is ever requested.
+Next recommended action: execute M47, the M25 standard-DW proof gate audit.
+After that, keep M33 queued for the manuscript-local replication wrapper. A
+unit-variance/rotation-chart rewrite remains a separate future user decision
+if it is ever requested.
 
-Active milestone: M0056 completed the M55 execution block; GitHub milestone 51
-tracks the same work. M0055 completed M56 and created GitHub milestone 50 for
-the generated-moment audit. M0054 planned M56 and created GitHub milestone 49
-for the robust cumulant GMM/generated-moment audit planning block. M0053
-created GitHub milestone 48 for the main-text moment-explanation planning
-block. M0052 completed M54. M0051 planned
+Active milestone: M0057 completed the M52 source-correct evidence rebuild;
+GitHub milestone 52 tracks the same work. M0056 completed the M55 execution
+block and created GitHub milestone 51. M0055 completed M56 and created GitHub
+milestone 50 for the generated-moment audit. M0054 planned M56 and created
+GitHub milestone 49 for the robust cumulant GMM/generated-moment audit
+planning block. M0053 created GitHub milestone 48 for the main-text
+moment-explanation planning block. M0052 completed M54. M0051 planned
 M54 and created GitHub milestone 47 for the stepwise moment derivation and
 normalization audit. M0050
 completed M53 and created GitHub milestone 46 for the notation rewrite work
@@ -101,20 +102,21 @@ Active blockers:
   backticks in `draft.md` are reserved for paths, citation keys, object labels,
   table labels, commands, and code identifiers.
 - Figure 2 has been rebuilt with the variance-ratio robust row, and Figure 3
-  now varies sample size `T=500,1000,2000`. The M45 fixed-grid diagnostics and
-  Monte Carlo table support the evidence sequence, but the run is still a
-  lightweight evidence gate rather than the final replication package.
+  now varies sample size `T=500,1000,2000`. M52 refreshed Figures 1-3 and the
+  active Monte Carlo table with the source-correct GMM1 standard-DW row and
+  full central-delta robust weighting. This remains a first-paper evidence
+  gate rather than the final self-contained replication package.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
-- The draft now contains the M45 chi-square-primary Monte Carlo rows for the
-  variance-ratio robust row. Final publication replication should still move
-  the code into `manuscript/replication/` and can rerun a heavier table if
-  needed.
-- M49 result is complete. It establishes the source-correct bivariate DW GMM1
-  and GMM2 menus, derives the requested noisy product moments, and shows that
-  the current standard-DW figure/MC code is a simplified hybrid. Do not rely on
-  the current Figure 1, Figure 2, Figure 3, or M45 standard-DW rows as
-  source-correct DW evidence until M52 rebuilds them.
+- The draft now contains the M52 chi-square-primary Monte Carlo rows for the
+  source-correct GMM1 standard-DW row and the variance-ratio robust row. Final
+  publication replication should still move the code into
+  `manuscript/replication/` and can rerun a heavier table if needed.
+- M52 result is complete. It implements the M49 source-correct bivariate DW
+  GMM1 menu, treats covariance as a separate B-plane screen, regenerates
+  Figure 1/Figure 2/Figure 3, and records the M52 Monte Carlo table. In the
+  high-noise chi-square row, standard-DW truth inclusion is `0.000` while
+  robust-DW truth inclusion is `0.833`.
 - M55 is complete. Section 4 now explicitly explains why the robust
   transformed-noise moment conditions hold at `B0`, why fourth-order
   covariance-product subtractions use full transformed-residual covariances
@@ -122,16 +124,14 @@ Active blockers:
   `z_t(B)=B^{-1}u_t` rather than from unobserved residual noise.
 - M56 is complete. It shows that concentrated fourth-cumulant sample moments
   are generated smooth functions of primitive sample moments, not ordinary
-  fixed row-level moments. The current robust code uses approximate
-  known-zero-mean delta influence rows, so it is not the invalid naive
-  statistic, but final evidence should use full primitive-moment delta
-  weighting with mean-centering nuisance terms, an equivalent augmented
-  nuisance-covariance GMM system, or bootstrap/repeated-sample calibration. A
-  unit-variance/rotation-chart switch would need a separate manuscript-wide
-  update task if the user ever requests one.
+  fixed row-level moments. M52 implements the chosen full central-moment
+  delta-weighting route with mean-centering nuisance terms. A unit-variance/
+  rotation-chart switch would need a separate manuscript-wide update task if
+  the user ever requests one.
 
-Last substantive session: 2026-06-10, completed M55 by revising Section 4's
-robust transformed-noise moment explanation after M54 and M56.
+Last substantive session: 2026-06-10, completed M52 by rebuilding the
+source-correct standard-DW and robust generated-moment evidence path after
+M54, M55, and M56.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.

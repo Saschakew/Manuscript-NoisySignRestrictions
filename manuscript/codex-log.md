@@ -1168,3 +1168,27 @@ machine-readable milestone in `transparency/milestones/`.
 - Open uncertainties: M52 must still rebuild the standard-DW evidence with a
   source-correct moment menu and implement or calibrate the robust generated-
   moment statistic before final evidence claims.
+
+### 2026-06-10 - M52 source-correct evidence rebuild completed
+
+- Request: continue with the next open task after M55.
+- Actions taken: patched the shared simulation code so standard DW uses the
+  source-correct bivariate GMM1 higher-moment menu plus a separate B-plane
+  covariance screen; replaced the robust known-zero-mean delta rows with full
+  central-moment delta influence rows including sample-mean nuisance terms;
+  regenerated Figures 1-3; and reran the M52 evidence note/JSON.
+- Files changed: simulation scripts, regenerated figure PNGs,
+  `manuscript/simulations/m52_source_correct_evidence.md`,
+  `manuscript/simulations/output/m52_source_correct_evidence.json`,
+  `manuscript/draft.md`, simulation notes, `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  citation provenance, formal registry, planning surfaces, logs, and
+  transparency files.
+- Checks run: figure scripts passed; M52 evidence script passed; `python -m
+  py_compile` passed for the touched simulation scripts; `python -m
+  json.tool manuscript/formal-object-registry.json` passed; `python
+  scripts/check_manuscript.py` passed with only the expected open M0057
+  warning before close; `git diff --check` reported only line-ending
+  normalization warnings. After closing M0057, `python
+  scripts/check_manuscript.py` passed cleanly.
+- Open uncertainties: M47 still needs to audit the M25 proof gate, and M33
+  still needs to wrap final replication code under `manuscript/replication/`.

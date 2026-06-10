@@ -20,8 +20,8 @@ precision without reusing invalid covariance anchors.
 - Benchmark: standard sign-restricted covariance rotations and a
   Drautzburg-Wright-style no-noise higher-moment refinement. M49 source-audited
   the bivariate DW moment menu: GMM1 uses `112`, `122`, `1112`, `1122`, and
-  `1222`, while GMM2 drops only `1122`. The current evidence code is not yet
-  source-correct and must be rebuilt under M52.
+  `1222`, while GMM2 drops only `1122`. M52 implements GMM1 in the common
+  B-plane chart, with the no-noise covariance restriction as a separate screen.
 - Constructive object: robust DW-style set over normalized impact matrices
   using mixed higher-moment equations for `B^{-1}u`, including the required
   fourth-order covariance-product subtractions, while avoiding recovered-shock
@@ -32,15 +32,14 @@ precision without reusing invalid covariance anchors.
   reader-facing explanation, and M56 completes the inference gate: sample
   fourth-cumulants are generated smooth moments that can be handled by
   primitive-moment delta-method weighting or an equivalent augmented
-  nuisance-covariance GMM system, while the current code remains provisional
-  until M52 upgrades or calibrates it. M0036 is now the
+  nuisance-covariance GMM system. M52 implements the full central-delta route
+  for the generated robust rows. M0036 is now the
   variance-ratio robust DW proposal: add the covariance-decomposition screen
   `0 <= nu_i <= 0.5 Var(epsilon_i)`.
 - Evidence: the M0034 pure Figure 1 variant shows the honest cost of dropping
-  invalid second-order information. The M0036 variance-ratio Figure 1 shows
-  that an explicit signal-to-noise upper bound can recover precision while
-  retaining true `B0`. M0040 rebuilt Figure 2, added Figure 3, and supplied a
-  lightweight M45 validation/Monte Carlo table for the active proposal.
+  invalid second-order information. M52 rebuilt Figure 1, Figure 2, Figure 3,
+  and the active Monte Carlo table with a source-correct GMM1 standard-DW row
+  and full central-delta robust weighting.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -84,9 +83,9 @@ precision without reusing invalid covariance anchors.
 | Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the variance-ratio robust refinement, and simulation evidence. | revised after M34 claim-tightening |
 | 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust residual-noise-to-signal fix, and preview the evidence. | revised after M34 claim-tightening; literature positioning retained |
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
-| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M0050 now displays the menu with \(e_t(B)\); M52 must rebuild figures/MC with a source-correct standard-DW menu; M25 proof audit pending |
-| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. The main text explains why the moment conditions hold at `B0`, why raw fourth moments need covariance-product subtractions, how `S_{ij}(B)` is computed from candidate transformed residuals, and how the resulting generated sample moments are handled in inference. | M49 noisy product derivations complete; M0050 rewrote the display as explicit moment equations with fourth-order covariance-product subtractions; M54 completed the step-by-step transformed-noise derivation and confirmed the retained `diag(B)=1` chart; M56 completed the generated-moment audit; M55 completed the reader-facing Section 4 explanation; final proof, evidence rebuild, and replication still pending |
-| 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | reviewed after M34; still lightweight until replication wrapper |
+| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M0050 displays the menu with \(e_t(B)\); M52 rebuilt the source-correct GMM1 evidence row; M25 proof audit pending |
+| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. The main text explains why the moment conditions hold at `B0`, why raw fourth moments need covariance-product subtractions, how `S_{ij}(B)` is computed from candidate transformed residuals, and how the resulting generated sample moments are handled in inference. | M49 noisy product derivations complete; M0050 rewrote the display as explicit moment equations with fourth-order covariance-product subtractions; M54 completed the step-by-step transformed-noise derivation and confirmed the retained `diag(B)=1` chart; M56 completed the generated-moment audit; M55 completed the reader-facing Section 4 explanation; M52 implemented the central-delta robust statistic; final proof and replication still pending |
+| 5. Figure-Led Evidence And Monte Carlo Check | Use M52 Figure 1, Figure 2, Figure 3, and source-correct Monte Carlo evidence. | source-correct lightweight evidence rebuilt after M52; still needs replication wrapper |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
 ## Core Formal Objects
@@ -125,15 +124,15 @@ and proof or output status.
   recovered-covariance feasibility; high-noise accepted share falls to 0.066
   while true `B0` remains included. This is now a comparison because the
   absolute variance cap is scale-arbitrary.
-- M0036 relative-noise residual grid variant showing the same setting with the
-  pure higher-moment row intersected with the covariance-decomposition
-  feasibility condition `0 <= nu_i <= 0.5 Var(epsilon_i)`; high-noise accepted
-  share is 0.071 of the full grid, 0.084 of the sign-admissible grid, and true
-  `B0` remains included. This is the active Figure 1 proposal.
-- Rebuilt Figure 2 uses the variance-ratio robust row while varying
-  structural-shock non-Gaussianity.
-- New Figure 3 varies `T=500`, `T=1000`, and `T=2000`, holding the Figure 1
-  non-Gaussianity and Figure 2 noise calibration fixed.
+- M52 relative-noise residual grid: high-noise fixed-grid diagnostics have
+  source-correct standard DW missing true `B0`, while relative robust DW
+  includes it; standard share is 0.026 and robust share is 0.051 on the M52
+  diagnostic grid.
+- M52 Figure 2 varies structural-shock non-Gaussianity with the same
+  source-correct standard-DW and robust rows.
+- M52 Figure 3 varies `T=500`, `T=1000`, and `T=2000`, holding the Figure 1
+  non-Gaussianity and Figure 2 noise calibration fixed; the robust row remains
+  truth-containing in the rendered fixed draw.
 - Algebraic proof of the covariance pseudo-set and column-rescaling
   obstruction.
 - M25 working derivation showing that standard DW recovered-shock restrictions
@@ -142,17 +141,17 @@ and proof or output status.
 - Derivation of the pure higher-moment robust moment stack from
   `derivations/dw-noise-robust-moments.md`; the post-M0030 diagonal-anchor
   estimator audit is superseded by the M0034 scale correction.
-- M45 fixed-grid diagnostics rebuild the M28-style checks for the
-  variance-ratio robust row, including Figure 1, Figure 2, and Figure 3
-  scenarios.
+- M52 fixed-grid diagnostics rebuild the M28-style checks for the
+  variance-ratio robust row and source-correct standard-DW row, including
+  Figure 1, Figure 2, and Figure 3 scenarios.
 - M27 formal diagnostic note defining the reported standard-DW set, robust-DW
   set, critical-value convention, directional overlap metric, and interpretation
   boundaries.
-- M45 refreshed chi-square-primary Monte Carlo evidence for the current
-  variance-ratio robust row; after M56, treat this as lightweight/provisional
-  because the robust row uses approximate known-zero-mean delta influence rows.
-  The historical M29 pass remains superseded because it used the
-  diagonal-anchor statistic.
+- M52 refreshed chi-square-primary Monte Carlo evidence for the
+  source-correct GMM1 standard-DW row and the variance-ratio robust row. In the
+  high-noise row, standard-DW truth inclusion is 0.000 and robust-DW truth
+  inclusion is 0.833. The historical M45 and M29 passes remain superseded for
+  active evidence.
 - Final Monte Carlo comparison of standard sign, standard DW, and robust DW
   sets using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and
@@ -169,7 +168,7 @@ and proof or output status.
   skeleton without treating audit cutoffs as application-ready procedures.
   M32 added the first literature-positioning pass with explicit contribution
   boundaries. The next bottlenecks are direct M25 proof audit before
-  theorem-level wording, adversarial review of the new M45 evidence, and moving
+  theorem-level wording, adversarial review of the new M52 evidence, and moving
   figure/table code into `manuscript/replication/` before sharing.
 - M0041 rewrote the abstract, introduction, and Sections 2-4 in response to
   the revision comments. The front half now starts from SVAR-reader language:
@@ -178,13 +177,12 @@ and proof or output status.
   variance-ratio robust construction. M34 conditionally passed the revised
   draft after tightening terminology and evidence claims. Remaining bottlenecks
   are proof audit, final replication packaging, and final export cleanup.
-- M49 completes the source and noisy-moment audit. The current Section 3 now
-  records the source-correct GMM1/GMM2 menus, but Figure 1, Figure 2, Figure 3,
-  and M45 still use the old simplified hybrid standard-DW statistic. M52 must
-  rebuild the standard-DW evidence before final evidence claims proceed. The
-  manuscript stays in the `diag(B)=1` common chart; the DW source-native
-  unit-variance scaling is internal to the recovered-shock standardization and
-  does not force a manuscript-wide redesign.
+- M52 completes the source-correct evidence rebuild. The current Section 3
+  records the source-correct GMM1/GMM2 menus, and Figures 1-3 plus Table 1 now
+  implement GMM1 with a separate B-plane covariance screen. The manuscript
+  stays in the `diag(B)=1` common chart; the DW source-native unit-variance
+  scaling is internal to recovered-shock standardization and does not force a
+  manuscript-wide redesign.
 - M54 is complete. It derived the Section 4 transformed-noise moment
   conditions step by step at \(B=B_0\), distinguished independent residual
   components from Gaussian transformed-noise simplifications, and retained the
@@ -196,9 +194,7 @@ and proof or output status.
   in the robust fourth-order moment equations; it shows representative
   fourth-order algebra and states the practical computation of the moment
   plug-ins.
-- M56 completes the generated-moment inference gate before M55. The robust
-  fourth-cumulant sample entries are products of sample averages after
-  plugging in `S_{ij}(B)`. They are valid generated smooth moments with a
-  primitive-moment delta-method or augmented nuisance-covariance route, but the
-  current robust rows remain provisional until M52 implements the full
-  primitive/centering covariance or a labeled calibration route.
+- M52 implements the generated-moment inference route selected after M56. The
+  robust fourth-cumulant sample entries are products of sample averages after
+  plugging in `S_{ij}(B)`; the active code now uses full central-moment
+  delta-method influence rows with mean-centering nuisance terms.

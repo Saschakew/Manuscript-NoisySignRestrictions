@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "id": "M0057-m52-source-correct-evidence-rebuild",
+  "sequence": 57,
+  "title": "M52 source-correct evidence rebuild",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-10T14:06:35Z",
+  "closed_at": "2026-06-10T14:35:41Z",
+  "start_commit": "8c6f3f02299e9bfbeef7493f4024e1aad0bf421d",
+  "snapshot_ref": "manuscript-milestones/M0057-m52-source-correct-evidence-rebuild",
+  "summary": "Completed M52 source-correct evidence rebuild, implementing GMM1 plus covariance-screen standard DW, central-delta robust generated-moment weighting, regenerated Figures 1-3, and M52 Monte Carlo evidence.",
+  "user_inputs": [
+    {
+      "id": "U0057-001",
+      "milestone_id": "M0057-m52-source-correct-evidence-rebuild",
+      "captured_at": "2026-06-10T14:06:35Z",
+      "source": "chat",
+      "text": "Continue the manuscript goal with the next open task after M55: execute M52 by rebuilding standard-DW evidence with the source-correct moment menu and upgrading or calibrating the robust generated-moment statistic."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0057-001",
+      "milestone_id": "M0057-m52-source-correct-evidence-rebuild",
+      "captured_at": "2026-06-10T14:35:41Z",
+      "description": "Patched simulation and evidence code, regenerated figures and outputs, and updated draft, provenance, registry, planning surfaces, packets, and logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-10T14:35:41Z",
+      "description": "python scripts/check_manuscript.py: passed before close; only warning was the expected open M0057 milestone"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png",
+    "manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png",
+    "manuscript/figures/fig_sign_dw_sample_size_robust_grid.png",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/m45_variance_ratio_evidence.py",
+    "manuscript/simulations/m52_source_correct_evidence.md",
+    "manuscript/simulations/output/m52_source_correct_evidence.json",
+    "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.py",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.md",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py",
+    "manuscript/simulations/sign_dw_sample_size_robust_grid_figure.md",
+    "manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M52-standard-dw-source-correct-rebuild.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0057-m52-source-correct-evidence-rebuild.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 52,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/52",
+    "tag_name": "manuscript-milestones/M0057-m52-source-correct-evidence-rebuild"
+  }
+}

@@ -5,6 +5,27 @@ decisions.
 
 ## Entries
 
+### 2026-06-10 - Use GMM1 plus central-delta weighting for M52 evidence
+
+- Decision type: evidence implementation and inference route.
+- Decision: rebuild the active evidence in the retained `diag(B)=1` common
+  chart using the source-correct bivariate Drautzburg-Wright GMM1 higher-
+  moment menu `112`, `122`, `1112`, `1122`, and `1222`. Treat the no-noise
+  covariance restriction as a separate B-plane screen rather than as a DW
+  higher-moment row. For the robust row, implement the M56 generated-moment
+  route with full central-moment delta influence rows, including sample-mean
+  nuisance terms.
+- Rationale: M49 identifies GMM1 as the full source-correct bivariate menu,
+  while M54 retains the common B-plane chart. M56 shows that generated robust
+  fourth cumulants need primitive/delta, augmented-nuisance, or calibration
+  treatment. Central-delta weighting is the smallest implementation that
+  directly addresses the generated-moment problem without redesigning the
+  evidence section.
+- Consequence for next work: M52 is complete. M47 can now audit the M25
+  standard-DW proof gate, and M33 remains the replication-wrapper task before
+  shareable release.
+- User input: U0057.
+
 ### 2026-06-09 - Derive transformed-noise moments before evidence rebuild
 
 - Decision type: derivation and normalization planning.

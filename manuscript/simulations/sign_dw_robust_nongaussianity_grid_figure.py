@@ -140,11 +140,11 @@ def plot() -> Path:
         base.shade(ax, b12_mesh, b21_mesh, covariance_accepted, "#d9d9d9", 0.55)
         base.shade(ax, b12_mesh, b21_mesh, dw_accepted, "#6a51a3", 0.9)
         base.draw_covariance_contour(ax, b12_mesh, b21_mesh, correlation)
-        ax.set_title("Standard DW J-test")
+        ax.set_title(base.standard_dw_title())
         ax.text(
             -1.22,
             1.16,
-            f"{base.min_label(dw_j)}\n{base.truth_label(true_dw_j, base.CHI2_90_DF4)}",
+            f"{base.min_label(dw_j)}\n{base.standard_dw_truth_label(true_dw_j, true_covariance_j)}",
             color="#542788",
             fontsize=9,
         )
@@ -181,12 +181,14 @@ def plot() -> Path:
 
     fig.suptitle(
         (
-            f"Same B-plane and fixed residual noise V=({FIXED_NOISE[0]:g},{FIXED_NOISE[1]:g}); "
-            "columns weaken structural non-Gaussianity\n"
-            f"N={base.SAMPLE_SIZE}; all rows invert pointwise 10% J tests; "
+            f"Fixed residual noise V=({FIXED_NOISE[0]:g},{FIXED_NOISE[1]:g}); "
+            "columns weaken structural non-Gaussianity; "
+            f"N={base.SAMPLE_SIZE}\n"
+            + base.standard_dw_summary()
+            + "; "
             + base.robust_mode_summary(ROBUST_MODE)
         ),
-        fontsize=13,
+        fontsize=12,
     )
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     fig.savefig(OUTPUT_PATH, dpi=180)

@@ -1,8 +1,11 @@
 """Rebuild validation and Monte Carlo evidence for variance-ratio robust DW.
 
-This is the M45 evidence gate for the M0036 proposal.  It treats the robust
-set as the pure mixed higher-cumulant J inversion intersected with the
-relative covariance-decomposition screen:
+This script now writes the M52 source-correct rebuild of the earlier M45-style
+evidence gate. It treats the standard-DW row as the source-correct bivariate
+DW GMM1 higher-moment menu intersected with a separate no-noise covariance
+screen in the common B-plane chart. It treats the robust set as the pure mixed
+higher-cumulant J inversion, with full central-moment delta weighting,
+intersected with the relative covariance-decomposition screen:
 
     0 <= nu_i <= 0.5 * Var(epsilon_i).
 
@@ -30,8 +33,8 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parents[2]
 OUTPUT_DIR = ROOT / "manuscript" / "simulations" / "output"
-JSON_OUTPUT = OUTPUT_DIR / "m45_variance_ratio_evidence.json"
-NOTE_OUTPUT = ROOT / "manuscript" / "simulations" / "m45_variance_ratio_evidence.md"
+JSON_OUTPUT = OUTPUT_DIR / "m52_source_correct_evidence.json"
+NOTE_OUTPUT = ROOT / "manuscript" / "simulations" / "m52_source_correct_evidence.md"
 
 ROBUST_MODE = "relative"
 GRID_WINDOW = (-1.35, 0.35, -0.25, 1.35)
@@ -108,6 +111,28 @@ def simulate_residuals(seed: int, scenario: Scenario) -> np.ndarray:
     return residuals - residuals.mean(axis=0, keepdims=True)
 
 
+def simulate_figure_residuals(seed: int, scenario: Scenario) -> np.ndarray:
+    """Match the exact draw streams used by the rendered figure scripts."""
+    rng = np.random.default_rng(seed)
+    if scenario.group == "figure2_nongaussianity":
+        skewed = base.standardize_columns(
+            rng.chisquare(df=base.STRUCTURAL_CHI2_DF, size=(scenario.sample_size, 2))
+        )
+        gaussian = base.standardize_columns(rng.normal(size=(scenario.sample_size, 2)))
+        structural = math.sqrt(scenario.non_gaussian_weight) * skewed
+        structural += math.sqrt(max(0.0, 1.0 - scenario.non_gaussian_weight)) * gaussian
+        structural = base.standardize_columns(structural)
+    else:
+        structural = base.standardize_columns(
+            rng.chisquare(df=base.STRUCTURAL_CHI2_DF, size=(scenario.sample_size, 2))
+        )
+    noise = base.standardize_columns(rng.normal(size=(scenario.sample_size, 2)))
+    residuals = structural @ base.TRUE_MATRIX.T
+    residuals[:, 0] += math.sqrt(scenario.noise[0]) * noise[:, 0]
+    residuals[:, 1] += math.sqrt(scenario.noise[1]) * noise[:, 1]
+    return residuals - residuals.mean(axis=0, keepdims=True)
+
+
 def make_grid(points: int) -> tuple[np.ndarray, np.ndarray]:
     b12_min, b12_max, b21_min, b21_max = GRID_WINDOW
     b12_grid = np.unique(np.append(np.linspace(b12_min, b12_max, points), base.TRUE_B12))
@@ -136,7 +161,9 @@ def robust_feasible_grid(
 def truth_values(residuals: np.ndarray) -> dict[str, Any]:
     standard_shocks = base.standardized_candidate_shocks(base.TRUE_B12, base.TRUE_B21, residuals)
     standard_j = math.nan
+    covariance_j = math.nan
     if standard_shocks is not None:
+        covariance_j = base.j_statistic(standard_shocks, base.MOMENTS_COVARIANCE)
         standard_j = base.j_statistic(standard_shocks, base.MOMENTS_DW)
     robust_j = base.robust_mode_statistic(
         base.TRUE_B12,
@@ -151,6 +178,10 @@ def truth_values(residuals: np.ndarray) -> dict[str, Any]:
     )
     return {
         "standard_dw": finite_float(standard_j),
+        "standard_covariance": finite_float(covariance_j),
+        "standard_covariance_in": bool(
+            math.isfinite(covariance_j) and covariance_j <= base.CHI2_90_DF1
+        ),
         "robust_dw": finite_float(robust_j),
         "robust_feasible": bool(robust_feasible),
     }
@@ -166,8 +197,8 @@ def grid_statistics(
         b12_mesh,
         b21_mesh,
         _correlation,
-        _covariance_j,
-        _covariance_accepted,
+        covariance_j,
+        covariance_accepted,
         standard_j,
         _standard_accepted,
     ) = base.evaluate_standard_grid(
@@ -187,6 +218,8 @@ def grid_statistics(
     return {
         "b12_mesh": b12_mesh,
         "b21_mesh": b21_mesh,
+        "standard_covariance_j": covariance_j,
+        "standard_covariance_accepted": covariance_accepted,
         "standard_j": standard_j,
         "robust_j": robust_j,
         "robust_feasible": robust_feasible,
@@ -231,12 +264,18 @@ def set_metrics(
     b12_mesh = stats["b12_mesh"]
     b21_mesh = stats["b21_mesh"]
     standard_j = stats["standard_j"]
+    standard_covariance_accepted = stats["standard_covariance_accepted"]
     robust_j = stats["robust_j"]
     robust_feasible = stats["robust_feasible"]
     chart = np.isfinite(robust_j)
     chart_count = int(np.count_nonzero(chart))
 
-    standard = chart & np.isfinite(standard_j) & (standard_j <= standard_cutoff)
+    standard = (
+        chart
+        & standard_covariance_accepted
+        & np.isfinite(standard_j)
+        & (standard_j <= standard_cutoff)
+    )
     robust = chart & robust_feasible & np.isfinite(robust_j) & (robust_j <= robust_cutoff)
     intersection = standard & robust
     union = standard | robust
@@ -249,8 +288,14 @@ def set_metrics(
     robust_contained = intersection_count / robust_count if robust_count else None
 
     standard_truth_j = truth["standard_dw"]
+    standard_covariance_j = truth["standard_covariance"]
+    standard_covariance_in = bool(truth["standard_covariance_in"])
     robust_truth_j = truth["robust_dw"]
-    standard_truth_in = standard_truth_j is not None and standard_truth_j <= standard_cutoff
+    standard_truth_in = (
+        standard_truth_j is not None
+        and standard_truth_j <= standard_cutoff
+        and standard_covariance_in
+    )
     robust_truth_in = (
         robust_truth_j is not None
         and robust_truth_j <= robust_cutoff
@@ -265,8 +310,15 @@ def set_metrics(
             "empty": standard_count == 0,
             "truth_in": bool(standard_truth_in),
             "truth_j": standard_truth_j,
+            "covariance_truth_j": standard_covariance_j,
+            "covariance_screen_in": standard_covariance_in,
             "distance_to_accepted_set": distance_to_set(standard, b12_mesh, b21_mesh),
-            "least_rejected": least_rejected(standard_j, b12_mesh, b21_mesh, chart),
+            "least_rejected": least_rejected(
+                standard_j,
+                b12_mesh,
+                b21_mesh,
+                chart & standard_covariance_accepted,
+            ),
         },
         "robust_dw": {
             "accepted_count": robust_count,
@@ -334,7 +386,7 @@ def cutoff_catalog(
         {
             "name": "chi_square_90",
             "label": "Chi-square 90%",
-            "standard_dw": base.CHI2_90_DF4,
+            "standard_dw": base.standard_dw_cutoff(),
             "robust_dw": base.robust_mode_cutoff(ROBUST_MODE),
         },
         {
@@ -356,13 +408,13 @@ def fixed_grid_diagnostics(grid_points: int) -> list[dict[str, Any]]:
     records: list[dict[str, Any]] = []
     for scenario in FIGURE_SCENARIOS:
         figure_seed = base.RANDOM_SEED
-        residuals = simulate_residuals(figure_seed, scenario)
+        residuals = simulate_figure_residuals(figure_seed, scenario)
         stats = grid_statistics(residuals, scenario, grid_points)
         truth = truth_values(residuals)
         metrics = set_metrics(
             stats,
             truth,
-            base.CHI2_90_DF4,
+            base.standard_dw_cutoff(),
             base.robust_mode_cutoff(ROBUST_MODE),
         )
         records.append(
@@ -536,11 +588,13 @@ def write_note(payload: dict[str, Any]) -> None:
         for row in payload["monte_carlo_summary"]
     }
     lines = [
-        "# M45 Variance-Ratio Robust DW Evidence",
+        "# M52 Source-Correct Variance-Ratio Robust DW Evidence",
         "",
-        "Status: completed lightweight validation and Monte Carlo rebuild for the M0036 variance-ratio robust DW proposal.",
+        "Status: completed M52 source-correct rebuild for the variance-ratio robust DW proposal.",
         "",
-        "The robust set in this pass is the pure five-moment higher-cumulant J inversion intersected with the relative covariance-decomposition screen. The screen is applied in every grid and every truth-inclusion calculation, so the numbers are no longer using the superseded diagonal-anchor statistic.",
+        "The standard-DW set in this pass is the source-correct bivariate DW GMM1 higher-moment menu, `112`, `122`, `1112`, `1122`, and `1222`, intersected with a separate no-noise covariance screen in the common diagonal-normalized B-plane chart.",
+        "",
+        "The robust set is the pure five-moment higher-cumulant J inversion with full central-moment delta weighting for generated fourth cumulants, intersected with the relative covariance-decomposition screen. The screen is applied in every grid and every truth-inclusion calculation.",
         "",
         "## Configuration",
         "",
@@ -549,7 +603,8 @@ def write_note(payload: dict[str, Any]) -> None:
         f"- Monte Carlo calibration replications per scenario: `{payload['configuration']['calibration_reps']}`.",
         f"- Monte Carlo evaluation replications per scenario: `{payload['configuration']['evaluation_reps']}`.",
         f"- Monte Carlo grid: `{payload['configuration']['grid_points']} x {payload['configuration']['grid_points']}` plus the true point.",
-        f"- Robust cutoff under the primary chi-square convention: `{fmt(base.robust_mode_cutoff(ROBUST_MODE))}` with five higher-cumulant moments.",
+        f"- Standard-DW primary cutoff: `{fmt(base.standard_dw_cutoff())}` for source-correct `{base.STANDARD_DW_MENU}` higher moments, plus a separate covariance-screen cutoff `{fmt(base.CHI2_90_DF1)}`.",
+        f"- Robust cutoff under the primary chi-square convention: `{fmt(base.robust_mode_cutoff(ROBUST_MODE))}` with five generated higher-cumulant moments.",
         "",
         "## Fixed-Grid Diagnostics",
         "",
@@ -619,7 +674,7 @@ def write_note(payload: dict[str, Any]) -> None:
             f"{fmt(gaussian_chi['robust_dw']['mean_accepted_share'])}, respectively.",
             "- The skewed-residual-noise row violates the maintained Gaussian-noise route, so it remains a stress case even when finite-sample truth inclusion is high.",
             "",
-            "Machine-readable output: `manuscript/simulations/output/m45_variance_ratio_evidence.json`.",
+            "Machine-readable output: `manuscript/simulations/output/m52_source_correct_evidence.json`.",
         ]
     )
     NOTE_OUTPUT.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
@@ -653,7 +708,7 @@ def main() -> int:
     )
     payload = {
         "schema_version": 1,
-        "description": "M45 validation and Monte Carlo evidence for the variance-ratio robust DW proposal.",
+        "description": "M52 source-correct validation and Monte Carlo evidence for the variance-ratio robust DW proposal.",
         "configuration": {
             "seed": args.seed,
             "diagnostic_grid_points": args.diagnostic_grid_points,
@@ -665,9 +720,12 @@ def main() -> int:
             "true_b12": base.TRUE_B12,
             "true_b21": base.TRUE_B21,
             "robust_mode": ROBUST_MODE,
+            "standard_dw_menu": base.STANDARD_DW_MENU,
+            "standard_dw_moments": [list(moment) for moment in base.MOMENTS_DW],
             "primary_cutoff_convention": "chi_square_90",
             "chi_square_cutoffs": {
-                "standard_dw": base.CHI2_90_DF4,
+                "standard_dw": base.standard_dw_cutoff(),
+                "standard_covariance": base.CHI2_90_DF1,
                 "robust_dw": base.robust_mode_cutoff(ROBUST_MODE),
             },
         },

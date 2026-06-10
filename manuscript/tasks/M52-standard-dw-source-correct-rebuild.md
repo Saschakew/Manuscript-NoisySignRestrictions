@@ -1,6 +1,6 @@
 # M52 Standard-DW Source-Correct Rebuild
 
-Status: `todo`
+Status: `done`
 
 Priority: 1
 
@@ -68,10 +68,10 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
 
 | Claim | Required status | Evidence required | Result |
 |---|---|---|---|
-| The rebuilt standard-DW row implements bivariate DW GMM1 or GMM2. | `raw-source` plus `code-implemented` | M49 source menu and exact code path. | pending |
+| The rebuilt standard-DW row implements bivariate DW GMM1 or GMM2. | `raw-source` plus `code-implemented` | M49 source menu and exact code path. | implemented-GMM1-plus-covariance-screen |
 | The chosen chart is `diag(B)=1` common-chart. | `derived` plus `user-decision` only if changing chart later | M54 normalization audit and current planning surfaces. | retained-diag-b1-after-m54 |
-| The rebuilt robust row uses a valid generated-moment route. | `derived` plus `code-implemented` | M56 delta-method or augmented-nuisance route, patched code, and output diagnostics; bootstrap/repeated-sample calibration if used for reported critical values. | pending |
-| The rebuilt figures and Monte Carlo evidence support the same qualitative warning. | `code-implemented` plus simulation audit | Rerun outputs, diagnostics, and updated captions. | pending |
+| The rebuilt robust row uses a valid generated-moment route. | `derived` plus `code-implemented` | M56 delta-method or augmented-nuisance route, patched code, and output diagnostics; bootstrap/repeated-sample calibration if used for reported critical values. | implemented-full-central-delta |
+| The rebuilt figures and Monte Carlo evidence support the same qualitative warning. | `code-implemented` plus simulation audit | Rerun outputs, diagnostics, and updated captions. | confirmed-lightweight-m52 |
 
 ## Required Work
 
@@ -127,4 +127,27 @@ evidence therefore cannot be described as source-correct standard-DW evidence.
 
 ## Outcome Log
 
-Pending.
+### 2026-06-10
+
+- Outcome: completed the source-correct evidence rebuild in the retained
+  `diag(B)=1` common chart.
+- Standard-DW implementation: `sign_dw_robust_noise_grid_figure.py` now uses
+  the source-correct bivariate DW GMM1 higher-moment menu
+  `112`, `122`, `1112`, `1122`, and `1222`; the no-noise covariance
+  restriction is a separate B-plane screen rather than a DW higher-moment row.
+- Robust implementation: the robust row now uses full central-moment
+  delta-method influence rows for the generated fourth-cumulant entries,
+  including sample-mean nuisance terms, and keeps the variance-ratio
+  covariance-decomposition screen.
+- Outputs regenerated: Figure 1
+  `manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png`, Figure 2
+  `manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png`, Figure 3
+  `manuscript/figures/fig_sign_dw_sample_size_robust_grid.png`, and M52
+  evidence note/output `manuscript/simulations/m52_source_correct_evidence.md`
+  plus `manuscript/simulations/output/m52_source_correct_evidence.json`.
+- Main repeated-sample result under primary chi-square cutoffs: in high
+  Gaussian noise, source-correct standard DW includes true `B0` in `0.000` of
+  evaluation samples, while variance-ratio robust DW includes it in `0.833`
+  and the true point is feasible for the hard screen in `0.958`.
+- Next consequence: M47 can audit the M25 standard-DW proof gate; M33 remains
+  the replication-wrapper task before a shareable package.

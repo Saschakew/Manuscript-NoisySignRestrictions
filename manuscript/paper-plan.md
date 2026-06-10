@@ -44,7 +44,7 @@ When the two sets agree, the usual refinement is less suspicious. When they
 diverge, residual noise or another covariance-target misspecification is
 indicated, and the robust set is the safer object.
 
-The paper's visual spine is now rebuilt around the M0036 variance-ratio
+The paper's visual spine is now rebuilt around the M52 source-correct
 proposal. Figure 1 varies residual noise and shows the main warning: noisy
 covariance moves the sign set, standard DW can reject the true normalized
 `B0`, and variance-ratio robust DW contains it without accepting the whole
@@ -58,7 +58,7 @@ robust row because they used the superseded diagonal-anchor statistic. Their
 metric bundle remains useful: standard-DW accepted mass outside the robust-DW
 set is the directional warning metric, while robust-DW mass outside standard
 DW mainly records the information lost by profiling diagonal noise and dropping
-recovered-shock covariance restrictions. The rebuilt M45 table keeps standard
+recovered-shock covariance restrictions. The rebuilt M52 table keeps standard
 pointwise chi-square critical values as the main applied reading, with
 repeated-sample and oracle truth cutoffs as secondary audits of finite-sample
 size and calibration cost.
@@ -127,8 +127,8 @@ is the price of not pretending that the noisy covariance is structural.
    calibration rather than treating the concentrated expression as one
    ordinary row-level moment. State claims with the M0034/M0036 caveats:
    normalized bivariate chart, diagonal Gaussian residual noise, explicit
-   signal-to-noise bound, and pointwise critical values only after M52
-   implements or calibrates the generated-moment route.
+   signal-to-noise bound, and pointwise critical values under the M52
+   central-delta generated-moment route.
 5. Figure-led evidence and Monte Carlo robustness check: use the rebuilt
    Figure 1/Figure 2/Figure 3 sequence as the reader's main visual guide. First
    show the residual-noise grid that moves the sign set, makes standard DW
@@ -157,8 +157,9 @@ is the price of not pretending that the noisy covariance is structural.
 - No-noise economic sign set:
   `P_0 P_0' = B0 B0'`, with `R(P_0 Q) >= 0`.
 - Standard DW set:
-  sign-admissible covariance-factor rotations whose recovered shocks pass
-  no-noise higher-moment independence restrictions.
+  sign-admissible candidates whose standardized recovered shocks pass the
+  source-correct bivariate GMM1 higher-moment menu, with covariance imposed as
+  a separate B-plane screen in the retained common chart.
 - Robust DW candidate:
   a normalized impact matrix `B` not required to satisfy `B B' = Sigma_u`.
 - Superseded diagonal-noise covariance anchor:
@@ -184,15 +185,14 @@ is the price of not pretending that the noisy covariance is structural.
   information enters only through the explicit variance-ratio covariance
   screen.
 - Robust DW sample criterion:
-  resolved at the derivation/routing level by M56, but not yet implemented for
-  final evidence. The sample fourth-cumulant entries are concentrated smooth
-  functions of primitive sample moments, for example
+  implemented in M52 using the M56 generated-moment route. The sample
+  fourth-cumulant entries are concentrated smooth functions of primitive
+  sample moments, for example
   `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)`. The valid route is
   primitive-moment delta-method weighting or an equivalent augmented nuisance
-  covariance GMM system, with bootstrap/repeated-sample calibration preferred
-  for final evidence if finite-sample behavior is unstable. The current code
-  uses approximate known-zero-mean delta influence rows and remains
-  provisional until M52.
+  covariance GMM system. The active code uses full central-moment delta
+  influence rows, including sample-mean nuisance terms; bootstrap or heavier
+  repeated-sample calibration remains a possible final replication add-on.
 - Robustness check:
   compare the standard DW accepted set with the robust DW accepted set in the
   common normalized chart. Report accepted shares, overlap, standard-DW mass
@@ -236,9 +236,10 @@ is the price of not pretending that the noisy covariance is structural.
   covariance restrictions. The comparison is a warning, not literal proof of
   measurement error.
 - Simulation result: the M0036 relative-noise Figure 1, rebuilt Figure 2, new
-  Figure 3, and M45 Monte Carlo table form the current proposal evidence.
-  Treat the evidence as lightweight until M34 review and final replication
-  packaging.
+  Figure 3, and M52 Monte Carlo table form the current proposal evidence. In
+  the high-noise primary row, source-correct standard DW includes true `B0` in
+  0.000 of evaluation samples and variance-ratio robust DW includes it in
+  0.833. Treat the evidence as lightweight until final replication packaging.
 
 ## Evidence Plan
 
@@ -255,10 +256,11 @@ is the price of not pretending that the noisy covariance is structural.
   noise calibration fixed. Use it to show whether the variance-ratio robust set
   tightens with sample size while the maintained signal-to-noise restriction
   stays fixed.
-- Validation grid checks: M45 reruns M28-style fixed-grid checks for the
-  variance-ratio row. The old M28 pass is historical for the robust row because
-  it used the superseded diagonal-anchor statistic.
-- Monte Carlo table: M45 reruns M29-style evidence for the variance-ratio
+- Validation grid checks: M52 reruns M28-style fixed-grid checks for the
+  source-correct standard-DW row and variance-ratio robust row. The old M28
+  pass is historical for the robust row because it used the superseded
+  diagonal-anchor statistic.
+- Monte Carlo table: M52 reruns M29/M45-style evidence for the variance-ratio
   robust proposal. Reuse the same reporting metrics: true-`B0` inclusion,
   accepted-set share, empty-set frequency, standard-DW versus robust-DW overlap,
   the M27 directional divergence metric, and least-rejected candidates across
@@ -276,7 +278,7 @@ is the price of not pretending that the noisy covariance is structural.
   sign-set algebra, standard-DW misspecification result, and variance-ratio
   robust DW proposal. M40 conditionally passed the variance-ratio screen; they
   still need proof polishing, the M25 standard-DW audit outcome, adversarial
-  review of the M45 evidence, and final citation-style cleanup before becoming
+  review of the M52 evidence, and final citation-style cleanup before becoming
   polished manuscript prose.
 - M42 completed the manuscript math-delimiter cleanup. Future drafting should
   keep mathematical expressions in `\(...\)` or display equation environments
@@ -296,12 +298,11 @@ is the price of not pretending that the noisy covariance is structural.
   observed residuals, states that fourth-order covariance-product subtractions
   use `S(B)`, and gives a practical recipe for computing `S_{ij}(B)` from
   centered `z_t(B)=B^{-1}u_t` for each candidate `B`.
-- The robust-row inference must incorporate the M56 generated-moment result:
+- The robust-row inference now incorporates the M56 generated-moment result:
   products of sample covariance estimates inside fourth cumulants invalidate
-  naive row-level GMM wording. M56 derives the primitive/delta and
-  augmented-nuisance routes, but M52 still has to implement the full
-  primitive/centering covariance or a labeled calibration route before final
-  evidence claims.
+  naive row-level GMM wording. M52 implements full central-moment delta
+  weighting, including mean-centering nuisance terms. Final replication can
+  still add heavier calibration checks.
 - A self-contained simulation package that builds the sign-bias, DW-shrinkage,
   and robust-DW comparison figures from this repository.
 

@@ -104,16 +104,17 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | Vault path | What it validates or illustrates | Manuscript action |
 |---|---|---|
 | `replications/svar-noise-recursive-sign-visualization/` | Deterministic sign-noise geometry and no-noise independence-refinement behavior under residual noise. | Use as the starting point for the intuitive figure and standard-DW false-sharpening figure. |
-| `manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md` | M0036 variance-ratio robust DW Figure 1 proposal: uses pure mixed higher-cumulant J inversion plus a covariance-decomposition feasibility screen with `0 <= nu_i <= 0.5 * Var(epsilon_i)`. | Active proposal visual: high-noise variance-ratio robust DW contains true `B0` and accepts 0.071 of the full plotted grid. M40 conditionally passed the screen algebra and interpretation; M45 now supplies rebuilt validation and Monte Carlo evidence while keeping the signal-to-noise bound framed as substantive identifying information. |
+| `manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md` | M52 source-correct Figure 1: standard DW uses bivariate GMM1 higher moments plus a separate covariance screen; robust DW uses generated mixed higher-cumulants with central-delta weighting plus the variance-ratio screen `0 <= nu_i <= 0.5 * Var(epsilon_i)`. | Active proposal visual: in the high-noise fixed draw, standard DW misses true `B0` while variance-ratio robust DW contains it. M40 conditionally passed the screen algebra and interpretation; M52 supplies rebuilt validation and Monte Carlo evidence while keeping the signal-to-noise bound framed as substantive identifying information. |
 | `manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md` | M0035 bounded-noise Figure 1 comparison: uses pure mixed higher-cumulant J inversion plus a profiled recovered-covariance feasibility screen with `0 <= nu_i <= 0.5`. | Historical comparison: high-noise bounded robust DW contains true `B0` and accepts 0.066 of the full plotted grid, but the absolute variance cap is scale-arbitrary relative to the M0036 signal-to-noise screen. |
 | `manuscript/simulations/sign_dw_pure_robust_noise_grid_figure.md` | M0034 scale-correction diagnostic for Figure 1: the bottom row uses only five mixed higher-cumulant moments and drops the invalid off-diagonal covariance anchor. | Current visual diagnostic: high-noise pure robust DW contains true `B0` but accepts 0.459 of the full plotted grid, showing the precision cost of validity. |
-| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | M43 rebuilt companion grid: fixes residual noise and varies structural-shock non-Gaussianity while using the M0036 variance-ratio robust row. | Active Figure 2 visual: documents the weak-higher-moment limitation with the same robust row as Figure 1. |
-| `manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py` | M44 sample-size grid: fixes strong structural non-Gaussianity and moderate residual noise while varying `T=500,1000,2000`. | Active Figure 3 visual: shows standard DW shrinking away from truth in the fixed draw while variance-ratio robust DW remains truth-containing. |
-| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local B-plane grid generator. M0034 added `--robust-mode pure`; M0035 added `--robust-mode bounded`; M0036 added `--robust-mode relative`. The old default diagonal-anchor output is superseded for the robust row. | Use relative mode for the proposal Figure 1 and pure/bounded modes as fallback comparisons; M40 conditionally audited the screen, and M45 now rebuilds the evidence around the relative mode. |
+| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | M52 rebuilt companion grid: fixes residual noise and varies structural-shock non-Gaussianity while using the source-correct standard row and M0036 variance-ratio robust row. | Active Figure 2 visual: documents the weak-higher-moment limitation with the same robust row as Figure 1. |
+| `manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py` | M52 rebuilt sample-size grid: fixes strong structural non-Gaussianity and moderate residual noise while varying `T=500,1000,2000`. | Active Figure 3 visual: shows standard DW shrinking away from truth in the fixed draw while variance-ratio robust DW remains truth-containing. |
+| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local B-plane grid generator. M0034 added `--robust-mode pure`; M0035 added `--robust-mode bounded`; M0036 added `--robust-mode relative`; M52 rebuilt the source-correct standard-DW and central-delta robust statistic. | Use relative mode for the proposal Figure 1 and pure/bounded modes as fallback comparisons; M40 conditionally audited the screen, and M52 rebuilds the active evidence around the relative mode. |
 | `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; refreshed M28 population-grid validation now favors the M0030 grid pair as the main visual spine. |
 | `manuscript/simulations/m28_grid_story_validation.py` | Refreshed M28 validation pass for the superseded M0030 grid pair. | Historical for the robust row after M0034/M0035/M0036; do not treat it as evidence for the variance-ratio row. |
 | `manuscript/simulations/m29_calibrated_monte_carlo.py` | Refreshed M29 finite-sample pass for the superseded M0030 robust statistic. | Historical for the robust row after M0034/M0035/M0036; its metric bundle is reused by M45. |
-| `manuscript/simulations/m45_variance_ratio_evidence.py` | M45 rebuilt validation and Monte Carlo evidence for the variance-ratio proposal, applying the hard screen in every grid and truth-inclusion calculation. | Historical evidence gate after M49: the robust-row logic remains the active variance-ratio check, but the standard-DW comparator is the old hybrid statistic. M54 completed the transformed-noise moment derivation and normalization audit, kept the manuscript in `diag(B)=1`, and now M52 must rebuild the table with a source-correct standard-DW menu before final evidence claims. |
+| `manuscript/simulations/m52_source_correct_evidence.md` and `manuscript/simulations/output/m52_source_correct_evidence.json` | M52 source-correct validation and Monte Carlo evidence for the variance-ratio proposal, applying the standard covariance screen and hard robust screen in every grid and truth-inclusion calculation. | Active evidence gate: standard DW uses source-correct bivariate GMM1 higher moments plus a separate covariance screen; robust DW uses full central-moment delta weighting for generated cumulants. High-noise primary row: standard truth inclusion 0.000, robust truth inclusion 0.833, robust truth-feasible rate 0.958. |
+| `manuscript/simulations/m45_variance_ratio_evidence.py` | Reusable M45-style evidence script now writing the M52 source-correct outputs. | Historical M45 outputs remain for audit history, but active evidence should cite M52 outputs. |
 | `svar-toolkit/examples/howto/06_sign_restrictions.py` | Verified fixed-draw sign-restriction accepted-set workflow. | Use for baseline sign-set simulations if needed. |
 | `svar-toolkit/examples/howto/12_non_gaussian_cross_moments.py` | Verified fixed-draw higher-moment cross-moment selector. | Use as a comparator or helper for robust higher-moment diagnostics, not as a final estimator without audit. |
 | `svar-toolkit/docs/api/gmm.md` and GMM examples | Reusable moment quadratic engine. | Candidate for the robust DW moment criterion and Monte Carlo wrappers. |
@@ -192,12 +193,10 @@ these tasks:
 13. M49 source-audited the standard Drautzburg-Wright moment menu and noisy
     product derivations. Bivariate DW GMM1 uses standardized raw products
     `112`, `122`, `1112`, `1122`, and `1222`; GMM2 drops only `1122`. The
-    current Figure 1/M45 standard-DW code uses a historical hybrid
-    `covariance`, `112`, `122`, and `1122`. M54 has now derived the
-    transformed-noise moment conditions step by step, retained the
-    `diag(B)=1` chart, and left no separate unit-variance/rotation-chart
-    switch task for the first paper; M52 must rebuild the standard-DW evidence
-    before final figure or Monte Carlo claims.
+    historical Figure 1/M45 standard-DW code used a hybrid `covariance`,
+    `112`, `122`, and `1122`. M54 derived the transformed-noise moment
+    conditions step by step, retained the `diag(B)=1` chart, and left no
+    separate unit-variance/rotation-chart switch task for the first paper.
 14. M0056 completed the M55 main-text explanation gate after M54/M56. Section
     4 now explains why the robust moment conditions hold at `B0`, distinguishes
     transformed-noise covariance `Omega(B)=Var(B^{-1}eta_t)` from full
@@ -209,11 +208,16 @@ these tasks:
     entries are products of sample averages after plugging in `S_{ij}(B)`, for
     example `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)`. M56 derives the
     primitive-moment delta-method map and an equivalent augmented
-    nuisance-covariance GMM route. It classifies the current robust code as
-    approximate/provisional: the code uses known-zero-mean delta influence rows
-    rather than the invalid naive statistic, but final evidence should add the
-    full primitive/centering covariance, use augmented nuisance moments, or
-    bootstrap/repeated-sample calibration.
+    nuisance-covariance GMM route. It classified the then-current robust code
+    as approximate/provisional because it used known-zero-mean delta influence
+    rows rather than the invalid naive statistic; M52 then implemented the
+    full central-delta route.
+16. M0057 completed M52. The active code implements source-correct bivariate
+    DW GMM1 higher moments plus a separate B-plane covariance screen, and the
+    robust row now uses full central-moment delta influence rows with
+    mean-centering nuisance terms. Figures 1-3 and the M52 Monte Carlo table
+    were regenerated. In the high-noise primary row, standard-DW truth
+    inclusion is 0.000 and robust-DW truth inclusion is 0.833.
 
 ## Gaps And Risks
 
@@ -226,16 +230,10 @@ these tasks:
   non-Gaussian transformed residual noise generally invalidates the
   higher-cumulant interpretation unless extra residual-noise cumulant
   restrictions are modeled.
-- The M55 main-text explanation now matches the M54/M56 derivation route.
-  Remaining Section 4 risk is no longer the `Omega(B)` versus `S(B)` confusion,
-  but the need for M52 to implement or calibrate the generated-moment statistic
-  before final evidence claims.
-- The robust finite-sample J-test treatment is now routed but not fully
-  implemented. M56 shows the concentrated fourth-cumulant statistic is a
-  generated smooth moment with a primitive-moment delta-method or augmented
-  nuisance-GMM interpretation. Until M52 upgrades or calibrates the code, do
-  not describe the current robust rows as final standard-GMM chi-square
-  evidence.
+- The M55 main-text explanation now matches the M54/M56 derivation route, and
+  M52 implements the full central-delta robust weighting. Remaining evidence
+  risk is replication strength, not the previous `Omega(B)` versus `S(B)`
+  confusion or naive generated-moment weighting.
 - Higher moments can be weak in macro samples; the robust set may be wide or
   uninformative, and that is an honest result.
 - The robust set comparison is a diagnostic, not proof of literal measurement

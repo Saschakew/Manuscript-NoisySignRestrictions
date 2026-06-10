@@ -84,9 +84,9 @@
     {
       "id": "def:standard-dw-refined-set",
       "type": "definition",
-      "status": "source-audited-notation-rewritten-needs-m52-evidence",
+      "status": "source-audited-evidence-rebuilt-after-m52",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#3-drautzburg-wright-refinement-under-noise",
-      "description": "M49 source-audited the bivariate Drautzburg-Wright higher-moment menus. GMM1 uses standardized raw products 112, 122, 1112, 1122, and 1222; GMM2 drops only the symmetric 1122 kurtosis condition. M0050 replaced the draft's temporary h_i(B) notation with the already defined recovered-shock notation e_t(B), while noting the source-standardized centering and unit-variance scaling needed outside the source-native rotation chart. In the manuscript's common B-plane chart, a no-noise covariance screen may be added separately, but it is not a DW higher-moment entry. Figure 1/M45 still use a historical hybrid and need M52 rebuild before source-correct evidence claims.",
+      "description": "M49 source-audited the bivariate Drautzburg-Wright higher-moment menus. GMM1 uses standardized raw products 112, 122, 1112, 1122, and 1222; GMM2 drops only the symmetric 1122 kurtosis condition. M0050 replaced the draft's temporary h_i(B) notation with the already defined recovered-shock notation e_t(B), while noting the source-standardized centering and unit-variance scaling needed outside the source-native rotation chart. In the manuscript's common B-plane chart, M52 implements the source-correct GMM1 higher-moment menu and treats the no-noise covariance restriction as a separate B-plane screen, not a DW higher-moment entry.",
       "depends_on": [
         "def:noisy-sign-pseudo-set"
       ],
@@ -103,22 +103,22 @@
         "def:standard-dw-refined-set",
         "def:diagonal-noise-svar"
       ],
-      "proof_status": "M25 working derivation complete; M49 source-audited the relevant DW GMM1/GMM2 moment menus; M52 must rebuild evidence, and M47 still needs to audit the rich-stack generic emptying and finite-stack alias claims.",
+      "proof_status": "M25 working derivation complete; M49 source-audited the relevant DW GMM1/GMM2 moment menus; M52 rebuilt the evidence path with GMM1 plus a separate covariance screen; M47 still needs to audit the rich-stack generic emptying and finite-stack alias claims.",
       "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md",
       "source": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
     },
     {
       "id": "eq:standard-dw-j-test-inversion",
       "type": "equation",
-      "status": "source-audited-notation-rewritten-needs-m52-evidence",
+      "status": "source-audited-evidence-rebuilt-after-m52",
       "draft_location": "derivations/standard-dw-j-test-under-noise.md; draft.md#3-drautzburg-wright-refinement-under-noise",
-      "description": "Sample J-test inversion for the standard no-noise DW moment stack. M49 source-audited that bivariate DW GMM1 uses 112, 122, 1112, 1122, and 1222, while GMM2 drops only 1122. M0050 now displays this menu with e_t(B) recovered-shock notation rather than h_i(B). The draft separates the source menu from any B-plane covariance screen. The current Figure 1 implementation still uses the historical hybrid covariance, 112, 122, and 1122 stack and must be rebuilt under M52.",
+      "description": "Sample J-test inversion for the standard no-noise DW moment stack. M49 source-audited that bivariate DW GMM1 uses 112, 122, 1112, 1122, and 1222, while GMM2 drops only 1122. M0050 now displays this menu with e_t(B) recovered-shock notation rather than h_i(B). The draft separates the source menu from any B-plane covariance screen. M52 implements GMM1 in the figure and Monte Carlo code, with covariance applied as a separate B-plane screen.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "prop:standard-dw-misspecification"
       ],
       "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md",
-      "verification_status": "M25 working derivation complete; M49 source and noisy-moment audit complete; M52 evidence rebuild and M47 proof audit remain before theorem-level wording or final evidence claims.",
+      "verification_status": "M25 working derivation complete; M49 source and noisy-moment audit complete; M52 evidence rebuild complete; M47 proof audit remains before theorem-level wording.",
       "source": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
     },
     {
@@ -126,14 +126,14 @@
       "type": "definition",
       "status": "rewritten-in-draft-after-m0056-main-text-explanation",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "Variance-ratio robust DW set that searches over a normalized impact space, imposes sign restrictions and the covariance-decomposition screen 0 <= nu_i <= rho s_i, and uses mixed higher-order moment conditions for B^{-1}u rather than no-noise recovered-shock covariance. M0050 rewrote Section 4 so the reader-facing display uses explicit moment-condition notation rather than foregrounding cumulant notation. M56 adds that the sample fourth-cumulant entries are generated smooth moments, so final robust-row inference needs primitive-moment delta weighting, augmented nuisance-covariance GMM, or explicit calibration.",
+      "description": "Variance-ratio robust DW set that searches over a normalized impact space, imposes sign restrictions and the covariance-decomposition screen 0 <= nu_i <= rho s_i, and uses mixed higher-order moment conditions for B^{-1}u rather than no-noise recovered-shock covariance. M0050 rewrote Section 4 so the reader-facing display uses explicit moment-condition notation rather than foregrounding cumulant notation. M56 adds that the sample fourth-cumulant entries are generated smooth moments, and M52 implements the full central-moment delta-weighting route for the active evidence.",
       "depends_on": [
         "def:diagonal-noise-svar",
         "ass:gaussian-residual-noise",
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md",
-      "verification_status": "M24 conditional audit passed for the pure local normalized Gaussian-noise higher-cumulant route. M0030/M37 added and audited a six-moment diagonal-anchor variant, but M0034 supersedes that variant: under diag(B)=1 the off-diagonal covariance is Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2 unless unit shock variances are imposed as an extra scale normalization. M0036 supplies the variance-ratio proposal, M40 conditionally passed its covariance-screen algebra and interpretation, and M45 rebuilt lightweight figure, validation, and Monte Carlo evidence around it. M56 conditionally passes the generated-moment route: the current robust code uses approximate known-zero-mean delta influence rows, but final evidence should use full primitive/centering covariance, augmented nuisance GMM, or bootstrap/repeated-sample calibration.",
+      "verification_status": "M24 conditional audit passed for the pure local normalized Gaussian-noise higher-cumulant route. M0030/M37 added and audited a six-moment diagonal-anchor variant, but M0034 supersedes that variant: under diag(B)=1 the off-diagonal covariance is Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2 unless unit shock variances are imposed as an extra scale normalization. M0036 supplies the variance-ratio proposal, M40 conditionally passed its covariance-screen algebra and interpretation, and M52 rebuilt lightweight figure, validation, and Monte Carlo evidence around it. M56 conditionally passes the generated-moment route, and M52 implements full central-moment delta influence rows with mean-centering nuisance terms.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md"
     },
     {
@@ -146,7 +146,7 @@
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth-order covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments. M49 completed the standard-product versus robust-fourth-condition comparison and noisy moment derivations. M0050 rewrote the displayed Section 4 notation without changing this mathematical object. M54 supplied the stepwise transformed-noise derivation; M55 turned that derivation into reader-facing Section 4 prose and prevents S/Omega notation confusion. M56 shows the concentrated sample cumulants are generated smooth moments, not ordinary primitive row-level moments. The current robust code's known-zero-mean delta influence rows are approximate/provisional; final evidence should use full primitive/centering covariance, augmented nuisance moments, or calibration before final J-test wording.",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth-order covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments. M49 completed the standard-product versus robust-fourth-condition comparison and noisy moment derivations. M0050 rewrote the displayed Section 4 notation without changing this mathematical object. M54 supplied the stepwise transformed-noise derivation; M55 turned that derivation into reader-facing Section 4 prose and prevents S/Omega notation confusion. M56 shows the concentrated sample cumulants are generated smooth moments, not ordinary primitive row-level moments. M52 implements full central-moment delta influence rows with mean-centering nuisance terms for the active evidence.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md"
     },
     {
@@ -174,7 +174,7 @@
         "eq:dw-higher-cumulant-moment-stack"
       ],
       "derivation": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md",
-      "verification_status": "M40 conditional pass: the covariance-screen algebra and implementation match the profiled variance-ratio model, and the 50 percent bound is defensible only as explicit signal-to-noise identifying information. M45 rebuilt lightweight figures, validation, and Monte Carlo evidence; the hard sample screen can still exclude truth in finite samples and needs careful final-claim wording.",
+      "verification_status": "M40 conditional pass: the covariance-screen algebra and implementation match the profiled variance-ratio model, and the 50 percent bound is defensible only as explicit signal-to-noise identifying information. M52 rebuilt lightweight figures, validation, and Monte Carlo evidence; the hard sample screen can still exclude truth in finite samples and needs careful final-claim wording.",
       "source": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md"
     },
     {
@@ -189,7 +189,7 @@
         "eq:relative-noise-covariance-screen"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md",
-      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M40 conditionally passed the M0036 variance-ratio screen as a population feasibility restriction. M45 rebuilt lightweight finite-sample evidence and Figures 2-3. M54 completed the transformed-noise moment derivation, M55 completed the main-text B0 validity and S(B)-versus-Omega(B) explanation, and M56 completed the generated-moment audit. Final theorem wording still needs proof review, M52 implementation/calibration of the generated-moment statistic, and final replication treatment.",
+      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M40 conditionally passed the M0036 variance-ratio screen as a population feasibility restriction. M52 rebuilt lightweight finite-sample evidence and Figures 1-3. M54 completed the transformed-noise moment derivation, M55 completed the main-text B0 validity and S(B)-versus-Omega(B) explanation, M56 completed the generated-moment audit, and M52 implemented central-delta generated-moment weighting. Final theorem wording still needs proof review and final replication treatment.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md"
     },
     {
@@ -197,12 +197,12 @@
       "type": "proposition",
       "status": "recomputed-after-m45",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#5-monte-carlo-robustness-check",
-      "description": "Diagnostic statement after M45: standard-DW accepted mass outside the variance-ratio robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while a large robust-DW set records the information lost by dropping invalid recovered-shock covariance restrictions and profiling diagonal noise.",
+      "description": "Diagnostic statement after M52: standard-DW accepted mass outside the variance-ratio robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while a large robust-DW set records the information lost by dropping invalid recovered-shock covariance restrictions and profiling diagonal noise.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "def:robust-dw-higher-moment-set"
       ],
-      "proof_status": "M27 formalization complete for the comparison metric. M45 recomputed the metric bundle for the variance-ratio robust set after Figure 2 and Figure 3 were rebuilt.",
+      "proof_status": "M27 formalization complete for the comparison metric. M52 recomputed the metric bundle for the source-correct standard-DW GMM1 set and variance-ratio robust set after Figures 1-3 were rebuilt.",
       "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md",
       "source": "manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
@@ -231,9 +231,9 @@
     {
       "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "proposal-figure-after-m0036-standard-row-needs-m52-rebuild",
+      "status": "rebuilt-after-m52",
       "draft_location": "draft.md#3-drautzburg-wright-refinement-under-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "Residual-noise story figure after M0036. The variance-ratio robust row uses pure higher-cumulant J inversion plus a covariance-decomposition feasibility screen with 0 <= nu_i <= 0.5 Var(epsilon_i). M49 shows the current standard-DW row is a historical hybrid, not source-correct bivariate DW GMM1/GMM2, so the high-noise standard-DW rejection claim must be rebuilt under M52 before final evidence use.",
+      "description": "Residual-noise story figure after M52. The standard-DW row uses source-correct bivariate GMM1 higher moments plus a separate covariance screen in the common B-plane. The variance-ratio robust row uses generated higher-cumulant J inversion with full central-delta weighting plus a covariance-decomposition feasibility screen with 0 <= nu_i <= 0.5 Var(epsilon_i). In the high-noise fixed draw, standard DW misses true B0 while robust DW contains it.",
       "depends_on": [
         "prop:standard-dw-misspecification",
         "eq:relative-noise-covariance-screen"
@@ -243,21 +243,21 @@
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "rebuilt-after-m0040-standard-row-needs-m52-rebuild",
+      "status": "rebuilt-after-m52",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Grid story after M0036 and M0040. Figure 1 uses the variance-ratio robust DW proposal, Figure 2 now uses the same robust row while varying structural non-Gaussianity, and Figure 3 adds the sample-size grid. M49 shows the standard-DW rows use a historical hybrid and need M52 source-correct rebuild.",
+      "description": "Grid story after M52. Figure 1 uses the variance-ratio robust DW proposal and source-correct standard-DW GMM1 screen, Figure 2 uses the same rows while varying structural non-Gaussianity, and Figure 3 varies sample size. The standard-DW rows no longer use the old hybrid source menu.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic",
         "eq:relative-noise-covariance-screen"
       ],
-      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png and manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md. Figure 2: manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png and manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py. Figure 3: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png and manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py. M45 validation output: manuscript/simulations/m45_variance_ratio_evidence.md and manuscript/simulations/output/m45_variance_ratio_evidence.json. Source-correct standard-DW rebuild packet: manuscript/tasks/M52-standard-dw-source-correct-rebuild.md."
+      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png and manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md. Figure 2: manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png and manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py. Figure 3: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png and manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py. M52 validation output: manuscript/simulations/m52_source_correct_evidence.md and manuscript/simulations/output/m52_source_correct_evidence.json. Source-correct standard-DW rebuild packet: manuscript/tasks/M52-standard-dw-source-correct-rebuild.md."
     },
     {
       "id": "fig:sample-size-robust-grid",
       "type": "figure",
-      "status": "created-after-m0040-standard-row-needs-m52-rebuild",
+      "status": "rebuilt-after-m52",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Figure 3: a sample-size grid with T=500, T=1000, and T=2000, holding the Figure 1 structural non-Gaussianity calibration and Figure 2 residual-noise calibration fixed. In the fixed draw, the historical standard-DW hybrid misses the truth at larger sample sizes while variance-ratio robust DW remains truth-containing. M52 must rebuild the standard-DW row.",
+      "description": "Figure 3 after M52: a sample-size grid with T=500, T=1000, and T=2000, holding the Figure 1 structural non-Gaussianity calibration and Figure 2 residual-noise calibration fixed. In the fixed draw, source-correct standard-DW GMM1 misses the truth at larger sample sizes while variance-ratio robust DW remains truth-containing.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "eq:relative-noise-covariance-screen",
@@ -268,13 +268,13 @@
     {
       "id": "table:monte-carlo-coverage-width",
       "type": "table",
-      "status": "rebuilt-after-m45-standard-row-needs-m52-rebuild",
+      "status": "rebuilt-after-m52",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "M45 chi-square-primary Monte Carlo summary for the historical standard-DW hybrid versus the variance-ratio robust DW proposal. The hard covariance-decomposition screen is applied to accepted grid points and truth-inclusion calculations. Primary high-noise row under the hybrid: standard-DW truth inclusion 0.000, robust-DW truth inclusion 0.875, robust truth-feasible rate 0.958. M52 must rebuild the standard-DW comparator before final evidence claims.",
+      "description": "M52 chi-square-primary Monte Carlo summary for the source-correct standard-DW GMM1 screen versus the variance-ratio robust DW proposal. The hard covariance-decomposition screen is applied to accepted grid points and truth-inclusion calculations. Primary high-noise row: standard-DW truth inclusion 0.000, robust-DW truth inclusion 0.833, robust truth-feasible rate 0.958.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
-      "output_source": "M45 output: manuscript/simulations/m45_variance_ratio_evidence.py, manuscript/simulations/m45_variance_ratio_evidence.md, and manuscript/simulations/output/m45_variance_ratio_evidence.json. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. Superseded historical M29 output remains manuscript/simulations/m29_calibrated_monte_carlo.md."
+      "output_source": "M52 output: manuscript/simulations/m45_variance_ratio_evidence.py, manuscript/simulations/m52_source_correct_evidence.md, and manuscript/simulations/output/m52_source_correct_evidence.json. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M56 audit: manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md. Superseded historical M45 and M29 outputs remain for audit history."
     },
     {
       "id": "audit:robust-dw-derivation",
@@ -305,7 +305,7 @@
       "type": "audit",
       "status": "done",
       "draft_location": "derivations/m40-variance-ratio-robust-dw-screen-audit.md; review-log.md",
-      "description": "M40 adversarial audit of the M0036 variance-ratio covariance screen. Conditional pass: the profiled covariance-decomposition algebra and implementation match the normalized bivariate chart, and the 50 percent noise-to-shock variance bound is defensible only as explicit signal-to-noise identifying information. M45 has now rebuilt lightweight figures, validation, and Monte Carlo evidence; the hard finite-sample screen still needs careful prose and final replication treatment before final claims.",
+      "description": "M40 adversarial audit of the M0036 variance-ratio covariance screen. Conditional pass: the profiled covariance-decomposition algebra and implementation match the normalized bivariate chart, and the 50 percent noise-to-shock variance bound is defensible only as explicit signal-to-noise identifying information. M52 has now rebuilt lightweight figures, validation, and Monte Carlo evidence; the hard finite-sample screen still needs careful prose and final replication treatment before final claims.",
       "depends_on": [
         "eq:relative-noise-covariance-screen",
         "prop:robust-dw-higher-moment-validity"
@@ -331,7 +331,7 @@
       "type": "audit",
       "status": "historical-superseded-for-robust-row",
       "draft_location": "simulations/m28_grid_story_validation.md",
-      "description": "Refreshed M28 validation gate for the M0030 revised grid pair. It is historical after M0034/M0036 because the robust row used the superseded diagonal-anchor statistic. M45 supplies the active variance-ratio evidence gate.",
+      "description": "Refreshed M28 validation gate for the M0030 revised grid pair. It is historical after M0034/M0036 because the robust row used the superseded diagonal-anchor statistic. M52 supplies the active variance-ratio evidence gate.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "prop:standard-dw-misspecification",
@@ -342,23 +342,23 @@
     {
       "id": "audit:m45-variance-ratio-evidence",
       "type": "audit",
-      "status": "done-lightweight-provisional-after-m56",
-      "draft_location": "simulations/m45_variance_ratio_evidence.md; draft.md#5-monte-carlo-robustness-check",
-      "description": "M45 validation and Monte Carlo evidence for the M0036 variance-ratio robust DW proposal. The run rebuilds fixed-grid diagnostics for Figures 1-3 and a chi-square-primary Monte Carlo table with 60 calibration replications, 24 evaluation replications, and a 41-by-41 grid. It applies the hard relative covariance screen in every accepted-set and truth-inclusion calculation. After M56, treat the robust-row inference as provisional: the current code uses approximate known-zero-mean delta influence rows for generated fourth-cumulant moments, but final evidence should use full primitive/centering covariance, augmented nuisance GMM, or calibration.",
+      "status": "rebuilt-after-m52",
+      "draft_location": "simulations/m52_source_correct_evidence.md; draft.md#5-monte-carlo-robustness-check",
+      "description": "M52 validation and Monte Carlo evidence for the M0036 variance-ratio robust DW proposal and source-correct standard-DW GMM1 comparator. The run rebuilds fixed-grid diagnostics for Figures 1-3 and a chi-square-primary Monte Carlo table with 60 calibration replications, 24 evaluation replications, and a 41-by-41 grid. It applies the hard relative covariance screen in every accepted-set and truth-inclusion calculation. The robust row uses full central-moment delta influence rows for generated fourth-cumulant moments.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "fig:sample-size-robust-grid",
         "table:monte-carlo-coverage-width",
         "eq:relative-noise-covariance-screen"
       ],
-      "source": "manuscript/simulations/m45_variance_ratio_evidence.md; manuscript/simulations/output/m45_variance_ratio_evidence.json; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md"
+      "source": "manuscript/simulations/m52_source_correct_evidence.md; manuscript/simulations/output/m52_source_correct_evidence.json; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md"
     },
     {
       "id": "audit:m49-dw-source-and-noisy-moment-gate",
       "type": "audit",
       "status": "done",
       "draft_location": "derivations/m49-dw-source-and-noisy-moment-audit.md; draft.md#3-drautzburg-wright-refinement-under-noise",
-      "description": "M49 source and derivation audit. It establishes the exact source-correct bivariate Drautzburg-Wright GMM1 menu as 112, 122, 1112, 1122, and 1222, with GMM2 dropping only 1122; classifies current Figure 1/M45 standard-DW code as a historical hybrid; derives the requested noisy product moments from z=epsilon+B0^{-1}eta; and leaves a full unit-variance/rotation-chart switch as a user-decision gate.",
+      "description": "M49 source and derivation audit. It establishes the exact source-correct bivariate Drautzburg-Wright GMM1 menu as 112, 122, 1112, 1122, and 1222, with GMM2 dropping only 1122; classified the then-current Figure 1/M45 standard-DW code as a historical hybrid; derives the requested noisy product moments from z=epsilon+B0^{-1}eta; and leaves a full unit-variance/rotation-chart switch as a user-decision gate. M52 later implemented the GMM1 rebuild.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "eq:standard-dw-j-test-inversion",
@@ -371,7 +371,7 @@
       "type": "audit",
       "status": "done",
       "draft_location": "derivations/m56-robust-cumulant-gmm-generated-moment-audit.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "M56 generated-moment audit. It shows that robust fourth-cumulant sample entries such as mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2) are smooth functions of primitive sample moments, not ordinary fixed row-level GMM moments. The population cumulant restrictions remain valid under independent Gaussian residual noise, but final finite-sample evidence should use primitive-moment delta-method covariance including centering terms, an equivalent augmented nuisance-covariance GMM system, or bootstrap/repeated-sample calibration. The current robust code uses approximate known-zero-mean delta influence rows and is therefore provisional rather than the invalid naive statistic.",
+      "description": "M56 generated-moment audit. It shows that robust fourth-cumulant sample entries such as mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2) are smooth functions of primitive sample moments, not ordinary fixed row-level GMM moments. The population cumulant restrictions remain valid under independent Gaussian residual noise, but final finite-sample evidence should use primitive-moment delta-method covariance including centering terms, an equivalent augmented nuisance-covariance GMM system, or bootstrap/repeated-sample calibration. M52 implements the full central-moment delta route for the active evidence.",
       "depends_on": [
         "eq:dw-higher-cumulant-moment-stack",
         "prop:robust-dw-higher-moment-validity",
@@ -382,14 +382,9 @@
   ],
     "open_audits": [
         {
-            "id": "audit:m52-standard-dw-source-correct-rebuild",
-            "status": "open",
-            "question": "Execute manuscript/tasks/M52-standard-dw-source-correct-rebuild.md: rebuild Figure 1, Figure 2, Figure 3, and M45-style Monte Carlo evidence with the chosen source-correct standard-DW comparator and a full primitive/delta, augmented-nuisance, or calibrated robust generated-moment statistic."
-        },
-        {
             "id": "audit:standard-dw-j-test-gate",
             "status": "open",
-            "question": "After M52 repairs the source-correct standard-DW evidence path, does the M25 standard-DW J-test derivation survive audit, especially the rich-stack generic emptying claim, structural-rescaling exception, and finite-moment alias caveats?"
+            "question": "Now that M52 has repaired the source-correct standard-DW evidence path, does the M25 standard-DW J-test derivation survive audit, especially the rich-stack generic emptying claim, structural-rescaling exception, and finite-moment alias caveats?"
         }
     ]
 }

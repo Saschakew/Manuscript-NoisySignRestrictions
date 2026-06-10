@@ -967,3 +967,29 @@ For traceable work blocks, pair this human-readable note with a closed
 - Next recommended action: execute M52 to rebuild the source-correct
   standard-DW evidence and upgrade or calibrate the robust generated-moment
   statistic.
+
+### 2026-06-10 - Complete M52 source-correct evidence rebuild
+
+- Request or goal: continue the manuscript goal with the next open task after
+  M55.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`,
+  `manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py`,
+  `manuscript/simulations/m45_variance_ratio_evidence.py`, regenerated
+  Figures 1-3, `manuscript/simulations/m52_source_correct_evidence.md`,
+  `manuscript/simulations/output/m52_source_correct_evidence.json`,
+  `manuscript/draft.md`, simulation notes, M52 packet, provenance, registry,
+  planning surfaces, logs, and transparency files.
+- Summary of work: rebuilt the standard-DW evidence row with source-correct
+  bivariate GMM1 higher moments plus a separate covariance screen, upgraded the
+  robust generated fourth-cumulant statistic to full central-moment delta
+  influence rows, regenerated Figures 1-3, and reran the M52 Monte Carlo table.
+  The high-noise primary row now reports standard-DW truth inclusion `0.000`
+  and robust-DW truth inclusion `0.833`.
+- Check: figure scripts, M52 evidence script, `python -m py_compile`,
+  `python -m json.tool manuscript/formal-object-registry.json`, and `python
+  scripts/check_manuscript.py` passed before close. The manuscript-wide check
+  only warned that M0057 was still open, as expected; `git diff --check`
+  reported only line-ending normalization warnings. After closing M0057,
+  `python scripts/check_manuscript.py` passed cleanly.
+- Next recommended action: execute M47 to audit the M25 standard-DW proof gate.
