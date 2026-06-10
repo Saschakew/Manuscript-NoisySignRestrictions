@@ -1149,3 +1149,22 @@ machine-readable milestone in `transparency/milestones/`.
   Section 4 prose. M52 still needs to implement or calibrate the robust
   generated-moment statistic while rebuilding the source-correct standard-DW
   comparator.
+
+### 2026-06-10 - M55 main-text moment explanation completed
+
+- Request: continue with the next open task after M56.
+- Actions taken: revised Section 4 to define `xi_t(B)`, distinguish
+  `Omega(B)` from `S(B)`, show why robust higher cumulants hold at `B0` under
+  Gaussian residual noise, add representative fourth-order algebra, and state
+  the candidate-by-candidate sample computation with the M56 generated-moment
+  caveat.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/formal-object-registry.json`, planning surfaces, logs, and
+  transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed. The only warning
+  before close was the expected open transparency milestone warning.
+- Open uncertainties: M52 must still rebuild the standard-DW evidence with a
+  source-correct moment menu and implement or calibrate the robust generated-
+  moment statistic before final evidence claims.

@@ -1,10 +1,12 @@
 # M55 Main-Text Robust Moment Explanation
 
-Status: `todo`
+Status: `done`
 
 Priority: 1
 
 Task-board row: `M55`
+
+Transparency milestone: M0056
 
 Created after: M54, because the stepwise derivation is correct enough to use
 as an audit trail, but the main text still needs a reader-facing derivation
@@ -83,10 +85,10 @@ main text needs a compact explanation that:
 
 | Claim | Required status | Evidence required | Result |
 |---|---|---|---|
-| At `B=B0`, `z_t(B0)=epsilon_t+xi_t` with `xi_t=B0^{-1}eta_t`. | `derived` | M54 notation and model equations. | pending |
-| If residual noise is Gaussian and independent of the shocks, transformed-noise cumulants above order two vanish. | `derived` | Linear transformation of Gaussian noise plus M54. | pending |
-| The fourth-order robust conditions subtract products of `S_{ij}(B)=E[z_i(B)z_j(B)]`, not products of `Omega_{ij}(B)` alone. | `derived` | M54 equations and cumulant algebra. | pending |
-| The sample implementation computes `S_{ij}(B)` from centered `z_t(B)=B^{-1}u_t` for every candidate `B`. | `code-implemented` only if tied to scripts; otherwise `derived` for formula | M54 plus relevant simulation code if cited. | pending |
+| At `B=B0`, `z_t(B0)=epsilon_t+xi_t` with `xi_t=B0^{-1}eta_t`. | `derived` | M54 notation and model equations. | passed |
+| If residual noise is Gaussian and independent of the shocks, transformed-noise cumulants above order two vanish. | `derived` | Linear transformation of Gaussian noise plus M54. | passed |
+| The fourth-order robust conditions subtract products of `S_{ij}(B)=E[z_i(B)z_j(B)]`, not products of `Omega_{ij}(B)` alone. | `derived` | M54 equations and cumulant algebra. | passed |
+| The sample implementation computes `S_{ij}(B)` from centered `z_t(B)=B^{-1}u_t` for every candidate `B`. | `derived` for formula plus `code-implemented` for current scripts | M54, M56, and the current Figure/M45 code path. | passed for prose recipe |
 | The sample fourth-cumulant entries are generated smooth moments rather than primitive row-level moments. | `derived` | M56 primitive-vector and augmented-nuisance derivation. | passed-upstream |
 
 ## Required Work
@@ -147,4 +149,13 @@ main text needs a compact explanation that:
 
 ## Outcome Log
 
-Pending.
+Completed on 2026-06-10. Section 4 now defines
+`xi_t(B)=B^{-1}eta_t`, distinguishes the unobserved transformed-noise
+covariance `Omega(B)` from the full transformed-residual covariance `S(B)`,
+shows why `S(B0)=I+Omega(B0)`, explains that Gaussian transformed noise leaves
+mixed higher cumulants above order two equal to zero at `B0`, gives the
+representative fourth-order equation
+`E(z1 z2^3)-3 S12(B) S22(B)=0`, and states the candidate-by-candidate sample
+recipe. The revised prose also records the M56 generated-moment warning:
+plug-in fourth-cumulant entries require primitive/delta, augmented-nuisance,
+or calibrated weighting rather than naive row-level GMM wording.

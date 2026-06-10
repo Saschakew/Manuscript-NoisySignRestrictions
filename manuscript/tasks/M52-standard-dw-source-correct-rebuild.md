@@ -10,14 +10,14 @@ Created after: M49, because the source audit found that the current Figure 1
 and M45 standard-DW code is a simplified hybrid rather than the source-correct
 bivariate Drautzburg-Wright GMM1 or GMM2 higher-moment menu.
 
-Blocked before execution by: M55. M54 and M56 are now completed. M54 keeps the
-manuscript in the `diag(B)=1` common chart and treats the source-native DW
-unit-variance standardization as internal to the recovered-shock moment menu
-rather than a manuscript-wide chart switch. M56 shows that the robust
-fourth-cumulant entries are valid generated smooth moments, but final evidence
-should upgrade or calibrate the robust-row weighting. Run M55 first so Section
-4 explains that route, then execute M52 as the source-correct standard-DW and
-robust-generated-moment evidence rebuild in the retained common chart.
+Unblocked by: M54, M55, and M56. M54 keeps the manuscript in the `diag(B)=1`
+common chart and treats the source-native DW unit-variance standardization as
+internal to the recovered-shock moment menu rather than a manuscript-wide
+chart switch. M56 shows that the robust fourth-cumulant entries are valid
+generated smooth moments, but final evidence should upgrade or calibrate the
+robust-row weighting. M55 now explains that route in Section 4, so M52 can
+proceed as the source-correct standard-DW and robust-generated-moment evidence
+rebuild in the retained common chart.
 
 ## Original User Prompt
 

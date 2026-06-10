@@ -521,10 +521,25 @@ z_t(B)=B^{-1}u_t
 =B^{-1}B_0\varepsilon_t+B^{-1}\eta_t .
 \end{equation}
 
-At the truth, \(z_t(B_0)=\varepsilon_t+\xi_t\) with
-\(\xi_t=B_0^{-1}\eta_t\). The step-by-step expansions behind the displayed
-moment equations are recorded in
-`manuscript/derivations/m54-stepwise-transformed-noise-moments.md`.
+It is useful to name the transformed-noise component
+\(\xi_t(B)=B^{-1}\eta_t\). Let
+\(\Omega(B)=\operatorname{Var}\{\xi_t(B)\}\) denote the covariance of that
+unobserved transformed noise, and let
+\(S(B)=\operatorname{Var}\{z_t(B)\}\) denote the covariance of the full
+transformed residual that the researcher can compute for a candidate \(B\).
+At the truth,
+
+\begin{equation}
+z_t(B_0)=\varepsilon_t+\xi_t(B_0),
+\qquad
+S(B_0)=I+\Omega(B_0).
+\end{equation}
+
+Thus \(S_{ij}(B_0)\) is not a known no-noise normalization constant. For
+example, \(S_{ii}(B_0)=1+\Omega_{ii}(B_0)\), and
+\(S_{ij}(B_0)=\Omega_{ij}(B_0)\) for \(i\neq j\). The entries of \(S(B)\) are
+nuisance covariance terms of the transformed observed residual, not
+restrictions that force recovered shocks to be uncorrelated.
 
 The robust higher-moment route uses the following maintained condition.
 
@@ -534,6 +549,30 @@ every linear transform \(B^{-1}\eta_t\) contributes only through first and
 second moments. This assumption makes the displayed transformed higher-order
 moment conditions robust to Gaussian noise; it does not make recovered-shock
 variances or recovered-shock covariances equal to their no-noise targets.*
+
+Under Assumption 1, \(\xi_t(B_0)\) is Gaussian because it is a linear
+transformation of Gaussian residual noise. Gaussian variables have no
+cumulants above order two, and cumulants of independent sums add. Since the
+structural shocks are mutually independent, every mixed higher cumulant of
+\(z_t(B_0)=\varepsilon_t+\xi_t(B_0)\) vanishes. This is the population reason
+the robust higher-moment restrictions hold at \(B_0\).
+
+For third-order entries, the mixed cumulants are just centered third moments,
+so the restrictions can be written as \(E\{z_1(B)^2z_2(B)\}=0\) and
+\(E\{z_1(B)z_2(B)^2\}=0\). Fourth-order entries are different. Raw fourth
+products include covariance terms even when the mixed fourth cumulant is zero.
+For example, at \(B_0\) under Assumption 1,
+
+\begin{equation}
+\operatorname{cum}\{z_1,z_2,z_2,z_2\}
+=E(z_1z_2^3)-3S_{12}(B)S_{22}(B)=0 .
+\end{equation}
+
+The other fourth-order entries use the same cumulant-product logic. The
+step-by-step expansions behind these equations are recorded in
+`manuscript/derivations/m54-stepwise-transformed-noise-moments.md`, while
+`manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`
+records the sample generated-moment treatment.
 
 Let \(s_{ij}(B)=E\{z_i(B)z_j(B)\}\). The Gaussian-noise-blind moment stack is
 written directly as moment equations:
@@ -560,12 +599,23 @@ conditions. They are not imposed as no-noise restrictions such as
 from standard DW under residual noise. The distinction matters because DW raw
 fourth products are shifted by Gaussian residual-noise covariance terms, while
 the robust fourth-order conditions subtract those covariance-product terms.
-M56 further clarifies the sample implementation: the fourth-order entries are
-generated smooth moments because they plug sample covariance estimates into
-the cumulant equations. Their weighting should therefore come from a
-primitive-moment delta-method covariance, an equivalent augmented nuisance-
-covariance system, or an explicit calibration route, not from treating each
-concentrated expression as one primitive row-level moment.
+In sample, the researcher does not recover \(\eta_t\) or \(\xi_t(B)\). For
+each candidate \(B\), compute \(z_t(B)=B^{-1}u_t\), center those transformed
+residuals, estimate \(S_{ij}(B)\) from their sample covariance, and plug those
+entries into the third- and fourth-order equations. For instance,
+
+\begin{equation}
+\widehat g_{1222,T}(B)
+=T^{-1}\sum_t \widetilde z_{1t}(B)\widetilde z_{2t}(B)^3
+-3\widehat S_{12}(B)\widehat S_{22}(B).
+\end{equation}
+
+M56 clarifies that this is a generated smooth moment, because
+\(\widehat S_{12}(B)\) and \(\widehat S_{22}(B)\) are themselves sample
+averages. Its weighting should therefore come from a primitive-moment
+delta-method covariance, an equivalent augmented nuisance-covariance system,
+or an explicit calibration route, not from treating each concentrated
+expression as one primitive row-level moment.
 
 M54 keeps the manuscript in the common `diag(B)=1` chart. The source-native
 DW unit-variance scaling is internal to the recovered-shock standardization in

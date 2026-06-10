@@ -198,14 +198,13 @@ these tasks:
     `diag(B)=1` chart, and left no separate unit-variance/rotation-chart
     switch task for the first paper; M52 must rebuild the standard-DW evidence
     before final figure or Monte Carlo claims.
-14. M0053 adds a main-text explanation gate after M54. Section 4 must explain
-    why the robust moment conditions hold at `B0`, distinguish transformed-
-    noise covariance `Omega(B)=Var(B^{-1}eta_t)` from full transformed-
-    residual covariance `S(B)=Var(B^{-1}u_t)`, and state that the fourth-order
-    covariance-product subtractions use `S(B)` estimated from candidate
-    transformed residuals. M56 is now complete, so M55 should explain the
-    generated-moment route rather than treating the plug-in cumulants as
-    ordinary fixed row-level moments.
+14. M0056 completed the M55 main-text explanation gate after M54/M56. Section
+    4 now explains why the robust moment conditions hold at `B0`, distinguishes
+    transformed-noise covariance `Omega(B)=Var(B^{-1}eta_t)` from full
+    transformed-residual covariance `S(B)=Var(B^{-1}u_t)`, states that the
+    fourth-order covariance-product subtractions use `S(B)` estimated from
+    candidate transformed residuals, and describes the generated-moment sample
+    route.
 15. M0055 completed the M56 method/inference gate. The sample fourth-cumulant
     entries are products of sample averages after plugging in `S_{ij}(B)`, for
     example `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)`. M56 derives the
@@ -227,10 +226,10 @@ these tasks:
   non-Gaussian transformed residual noise generally invalidates the
   higher-cumulant interpretation unless extra residual-noise cumulant
   restrictions are modeled.
-- The M54 derivation is currently stronger than the main-text explanation.
-  Until M55 runs, Section 4 risks confusing `Omega(B)`, the covariance of
-  transformed noise, with `S(B)`, the covariance of full transformed residuals
-  that is actually used in the fourth-order robust moment equations.
+- The M55 main-text explanation now matches the M54/M56 derivation route.
+  Remaining Section 4 risk is no longer the `Omega(B)` versus `S(B)` confusion,
+  but the need for M52 to implement or calibrate the generated-moment statistic
+  before final evidence claims.
 - The robust finite-sample J-test treatment is now routed but not fully
   implemented. M56 shows the concentrated fourth-cumulant statistic is a
   generated smooth moment with a primitive-moment delta-method or augmented

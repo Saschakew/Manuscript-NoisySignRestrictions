@@ -943,3 +943,27 @@ For traceable work blocks, pair this human-readable note with a closed
   robust moment route; then execute M52 to rebuild the source-correct
   standard-DW row and upgrade or calibrate the robust generated-moment
   statistic.
+
+### 2026-06-10 - Complete M55 main-text robust moment explanation
+
+- Request or goal: continue the manuscript goal with the next open task after
+  M56.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/user-input-log.md`,
+  `manuscript/session-log.md`, `manuscript/codex-log.md`, and transparency
+  milestone files.
+- Summary of work: revised Section 4 so the main text defines
+  `xi_t(B)=B^{-1}eta_t`, distinguishes `Omega(B)` from `S(B)`, explains why
+  Gaussian transformed noise leaves the robust higher cumulants valid at
+  `B0`, gives a representative fourth-cumulant equation, and states the
+  candidate-by-candidate generated-moment sample recipe.
+- Check: `python scripts/check_manuscript.py` passed, with only the expected
+  open-milestone warning before closing M0056.
+- Next recommended action: execute M52 to rebuild the source-correct
+  standard-DW evidence and upgrade or calibrate the robust generated-moment
+  statistic.

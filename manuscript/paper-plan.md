@@ -120,14 +120,15 @@ is the price of not pretending that the noisy covariance is structural.
    expansion, but it must distinguish transformed-noise covariance
    `Omega(B)=Var(B^{-1}eta_t)` from full transformed-residual covariance
    `S(B)=Var(B^{-1}u_t)` and show how the `S_{ij}(B)` nuisance plug-ins enter
-   the fourth-order conditions. M56 now shows that those plug-in covariance
-   products are generated smooth moments: use primitive-moment delta-method
-   covariance, an equivalent augmented nuisance-covariance GMM system, or
-   bootstrap/repeated-sample calibration rather than treating the concentrated
-   expression as one ordinary row-level moment. State claims with the
-   M0034/M0036 caveats: normalized bivariate chart, diagonal Gaussian residual
-   noise, explicit signal-to-noise bound, and pointwise critical values only
-   after M52 implements or calibrates the generated-moment route.
+   the fourth-order conditions. M55 now supplies this explanation in the draft.
+   M56 shows that those plug-in covariance products are generated smooth
+   moments: use primitive-moment delta-method covariance, an equivalent
+   augmented nuisance-covariance GMM system, or bootstrap/repeated-sample
+   calibration rather than treating the concentrated expression as one
+   ordinary row-level moment. State claims with the M0034/M0036 caveats:
+   normalized bivariate chart, diagonal Gaussian residual noise, explicit
+   signal-to-noise bound, and pointwise critical values only after M52
+   implements or calibrates the generated-moment route.
 5. Figure-led evidence and Monte Carlo robustness check: use the rebuilt
    Figure 1/Figure 2/Figure 3 sequence as the reader's main visual guide. First
    show the residual-noise grid that moves the sign set, makes standard DW
@@ -290,10 +291,10 @@ is the price of not pretending that the noisy covariance is structural.
   restriction; pointwise chi-square cutoffs are only a plotted benchmark; and
   non-Gaussian residual noise generally invalidates the transformed-cumulant
   interpretation unless additional noise-cumulant restrictions are modeled.
-- Section 4 prose must also incorporate the M54/M0053 explanation gate: define
+- Section 4 now incorporates the M54/M0053/M55 explanation gate: it defines
   `Omega(B)` for transformed residual noise and `S(B)` for full transformed
-  observed residuals, state that fourth-order covariance-product subtractions
-  use `S(B)`, and give a practical recipe for computing `S_{ij}(B)` from
+  observed residuals, states that fourth-order covariance-product subtractions
+  use `S(B)`, and gives a practical recipe for computing `S_{ij}(B)` from
   centered `z_t(B)=B^{-1}u_t` for each candidate `B`.
 - The robust-row inference must incorporate the M56 generated-moment result:
   products of sample covariance estimates inside fourth cumulants invalidate

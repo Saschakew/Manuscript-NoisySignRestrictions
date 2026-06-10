@@ -962,3 +962,23 @@ decisions.
 - Consequence for next work: M55 should explain the generated-moment route in
   Section 4. M52 should upgrade or calibrate the robust statistic while
   rebuilding the source-correct standard-DW evidence.
+
+### 2026-06-10 - Section 4 now carries the robust moment explanation
+
+- Origin: M55 main-text robust moment explanation.
+- User input id: U0056
+- Codex role: converted the M54/M56 audit route into manuscript prose.
+- Decision: Section 4 now carries the reader-facing explanation of the robust
+  moment computation. It distinguishes `Omega(B)=Var(B^{-1}eta_t)` from
+  `S(B)=Var(B^{-1}u_t)`, explains why the moment conditions hold at `B0`, and
+  states that the fourth-cumulant sample entries are generated smooth moments.
+- Rationale: The central robust construction should not depend on a reader
+  finding the long derivation notes. The draft now gives enough algebra for
+  the covariance-product subtraction and enough implementation detail to avoid
+  implying that `eta_t` or transformed noise must be observed.
+- Alternatives considered: leaving the explanation in derivation notes only,
+  or waiting for M52 code changes before clarifying the population moment
+  route.
+- Consequence for next work: M52 is now unblocked. It should rebuild the
+  source-correct standard-DW comparator and upgrade or calibrate the robust
+  generated-moment statistic before final evidence claims.

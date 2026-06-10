@@ -18,7 +18,7 @@
       "type": "assumption",
       "status": "rewritten-in-draft-after-m0041",
       "draft_location": "draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "For the robust transformed-cumulant route, additive residual noise is independent of structural shocks and Gaussian, so every linear transform of the noise has zero cumulants above order two. Section 4 places this assumption after the residual-noise-to-signal covariance screen and explains why higher cumulants are blind to Gaussian noise.",
+      "description": "For the robust transformed-cumulant route, additive residual noise is independent of structural shocks and Gaussian, so every linear transform of the noise has zero cumulants above order two. Section 4 places this assumption after the residual-noise-to-signal covariance screen and, after M55, explains why higher cumulants are blind to Gaussian noise at B0.",
       "depends_on": [
         "def:diagonal-noise-svar"
       ],
@@ -124,7 +124,7 @@
     {
       "id": "def:robust-dw-higher-moment-set",
       "type": "definition",
-      "status": "rewritten-in-draft-after-m0050-m56-generated-moment-audit-complete",
+      "status": "rewritten-in-draft-after-m0056-main-text-explanation",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
       "description": "Variance-ratio robust DW set that searches over a normalized impact space, imposes sign restrictions and the covariance-decomposition screen 0 <= nu_i <= rho s_i, and uses mixed higher-order moment conditions for B^{-1}u rather than no-noise recovered-shock covariance. M0050 rewrote Section 4 so the reader-facing display uses explicit moment-condition notation rather than foregrounding cumulant notation. M56 adds that the sample fourth-cumulant entries are generated smooth moments, so final robust-row inference needs primitive-moment delta weighting, augmented nuisance-covariance GMM, or explicit calibration.",
       "depends_on": [
@@ -139,14 +139,14 @@
     {
       "id": "eq:dw-higher-cumulant-moment-stack",
       "type": "equation",
-      "status": "rewritten-in-draft-after-m0050-m56-generated-moment-audit-complete",
+      "status": "rewritten-in-draft-after-m0056-main-text-explanation",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "Displayed moment-equation representation of the robust DW stack after M0050: G_H(B) lists third mixed central moment conditions and fourth mixed higher-order conditions of z(B)=B^{-1}u, with transformed second moments entering directly through covariance-product subtractions. M49 rederived the requested noisy product moments and confirmed the contrast: third-order robust conditions coincide with centered raw third products under Gaussian residual noise, while fourth-order robust conditions differ from DW raw fourth product moments by covariance-product subtractions. M0053 flags that the main text must now distinguish transformed-noise covariance Omega(B)=Var(B^{-1}eta_t) from full transformed-residual covariance S(B)=Var(B^{-1}u_t), because the fourth-order subtractions use S(B) computed from z(B), not the unobserved noise covariance alone. M56 resolves the generated-moment issue at the derivation level: sample fourth-cumulant entries are smooth functions of primitive sample moments, with primitive/delta or augmented nuisance-covariance inference routes. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1.",
+      "description": "Displayed moment-equation representation of the robust DW stack after M0050 and M55: G_H(B) lists third mixed central moment conditions and fourth mixed higher-order conditions of z(B)=B^{-1}u, with transformed second moments entering directly through covariance-product subtractions. M49 rederived the requested noisy product moments and confirmed the contrast: third-order robust conditions coincide with centered raw third products under Gaussian residual noise, while fourth-order robust conditions differ from DW raw fourth product moments by covariance-product subtractions. M55 now distinguishes transformed-noise covariance Omega(B)=Var(B^{-1}eta_t) from full transformed-residual covariance S(B)=Var(B^{-1}u_t), because the fourth-order subtractions use S(B) computed from z(B), not the unobserved noise covariance alone. M56 resolves the generated-moment issue at the derivation level: sample fourth-cumulant entries are smooth functions of primitive sample moments, with primitive/delta or augmented nuisance-covariance inference routes. The off-diagonal residual covariance anchor is no longer part of the active robust stack under diag(B)=1.",
       "depends_on": [
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md",
-      "verification_status": "M24 algebra review passed for centered third moments and fourth-order covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments. M49 completed the standard-product versus robust-fourth-condition comparison and noisy moment derivations. M0050 rewrote the displayed Section 4 notation without changing this mathematical object. M54 supplied the stepwise transformed-noise derivation; M0053 created M55 to turn that derivation into reader-facing Section 4 prose and prevent S/Omega notation confusion. M56 shows the concentrated sample cumulants are generated smooth moments, not ordinary primitive row-level moments. The current robust code's known-zero-mean delta influence rows are approximate/provisional; final evidence should use full primitive/centering covariance, augmented nuisance moments, or calibration before final J-test wording.",
+      "verification_status": "M24 algebra review passed for centered third moments and fourth-order covariance-product subtractions. M0034 invalidated the added M0030 diagonal-noise covariance anchor under the active scale normalization, so the active pure stack has five moments. M49 completed the standard-product versus robust-fourth-condition comparison and noisy moment derivations. M0050 rewrote the displayed Section 4 notation without changing this mathematical object. M54 supplied the stepwise transformed-noise derivation; M55 turned that derivation into reader-facing Section 4 prose and prevents S/Omega notation confusion. M56 shows the concentrated sample cumulants are generated smooth moments, not ordinary primitive row-level moments. The current robust code's known-zero-mean delta influence rows are approximate/provisional; final evidence should use full primitive/centering covariance, augmented nuisance moments, or calibration before final J-test wording.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md"
     },
     {
@@ -180,16 +180,16 @@
     {
       "id": "prop:robust-dw-higher-moment-validity",
       "type": "proposition",
-      "status": "rewritten-in-draft-after-m0050-m56-generated-moment-audit-complete",
+      "status": "rewritten-in-draft-after-m0056-main-text-explanation",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "Working result, rewritten in M0041 and cleaned up in M0050: under additive Gaussian residual noise, the mixed higher-order robust moment conditions for B^{-1}u are not shifted by noise once the fourth-order covariance-product subtractions are included. M54 derived this step by step at B=B0; M0053 flags that the main text still needs to explain why the conditions hold, why the covariance-product terms use full transformed-residual covariances S_ij(B), and how those entries are computed from z_t(B)=B^{-1}u_t. M56 resolves the finite-sample inference issue at the derivation level: concentrated sample cumulants are nonlinear functions of primitive sample moments and require primitive-moment delta covariance, augmented nuisance covariance moments, or calibration for final evidence. In the bivariate normalized system, local higher-moment identification follows when each structural shock has informative third or fourth higher-order entries. If true diagonal residual-noise variances satisfy nu_i <= rho s_i, the true impact shape also satisfies the variance-ratio covariance screen.",
+      "description": "Working result, rewritten in M0041 and cleaned up in M0050/M55: under additive Gaussian residual noise, the mixed higher-order robust moment conditions for B^{-1}u are not shifted by noise once the fourth-order covariance-product subtractions are included. M54 derived this step by step at B=B0, and M55 now explains in the main text why the conditions hold, why the covariance-product terms use full transformed-residual covariances S_ij(B), and how those entries are computed from z_t(B)=B^{-1}u_t. M56 resolves the finite-sample inference issue at the derivation level: concentrated sample cumulants are nonlinear functions of primitive sample moments and require primitive-moment delta covariance, augmented nuisance covariance moments, or calibration for final evidence. In the bivariate normalized system, local higher-moment identification follows when each structural shock has informative third or fourth higher-order entries. If true diagonal residual-noise variances satisfy nu_i <= rho s_i, the true impact shape also satisfies the variance-ratio covariance screen.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack",
         "eq:relative-noise-covariance-screen"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md",
-      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M40 conditionally passed the M0036 variance-ratio screen as a population feasibility restriction. M45 rebuilt lightweight finite-sample evidence and Figures 2-3. M54 completed the transformed-noise moment derivation, M0053 created M55 because the main text must explain the B0 validity and S(B)-versus-Omega(B) computation, and M56 completed the generated-moment audit. Final theorem wording still needs proof review, M55 prose integration, M52 implementation/calibration of the generated-moment statistic, and final replication treatment.",
+      "proof_status": "Pure higher-cumulant local-rank audit passed conditionally in M24. M0030/M37 diagonal-anchor pass judgment is superseded by M0034 scale correction. M40 conditionally passed the M0036 variance-ratio screen as a population feasibility restriction. M45 rebuilt lightweight finite-sample evidence and Figures 2-3. M54 completed the transformed-noise moment derivation, M55 completed the main-text B0 validity and S(B)-versus-Omega(B) explanation, and M56 completed the generated-moment audit. Final theorem wording still needs proof review, M52 implementation/calibration of the generated-moment statistic, and final replication treatment.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md"
     },
     {
@@ -384,7 +384,7 @@
         {
             "id": "audit:m52-standard-dw-source-correct-rebuild",
             "status": "open",
-            "question": "After M55 explains the M54/M56 robust moment route in the main text, execute manuscript/tasks/M52-standard-dw-source-correct-rebuild.md: rebuild Figure 1, Figure 2, Figure 3, and M45-style Monte Carlo evidence with the chosen source-correct standard-DW comparator and a full primitive/delta, augmented-nuisance, or calibrated robust generated-moment statistic."
+            "question": "Execute manuscript/tasks/M52-standard-dw-source-correct-rebuild.md: rebuild Figure 1, Figure 2, Figure 3, and M45-style Monte Carlo evidence with the chosen source-correct standard-DW comparator and a full primitive/delta, augmented-nuisance, or calibrated robust generated-moment statistic."
         },
         {
             "id": "audit:standard-dw-j-test-gate",

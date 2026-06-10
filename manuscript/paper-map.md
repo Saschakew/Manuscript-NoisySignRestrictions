@@ -28,11 +28,12 @@ precision without reusing invalid covariance anchors.
   zero-covariance targets. M0053 adds a prose gate: Section 4 must distinguish
   transformed-noise covariance `Omega(B)=Var(B^{-1}eta_t)` from full
   transformed-residual covariance `S(B)=Var(B^{-1}u_t)` and explain that the
-  implementable fourth-order subtractions use `S(B)`. M56 completes the
-  inference gate: sample fourth-cumulants are generated smooth moments that
-  can be handled by primitive-moment delta-method weighting or an equivalent
-  augmented nuisance-covariance GMM system, while the current code remains
-  provisional until M52 upgrades or calibrates it. M0036 is now the
+  implementable fourth-order subtractions use `S(B)`. M55 now supplies the
+  reader-facing explanation, and M56 completes the inference gate: sample
+  fourth-cumulants are generated smooth moments that can be handled by
+  primitive-moment delta-method weighting or an equivalent augmented
+  nuisance-covariance GMM system, while the current code remains provisional
+  until M52 upgrades or calibrates it. M0036 is now the
   variance-ratio robust DW proposal: add the covariance-decomposition screen
   `0 <= nu_i <= 0.5 Var(epsilon_i)`.
 - Evidence: the M0034 pure Figure 1 variant shows the honest cost of dropping
@@ -61,9 +62,9 @@ precision without reusing invalid covariance anchors.
    `z_t(B)=B^{-1}u_t`, estimate `S_{ij}(B)` from those transformed residuals,
    and use those nuisance entries in the fourth-order cumulant-style
    subtractions. M56 now says those sample entries are generated smooth
-   moments, so Section 4 should explain the primitive/delta or augmented-
-   nuisance route and avoid calling the concentrated expression one ordinary
-   row-level moment.
+   moments. Section 4 now explains the primitive/delta or augmented-nuisance
+   route and avoids calling the concentrated expression one ordinary row-level
+   moment.
 5. The companion non-Gaussianity grid now uses the variance-ratio proposal and
    states the limitation honestly: robust DW depends on informative higher
    moments and becomes wide when the shocks are close to Gaussian.
@@ -84,7 +85,7 @@ precision without reusing invalid covariance anchors.
 | 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust residual-noise-to-signal fix, and preview the evidence. | revised after M34 claim-tightening; literature positioning retained |
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
 | 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M0050 now displays the menu with \(e_t(B)\); M52 must rebuild figures/MC with a source-correct standard-DW menu; M25 proof audit pending |
-| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. The main text must explain why the moment conditions hold at `B0`, why raw fourth moments need covariance-product subtractions, how `S_{ij}(B)` is computed from candidate transformed residuals, and how the resulting generated sample moments are handled in inference. | M49 noisy product derivations complete; M0050 rewrote the display as explicit moment equations with fourth-order covariance-product subtractions; M54 completed the step-by-step transformed-noise derivation and confirmed the retained `diag(B)=1` chart; M56 completed the generated-moment audit and says to use primitive/delta, augmented-nuisance, or calibrated wording; M55 should now turn this into reader-facing Section 4 prose; final proof and replication still pending |
+| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. The main text explains why the moment conditions hold at `B0`, why raw fourth moments need covariance-product subtractions, how `S_{ij}(B)` is computed from candidate transformed residuals, and how the resulting generated sample moments are handled in inference. | M49 noisy product derivations complete; M0050 rewrote the display as explicit moment equations with fourth-order covariance-product subtractions; M54 completed the step-by-step transformed-noise derivation and confirmed the retained `diag(B)=1` chart; M56 completed the generated-moment audit; M55 completed the reader-facing Section 4 explanation; final proof, evidence rebuild, and replication still pending |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use M0036 Figure 1, rebuilt Figure 2 with the variance-ratio robust row, new Figure 3 varying `T=500,1000,2000`, and M45 validation/Monte Carlo evidence. | reviewed after M34; still lightweight until replication wrapper |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
@@ -189,12 +190,12 @@ and proof or output status.
   components from Gaussian transformed-noise simplifications, and retained the
   `diag(B)=1` chart so no separate unit-variance/rotation-chart update task is
   needed for the first paper.
-- M0053 adds a main-text explanation gate after M54. Before returning to M52,
-  Section 4 must clarify that `Omega(B)` is the unobserved transformed-noise
-  covariance while `S(B)` is the observed candidate transformed-residual
-  covariance used in the robust fourth-order moment equations. The draft should
-  show representative algebra rather than every expansion, and it should state
-  the practical computation of the moment plug-ins.
+- M55 completed the main-text explanation gate after M54. Section 4 now
+  clarifies that `Omega(B)` is the unobserved transformed-noise covariance
+  while `S(B)` is the observed candidate transformed-residual covariance used
+  in the robust fourth-order moment equations; it shows representative
+  fourth-order algebra and states the practical computation of the moment
+  plug-ins.
 - M56 completes the generated-moment inference gate before M55. The robust
   fourth-cumulant sample entries are products of sample averages after
   plugging in `S_{ij}(B)`. They are valid generated smooth moments with a

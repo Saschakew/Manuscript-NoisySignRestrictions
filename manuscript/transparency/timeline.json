@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-10T13:51:35Z",
+  "updated_at": "2026-06-10T14:04:49Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1171,6 +1171,28 @@
         "milestone_number": 50,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/50",
         "tag_name": "manuscript-milestones/M0055-m56-robust-cumulant-gmm-audit"
+      }
+    },
+    {
+      "id": "M0056-m55-main-text-robust-moment-explanation",
+      "sequence": 56,
+      "title": "M55 main text robust moment explanation",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-10T13:53:39Z",
+      "closed_at": "2026-06-10T14:04:49Z",
+      "start_commit": "2bf89584621d0fa3ffca1406b2906fefab1d19ec",
+      "snapshot_ref": "manuscript-milestones/M0056-m55-main-text-robust-moment-explanation",
+      "summary": "Completed M55 main-text robust moment explanation, revising Section 4 to distinguish Omega(B) from S(B), explain why robust moments hold at B0, and document the generated sample moment recipe after M56.",
+      "user_input_ids": [
+        "U0056-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0056-m55-main-text-robust-moment-explanation.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 51,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/51",
+        "tag_name": "manuscript-milestones/M0056-m55-main-text-robust-moment-explanation"
       }
     }
   ]
