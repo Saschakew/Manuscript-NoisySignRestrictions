@@ -96,16 +96,16 @@
     {
       "id": "prop:standard-dw-misspecification",
       "type": "proposition",
-      "status": "rewritten-in-draft-needs-audit-after-m0041",
+      "status": "proof-audited-after-m47",
       "draft_location": "draft.md#3-drautzburg-wright-refinement-under-noise",
-      "description": "M25 working result, rewritten in M0041: under residual noise, a standard no-noise DW stack imposes recovered-shock covariance and higher-order independence moments on e(B)=B^{-1}u. A rich population stack has zeros only in structural-coordinate rescaling cases, up to finite-moment aliases; otherwise fixed-critical-value inversion empties asymptotically and finite samples can concentrate near least-rejected noisy pseudo-targets.",
+      "description": "M25 working result, audited in M47: under residual noise, a standard no-noise DW stack imposes recovered-shock covariance and higher-order independence moments on e(B)=B^{-1}u. A rich population stack has zeros only in structural-coordinate rescaling cases, up to finite-moment aliases; otherwise, on compact sign-admissible candidate sets bounded away from singularity, fixed-critical-value inversion empties asymptotically and finite samples can concentrate near least-rejected noisy pseudo-targets.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "def:diagonal-noise-svar"
       ],
-      "proof_status": "M25 working derivation complete; M49 source-audited the relevant DW GMM1/GMM2 moment menus; M52 rebuilt the evidence path with GMM1 plus a separate covariance screen; M47 still needs to audit the rich-stack generic emptying and finite-stack alias claims.",
-      "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md",
-      "source": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
+      "proof_status": "M47 conditionally passes the M25 proof gate: the rich-stack/ICA generic emptying result is safe with Gaussian residual noise, structural-coordinate rescaling exceptions, finite-stack alias caveats, compactness, and nonsingularity stated. The source-correct finite GMM1 row remains an implemented diagnostic rather than an unconditional independence theorem.",
+      "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m47-standard-dw-proof-gate-audit.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md",
+      "source": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m47-standard-dw-proof-gate-audit.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
     },
     {
       "id": "eq:standard-dw-j-test-inversion",
@@ -118,8 +118,8 @@
         "prop:standard-dw-misspecification"
       ],
       "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md",
-      "verification_status": "M25 working derivation complete; M49 source and noisy-moment audit complete; M52 evidence rebuild complete; M47 proof audit remains before theorem-level wording.",
-      "source": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
+      "verification_status": "M25 working derivation complete; M49 source and noisy-moment audit complete; M52 evidence rebuild complete; M47 conditionally passes the proof gate for compact rich-stack wording while preserving finite-GMM alias caveats.",
+      "source": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m47-standard-dw-proof-gate-audit.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
     },
     {
       "id": "def:robust-dw-higher-moment-set",
@@ -367,6 +367,19 @@
       "source": "manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md; raw/drautzburg-2023-refining-set-identification/Refining_set-identification_in_VARs_through_independence.md"
     },
     {
+      "id": "audit:m47-standard-dw-proof-gate",
+      "type": "audit",
+      "status": "done",
+      "draft_location": "derivations/m47-standard-dw-proof-gate-audit.md; draft.md#3-drautzburg-wright-refinement-under-noise",
+      "description": "M47 proof gate audit of the M25 standard-DW misspecification derivation. Conditional pass: the rich-stack/ICA generic emptying result is valid under independent Gaussian residual noise, structural-coordinate rescaling exceptions, finite-stack alias caveats, compact sign-admissible candidate sets, and nonsingularity. The source-correct finite GMM1 row remains an implemented diagnostic rather than an unconditional finite-stack theorem.",
+      "depends_on": [
+        "prop:standard-dw-misspecification",
+        "eq:standard-dw-j-test-inversion",
+        "def:standard-dw-refined-set"
+      ],
+      "source": "manuscript/derivations/m47-standard-dw-proof-gate-audit.md; manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
+    },
+    {
       "id": "audit:m56-robust-cumulant-generated-moment-gate",
       "type": "audit",
       "status": "done",
@@ -380,11 +393,5 @@
       "source": "manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md; KnowledgeVault/vault/papers/A Generalized Method of Moments Estimator for Structural Vector Autoregressions Based on Higher Moments.md; KnowledgeVault/svar-toolkit/docs/api/gmm.md"
     }
   ],
-    "open_audits": [
-        {
-            "id": "audit:standard-dw-j-test-gate",
-            "status": "open",
-            "question": "Now that M52 has repaired the source-correct standard-DW evidence path, does the M25 standard-DW J-test derivation survive audit, especially the rich-stack generic emptying claim, structural-rescaling exception, and finite-moment alias caveats?"
-        }
-    ]
+  "open_audits": []
 }

@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-10T14:35:41Z",
+  "updated_at": "2026-06-10T14:50:05Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1215,6 +1215,28 @@
         "milestone_number": 52,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/52",
         "tag_name": "manuscript-milestones/M0057-m52-source-correct-evidence-rebuild"
+      }
+    },
+    {
+      "id": "M0058-m47-standard-dw-proof-gate-audit",
+      "sequence": 58,
+      "title": "M47 standard-DW proof gate audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-10T14:38:02Z",
+      "closed_at": "2026-06-10T14:50:05Z",
+      "start_commit": "ad99d882784a941b908dfc4889c83602e3c3a000",
+      "snapshot_ref": "manuscript-milestones/M0058-m47-standard-dw-proof-gate-audit",
+      "summary": "Completed M47 standard-DW proof gate audit, classifying Proposition 2 as a conditional rich-stack result with structural-rescaling, finite-alias, compactness, and nonsingularity caveats.",
+      "user_input_ids": [
+        "U0058-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0058-m47-standard-dw-proof-gate-audit.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 53,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/53",
+        "tag_name": "manuscript-milestones/M0058-m47-standard-dw-proof-gate-audit"
       }
     }
   ]

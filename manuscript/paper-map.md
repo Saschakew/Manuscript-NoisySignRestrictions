@@ -83,7 +83,7 @@ precision without reusing invalid covariance anchors.
 | Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the variance-ratio robust refinement, and simulation evidence. | revised after M34 claim-tightening |
 | 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust residual-noise-to-signal fix, and preview the evidence. | revised after M34 claim-tightening; literature positioning retained |
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
-| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M0050 displays the menu with \(e_t(B)\); M52 rebuilt the source-correct GMM1 evidence row; M25 proof audit pending |
+| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M0050 displays the menu with \(e_t(B)\); M52 rebuilt the source-correct GMM1 evidence row; M47 conditionally clears the M25 proof gate |
 | 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. The main text explains why the moment conditions hold at `B0`, why raw fourth moments need covariance-product subtractions, how `S_{ij}(B)` is computed from candidate transformed residuals, and how the resulting generated sample moments are handled in inference. | M49 noisy product derivations complete; M0050 rewrote the display as explicit moment equations with fourth-order covariance-product subtractions; M54 completed the step-by-step transformed-noise derivation and confirmed the retained `diag(B)=1` chart; M56 completed the generated-moment audit; M55 completed the reader-facing Section 4 explanation; M52 implemented the central-delta robust statistic; final proof and replication still pending |
 | 5. Figure-Led Evidence And Monte Carlo Check | Use M52 Figure 1, Figure 2, Figure 3, and source-correct Monte Carlo evidence. | source-correct lightweight evidence rebuilt after M52; still needs replication wrapper |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
@@ -135,9 +135,10 @@ and proof or output status.
   truth-containing in the rendered fixed draw.
 - Algebraic proof of the covariance pseudo-set and column-rescaling
   obstruction.
-- M25 working derivation showing that standard DW recovered-shock restrictions
-  are misspecified under residual noise, with the J-test inversion stated as
-  generic emptying plus explicit pseudo-zero exceptions.
+- M47-audited M25 derivation showing that standard DW recovered-shock
+  restrictions are misspecified under residual noise, with the J-test
+  inversion stated as conditional rich-stack generic emptying plus explicit
+  structural-rescaling and finite-stack pseudo-zero exceptions.
 - Derivation of the pure higher-moment robust moment stack from
   `derivations/dw-noise-robust-moments.md`; the post-M0030 diagonal-anchor
   estimator audit is superseded by the M0034 scale correction.
@@ -167,9 +168,10 @@ and proof or output status.
 - M31 has converted the figure-led evidence into a first disciplined draft
   skeleton without treating audit cutoffs as application-ready procedures.
   M32 added the first literature-positioning pass with explicit contribution
-  boundaries. The next bottlenecks are direct M25 proof audit before
-  theorem-level wording, adversarial review of the new M52 evidence, and moving
-  figure/table code into `manuscript/replication/` before sharing.
+  boundaries. M47 clears the direct M25 proof audit at conditional rich-stack
+  strength. The next bottlenecks are adversarial review of the new M52
+  evidence and moving figure/table code into `manuscript/replication/` before
+  sharing.
 - M0041 rewrote the abstract, introduction, and Sections 2-4 in response to
   the revision comments. The front half now starts from SVAR-reader language:
   standard no-noise sign restrictions, recovered-shock orthogonality, the
@@ -183,6 +185,10 @@ and proof or output status.
   stays in the `diag(B)=1` common chart; the DW source-native unit-variance
   scaling is internal to recovered-shock standardization and does not force a
   manuscript-wide redesign.
+- M47 completes the standard-DW proof gate audit. Proposition 2 can now be
+  treated as proof-audited conditional prose, provided the draft keeps the
+  Gaussian-noise, rich-stack/ICA, compactness, nonsingularity, structural-
+  rescaling, and finite-GMM alias caveats visible.
 - M54 is complete. It derived the Section 4 transformed-noise moment
   conditions step by step at \(B=B_0\), distinguished independent residual
   components from Gaussian transformed-noise simplifications, and retained the

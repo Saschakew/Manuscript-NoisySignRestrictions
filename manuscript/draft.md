@@ -436,29 +436,34 @@ pseudo-candidates, but those are properties of the misspecified noisy target.
 
 *Proposition 2 (`prop:standard-dw-misspecification`, standard DW under
 residual noise). Consider the additive-noise impact model with independent
-non-Gaussian structural shocks and independent Gaussian residual noise. A
-standard no-noise DW inversion imposes recovered-shock covariance and
-higher-order independence moments on \(e_t(B)=B^{-1}u_t\). In population, a
-zero of a rich standard-DW moment stack can occur only when residual noise is
-equivalent to a diagonal structural-coordinate rescaling, up to sign and label
-aliases; finite moment stacks can also create accidental pseudo-zeros. When
-the population moment vector is bounded away from zero on the sign-admissible
-set, fixed-critical-value inversion is asymptotically empty. In finite samples,
-the same inversion can nevertheless look precise by concentrating near a
+non-Gaussian structural shocks, independent Gaussian residual noise, and a
+compact sign-admissible candidate set bounded away from singular impact
+matrices. A standard no-noise DW inversion imposes recovered-shock covariance
+and higher-order independence moments on \(e_t(B)=B^{-1}u_t\). In population,
+a zero of a rich standard-DW independence stack can occur only when residual
+noise is equivalent to a diagonal structural-coordinate rescaling, up to sign
+and label aliases; finite GMM1/GMM2 moment stacks can also create accidental
+pseudo-zeros unless a no-alias condition rules them out. When the population
+moment vector is bounded away from zero on the sign-admissible set,
+fixed-critical-value inversion is asymptotically empty. In finite samples, the
+same inversion can nevertheless look precise by concentrating near a
 least-rejected noisy pseudo-target.*
 
-The proposition is deliberately stated as a working sketch. The paper's
-practical claim does not require accusing DW of failing under its own null.
-The point is narrower: if the no-noise null is applied to residuals that
-contain additive noise, the refinement sharpens a misspecified object. The
-current second row of Figure 1 illustrates this failure mode with the
-source-correct bivariate GMM1 higher-moment menu, intersected with the separate
-B-plane covariance screen.
+The proposition is deliberately conditional, not an unconditional finite-GMM1
+theorem. The M47 audit passes the rich-stack proof gate under the stated
+Gaussian-noise, ICA/rich-moment, compactness, and no-singular-boundary
+conditions, while keeping finite-stack aliases visible. The paper's practical
+claim does not require accusing DW of failing under its own null. The point is
+narrower: if the no-noise null is applied to residuals that contain additive
+noise, the refinement sharpens a misspecified object. The current second row
+of Figure 1 illustrates this failure mode with the source-correct bivariate
+GMM1 higher-moment menu, intersected with the separate B-plane covariance
+screen.
 
 <!-- SOURCE-TRAIL: Use Drautzburg-Wright, higher-moment SVAR caution sources, and the noisy-residual synthesis. -->
 <!-- SOURCE-TRAIL: Use `derivations/standard-dw-j-test-under-noise.md` for the M25 J-test inversion result: rich-stack generic emptying, structural-rescaling exceptions, finite-moment aliases, and least-rejected pseudo-candidates. -->
+<!-- SOURCE-TRAIL: Use `derivations/m47-standard-dw-proof-gate-audit.md` for the M47 conditional pass: rich-stack/ICA proof gate, compactness condition, structural-coordinate rescaling exception, and finite-GMM1 alias limitation. -->
 <!-- SOURCE-TRAIL: Use `derivations/m49-dw-source-and-noisy-moment-audit.md` for the source-correct bivariate GMM1/GMM2 moment menus and `simulations/m52_source_correct_evidence.md` for the implemented GMM1 rebuild. -->
-<!-- TODO-NOTE: Do not promote Proposition 2 beyond sketch wording until the M25 assumptions and exceptions are audited directly. -->
 
 ## 4. Noise-Robust Sign and DW Sets
 

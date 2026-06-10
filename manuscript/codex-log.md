@@ -1190,5 +1190,27 @@ machine-readable milestone in `transparency/milestones/`.
   warning before close; `git diff --check` reported only line-ending
   normalization warnings. After closing M0057, `python
   scripts/check_manuscript.py` passed cleanly.
-- Open uncertainties: M47 still needs to audit the M25 proof gate, and M33
-  still needs to wrap final replication code under `manuscript/replication/`.
+- Handoff at the time: M47 was next. It is completed in the following entry;
+  M33 still needs to wrap final replication code under `manuscript/replication/`.
+
+### 2026-06-10 - M47 standard-DW proof gate audit completed
+
+- Request: continue with the next open task after M52.
+- Actions taken: created `manuscript/tasks/M47-standard-dw-proof-gate-audit.md`,
+  wrote `manuscript/derivations/m47-standard-dw-proof-gate-audit.md`, revised
+  Section 3 Proposition 2 to state compactness and finite-alias conditions,
+  and updated the registry, task board, dashboard, map, plan, source packet,
+  provenance, workplan, and logs.
+- Outcome: the M25 proof gate conditionally passes. The rich-stack generic
+  emptying result is safe under independent Gaussian residual noise, an
+  ICA/rich-moment condition, compact sign-admissible candidate sets,
+  nonsingularity, and explicit structural-rescaling and finite-GMM alias
+  caveats. The source-correct finite GMM1 row remains an implemented
+  diagnostic, not an unconditional finite-stack theorem.
+- Checks run: `python -m json.tool manuscript/formal-object-registry.json`
+  passed; `python scripts/check_manuscript.py` passed before close with only
+  the expected open M0058 warning; `git diff --check` reported only
+  line-ending normalization warnings. After closing M0058, `python
+  scripts/check_manuscript.py` passed cleanly.
+- Open uncertainties: M33 still needs to wrap final figure and table code
+  under `manuscript/replication/`.

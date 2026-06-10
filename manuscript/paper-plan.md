@@ -208,9 +208,10 @@ is the price of not pretending that the noisy covariance is structural.
   This result should be explained visually before the algebra.
 - Proposition 2, standard DW is misspecified under residual noise: recovered
   shocks from noisy covariance-factor candidates are not the structural shocks.
-  The M25 derivation shows that, under a rich independence/J-test inversion and
-  generic residual noise, the population accepted set is empty; with special
-  structural-coordinate rescaling cases or finite-moment aliases, the set can
+  The M47 audit of the M25 derivation shows that, under a rich
+  independence/J-test inversion, compactness, nonsingularity, and generic
+  Gaussian residual noise, the population accepted set is empty; with special
+  structural-coordinate rescaling cases or finite-GMM aliases, the set can
   instead contain pseudo-true candidates. Finite-sample inversion can still
   return a falsely narrow least-rejected region.
 - Proposition 3, robust DW validity: under the maintained diagonal Gaussian
@@ -277,9 +278,9 @@ is the price of not pretending that the noisy covariance is structural.
 - Sections 2-4 now have M0038 formula-first prose sketches for the noisy
   sign-set algebra, standard-DW misspecification result, and variance-ratio
   robust DW proposal. M40 conditionally passed the variance-ratio screen; they
-  still need proof polishing, the M25 standard-DW audit outcome, adversarial
-  review of the M52 evidence, and final citation-style cleanup before becoming
-  polished manuscript prose.
+  now have the M47 standard-DW proof audit outcome. Remaining polish is
+  adversarial review of the M52 evidence and final citation-style cleanup
+  before becoming polished manuscript prose.
 - M42 completed the manuscript math-delimiter cleanup. Future drafting should
   keep mathematical expressions in `\(...\)` or display equation environments
   rather than Markdown backticks.

@@ -1003,3 +1003,25 @@ decisions.
 - Consequence for next work: M52 is now unblocked. It should rebuild the
   source-correct standard-DW comparator and upgrade or calibrate the robust
   generated-moment statistic before final evidence claims.
+
+### 2026-06-10 - Treat Proposition 2 as a conditional rich-stack result
+
+- Origin: M47 standard-DW proof gate audit.
+- User input id: U0058
+- Codex role: audited the M25 working derivation after M49/M52 repaired the
+  source menu and evidence path.
+- Decision: Proposition 2 may be treated as proof-audited only at conditional
+  rich-stack strength. The statement must keep independent Gaussian residual
+  noise, the ICA/rich-moment condition, structural-coordinate rescaling
+  exceptions, finite-GMM alias caveats, compact sign-admissible candidate
+  sets, and nonsingularity visible.
+- Rationale: The M25 generic emptying proof is valid when the moment stack is
+  rich enough to force recovered-shock independence and the population
+  criterion is bounded away from zero on a compact admissible set. The
+  source-correct finite bivariate GMM1 menu is a legitimate implemented
+  comparator, but finite third/fourth moments can have aliases and should not
+  be described as a universal independence theorem.
+- Alternatives considered: leaving Proposition 2 as an unaudited sketch, or
+  promoting the finite GMM1 implementation to an unconditional theorem.
+- Consequence for next work: M33 replication packaging is now the next
+  dashboard action; final proof polish can move to appendix/export work later.

@@ -141,9 +141,11 @@ these tasks:
    population figure from the KnowledgeVault visualization, but the full
    geometry figure remains optional because the M0030/M28 grid pair now carries
    the main visual story.
-3. Use the M25 standard-DW J-test inversion derivation: rich stacks empty
-   generically under residual noise, while structural-coordinate rescaling
-   cases and finite-moment aliases can produce pseudo-zeros.
+3. Use the M47-audited M25 standard-DW J-test inversion derivation: rich
+   stacks empty generically under residual noise only under the stated
+   Gaussian-noise, ICA/rich-stack, compactness, and nonsingularity conditions,
+   while structural-coordinate rescaling cases and finite-moment aliases can
+   produce pseudo-zeros.
 4. Use the M24 audit of
    `manuscript/derivations/dw-noise-robust-moments.md`: the local normalized
    Gaussian-noise route conditionally passed, but global aliases, scale loss,
@@ -218,12 +220,16 @@ these tasks:
     mean-centering nuisance terms. Figures 1-3 and the M52 Monte Carlo table
     were regenerated. In the high-noise primary row, standard-DW truth
     inclusion is 0.000 and robust-DW truth inclusion is 0.833.
+17. M0058 completed M47. The M25 standard-DW proof gate conditionally passes:
+    Proposition 2 can use rich-stack generic emptying if it keeps the
+    Gaussian-noise, ICA/rich-stack, compactness, nonsingularity,
+    structural-rescaling, and finite-GMM alias caveats visible.
 
 ## Gaps And Risks
 
-- The standard DW J-test emptying statement is now a working derivation with
-  explicit exceptions; M28 supports the selected high-noise grid story, but
-  M25 still needs a direct proof audit before theorem-level prose.
+- The standard DW J-test emptying statement is now proof-audited by M47 as a
+  conditional rich-stack result with explicit exceptions. The implemented
+  finite GMM1 row remains a source-correct diagnostic with alias caveats.
 - The robust DW route is now conditionally audited for diagonal Gaussian
   residual noise. Correlated Gaussian noise requires dropping the
   off-diagonal covariance anchor and using the pure higher-cumulant fallback;

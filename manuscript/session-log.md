@@ -186,9 +186,9 @@ For traceable work blocks, pair this human-readable note with a closed
   tightened the variance-ratio language, softened abstract simulation claims,
   added a skewed-residual-noise stress-case caveat, updated citation provenance
   from historical M29 to current M45 evidence, and drafted the conclusion.
-- Next recommended action: run M47, the direct M25 standard-DW proof audit,
+- Handoff at the time: M47 was the direct M25 standard-DW proof audit to clear
   before strengthening Proposition 2 or theorem-level language. M33 replication
-  wrapping remains the next shareability gate after proof review.
+  wrapping remained the next shareability gate after proof review.
 
 ### 2026-06-08 - Incorporate revision comments into front-half prose
 
@@ -992,4 +992,29 @@ For traceable work blocks, pair this human-readable note with a closed
   only warned that M0057 was still open, as expected; `git diff --check`
   reported only line-ending normalization warnings. After closing M0057,
   `python scripts/check_manuscript.py` passed cleanly.
-- Next recommended action: execute M47 to audit the M25 standard-DW proof gate.
+- Handoff at the time: M47 was next; it is completed in the following entry.
+
+### 2026-06-10 - Complete M47 standard-DW proof gate audit
+
+- Request or goal: continue the manuscript goal with the next open task after
+  M52.
+- Files changed: `manuscript/tasks/M47-standard-dw-proof-gate-audit.md`,
+  `manuscript/derivations/m47-standard-dw-proof-gate-audit.md`,
+  `manuscript/draft.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/citation-provenance.md`,
+  `manuscript/workplan.md`, `manuscript/decision-log.md`,
+  `manuscript/user-input-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and transparency files.
+- Summary of work: created the M47 packet, audited the M25 standard-DW proof
+  gate, and classified Proposition 2 as a conditional rich-stack/ICA result
+  with structural-coordinate rescaling exceptions, finite-GMM alias caveats,
+  compactness, and nonsingularity stated.
+- Check: `python -m json.tool manuscript/formal-object-registry.json` passed;
+  `python scripts/check_manuscript.py` passed before close with only the
+  expected open M0058 warning; `git diff --check` reported only line-ending
+  normalization warnings. After closing M0058, `python
+  scripts/check_manuscript.py` passed cleanly.
+- Next recommended action: execute M33, the manuscript-local replication
+  wrapper.

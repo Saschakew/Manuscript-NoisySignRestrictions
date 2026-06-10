@@ -6,7 +6,7 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: M52 is complete. The stepwise M54 derivation confirms that the
+Current stage: M47 is complete after the M52 evidence rebuild. The stepwise M54 derivation confirms that the
 requested population moments separate transformed-noise remainders from
 Gaussian covariance-product simplifications, and the normalization audit keeps
 the manuscript in the common `diag(B)=1` chart for the first paper. M56
@@ -21,23 +21,29 @@ standard DW now uses the source-correct bivariate GMM1 higher-moment menu
 `112`, `122`, `1112`, `1122`, and `1222`, intersected with a separate
 no-noise covariance screen in the common B-plane, and the robust row now uses
 full central-moment delta weighting for generated fourth-cumulant entries.
+M47 conditionally clears the M25 standard-DW proof gate: Proposition 2 is safe
+as a rich-stack/ICA misspecification result with structural-rescaling,
+finite-alias, compactness, and nonsingularity caveats visible.
 
-Current focus: proof audit and replication packaging. The revised draft still conditionally
+Current focus: replication packaging and final review. The revised draft still conditionally
 passes the M34 adversarial scope, logic, and style review; M49 clears the
 source-moment menu and noisy-product gate; M0050 clears the M53 notation gate;
 M54 clears the transformed-noise derivation and normalization gate; M56 clears
 the generated-moment routing gate; and M55 clears the main-text explanation
-gate. M52 now clears the source-correct evidence gate. The active Figure 1,
-Figure 2, Figure 3, and Table 1 use the M52 GMM1-plus-covariance-screen
-standard comparator and the M56 central-delta robust generated-moment route.
+gate. M52 clears the source-correct evidence gate, and M47 clears the
+standard-DW proof-gate audit at conditional rich-stack strength. The active
+Figure 1, Figure 2, Figure 3, and Table 1 use the M52
+GMM1-plus-covariance-screen standard comparator and the M56 central-delta
+robust generated-moment route.
 
-Next recommended action: execute M47, the M25 standard-DW proof gate audit.
-After that, keep M33 queued for the manuscript-local replication wrapper. A
-unit-variance/rotation-chart rewrite remains a separate future user decision
-if it is ever requested.
+Next recommended action: execute M33, the manuscript-local replication
+wrapper, so final figures and tables rebuild from `manuscript/replication/`
+without a local KnowledgeVault dependency. A unit-variance/rotation-chart
+rewrite remains a separate future user decision if it is ever requested.
 
-Active milestone: M0057 completed the M52 source-correct evidence rebuild;
-GitHub milestone 52 tracks the same work. M0056 completed the M55 execution
+Active milestone: M0058 open for the M47 standard-DW proof gate audit; GitHub
+milestone 53 tracks the same work. M0057 completed the M52 source-correct
+evidence rebuild and created GitHub milestone 52. M0056 completed the M55 execution
 block and created GitHub milestone 51. M0055 completed M56 and created GitHub
 milestone 50 for the generated-moment audit. M0054 planned M56 and created
 GitHub milestone 49 for the robust cumulant GMM/generated-moment audit
@@ -62,9 +68,10 @@ Active blockers:
   variances are imposed as an extra scale normalization. The active robust-DW
   fallback is the pure five-moment higher-moment stack, and M54 keeps the
   manuscript in this common chart.
-- The M25 standard-DW J-test inversion result is only a working derivation; M28
-  supports the high-noise divergence story, but the derivation still needs a
-  direct audit before theorem-level prose.
+- M47 conditionally clears the M25 standard-DW J-test inversion result. The
+  theorem-level version must remain a rich-stack/ICA statement with
+  structural-coordinate rescaling exceptions, finite-GMM alias caveats,
+  compact sign-admissible sets, and nonsingularity stated.
 - The M30 audit found that the original M35 moderate-noise scenario was near a
   structural-coordinate rescaling exception. The patched screen now includes
   an anisotropic diagonal-noise stress case, but the provisional
@@ -90,8 +97,8 @@ Active blockers:
   M0038 formula sketch. The prose is deliberately SVAR-first: define the
   no-noise sign-restricted object, add residual noise, explain standard DW
   under its no-noise null, then introduce the residual-noise-to-signal robust
-  construction. Proposition 2 still depends on the M25 proof audit, and
-  Proposition 3 still needs final proof and heavier replication before
+  construction. Proposition 2 has now passed the M47 conditional proof audit,
+  while Proposition 3 still needs final proof and heavier replication before
   theorem-level wording.
 - M34 completed a full adversarial scope, logic, and style review. It tightened
   variance-ratio terminology, softened simulation claims in the abstract,
@@ -129,9 +136,8 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-10, completed M52 by rebuilding the
-source-correct standard-DW and robust generated-moment evidence path after
-M54, M55, and M56.
+Last substantive session: 2026-06-10, completed M47 by auditing the M25
+standard-DW proof gate after M52 rebuilt the source-correct evidence path.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.
