@@ -6,6 +6,8 @@ Use this file for actual review passes and resulting decisions.
 
 | Date | Pass | Reviewer | Outcome | Follow-up tasks |
 |---|---|---|---|---|
+| 2026-06-09 | M49 DW source and noisy-moment audit | Codex source/derivation audit | M49 passes as a source-complete replacement for M48. The raw Drautzburg-Wright source defines standardized raw co-skewness/co-kurtosis products; bivariate GMM1 is `112`, `122`, `1112`, `1122`, `1222`, and GMM2 drops only `1122`. The current Figure 1/M45 standard-DW code is a historical hybrid, not source-correct. The requested noisy product moments are derived from `z=epsilon+B0^{-1}eta`; third moments are Gaussian-noise-blind at `B0`, while fourth raw products are shifted by covariance-product terms. | Run M52 to rebuild the standard-DW figures and Monte Carlo with a source-correct GMM1 or GMM2 menu before relying on evidence claims. A full switch to the unit-variance/rotation chart remains a user-decision gate. |
+| 2026-06-09 | M0045 scientific workflow hardening | User criticism plus Codex workflow repair | M48 is not accepted as a completed scientific audit. The workflow now requires raw-source, vault-source, derivation, code-implementation, conjecture, or user-decision classification before settled manuscript claims. Code behavior may no longer stand in for source claims. | Run M49 before M47: redo the DW source and noisy moment audit from the user's original comments, raw DW source or KnowledgeVault note, and explicit derivations; quarantine current Section 3 `g_DW` and Figure 1 source-match claims until then. |
 | 2026-06-08 | M34 adversarial scope, logic, and style review | Codex adversarial manuscript review | Conditional pass after targeted fixes. The M0041 front-half rewrite now follows the revision spirit: it starts from no-noise sign restrictions, recovered-shock orthogonality, residual-noise bias, standard DW under its maintained null, and then the variance-ratio robust construction. M34 tightened visible claims by replacing confusing information/noise wording with a residual-noise-to-signal ratio, softening abstract simulation claims to match the lightweight M45 evidence, adding an explicit skewed-residual-noise stress-case caveat, updating citation provenance from historical M29 to current M45 evidence, and drafting the conclusion. | Next gates remain M25 proof audit and M33 replication wrapper. Do not promote Proposition 2 to theorem language until the standard-DW proof audit is complete. Keep M45 as lightweight evidence until final replication packaging or a heavier run. Final shareable draft still needs references/citation cleanup and export preparation. |
 | 2026-06-08 | M0041 revision-comments compliance review | Codex style/content self-review | Pass with open follow-ups. The abstract now states sign-restricted set identification, residual-noise bias, false higher-moment precision, the information/noise-ratio robust refinement, and simulation evidence. The introduction now starts from signs plus recovered-shock orthogonality, then explains how idiosyncratic residual noise breaks that robustness, then introduces DW as a no-noise efficiency refinement and the robust proposal as the fix. Section 2 now introduces every core variable in the no-noise SVAR before adding noise, states the rescaling exception, discusses possible sign-boundary movement, and adds a J-test inversion view. Section 3 now explains DW under no noise before showing how noise breaks the moment stack. Section 4 now starts with the information/noise ratio and then adds Gaussian-noise-blind higher cumulants. | Run M34 as a broader adversarial style/logic review. The optional sign-flip figure suggested in the revision comments is not generated in M0041; the mechanism is now explained in prose and Figure 1 remains the continuous set-movement visual. M25 proof audit and replication wrapper remain open. |
 | 2026-06-07 | M40 variance-ratio robust DW screen audit | Codex adversarial method review | Conditional pass for proposal-level Section 4 prose. The profiled covariance-decomposition screen matches `S = B diag(s_1,s_2) B' + diag(nu_1,nu_2)` with `0 <= nu_i <= 0.5 s_i`, avoids the M0034 double-normalization error, and is implemented as the correct linear feasibility problem. The 50 percent bound is substantive signal-to-noise identifying information, not a DW moment or normalization. A small 250-draw truth-screen check was reassuring but showed the hard sample screen can still exclude truth at `T=500`. | Use `manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md` when revising Section 4. Keep M43-M45 open: rebuild Figure 2, add Figure 3, and rerun validation/Monte Carlo evidence before final claims. |
@@ -129,6 +131,38 @@ Suggested passes:
 - Reproducibility package.
 - Literature positioning.
 - Reader path.
+
+## M48 DW Moment Definition And Normalization Audit
+
+Scope: `manuscript/derivations/m48-dw-moment-normalization-audit.md`,
+`manuscript/draft.md`, the Drautzburg-Wright vault note/raw markdown, and the
+Figure 1/M45 simulation code.
+
+Detailed audit: `manuscript/derivations/m48-dw-moment-normalization-audit.md`.
+
+Checklist outcome:
+
+- DW source moment definition: failed as a settled claim. The audit caught the
+  broad raw-product-versus-cumulant distinction but did not study the DW source
+  carefully enough to establish the exact bivariate GMM moment menu.
+- Figure 1 implementation: code behavior observed but not source-verified.
+  The fact that the script uses powers `(1,1)`, `(2,1)`, `(1,2)`, and `(2,2)`
+  cannot be treated as proof that this is the source-correct bivariate DW
+  specification.
+- Noisy raw-product formulas: partial. The audit used compressed formulas and
+  did not provide the step-by-step derivations requested for
+  `E[z1^2 z2]`, `E[z1 z2 z3]`, `E[z1^3 z2]`, `E[z1^2 z2^2]`,
+  `E[z1^2 z2 z3]`, and `E[z1 z2 z3 z4]`.
+- Robust cumulant route: provisional. Existing cumulant derivations remain
+  useful, but the standard-product versus robust-cumulant comparison must be
+  rederived under M49 before final Section 4 wording.
+- Normalization: not decided. The `diag(B)=1` versus `Var(epsilon)=1`
+  question and the corresponding figure/Monte Carlo rebuild implications must
+  be revisited after the source and derivation audit.
+
+Decision: M48 is partial and not accepted as a draft gate. M49 must redo the
+DW source and noisy moment audit before M47, before final Section 3/4 prose,
+and before any no-rebuild decision is treated as settled.
 
 ## M24 Robust DW Derivation Audit
 

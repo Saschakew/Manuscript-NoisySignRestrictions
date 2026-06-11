@@ -2,9 +2,12 @@
 
 This figure reproduces the KnowledgeVault B-plane layout with three noise
 columns and adds a third robust-DW row.  All rows invert pointwise finite-sample
-J statistics at the 10 percent level.  The default historical robust-DW row
-profiles out diagonal residual-noise variances using the now-superseded
-off-diagonal covariance anchor plus mixed higher cumulants of B^{-1}u.
+J statistics at the 10 percent level.  After M52, the standard-DW row uses the
+source-correct bivariate DW GMM1 higher-moment menu together with a separate
+no-noise covariance screen in the common diagonal-normalized B-plane chart.
+The default historical robust-DW row profiles out diagonal residual-noise
+variances using the now-superseded off-diagonal covariance anchor plus mixed
+higher cumulants of B^{-1}u.
 
 Pass ``--robust-mode pure`` to plot the pure higher-cumulant robust row without
 the diagonal-noise off-diagonal covariance anchor.
@@ -55,7 +58,26 @@ STRUCTURAL_THIRD_CUMULANT = math.sqrt(8.0 / STRUCTURAL_CHI2_DF)
 STRUCTURAL_FOURTH_CUMULANT = 12.0 / STRUCTURAL_CHI2_DF
 
 MOMENTS_COVARIANCE = ((1, 1),)
-MOMENTS_DW = ((1, 1), (2, 1), (1, 2), (2, 2))
+MOMENTS_DW_GMM1 = ((2, 1), (1, 2), (3, 1), (2, 2), (1, 3))
+MOMENTS_DW_GMM2 = ((2, 1), (1, 2), (3, 1), (1, 3))
+STANDARD_DW_MENU = "GMM1"
+MOMENTS_DW = MOMENTS_DW_GMM1
+
+
+def standard_dw_cutoff() -> float:
+    if len(MOMENTS_DW) == 5:
+        return CHI2_90_DF5
+    if len(MOMENTS_DW) == 4:
+        return CHI2_90_DF4
+    raise ValueError(f"unsupported standard-DW menu length: {len(MOMENTS_DW)}")
+
+
+def standard_dw_title() -> str:
+    return f"Standard DW {STANDARD_DW_MENU} screen"
+
+
+def standard_dw_summary() -> str:
+    return f"standard DW: {STANDARD_DW_MENU} moments + covariance screen"
 
 
 def standardize_columns(values: np.ndarray) -> np.ndarray:
@@ -178,35 +200,76 @@ def j_statistic(shocks: np.ndarray, powers: tuple[tuple[int, int], ...]) -> floa
 
 
 def robust_higher_cumulant_values(shocks: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    """Return mixed higher-cumulant estimates and influence observations."""
+    """Return mixed higher-cumulant estimates and full central-delta influence observations."""
     centered = shocks - shocks.mean(axis=0, keepdims=True)
     x = centered[:, 0]
     y = centered[:, 1]
 
-    m11 = float(np.mean(x * y))
-    m20 = float(np.mean(x * x))
-    m02 = float(np.mean(y * y))
-    m31 = float(np.mean((x**3) * y))
-    m22 = float(np.mean((x**2) * (y**2)))
-    m13 = float(np.mean(x * (y**3)))
+    central: dict[tuple[int, int], float] = {
+        (0, 0): 1.0,
+        (1, 0): 0.0,
+        (0, 1): 0.0,
+    }
+    for powers in (
+        (2, 0),
+        (1, 1),
+        (0, 2),
+        (3, 0),
+        (2, 1),
+        (1, 2),
+        (0, 3),
+        (3, 1),
+        (2, 2),
+        (1, 3),
+    ):
+        central[powers] = float(np.mean((x**powers[0]) * (y**powers[1])))
+
+    def central_influence(power_1: int, power_2: int) -> np.ndarray:
+        values = (x**power_1) * (y**power_2)
+        influence = values - central[(power_1, power_2)]
+        if power_1:
+            influence -= power_1 * central.get((power_1 - 1, power_2), 0.0) * x
+        if power_2:
+            influence -= power_2 * central.get((power_1, power_2 - 1), 0.0) * y
+        return influence
+
+    m11 = central[(1, 1)]
+    m20 = central[(2, 0)]
+    m02 = central[(0, 2)]
+    m21 = central[(2, 1)]
+    m12 = central[(1, 2)]
+    m31 = central[(3, 1)]
+    m22 = central[(2, 2)]
+    m13 = central[(1, 3)]
 
     moments = np.array(
         [
-            float(np.mean((x**2) * y)),
-            float(np.mean(x * (y**2))),
+            m21,
+            m12,
             m31 - 3.0 * m20 * m11,
             m22 - m20 * m02 - 2.0 * m11 * m11,
             m13 - 3.0 * m02 * m11,
         ],
         dtype=float,
     )
+    influence_20 = central_influence(2, 0)
+    influence_11 = central_influence(1, 1)
+    influence_02 = central_influence(0, 2)
+    influence_21 = central_influence(2, 1)
+    influence_12 = central_influence(1, 2)
+    influence_31 = central_influence(3, 1)
+    influence_22 = central_influence(2, 2)
+    influence_13 = central_influence(1, 3)
+
     influence = np.column_stack(
         [
-            (x**2) * y,
-            x * (y**2),
-            (x**3) * y - 3.0 * (m11 * x**2 + m20 * x * y),
-            (x**2) * (y**2) - m02 * x**2 - m20 * y**2 - 4.0 * m11 * x * y,
-            x * (y**3) - 3.0 * (m11 * y**2 + m02 * x * y),
+            influence_21,
+            influence_12,
+            influence_31 - 3.0 * (m11 * influence_20 + m20 * influence_11),
+            influence_22
+            - (m02 * influence_20 + m20 * influence_02)
+            - 4.0 * m11 * influence_11,
+            influence_13 - 3.0 * (m11 * influence_02 + m02 * influence_11),
         ]
     )
     return moments, influence
@@ -395,7 +458,8 @@ def evaluate_standard_grid(
         dw_j[row, col] = j_statistic(shocks, MOMENTS_DW)
 
     covariance_accepted = np.isfinite(covariance_j) & (covariance_j <= CHI2_90_DF1)
-    dw_accepted = np.isfinite(dw_j) & (dw_j <= CHI2_90_DF4)
+    dw_higher_accepted = np.isfinite(dw_j) & (dw_j <= standard_dw_cutoff())
+    dw_accepted = covariance_accepted & dw_higher_accepted
     return (
         b12_mesh,
         b21_mesh,
@@ -435,7 +499,7 @@ def robust_mode_summary(robust_mode: str) -> str:
     if robust_mode == "bounded":
         return "bounded robust DW uses pure cumulants plus 0 <= noise variances <= 0.5"
     if robust_mode == "relative":
-        return "relative robust DW uses pure cumulants plus noise variances <= 0.5 shock variances"
+        return "relative robust DW: central-delta cumulants + relative noise screen"
     raise ValueError(f"unknown robust mode: {robust_mode}")
 
 
@@ -562,6 +626,14 @@ def truth_label_with_status(j_value: float, accepted: bool) -> str:
     return f"B0 {status}; J0 {j_value:.3g}"
 
 
+def standard_dw_truth_label(higher_j: float, covariance_j: float) -> str:
+    if not math.isfinite(higher_j) or not math.isfinite(covariance_j):
+        return "B0 n/a"
+    accepted = higher_j <= standard_dw_cutoff() and covariance_j <= CHI2_90_DF1
+    status = "in" if accepted else "out"
+    return f"B0 {status}; JH {higher_j:.3g}; JC {covariance_j:.3g}"
+
+
 def plot(robust_mode: str = "diagonal", output_path: Path | None = None) -> Path:
     import matplotlib
 
@@ -639,11 +711,11 @@ def plot(robust_mode: str = "diagonal", output_path: Path | None = None) -> Path
         shade(ax, b12_mesh, b21_mesh, covariance_accepted, "#d9d9d9", 0.55)
         shade(ax, b12_mesh, b21_mesh, dw_accepted, "#6a51a3", 0.9)
         draw_covariance_contour(ax, b12_mesh, b21_mesh, correlation)
-        ax.set_title(f"Standard DW J-test, V=({nu1:g},{nu2:g})")
+        ax.set_title(f"{standard_dw_title()}, V=({nu1:g},{nu2:g})")
         ax.text(
             -1.22,
             1.16,
-            f"{min_label(dw_j)}\n{truth_label(true_dw_j, CHI2_90_DF4)}",
+            f"{min_label(dw_j)}\n{standard_dw_truth_label(true_dw_j, true_covariance_j)}",
             color="#542788",
             fontsize=9,
         )
@@ -680,11 +752,13 @@ def plot(robust_mode: str = "diagonal", output_path: Path | None = None) -> Path
 
     fig.suptitle(
         (
-            "Diagonal normalization: B = [[1, b12], [b21, 1]]; sign restriction b21 >= 0\n"
-            f"N={SAMPLE_SIZE}; all rows invert pointwise 10% J tests; " +
-            robust_mode_summary(robust_mode)
+            "B-plane chart B=[[1,b12],[b21,1]]; sign restriction b21 >= 0; "
+            f"N={SAMPLE_SIZE}; pointwise 10% J tests\n"
+            + standard_dw_summary()
+            + "; "
+            + robust_mode_summary(robust_mode)
         ),
-        fontsize=13,
+        fontsize=12,
     )
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=180)

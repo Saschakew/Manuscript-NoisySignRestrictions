@@ -1,15 +1,17 @@
 # Sign, Standard DW, And Variance-Ratio Robust DW Non-Gaussianity Grid
 
-Status: rebuilt M43 companion figure for the M0036 variance-ratio robust DW
-proposal.
+Status: M52 source-correct rebuild of the M43 companion figure for the M0036
+variance-ratio robust DW proposal.
 
 This figure complements `fig_sign_dw_relative_noise_robust_grid.png`. The
 first grid varies residual noise across columns. This grid instead fixes
 residual noise at \(V=(0.2,0.2)\) and varies the strength of structural-shock
 non-Gaussianity across columns.
 
-The bottom row now uses the same variance-ratio robust row as Figure 1: pure
-mixed higher-cumulant J inversion plus the covariance-decomposition screen
+The middle row uses the same source-correct standard-DW GMM1 screen as
+Figure 1. The bottom row uses the same variance-ratio robust row as Figure 1:
+generated mixed higher-cumulant J inversion with central-delta weighting plus
+the covariance-decomposition screen
 \(0\le \nu_i\le 0.5\operatorname{Var}(\varepsilon_i)\). The superseded
 diagonal-anchor covariance restriction is not used.
 
@@ -21,8 +23,8 @@ Source context:
   `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`
 - Output figure:
   `manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png`
-- M45 validation and Monte Carlo note:
-  `manuscript/simulations/m45_variance_ratio_evidence.md`
+- M52 validation and Monte Carlo note:
+  `manuscript/simulations/m52_source_correct_evidence.md`
 
 Command:
 
@@ -68,10 +70,12 @@ with `N=500`, and accept `B` when `J(B) <= chi2_df(0.90)`.
 
 - Top row: sign/covariance row, testing `e1*e2`; cutoff
   `chi2_1(0.90) = 2.71`.
-- Middle row: standard DW row, testing covariance, two co-skewness moments,
-  and one fourth cross moment; cutoff `chi2_4(0.90) = 7.78`.
-- Bottom row: variance-ratio robust DW row, testing five mixed higher
-  cumulants; cutoff `chi2_5(0.90) = 9.24`, intersected with the relative
+- Middle row: source-correct standard DW GMM1 row, testing `112`, `122`,
+  `1112`, `1122`, and `1222` with cutoff `chi2_5(0.90) = 9.24`, intersected
+  with the separate covariance screen.
+- Bottom row: variance-ratio robust DW row, testing five generated mixed
+  higher cumulants with central-delta weighting; cutoff
+  `chi2_5(0.90) = 9.24`, intersected with the relative
   covariance-decomposition screen.
 
 ## Interpretation
@@ -82,14 +86,14 @@ covariance moment, so it does not become the full graph when higher moments
 disappear. The robust-DW row drops recovered-shock covariance restrictions and
 uses the relative noise-to-shock variance screen for scale information.
 
-M45 fixed-grid diagnostics, computed on a `61 x 61` grid plus the true point,
+M52 fixed-grid diagnostics, computed on a `61 x 61` grid plus the true point,
 give the following chi-square-primary reading:
 
-| Structural shocks | Standard DW truth | Robust DW truth | Robust feasible | Robust accepted share |
-|---|---:|---:|---:|---:|
-| Strong non-Gaussianity, `w=1` | yes | yes | yes | 0.089 |
-| Weak non-Gaussianity, `w=0.25` | yes | yes | yes | 0.196 |
-| Gaussian shocks, `w=0` | yes | yes | yes | 0.188 |
+| Structural shocks | Standard DW truth | Robust DW truth | Robust feasible | Standard share | Robust share |
+|---|---:|---:|---:|---:|---:|
+| Strong non-Gaussianity, `w=1` | yes | yes | yes | 0.035 | 0.061 |
+| Weak non-Gaussianity, `w=0.25` | yes | yes | yes | 0.105 | 0.116 |
+| Gaussian shocks, `w=0` | yes | yes | yes | 0.118 | 0.188 |
 
 This is the visual limitation that should accompany the main story:
 variance-ratio robust DW protects the target from residual-noise covariance

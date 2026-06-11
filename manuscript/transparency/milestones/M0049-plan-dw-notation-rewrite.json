@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "id": "M0049-plan-dw-notation-rewrite",
+  "sequence": 49,
+  "title": "Plan DW notation rewrite",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-09T10:15:32Z",
+  "closed_at": "2026-06-09T10:57:06Z",
+  "start_commit": "df6eff11a6e0d4b814b194cfb581ce75f351117d",
+  "snapshot_ref": "manuscript-milestones/M0049-plan-dw-notation-rewrite",
+  "summary": "Planned M53 as the packet-backed DW and robust moment notation rewrite: replace Section 3 h_i(B) notation with e_t(B), and recast Section 4 robust restrictions as explicit moment conditions before M52 evidence work.",
+  "user_inputs": [
+    {
+      "id": "U0049-001",
+      "milestone_id": "M0049-plan-dw-notation-rewrite",
+      "captured_at": "2026-06-09T10:15:32Z",
+      "source": "chat",
+      "text": "plan a new task: Replace the notation as we just discussed. afterwards, extend the notation of moment conditions to section 4. that is i dont want to see the kumulants in section 4, but replace them using the moment condition notation."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0049-001",
+      "milestone_id": "M0049-plan-dw-notation-rewrite",
+      "captured_at": "2026-06-09T10:50:27Z",
+      "description": "Created manuscript/tasks/M53-dw-and-robust-moment-notation-rewrite.md."
+    },
+    {
+      "id": "A0049-002",
+      "milestone_id": "M0049-plan-dw-notation-rewrite",
+      "captured_at": "2026-06-09T10:50:27Z",
+      "description": "Updated task board, dashboard, paper map, workplan, formal registry, and logs to route M53 before M52."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-09T10:50:27Z",
+      "description": "python -m json.tool manuscript/formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-09T10:50:27Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-09T10:50:27Z",
+      "description": "git diff --check: passed with line-ending warnings only"
+    },
+    {
+      "captured_at": "2026-06-09T10:57:06Z",
+      "description": "python scripts/check_manuscript.py: passed cleanly after milestone closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M53-dw-and-robust-moment-notation-rewrite.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0049-plan-dw-notation-rewrite.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 45,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/45",
+    "tag_name": "manuscript-milestones/M0049-plan-dw-notation-rewrite"
+  }
+}

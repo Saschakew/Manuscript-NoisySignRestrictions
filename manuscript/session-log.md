@@ -8,6 +8,149 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-09 - Plan M54 moment derivation and normalization audit
+
+- Request or goal: plan a new task to derive the transformed-noise moment
+  conditions step by step and audit whether the manuscript should retain the
+  `diag(B)=1` chart or switch to unit-variance normalization.
+- Files changed: `manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/workplan.md`,
+  `manuscript/source-packet.md`, `manuscript/formal-object-registry.json`, and
+  logs/transparency files.
+- Summary of work: created packet-backed M54 with the user's requested moment
+  patterns, required step-by-step derivation obligations, normalization audit,
+  stop conditions, and conditional follow-up rule for any unit-variance chart
+  switch; routed M54 before M52.
+- Next recommended action: execute M54 before returning to M52.
+
+### 2026-06-09 - Complete M53 DW and robust moment notation rewrite
+
+- Request or goal: execute M53 by replacing the Section 3 `h_i(B)` DW notation
+  with recovered-shock notation and rewriting Section 4 robust conditions as
+  explicit moment equations.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/task-board.md`,
+  `manuscript/tasks/M53-dw-and-robust-moment-notation-rewrite.md`,
+  `manuscript/project-dashboard.md`, `manuscript/paper-map.md`,
+  `manuscript/workplan.md`, logs, and M0050 transparency files.
+- Summary of work: rewrote the DW GMM1/GMM2 display to use
+  \(e_t(B)=B^{-1}u_t\), stated the no-noise normalization
+  \(e_t(B_0)=\varepsilon_t\), and rewrote the robust stack \(G_H(B)\) as
+  explicit third- and fourth-order moment equations with covariance-product
+  subtractions.
+- Next recommended action: execute M52 to rebuild the standard-DW figures and
+  Monte Carlo evidence with the source-correct moment menu.
+
+### 2026-06-09 - Plan M53 DW and robust moment notation rewrite
+
+- Request or goal: plan a new task to replace the Section 3 `h_i(B)` DW
+  notation with recovered-shock notation and rewrite Section 4 robust
+  conditions as moment equations rather than visible cumulant notation.
+- Files changed: `manuscript/tasks/M53-dw-and-robust-moment-notation-rewrite.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, and logs/transparency files.
+- Summary of work: created packet-backed M53 with the original user prompt,
+  required reads, scientific claim ledger, stop conditions, and acceptance
+  criteria; routed M53 before M52 so notation is cleaned before the
+  source-correct evidence rebuild.
+- Next recommended action: execute M53, then return to M52 for the standard-DW
+  evidence rebuild.
+
+### 2026-06-09 - Complete M49 DW source and noisy-moment audit
+
+- Request or goal: continue the manuscript workflow by executing the M49
+  hand-off packet.
+- Files changed: `manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/draft.md`, `manuscript/source-packet.md`,
+  `manuscript/formal-object-registry.json`, planning/provenance surfaces, and
+  logs.
+- Summary of work: read the raw Drautzburg-Wright source and translated the
+  bivariate GMM menus; derived the requested noisy product moments from
+  `z=epsilon+B0^{-1}eta`; classified the existing Figure 1/M45 standard-DW
+  code as a historical hybrid rather than source-correct GMM1 or GMM2; and
+  created M52 as the source-correct evidence rebuild task.
+- Next recommended action: run M52 before relying on the current standard-DW
+  figure/Monte Carlo rows or before M47 audits the standard-DW proof gate.
+
+### 2026-06-09 - Clarify next-task workflow
+
+- Request or goal: improve the new task workflow so the manuscript skill
+  explicitly handles common prompts like "work on next task" and "plan next
+  tasks."
+- Files changed: `.codex/skills/write-standalone-manuscript/SKILL.md`,
+  `.codex/skills/write-standalone-manuscript/references/task-packet-workflow.md`,
+  `manuscript/manuscript-rules.md`, `manuscript/task-board.md`,
+  `manuscript/project-dashboard.md`, `manuscript/workplan.md`, and logs.
+- Summary of work: added explicit next-task selection and task-planning
+  algorithms to the local manuscript skill; clarified that linked task packets
+  must be read before executing fragile tasks and that fragile or priority-1
+  scientific tasks planned in the future need packets created immediately.
+- Next recommended action: execute M49 from
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`.
+
+### 2026-06-09 - Improve task hand-off workflow
+
+- Request or goal: improve the manuscript workflow and local skill for task
+  creation and task management after discussing that compressed tasks may have
+  contributed to prior scientific mistakes.
+- Files changed: `.codex/skills/write-standalone-manuscript/SKILL.md`,
+  `.codex/skills/write-standalone-manuscript/references/task-packet-workflow.md`,
+  `manuscript/manuscript-rules.md`, `manuscript/tasks/_template.md`,
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, and logs/transparency files.
+- Summary of work: made the task board a compact index rather than the full
+  hand-off for fragile scientific work; added a task-packet workflow and
+  template; created a self-contained M49 packet preserving the original user
+  prompt, source obligations, derivation obligations, stop conditions, and
+  acceptance criteria.
+- Next recommended action: execute M49 from
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`, not from the
+  task-board row alone.
+
+### 2026-06-09 - Harden scientific workflow after M48 failure
+
+- Request or goal: update the manuscript workflows and local skills so future
+  scientific claims require source, vault, derivation, or explicit user
+  provenance instead of relying on plausible Codex memory or code behavior.
+- Files changed: `.codex/skills/write-standalone-manuscript/SKILL.md`,
+  `.codex/skills/write-standalone-manuscript/references/scientific-claim-audit.md`,
+  `manuscript/manuscript-rules.md`, `manuscript/draft.md`,
+  `manuscript/derivations/m48-dw-moment-normalization-audit.md`,
+  `manuscript/project-dashboard.md`, `manuscript/paper-map.md`,
+  `manuscript/task-board.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/workplan.md`, `manuscript/decision-log.md`,
+  `manuscript/review-log.md`, and transparency/log files.
+- Summary of work: added a scientific claim gate to the local manuscript skill
+  and manuscript rules, created a detailed claim-audit reference, quarantined
+  M48 as partial and source-insufficient, added M49 as the source-first DW
+  audit, and blocked M47 on M49.
+- Next recommended action: run M49 from the user's original comments, raw DW
+  source or KnowledgeVault note, and explicit noisy moment derivations before
+  any Section 3/4 DW claims or normalization/rebuild decisions are finalized.
+
+### 2026-06-09 - Resolve DW moment normalization
+
+- Request or goal: work on the manuscript in goal mode by choosing the next
+  task, which resolved to M48.
+- Files changed: `manuscript/derivations/m48-dw-moment-normalization-audit.md`,
+  `manuscript/draft.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/task-board.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/workplan.md`, and logs.
+- Summary of work at the time: attempted to verify the DW comparator, match it
+  to Figure 1, derive noisy truth raw-product formulas, and decide the
+  normalization chart.
+- M0045 correction: this work block is now marked partial and
+  source-insufficient. It should not be used as the settled DW source audit or
+  as a no-rebuild decision.
+- Next recommended action after M0045: run M49 before M47.
+
 ### 2026-06-08 - Insert DW moment comments task
 
 - Request or goal: insert a task to work through the user's comments on the
@@ -43,9 +186,9 @@ For traceable work blocks, pair this human-readable note with a closed
   tightened the variance-ratio language, softened abstract simulation claims,
   added a skewed-residual-noise stress-case caveat, updated citation provenance
   from historical M29 to current M45 evidence, and drafted the conclusion.
-- Next recommended action: run M47, the direct M25 standard-DW proof audit,
+- Handoff at the time: M47 was the direct M25 standard-DW proof audit to clear
   before strengthening Proposition 2 or theorem-level language. M33 replication
-  wrapping remains the next shareability gate after proof review.
+  wrapping remained the next shareability gate after proof review.
 
 ### 2026-06-08 - Incorporate revision comments into front-half prose
 
@@ -709,3 +852,169 @@ For traceable work blocks, pair this human-readable note with a closed
   when `L=2`. Defined the manuscript object as a BR-style profiled inversion.
 - Next recommended action: run M08 by attacking this applicability argument
   before deriving profiled criteria in M09.
+
+### 2026-06-09 - Complete M54 stepwise transformed-noise derivation
+
+- Request or goal: work on task M54.
+- Files changed: `manuscript/derivations/m54-stepwise-transformed-noise-moments.md`,
+  `manuscript/draft.md`, `manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/source-packet.md`,
+  `manuscript/workplan.md`, `manuscript/decision-log.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/codex-log.md`,
+  and transparency milestone files.
+- Summary of work: derived the requested transformed-noise moments step by
+  step at `B=B0`, separated transformed-noise remainders from Gaussian
+  covariance-product simplifications, and recorded the normalization decision
+  to keep the manuscript in the common `diag(B)=1` chart.
+- Next recommended action: run M52 in the retained common chart to rebuild the
+  source-correct standard-DW evidence path.
+
+### 2026-06-09 - Plan M55 main-text robust moment explanation
+
+- Request or goal: update the plan so the main text properly explains and
+  derives the robust transformed-noise moment conditions from M54, without
+  showing every expansion but making clear why the conditions hold at `B0` and
+  how the moments are computed.
+- Files changed: `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/user-input-log.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and transparency milestone files.
+- Summary of work: created packet-backed M55 and routed it before M52. The new
+  task requires Section 4 to distinguish transformed-noise covariance
+  `Omega(B)` from full transformed-residual covariance `S(B)`, explain why the
+  robust moments hold at `B0`, and show how `S_{ij}(B)` is computed from
+  centered candidate transformed residuals.
+- Check: `python scripts/check_manuscript.py` passed.
+- Next recommended action: execute M55, then return to M52 for the
+  source-correct standard-DW evidence rebuild.
+
+### 2026-06-09 - Plan M56 robust cumulant GMM generated-moment audit
+
+- Request or goal: plan a task to evaluate whether robust fourth-cumulant
+  sample moments with plug-in covariance products can use standard GMM/J-test
+  theory, or whether they require primitive-moment delta-method weighting,
+  augmented nuisance-parameter GMM, bootstrap calibration, or revised evidence
+  claims.
+- Files changed: `manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md`,
+  `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/user-input-log.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and transparency milestone files.
+- Summary of work: created packet-backed M56 and routed it before M55 and M52.
+  The new task requires a derivation/code audit of the concentrated robust
+  cumulant statistic, especially whether products of sample averages can be
+  justified through primitive-moment/delta-method GMM, augmented nuisance
+  covariance moments, bootstrap calibration, or only provisional simulation
+  language.
+- Check: `python scripts/check_manuscript.py` passed.
+- Next recommended action: execute M56; then use its result to execute M55;
+  then return to M52.
+
+### 2026-06-10 - Complete M56 robust cumulant GMM generated-moment audit
+
+- Request or goal: continue the manuscript goal by executing the next open
+  task, M56, before moving on to the next task.
+- Files changed: `manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`,
+  `manuscript/tasks/M56-robust-cumulant-gmm-generated-moment-audit.md`,
+  `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/draft.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/workplan.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and transparency milestone files.
+- Summary of work: derived the primitive-moment delta-method map and the
+  equivalent augmented nuisance-covariance GMM formulation for robust fourth
+  cumulants, audited the current robust code path, and classified current
+  robust evidence as approximate/provisional rather than final chi-square
+  inference.
+- Check: `python scripts/check_manuscript.py` passed; the pre-close warning
+  only noted the open M0055 transparency milestone.
+- Next recommended action: execute M55 so Section 4 explains the M54/M56
+  robust moment route; then execute M52 to rebuild the source-correct
+  standard-DW row and upgrade or calibrate the robust generated-moment
+  statistic.
+
+### 2026-06-10 - Complete M55 main-text robust moment explanation
+
+- Request or goal: continue the manuscript goal with the next open task after
+  M56.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/tasks/M55-main-text-robust-moment-explanation.md`,
+  `manuscript/tasks/M52-standard-dw-source-correct-rebuild.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/user-input-log.md`,
+  `manuscript/session-log.md`, `manuscript/codex-log.md`, and transparency
+  milestone files.
+- Summary of work: revised Section 4 so the main text defines
+  `xi_t(B)=B^{-1}eta_t`, distinguishes `Omega(B)` from `S(B)`, explains why
+  Gaussian transformed noise leaves the robust higher cumulants valid at
+  `B0`, gives a representative fourth-cumulant equation, and states the
+  candidate-by-candidate generated-moment sample recipe.
+- Check: `python scripts/check_manuscript.py` passed, with only the expected
+  open-milestone warning before closing M0056.
+- Next recommended action: execute M52 to rebuild the source-correct
+  standard-DW evidence and upgrade or calibrate the robust generated-moment
+  statistic.
+
+### 2026-06-10 - Complete M52 source-correct evidence rebuild
+
+- Request or goal: continue the manuscript goal with the next open task after
+  M55.
+- Files changed: `manuscript/simulations/sign_dw_robust_noise_grid_figure.py`,
+  `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py`,
+  `manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py`,
+  `manuscript/simulations/m45_variance_ratio_evidence.py`, regenerated
+  Figures 1-3, `manuscript/simulations/m52_source_correct_evidence.md`,
+  `manuscript/simulations/output/m52_source_correct_evidence.json`,
+  `manuscript/draft.md`, simulation notes, M52 packet, provenance, registry,
+  planning surfaces, logs, and transparency files.
+- Summary of work: rebuilt the standard-DW evidence row with source-correct
+  bivariate GMM1 higher moments plus a separate covariance screen, upgraded the
+  robust generated fourth-cumulant statistic to full central-moment delta
+  influence rows, regenerated Figures 1-3, and reran the M52 Monte Carlo table.
+  The high-noise primary row now reports standard-DW truth inclusion `0.000`
+  and robust-DW truth inclusion `0.833`.
+- Check: figure scripts, M52 evidence script, `python -m py_compile`,
+  `python -m json.tool manuscript/formal-object-registry.json`, and `python
+  scripts/check_manuscript.py` passed before close. The manuscript-wide check
+  only warned that M0057 was still open, as expected; `git diff --check`
+  reported only line-ending normalization warnings. After closing M0057,
+  `python scripts/check_manuscript.py` passed cleanly.
+- Handoff at the time: M47 was next; it is completed in the following entry.
+
+### 2026-06-10 - Complete M47 standard-DW proof gate audit
+
+- Request or goal: continue the manuscript goal with the next open task after
+  M52.
+- Files changed: `manuscript/tasks/M47-standard-dw-proof-gate-audit.md`,
+  `manuscript/derivations/m47-standard-dw-proof-gate-audit.md`,
+  `manuscript/draft.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/paper-plan.md`,
+  `manuscript/source-packet.md`, `manuscript/citation-provenance.md`,
+  `manuscript/workplan.md`, `manuscript/decision-log.md`,
+  `manuscript/user-input-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and transparency files.
+- Summary of work: created the M47 packet, audited the M25 standard-DW proof
+  gate, and classified Proposition 2 as a conditional rich-stack/ICA result
+  with structural-coordinate rescaling exceptions, finite-GMM alias caveats,
+  compactness, and nonsingularity stated.
+- Check: `python -m json.tool manuscript/formal-object-registry.json` passed;
+  `python scripts/check_manuscript.py` passed before close with only the
+  expected open M0058 warning; `git diff --check` reported only line-ending
+  normalization warnings. After closing M0058, `python
+  scripts/check_manuscript.py` passed cleanly.
+- Next recommended action: execute M33, the manuscript-local replication
+  wrapper.

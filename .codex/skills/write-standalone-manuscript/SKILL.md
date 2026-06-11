@@ -1,6 +1,6 @@
 ---
 name: write-standalone-manuscript
-description: Write and manage one standalone manuscript repository linked to KnowledgeVault source material.
+description: Write and manage one standalone manuscript repository linked to KnowledgeVault source material. Use for manuscript planning, drafting, formal objects, simulations, citations, logs, transparency milestones, task creation and hand-off packets, and scientific-claim audits that require raw-source, vault-source, derivation, or code-provenance gates before prose changes.
 ---
 
 # Write Standalone Manuscript
@@ -92,7 +92,90 @@ note, updating workflow instructions, or correcting dashboard/task-board status.
 11. Maintain `manuscript/transparency/` for user input, Codex actions, and
     milestone manifests that the external `Manuscript-Timeline` viewer can
     load.
-12. Run `python scripts/check_manuscript.py` after substantive edits.
+12. Use task packets for fragile or priority-1 scientific tasks.
+13. Apply the scientific claim gate before changing mathematical,
+    source-sensitive, or code-sensitive claims.
+14. Run `python scripts/check_manuscript.py` after substantive edits.
+
+## Next Task Selection
+
+When the user says `work on next task`, `pick next task`, `continue`, or
+similar:
+
+1. Read `manuscript/project-dashboard.md` and `manuscript/task-board.md`.
+2. Prefer the dashboard's next recommended action unless the user named a
+   different task.
+3. Ignore `done`, `deferred`, and superseded tasks except as historical
+   context.
+4. If the selected row links a packet under `manuscript/tasks/`, read that
+   packet before opening source files or editing anything. The packet is the
+   task contract.
+5. If the selected task is priority 1 or fragile scientific work and has no
+   packet, create the packet first from `manuscript/tasks/_template.md`, link
+   it from `task-board.md`, and only then execute the task.
+6. Open a transparency milestone before edits, then follow the packet's
+   required reads, stop conditions, and acceptance criteria.
+
+## Planning New Tasks
+
+When the user says `plan next tasks`, `insert a task`, `update tasks`, or
+similar:
+
+1. Preserve the user's original prompt in `manuscript/user-input-log.md` and,
+   for fragile tasks, in the task packet.
+2. Split work into task-board rows only after identifying dependencies and
+   blocked-before relationships.
+3. Classify each new task as routine or fragile. Treat source verification,
+   mathematical derivation, code-to-theory comparison, normalization decisions,
+   simulation/figure rebuilds, and prior failed work as fragile.
+4. For each fragile or priority-1 scientific task, create a packet immediately
+   under `manuscript/tasks/` and link it from the task-board row.
+5. Keep task-board rows compact; do not store the full scientific hand-off in a
+   long table cell.
+6. Add acceptance criteria and stop conditions to the packet before marking the
+   planning task complete.
+
+## Task Hand-Off Packets
+
+Keep `manuscript/task-board.md` as a compact index. For priority-1 or fragile
+scientific tasks, create a durable packet under `manuscript/tasks/` and link
+to it from the task-board row.
+
+Use a packet when a task involves raw sources, KnowledgeVault provenance,
+mathematical derivations, code-to-theory mapping, simulations, figure rebuilds,
+normalization choices, prior failed work, or a long/nuanced user prompt.
+
+Before creating or working from a packet, read
+`references/task-packet-workflow.md`. A packet should preserve the original
+user prompt, name untrusted prior artifacts, list required source reads and
+derivations, define stop conditions, and state acceptance criteria.
+
+## Scientific Claim Gate
+
+Before adding, revising, or relying on a substantive scientific claim, classify
+the claim as one of:
+
+- `raw-source`: verified directly in the paper, appendix, replication code, or
+  other primary source.
+- `vault-source`: verified in a KnowledgeVault note that cites the underlying
+  source path and citation key.
+- `derived`: proved in the current work block from stated assumptions, with
+  enough algebra for audit.
+- `code-implemented`: observed in repository or replication code. This can
+  describe implementation behavior, but it is not evidence that the behavior is
+  the source-correct theory.
+- `conjectural`: plausible but not yet verified.
+- `user-decision`: an explicit user instruction or durable decision.
+
+Only `raw-source`, `vault-source`, `derived`, or explicit `user-decision`
+claims may enter polished manuscript prose as settled statements.
+`code-implemented` claims may describe code behavior only. `conjectural`
+claims must stay in TODO notes, task boards, derivation files, or discussion
+until verified.
+
+For mathematical or source-sensitive work, read
+`references/scientific-claim-audit.md` and leave a compact audit trail before
+editing the draft or formal registry.
 
 ## Transparency Milestones
 

@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "id": "M0056-m55-main-text-robust-moment-explanation",
+  "sequence": 56,
+  "title": "M55 main text robust moment explanation",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-10T13:53:39Z",
+  "closed_at": "2026-06-10T14:04:49Z",
+  "start_commit": "2bf89584621d0fa3ffca1406b2906fefab1d19ec",
+  "snapshot_ref": "manuscript-milestones/M0056-m55-main-text-robust-moment-explanation",
+  "summary": "Completed M55 main-text robust moment explanation, revising Section 4 to distinguish Omega(B) from S(B), explain why robust moments hold at B0, and document the generated sample moment recipe after M56.",
+  "user_inputs": [
+    {
+      "id": "U0056-001",
+      "milestone_id": "M0056-m55-main-text-robust-moment-explanation",
+      "captured_at": "2026-06-10T13:53:39Z",
+      "source": "chat",
+      "text": "Continue the manuscript goal with the next open task, M55: revise Section 4 so the main text explains why robust transformed-noise moment conditions hold at B0, distinguishes Omega(B) from S(B), and explains generated sample moment computation after M56."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0056-001",
+      "milestone_id": "M0056-m55-main-text-robust-moment-explanation",
+      "captured_at": "2026-06-10T14:03:59Z",
+      "description": "Revised Section 4 and updated M55/M52 packets, registry, planning surfaces, and logs."
+    },
+    {
+      "id": "A0056-002",
+      "milestone_id": "M0056-m55-main-text-robust-moment-explanation",
+      "captured_at": "2026-06-10T14:04:49Z",
+      "description": "Revised Section 4 and updated M55/M52 packets, registry, planning surfaces, and logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-10T14:03:59Z",
+      "description": "python scripts/check_manuscript.py: passed before close; only warning was the expected open M0056 milestone"
+    },
+    {
+      "captured_at": "2026-06-10T14:04:49Z",
+      "description": "python scripts/check_manuscript.py: passed after closing M0056"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M52-standard-dw-source-correct-rebuild.md",
+    "manuscript/tasks/M55-main-text-robust-moment-explanation.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0056-m55-main-text-robust-moment-explanation.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 51,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/51",
+    "tag_name": "manuscript-milestones/M0056-m55-main-text-robust-moment-explanation"
+  }
+}

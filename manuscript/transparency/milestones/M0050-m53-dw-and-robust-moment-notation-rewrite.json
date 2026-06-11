@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "id": "M0050-m53-dw-and-robust-moment-notation-rewrite",
+  "sequence": 50,
+  "title": "M53 DW and robust moment notation rewrite",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-09T11:12:28Z",
+  "closed_at": "2026-06-09T11:44:09Z",
+  "start_commit": "c98b98980f306950b57850eca6b394ef3f230ce5",
+  "snapshot_ref": "manuscript-milestones/M0050-m53-dw-and-robust-moment-notation-rewrite",
+  "summary": "Completed M53 notation rewrite: Section 3 now uses e_t(B) recovered-shock notation for the source-correct DW menu, and Section 4 now displays the robust stack as explicit moment equations with fourth-order covariance-product subtractions.",
+  "user_inputs": [
+    {
+      "id": "U0050-001",
+      "milestone_id": "M0050-m53-dw-and-robust-moment-notation-rewrite",
+      "captured_at": "2026-06-09T11:12:28Z",
+      "source": "chat",
+      "text": "Work on task M53: replace the Section 3 h_i(B) notation with e_t(B) recovered-shock notation and rewrite Section 4 robust conditions as explicit moment equations rather than foregrounding cumulant notation."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0050-001",
+      "milestone_id": "M0050-m53-dw-and-robust-moment-notation-rewrite",
+      "captured_at": "2026-06-09T11:43:04Z",
+      "description": "Rewrote manuscript/draft.md Section 3 to remove h_i(B) notation and display DW GMM1/GMM2 with e_t(B)."
+    },
+    {
+      "id": "A0050-002",
+      "milestone_id": "M0050-m53-dw-and-robust-moment-notation-rewrite",
+      "captured_at": "2026-06-09T11:43:04Z",
+      "description": "Rewrote manuscript/draft.md Section 4 to display G_H(B) as explicit third- and fourth-order moment equations, preserving covariance-product subtractions."
+    },
+    {
+      "id": "A0050-003",
+      "milestone_id": "M0050-m53-dw-and-robust-moment-notation-rewrite",
+      "captured_at": "2026-06-09T11:43:04Z",
+      "description": "Updated the formal registry, task packet, task board, dashboard, paper map, workplan, and logs; preserved M52 as the next evidence rebuild gate."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-09T11:43:04Z",
+      "description": "python -m json.tool manuscript/formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-09T11:43:04Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closure"
+    },
+    {
+      "captured_at": "2026-06-09T11:43:04Z",
+      "description": "git diff --check: passed with line-ending warnings only"
+    },
+    {
+      "captured_at": "2026-06-09T11:43:04Z",
+      "description": "rg draft notation search for h_i/h_1/h_2/kappa/\\\\kappa: no matches"
+    },
+    {
+      "captured_at": "2026-06-09T11:44:09Z",
+      "description": "python scripts/check_manuscript.py: passed cleanly after milestone closure"
+    }
+  ],
+  "changed_files": [
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M53-dw-and-robust-moment-notation-rewrite.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0050-m53-dw-and-robust-moment-notation-rewrite.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 46,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/46",
+    "tag_name": "manuscript-milestones/M0050-m53-dw-and-robust-moment-notation-rewrite"
+  }
+}

@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-08T13:05:41Z",
+  "updated_at": "2026-06-10T14:50:05Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -907,6 +907,336 @@
         "milestone_number": null,
         "milestone_url": "",
         "tag_name": "manuscript-milestones/M0043-track-dw-moment-comments"
+      }
+    },
+    {
+      "id": "M0044-resolve-dw-moment-normalization",
+      "sequence": 44,
+      "title": "Resolve DW moment normalization",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T06:34:26Z",
+      "closed_at": "2026-06-09T06:40:39Z",
+      "start_commit": "247e3ee1e6b17055e5138c7bc09a37bf8c6bad4e",
+      "snapshot_ref": "manuscript-milestones/M0044-resolve-dw-moment-normalization",
+      "summary": "Resolved M48 by auditing DW moment definitions, Figure 1 implementation, noisy truth product moments, and the normalization chart.",
+      "user_input_ids": [
+        "U0044-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0044-resolve-dw-moment-normalization.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 40,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/40",
+        "tag_name": "manuscript-milestones/M0044-resolve-dw-moment-normalization"
+      }
+    },
+    {
+      "id": "M0045-harden-scientific-workflow",
+      "sequence": 45,
+      "title": "Harden scientific workflow",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T07:14:39Z",
+      "closed_at": "2026-06-09T07:34:09Z",
+      "start_commit": "674c93274aa2bda8252a000efaa8a23c489dec3b",
+      "snapshot_ref": "manuscript-milestones/M0045-harden-scientific-workflow",
+      "summary": "Hardened the manuscript workflow after the M48 failure: added scientific claim gates, quarantined M48, added M49 as the source-first DW audit, and made M47 conditional on M49.",
+      "user_input_ids": [
+        "U0045-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0045-harden-scientific-workflow.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 41,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/41",
+        "tag_name": "manuscript-milestones/M0045-harden-scientific-workflow"
+      }
+    },
+    {
+      "id": "M0046-improve-task-handoff-workflow",
+      "sequence": 46,
+      "title": "Improve task handoff workflow",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T08:11:20Z",
+      "closed_at": "2026-06-09T08:28:19Z",
+      "start_commit": "5b298b927dd336a0848d44778d17083daa963c75",
+      "snapshot_ref": "manuscript-milestones/M0046-improve-task-handoff-workflow",
+      "summary": "Improved manuscript task hand-off workflow by adding task-packet rules, a reusable packet template, and a self-contained M49 packet preserving the original user prompt and scientific acceptance criteria.",
+      "user_input_ids": [
+        "U0046-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0046-improve-task-handoff-workflow.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 42,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/42",
+        "tag_name": "manuscript-milestones/M0046-improve-task-handoff-workflow"
+      }
+    },
+    {
+      "id": "M0047-clarify-next-task-workflow",
+      "sequence": 47,
+      "title": "Clarify next-task workflow",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T08:49:00Z",
+      "closed_at": "2026-06-09T09:01:50Z",
+      "start_commit": "6a898dd0abe88d5673157a717f2895e453d00190",
+      "snapshot_ref": "manuscript-milestones/M0047-clarify-next-task-workflow",
+      "summary": "Clarified next-task and task-planning workflow so common prompts are explicitly packet-aware.",
+      "user_input_ids": [
+        "U0047-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0047-clarify-next-task-workflow.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 43,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/43",
+        "tag_name": "manuscript-milestones/M0047-clarify-next-task-workflow"
+      }
+    },
+    {
+      "id": "M0048-m49-dw-source-audit",
+      "sequence": 48,
+      "title": "M49 DW source audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T09:23:10Z",
+      "closed_at": "2026-06-09T09:49:43Z",
+      "start_commit": "8bf2e509a805da78d2e8551a2132902bec53982f",
+      "snapshot_ref": "manuscript-milestones/M0048-m49-dw-source-audit",
+      "summary": "Completed the M49 DW source and noisy-moment audit; corrected the draft source menu; classified current standard-DW evidence as historical hybrid; created M52 for the source-correct rebuild.",
+      "user_input_ids": [
+        "U0048-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0048-m49-dw-source-audit.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 44,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/44",
+        "tag_name": "manuscript-milestones/M0048-m49-dw-source-audit"
+      }
+    },
+    {
+      "id": "M0049-plan-dw-notation-rewrite",
+      "sequence": 49,
+      "title": "Plan DW notation rewrite",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T10:15:32Z",
+      "closed_at": "2026-06-09T10:57:06Z",
+      "start_commit": "df6eff11a6e0d4b814b194cfb581ce75f351117d",
+      "snapshot_ref": "manuscript-milestones/M0049-plan-dw-notation-rewrite",
+      "summary": "Planned M53 as the packet-backed DW and robust moment notation rewrite: replace Section 3 h_i(B) notation with e_t(B), and recast Section 4 robust restrictions as explicit moment conditions before M52 evidence work.",
+      "user_input_ids": [
+        "U0049-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0049-plan-dw-notation-rewrite.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 45,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/45",
+        "tag_name": "manuscript-milestones/M0049-plan-dw-notation-rewrite"
+      }
+    },
+    {
+      "id": "M0050-m53-dw-and-robust-moment-notation-rewrite",
+      "sequence": 50,
+      "title": "M53 DW and robust moment notation rewrite",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T11:12:28Z",
+      "closed_at": "2026-06-09T11:44:09Z",
+      "start_commit": "c98b98980f306950b57850eca6b394ef3f230ce5",
+      "snapshot_ref": "manuscript-milestones/M0050-m53-dw-and-robust-moment-notation-rewrite",
+      "summary": "Completed M53 notation rewrite: Section 3 now uses e_t(B) recovered-shock notation for the source-correct DW menu, and Section 4 now displays the robust stack as explicit moment equations with fourth-order covariance-product subtractions.",
+      "user_input_ids": [
+        "U0050-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0050-m53-dw-and-robust-moment-notation-rewrite.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 46,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/46",
+        "tag_name": "manuscript-milestones/M0050-m53-dw-and-robust-moment-notation-rewrite"
+      }
+    },
+    {
+      "id": "M0051-plan-moment-derivation-normalization-audit",
+      "sequence": 51,
+      "title": "Plan moment derivation normalization audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T12:19:12Z",
+      "closed_at": "2026-06-09T12:38:43Z",
+      "start_commit": "6e7428aefff0a7a401accc7dbbed5f56c62b2964",
+      "snapshot_ref": "manuscript-milestones/M0051-plan-moment-derivation-normalization-audit",
+      "summary": "Planned M54 as the stepwise transformed-noise moment derivation and normalization audit before M52.",
+      "user_input_ids": [
+        "U0051-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0051-plan-moment-derivation-normalization-audit.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 47,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/47",
+        "tag_name": "manuscript-milestones/M0051-plan-moment-derivation-normalization-audit"
+      }
+    },
+    {
+      "id": "M0052-m54-stepwise-moment-derivation-and-normalization",
+      "sequence": 52,
+      "title": "M54 stepwise moment derivation and normalization audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T14:20:26Z",
+      "closed_at": "2026-06-09T14:31:52Z",
+      "start_commit": "e580a3e56dc612836657f1f906f2a0692c07e151",
+      "snapshot_ref": "manuscript-milestones/M0052-m54-stepwise-moment-derivation-and-normalization",
+      "summary": "Derived the requested transformed-noise moments step by step at B=B0, distinguished general residual-noise moments from Gaussian covariance-product simplifications, retained the manuscript in the common diag(B)=1 chart, and updated the M52 handoff plus planning surfaces.",
+      "user_input_ids": [
+        "U0052-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0052-m54-stepwise-moment-derivation-and-normalization.json",
+      "github": {
+        "repository": "",
+        "milestone_number": null,
+        "milestone_url": "",
+        "tag_name": "manuscript-milestones/M0052-m54-stepwise-moment-derivation-and-normalization"
+      }
+    },
+    {
+      "id": "M0053-plan-main-text-moment-explanation",
+      "sequence": 53,
+      "title": "Plan main-text moment explanation",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T18:40:53Z",
+      "closed_at": "2026-06-09T18:50:41Z",
+      "start_commit": "156926bf76288b5119088cc3d64e5675c9671455",
+      "snapshot_ref": "manuscript-milestones/M0053-plan-main-text-moment-explanation",
+      "summary": "Planned M55 as the main-text robust moment explanation task, routed it before M52, and updated planning/log/formal surfaces to require the S(B) versus Omega(B) distinction and candidate-by-candidate moment computation explanation.",
+      "user_input_ids": [
+        "U0053-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0053-plan-main-text-moment-explanation.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 48,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/48",
+        "tag_name": "manuscript-milestones/M0053-plan-main-text-moment-explanation"
+      }
+    },
+    {
+      "id": "M0054-plan-robust-cumulant-gmm-audit",
+      "sequence": 54,
+      "title": "Plan robust cumulant GMM audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-09T19:04:03Z",
+      "closed_at": "2026-06-09T19:11:00Z",
+      "start_commit": "8f6a92587b3b77cd74494130fa72b35a512b2cb8",
+      "snapshot_ref": "manuscript-milestones/M0054-plan-robust-cumulant-gmm-audit",
+      "summary": "Planned M56 as the robust cumulant GMM/generated-moment audit, routed it before M55 and M52, and updated planning/log/formal surfaces to flag that product-of-sample-moments cumulants may require primitive-moment weighting, augmented nuisance GMM, bootstrap calibration, or provisional evidence wording.",
+      "user_input_ids": [
+        "U0054-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0054-plan-robust-cumulant-gmm-audit.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 49,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/49",
+        "tag_name": "manuscript-milestones/M0054-plan-robust-cumulant-gmm-audit"
+      }
+    },
+    {
+      "id": "M0055-m56-robust-cumulant-gmm-audit",
+      "sequence": 55,
+      "title": "M56 robust cumulant GMM audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-10T13:32:06Z",
+      "closed_at": "2026-06-10T13:51:34Z",
+      "start_commit": "72a5d8a31a320fb88b31acf76a033adcbfe2452f",
+      "snapshot_ref": "manuscript-milestones/M0055-m56-robust-cumulant-gmm-audit",
+      "summary": "Completed M56 robust cumulant GMM generated-moment audit, classified the robust fourth-cumulant statistic as a generated smooth moment, and routed M55/M52 around primitive-delta, augmented-nuisance, or calibrated inference.",
+      "user_input_ids": [
+        "U0055-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0055-m56-robust-cumulant-gmm-audit.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 50,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/50",
+        "tag_name": "manuscript-milestones/M0055-m56-robust-cumulant-gmm-audit"
+      }
+    },
+    {
+      "id": "M0056-m55-main-text-robust-moment-explanation",
+      "sequence": 56,
+      "title": "M55 main text robust moment explanation",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-10T13:53:39Z",
+      "closed_at": "2026-06-10T14:04:49Z",
+      "start_commit": "2bf89584621d0fa3ffca1406b2906fefab1d19ec",
+      "snapshot_ref": "manuscript-milestones/M0056-m55-main-text-robust-moment-explanation",
+      "summary": "Completed M55 main-text robust moment explanation, revising Section 4 to distinguish Omega(B) from S(B), explain why robust moments hold at B0, and document the generated sample moment recipe after M56.",
+      "user_input_ids": [
+        "U0056-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0056-m55-main-text-robust-moment-explanation.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 51,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/51",
+        "tag_name": "manuscript-milestones/M0056-m55-main-text-robust-moment-explanation"
+      }
+    },
+    {
+      "id": "M0057-m52-source-correct-evidence-rebuild",
+      "sequence": 57,
+      "title": "M52 source-correct evidence rebuild",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-10T14:06:35Z",
+      "closed_at": "2026-06-10T14:35:41Z",
+      "start_commit": "8c6f3f02299e9bfbeef7493f4024e1aad0bf421d",
+      "snapshot_ref": "manuscript-milestones/M0057-m52-source-correct-evidence-rebuild",
+      "summary": "Completed M52 source-correct evidence rebuild, implementing GMM1 plus covariance-screen standard DW, central-delta robust generated-moment weighting, regenerated Figures 1-3, and M52 Monte Carlo evidence.",
+      "user_input_ids": [
+        "U0057-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0057-m52-source-correct-evidence-rebuild.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 52,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/52",
+        "tag_name": "manuscript-milestones/M0057-m52-source-correct-evidence-rebuild"
+      }
+    },
+    {
+      "id": "M0058-m47-standard-dw-proof-gate-audit",
+      "sequence": 58,
+      "title": "M47 standard-DW proof gate audit",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-10T14:38:02Z",
+      "closed_at": "2026-06-10T14:50:05Z",
+      "start_commit": "ad99d882784a941b908dfc4889c83602e3c3a000",
+      "snapshot_ref": "manuscript-milestones/M0058-m47-standard-dw-proof-gate-audit",
+      "summary": "Completed M47 standard-DW proof gate audit, classifying Proposition 2 as a conditional rich-stack result with structural-rescaling, finite-alias, compactness, and nonsingularity caveats.",
+      "user_input_ids": [
+        "U0058-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0058-m47-standard-dw-proof-gate-audit.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 53,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/53",
+        "tag_name": "manuscript-milestones/M0058-m47-standard-dw-proof-gate-audit"
       }
     }
   ]

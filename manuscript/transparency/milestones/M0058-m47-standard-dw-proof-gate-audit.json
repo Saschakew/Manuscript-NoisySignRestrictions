@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "id": "M0058-m47-standard-dw-proof-gate-audit",
+  "sequence": 58,
+  "title": "M47 standard-DW proof gate audit",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-10T14:38:02Z",
+  "closed_at": "2026-06-10T14:50:05Z",
+  "start_commit": "ad99d882784a941b908dfc4889c83602e3c3a000",
+  "snapshot_ref": "manuscript-milestones/M0058-m47-standard-dw-proof-gate-audit",
+  "summary": "Completed M47 standard-DW proof gate audit, classifying Proposition 2 as a conditional rich-stack result with structural-rescaling, finite-alias, compactness, and nonsingularity caveats.",
+  "user_inputs": [
+    {
+      "id": "U0058-001",
+      "milestone_id": "M0058-m47-standard-dw-proof-gate-audit",
+      "captured_at": "2026-06-10T14:38:02Z",
+      "source": "chat",
+      "text": "Continue the manuscript goal after M52 by executing the next open task, M47, the M25 standard-DW proof gate audit."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0058-001",
+      "milestone_id": "M0058-m47-standard-dw-proof-gate-audit",
+      "captured_at": "2026-06-10T14:50:05Z",
+      "description": "Created the M47 task packet and audit note, revised Section 3 Proposition 2, and updated the formal registry, task board, dashboard, map, plan, source packet, provenance, workplan, and logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-10T14:50:05Z",
+      "description": "python scripts/check_manuscript.py: passed before close; only warning was the expected open M0058 milestone"
+    }
+  ],
+  "changed_files": [
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/derivations/m47-standard-dw-proof-gate-audit.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/paper-plan.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M47-standard-dw-proof-gate-audit.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0058-m47-standard-dw-proof-gate-audit.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 53,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/53",
+    "tag_name": "manuscript-milestones/M0058-m47-standard-dw-proof-gate-audit"
+  }
+}

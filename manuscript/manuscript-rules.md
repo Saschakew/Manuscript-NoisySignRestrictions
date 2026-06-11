@@ -62,6 +62,58 @@ hide them or remove them.
   citation key, BibTeX path, and verification status in
   `citation-provenance.md`.
 
+## Scientific Claim Gates
+
+Before a mathematical, source-sensitive, or code-sensitive claim enters
+polished prose, classify it as one of:
+
+- `raw-source`: verified directly in the source paper, appendix, replication
+  code, or other primary source.
+- `vault-source`: verified in a KnowledgeVault note with source path and
+  citation key.
+- `derived`: derived in the current manuscript work from stated assumptions,
+  with enough algebra to audit.
+- `code-implemented`: observed in local code. Use only for code behavior unless
+  the source-to-code mapping is separately verified.
+- `conjectural`: plausible but not verified.
+- `user-decision`: explicitly instructed or decided by the user.
+
+Only `raw-source`, `vault-source`, `derived`, or explicit `user-decision`
+claims may be written as settled manuscript statements. Keep `code-implemented`
+claims about implementation behavior. Keep `conjectural` claims in TODO notes,
+task artifacts, or discussion until they are verified.
+
+When a prior artifact is found unreliable, mark it as partial or superseded in
+the task board, add a warning to the artifact itself, quarantine affected draft
+claims with TODO notes, and create a new source-first task.
+
+## Task Hand-Off Packets
+
+`manuscript/task-board.md` is a compact index. It must not be the only durable
+hand-off for priority-1 or fragile scientific work.
+
+Create a task packet under `manuscript/tasks/` when a task involves a long user
+prompt, a prior failure, raw-source or KnowledgeVault verification,
+mathematical derivation, code-to-theory comparison, normalization choices,
+simulation or figure rebuild decisions, or any source-sensitive claim. Link
+the packet from the task-board row.
+
+A task packet should preserve the original user prompt, name untrusted prior
+artifacts, list required source reads and derivations, include a scientific
+claim ledger, define stop conditions, and state acceptance criteria. A fragile
+scientific task is not complete until its packet's acceptance criteria are
+satisfied or its unresolved points are explicitly recorded.
+
+For `work on next task` style requests, select the next task from the dashboard
+and task board, then read the linked packet before doing source work,
+derivations, draft edits, simulations, or registry edits. If the next task is
+fragile or priority 1 and has no packet, create and link the packet first.
+
+For `plan next tasks` style requests, classify each planned task as routine or
+fragile. Create and link packets immediately for fragile or priority-1
+scientific tasks; keep the task-board row short and put the original prompt,
+evidence obligations, stop conditions, and acceptance criteria in the packet.
+
 ## Source Of Truth
 
 `draft.md` contains manuscript prose. `formal-object-registry.json` is an audit

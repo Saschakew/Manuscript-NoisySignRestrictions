@@ -6,33 +6,59 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: the first figure-led drafting pass is now revised around the
-M0036 variance-ratio robust DW proposal and the M0041 revision comments.
-M0041 rewrote the abstract, introduction, and Sections 2-4 so the front half
-starts from SVAR-reader language: no-noise sign restrictions, recovered-shock
-orthogonality, residual-noise bias, DW's no-noise higher-moment refinement,
-and the variance-ratio robust construction. M0040 remains the current
-evidence rebuild for Figure 2, Figure 3, and the lightweight M45 Monte Carlo
-pass.
+Current stage: M47 is complete after the M52 evidence rebuild. The stepwise M54 derivation confirms that the
+requested population moments separate transformed-noise remainders from
+Gaussian covariance-product simplifications, and the normalization audit keeps
+the manuscript in the common `diag(B)=1` chart for the first paper. M56
+establishes that the fourth-cumulant sample entries are generated smooth
+moments, not ordinary fixed row-level moments. M55 has now turned those
+results into reader-facing Section 4 prose: the draft distinguishes
+transformed-noise covariance `Omega(B)=Var(B^{-1}eta_t)` from full
+transformed-residual covariance `S(B)=Var(B^{-1}u_t)`, shows why the robust
+moments hold at `B0`, gives representative fourth-order algebra, and states
+the candidate-by-candidate sample recipe. M52 rebuilt the evidence path:
+standard DW now uses the source-correct bivariate GMM1 higher-moment menu
+`112`, `122`, `1112`, `1122`, and `1222`, intersected with a separate
+no-noise covariance screen in the common B-plane, and the robust row now uses
+full central-moment delta weighting for generated fourth-cumulant entries.
+M47 conditionally clears the M25 standard-DW proof gate: Proposition 2 is safe
+as a rich-stack/ICA misspecification result with structural-rescaling,
+finite-alias, compactness, and nonsingularity caveats visible.
 
-Current focus: move from M34 review into the hard gates. The revised draft now
-conditionally passes the adversarial scope, logic, and style review after
-claim-tightening edits, but M48 must first reconcile the standard-DW moment
-definition, noisy higher-moment derivations, Figure 1 implementation, and
-normalization chart. The M47 standard-DW J-test proof audit remains open, and
-the evidence package is still lightweight until the replication wrapper exists.
+Current focus: replication packaging and final review. The revised draft still conditionally
+passes the M34 adversarial scope, logic, and style review; M49 clears the
+source-moment menu and noisy-product gate; M0050 clears the M53 notation gate;
+M54 clears the transformed-noise derivation and normalization gate; M56 clears
+the generated-moment routing gate; and M55 clears the main-text explanation
+gate. M52 clears the source-correct evidence gate, and M47 clears the
+standard-DW proof-gate audit at conditional rich-stack strength. The active
+Figure 1, Figure 2, Figure 3, and Table 1 use the M52
+GMM1-plus-covariance-screen standard comparator and the M56 central-delta
+robust generated-moment route.
 
-Next recommended action: run M48. Verify whether DW's fourth-order entries are
-raw standardized product moments or cumulants, compare that result to the
-Figure 1 implementation, derive the noisy third- and fourth-order moments at
-\(B=B_0\), and decide whether to migrate the manuscript from `diag(B)=1` to
-\(\operatorname{Var}(\epsilon)=1\) before rebuilding figures or Monte Carlo
-evidence.
+Next recommended action: execute M33, the manuscript-local replication
+wrapper, so final figures and tables rebuild from `manuscript/replication/`
+without a local KnowledgeVault dependency. A unit-variance/rotation-chart
+rewrite remains a separate future user decision if it is ever requested.
 
-Active milestone: none after M0043 closes; latest work block is the M48 task
-insertion for the user's DW moment and normalization comments. The GitHub issue
-milestone was not created in this block because `gh` is unavailable locally and
-the visible GitHub connector has no milestone-creation tool.
+Active milestone: M0058 open for the M47 standard-DW proof gate audit; GitHub
+milestone 53 tracks the same work. M0057 completed the M52 source-correct
+evidence rebuild and created GitHub milestone 52. M0056 completed the M55 execution
+block and created GitHub milestone 51. M0055 completed M56 and created GitHub
+milestone 50 for the generated-moment audit. M0054 planned M56 and created
+GitHub milestone 49 for the robust cumulant GMM/generated-moment audit
+planning block. M0053 created GitHub milestone 48 for the main-text
+moment-explanation planning block. M0052 completed M54. M0051 planned
+M54 and created GitHub milestone 47 for the stepwise moment derivation and
+normalization audit. M0050
+completed M53 and created GitHub milestone 46 for the notation rewrite work
+block. M0049 planned M53 and created GitHub milestone 45 for the planning
+block. M0048 closed the M49 DW source audit and created GitHub milestone 44.
+M0047 made the manuscript skill explicitly packet-aware for `work on next task`
+and `plan next tasks` prompts. M0046 added task hand-off packets so high-risk
+scientific tasks are no longer stored only as compressed task-board rows.
+M0045 previously hardened the scientific claim workflow and quarantined
+unreliable M48 conclusions.
 
 Active blockers:
 
@@ -40,10 +66,12 @@ Active blockers:
   `diag(B)=1`, the off-diagonal covariance equation is
   `Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2`, not `b12+b21`, unless unit shock
   variances are imposed as an extra scale normalization. The active robust-DW
-  fallback is the pure five-moment higher-cumulant stack.
-- The M25 standard-DW J-test inversion result is only a working derivation; M28
-  supports the high-noise divergence story, but the derivation still needs a
-  direct audit before theorem-level prose.
+  fallback is the pure five-moment higher-moment stack, and M54 keeps the
+  manuscript in this common chart.
+- M47 conditionally clears the M25 standard-DW J-test inversion result. The
+  theorem-level version must remain a rich-stack/ICA statement with
+  structural-coordinate rescaling exceptions, finite-GMM alias caveats,
+  compact sign-admissible sets, and nonsingularity stated.
 - The M30 audit found that the original M35 moderate-noise scenario was near a
   structural-coordinate rescaling exception. The patched screen now includes
   an anisotropic diagonal-noise stress case, but the provisional
@@ -69,8 +97,8 @@ Active blockers:
   M0038 formula sketch. The prose is deliberately SVAR-first: define the
   no-noise sign-restricted object, add residual noise, explain standard DW
   under its no-noise null, then introduce the residual-noise-to-signal robust
-  construction. Proposition 2 still depends on the M25 proof audit, and
-  Proposition 3 still needs final proof and heavier replication before
+  construction. Proposition 2 has now passed the M47 conditional proof audit,
+  while Proposition 3 still needs final proof and heavier replication before
   theorem-level wording.
 - M34 completed a full adversarial scope, logic, and style review. It tightened
   variance-ratio terminology, softened simulation claims in the abstract,
@@ -81,22 +109,35 @@ Active blockers:
   backticks in `draft.md` are reserved for paths, citation keys, object labels,
   table labels, commands, and code identifiers.
 - Figure 2 has been rebuilt with the variance-ratio robust row, and Figure 3
-  now varies sample size `T=500,1000,2000`. The M45 fixed-grid diagnostics and
-  Monte Carlo table support the evidence sequence, but the run is still a
-  lightweight evidence gate rather than the final replication package.
+  now varies sample size `T=500,1000,2000`. M52 refreshed Figures 1-3 and the
+  active Monte Carlo table with the source-correct GMM1 standard-DW row and
+  full central-delta robust weighting. This remains a first-paper evidence
+  gate rather than the final self-contained replication package.
 - The robust-DW simulation code must be wrapped under `manuscript/replication/`
   before the paper is shareable.
-- The draft now contains the M45 chi-square-primary Monte Carlo rows for the
-  variance-ratio robust row. Final publication replication should still move
-  the code into `manuscript/replication/` and can rerun a heavier table if
-  needed.
-- M48 is now open after the user's June 8 comments. Do not treat the current
-  Section 3 fourth-order cumulant wording as settled until DW's source moment
-  stack is checked against the Figure 1 implementation and the noisy Section 4
-  moment formulas are derived under the candidate unit-variance normalization.
+- The draft now contains the M52 chi-square-primary Monte Carlo rows for the
+  source-correct GMM1 standard-DW row and the variance-ratio robust row. Final
+  publication replication should still move the code into
+  `manuscript/replication/` and can rerun a heavier table if needed.
+- M52 result is complete. It implements the M49 source-correct bivariate DW
+  GMM1 menu, treats covariance as a separate B-plane screen, regenerates
+  Figure 1/Figure 2/Figure 3, and records the M52 Monte Carlo table. In the
+  high-noise chi-square row, standard-DW truth inclusion is `0.000` while
+  robust-DW truth inclusion is `0.833`.
+- M55 is complete. Section 4 now explicitly explains why the robust
+  transformed-noise moment conditions hold at `B0`, why fourth-order
+  covariance-product subtractions use full transformed-residual covariances
+  `S_{ij}(B)`, and how those entries are computed from
+  `z_t(B)=B^{-1}u_t` rather than from unobserved residual noise.
+- M56 is complete. It shows that concentrated fourth-cumulant sample moments
+  are generated smooth functions of primitive sample moments, not ordinary
+  fixed row-level moments. M52 implements the chosen full central-moment
+  delta-weighting route with mean-centering nuisance terms. A unit-variance/
+  rotation-chart switch would need a separate manuscript-wide update task if
+  the user ever requests one.
 
-Last substantive session: 2026-06-08, opened M0043 to record the user's DW
-moment-definition and normalization comments as task M48.
+Last substantive session: 2026-06-10, completed M47 by auditing the M25
+standard-DW proof gate after M52 rebuilt the source-correct evidence path.
 
 Last maintenance session: 2026-06-05, cleared the stale M21 task state after
 verifying the M0005 transparency snapshot and GitHub milestone closure.
@@ -113,6 +154,8 @@ verifying the M0005 transparency snapshot and GitHub milestone closure.
   tables, proofs, and dependencies.
 - `workplan.md`: milestones and review plan.
 - `task-board.md`: open tasks and next actions.
+- `tasks/`: durable hand-off packets for fragile or priority-1 scientific
+  tasks; read the packet before executing the task-board row.
 - `citation-provenance.md`: section-level source map and contribution boundary.
 - `literature-search.md`: search questions, citation gaps, and BibTeX
   verification tasks.

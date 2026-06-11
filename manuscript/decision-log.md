@@ -5,6 +5,162 @@ decisions.
 
 ## Entries
 
+### 2026-06-10 - Use GMM1 plus central-delta weighting for M52 evidence
+
+- Decision type: evidence implementation and inference route.
+- Decision: rebuild the active evidence in the retained `diag(B)=1` common
+  chart using the source-correct bivariate Drautzburg-Wright GMM1 higher-
+  moment menu `112`, `122`, `1112`, `1122`, and `1222`. Treat the no-noise
+  covariance restriction as a separate B-plane screen rather than as a DW
+  higher-moment row. For the robust row, implement the M56 generated-moment
+  route with full central-moment delta influence rows, including sample-mean
+  nuisance terms.
+- Rationale: M49 identifies GMM1 as the full source-correct bivariate menu,
+  while M54 retains the common B-plane chart. M56 shows that generated robust
+  fourth cumulants need primitive/delta, augmented-nuisance, or calibration
+  treatment. Central-delta weighting is the smallest implementation that
+  directly addresses the generated-moment problem without redesigning the
+  evidence section.
+- Consequence for next work: M52 is complete. M47 can now audit the M25
+  standard-DW proof gate, and M33 remains the replication-wrapper task before
+  shareable release.
+- User input: U0057.
+
+### 2026-06-09 - Derive transformed-noise moments before evidence rebuild
+
+- Decision type: derivation and normalization planning.
+- Decision: create and execute M54 before M52. M54 must derive the requested
+  transformed-noise moment patterns step by step at \(B=B_0\), explicitly
+  distinguish independent residual-noise coordinates from transformed
+  Gaussian-noise covariance-product simplifications, and audit whether the
+  manuscript keeps the `diag(B)=1` chart or needs a separate
+  unit-variance/rotation-chart rewrite task.
+- Rationale: the existing moment-display rewrite is not enough unless the
+  underlying algebra is shown carefully. A normalization switch would touch
+  Section 2 unit-variance conditions, Section 4 covariance screens, figures,
+  simulation code, captions, and registry objects, so it must not be hidden
+  inside an evidence rebuild.
+- Consequence for next work: execute
+  `manuscript/tasks/M54-stepwise-moment-derivation-and-normalization-audit.md`
+  before returning to M52.
+- User input: U0051.
+
+### 2026-06-09 - Prefer recovered-shock moment notation in Sections 3-4
+
+- Decision type: notation and exposition planning.
+- Decision: the next notation rewrite should use the already defined recovered
+  shocks \(e_t(B)=B^{-1}u_t\) in the Section 3 DW moment display rather than
+  introducing `h_i(B)`. Section 4 should present the robust restrictions as
+  explicit GMM-style moment conditions rather than foregrounding cumulant
+  notation.
+- Rationale: at the true no-noise impact matrix,
+  \(e_t(B_0)=\varepsilon_t\), and \(\varepsilon_t\) is mean zero with unit
+  variances by normalization. The paper should keep the notation close to this
+  SVAR object while preserving M49's distinction between DW raw fourth-product
+  conditions and the robust fourth-order covariance-product subtractions.
+- Consequence for next work: M0050 executed the packet-backed M53 notation
+  rewrite. The paper can now return to the M52 evidence rebuild.
+- User input: U0049.
+
+### 2026-06-09 - Source-correct DW menu requires evidence rebuild
+
+- Origin: M49 execution of the user's DW moment-definition and noisy-moment
+  comments after M48 was quarantined as source-insufficient.
+- User input id: U0048
+- Decision: Treat the source-correct bivariate Drautzburg-Wright GMM1
+  higher-moment menu as `112`, `122`, `1112`, `1122`, and `1222`; GMM2 drops
+  only the symmetric `1122` kurtosis condition. The current Figure 1/Figure
+  2/Figure 3 and M45 standard-DW rows use a historical hybrid with covariance,
+  `112`, `122`, and `1122`, so they cannot be described as source-correct
+  DW evidence.
+- Rationale: The raw source defines standardized co-skewness and co-kurtosis
+  products, then builds the GMM vector from all third and fourth products with
+  at least two distinct indices, subtracting the two-pair target for fourth
+  products. The manuscript code omitted the singleton fourth products
+  `1112` and `1222`.
+- Consequence for next work: Run M52 before relying on the current evidence
+  package or before M47 promotes the standard-DW proof gate. A full switch from
+  the common `diag(B)=1` chart to the unit-variance/rotation chart remains a
+  user-decision gate because it implies a larger figure and Monte Carlo
+  rebuild.
+
+### 2026-06-09 - Make next-task prompts packet-aware
+
+- Origin: user asked whether prompts like "work on next task" and "plan next
+  tasks" would actually use the new task-packet structure, then asked to
+  improve the workflow.
+- User input id: U0047
+- Decision: The manuscript skill must explicitly handle next-task execution
+  and task planning. For `work on next task` style prompts, select the task
+  from the dashboard and task board, then read any linked task packet before
+  source work, derivations, edits, or simulations. For `plan next tasks` style
+  prompts, classify each new task as routine or fragile and create linked
+  packets immediately for fragile or priority-1 scientific tasks.
+- Rationale: A packet workflow that exists only as a general rule can still be
+  skipped by a future agent. The user's common prompts need an explicit
+  algorithm in the skill.
+- Consequence for next work: M49 remains the next scientific task, and it must
+  be executed from
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`.
+
+### 2026-06-09 - Use task packets for fragile scientific hand-offs
+
+- Origin: user concern that compressed or poorly specified tasks may have
+  contributed to prior scientific mistakes, especially M48.
+- User input id: U0046
+- Decision: Keep `manuscript/task-board.md` as a compact index, but require
+  durable task packets under `manuscript/tasks/` for priority-1 or fragile
+  scientific tasks involving long prompts, source verification, derivations,
+  code-to-theory comparisons, normalization decisions, simulation rebuilds, or
+  prior failed work.
+- Required packet contents: original user prompt, why the task exists,
+  untrusted prior artifacts, required reads, scientific claim ledger, required
+  work, stop conditions, acceptance criteria, expected outputs, and an outcome
+  log.
+- Rationale: A task-board row compresses too much context and can turn
+  scientific uncertainty into a vague implementation task. A packet preserves
+  the user's concern and gives future agents a contract for evidence,
+  derivation, and stopping.
+- Consequence for next work: M49 must be executed from
+  `manuscript/tasks/M49-dw-source-and-noisy-moment-audit.md`, not from the
+  task-board row alone. Future fragile tasks should receive packets before
+  execution.
+
+### 2026-06-09 - Require source and derivation gates for scientific claims
+
+- Origin: user criticism after M48 produced an incorrect or insufficient
+  standard-DW moment stack and overconfident normalization conclusion.
+- User input id: U0045
+- Decision: Future mathematical, source-sensitive, and code-sensitive claims
+  must be classified as `raw-source`, `vault-source`, `derived`,
+  `code-implemented`, `conjectural`, or `user-decision` before entering
+  polished manuscript prose. Only `raw-source`, `vault-source`, `derived`, or
+  explicit `user-decision` claims can be stated as settled. Code behavior can
+  describe implementation behavior only unless the source-to-code mapping is
+  separately verified.
+- Rationale: The M48 work treated a local Figure 1 implementation and a broad
+  memory of DW co-moments as enough to write a source-level manuscript claim.
+  That failed the standard needed for a scientific paper.
+- Consequence for next work: M48 is quarantined as partial and
+  source-insufficient. M49 must redo the DW source and noisy moment audit from
+  the user's original comments, raw DW source or KnowledgeVault note, and
+  explicit derivations before M47 or final Section 3/4 claims proceed.
+
+### 2026-06-09 - Keep standard co-moments separate from robust cumulants
+
+- Origin: M48 audit of the user's DW fourth-order moment and normalization
+  comments.
+- User input id: U0044
+- Status after M0045: superseded as a closure decision. The broad warning that
+  fourth-order raw products and fourth cumulants are different remains useful,
+  but M48 did not source-verify the exact bivariate DW GMM moment menu, did
+  not fully derive the requested noisy product moments, and did not justify the
+  normalization/no-rebuild conclusion.
+- Decision retained only as provisional: do not describe standard-DW fourth
+  products as robust fourth cumulants without source and derivation support.
+- Consequence for next work: do not treat M48 as done. Run M49 before M47 and
+  before any final figure/Monte Carlo rebuild decision.
+
 ### 2026-06-08 - Use residual-noise-to-signal wording for the variance-ratio screen
 
 - Origin: M34 adversarial scope, logic, and style review.
@@ -735,3 +891,137 @@ decisions.
 - Consequence for next work: The next work block should derive the bivariate
   cumulant system, run adversarial derivation reviews, build verification
   simulations, and only then draft the BR-style result.
+
+### 2026-06-09 - Keep the manuscript in the common `diag(B)=1` chart
+
+- Origin: M54 stepwise transformed-noise derivation and normalization audit.
+- User input id: U0052
+- Codex role: analyzed and recorded the normalization decision.
+- Decision: The manuscript keeps the common `diag(B)=1` chart for the first
+  paper. The source-native DW unit-variance scaling stays internal to the
+  recovered-shock standardization in the moment menu and does not trigger a
+  manuscript-wide rotation-chart rewrite.
+- Rationale: The stepwise derivation shows the requested transformed-noise
+  moments can be audited without changing the plotting chart, and the active
+  variance-ratio screen already profiles structural and residual-noise
+  variances in the common chart.
+- Alternatives considered: switching the manuscript to the DW covariance-
+  normalized `Var(epsilon)=I` chart before the evidence rebuild.
+- Consequence for next work: M52 should rebuild the source-correct
+  standard-DW evidence in the retained common chart; any future unit-variance
+  chart rewrite would require a separate user decision.
+
+### 2026-06-09 - Explain robust moment computation in the main text before evidence rebuild
+
+- Origin: user correction after discussing the M54 transformed-noise moment
+  notation.
+- User input id: U0053
+- Codex role: converted the correction into a packet-backed writing/derivation
+  task.
+- Decision: Before returning to the source-correct evidence rebuild, Section 4
+  must explain why the robust transformed-noise moment conditions hold at
+  `B0`, why the fourth-order covariance-product subtractions use full
+  transformed-residual covariances `S_{ij}(B)`, and how those entries are
+  computed from `z_t(B)=B^{-1}u_t` for each candidate `B`.
+- Rationale: The M54 derivation is too detailed for the main text, but the
+  current draft could leave readers thinking `s_{ij}` refers to the
+  covariance of transformed noise alone. The paper needs a compact derivation
+  and implementation explanation so the robust moment stack is credible and
+  reproducible.
+- Alternatives considered: leaving the detail in the derivation note and only
+  citing it from Section 4.
+- Consequence for next work: Run M55 before M52. M55 should add the
+  `Omega(B)` versus `S(B)` distinction, representative fourth-order algebra,
+  and the candidate-by-candidate sample computation recipe to the draft.
+
+### 2026-06-09 - Audit generated-moment inference before explaining or rebuilding robust DW evidence
+
+- Origin: user correction after writing out the sample robust fourth-cumulant
+  with plug-in covariance products.
+- User input id: U0054
+- Codex role: converted the concern into a packet-backed method/proof/simulation
+  task.
+- Decision: Before M55 writes the main-text implementation explanation and
+  before M52 rebuilds evidence, M56 must audit whether concentrated robust
+  fourth-cumulant statistics such as
+  `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)` can be treated with standard GMM
+  J-test theory, or whether the manuscript needs primitive-moment
+  delta-method weighting, augmented nuisance-parameter GMM, bootstrap
+  calibration, or provisional evidence wording.
+- Rationale: The robust moment restriction is valid as a population cumulant
+  equation, but the sample implementation is a nonlinear function of several
+  sample moments. Treating it as an ordinary per-observation moment may
+  understate sampling uncertainty or use the wrong weighting/cutoff. The
+  `S_{ij}(B0)` entries are generally nuisance covariances involving transformed
+  noise, not known constants like unit-variance standardized shocks.
+- Alternatives considered: letting M55 explain the plug-in recipe first and
+  postponing inference details to the evidence rebuild.
+- Consequence for next work: Run M56 first. Only after M56 settles the valid
+  sample criterion should M55 revise Section 4 and M52 rebuild evidence.
+
+### 2026-06-10 - Treat robust fourth cumulants as generated smooth moments
+
+- Origin: M56 robust cumulant GMM generated-moment audit.
+- User input id: U0055
+- Codex role: derived the primitive-moment and augmented nuisance-covariance
+  routes and audited current code behavior.
+- Decision: The robust fourth-cumulant population restrictions remain valid
+  under independent Gaussian residual noise, but their sample versions are
+  generated smooth moments. Final evidence should use primitive-moment
+  delta-method covariance, an equivalent augmented nuisance-covariance GMM
+  system, or bootstrap/repeated-sample calibration. The concentrated
+  expression should not be described as one ordinary fixed row-level GMM
+  moment.
+- Rationale: Terms such as
+  `mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2)` are nonlinear functions of
+  primitive sample averages. At `B0`, the required covariance entries are
+  nuisance transformed-residual covariances `S(B0)=I+Omega(B0)`, not known
+  no-noise constants.
+- Alternatives considered: treating the current plug-in expression as a
+  standard row-level moment; replacing `S_ij(B0)` by no-noise constants; or
+  downgrading the robust set to a population-only diagnostic.
+- Consequence for next work: M55 should explain the generated-moment route in
+  Section 4. M52 should upgrade or calibrate the robust statistic while
+  rebuilding the source-correct standard-DW evidence.
+
+### 2026-06-10 - Section 4 now carries the robust moment explanation
+
+- Origin: M55 main-text robust moment explanation.
+- User input id: U0056
+- Codex role: converted the M54/M56 audit route into manuscript prose.
+- Decision: Section 4 now carries the reader-facing explanation of the robust
+  moment computation. It distinguishes `Omega(B)=Var(B^{-1}eta_t)` from
+  `S(B)=Var(B^{-1}u_t)`, explains why the moment conditions hold at `B0`, and
+  states that the fourth-cumulant sample entries are generated smooth moments.
+- Rationale: The central robust construction should not depend on a reader
+  finding the long derivation notes. The draft now gives enough algebra for
+  the covariance-product subtraction and enough implementation detail to avoid
+  implying that `eta_t` or transformed noise must be observed.
+- Alternatives considered: leaving the explanation in derivation notes only,
+  or waiting for M52 code changes before clarifying the population moment
+  route.
+- Consequence for next work: M52 is now unblocked. It should rebuild the
+  source-correct standard-DW comparator and upgrade or calibrate the robust
+  generated-moment statistic before final evidence claims.
+
+### 2026-06-10 - Treat Proposition 2 as a conditional rich-stack result
+
+- Origin: M47 standard-DW proof gate audit.
+- User input id: U0058
+- Codex role: audited the M25 working derivation after M49/M52 repaired the
+  source menu and evidence path.
+- Decision: Proposition 2 may be treated as proof-audited only at conditional
+  rich-stack strength. The statement must keep independent Gaussian residual
+  noise, the ICA/rich-moment condition, structural-coordinate rescaling
+  exceptions, finite-GMM alias caveats, compact sign-admissible candidate
+  sets, and nonsingularity visible.
+- Rationale: The M25 generic emptying proof is valid when the moment stack is
+  rich enough to force recovered-shock independence and the population
+  criterion is bounded away from zero on a compact admissible set. The
+  source-correct finite bivariate GMM1 menu is a legitimate implemented
+  comparator, but finite third/fourth moments can have aliases and should not
+  be described as a universal independence theorem.
+- Alternatives considered: leaving Proposition 2 as an unaudited sketch, or
+  promoting the finite GMM1 implementation to an unconditional theorem.
+- Consequence for next work: M33 replication packaging is now the next
+  dashboard action; final proof polish can move to appendix/export work later.

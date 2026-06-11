@@ -1,12 +1,13 @@
 # Relative-Noise Robust DW Noise Grid Variant
 
-Status: M0036 candidate after the M0034 scale correction and M0035 absolute
-bound screen; M40 conditionally audited the screen algebra and interpretation.
+Status: M52 source-correct rebuild of the M0036/M40 variance-ratio proposal.
 
 This note records the Figure 1 variant that bounds diagonal residual-noise
-variances relative to profiled structural-shock variances. The bottom row uses
-the pure five-moment higher-cumulant J statistic and intersects it with a
-covariance-decomposition feasibility screen.
+variances relative to profiled structural-shock variances. The middle row uses
+the source-correct bivariate DW GMM1 higher-moment menu, intersected with the
+separate no-noise covariance screen in the common B-plane chart. The bottom row
+uses the pure five-moment higher-cumulant J statistic with central-moment delta
+weighting and intersects it with a covariance-decomposition feasibility screen.
 
 Command:
 
@@ -60,20 +61,23 @@ b^2 s_1 + s_2 <= S_22 <= b^2 s_1 + (1 + rho) s_2,
 S_12 = b s_1 + a s_2.
 ```
 
-The plotted row accepts a candidate if this linear feasibility problem is
-solvable and the pure higher-cumulant J statistic is below the pointwise
-`chi2_5(0.90)` cutoff.
+The plotted robust row accepts a candidate if this linear feasibility problem
+is solvable and the generated higher-cumulant J statistic is below the
+pointwise `chi2_5(0.90)` cutoff. The standard-DW row uses the source-correct
+GMM1 higher products `112`, `122`, `1112`, `1122`, and `1222`, with the same
+`chi2_5(0.90)` cutoff, and intersects that higher-moment screen with the
+separate covariance screen using `chi2_1(0.90)`.
 
 ## Fixed-Draw Diagnostics
 
-Accepted shares are fractions of the full plotted grid. The admissible-grid
-share divides only by nonsingular grid points with `b21 >= 0`.
+M52 fixed-grid diagnostics use a `61 x 61` grid plus the true point and match
+the rendered Figure 1 draw.
 
-| Noise `V` | Relative robust `B0` | Relative accepted share | Share of admissible grid | Relative share within pure robust | Pure accepted share | Absolute-bound share |
+| Noise `V` | Standard DW truth | Robust DW truth | Robust feasible | Standard share | Robust share | `d_S_not_subset_R` |
 |---|---:|---:|---:|---:|---:|---:|
-| `(0,0)` | in, `J0=0.695` | 0.053 | 0.063 | 0.461 | 0.114 | 0.062 |
-| `(0.2,0.2)` | in, `J0=3.233` | 0.060 | 0.071 | 0.218 | 0.274 | 0.074 |
-| `(0.5,0.5)` | in, `J0=6.783` | 0.071 | 0.084 | 0.155 | 0.459 | 0.066 |
+| `(0,0)` | yes | yes | yes | 0.027 | 0.045 | 0.182 |
+| `(0.2,0.2)` | yes | yes | yes | 0.026 | 0.055 | 0.143 |
+| `(0.5,0.5)` | no | yes | yes | 0.026 | 0.051 | 0.524 |
 
 The relative screen is scale-correct: it does not require unit structural
 shock variances after normalizing `diag(B)=1`. In this calibration it looks
@@ -100,5 +104,5 @@ rates over 250 draws:
 | `T=2000` | 1.000 | 1.000 | 1.000 |
 
 This is reassuring for the current calibration, but it is not a coverage
-result. The full M28/M29-style validation and Monte Carlo package still needs
-to be rebuilt after Figure 2 and Figure 3 are updated.
+result. The M52 Monte Carlo evidence is recorded in
+`manuscript/simulations/m52_source_correct_evidence.md`.
