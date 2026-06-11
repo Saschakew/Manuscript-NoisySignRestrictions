@@ -8,6 +8,93 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-11 - Complete M61 question-index maintenance rule
+
+- Request or goal: continue the step-by-step repository cleanup by making the
+  new question index maintainable during future task closeout.
+- Files changed: `.codex/skills/write-standalone-manuscript/SKILL.md`,
+  `.codex/skills/write-standalone-manuscript/references/task-packet-workflow.md`,
+  `manuscript/tasks/_folder-template/task.md`,
+  `manuscript/tasks/_folder-template/outcome.md`,
+  `manuscript/tasks/M61-question-index-maintenance/task.md`,
+  `manuscript/tasks/M61-question-index-maintenance/outcome.md`,
+  `manuscript/START-HERE.md`, `manuscript/QUESTION-INDEX.md`,
+  `manuscript/tasks/README.md`, `manuscript/manuscript-rules.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/user-input-log.md`, `manuscript/decision-log.md`,
+  `manuscript/session-log.md`, and `manuscript/codex-log.md`.
+- Summary of work: added a low-overhead closeout rule so future task outcomes
+  state whether `QUESTION-INDEX.md` was updated or not needed, and record
+  `LEGACY-STATUS.md` updates only when legacy packet status changes.
+- Check: M61-maintained paths exist; skill validation passed; `python
+  scripts/check_manuscript.py` passed; `git diff --check` passed with only the
+  repository's usual CRLF normalization warnings.
+- Next recommended action: execute M33, the manuscript-local replication
+  wrapper.
+
+### 2026-06-11 - Complete M60 legacy status labels
+
+- Request or goal: continue the step-by-step repository cleanup by making old
+  flat task packets easier to scan without migrating them.
+- Files changed: `manuscript/tasks/LEGACY-STATUS.md`,
+  `manuscript/tasks/M60-legacy-status-labels/task.md`,
+  `manuscript/tasks/M60-legacy-status-labels/outcome.md`,
+  `manuscript/START-HERE.md`, `manuscript/QUESTION-INDEX.md`,
+  `manuscript/tasks/README.md`, `manuscript/task-board.md`,
+  `manuscript/project-dashboard.md`, `manuscript/user-input-log.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`, and
+  `manuscript/codex-log.md`.
+- Summary of work: added in-place status labels for legacy flat task packets
+  and the old flat template, linked the status map from the front door,
+  question index, task README, and dashboard, and kept legacy files unmigrated.
+- Check: all paths named in `manuscript/tasks/LEGACY-STATUS.md` exist;
+  `python scripts/check_manuscript.py` passed; `git diff --check` passed with
+  only the repository's usual CRLF normalization warnings.
+- Next recommended action: execute M33, the manuscript-local replication
+  wrapper. A later cleanup task can add archive guidance if old material still
+  feels noisy.
+
+### 2026-06-11 - Complete M59 question index
+
+- Request or goal: continue the step-by-step repository cleanup by making
+  recent user-question answers easier to find.
+- Files changed: `manuscript/QUESTION-INDEX.md`,
+  `manuscript/START-HERE.md`,
+  `manuscript/tasks/M59-question-index/task.md`,
+  `manuscript/tasks/M59-question-index/outcome.md`,
+  `manuscript/tasks/M58-start-here-navigation/outcome.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`, and
+  `manuscript/codex-log.md`.
+- Summary of work: added a selective cross-task question index for recent
+  workflow and methodological questions, linked it from the front door and
+  dashboard, and kept legacy flat packets unmigrated.
+- Check: all paths named in `manuscript/QUESTION-INDEX.md` exist;
+  `python scripts/check_manuscript.py` passed; `git diff --check` passed with
+  only the repository's usual CRLF normalization warnings.
+- Next recommended action: execute M33, the manuscript-local replication
+  wrapper. A later cleanup task can classify historical files by status if
+  needed.
+
+### 2026-06-11 - Complete M58 start-here navigation
+
+- Request or goal: implement the project-structure cleanup slowly and step by
+  step after M57 introduced task folders and outcome notes.
+- Files changed: `manuscript/START-HERE.md`,
+  `manuscript/tasks/M58-start-here-navigation/task.md`,
+  `manuscript/tasks/M58-start-here-navigation/outcome.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/user-input-log.md`, `manuscript/decision-log.md`,
+  `manuscript/session-log.md`, and `manuscript/codex-log.md`.
+- Summary of work: added a single front-door navigation page and registered
+  the cleanup as M58, without migrating, archiving, renaming, or deleting older
+  task material.
+- Check: `python scripts/check_manuscript.py` passed; `git diff --check`
+  passed with only the repository's usual CRLF normalization warnings.
+- Next recommended action: execute M33, the manuscript-local replication
+  wrapper. A later cleanup task can add a question index or historical-file
+  classification if needed.
+
 ### 2026-06-09 - Plan M54 moment derivation and normalization audit
 
 - Request or goal: plan a new task to derive the transformed-noise moment

@@ -25,6 +25,11 @@ One short paragraph with the answer someone should find first.
 |---|---|
 | `task.md` | Task contract |
 
+## Index Updates
+
+- `manuscript/QUESTION-INDEX.md`: pending or not needed.
+- `manuscript/tasks/LEGACY-STATUS.md`: pending or not needed.
+
 ## Checks
 
 - Pending.

@@ -42,8 +42,9 @@ without a local KnowledgeVault dependency. A unit-variance/rotation-chart
 rewrite remains a separate future user decision if it is ever requested.
 
 Active milestone: M0059 completed the M57 task folder workflow; GitHub
-milestone 54 tracks the same work. M0058 completed the M47 standard-DW proof
-gate audit and created GitHub milestone 53. M0057 completed the M52 source-correct
+milestone 54 tracks the same work. M58, M59, M60, and M61 were planning-only navigation
+cleanups without transparency or GitHub milestones. M0058 completed the M47
+standard-DW proof gate audit and created GitHub milestone 53. M0057 completed the M52 source-correct
 evidence rebuild and created GitHub milestone 52. M0056 completed the M55 execution
 block and created GitHub milestone 51. M0055 completed M56 and created GitHub
 milestone 50 for the generated-moment audit. M0054 planned M56 and created
@@ -140,11 +141,22 @@ Active blockers:
 Last substantive session: 2026-06-10, completed M47 by auditing the M25
 standard-DW proof gate after M52 rebuilt the source-correct evidence path.
 
-Last maintenance session: 2026-06-11, completed M57 to streamline task folders
-and outcome notes after the user flagged that task answers were hard to find.
+Last maintenance session: 2026-06-11, completed M61 to add a lightweight
+question-index closeout rule to the task workflow and templates. M60 added
+`tasks/LEGACY-STATUS.md` as a status map for old flat task packets. M59 added
+`QUESTION-INDEX.md` as a compact map from recent user questions to answer
+locations. M58 added `START-HERE.md` as the repository front door. M57
+previously streamlined task folders and outcome notes after the user flagged
+that task answers were hard to find.
 
 ## Orientation Map
 
+- `START-HERE.md`: front door for the repository; use it first when the project
+  feels spread across too many files.
+- `QUESTION-INDEX.md`: compact map from recent user questions to the task
+  outcomes, derivation notes, or logs where they were answered.
+- `tasks/LEGACY-STATUS.md`: status map for old flat task packets and the old
+  flat template.
 - `paper-plan.md`: scope, contribution, structure, missing pieces, and page
   budget.
 - `source-packet.md`: curated KnowledgeVault context for this manuscript.

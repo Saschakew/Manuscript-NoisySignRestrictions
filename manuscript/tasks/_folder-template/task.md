@@ -49,7 +49,8 @@ task necessary.
 2. Derivation work:
 3. Code or simulation work:
 4. Manuscript update work:
-5. Outcome note work: answer user questions in `outcome.md`.
+5. Outcome note work: answer user questions in `outcome.md` and decide
+   whether `manuscript/QUESTION-INDEX.md` needs a row.
 
 ## Stop Conditions
 
@@ -69,6 +70,8 @@ task necessary.
   supports the change.
 - `outcome.md` summarizes what was done, questions answered, evidence paths,
   checks, and open follow-up.
+- `QUESTION-INDEX.md` is updated when the task answers a question someone is
+  likely to search for later, or `outcome.md` says no index update was needed.
 - `python scripts/check_manuscript.py` passes after substantive edits.
 
 ## Expected Outputs

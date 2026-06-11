@@ -11,6 +11,76 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-11 - M61 question-index maintenance rule completed
+
+- Request: continuation of the step-by-step cleanup goal after M60 labeled
+  legacy task packets.
+- Actions taken: updated the manuscript skill, task workflow reference, folder
+  templates, task README, manuscript rules, `START-HERE.md`, and
+  `QUESTION-INDEX.md`; created
+  `manuscript/tasks/M61-question-index-maintenance/`; updated task board and
+  logs.
+- Outcome: future task closeout now records whether the question index was
+  updated or not needed, keeping the index maintainable without requiring a row
+  for every routine task.
+- Checks run: M61-maintained paths exist; skill validation passed; `python
+  scripts/check_manuscript.py` passed; `git diff --check` passed with only the
+  repository's usual CRLF normalization warnings.
+- Open uncertainties: none for this workflow slice. M33 remains the next
+  manuscript task.
+
+### 2026-06-11 - M60 legacy status labels completed
+
+- Request: continuation of the step-by-step cleanup goal after M59 added a
+  question index.
+- Actions taken: added `manuscript/tasks/LEGACY-STATUS.md`; created
+  `manuscript/tasks/M60-legacy-status-labels/`; linked the status map from
+  `START-HERE.md`, `QUESTION-INDEX.md`, `tasks/README.md`, and the dashboard;
+  updated task board and logs.
+- Outcome: old flat task packets are now labeled in place. M47 and M49-M56 are
+  current references, `_template.md` is a historical template, and the related
+  M48 derivation is marked superseded by M49.
+- Checks run: all paths named in `manuscript/tasks/LEGACY-STATUS.md` exist;
+  `python scripts/check_manuscript.py` passed; `git diff --check` passed with
+  only the repository's usual CRLF normalization warnings.
+- Open uncertainties: no migration or archival pass was done. Add archive
+  guidance later only if status labels are not enough.
+
+### 2026-06-11 - M59 question index completed
+
+- Request: continuation of the step-by-step cleanup goal after adding the
+  repository front door in M58.
+- Actions taken: added `manuscript/QUESTION-INDEX.md` as a compact map from
+  recent user questions to answer locations; created
+  `manuscript/tasks/M59-question-index/`; linked the index from
+  `START-HERE.md` and the dashboard; updated task board and logs.
+- Outcome: answers to the recent workflow, generated-moment, normalization,
+  source-correct DW, and M48 reliability questions now have one index entry
+  each, while detailed evidence remains in the existing task packets and
+  derivation notes.
+- Checks run: all paths named in `manuscript/QUESTION-INDEX.md` exist;
+  `python scripts/check_manuscript.py` passed; `git diff --check` passed with
+  only the repository's usual CRLF normalization warnings.
+- Open uncertainties: the index is intentionally selective. Legacy flat task
+  packets remain unmigrated unless a later cleanup task says otherwise.
+
+### 2026-06-11 - M58 start-here navigation completed
+
+- Request: user asked to implement the broader project-structure cleanup
+  slowly and step by step.
+- Actions taken: added `manuscript/START-HERE.md` as the front door for
+  navigating the manuscript repository; created
+  `manuscript/tasks/M58-start-here-navigation/` with a task contract and
+  outcome note; updated dashboard, task board, and human-readable logs.
+- Outcome: cleanup now has an incremental first step. The repository gains a
+  stable entry point, while historical packets, logs, transparency files, and
+  evidence notes remain in place.
+- Checks run: `python scripts/check_manuscript.py` passed; `git diff --check`
+  passed with only the repository's usual CRLF normalization warnings.
+- Open uncertainties: legacy flat task packets were not migrated. A later
+  cleanup task could add a question/answer index or mark historical files by
+  status if that proves useful.
+
 ### 2026-06-09 - M0051 Plan moment derivation normalization audit
 
 - Request: user asked Codex to plan a task that derives the transformed-noise

@@ -109,12 +109,15 @@ claim ledger, define stop conditions, and state acceptance criteria.
 `outcome.md` should briefly state what was done, which user questions were
 answered, where the detailed evidence lives, which checks ran, and what
 remains open. Keep it short; do not duplicate long derivations, simulations,
-or transparency logs.
+or transparency logs. It should also state whether
+`manuscript/QUESTION-INDEX.md` was updated or not needed. Update that index
+only when the task answers a question someone is likely to search for later.
 
 A fragile scientific task is not complete until its acceptance criteria are
 satisfied, checks pass, the outcome note is written, and unresolved points are
-explicitly recorded. Legacy flat task packets remain valid historical
-artifacts and do not need migration unless they are reopened.
+explicitly recorded. The outcome note should record the question-index
+decision. Legacy flat task packets remain valid historical artifacts and do not
+need migration unless they are reopened.
 
 For `work on next task` style requests, select the next task from the dashboard
 and task board, then read the linked `task.md` before doing source work,

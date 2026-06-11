@@ -60,8 +60,14 @@ want the answer without reconstructing the entire milestone.
 3. `What Changed`
 4. `Questions Answered`
 5. `Files To Read`
-6. `Checks`
-7. `Open Questions Or Follow-Up`
+6. `Index Updates`
+7. `Checks`
+8. `Open Questions Or Follow-Up`
+
+Use `Index Updates` to record whether `manuscript/QUESTION-INDEX.md` was
+updated or not needed. Add a question-index row only for answers that a future
+reader is likely to search for. Record `manuscript/tasks/LEGACY-STATUS.md`
+only when a legacy packet status changes.
 
 ## Scientific Claim Ledger
 
@@ -133,11 +139,13 @@ When executing a task folder:
 5. If a stop condition is triggered, mark the task blocked or create a new
    follow-up rather than smoothing uncertainty into prose.
 6. Update `outcome.md` with the short answer, questions answered, evidence
-   paths, checks, and open issues before marking the task done.
+   paths, index-update decision, checks, and open issues before marking the
+   task done.
 
 ## Completion Rule
 
 A fragile scientific task is not done merely because prose changed. It is done
 only when the task's acceptance criteria are satisfied, checks pass, the
-outcome note is written, and any remaining uncertainty is visible in the task
-board, task folder, registry, or draft TODO notes.
+outcome note is written, the question-index decision is recorded, and any
+remaining uncertainty is visible in the task board, task folder, registry, or
+draft TODO notes.

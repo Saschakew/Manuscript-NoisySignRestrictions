@@ -5,6 +5,75 @@ decisions.
 
 ## Entries
 
+### 2026-06-11 - Maintain the question index through task closeout
+
+- Origin: continuation of U0060 after M59 created the question index and M60
+  labeled legacy packets.
+- User input id: U0060
+- Decision: Future task outcomes should record whether
+  `manuscript/QUESTION-INDEX.md` was updated or not needed. Update the index
+  only when a task answers a question someone is likely to search for later.
+- Rationale: A question index helps only if it stays current, but updating it
+  for every routine implementation detail would create overhead. The smallest
+  stable rule is a closeout decision in `outcome.md`.
+- Alternatives considered: requiring every task to add an index row, or making
+  the index a one-time cleanup artifact that future tasks can ignore.
+- Consequence for next work: Future task folders use the updated templates.
+  M33 remains the next manuscript task.
+
+### 2026-06-11 - Label legacy packets in place
+
+- Origin: continuation of U0060 after M57 task folders, M58 front-door
+  navigation, and M59 question indexing.
+- User input id: U0060
+- Decision: Add `manuscript/tasks/LEGACY-STATUS.md` to label old flat task
+  packets in place rather than migrating, archiving, or renaming them.
+- Rationale: The task directory now intentionally contains both older flat
+  packets and new task folders. Status labels make the mixed layout scanable
+  while preserving provenance and avoiding unnecessary churn.
+- Alternatives considered: migrating all legacy packets into folders,
+  deleting old templates, or leaving readers to infer status from the task
+  board alone.
+- Consequence for next work: Use `LEGACY-STATUS.md` when encountering an old
+  flat packet. If a legacy task is reopened, create a new folder and link the
+  old packet from the new task contract or outcome note.
+
+### 2026-06-11 - Use a selective question index for cross-task answers
+
+- Origin: continuation of U0060 after M57 task folders and M58 front-door
+  navigation.
+- User input id: U0060
+- Decision: Add `manuscript/QUESTION-INDEX.md` as a selective map from recent
+  user questions to the task outcomes, derivation notes, draft passages, or
+  logs where those questions were answered.
+- Rationale: Task folders help future work, but recent answers still live
+  across legacy flat packets and derivation notes. A short index solves the
+  search problem without migrating old artifacts or turning the task board
+  into a memory dump.
+- Alternatives considered: migrating all legacy packets into folders, adding
+  long answer summaries to the dashboard, or relying only on log search.
+- Consequence for next work: Extend the question index only for answers that
+  are likely to be searched for later. M33 remains the next manuscript task.
+
+### 2026-06-11 - Add a front door before deeper cleanup
+
+- Origin: user asked to implement the structure cleanup slowly and step by
+  step after M57 created task folders and outcome notes.
+- User input id: U0060
+- Decision: Add `manuscript/START-HERE.md` as the repository front door while
+  keeping `project-dashboard.md` as the current-state page, `paper-map.md` as
+  the argument page, `task-board.md` as the compact task index, and task
+  `outcome.md` files as the per-task answer trail.
+- Rationale: The project is traceable but over-dispersed. The next low-risk
+  improvement is a navigation layer that tells future readers where to start,
+  without moving or rewriting historical material.
+- Alternatives considered: migrating all legacy packets immediately, merging
+  logs into one file, or archiving old files. Those would add risk and overhead
+  before the front-door convention has been tested.
+- Consequence for next work: M33 remains the next manuscript task. Future
+  cleanup can add a question index, classify historical files, or archive stale
+  surfaces only through separate explicit tasks.
+
 ### 2026-06-10 - Use GMM1 plus central-delta weighting for M52 evidence
 
 - Decision type: evidence implementation and inference route.

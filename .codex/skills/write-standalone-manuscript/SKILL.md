@@ -158,9 +158,12 @@ Before creating or working from a task folder or legacy packet, read
 
 The outcome note should be short and should answer: what changed, which user
 questions were answered, where the detailed evidence lives, what checks ran,
-and what remains open. Do not duplicate long derivations or logs there. Legacy
-flat task packets remain valid historical artifacts; do not migrate them
-unless the user asks or the migration is needed for active work.
+and what remains open. It should also state whether `manuscript/QUESTION-INDEX.md`
+was updated or not needed. Update the question index only when the task answers
+a question someone is likely to search for later. Do not duplicate long
+derivations or logs there. Legacy flat task packets remain valid historical
+artifacts; do not migrate them unless the user asks or the migration is needed
+for active work.
 
 ## Scientific Claim Gate
 
