@@ -5,6 +5,22 @@ decisions.
 
 ## Entries
 
+### 2026-06-11 - Stop cleanup expansion and return to M33
+
+- Origin: M62 traceability cleanup audit after M57-M61.
+- User input id: U0060
+- Decision: Treat the repository-structure cleanup as sufficient for now. The
+  front door, question index, legacy status labels, task-folder templates, and
+  question-index maintenance rule cover the original traceability request.
+- Rationale: Additional cleanup layers would add overhead without a concrete
+  current friction point. The manuscript's next substantive bottleneck remains
+  M33, the local replication wrapper.
+- Alternatives considered: adding archive guidance or migrating legacy flat
+  packets now. The audit found these unnecessary unless old material remains
+  noisy in practice.
+- Consequence for next work: Resume manuscript work at M33. Add more cleanup
+  only when a specific search or handoff failure appears.
+
 ### 2026-06-11 - Maintain the question index through task closeout
 
 - Origin: continuation of U0060 after M59 created the question index and M60

@@ -42,7 +42,7 @@ without a local KnowledgeVault dependency. A unit-variance/rotation-chart
 rewrite remains a separate future user decision if it is ever requested.
 
 Active milestone: M0059 completed the M57 task folder workflow; GitHub
-milestone 54 tracks the same work. M58, M59, M60, and M61 were planning-only navigation
+milestone 54 tracks the same work. M58-M62 were planning-only navigation
 cleanups without transparency or GitHub milestones. M0058 completed the M47
 standard-DW proof gate audit and created GitHub milestone 53. M0057 completed the M52 source-correct
 evidence rebuild and created GitHub milestone 52. M0056 completed the M55 execution
@@ -141,8 +141,9 @@ Active blockers:
 Last substantive session: 2026-06-10, completed M47 by auditing the M25
 standard-DW proof gate after M52 rebuilt the source-correct evidence path.
 
-Last maintenance session: 2026-06-11, completed M61 to add a lightweight
-question-index closeout rule to the task workflow and templates. M60 added
+Last maintenance session: 2026-06-11, completed M62 to audit the traceability
+cleanup and confirm that the workflow improvements are enough for now. M61
+added a lightweight question-index closeout rule to the task workflow and templates. M60 added
 `tasks/LEGACY-STATUS.md` as a status map for old flat task packets. M59 added
 `QUESTION-INDEX.md` as a compact map from recent user questions to answer
 locations. M58 added `START-HERE.md` as the repository front door. M57

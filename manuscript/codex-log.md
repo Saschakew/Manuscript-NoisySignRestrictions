@@ -11,6 +11,22 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-11 - M62 traceability cleanup audit completed
+
+- Request: continuation of the step-by-step cleanup goal after M61 added the
+  question-index maintenance rule.
+- Actions taken: created `manuscript/tasks/M62-traceability-audit/`; audited
+  the new cleanup artifacts against the original traceability request; updated
+  the question index, task board, dashboard, and logs.
+- Outcome: the cleanup is sufficient for now. The repository has a front door,
+  question index, legacy status map, task-folder templates with index closeout,
+  and a low-overhead maintenance rule. M33 remains the next manuscript task.
+- Checks run: all M62 requirement-audit files exist; skill validation passed;
+  `python scripts/check_manuscript.py` passed; `git diff --check` passed with
+  only the repository's usual CRLF normalization warnings.
+- Open uncertainties: none for the cleanup workflow. Future cleanup should be
+  driven by a concrete new friction point.
+
 ### 2026-06-11 - M61 question-index maintenance rule completed
 
 - Request: continuation of the step-by-step cleanup goal after M60 labeled
