@@ -46,6 +46,30 @@ content conversation rather than manuscript work.
 - If the user asks to convert the discussion into edits, leave this workflow and
   resume the normal milestone, logging, editing, and checking discipline first.
 
+## planning-only-edit
+
+When the user asks for a narrow project-management or workflow edit, use this
+lightweight path instead of the full manuscript milestone workflow. This applies
+only when the edit does not change manuscript claims, prose, equations, proofs,
+figures, tables, simulations, code, bibliography, or the formal object registry.
+Examples include adding a task, changing a next action, recording a planning
+note, updating workflow instructions, or correcting dashboard/task-board status.
+
+- Do not open transparency milestones, create GitHub milestones, commit, tag,
+  push, or start publication/progress milestones by default.
+- Make the smallest durable edit that captures the planning decision.
+- Update `manuscript/user-input-log.md` only when the decision should remain
+  visible outside the chat.
+- Run `python scripts/check_manuscript.py` after planning-file edits when
+  practical, but do not treat that check as a publication snapshot.
+- If the work expands into drafting, derivations, formal registry changes,
+  simulation/code changes, figures, tables, bibliography changes, or
+  evidence-bearing edits, leave this workflow and resume the normal substantive
+  manuscript workflow before those edits.
+- If the user explicitly asks to commit, tag, push, or open a milestone for a
+  planning-only edit, do that requested action without inventing a milestone
+  snapshot merely because files changed.
+
 ## Workflow
 
 1. Confirm the central paper idea and source material.
@@ -89,6 +113,12 @@ access is available, preferably through the Codex GitHub app/connector and
 otherwise through `gh api`. Commit the closed manifest and tag the commit with
 the milestone `snapshot_ref`, usually
 `manuscript-milestones/M0001-short-title`. Push the branch and tag.
+
+Do not create automatic publication or progress milestones merely because the
+manuscript reaches a named state such as source packet complete, paper map
+stable, first draft complete, evidence package complete, or shareable draft
+ready. Create those milestones only when the user asks for them or when they
+are part of an explicit substantive work block.
 
 ## Discipline
 
