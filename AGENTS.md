@@ -39,6 +39,33 @@ asks for a discussion-only content conversation.
   workflow and follow the normal manuscript, logging, milestone, and check
   rules before editing.
 
+### planning-only-edit
+
+Use this workflow when the user asks for a narrow project-management or workflow
+edit that does not change manuscript claims, prose, equations, proofs, figures,
+tables, simulations, code, bibliography, or the formal object registry. Examples
+include adding a task, changing a next action, recording a planning note,
+updating workflow instructions, or correcting dashboard/task-board status.
+
+- Goal: keep planning surfaces useful without letting traceability overhead
+  make small project-management updates expensive.
+- Do not open transparency milestones, create GitHub milestones, commit, tag,
+  push, or start publication/progress milestones by default.
+- Make the smallest durable edit that captures the planning decision. Update
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, or the relevant workflow file only when needed.
+- Record the user input in `manuscript/user-input-log.md` only when the planning
+  decision should remain visible outside the chat.
+- Run `python scripts/check_manuscript.py` after planning-file edits when
+  practical, but do not treat the check as a publication snapshot.
+- If the work expands into drafting, derivations, formal registry changes,
+  simulation/code changes, figures, tables, bibliography changes, or
+  evidence-bearing edits, leave this workflow and use the normal substantive
+  manuscript workflow before those edits.
+- If the user explicitly asks to commit, tag, push, or open a milestone for a
+  planning-only edit, do that requested action, but do not invent a milestone
+  snapshot merely because files changed.
+
 ## Relationship To KnowledgeVault
 
 - Treat KnowledgeVault as the source memory for absorbed papers, syntheses,
@@ -132,10 +159,11 @@ python scripts/transparency_milestone.py close --summary "What changed" --action
   tag when GitHub access is available.
 - The Git tag is the repository snapshot; the GitHub issue milestone is the
   public coordination object.
-- Start a new progress milestone when the manuscript reaches a meaningful new
-  state even if the user has not issued a new request: source packet complete,
-  paper map stable, first draft complete, evidence package complete, or
-  shareable draft ready.
+- Do not create automatic publication or progress milestones merely because the
+  manuscript reaches a named state such as source packet complete, paper map
+  stable, first draft complete, evidence package complete, or shareable draft
+  ready. Create those milestones only when the user asks for them or when they
+  are part of an explicit substantive work block.
 - Purely conversational turns that do not change durable manuscript state do
   not need a milestone unless the user makes a durable decision.
 
