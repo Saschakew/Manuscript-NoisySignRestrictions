@@ -160,8 +160,8 @@ and proof or output status.
 
 ## Current Bottlenecks
 
-- The standard DW J-test inversion result is now a working derivation; it still
-  needs audit before prose promotion.
+- The standard DW J-test inversion result is now proof-audited by M47 as a
+  conditional rich-stack result; finite-GMM alias caveats remain visible.
 - M0034 supersedes the M37 pass judgment: the off-diagonal covariance anchor
   double-normalizes scale in the `diag(B)=1` chart unless unit shock variances
   are imposed too.
@@ -178,7 +178,7 @@ and proof or output status.
   noise-induced failure, DW's no-noise higher-moment logic, and then the
   variance-ratio robust construction. M34 conditionally passed the revised
   draft after tightening terminology and evidence claims. Remaining bottlenecks
-  are proof audit, final replication packaging, and final export cleanup.
+  are final replication packaging and final export cleanup.
 - M52 completes the source-correct evidence rebuild. The current Section 3
   records the source-correct GMM1/GMM2 menus, and Figures 1-3 plus Table 1 now
   implement GMM1 with a separate B-plane covariance screen. The manuscript

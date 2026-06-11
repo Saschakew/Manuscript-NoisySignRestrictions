@@ -1018,3 +1018,30 @@ For traceable work blocks, pair this human-readable note with a closed
   scripts/check_manuscript.py` passed cleanly.
 - Next recommended action: execute M33, the manuscript-local replication
   wrapper.
+
+### 2026-06-11 - Complete M57 task folder workflow
+
+- Request or goal: improve the manuscript task skill so task work is easier to
+  navigate, with a folder per task and a compact note on what was done and
+  which questions were answered.
+- Files changed: `.codex/skills/write-standalone-manuscript/SKILL.md`,
+  `.codex/skills/write-standalone-manuscript/references/task-packet-workflow.md`,
+  `manuscript/manuscript-rules.md`, `manuscript/tasks/README.md`,
+  `manuscript/tasks/_folder-template/task.md`,
+  `manuscript/tasks/_folder-template/outcome.md`,
+  `manuscript/tasks/M57-task-folder-workflow/task.md`,
+  `manuscript/tasks/M57-task-folder-workflow/outcome.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/user-input-log.md`,
+  `manuscript/decision-log.md`, `manuscript/session-log.md`,
+  `manuscript/codex-log.md`, and transparency files.
+- Summary of work: changed the future workflow from flat packets to task
+  folders with `task.md` and compact `outcome.md`, kept legacy packets valid,
+  added templates and a task-folder overview, and fixed stale overview wording
+  discovered during navigation review.
+- Check: `python scripts/check_manuscript.py` passed before close with only
+  the expected open M0059 warning; `git diff --check` reported only
+  line-ending normalization warnings. After closing M0059, `python
+  scripts/check_manuscript.py` passed cleanly.
+- Next recommended action: execute M33, the manuscript-local replication
+  wrapper.

@@ -1214,3 +1214,24 @@ machine-readable milestone in `transparency/milestones/`.
   scripts/check_manuscript.py` passed cleanly.
 - Open uncertainties: M33 still needs to wrap final figure and table code
   under `manuscript/replication/`.
+
+### 2026-06-11 - M57 task folder workflow completed
+
+- Request: improve the task skill so each task can have a folder containing
+  the task contract and a small note on what was done and questions answered;
+  assess whether the project has become hard to overview.
+- Actions taken: updated the manuscript skill, task workflow reference, and
+  manuscript rules to prefer task folders with `task.md` and `outcome.md`;
+  added `manuscript/tasks/README.md`; added folder templates; created
+  `manuscript/tasks/M57-task-folder-workflow/`; updated task board, dashboard,
+  map, and logs.
+- Outcome: the project is traceable but over-dispersed. Future substantial
+  tasks now have one compact answer trail in `outcome.md`, while detailed
+  derivations, code outputs, and transparency logs remain in their specialized
+  files.
+- Checks run: `python scripts/check_manuscript.py` passed before close with
+  only the expected open M0059 warning; `git diff --check` reported only
+  line-ending normalization warnings. After closing M0059, `python
+  scripts/check_manuscript.py` passed cleanly.
+- Open uncertainties: legacy flat task packets were not migrated; this is
+  intentional unless a legacy task is reopened.

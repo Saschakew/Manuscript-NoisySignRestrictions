@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-10T14:50:05Z",
+  "updated_at": "2026-06-11T19:27:55Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1237,6 +1237,28 @@
         "milestone_number": 53,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/53",
         "tag_name": "manuscript-milestones/M0058-m47-standard-dw-proof-gate-audit"
+      }
+    },
+    {
+      "id": "M0059-m57-task-folder-workflow",
+      "sequence": 59,
+      "title": "M57 task folder workflow",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-11T19:17:39Z",
+      "closed_at": "2026-06-11T19:27:54Z",
+      "start_commit": "4bc0b00157f4d6b4949c69734436827b49f121d1",
+      "snapshot_ref": "manuscript-milestones/M0059-m57-task-folder-workflow",
+      "summary": "Improved the task workflow by introducing task folders with task.md contracts and compact outcome.md answer notes, adding templates and a task-folder overview, and dogfooding the structure for M57.",
+      "user_input_ids": [
+        "U0059-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0059-m57-task-folder-workflow.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 54,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/54",
+        "tag_name": "manuscript-milestones/M0059-m57-task-folder-workflow"
       }
     }
   ]

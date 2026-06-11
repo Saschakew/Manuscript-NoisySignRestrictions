@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "id": "M0059-m57-task-folder-workflow",
+  "sequence": 59,
+  "title": "M57 task folder workflow",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-11T19:17:39Z",
+  "closed_at": "2026-06-11T19:27:54Z",
+  "start_commit": "4bc0b00157f4d6b4949c69734436827b49f121d1",
+  "snapshot_ref": "manuscript-milestones/M0059-m57-task-folder-workflow",
+  "summary": "Improved the task workflow by introducing task folders with task.md contracts and compact outcome.md answer notes, adding templates and a task-folder overview, and dogfooding the structure for M57.",
+  "user_inputs": [
+    {
+      "id": "U0059-001",
+      "milestone_id": "M0059-m57-task-folder-workflow",
+      "captured_at": "2026-06-11T19:17:39Z",
+      "source": "chat",
+      "text": "Improve the manuscript task workflow so each task can have a folder containing the task contract and a small outcome note with what was done and questions answered; also assess project navigability."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0059-001",
+      "milestone_id": "M0059-m57-task-folder-workflow",
+      "captured_at": "2026-06-11T19:27:54Z",
+      "description": "Updated the manuscript skill, task workflow reference, manuscript rules, task templates, task board, dashboard, map, logs, and M57 task folder."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-11T19:27:54Z",
+      "description": "python scripts/check_manuscript.py: passed before close; only warning was the expected open M0059 milestone"
+    }
+  ],
+  "changed_files": [
+    ".codex/skills/write-standalone-manuscript/SKILL.md",
+    ".codex/skills/write-standalone-manuscript/references/task-packet-workflow.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/manuscript-rules.md",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M57-task-folder-workflow/outcome.md",
+    "manuscript/tasks/M57-task-folder-workflow/task.md",
+    "manuscript/tasks/README.md",
+    "manuscript/tasks/_folder-template/outcome.md",
+    "manuscript/tasks/_folder-template/task.md",
+    "manuscript/tasks/_template.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0059-m57-task-folder-workflow.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 54,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/54",
+    "tag_name": "manuscript-milestones/M0059-m57-task-folder-workflow"
+  }
+}

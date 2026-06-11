@@ -92,7 +92,9 @@ note, updating workflow instructions, or correcting dashboard/task-board status.
 11. Maintain `manuscript/transparency/` for user input, Codex actions, and
     milestone manifests that the external `Manuscript-Timeline` viewer can
     load.
-12. Use task packets for fragile or priority-1 scientific tasks.
+12. Use task folders for fragile or priority-1 scientific tasks. Each new task
+    folder should contain `task.md` for the contract and `outcome.md` for the
+    short end-of-task answer note.
 13. Apply the scientific claim gate before changing mathematical,
     source-sensitive, or code-sensitive claims.
 14. Run `python scripts/check_manuscript.py` after substantive edits.
@@ -107,13 +109,15 @@ similar:
    different task.
 3. Ignore `done`, `deferred`, and superseded tasks except as historical
    context.
-4. If the selected row links a packet under `manuscript/tasks/`, read that
-   packet before opening source files or editing anything. The packet is the
-   task contract.
+4. If the selected row links a folder under `manuscript/tasks/`, read
+   `task.md` before opening source files or editing anything. If resuming or
+   auditing a completed task, read `outcome.md` first for the short answer
+   trail. Legacy flat packet files under `manuscript/tasks/` are still valid.
 5. If the selected task is priority 1 or fragile scientific work and has no
-   packet, create the packet first from `manuscript/tasks/_template.md`, link
-   it from `task-board.md`, and only then execute the task.
-6. Open a transparency milestone before edits, then follow the packet's
+   folder or packet, create a folder first from
+   `manuscript/tasks/_folder-template/`, link `task.md` from
+   `task-board.md`, and only then execute the task.
+6. Open a transparency milestone before edits, then follow the task contract's
    required reads, stop conditions, and acceptance criteria.
 
 ## Planning New Tasks
@@ -122,33 +126,41 @@ When the user says `plan next tasks`, `insert a task`, `update tasks`, or
 similar:
 
 1. Preserve the user's original prompt in `manuscript/user-input-log.md` and,
-   for fragile tasks, in the task packet.
+   for fragile tasks, in the task folder's `task.md`.
 2. Split work into task-board rows only after identifying dependencies and
    blocked-before relationships.
 3. Classify each new task as routine or fragile. Treat source verification,
    mathematical derivation, code-to-theory comparison, normalization decisions,
    simulation/figure rebuilds, and prior failed work as fragile.
-4. For each fragile or priority-1 scientific task, create a packet immediately
-   under `manuscript/tasks/` and link it from the task-board row.
+4. For each fragile or priority-1 scientific task, create a task folder
+   immediately under `manuscript/tasks/` and link its `task.md` from the
+   task-board row.
 5. Keep task-board rows compact; do not store the full scientific hand-off in a
    long table cell.
-6. Add acceptance criteria and stop conditions to the packet before marking the
+6. Add acceptance criteria and stop conditions to `task.md` before marking the
    planning task complete.
 
-## Task Hand-Off Packets
+## Task Folders And Outcome Notes
 
 Keep `manuscript/task-board.md` as a compact index. For priority-1 or fragile
-scientific tasks, create a durable packet under `manuscript/tasks/` and link
-to it from the task-board row.
+scientific tasks, create a durable folder under `manuscript/tasks/` and link
+its `task.md` from the task-board row.
 
-Use a packet when a task involves raw sources, KnowledgeVault provenance,
+Use a task folder when a task involves raw sources, KnowledgeVault provenance,
 mathematical derivations, code-to-theory mapping, simulations, figure rebuilds,
 normalization choices, prior failed work, or a long/nuanced user prompt.
 
-Before creating or working from a packet, read
-`references/task-packet-workflow.md`. A packet should preserve the original
-user prompt, name untrusted prior artifacts, list required source reads and
-derivations, define stop conditions, and state acceptance criteria.
+Before creating or working from a task folder or legacy packet, read
+`references/task-packet-workflow.md`. For new tasks, prefer:
+
+- `manuscript/tasks/Mxx-short-slug/task.md`: the task contract.
+- `manuscript/tasks/Mxx-short-slug/outcome.md`: the compact final note.
+
+The outcome note should be short and should answer: what changed, which user
+questions were answered, where the detailed evidence lives, what checks ran,
+and what remains open. Do not duplicate long derivations or logs there. Legacy
+flat task packets remain valid historical artifacts; do not migrate them
+unless the user asks or the migration is needed for active work.
 
 ## Scientific Claim Gate
 

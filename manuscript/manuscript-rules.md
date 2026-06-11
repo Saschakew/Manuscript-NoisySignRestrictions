@@ -87,32 +87,45 @@ When a prior artifact is found unreliable, mark it as partial or superseded in
 the task board, add a warning to the artifact itself, quarantine affected draft
 claims with TODO notes, and create a new source-first task.
 
-## Task Hand-Off Packets
+## Task Folders And Outcome Notes
 
 `manuscript/task-board.md` is a compact index. It must not be the only durable
 hand-off for priority-1 or fragile scientific work.
 
-Create a task packet under `manuscript/tasks/` when a task involves a long user
+Create a task folder under `manuscript/tasks/` when a task involves a long user
 prompt, a prior failure, raw-source or KnowledgeVault verification,
 mathematical derivation, code-to-theory comparison, normalization choices,
 simulation or figure rebuild decisions, or any source-sensitive claim. Link
-the packet from the task-board row.
+the folder's `task.md` from the task-board row.
 
-A task packet should preserve the original user prompt, name untrusted prior
+For new tasks, prefer:
+
+- `manuscript/tasks/Mxx-short-slug/task.md` for the contract.
+- `manuscript/tasks/Mxx-short-slug/outcome.md` for the short answer note.
+
+`task.md` should preserve the original user prompt, name untrusted prior
 artifacts, list required source reads and derivations, include a scientific
-claim ledger, define stop conditions, and state acceptance criteria. A fragile
-scientific task is not complete until its packet's acceptance criteria are
-satisfied or its unresolved points are explicitly recorded.
+claim ledger, define stop conditions, and state acceptance criteria.
+`outcome.md` should briefly state what was done, which user questions were
+answered, where the detailed evidence lives, which checks ran, and what
+remains open. Keep it short; do not duplicate long derivations, simulations,
+or transparency logs.
+
+A fragile scientific task is not complete until its acceptance criteria are
+satisfied, checks pass, the outcome note is written, and unresolved points are
+explicitly recorded. Legacy flat task packets remain valid historical
+artifacts and do not need migration unless they are reopened.
 
 For `work on next task` style requests, select the next task from the dashboard
-and task board, then read the linked packet before doing source work,
+and task board, then read the linked `task.md` before doing source work,
 derivations, draft edits, simulations, or registry edits. If the next task is
-fragile or priority 1 and has no packet, create and link the packet first.
+fragile or priority 1 and has no task folder or packet, create and link the
+folder first.
 
 For `plan next tasks` style requests, classify each planned task as routine or
 fragile. Create and link packets immediately for fragile or priority-1
 scientific tasks; keep the task-board row short and put the original prompt,
-evidence obligations, stop conditions, and acceptance criteria in the packet.
+evidence obligations, stop conditions, and acceptance criteria in `task.md`.
 
 ## Source Of Truth
 

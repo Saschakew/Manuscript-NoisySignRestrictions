@@ -41,8 +41,9 @@ wrapper, so final figures and tables rebuild from `manuscript/replication/`
 without a local KnowledgeVault dependency. A unit-variance/rotation-chart
 rewrite remains a separate future user decision if it is ever requested.
 
-Active milestone: M0058 open for the M47 standard-DW proof gate audit; GitHub
-milestone 53 tracks the same work. M0057 completed the M52 source-correct
+Active milestone: M0059 completed the M57 task folder workflow; GitHub
+milestone 54 tracks the same work. M0058 completed the M47 standard-DW proof
+gate audit and created GitHub milestone 53. M0057 completed the M52 source-correct
 evidence rebuild and created GitHub milestone 52. M0056 completed the M55 execution
 block and created GitHub milestone 51. M0055 completed M56 and created GitHub
 milestone 50 for the generated-moment audit. M0054 planned M56 and created
@@ -139,8 +140,8 @@ Active blockers:
 Last substantive session: 2026-06-10, completed M47 by auditing the M25
 standard-DW proof gate after M52 rebuilt the source-correct evidence path.
 
-Last maintenance session: 2026-06-05, cleared the stale M21 task state after
-verifying the M0005 transparency snapshot and GitHub milestone closure.
+Last maintenance session: 2026-06-11, completed M57 to streamline task folders
+and outcome notes after the user flagged that task answers were hard to find.
 
 ## Orientation Map
 
@@ -154,8 +155,9 @@ verifying the M0005 transparency snapshot and GitHub milestone closure.
   tables, proofs, and dependencies.
 - `workplan.md`: milestones and review plan.
 - `task-board.md`: open tasks and next actions.
-- `tasks/`: durable hand-off packets for fragile or priority-1 scientific
-  tasks; read the packet before executing the task-board row.
+- `tasks/`: task folders and legacy packets for fragile or priority-1
+  scientific tasks; read `task.md` before executing and `outcome.md` for the
+  short answer trail.
 - `citation-provenance.md`: section-level source map and contribution boundary.
 - `literature-search.md`: search questions, citation gaps, and BibTeX
   verification tasks.

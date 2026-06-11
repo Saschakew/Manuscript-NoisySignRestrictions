@@ -1025,3 +1025,23 @@ decisions.
   promoting the finite GMM1 implementation to an unconditional theorem.
 - Consequence for next work: M33 replication packaging is now the next
   dashboard action; final proof polish can move to appendix/export work later.
+
+### 2026-06-11 - Use task folders with compact outcome notes
+
+- Origin: M57 task folder workflow.
+- User input id: U0059
+- Codex role: inspected the current task workflow and updated the skill,
+  rules, templates, and overview surfaces.
+- Decision: New fragile, source-sensitive, mathematical, code-sensitive, or
+  priority-1 manuscript tasks should use a folder under `manuscript/tasks/`
+  with `task.md` as the contract and `outcome.md` as the short answer trail.
+  Legacy flat task packets remain valid and should not be migrated unless a
+  task is reopened or the user requests cleanup.
+- Rationale: The project is traceable but over-dispersed. Answers to user
+  questions have been recorded in task packets, derivation notes, session logs,
+  Codex logs, transparency files, and draft source trails, but not in one
+  obvious per-task answer note.
+- Alternatives considered: migrating all historical task packets into folders,
+  or keeping the existing flat packet plus logs pattern unchanged.
+- Consequence for next work: For M33 and later substantial tasks, create or use
+  a task folder and complete `outcome.md` before marking the task done.
