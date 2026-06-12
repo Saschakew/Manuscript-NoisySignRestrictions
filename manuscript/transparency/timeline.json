@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-11T19:27:55Z",
+  "updated_at": "2026-06-12T12:47:02Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1259,6 +1259,28 @@
         "milestone_number": 54,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/54",
         "tag_name": "manuscript-milestones/M0059-m57-task-folder-workflow"
+      }
+    },
+    {
+      "id": "M0060-m33-replication-wrapper",
+      "sequence": 60,
+      "title": "M33 replication wrapper",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-12T12:32:27Z",
+      "closed_at": "2026-06-12T12:47:02Z",
+      "start_commit": "2101e8376e6285f9faafd86d8269ebc7712b63a0",
+      "snapshot_ref": "manuscript-milestones/M0060-m33-replication-wrapper",
+      "summary": "Completed M33 by preserving Revision-20260610-190805 metadata, adding the manuscript-local replication wrapper, documenting full and quick rebuild commands, and planning M63 citation/export cleanup.",
+      "user_input_ids": [
+        "U0060-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0060-m33-replication-wrapper.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 55,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/55",
+        "tag_name": "manuscript-milestones/M0060-m33-replication-wrapper"
       }
     }
   ]

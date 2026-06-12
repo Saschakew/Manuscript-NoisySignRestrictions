@@ -64,6 +64,13 @@ STANDARD_DW_MENU = "GMM1"
 MOMENTS_DW = MOMENTS_DW_GMM1
 
 
+def display_path(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
 def standard_dw_cutoff() -> float:
     if len(MOMENTS_DW) == 5:
         return CHI2_90_DF5
@@ -760,7 +767,7 @@ def plot(robust_mode: str = "diagonal", output_path: Path | None = None) -> Path
         ),
         fontsize=12,
     )
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=180)
     plt.close(fig)
     return output_path
@@ -784,4 +791,4 @@ if __name__ == "__main__":
         robust_mode=args.robust_mode,
         output_path=Path(args.output) if args.output else None,
     )
-    print(f"Wrote {path.relative_to(ROOT)}")
+    print(f"Wrote {display_path(path)}")

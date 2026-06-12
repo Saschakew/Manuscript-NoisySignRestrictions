@@ -226,7 +226,7 @@
       "depends_on": [
         "prop:noisy-sign-pseudo-set"
       ],
-      "output_source": "Proposal visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative and manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png. A separate covariance-ellipse panel is optional, not required for the first draft."
+      "output_source": "Proposal visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative and manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png. M33 wrapper command: python manuscript/replication/run_all.py --stage figure1. A separate covariance-ellipse panel is optional, not required for the first draft."
     },
     {
       "id": "fig:standard-dw-false-sharpening",
@@ -238,7 +238,7 @@
         "prop:standard-dw-misspecification",
         "eq:relative-noise-covariance-screen"
       ],
-      "output_source": "M0036 relative variant: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative, manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md, and manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M0035 absolute-bound comparison remains manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png. M0034 pure variant remains manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png. The earlier diagonal-anchor output manuscript/figures/fig_sign_dw_robust_noise_grid.png is superseded for the robust row."
+      "output_source": "M0036 relative variant: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative, manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md, and manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png. M33 wrapper command: python manuscript/replication/run_all.py --stage figure1. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M0035 absolute-bound comparison remains manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png. M0034 pure variant remains manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png. The earlier diagonal-anchor output manuscript/figures/fig_sign_dw_robust_noise_grid.png is superseded for the robust row."
     },
     {
       "id": "fig:dw-robust-set-comparison",
@@ -250,7 +250,7 @@
         "prop:dw-robust-comparison-diagnostic",
         "eq:relative-noise-covariance-screen"
       ],
-      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png and manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md. Figure 2: manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png and manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py. Figure 3: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png and manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py. M52 validation output: manuscript/simulations/m52_source_correct_evidence.md and manuscript/simulations/output/m52_source_correct_evidence.json. Source-correct standard-DW rebuild packet: manuscript/tasks/M52-standard-dw-source-correct-rebuild.md."
+      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png and manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md. Figure 2: manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png and manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py. Figure 3: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png and manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py. M33 wrapper command: python manuscript/replication/run_all.py --stage figures. M52 validation output: manuscript/simulations/m52_source_correct_evidence.md and manuscript/simulations/output/m52_source_correct_evidence.json. Source-correct standard-DW rebuild packet: manuscript/tasks/M52-standard-dw-source-correct-rebuild.md."
     },
     {
       "id": "fig:sample-size-robust-grid",
@@ -263,7 +263,7 @@
         "eq:relative-noise-covariance-screen",
         "prop:robust-dw-higher-moment-validity"
       ],
-      "output_source": "M44 output: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png; generator manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py; diagnostic note manuscript/simulations/sign_dw_sample_size_robust_grid_figure.md."
+      "output_source": "M44 output: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png; generator manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py; M33 wrapper command: python manuscript/replication/run_all.py --stage figure3; diagnostic note manuscript/simulations/sign_dw_sample_size_robust_grid_figure.md."
     },
     {
       "id": "table:monte-carlo-coverage-width",
@@ -274,7 +274,7 @@
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
-      "output_source": "M52 output: manuscript/simulations/m45_variance_ratio_evidence.py, manuscript/simulations/m52_source_correct_evidence.md, and manuscript/simulations/output/m52_source_correct_evidence.json. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M56 audit: manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md. Superseded historical M45 and M29 outputs remain for audit history."
+      "output_source": "M52 output: manuscript/simulations/m45_variance_ratio_evidence.py, manuscript/simulations/m52_source_correct_evidence.md, and manuscript/simulations/output/m52_source_correct_evidence.json. M33 wrapper command: python manuscript/replication/run_all.py --stage evidence. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M56 audit: manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md. Superseded historical M45 and M29 outputs remain for audit history."
     },
     {
       "id": "audit:robust-dw-derivation",

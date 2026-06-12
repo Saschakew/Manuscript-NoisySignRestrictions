@@ -11,6 +11,33 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-12 - M33 replication wrapper completed
+
+- Request: continue after `Revision-20260610-190805`, orient first, then work
+  through the next manuscript bottleneck in a structured way.
+- Actions taken: inspected the remote revision branch; preserved its revision
+  note and transparency metadata on current `main`; opened M0060 and GitHub
+  milestone #55; created `manuscript/tasks/M33-replication-wrapper/`; added
+  `manuscript/replication/run_all.py`; added output-path hooks to the active
+  Figure 1-3 and M52 evidence scripts; updated replication docs, requirements,
+  registry source paths, task board, dashboard, workplan, logs, and question
+  index; created M63 for the next citation/export cleanup task.
+- Outcome: active Figures 1-3 and the M52 evidence note/JSON can now be
+  rebuilt from `manuscript/replication/` without a local KnowledgeVault
+  dependency. Quick mode writes smoke outputs under the ignored
+  `manuscript/replication/output/quick/` folder and does not replace canonical
+  evidence.
+- Checks run: `python manuscript\replication\run_all.py --dry-run`; `python
+  manuscript\replication\run_all.py --stage evidence --quick`; `python
+  manuscript\replication\run_all.py --stage figures --quick`; `python
+  manuscript\replication\run_all.py --stage figure1 --quick`; Python
+  `py_compile` for the wrapper and active scripts; `python
+  scripts\check_manuscript.py` before and after milestone closeout; `git diff
+  --check`.
+- Open uncertainties: full canonical `--stage all` was not rerun in this
+  closeout; a later release-hardening pass can copy/package source under
+  `replication/src/` and pin exact dependency artifacts if needed.
+
 ### 2026-06-11 - M62 traceability cleanup audit completed
 
 - Request: continuation of the step-by-step cleanup goal after M61 added the

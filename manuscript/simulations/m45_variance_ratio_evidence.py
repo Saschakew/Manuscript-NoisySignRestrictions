@@ -577,7 +577,14 @@ def fmt(value: Any, digits: int = 3) -> str:
     return f"{numeric:.{digits}f}"
 
 
-def write_note(payload: dict[str, Any]) -> None:
+def display_path(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
+
+
+def write_note(payload: dict[str, Any], note_output: Path, json_output: Path) -> None:
     convention_labels = {
         "chi_square_90": "chi-square",
         "no_noise_repeated_90": "no-noise repeated",
@@ -674,10 +681,10 @@ def write_note(payload: dict[str, Any]) -> None:
             f"{fmt(gaussian_chi['robust_dw']['mean_accepted_share'])}, respectively.",
             "- The skewed-residual-noise row violates the maintained Gaussian-noise route, so it remains a stress case even when finite-sample truth inclusion is high.",
             "",
-            "Machine-readable output: `manuscript/simulations/output/m52_source_correct_evidence.json`.",
+            f"Machine-readable output: `{display_path(json_output)}`.",
         ]
     )
-    NOTE_OUTPUT.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
+    note_output.write_text("\n".join(lines) + "\n", encoding="utf-8", newline="\n")
 
 
 def parse_args() -> argparse.Namespace:
@@ -687,12 +694,17 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--calibration-reps", type=int, default=60)
     parser.add_argument("--evaluation-reps", type=int, default=24)
     parser.add_argument("--grid-points", type=int, default=41)
+    parser.add_argument("--json-output", default="", help="Optional JSON output path.")
+    parser.add_argument("--note-output", default="", help="Optional Markdown note output path.")
     return parser.parse_args()
 
 
 def main() -> int:
     args = parse_args()
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    json_output = Path(args.json_output) if args.json_output else JSON_OUTPUT
+    note_output = Path(args.note_output) if args.note_output else NOTE_OUTPUT
+    json_output.parent.mkdir(parents=True, exist_ok=True)
+    note_output.parent.mkdir(parents=True, exist_ok=True)
     fixed = fixed_grid_diagnostics(args.diagnostic_grid_points)
     truth_cutoffs, calibration_records = calibrate_truth_cutoffs(
         MC_SCENARIOS,
@@ -737,10 +749,10 @@ def main() -> int:
         "evaluation_records": evaluation_records,
         "monte_carlo_summary": summarize(evaluation_records),
     }
-    JSON_OUTPUT.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8", newline="\n")
-    write_note(payload)
-    print(f"Wrote {JSON_OUTPUT.relative_to(ROOT)}")
-    print(f"Wrote {NOTE_OUTPUT.relative_to(ROOT)}")
+    json_output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8", newline="\n")
+    write_note(payload, note_output, json_output)
+    print(f"Wrote {display_path(json_output)}")
+    print(f"Wrote {display_path(note_output)}")
     return 0
 
 

@@ -11,6 +11,7 @@ corresponding structural-shock variance.
 
 from __future__ import annotations
 
+import argparse
 import math
 from pathlib import Path
 
@@ -34,6 +35,13 @@ NON_GAUSSIANITY_LEVELS = (
     ("Weak non-Gaussianity", 0.25),
     ("Gaussian shocks", 0.00),
 )
+
+
+def display_path(path: Path) -> str:
+    try:
+        return path.relative_to(ROOT).as_posix()
+    except ValueError:
+        return str(path)
 
 
 def structural_and_noise_draws(non_gaussian_weight: float) -> tuple[np.ndarray, np.ndarray]:
@@ -60,11 +68,14 @@ def excess_kurtosis(values: np.ndarray) -> np.ndarray:
     return np.mean(standardized**4, axis=0) - 3.0
 
 
-def plot() -> Path:
+def plot(output_path: Path | None = None) -> Path:
     import matplotlib
 
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
+
+    if output_path is None:
+        output_path = OUTPUT_PATH
 
     b12_grid = np.linspace(-1.35, 0.35, base.GRID_POINTS)
     b21_grid = np.linspace(-0.25, 1.35, base.GRID_POINTS)
@@ -190,12 +201,19 @@ def plot() -> Path:
         ),
         fontsize=12,
     )
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    fig.savefig(OUTPUT_PATH, dpi=180)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    fig.savefig(output_path, dpi=180)
     plt.close(fig)
-    return OUTPUT_PATH
+    return output_path
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output", default="", help="Optional output path.")
+    return parser.parse_args()
 
 
 if __name__ == "__main__":
-    path = plot()
-    print(f"Wrote {path.relative_to(ROOT)}")
+    args = parse_args()
+    path = plot(Path(args.output) if args.output else None)
+    print(f"Wrote {display_path(path)}")

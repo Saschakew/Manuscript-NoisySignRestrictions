@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "id": "M0060-m33-replication-wrapper",
+  "sequence": 60,
+  "title": "M33 replication wrapper",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-12T12:32:27Z",
+  "closed_at": "2026-06-12T12:47:02Z",
+  "start_commit": "2101e8376e6285f9faafd86d8269ebc7712b63a0",
+  "snapshot_ref": "manuscript-milestones/M0060-m33-replication-wrapper",
+  "summary": "Completed M33 by preserving Revision-20260610-190805 metadata, adding the manuscript-local replication wrapper, documenting full and quick rebuild commands, and planning M63 citation/export cleanup.",
+  "user_inputs": [
+    {
+      "id": "U0060-001",
+      "milestone_id": "M0060-m33-replication-wrapper",
+      "captured_at": "2026-06-12T12:32:27Z",
+      "source": "chat",
+      "text": "User asked to continue after Revision-20260610-190805, first get an overview of what needs to be done, then work in a structured way; dashboard and task board route next substantive work to M33, the manuscript-local replication wrapper."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0060-001",
+      "milestone_id": "M0060-m33-replication-wrapper",
+      "captured_at": "2026-06-12T12:47:02Z",
+      "description": "Inspected origin/Revision-20260610-190805 and carried its revision note plus revision.json onto current main."
+    },
+    {
+      "id": "A0060-002",
+      "milestone_id": "M0060-m33-replication-wrapper",
+      "captured_at": "2026-06-12T12:47:02Z",
+      "description": "Created the M33 task folder, run_all.py replication wrapper, output-routing hooks, README/requirements updates, registry links, and question-index entry."
+    },
+    {
+      "id": "A0060-003",
+      "milestone_id": "M0060-m33-replication-wrapper",
+      "captured_at": "2026-06-12T12:47:02Z",
+      "description": "Queued M63 as the next citation/source-trail and export cleanup task."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-12T12:47:02Z",
+      "description": "python scripts/check_manuscript.py: passed; expected warning before close that a transparency milestone was open"
+    },
+    {
+      "captured_at": "2026-06-12T12:47:02Z",
+      "description": "git diff --check: passed with CRLF normalization warnings only"
+    }
+  ],
+  "changed_files": [
+    ".gitignore",
+    "manuscript/QUESTION-INDEX.md",
+    "manuscript/START-HERE.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/project-dashboard.md",
+    "manuscript/replication/README.md",
+    "manuscript/replication/requirements.txt",
+    "manuscript/replication/run_all.py",
+    "manuscript/revisions/Revision-20260610-190805/revision.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/m45_variance_ratio_evidence.py",
+    "manuscript/simulations/sign_dw_robust_noise_grid_figure.py",
+    "manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py",
+    "manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M33-replication-wrapper/outcome.md",
+    "manuscript/tasks/M33-replication-wrapper/task.md",
+    "manuscript/tasks/M63-citation-export-cleanup/outcome.md",
+    "manuscript/tasks/M63-citation-export-cleanup/task.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0060-m33-replication-wrapper.json",
+    "manuscript/transparency/revision.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 55,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/55",
+    "tag_name": "manuscript-milestones/M0060-m33-replication-wrapper"
+  }
+}

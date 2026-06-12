@@ -25,7 +25,7 @@ M47 conditionally clears the M25 standard-DW proof gate: Proposition 2 is safe
 as a rich-stack/ICA misspecification result with structural-rescaling,
 finite-alias, compactness, and nonsingularity caveats visible.
 
-Current focus: replication packaging and final review. The revised draft still conditionally
+Current focus: final citation/export cleanup after M33 replication packaging. The revised draft still conditionally
 passes the M34 adversarial scope, logic, and style review; M49 clears the
 source-moment menu and noisy-product gate; M0050 clears the M53 notation gate;
 M54 clears the transformed-noise derivation and normalization gate; M56 clears
@@ -36,12 +36,13 @@ Figure 1, Figure 2, Figure 3, and Table 1 use the M52
 GMM1-plus-covariance-screen standard comparator and the M56 central-delta
 robust generated-moment route.
 
-Next recommended action: execute M33, the manuscript-local replication
-wrapper, so final figures and tables rebuild from `manuscript/replication/`
-without a local KnowledgeVault dependency. A unit-variance/rotation-chart
+Next recommended action: execute M63, the citation/source-trail and export
+cleanup task, now that M33 added `manuscript/replication/run_all.py` for the
+active figures and M52 evidence. A unit-variance/rotation-chart
 rewrite remains a separate future user decision if it is ever requested.
 
-Active milestone: M0059 completed the M57 task folder workflow; GitHub
+Active milestone: M0060 completed the M33 replication wrapper and created
+GitHub milestone 55. M0059 completed the M57 task folder workflow; GitHub
 milestone 54 tracks the same work. M58-M62 were planning-only navigation
 cleanups without transparency or GitHub milestones. M0058 completed the M47
 standard-DW proof gate audit and created GitHub milestone 53. M0057 completed the M52 source-correct
@@ -115,8 +116,10 @@ Active blockers:
   active Monte Carlo table with the source-correct GMM1 standard-DW row and
   full central-delta robust weighting. This remains a first-paper evidence
   gate rather than the final self-contained replication package.
-- The robust-DW simulation code must be wrapped under `manuscript/replication/`
-  before the paper is shareable.
+- M33 added the manuscript-local replication wrapper under
+  `manuscript/replication/`. A later release-hardening pass can still copy or
+  package source under `manuscript/replication/src/` and pin exact dependency
+  artifacts if a standalone archive is required.
 - The draft now contains the M52 chi-square-primary Monte Carlo rows for the
   source-correct GMM1 standard-DW row and the variance-ratio robust row. Final
   publication replication should still move the code into
@@ -138,8 +141,9 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-10, completed M47 by auditing the M25
-standard-DW proof gate after M52 rebuilt the source-correct evidence path.
+Last substantive session: 2026-06-12, completed M33 by adding the
+manuscript-local replication wrapper for active Figures 1-3 and the M52
+evidence note/JSON after preserving the `Revision-20260610-190805` metadata.
 
 Last maintenance session: 2026-06-11, completed M62 to audit the traceability
 cleanup and confirm that the workflow improvements are enough for now. M61

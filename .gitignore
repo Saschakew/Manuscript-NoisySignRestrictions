@@ -15,4 +15,5 @@ Thumbs.db
 # Generated local exports and scratch outputs
 manuscript/exports/
 manuscript/replication/output/cache/
+manuscript/replication/output/quick/
 manuscript/replication/.venv/

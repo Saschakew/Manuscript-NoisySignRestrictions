@@ -5,6 +5,25 @@ decisions.
 
 ## Entries
 
+### 2026-06-12 - Use M33 wrapper as the replication entry point
+
+- Origin: M0060 execution after `Revision-20260610-190805`.
+- User input id: U0061
+- Decision: Treat `manuscript/replication/run_all.py` as the current
+  manuscript-local entry point for rebuilding active Figures 1-3 and the M52
+  evidence note/JSON.
+- Rationale: The active evidence scripts already live inside this manuscript
+  repository and do not import from the local KnowledgeVault checkout. A thin
+  replication wrapper makes the rebuild path explicit without duplicating
+  simulation source prematurely.
+- Alternatives considered: copying all simulation source into
+  `manuscript/replication/src/` immediately, or leaving the commands only in
+  simulation notes. Copying source now would add churn before the release
+  archive shape is settled; note-only commands were too easy to miss.
+- Consequence for next work: Use `python manuscript\replication\run_all.py
+  --stage all` for canonical rebuilds. Use quick mode only for smoke checks.
+  Move next to M63 citation/export cleanup.
+
 ### 2026-06-11 - Stop cleanup expansion and return to M33
 
 - Origin: M62 traceability cleanup audit after M57-M61.

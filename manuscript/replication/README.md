@@ -15,6 +15,48 @@ package-covered SVAR estimation, identification, inference, or simulation
 routines inside this manuscript repository. Add only thin wrappers, manuscript
 parameters, scripts, and output handling here.
 
+## Current M33 Wrapper
+
+M33 adds a manuscript-local wrapper for the active M52 evidence package:
+
+```powershell
+python manuscript\replication\run_all.py --dry-run
+python manuscript\replication\run_all.py --stage all
+```
+
+The full command rebuilds:
+
+- Figure 1: `manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png`
+- Figure 2: `manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png`
+- Figure 3: `manuscript/figures/fig_sign_dw_sample_size_robust_grid.png`
+- M52 evidence note and JSON:
+  `manuscript/simulations/m52_source_correct_evidence.md` and
+  `manuscript/simulations/output/m52_source_correct_evidence.json`
+
+For a quick operational smoke check that does not overwrite canonical evidence
+outputs, run:
+
+```powershell
+python manuscript\replication\run_all.py --stage evidence --quick
+```
+
+Quick outputs are written under `manuscript/replication/output/quick/` and are
+not manuscript evidence. Use them only to verify that the wrapper and imports
+work.
+
+Optional staged commands:
+
+```powershell
+python manuscript\replication\run_all.py --stage figure1
+python manuscript\replication\run_all.py --stage figures
+python manuscript\replication\run_all.py --stage evidence
+```
+
+The current wrapper calls scripts under `manuscript/simulations/`; it does not
+import from a local KnowledgeVault checkout. A later release-hardening step can
+copy or package the script source directly under `manuscript/replication/src/`
+if the paper needs a standalone archive layout.
+
 ## Suggested Layout
 
 ```text
@@ -29,15 +71,15 @@ replication/
 ## Planned Final Command
 
 ```powershell
-python run_all.py
+python manuscript\replication\run_all.py --stage all
 ```
 
 Optional staged commands:
 
 ```powershell
-python run_all.py --stage geometry
-python run_all.py --stage population
-python run_all.py --stage monte-carlo
+python manuscript\replication\run_all.py --stage figure1
+python manuscript\replication\run_all.py --stage figures
+python manuscript\replication\run_all.py --stage evidence
 ```
 
 ## Evidence To Build

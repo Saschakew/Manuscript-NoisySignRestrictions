@@ -8,6 +8,34 @@ For traceable work blocks, pair this human-readable note with a closed
 
 ## Entries
 
+### 2026-06-12 - Complete M33 replication wrapper
+
+- Request or goal: continue after `Revision-20260610-190805`, first get an
+  overview of what needs to be done, then work in a structured way.
+- Files changed: `.gitignore`, `manuscript/revisions/Revision-20260610-190805/revision.md`,
+  `manuscript/transparency/revision.json`,
+  `manuscript/replication/run_all.py`,
+  `manuscript/replication/README.md`,
+  `manuscript/replication/requirements.txt`, active simulation scripts,
+  `manuscript/tasks/M33-replication-wrapper/`,
+  `manuscript/tasks/M63-citation-export-cleanup/`, `manuscript/task-board.md`,
+  `manuscript/project-dashboard.md`, `manuscript/workplan.md`,
+  `manuscript/formal-object-registry.json`, `manuscript/QUESTION-INDEX.md`,
+  `manuscript/user-input-log.md`, `manuscript/decision-log.md`,
+  `manuscript/session-log.md`, and `manuscript/codex-log.md`.
+- Summary of work: inspected the revision branch, found it contained metadata
+  only, preserved those files on current `main`, opened M0060/GitHub milestone
+  #55, created the M33 task folder, added the replication wrapper, added
+  output hooks to active scripts, documented full and quick rebuild commands,
+  and planned M63 as the next citation/export cleanup task.
+- Check: wrapper dry-run passed; quick evidence and quick figure rebuilds
+  passed into ignored outputs; Python compile checks passed; `python
+  scripts/check_manuscript.py` passed with the expected open-milestone warning
+  before closeout and passed cleanly after the milestone was closed; `git diff
+  --check` passed with only the repository's usual CRLF normalization warnings.
+- Next recommended action: execute M63, the citation/source-trail and export
+  cleanup task.
+
 ### 2026-06-11 - Complete M62 traceability cleanup audit
 
 - Request or goal: audit whether the step-by-step cleanup now satisfies the

@@ -1,3 +1,7 @@
-# Add replication dependencies here.
-# Pin the KnowledgeVault svar-python package before final sharing, for example:
+numpy>=1.26
+matplotlib>=3.8
+
+# The active M33 wrapper calls manuscript-local scripts that do not currently
+# import svar_toolkit. Pin the KnowledgeVault svar-python package before final
+# sharing if replication code starts importing package APIs, for example:
 # svar-python @ git+https://github.com/<owner>/KnowledgeVault.git@<commit>#subdirectory=svar-python

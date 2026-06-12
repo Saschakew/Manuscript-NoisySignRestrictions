@@ -11,8 +11,8 @@ project feels spread across too many logs, packets, notes, and outputs.
 - Current manuscript state: the M52 evidence rebuild, M55 main-text robust
   moment explanation, M56 generated-moment audit, and M47 standard-DW proof
   gate audit are complete.
-- Next manuscript task: M33, the manuscript-local replication wrapper, so the
-  active figures and tables rebuild from `manuscript/replication/`.
+- Next manuscript task: M63, citation/source-trail and export cleanup, now
+  that M33 added the manuscript-local replication wrapper.
 - Current workflow state: new substantial tasks should use a task folder with
   `task.md` for the contract and `outcome.md` for the short answer trail; use
   `QUESTION-INDEX.md` when you remember the question but not the task ID.
