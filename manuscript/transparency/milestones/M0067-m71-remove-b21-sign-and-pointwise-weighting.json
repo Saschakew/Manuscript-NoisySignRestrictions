@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "id": "M0067-m71-remove-b21-sign-and-pointwise-weighting",
+  "sequence": 67,
+  "title": "M71 remove B21 sign and pointwise weighting",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-12T18:55:18Z",
+  "closed_at": "2026-06-12T19:44:06Z",
+  "start_commit": "fd7cca8888a91cf7f042677e7a45797848379f91",
+  "snapshot_ref": "manuscript-milestones/M0067-m71-remove-b21-sign-and-pointwise-weighting",
+  "summary": "Completed M71 by removing the active B21 sign restriction, implementing candidate-specific pointwise covariance weighting, regenerating Figures 1-3 plus corrected Table 1 and extended MC diagnostics, and updating manuscript/task surfaces.",
+  "user_inputs": [
+    {
+      "id": "U0067-001",
+      "milestone_id": "M0067-m71-remove-b21-sign-and-pointwise-weighting",
+      "captured_at": "2026-06-12T18:55:18Z",
+      "source": "chat",
+      "text": "Work on M71: remove the B21 sign restriction from active figures and MCs, replace true-point fixed weights with candidate-specific pointwise covariance weighting, regenerate diagnostics, and update manuscript surfaces."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0067-001",
+      "milestone_id": "M0067-m71-remove-b21-sign-and-pointwise-weighting",
+      "captured_at": "2026-06-12T19:44:06Z",
+      "description": "Corrected active evidence scripts and regenerated diagnostic outputs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-12T19:44:06Z",
+      "description": "python scripts/check_manuscript.py: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/QUESTION-INDEX.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png",
+    "manuscript/figures/fig_sign_dw_unit_variance_nongaussianity_grid.png",
+    "manuscript/figures/fig_sign_dw_unit_variance_sample_size_grid.png",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/replication/README.md",
+    "manuscript/replication/run_all.py",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/m68_first_shock_evidence.md",
+    "manuscript/simulations/m68_first_shock_evidence.py",
+    "manuscript/simulations/m69_extended_three_block_mc.md",
+    "manuscript/simulations/m69_extended_three_block_mc.py",
+    "manuscript/simulations/output/m68_first_shock_evidence.json",
+    "manuscript/simulations/output/m69_extended_three_block_mc.json",
+    "manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json",
+    "manuscript/simulations/output/sign_dw_unit_variance_nongaussianity_grid_figure.json",
+    "manuscript/simulations/output/sign_dw_unit_variance_sample_size_grid_figure.json",
+    "manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md",
+    "manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py",
+    "manuscript/simulations/sign_dw_unit_variance_nongaussianity_grid_figure.md",
+    "manuscript/simulations/sign_dw_unit_variance_sample_size_grid_figure.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M68-first-shock-impact-evidence-rebuild/outcome.md",
+    "manuscript/tasks/M69-extended-three-block-mc/outcome.md",
+    "manuscript/tasks/M71-remove-b21-sign-and-pointwise-weighting/outcome.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0067-m71-remove-b21-sign-and-pointwise-weighting.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 62,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/62",
+    "tag_name": "manuscript-milestones/M0067-m71-remove-b21-sign-and-pointwise-weighting"
+  }
+}

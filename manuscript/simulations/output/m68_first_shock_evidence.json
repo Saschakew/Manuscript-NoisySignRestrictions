@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "task": "M68 first-shock impact evidence rebuild",
-  "description": "Monte Carlo table using the same first-shock chart and M66 unit-variance GMM criterion as Figures 1-3.",
+  "task": "M71 remove B21 sign and pointwise weighting",
+  "description": "Monte Carlo table using the corrected first-shock chart and M66 unit-variance GMM criterion as Figures 1-3.",
   "configuration": {
-    "reps": 12,
+    "reps": 6,
     "base_seed": 20260605,
     "rho": 0.5,
-    "projection_points": 17,
-    "profile_points": 7,
-    "lambda_points": 5,
+    "projection_points": 13,
+    "profile_points": 5,
+    "lambda_points": 3,
     "displayed_projection": [
       "B11",
       "B21"
@@ -22,9 +22,10 @@
     "sign_restrictions": [
       "B11 > 0",
       "B22 > 0",
-      "B12 <= 0",
-      "B21 >= 0"
+      "B12 <= 0"
     ],
+    "weighting": "candidate-specific pointwise covariance estimates for each tested B or (B,lambda) candidate",
+    "weight_regularization": "symmetric covariance eigensystem with eigenvalue floor max(max_eigenvalue, 1) * 1e-10",
     "critical_values": {
       "second_moment_chi2_90_df3": 6.251388631170325,
       "standard_dw_chi2_90_df5": 9.236356899781123,
@@ -35,7 +36,7 @@
     {
       "scenario": "no_noise",
       "label": "No noise, strong moments",
-      "reps": 12,
+      "reps": 6,
       "noise": [
         0.0,
         0.0
@@ -43,23 +44,23 @@
       "non_gaussian_weight": 1.0,
       "sample_size": 500,
       "residual_noise": "gaussian",
-      "standard_truth_rate": 0.5833333333333334,
+      "standard_truth_rate": 0.6666666666666666,
       "robust_truth_rate": 0.5,
       "warning_rate": 0.0,
-      "sign_share": 0.1111111111111111,
-      "standard_share": 0.02854938271604938,
-      "robust_share": 0.028806584362139915,
-      "standard_empty_rate": 0.0,
-      "robust_empty_rate": 0.16666666666666666,
-      "d_standard_not_subset_robust": 0.4212962962962963,
-      "standard_distance_to_truth": 0.023310841923019594,
-      "robust_distance_to_truth": 0.027408575552345715,
+      "sign_share": 0.04846938775510204,
+      "standard_share": 0.019557823129251698,
+      "robust_share": 0.03486394557823128,
+      "standard_empty_rate": 0.16666666666666666,
+      "robust_empty_rate": 0.0,
+      "d_standard_not_subset_robust": 0.13333333333333336,
+      "standard_distance_to_truth": 0.021921577396609864,
+      "robust_distance_to_truth": 0.018055555555555564,
       "note": "Sanity case."
     },
     {
       "scenario": "moderate_noise",
       "label": "Moderate Gaussian noise",
-      "reps": 12,
+      "reps": 6,
       "noise": [
         0.2,
         0.2
@@ -67,23 +68,23 @@
       "non_gaussian_weight": 1.0,
       "sample_size": 500,
       "residual_noise": "gaussian",
-      "standard_truth_rate": 0.08333333333333333,
-      "robust_truth_rate": 0.5833333333333334,
-      "warning_rate": 0.5833333333333334,
-      "sign_share": 0.16486625514403294,
-      "standard_share": 0.0727880658436214,
-      "robust_share": 0.07536008230452675,
+      "standard_truth_rate": 0.16666666666666666,
+      "robust_truth_rate": 0.6666666666666666,
+      "warning_rate": 0.6666666666666666,
+      "sign_share": 0.05102040816326531,
+      "standard_share": 0.018707482993197275,
+      "robust_share": 0.060374149659863936,
       "standard_empty_rate": 0.0,
       "robust_empty_rate": 0.0,
-      "d_standard_not_subset_robust": 0.25461114985509137,
-      "standard_distance_to_truth": 0.0,
+      "d_standard_not_subset_robust": 0.0,
+      "standard_distance_to_truth": 0.03888888888888897,
       "robust_distance_to_truth": 0.0,
       "note": "Main moderate-noise case."
     },
     {
       "scenario": "high_noise",
       "label": "High Gaussian noise",
-      "reps": 12,
+      "reps": 6,
       "noise": [
         0.5,
         0.5
@@ -92,22 +93,22 @@
       "sample_size": 500,
       "residual_noise": "gaussian",
       "standard_truth_rate": 0.0,
-      "robust_truth_rate": 0.75,
-      "warning_rate": 0.75,
-      "sign_share": 0.24794238683127576,
-      "standard_share": 0.209619341563786,
-      "robust_share": 0.18647119341563786,
+      "robust_truth_rate": 0.6666666666666666,
+      "warning_rate": 0.6666666666666666,
+      "sign_share": 0.06462585034013606,
+      "standard_share": 0.022959183673469385,
+      "robust_share": 0.08163265306122448,
       "standard_empty_rate": 0.0,
       "robust_empty_rate": 0.0,
-      "d_standard_not_subset_robust": 0.451359784107393,
-      "standard_distance_to_truth": 0.08232227746450653,
+      "d_standard_not_subset_robust": 0.22222222222222224,
+      "standard_distance_to_truth": 0.13803196013709626,
       "robust_distance_to_truth": 0.0,
       "note": "Main high-noise stress case."
     },
     {
       "scenario": "weak_moments",
       "label": "Weak structural higher moments",
-      "reps": 12,
+      "reps": 6,
       "noise": [
         0.2,
         0.2
@@ -116,22 +117,22 @@
       "sample_size": 500,
       "residual_noise": "gaussian",
       "standard_truth_rate": 0.0,
-      "robust_truth_rate": 0.9166666666666666,
-      "warning_rate": 0.9166666666666666,
-      "sign_share": 0.12114197530864197,
-      "standard_share": 0.11754115226337448,
-      "robust_share": 0.16743827160493827,
+      "robust_truth_rate": 0.8333333333333334,
+      "warning_rate": 0.8333333333333334,
+      "sign_share": 0.02806122448979592,
+      "standard_share": 0.016156462585034014,
+      "robust_share": 0.09183673469387754,
       "standard_empty_rate": 0.0,
       "robust_empty_rate": 0.0,
-      "d_standard_not_subset_robust": 0.17340131823349372,
-      "standard_distance_to_truth": 0.023958333333333314,
+      "d_standard_not_subset_robust": 0.0,
+      "standard_distance_to_truth": 0.20838262187802115,
       "robust_distance_to_truth": 0.0,
       "note": "Higher-moment limitation case."
     },
     {
       "scenario": "gaussian_shocks",
       "label": "Gaussian structural shocks",
-      "reps": 12,
+      "reps": 6,
       "noise": [
         0.2,
         0.2
@@ -142,20 +143,20 @@
       "standard_truth_rate": 0.0,
       "robust_truth_rate": 0.8333333333333334,
       "warning_rate": 0.8333333333333334,
-      "sign_share": 0.11419753086419754,
-      "standard_share": 0.11188271604938271,
-      "robust_share": 0.1617798353909465,
+      "sign_share": 0.027210884353741496,
+      "standard_share": 0.02040816326530612,
+      "robust_share": 0.09013605442176871,
       "standard_empty_rate": 0.0,
       "robust_empty_rate": 0.0,
-      "d_standard_not_subset_robust": 0.14063863485491893,
-      "standard_distance_to_truth": 0.013802083333333326,
+      "d_standard_not_subset_robust": 0.16666666666666666,
+      "standard_distance_to_truth": 0.2198686429047664,
       "robust_distance_to_truth": 0.0,
       "note": "All-null higher-cumulant limit."
     },
     {
       "scenario": "skewed_residual_noise",
       "label": "Skewed residual noise",
-      "reps": 12,
+      "reps": 6,
       "noise": [
         0.2,
         0.2
@@ -163,17 +164,17 @@
       "non_gaussian_weight": 1.0,
       "sample_size": 500,
       "residual_noise": "skewed",
-      "standard_truth_rate": 0.16666666666666666,
-      "robust_truth_rate": 0.6666666666666666,
-      "warning_rate": 0.5833333333333334,
-      "sign_share": 0.17772633744855967,
-      "standard_share": 0.07484567901234566,
-      "robust_share": 0.07201646090534979,
+      "standard_truth_rate": 0.3333333333333333,
+      "robust_truth_rate": 0.8333333333333334,
+      "warning_rate": 0.6666666666666666,
+      "sign_share": 0.05187074829931972,
+      "standard_share": 0.02040816326530612,
+      "robust_share": 0.05782312925170069,
       "standard_empty_rate": 0.0,
       "robust_empty_rate": 0.0,
-      "d_standard_not_subset_robust": 0.28628063990967223,
-      "standard_distance_to_truth": 0.010416666666666666,
-      "robust_distance_to_truth": 0.006770833333333319,
+      "d_standard_not_subset_robust": 0.033333333333333326,
+      "standard_distance_to_truth": 0.054166666666666696,
+      "robust_distance_to_truth": 0.0,
       "note": "Maintained-assumption stress case."
     }
   ],
@@ -186,36 +187,63 @@
       "metrics": {
         "seed": 20360605,
         "sign": {
-          "accepted_count": 32,
-          "accepted_share": 0.09876543209876543,
+          "accepted_count": 9,
+          "accepted_share": 0.04591836734693878,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 11,
-          "accepted_share": 0.033950617283950615,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false,
           "truth_in": true,
-          "truth_second_j": 0.06372403654446603,
-          "truth_higher_j": 4.333833491240881,
+          "truth_second_j": 0.063724036544466,
+          "truth_higher_j": 4.333833491240925,
           "distance_to_truth_projection": 0.0
         },
         "robust_dw": {
-          "accepted_count": 17,
-          "accepted_share": 0.05246913580246913,
+          "accepted_count": 8,
+          "accepted_share": 0.04081632653061224,
           "empty": false,
           "truth_in": true,
-          "truth_j": 5.367538904501787,
+          "truth_j": 5.367538904501829,
           "true_lambda": [
             0.0,
             0.0
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3345
+          "prefilter_count": 618
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 24,
+              "regularized_eigenvalue_count": 24,
+              "min_eigenvalue_before_floor": 0.017004065635830685,
+              "max_eigenvalue_floor": 6830.297051423424
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 83,
+              "regularized_eigenvalue_count": 138,
+              "min_eigenvalue_before_floor": -4331175356424.477,
+              "max_eigenvalue_floor": 3.179978877122669e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 5562,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.05018015127933922,
+              "max_eigenvalue_floor": 0.00022632561504267175
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 11,
-          "union_count": 17,
-          "jaccard": 0.6470588235294118,
+          "intersection_count": 6,
+          "union_count": 8,
+          "jaccard": 0.75,
           "d_standard_not_subset_robust": 0.0
         },
         "warning": false
@@ -229,37 +257,64 @@
       "metrics": {
         "seed": 20360606,
         "sign": {
-          "accepted_count": 34,
-          "accepted_share": 0.10493827160493827,
+          "accepted_count": 10,
+          "accepted_share": 0.05102040816326531,
           "empty": false
         },
         "standard_dw": {
           "accepted_count": 1,
-          "accepted_share": 0.0030864197530864196,
+          "accepted_share": 0.00510204081632653,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 0.5725963047125296,
-          "truth_higher_j": 18.27398526205432,
-          "distance_to_truth_projection": 0.08598010307623516
+          "truth_second_j": 0.5725963047125291,
+          "truth_higher_j": 18.273985262054495,
+          "distance_to_truth_projection": 0.10960788698304932
         },
         "robust_dw": {
-          "accepted_count": 0,
-          "accepted_share": 0.0,
-          "empty": true,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
+          "empty": false,
           "truth_in": false,
-          "truth_j": 23.41389900914384,
+          "truth_j": 23.413899009144362,
           "true_lambda": [
             0.0,
             0.0
           ],
-          "distance_to_truth_projection": null,
-          "prefilter_count": 3454
+          "distance_to_truth_projection": 0.0,
+          "prefilter_count": 594
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 23,
+              "regularized_eigenvalue_count": 23,
+              "min_eigenvalue_before_floor": 0.015625374936769635,
+              "max_eigenvalue_floor": 6323.056513166138
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 76,
+              "regularized_eigenvalue_count": 127,
+              "min_eigenvalue_before_floor": -4897421276710.19,
+              "max_eigenvalue_floor": 3.8083243356384425e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 5346,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.06585251192316176,
+              "max_eigenvalue_floor": 0.00016796077086972866
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 0,
-          "union_count": 1,
-          "jaccard": 0.0,
-          "d_standard_not_subset_robust": 1.0
+          "intersection_count": 1,
+          "union_count": 6,
+          "jaccard": 0.16666666666666666,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": false
       }
@@ -272,37 +327,64 @@
       "metrics": {
         "seed": 20360607,
         "sign": {
-          "accepted_count": 34,
-          "accepted_share": 0.10493827160493827,
+          "accepted_count": 10,
+          "accepted_share": 0.05102040816326531,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 15,
-          "accepted_share": 0.046296296296296294,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false,
           "truth_in": true,
-          "truth_second_j": 1.3048329094921218,
-          "truth_higher_j": 3.790416332170893,
+          "truth_second_j": 1.3048329094921225,
+          "truth_higher_j": 3.7904163321708966,
           "distance_to_truth_projection": 0.0
         },
         "robust_dw": {
-          "accepted_count": 15,
-          "accepted_share": 0.046296296296296294,
+          "accepted_count": 8,
+          "accepted_share": 0.04081632653061224,
           "empty": false,
           "truth_in": true,
-          "truth_j": 5.041191365379913,
+          "truth_j": 5.041191365379918,
           "true_lambda": [
             0.0,
             0.0
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3532
+          "prefilter_count": 601
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.021001482357293474,
+              "max_eigenvalue_floor": 6784.755797802448
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 89,
+              "regularized_eigenvalue_count": 145,
+              "min_eigenvalue_before_floor": -1501412982530.2397,
+              "max_eigenvalue_floor": 5.481219810205958e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 5409,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.0682287111767993,
+              "max_eigenvalue_floor": 0.00017134203721676138
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 11,
-          "union_count": 19,
-          "jaccard": 0.5789473684210527,
-          "d_standard_not_subset_robust": 0.2666666666666667
+          "intersection_count": 6,
+          "union_count": 8,
+          "jaccard": 0.75,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": false
       }
@@ -315,37 +397,64 @@
       "metrics": {
         "seed": 20360608,
         "sign": {
-          "accepted_count": 36,
-          "accepted_share": 0.1111111111111111,
+          "accepted_count": 12,
+          "accepted_share": 0.061224489795918366,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 9,
-          "accepted_share": 0.027777777777777776,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false,
           "truth_in": true,
-          "truth_second_j": 2.357002731806492e-05,
-          "truth_higher_j": 6.014291640617644,
+          "truth_second_j": 2.3570027318064897e-05,
+          "truth_higher_j": 6.014291640617665,
           "distance_to_truth_projection": 0.0
         },
         "robust_dw": {
-          "accepted_count": 1,
-          "accepted_share": 0.0030864197530864196,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": false,
-          "truth_j": 15.69469108034595,
+          "truth_j": 15.694691080345414,
           "true_lambda": [
             0.0,
             0.0
           ],
-          "distance_to_truth_projection": 0.14908575552345713,
-          "prefilter_count": 3362
+          "distance_to_truth_projection": 0.10833333333333339,
+          "prefilter_count": 590
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.01967340091967951,
+              "max_eigenvalue_floor": 6558.795307314112
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 81,
+              "regularized_eigenvalue_count": 138,
+              "min_eigenvalue_before_floor": -5017137424546.522,
+              "max_eigenvalue_floor": 3.0502837261665065e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 5310,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.04974164093037393,
+              "max_eigenvalue_floor": 0.0006327045031191229
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 0,
-          "union_count": 10,
-          "jaccard": 0.0,
-          "d_standard_not_subset_robust": 1.0
+          "intersection_count": 2,
+          "union_count": 8,
+          "jaccard": 0.25,
+          "d_standard_not_subset_robust": 0.6666666666666667
         },
         "warning": false
       }
@@ -358,37 +467,64 @@
       "metrics": {
         "seed": 20360609,
         "sign": {
-          "accepted_count": 36,
-          "accepted_share": 0.1111111111111111,
+          "accepted_count": 8,
+          "accepted_share": 0.04081632653061224,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 8,
-          "accepted_share": 0.024691358024691357,
-          "empty": false,
+          "accepted_count": 0,
+          "accepted_share": 0.0,
+          "empty": true,
           "truth_in": false,
-          "truth_second_j": 2.845134943043964,
-          "truth_higher_j": 19.049403373556935,
-          "distance_to_truth_projection": 0.0
+          "truth_second_j": 2.8451349430439667,
+          "truth_higher_j": 19.04940337355678,
+          "distance_to_truth_projection": null
         },
         "robust_dw": {
-          "accepted_count": 12,
-          "accepted_share": 0.037037037037037035,
+          "accepted_count": 7,
+          "accepted_share": 0.03571428571428571,
           "empty": false,
           "truth_in": false,
-          "truth_j": 24.256195299725995,
+          "truth_j": 24.256195299726155,
           "true_lambda": [
             0.0,
             0.0
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3427
+          "prefilter_count": 632
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 19,
+              "regularized_eigenvalue_count": 19,
+              "min_eigenvalue_before_floor": 0.029436362847774327,
+              "max_eigenvalue_floor": 5119.671142555381
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 73,
+              "regularized_eigenvalue_count": 123,
+              "min_eigenvalue_before_floor": -446745163344.064,
+              "max_eigenvalue_floor": 1.4838491092979694e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 5688,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.059017094843042295,
+              "max_eigenvalue_floor": 0.000538417366672226
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 8,
-          "union_count": 12,
-          "jaccard": 0.6666666666666666,
-          "d_standard_not_subset_robust": 0.0
+          "intersection_count": 0,
+          "union_count": 7,
+          "jaccard": 0.0,
+          "d_standard_not_subset_robust": null
         },
         "warning": false
       }
@@ -401,295 +537,64 @@
       "metrics": {
         "seed": 20360610,
         "sign": {
-          "accepted_count": 34,
-          "accepted_share": 0.10493827160493827,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 11,
-          "accepted_share": 0.033950617283950615,
-          "empty": false,
-          "truth_in": true,
-          "truth_second_j": 2.1610140063243373,
-          "truth_higher_j": 6.697975720536664,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 16,
-          "accepted_share": 0.04938271604938271,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 7.072922890147718,
-          "true_lambda": [
-            0.0,
-            0.0
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3502
-        },
-        "overlap": {
-          "intersection_count": 11,
-          "union_count": 16,
-          "jaccard": 0.6875,
-          "d_standard_not_subset_robust": 0.0
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "no_noise",
-      "label": "No noise, strong moments",
-      "rep": 6,
-      "seed": 20360611,
-      "metrics": {
-        "seed": 20360611,
-        "sign": {
-          "accepted_count": 28,
-          "accepted_share": 0.08641975308641975,
+          "accepted_count": 8,
+          "accepted_share": 0.04081632653061224,
           "empty": false
         },
         "standard_dw": {
           "accepted_count": 4,
-          "accepted_share": 0.012345679012345678,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
-          "truth_in": false,
-          "truth_second_j": 1.2213605103344762,
-          "truth_higher_j": 14.327754172321264,
-          "distance_to_truth_projection": 0.06874999999999998
+          "truth_in": true,
+          "truth_second_j": 2.1610140063243346,
+          "truth_higher_j": 6.697975720536599,
+          "distance_to_truth_projection": 0.0
         },
         "robust_dw": {
-          "accepted_count": 7,
-          "accepted_share": 0.021604938271604937,
+          "accepted_count": 8,
+          "accepted_share": 0.04081632653061224,
           "empty": false,
-          "truth_in": false,
-          "truth_j": 20.831402159303096,
+          "truth_in": true,
+          "truth_j": 7.072922890147687,
           "true_lambda": [
             0.0,
             0.0
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3472
+          "prefilter_count": 628
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.020006604286609116,
+              "max_eigenvalue_floor": 5258.567303860523
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 72,
+              "regularized_eigenvalue_count": 130,
+              "min_eigenvalue_before_floor": -2835938105920.7026,
+              "max_eigenvalue_floor": 1.9405831688688005e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 5652,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.06475374230186284,
+              "max_eigenvalue_floor": 0.00029250753474464566
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 2,
-          "union_count": 9,
-          "jaccard": 0.2222222222222222,
-          "d_standard_not_subset_robust": 0.5
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "no_noise",
-      "label": "No noise, strong moments",
-      "rep": 7,
-      "seed": 20360612,
-      "metrics": {
-        "seed": 20360612,
-        "sign": {
-          "accepted_count": 44,
-          "accepted_share": 0.13580246913580246,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 15,
-          "accepted_share": 0.046296296296296294,
-          "empty": false,
-          "truth_in": true,
-          "truth_second_j": 0.0021526150099101093,
-          "truth_higher_j": 2.275041452332415,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 19,
-          "accepted_share": 0.05864197530864197,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 4.60854153875316,
-          "true_lambda": [
-            0.0,
-            0.0
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3360
-        },
-        "overlap": {
-          "intersection_count": 14,
-          "union_count": 20,
-          "jaccard": 0.7,
-          "d_standard_not_subset_robust": 0.06666666666666665
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "no_noise",
-      "label": "No noise, strong moments",
-      "rep": 8,
-      "seed": 20360613,
-      "metrics": {
-        "seed": 20360613,
-        "sign": {
-          "accepted_count": 37,
-          "accepted_share": 0.11419753086419752,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 9,
-          "accepted_share": 0.027777777777777776,
-          "empty": false,
-          "truth_in": true,
-          "truth_second_j": 1.2345193841908204,
-          "truth_higher_j": 6.5346342690507955,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 9,
-          "accepted_share": 0.027777777777777776,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 8.638246083607624,
-          "true_lambda": [
-            0.0,
-            0.0
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3483
-        },
-        "overlap": {
-          "intersection_count": 7,
-          "union_count": 11,
-          "jaccard": 0.6363636363636364,
-          "d_standard_not_subset_robust": 0.2222222222222222
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "no_noise",
-      "label": "No noise, strong moments",
-      "rep": 9,
-      "seed": 20360614,
-      "metrics": {
-        "seed": 20360614,
-        "sign": {
-          "accepted_count": 40,
-          "accepted_share": 0.12345679012345678,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 3,
-          "accepted_share": 0.009259259259259259,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 1.1575989400510962,
-          "truth_higher_j": 14.564943475756763,
-          "distance_to_truth_projection": 0.125
-        },
-        "robust_dw": {
-          "accepted_count": 0,
-          "accepted_share": 0.0,
-          "empty": true,
-          "truth_in": false,
-          "truth_j": 18.70091631373505,
-          "true_lambda": [
-            0.0,
-            0.0
-          ],
-          "distance_to_truth_projection": null,
-          "prefilter_count": 3462
-        },
-        "overlap": {
-          "intersection_count": 0,
-          "union_count": 3,
-          "jaccard": 0.0,
-          "d_standard_not_subset_robust": 1.0
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "no_noise",
-      "label": "No noise, strong moments",
-      "rep": 10,
-      "seed": 20360615,
-      "metrics": {
-        "seed": 20360615,
-        "sign": {
-          "accepted_count": 40,
-          "accepted_share": 0.12345679012345678,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 10,
-          "accepted_share": 0.030864197530864196,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 13.955141552756642,
-          "truth_higher_j": 21.76321822970469,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 3,
-          "accepted_share": 0.009259259259259259,
-          "empty": false,
-          "truth_in": false,
-          "truth_j": 24.096996807823437,
-          "true_lambda": [
-            0.0,
-            0.0
-          ],
-          "distance_to_truth_projection": 0.125,
-          "prefilter_count": 3395
-        },
-        "overlap": {
-          "intersection_count": 2,
-          "union_count": 11,
-          "jaccard": 0.18181818181818182,
-          "d_standard_not_subset_robust": 0.8
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "no_noise",
-      "label": "No noise, strong moments",
-      "rep": 11,
-      "seed": 20360616,
-      "metrics": {
-        "seed": 20360616,
-        "sign": {
-          "accepted_count": 37,
-          "accepted_share": 0.11419753086419752,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 15,
-          "accepted_share": 0.046296296296296294,
-          "empty": false,
-          "truth_in": true,
-          "truth_second_j": 0.5410772293717641,
-          "truth_higher_j": 3.187442573406205,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 13,
-          "accepted_share": 0.040123456790123455,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 7.201587846721077,
-          "true_lambda": [
-            0.0,
-            0.0
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3498
-        },
-        "overlap": {
-          "intersection_count": 12,
-          "union_count": 16,
-          "jaccard": 0.75,
-          "d_standard_not_subset_robust": 0.19999999999999996
+          "intersection_count": 4,
+          "union_count": 8,
+          "jaccard": 0.5,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": false
       }
@@ -702,37 +607,64 @@
       "metrics": {
         "seed": 20370605,
         "sign": {
-          "accepted_count": 41,
-          "accepted_share": 0.12654320987654322,
+          "accepted_count": 8,
+          "accepted_share": 0.04081632653061224,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 17,
-          "accepted_share": 0.05246913580246913,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 8.654172683052378,
-          "truth_higher_j": 10.44836294271818,
-          "distance_to_truth_projection": 0.0
+          "truth_second_j": 8.65417268305238,
+          "truth_higher_j": 10.448362942718274,
+          "distance_to_truth_projection": 0.01666666666666705
         },
         "robust_dw": {
-          "accepted_count": 29,
-          "accepted_share": 0.08950617283950617,
+          "accepted_count": 14,
+          "accepted_share": 0.07142857142857142,
           "empty": false,
           "truth_in": true,
-          "truth_j": 7.933294371437953,
+          "truth_j": 7.93329437143804,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3739
+          "prefilter_count": 622
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.022794248117038986,
+              "max_eigenvalue_floor": 7725.923510756963
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 77,
+              "regularized_eigenvalue_count": 132,
+              "min_eigenvalue_before_floor": -12499087965650.596,
+              "max_eigenvalue_floor": 6.100013663218378e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 9952,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.13072284057522163,
+              "max_eigenvalue_floor": 9.470916810104717e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 15,
-          "union_count": 31,
-          "jaccard": 0.4838709677419355,
-          "d_standard_not_subset_robust": 0.11764705882352944
+          "intersection_count": 4,
+          "union_count": 14,
+          "jaccard": 0.2857142857142857,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -745,36 +677,63 @@
       "metrics": {
         "seed": 20370606,
         "sign": {
-          "accepted_count": 44,
-          "accepted_share": 0.13580246913580246,
+          "accepted_count": 13,
+          "accepted_share": 0.0663265306122449,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 21,
-          "accepted_share": 0.06481481481481481,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 6.490144633673925,
-          "truth_higher_j": 4.584176339807195,
+          "truth_second_j": 6.4901446336739355,
+          "truth_higher_j": 4.584176339807204,
           "distance_to_truth_projection": 0.0
         },
         "robust_dw": {
-          "accepted_count": 28,
-          "accepted_share": 0.08641975308641975,
+          "accepted_count": 8,
+          "accepted_share": 0.04081632653061224,
           "empty": false,
           "truth_in": false,
-          "truth_j": 16.030004291015697,
+          "truth_j": 16.03000429101571,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3538
+          "prefilter_count": 658
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.024068086722232093,
+              "max_eigenvalue_floor": 7272.583427334935
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 69,
+              "regularized_eigenvalue_count": 125,
+              "min_eigenvalue_before_floor": -4039068146283.296,
+              "max_eigenvalue_floor": 4.5128082624419364e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10528,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.1346346070233278,
+              "max_eigenvalue_floor": 7.20387348287017e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 21,
-          "union_count": 28,
-          "jaccard": 0.75,
+          "intersection_count": 4,
+          "union_count": 8,
+          "jaccard": 0.5,
           "d_standard_not_subset_robust": 0.0
         },
         "warning": false
@@ -788,37 +747,64 @@
       "metrics": {
         "seed": 20370607,
         "sign": {
-          "accepted_count": 76,
-          "accepted_share": 0.2345679012345679,
+          "accepted_count": 11,
+          "accepted_share": 0.05612244897959184,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 34,
-          "accepted_share": 0.10493827160493827,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": true,
-          "truth_second_j": 4.775470674169085,
-          "truth_higher_j": 4.0281720897889555,
+          "truth_second_j": 4.775470674169087,
+          "truth_higher_j": 4.0281720897892175,
           "distance_to_truth_projection": 0.0
         },
         "robust_dw": {
-          "accepted_count": 26,
-          "accepted_share": 0.08024691358024691,
+          "accepted_count": 12,
+          "accepted_share": 0.061224489795918366,
           "empty": false,
           "truth_in": false,
-          "truth_j": 18.95956609427574,
+          "truth_j": 18.95956609427559,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3540
+          "prefilter_count": 549
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 38,
+              "regularized_eigenvalue_count": 38,
+              "min_eigenvalue_before_floor": 0.003973440629160903,
+              "max_eigenvalue_floor": 20807.337220284317
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 145,
+              "regularized_eigenvalue_count": 223,
+              "min_eigenvalue_before_floor": -129268888077444.52,
+              "max_eigenvalue_floor": 9.714929879023449e+19
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 8784,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.15307813268099071,
+              "max_eigenvalue_floor": 0.00047002748089010327
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 22,
-          "union_count": 38,
-          "jaccard": 0.5789473684210527,
-          "d_standard_not_subset_robust": 0.3529411764705882
+          "intersection_count": 4,
+          "union_count": 12,
+          "jaccard": 0.3333333333333333,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": false
       }
@@ -831,37 +817,64 @@
       "metrics": {
         "seed": 20370608,
         "sign": {
-          "accepted_count": 51,
-          "accepted_share": 0.1574074074074074,
+          "accepted_count": 11,
+          "accepted_share": 0.05612244897959184,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 22,
-          "accepted_share": 0.06790123456790123,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 7.051191738463577,
-          "truth_higher_j": 3.8975626279239526,
+          "truth_second_j": 7.05119173846358,
+          "truth_higher_j": 3.897562627923946,
           "distance_to_truth_projection": 0.0
         },
         "robust_dw": {
-          "accepted_count": 30,
-          "accepted_share": 0.09259259259259259,
+          "accepted_count": 13,
+          "accepted_share": 0.0663265306122449,
           "empty": false,
           "truth_in": true,
-          "truth_j": 4.213854990738084,
+          "truth_j": 4.2138549907381,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3515
+          "prefilter_count": 600
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.02634751472545135,
+              "max_eigenvalue_floor": 8253.8944303382
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 73,
+              "regularized_eigenvalue_count": 128,
+              "min_eigenvalue_before_floor": -4753267339461.359,
+              "max_eigenvalue_floor": 5.20815868072999e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 9600,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.1414896971374931,
+              "max_eigenvalue_floor": 9.965062506042251e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 20,
-          "union_count": 32,
-          "jaccard": 0.625,
-          "d_standard_not_subset_robust": 0.09090909090909094
+          "intersection_count": 6,
+          "union_count": 13,
+          "jaccard": 0.46153846153846156,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -874,37 +887,64 @@
       "metrics": {
         "seed": 20370609,
         "sign": {
-          "accepted_count": 63,
-          "accepted_share": 0.19444444444444445,
+          "accepted_count": 9,
+          "accepted_share": 0.04591836734693878,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 28,
-          "accepted_share": 0.08641975308641975,
+          "accepted_count": 2,
+          "accepted_share": 0.01020408163265306,
           "empty": false,
           "truth_in": false,
           "truth_second_j": 11.638821584207687,
-          "truth_higher_j": 9.094352884076521,
-          "distance_to_truth_projection": 0.0
+          "truth_higher_j": 9.094352884076551,
+          "distance_to_truth_projection": 0.10833333333333339
         },
         "robust_dw": {
-          "accepted_count": 30,
-          "accepted_share": 0.09259259259259259,
+          "accepted_count": 14,
+          "accepted_share": 0.07142857142857142,
           "empty": false,
           "truth_in": true,
-          "truth_j": 4.048360922547908,
+          "truth_j": 4.048360922547889,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3780
+          "prefilter_count": 673
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 23,
+              "regularized_eigenvalue_count": 23,
+              "min_eigenvalue_before_floor": 0.031089461375364835,
+              "max_eigenvalue_floor": 12138.783784278685
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 125,
+              "regularized_eigenvalue_count": 225,
+              "min_eigenvalue_before_floor": -147315867098444.3,
+              "max_eigenvalue_floor": 5.230186314309218e+19
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10768,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.12047472574016525,
+              "max_eigenvalue_floor": 0.00013803478302355936
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 19,
-          "union_count": 39,
-          "jaccard": 0.48717948717948717,
-          "d_standard_not_subset_robust": 0.3214285714285714
+          "intersection_count": 2,
+          "union_count": 14,
+          "jaccard": 0.14285714285714285,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -917,297 +957,66 @@
       "metrics": {
         "seed": 20370610,
         "sign": {
-          "accepted_count": 49,
-          "accepted_share": 0.15123456790123457,
+          "accepted_count": 8,
+          "accepted_share": 0.04081632653061224,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 29,
-          "accepted_share": 0.08950617283950617,
+          "accepted_count": 2,
+          "accepted_share": 0.01020408163265306,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 10.78343651208612,
-          "truth_higher_j": 7.987088626782636,
-          "distance_to_truth_projection": 0.0
+          "truth_second_j": 10.783436512086105,
+          "truth_higher_j": 7.9870886267826116,
+          "distance_to_truth_projection": 0.10833333333333339
         },
         "robust_dw": {
-          "accepted_count": 26,
-          "accepted_share": 0.08024691358024691,
+          "accepted_count": 10,
+          "accepted_share": 0.05102040816326531,
           "empty": false,
           "truth_in": true,
-          "truth_j": 6.726468057383968,
+          "truth_j": 6.726468057384125,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3586
+          "prefilter_count": 663
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.028199155207735006,
+              "max_eigenvalue_floor": 7968.415034877703
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 66,
+              "regularized_eigenvalue_count": 112,
+              "min_eigenvalue_before_floor": -6600408598501.83,
+              "max_eigenvalue_floor": 4.948441380186211e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10608,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.14615859709924253,
+              "max_eigenvalue_floor": 0.0001096472788881741
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 19,
-          "union_count": 36,
-          "jaccard": 0.5277777777777778,
-          "d_standard_not_subset_robust": 0.3448275862068966
+          "intersection_count": 2,
+          "union_count": 10,
+          "jaccard": 0.2,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
-      }
-    },
-    {
-      "scenario": "moderate_noise",
-      "label": "Moderate Gaussian noise",
-      "rep": 6,
-      "seed": 20370611,
-      "metrics": {
-        "seed": 20370611,
-        "sign": {
-          "accepted_count": 50,
-          "accepted_share": 0.15432098765432098,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 18,
-          "accepted_share": 0.05555555555555555,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 10.317940557754493,
-          "truth_higher_j": 7.698628267122306,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 13,
-          "accepted_share": 0.040123456790123455,
-          "empty": false,
-          "truth_in": false,
-          "truth_j": 21.751945575078285,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3551
-        },
-        "overlap": {
-          "intersection_count": 11,
-          "union_count": 20,
-          "jaccard": 0.55,
-          "d_standard_not_subset_robust": 0.38888888888888884
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "moderate_noise",
-      "label": "Moderate Gaussian noise",
-      "rep": 7,
-      "seed": 20370612,
-      "metrics": {
-        "seed": 20370612,
-        "sign": {
-          "accepted_count": 42,
-          "accepted_share": 0.12962962962962962,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 22,
-          "accepted_share": 0.06790123456790123,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 7.693788625662602,
-          "truth_higher_j": 9.164550856404318,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 21,
-          "accepted_share": 0.06481481481481481,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 13.116548730822172,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3709
-        },
-        "overlap": {
-          "intersection_count": 15,
-          "union_count": 28,
-          "jaccard": 0.5357142857142857,
-          "d_standard_not_subset_robust": 0.31818181818181823
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "moderate_noise",
-      "label": "Moderate Gaussian noise",
-      "rep": 8,
-      "seed": 20370613,
-      "metrics": {
-        "seed": 20370613,
-        "sign": {
-          "accepted_count": 51,
-          "accepted_share": 0.1574074074074074,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 32,
-          "accepted_share": 0.09876543209876543,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 7.522140401751241,
-          "truth_higher_j": 5.239707462937208,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 33,
-          "accepted_share": 0.10185185185185185,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 4.341474333787198,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3794
-        },
-        "overlap": {
-          "intersection_count": 24,
-          "union_count": 41,
-          "jaccard": 0.5853658536585366,
-          "d_standard_not_subset_robust": 0.25
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "moderate_noise",
-      "label": "Moderate Gaussian noise",
-      "rep": 9,
-      "seed": 20370614,
-      "metrics": {
-        "seed": 20370614,
-        "sign": {
-          "accepted_count": 52,
-          "accepted_share": 0.16049382716049382,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 27,
-          "accepted_share": 0.08333333333333333,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 10.26117836804603,
-          "truth_higher_j": 4.675791922117113,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 33,
-          "accepted_share": 0.10185185185185185,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 4.39845409085052,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3687
-        },
-        "overlap": {
-          "intersection_count": 24,
-          "union_count": 36,
-          "jaccard": 0.6666666666666666,
-          "d_standard_not_subset_robust": 0.11111111111111116
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "moderate_noise",
-      "label": "Moderate Gaussian noise",
-      "rep": 10,
-      "seed": 20370615,
-      "metrics": {
-        "seed": 20370615,
-        "sign": {
-          "accepted_count": 65,
-          "accepted_share": 0.2006172839506173,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 19,
-          "accepted_share": 0.05864197530864197,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 9.61430954131163,
-          "truth_higher_j": 13.328563412356154,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 13,
-          "accepted_share": 0.040123456790123455,
-          "empty": false,
-          "truth_in": false,
-          "truth_j": 24.186145669623357,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3943
-        },
-        "overlap": {
-          "intersection_count": 10,
-          "union_count": 22,
-          "jaccard": 0.45454545454545453,
-          "d_standard_not_subset_robust": 0.4736842105263158
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "moderate_noise",
-      "label": "Moderate Gaussian noise",
-      "rep": 11,
-      "seed": 20370616,
-      "metrics": {
-        "seed": 20370616,
-        "sign": {
-          "accepted_count": 57,
-          "accepted_share": 0.17592592592592593,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 14,
-          "accepted_share": 0.043209876543209874,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 10.349977906778495,
-          "truth_higher_j": 10.577898402130094,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 11,
-          "accepted_share": 0.033950617283950615,
-          "empty": false,
-          "truth_in": false,
-          "truth_j": 26.033237536591777,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3785
-        },
-        "overlap": {
-          "intersection_count": 10,
-          "union_count": 15,
-          "jaccard": 0.6666666666666666,
-          "d_standard_not_subset_robust": 0.2857142857142857
-        },
-        "warning": false
       }
     },
     {
@@ -1218,37 +1027,64 @@
       "metrics": {
         "seed": 20380605,
         "sign": {
-          "accepted_count": 90,
-          "accepted_share": 0.2777777777777778,
+          "accepted_count": 15,
+          "accepted_share": 0.07653061224489796,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 78,
-          "accepted_share": 0.24074074074074073,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 43.93777200568053,
-          "truth_higher_j": 20.431200498260267,
-          "distance_to_truth_projection": 0.08124999999999982
+          "truth_second_j": 43.937772005680536,
+          "truth_higher_j": 20.43120049826027,
+          "distance_to_truth_projection": 0.10960788698304932
         },
         "robust_dw": {
-          "accepted_count": 66,
-          "accepted_share": 0.2037037037037037,
+          "accepted_count": 11,
+          "accepted_share": 0.05612244897959184,
           "empty": false,
           "truth_in": true,
-          "truth_j": 10.380292773836327,
+          "truth_j": 10.38029277383616,
           "true_lambda": [
             0.47058823529411764,
             0.3048780487804878
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3355
+          "prefilter_count": 593
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 33,
+              "regularized_eigenvalue_count": 33,
+              "min_eigenvalue_before_floor": 0.027438095556267448,
+              "max_eigenvalue_floor": 19283.391510476664
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 95,
+              "regularized_eigenvalue_count": 153,
+              "min_eigenvalue_before_floor": -9897241360401.71,
+              "max_eigenvalue_floor": 3.649203946883136e+19
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 9488,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.2923153248918157,
+              "max_eigenvalue_floor": 2.8571458376019258e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 45,
-          "union_count": 99,
-          "jaccard": 0.45454545454545453,
-          "d_standard_not_subset_robust": 0.42307692307692313
+          "intersection_count": 4,
+          "union_count": 13,
+          "jaccard": 0.3076923076923077,
+          "d_standard_not_subset_robust": 0.33333333333333337
         },
         "warning": true
       }
@@ -1261,37 +1097,64 @@
       "metrics": {
         "seed": 20380606,
         "sign": {
-          "accepted_count": 87,
-          "accepted_share": 0.26851851851851855,
+          "accepted_count": 13,
+          "accepted_share": 0.0663265306122449,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 76,
-          "accepted_share": 0.2345679012345679,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 44.41135348052136,
-          "truth_higher_j": 17.346604883412553,
-          "distance_to_truth_projection": 0.06874999999999998
+          "truth_second_j": 44.411353480521356,
+          "truth_higher_j": 17.34660488341253,
+          "distance_to_truth_projection": 0.10833333333333339
         },
         "robust_dw": {
-          "accepted_count": 54,
-          "accepted_share": 0.16666666666666666,
+          "accepted_count": 13,
+          "accepted_share": 0.0663265306122449,
           "empty": false,
           "truth_in": false,
-          "truth_j": 17.692797946868495,
+          "truth_j": 17.6927979468684,
           "true_lambda": [
             0.47058823529411764,
             0.3048780487804878
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3902
+          "prefilter_count": 628
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 26,
+              "regularized_eigenvalue_count": 26,
+              "min_eigenvalue_before_floor": 0.03149276509573261,
+              "max_eigenvalue_floor": 15624.849418530526
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 110,
+              "regularized_eigenvalue_count": 200,
+              "min_eigenvalue_before_floor": -53889571249063.5,
+              "max_eigenvalue_floor": 6.240170726222027e+19
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10048,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.27126438592368807,
+              "max_eigenvalue_floor": 4.766292136752996e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 35,
-          "union_count": 95,
-          "jaccard": 0.3684210526315789,
-          "d_standard_not_subset_robust": 0.5394736842105263
+          "intersection_count": 2,
+          "union_count": 17,
+          "jaccard": 0.11764705882352941,
+          "d_standard_not_subset_robust": 0.6666666666666667
         },
         "warning": false
       }
@@ -1304,37 +1167,64 @@
       "metrics": {
         "seed": 20380607,
         "sign": {
-          "accepted_count": 82,
-          "accepted_share": 0.25308641975308643,
+          "accepted_count": 13,
+          "accepted_share": 0.0663265306122449,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 70,
-          "accepted_share": 0.21604938271604937,
+          "accepted_count": 1,
+          "accepted_share": 0.00510204081632653,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 38.362161002472355,
-          "truth_higher_j": 18.692583440503544,
-          "distance_to_truth_projection": 0.08124999999999982
+          "truth_second_j": 38.362161002472334,
+          "truth_higher_j": 18.6925834405036,
+          "distance_to_truth_projection": 0.28397598685647873
         },
         "robust_dw": {
-          "accepted_count": 63,
-          "accepted_share": 0.19444444444444445,
+          "accepted_count": 18,
+          "accepted_share": 0.09183673469387756,
           "empty": false,
           "truth_in": true,
-          "truth_j": 7.262272781674092,
+          "truth_j": 7.26227278167405,
           "true_lambda": [
             0.47058823529411764,
             0.3048780487804878
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3505
+          "prefilter_count": 636
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 23,
+              "regularized_eigenvalue_count": 23,
+              "min_eigenvalue_before_floor": 0.03980947855789193,
+              "max_eigenvalue_floor": 15195.333251727907
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 90,
+              "regularized_eigenvalue_count": 141,
+              "min_eigenvalue_before_floor": -22799185986935.7,
+              "max_eigenvalue_floor": 2.62223233135387e+19
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10176,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.26446149066003566,
+              "max_eigenvalue_floor": 0.00013848279927446437
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 32,
-          "union_count": 101,
-          "jaccard": 0.31683168316831684,
-          "d_standard_not_subset_robust": 0.5428571428571429
+          "intersection_count": 1,
+          "union_count": 18,
+          "jaccard": 0.05555555555555555,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -1347,37 +1237,64 @@
       "metrics": {
         "seed": 20380608,
         "sign": {
-          "accepted_count": 87,
-          "accepted_share": 0.26851851851851855,
+          "accepted_count": 16,
+          "accepted_share": 0.08163265306122448,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 66,
-          "accepted_share": 0.2037037037037037,
+          "accepted_count": 3,
+          "accepted_share": 0.015306122448979591,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 25.95780939111626,
-          "truth_higher_j": 8.258875342232287,
-          "distance_to_truth_projection": 0.08124999999999982
+          "truth_second_j": 25.95780939111625,
+          "truth_higher_j": 8.258875342232303,
+          "distance_to_truth_projection": 0.10833333333333339
         },
         "robust_dw": {
-          "accepted_count": 54,
-          "accepted_share": 0.16666666666666666,
+          "accepted_count": 17,
+          "accepted_share": 0.08673469387755102,
           "empty": false,
           "truth_in": false,
-          "truth_j": 20.033388836043247,
+          "truth_j": 20.033388836043244,
           "true_lambda": [
             0.47058823529411764,
             0.3048780487804878
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3526
+          "prefilter_count": 606
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 23,
+              "regularized_eigenvalue_count": 23,
+              "min_eigenvalue_before_floor": 0.035350581488386476,
+              "max_eigenvalue_floor": 13016.171898904964
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 87,
+              "regularized_eigenvalue_count": 132,
+              "min_eigenvalue_before_floor": 0.04580073191405444,
+              "max_eigenvalue_floor": 1.7321517726708273e+19
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 9696,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.2433546655904123,
+              "max_eigenvalue_floor": 0.000285527814926374
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 32,
-          "union_count": 88,
-          "jaccard": 0.36363636363636365,
-          "d_standard_not_subset_robust": 0.5151515151515151
+          "intersection_count": 2,
+          "union_count": 18,
+          "jaccard": 0.1111111111111111,
+          "d_standard_not_subset_robust": 0.33333333333333337
         },
         "warning": false
       }
@@ -1390,37 +1307,64 @@
       "metrics": {
         "seed": 20380609,
         "sign": {
-          "accepted_count": 74,
-          "accepted_share": 0.22839506172839505,
+          "accepted_count": 7,
+          "accepted_share": 0.03571428571428571,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 62,
-          "accepted_share": 0.19135802469135801,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 34.7428834022364,
-          "truth_higher_j": 17.989713651632858,
-          "distance_to_truth_projection": 0.08124999999999982
+          "truth_second_j": 34.742883402236416,
+          "truth_higher_j": 17.989713651632883,
+          "distance_to_truth_projection": 0.10960788698304932
         },
         "robust_dw": {
-          "accepted_count": 53,
-          "accepted_share": 0.16358024691358025,
+          "accepted_count": 18,
+          "accepted_share": 0.09183673469387756,
           "empty": false,
           "truth_in": true,
-          "truth_j": 7.308500880689795,
+          "truth_j": 7.308500880689818,
           "true_lambda": [
             0.47058823529411764,
             0.3048780487804878
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3704
+          "prefilter_count": 642
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 23,
+              "regularized_eigenvalue_count": 23,
+              "min_eigenvalue_before_floor": 0.02829562076345196,
+              "max_eigenvalue_floor": 8068.803705235661
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 61,
+              "regularized_eigenvalue_count": 116,
+              "min_eigenvalue_before_floor": -1511770528042.312,
+              "max_eigenvalue_floor": 4.231151519810366e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10272,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.2518929450686318,
+              "max_eigenvalue_floor": 0.0001961545599714787
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 30,
-          "union_count": 85,
-          "jaccard": 0.35294117647058826,
-          "d_standard_not_subset_robust": 0.5161290322580645
+          "intersection_count": 4,
+          "union_count": 18,
+          "jaccard": 0.2222222222222222,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -1433,295 +1377,64 @@
       "metrics": {
         "seed": 20380610,
         "sign": {
-          "accepted_count": 70,
-          "accepted_share": 0.21604938271604937,
+          "accepted_count": 12,
+          "accepted_share": 0.061224489795918366,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 68,
-          "accepted_share": 0.20987654320987653,
+          "accepted_count": 7,
+          "accepted_share": 0.03571428571428571,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 40.606259654124926,
-          "truth_higher_j": 20.588844002151323,
-          "distance_to_truth_projection": 0.08124999999999982
+          "truth_second_j": 40.60625965412488,
+          "truth_higher_j": 20.58884400215129,
+          "distance_to_truth_projection": 0.10833333333333339
         },
         "robust_dw": {
-          "accepted_count": 68,
-          "accepted_share": 0.20987654320987653,
+          "accepted_count": 19,
+          "accepted_share": 0.09693877551020408,
           "empty": false,
           "truth_in": true,
-          "truth_j": 6.148897071302455,
+          "truth_j": 6.148897071302442,
           "true_lambda": [
             0.47058823529411764,
             0.3048780487804878
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3519
+          "prefilter_count": 597
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.033774986116023954,
+              "max_eigenvalue_floor": 8823.805487203921
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 60,
+              "regularized_eigenvalue_count": 110,
+              "min_eigenvalue_before_floor": -630061320504.1938,
+              "max_eigenvalue_floor": 6.74682834389769e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 9552,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.27065373947783444,
+              "max_eigenvalue_floor": 6.200183492123e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 46,
-          "union_count": 90,
-          "jaccard": 0.5111111111111111,
-          "d_standard_not_subset_robust": 0.32352941176470584
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "high_noise",
-      "label": "High Gaussian noise",
-      "rep": 6,
-      "seed": 20380611,
-      "metrics": {
-        "seed": 20380611,
-        "sign": {
-          "accepted_count": 83,
-          "accepted_share": 0.25617283950617287,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 70,
-          "accepted_share": 0.21604938271604937,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 39.12239418877529,
-          "truth_higher_j": 16.648209184544772,
-          "distance_to_truth_projection": 0.08124999999999982
-        },
-        "robust_dw": {
-          "accepted_count": 51,
-          "accepted_share": 0.1574074074074074,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 9.88076092535679,
-          "true_lambda": [
-            0.47058823529411764,
-            0.3048780487804878
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3815
-        },
-        "overlap": {
-          "intersection_count": 30,
-          "union_count": 91,
-          "jaccard": 0.32967032967032966,
-          "d_standard_not_subset_robust": 0.5714285714285714
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "high_noise",
-      "label": "High Gaussian noise",
-      "rep": 7,
-      "seed": 20380612,
-      "metrics": {
-        "seed": 20380612,
-        "sign": {
-          "accepted_count": 69,
-          "accepted_share": 0.21296296296296297,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 54,
-          "accepted_share": 0.16666666666666666,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 32.65290045315916,
-          "truth_higher_j": 12.055047824889602,
-          "distance_to_truth_projection": 0.10643366478703986
-        },
-        "robust_dw": {
-          "accepted_count": 54,
-          "accepted_share": 0.16666666666666666,
-          "empty": false,
-          "truth_in": false,
-          "truth_j": 17.992567608858874,
-          "true_lambda": [
-            0.47058823529411764,
-            0.3048780487804878
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3515
-        },
-        "overlap": {
-          "intersection_count": 33,
-          "union_count": 75,
-          "jaccard": 0.44,
-          "d_standard_not_subset_robust": 0.38888888888888884
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "high_noise",
-      "label": "High Gaussian noise",
-      "rep": 8,
-      "seed": 20380613,
-      "metrics": {
-        "seed": 20380613,
-        "sign": {
-          "accepted_count": 82,
-          "accepted_share": 0.25308641975308643,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 62,
-          "accepted_share": 0.19135802469135801,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 43.271256875802585,
-          "truth_higher_j": 20.83851276976284,
-          "distance_to_truth_projection": 0.06874999999999998
-        },
-        "robust_dw": {
-          "accepted_count": 60,
-          "accepted_share": 0.18518518518518517,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 3.0149616953275435,
-          "true_lambda": [
-            0.47058823529411764,
-            0.3048780487804878
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3753
-        },
-        "overlap": {
-          "intersection_count": 39,
-          "union_count": 83,
-          "jaccard": 0.46987951807228917,
-          "d_standard_not_subset_robust": 0.3709677419354839
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "high_noise",
-      "label": "High Gaussian noise",
-      "rep": 9,
-      "seed": 20380614,
-      "metrics": {
-        "seed": 20380614,
-        "sign": {
-          "accepted_count": 89,
-          "accepted_share": 0.27469135802469136,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 73,
-          "accepted_share": 0.22530864197530864,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 39.13027139251348,
-          "truth_higher_j": 20.92809350003276,
-          "distance_to_truth_projection": 0.08124999999999982
-        },
-        "robust_dw": {
-          "accepted_count": 67,
-          "accepted_share": 0.20679012345679013,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 5.490312834373141,
-          "true_lambda": [
-            0.47058823529411764,
-            0.3048780487804878
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3811
-        },
-        "overlap": {
-          "intersection_count": 41,
-          "union_count": 99,
-          "jaccard": 0.41414141414141414,
-          "d_standard_not_subset_robust": 0.4383561643835616
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "high_noise",
-      "label": "High Gaussian noise",
-      "rep": 10,
-      "seed": 20380615,
-      "metrics": {
-        "seed": 20380615,
-        "sign": {
-          "accepted_count": 79,
-          "accepted_share": 0.24382716049382716,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 64,
-          "accepted_share": 0.19753086419753085,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 42.899015642206855,
-          "truth_higher_j": 20.02030794307171,
-          "distance_to_truth_projection": 0.06874999999999998
-        },
-        "robust_dw": {
-          "accepted_count": 55,
-          "accepted_share": 0.1697530864197531,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 6.213292204648419,
-          "true_lambda": [
-            0.47058823529411764,
-            0.3048780487804878
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3792
-        },
-        "overlap": {
-          "intersection_count": 35,
-          "union_count": 84,
-          "jaccard": 0.4166666666666667,
-          "d_standard_not_subset_robust": 0.453125
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "high_noise",
-      "label": "High Gaussian noise",
-      "rep": 11,
-      "seed": 20380616,
-      "metrics": {
-        "seed": 20380616,
-        "sign": {
-          "accepted_count": 72,
-          "accepted_share": 0.2222222222222222,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 72,
-          "accepted_share": 0.2222222222222222,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 51.839004852266584,
-          "truth_higher_j": 22.701199832454268,
-          "distance_to_truth_projection": 0.10643366478703986
-        },
-        "robust_dw": {
-          "accepted_count": 80,
-          "accepted_share": 0.24691358024691357,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 3.6808378838508493,
-          "true_lambda": [
-            0.47058823529411764,
-            0.3048780487804878
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3811
-        },
-        "overlap": {
-          "intersection_count": 48,
-          "union_count": 104,
-          "jaccard": 0.46153846153846156,
-          "d_standard_not_subset_robust": 0.33333333333333337
+          "intersection_count": 7,
+          "union_count": 19,
+          "jaccard": 0.3684210526315789,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -1734,37 +1447,64 @@
       "metrics": {
         "seed": 20390605,
         "sign": {
-          "accepted_count": 36,
-          "accepted_share": 0.1111111111111111,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 36,
-          "accepted_share": 0.1111111111111111,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 13.696855271954801,
-          "truth_higher_j": 6.288378540769198,
-          "distance_to_truth_projection": 0.0
+          "truth_second_j": 13.696855271954803,
+          "truth_higher_j": 6.2883785407692026,
+          "distance_to_truth_projection": 0.10960788698304932
         },
         "robust_dw": {
-          "accepted_count": 53,
-          "accepted_share": 0.16358024691358025,
+          "accepted_count": 20,
+          "accepted_share": 0.10204081632653061,
           "empty": false,
           "truth_in": true,
-          "truth_j": 7.273208139220815,
+          "truth_j": 7.273208139220855,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3855
+          "prefilter_count": 637
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 20,
+              "regularized_eigenvalue_count": 20,
+              "min_eigenvalue_before_floor": 0.018463429314224247,
+              "max_eigenvalue_floor": 4644.994561525679
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 50,
+              "regularized_eigenvalue_count": 92,
+              "min_eigenvalue_before_floor": -456550277756.27374,
+              "max_eigenvalue_floor": 1.1724493683293128e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10192,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.14643264625911093,
+              "max_eigenvalue_floor": 0.00011286701428782563
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 30,
-          "union_count": 59,
-          "jaccard": 0.5084745762711864,
-          "d_standard_not_subset_robust": 0.16666666666666663
+          "intersection_count": 4,
+          "union_count": 20,
+          "jaccard": 0.2,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -1777,37 +1517,64 @@
       "metrics": {
         "seed": 20390606,
         "sign": {
-          "accepted_count": 39,
-          "accepted_share": 0.12037037037037036,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 39,
-          "accepted_share": 0.12037037037037036,
+          "accepted_count": 1,
+          "accepted_share": 0.00510204081632653,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 12.894860943244394,
-          "truth_higher_j": 6.958026832058731,
-          "distance_to_truth_projection": 0.0
+          "truth_second_j": 12.894860943244398,
+          "truth_higher_j": 6.958026832058723,
+          "distance_to_truth_projection": 0.31504519076193244
         },
         "robust_dw": {
-          "accepted_count": 52,
-          "accepted_share": 0.16049382716049382,
+          "accepted_count": 16,
+          "accepted_share": 0.08163265306122448,
           "empty": false,
           "truth_in": false,
-          "truth_j": 14.102259694495924,
+          "truth_j": 14.10225969449585,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3542
+          "prefilter_count": 581
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.013012965774294333,
+              "max_eigenvalue_floor": 7161.635966782769
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 60,
+              "regularized_eigenvalue_count": 108,
+              "min_eigenvalue_before_floor": -73570593171.90207,
+              "max_eigenvalue_floor": 2.822258768899273e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 9296,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.16798759494896068,
+              "max_eigenvalue_floor": 5.3950005729672945e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 32,
-          "union_count": 59,
-          "jaccard": 0.5423728813559322,
-          "d_standard_not_subset_robust": 0.17948717948717952
+          "intersection_count": 1,
+          "union_count": 16,
+          "jaccard": 0.0625,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": false
       }
@@ -1820,37 +1587,64 @@
       "metrics": {
         "seed": 20390607,
         "sign": {
-          "accepted_count": 41,
-          "accepted_share": 0.12654320987654322,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 41,
-          "accepted_share": 0.12654320987654322,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 20.118192726847838,
-          "truth_higher_j": 8.939239324495146,
-          "distance_to_truth_projection": 0.08124999999999982
+          "truth_second_j": 20.118192726847845,
+          "truth_higher_j": 8.939239324495158,
+          "distance_to_truth_projection": 0.26249999999999973
         },
         "robust_dw": {
-          "accepted_count": 57,
-          "accepted_share": 0.17592592592592593,
+          "accepted_count": 18,
+          "accepted_share": 0.09183673469387756,
           "empty": false,
           "truth_in": true,
-          "truth_j": 10.289463269900747,
+          "truth_j": 10.289463269900708,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3667
+          "prefilter_count": 638
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 20,
+              "regularized_eigenvalue_count": 20,
+              "min_eigenvalue_before_floor": 0.02237544660095892,
+              "max_eigenvalue_floor": 5418.304860822562
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 51,
+              "regularized_eigenvalue_count": 93,
+              "min_eigenvalue_before_floor": 0.046249401884214406,
+              "max_eigenvalue_floor": 1.185951818840351e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10208,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.25930503930453025,
+              "max_eigenvalue_floor": 3.2636616076176264e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 33,
-          "union_count": 65,
-          "jaccard": 0.5076923076923077,
-          "d_standard_not_subset_robust": 0.19512195121951215
+          "intersection_count": 4,
+          "union_count": 18,
+          "jaccard": 0.2222222222222222,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -1863,37 +1657,64 @@
       "metrics": {
         "seed": 20390608,
         "sign": {
-          "accepted_count": 40,
-          "accepted_share": 0.12345679012345678,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 40,
-          "accepted_share": 0.12345679012345678,
+          "accepted_count": 2,
+          "accepted_share": 0.01020408163265306,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 11.88720468840498,
-          "truth_higher_j": 9.659859298902244,
-          "distance_to_truth_projection": 0.0
+          "truth_second_j": 11.887204688405005,
+          "truth_higher_j": 9.659859298902248,
+          "distance_to_truth_projection": 0.28397598685647873
         },
         "robust_dw": {
-          "accepted_count": 56,
-          "accepted_share": 0.1728395061728395,
+          "accepted_count": 18,
+          "accepted_share": 0.09183673469387756,
           "empty": false,
           "truth_in": true,
-          "truth_j": 7.968508137266996,
+          "truth_j": 7.968508137267013,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3676
+          "prefilter_count": 671
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.020787349263616077,
+              "max_eigenvalue_floor": 5686.808047008766
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 53,
+              "regularized_eigenvalue_count": 97,
+              "min_eigenvalue_before_floor": -306599067495.68744,
+              "max_eigenvalue_floor": 1.6670932470196247e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10736,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.2005874945354272,
+              "max_eigenvalue_floor": 4.5300574678834905e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 33,
-          "union_count": 63,
-          "jaccard": 0.5238095238095238,
-          "d_standard_not_subset_robust": 0.17500000000000004
+          "intersection_count": 2,
+          "union_count": 18,
+          "jaccard": 0.1111111111111111,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -1906,37 +1727,64 @@
       "metrics": {
         "seed": 20390609,
         "sign": {
-          "accepted_count": 37,
-          "accepted_share": 0.11419753086419752,
+          "accepted_count": 9,
+          "accepted_share": 0.04591836734693878,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 37,
-          "accepted_share": 0.11419753086419752,
+          "accepted_count": 5,
+          "accepted_share": 0.025510204081632654,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 17.327978267654196,
-          "truth_higher_j": 7.36394101152613,
-          "distance_to_truth_projection": 0.0
+          "truth_second_j": 17.327978267654213,
+          "truth_higher_j": 7.363941011526128,
+          "distance_to_truth_projection": 0.01666666666666705
         },
         "robust_dw": {
-          "accepted_count": 63,
-          "accepted_share": 0.19444444444444445,
+          "accepted_count": 20,
+          "accepted_share": 0.10204081632653061,
           "empty": false,
           "truth_in": true,
-          "truth_j": 5.036353886869898,
+          "truth_j": 5.036353886869867,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3864
+          "prefilter_count": 655
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 20,
+              "regularized_eigenvalue_count": 20,
+              "min_eigenvalue_before_floor": 0.020261517676973866,
+              "max_eigenvalue_floor": 5091.033150422228
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 49,
+              "regularized_eigenvalue_count": 88,
+              "min_eigenvalue_before_floor": 0.022245328592034444,
+              "max_eigenvalue_floor": 8.697888666386006e+17
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10480,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.18753682410338054,
+              "max_eigenvalue_floor": 5.05907684251703e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 36,
-          "union_count": 64,
-          "jaccard": 0.5625,
-          "d_standard_not_subset_robust": 0.027027027027026973
+          "intersection_count": 5,
+          "union_count": 20,
+          "jaccard": 0.25,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -1949,295 +1797,64 @@
       "metrics": {
         "seed": 20390610,
         "sign": {
-          "accepted_count": 37,
-          "accepted_share": 0.11419753086419752,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 35,
-          "accepted_share": 0.10802469135802469,
+          "accepted_count": 3,
+          "accepted_share": 0.015306122448979591,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 15.864877014621637,
-          "truth_higher_j": 10.7379113199668,
-          "distance_to_truth_projection": 0.06874999999999998
+          "truth_second_j": 15.864877014621634,
+          "truth_higher_j": 10.737911319966805,
+          "distance_to_truth_projection": 0.26249999999999973
         },
         "robust_dw": {
-          "accepted_count": 49,
-          "accepted_share": 0.15123456790123457,
+          "accepted_count": 16,
+          "accepted_share": 0.08163265306122448,
           "empty": false,
           "truth_in": true,
-          "truth_j": 7.068234066876636,
+          "truth_j": 7.068234066876611,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3573
+          "prefilter_count": 649
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.017653161037354113,
+              "max_eigenvalue_floor": 5757.589614847084
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 52,
+              "regularized_eigenvalue_count": 95,
+              "min_eigenvalue_before_floor": -2196451449222.6423,
+              "max_eigenvalue_floor": 1.5014058469169772e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10384,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.1471640382649163,
+              "max_eigenvalue_floor": 6.278108738613395e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 29,
-          "union_count": 55,
-          "jaccard": 0.5272727272727272,
-          "d_standard_not_subset_robust": 0.17142857142857137
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "weak_moments",
-      "label": "Weak structural higher moments",
-      "rep": 6,
-      "seed": 20390611,
-      "metrics": {
-        "seed": 20390611,
-        "sign": {
-          "accepted_count": 40,
-          "accepted_share": 0.12345679012345678,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 40,
-          "accepted_share": 0.12345679012345678,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 17.456972866612467,
-          "truth_higher_j": 10.008139999125623,
-          "distance_to_truth_projection": 0.06874999999999998
-        },
-        "robust_dw": {
-          "accepted_count": 63,
-          "accepted_share": 0.19444444444444445,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 3.4680187198009786,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3637
-        },
-        "overlap": {
-          "intersection_count": 33,
-          "union_count": 70,
-          "jaccard": 0.4714285714285714,
-          "d_standard_not_subset_robust": 0.17500000000000004
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "weak_moments",
-      "label": "Weak structural higher moments",
-      "rep": 7,
-      "seed": 20390612,
-      "metrics": {
-        "seed": 20390612,
-        "sign": {
-          "accepted_count": 37,
-          "accepted_share": 0.11419753086419752,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 36,
-          "accepted_share": 0.1111111111111111,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 18.742030224156686,
-          "truth_higher_j": 11.443511923457013,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 47,
-          "accepted_share": 0.14506172839506173,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 9.76474864496475,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3849
-        },
-        "overlap": {
-          "intersection_count": 28,
-          "union_count": 55,
-          "jaccard": 0.509090909090909,
-          "d_standard_not_subset_robust": 0.2222222222222222
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "weak_moments",
-      "label": "Weak structural higher moments",
-      "rep": 8,
-      "seed": 20390613,
-      "metrics": {
-        "seed": 20390613,
-        "sign": {
-          "accepted_count": 45,
-          "accepted_share": 0.1388888888888889,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 34,
-          "accepted_share": 0.10493827160493827,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 19.287811633318668,
-          "truth_higher_j": 14.733638697054547,
-          "distance_to_truth_projection": 0.06874999999999998
-        },
-        "robust_dw": {
-          "accepted_count": 43,
-          "accepted_share": 0.13271604938271606,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 6.617906749778822,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3674
-        },
-        "overlap": {
-          "intersection_count": 24,
-          "union_count": 53,
-          "jaccard": 0.4528301886792453,
-          "d_standard_not_subset_robust": 0.2941176470588235
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "weak_moments",
-      "label": "Weak structural higher moments",
-      "rep": 9,
-      "seed": 20390614,
-      "metrics": {
-        "seed": 20390614,
-        "sign": {
-          "accepted_count": 38,
-          "accepted_share": 0.11728395061728394,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 38,
-          "accepted_share": 0.11728395061728394,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 19.014354175121515,
-          "truth_higher_j": 7.973256774498932,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 57,
-          "accepted_share": 0.17592592592592593,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 5.71656480899226,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3790
-        },
-        "overlap": {
-          "intersection_count": 32,
-          "union_count": 63,
-          "jaccard": 0.5079365079365079,
-          "d_standard_not_subset_robust": 0.1578947368421053
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "weak_moments",
-      "label": "Weak structural higher moments",
-      "rep": 10,
-      "seed": 20390615,
-      "metrics": {
-        "seed": 20390615,
-        "sign": {
-          "accepted_count": 42,
-          "accepted_share": 0.12962962962962962,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 42,
-          "accepted_share": 0.12962962962962962,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 12.585939492665513,
-          "truth_higher_j": 5.627264395555715,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 54,
-          "accepted_share": 0.16666666666666666,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 10.396597966457387,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3654
-        },
-        "overlap": {
-          "intersection_count": 33,
-          "union_count": 63,
-          "jaccard": 0.5238095238095238,
-          "d_standard_not_subset_robust": 0.2142857142857143
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "weak_moments",
-      "label": "Weak structural higher moments",
-      "rep": 11,
-      "seed": 20390616,
-      "metrics": {
-        "seed": 20390616,
-        "sign": {
-          "accepted_count": 39,
-          "accepted_share": 0.12037037037037036,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 39,
-          "accepted_share": 0.12037037037037036,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 15.477043263634467,
-          "truth_higher_j": 10.299142883696554,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 57,
-          "accepted_share": 0.17592592592592593,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 7.5646086787784705,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3959
-        },
-        "overlap": {
-          "intersection_count": 35,
-          "union_count": 61,
-          "jaccard": 0.5737704918032787,
-          "d_standard_not_subset_robust": 0.10256410256410253
+          "intersection_count": 3,
+          "union_count": 16,
+          "jaccard": 0.1875,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -2250,37 +1867,64 @@
       "metrics": {
         "seed": 20400605,
         "sign": {
-          "accepted_count": 34,
-          "accepted_share": 0.10493827160493827,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 34,
-          "accepted_share": 0.10493827160493827,
+          "accepted_count": 2,
+          "accepted_share": 0.01020408163265306,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 21.378807720976553,
-          "truth_higher_j": 11.54454852390051,
-          "distance_to_truth_projection": 0.0
+          "truth_second_j": 21.37880772097656,
+          "truth_higher_j": 11.544548523900492,
+          "distance_to_truth_projection": 0.31504519076193244
         },
         "robust_dw": {
-          "accepted_count": 58,
-          "accepted_share": 0.17901234567901234,
+          "accepted_count": 21,
+          "accepted_share": 0.10714285714285714,
           "empty": false,
           "truth_in": true,
-          "truth_j": 4.423314766354796,
+          "truth_j": 4.423314766354775,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3712
+          "prefilter_count": 673
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 20,
+              "regularized_eigenvalue_count": 20,
+              "min_eigenvalue_before_floor": 0.018876678274321258,
+              "max_eigenvalue_floor": 4417.562873430168
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 49,
+              "regularized_eigenvalue_count": 89,
+              "min_eigenvalue_before_floor": -1437567489174.9543,
+              "max_eigenvalue_floor": 6.939413806468923e+17
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10768,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.15213254419306702,
+              "max_eigenvalue_floor": 5.4819993329544505e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 30,
-          "union_count": 62,
-          "jaccard": 0.4838709677419355,
-          "d_standard_not_subset_robust": 0.11764705882352944
+          "intersection_count": 2,
+          "union_count": 21,
+          "jaccard": 0.09523809523809523,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -2293,37 +1937,64 @@
       "metrics": {
         "seed": 20400606,
         "sign": {
-          "accepted_count": 34,
-          "accepted_share": 0.10493827160493827,
+          "accepted_count": 7,
+          "accepted_share": 0.03571428571428571,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 34,
-          "accepted_share": 0.10493827160493827,
+          "accepted_count": 5,
+          "accepted_share": 0.025510204081632654,
           "empty": false,
           "truth_in": false,
           "truth_second_j": 12.539678573232575,
-          "truth_higher_j": 8.174877205526645,
-          "distance_to_truth_projection": 0.0
+          "truth_higher_j": 8.17487720552664,
+          "distance_to_truth_projection": 0.26249999999999973
         },
         "robust_dw": {
-          "accepted_count": 54,
-          "accepted_share": 0.16666666666666666,
+          "accepted_count": 21,
+          "accepted_share": 0.10714285714285714,
           "empty": false,
           "truth_in": true,
-          "truth_j": 4.0629721108047,
+          "truth_j": 4.062972110804704,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3525
+          "prefilter_count": 631
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 20,
+              "regularized_eigenvalue_count": 20,
+              "min_eigenvalue_before_floor": 0.019824742360011336,
+              "max_eigenvalue_floor": 4726.053013205174
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 43,
+              "regularized_eigenvalue_count": 80,
+              "min_eigenvalue_before_floor": 0.035072745302647194,
+              "max_eigenvalue_floor": 7.971367746443635e+17
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10096,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.18157912165312684,
+              "max_eigenvalue_floor": 5.186945541551145e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 31,
-          "union_count": 57,
-          "jaccard": 0.543859649122807,
-          "d_standard_not_subset_robust": 0.08823529411764708
+          "intersection_count": 5,
+          "union_count": 21,
+          "jaccard": 0.23809523809523808,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -2336,37 +2007,64 @@
       "metrics": {
         "seed": 20400607,
         "sign": {
-          "accepted_count": 36,
-          "accepted_share": 0.1111111111111111,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 36,
-          "accepted_share": 0.1111111111111111,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 18.23871558514106,
+          "truth_second_j": 18.23871558514105,
           "truth_higher_j": 11.416330060100933,
-          "distance_to_truth_projection": 0.0
+          "distance_to_truth_projection": 0.26249999999999973
         },
         "robust_dw": {
-          "accepted_count": 47,
-          "accepted_share": 0.14506172839506173,
+          "accepted_count": 13,
+          "accepted_share": 0.0663265306122449,
           "empty": false,
           "truth_in": true,
-          "truth_j": 11.66254063795147,
+          "truth_j": 11.662540637951423,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3654
+          "prefilter_count": 658
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.019456945418817335,
+              "max_eigenvalue_floor": 5952.451797107633
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 57,
+              "regularized_eigenvalue_count": 102,
+              "min_eigenvalue_before_floor": 0.030866632913064858,
+              "max_eigenvalue_floor": 1.7592700001493386e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10528,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.1633574624450841,
+              "max_eigenvalue_floor": 4.8525928908775705e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 33,
-          "union_count": 50,
-          "jaccard": 0.66,
-          "d_standard_not_subset_robust": 0.08333333333333337
+          "intersection_count": 1,
+          "union_count": 16,
+          "jaccard": 0.0625,
+          "d_standard_not_subset_robust": 0.75
         },
         "warning": true
       }
@@ -2379,37 +2077,64 @@
       "metrics": {
         "seed": 20400608,
         "sign": {
-          "accepted_count": 44,
-          "accepted_share": 0.13580246913580246,
+          "accepted_count": 8,
+          "accepted_share": 0.04081632653061224,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 40,
-          "accepted_share": 0.12345679012345678,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 9.419779142289926,
-          "truth_higher_j": 4.439201117745422,
-          "distance_to_truth_projection": 0.06874999999999998
+          "truth_second_j": 9.419779142289928,
+          "truth_higher_j": 4.439201117745423,
+          "distance_to_truth_projection": 0.10833333333333339
         },
         "robust_dw": {
-          "accepted_count": 41,
-          "accepted_share": 0.12654320987654322,
+          "accepted_count": 12,
+          "accepted_share": 0.061224489795918366,
           "empty": false,
           "truth_in": false,
-          "truth_j": 18.823366141147602,
+          "truth_j": 18.823366141147538,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3321
+          "prefilter_count": 557
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 23,
+              "regularized_eigenvalue_count": 23,
+              "min_eigenvalue_before_floor": 0.018961158217838357,
+              "max_eigenvalue_floor": 6963.746070192193
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 68,
+              "regularized_eigenvalue_count": 124,
+              "min_eigenvalue_before_floor": -2931835192.579706,
+              "max_eigenvalue_floor": 2.9420049104102134e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 8912,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.15996280312484823,
+              "max_eigenvalue_floor": 5.986386909780039e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 27,
-          "union_count": 54,
-          "jaccard": 0.5,
-          "d_standard_not_subset_robust": 0.32499999999999996
+          "intersection_count": 3,
+          "union_count": 13,
+          "jaccard": 0.23076923076923078,
+          "d_standard_not_subset_robust": 0.25
         },
         "warning": false
       }
@@ -2422,37 +2147,64 @@
       "metrics": {
         "seed": 20400609,
         "sign": {
-          "accepted_count": 35,
-          "accepted_share": 0.10802469135802469,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 35,
-          "accepted_share": 0.10802469135802469,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false,
           "truth_in": false,
           "truth_second_j": 12.339226290621092,
           "truth_higher_j": 5.722987239783636,
-          "distance_to_truth_projection": 0.0
+          "distance_to_truth_projection": 0.10833333333333339
         },
         "robust_dw": {
-          "accepted_count": 54,
-          "accepted_share": 0.16666666666666666,
+          "accepted_count": 19,
+          "accepted_share": 0.09693877551020408,
           "empty": false,
           "truth_in": true,
-          "truth_j": 6.440124959324433,
+          "truth_j": 6.440124959324409,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3813
+          "prefilter_count": 632
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.016955253450909293,
+              "max_eigenvalue_floor": 5081.909044386135
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 54,
+              "regularized_eigenvalue_count": 97,
+              "min_eigenvalue_before_floor": 0.03407888080328641,
+              "max_eigenvalue_floor": 1.5697860231804948e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10112,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.11515763563621227,
+              "max_eigenvalue_floor": 8.620459183778515e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 31,
-          "union_count": 58,
-          "jaccard": 0.5344827586206896,
-          "d_standard_not_subset_robust": 0.11428571428571432
+          "intersection_count": 6,
+          "union_count": 19,
+          "jaccard": 0.3157894736842105,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -2465,295 +2217,64 @@
       "metrics": {
         "seed": 20400610,
         "sign": {
-          "accepted_count": 42,
-          "accepted_share": 0.12962962962962962,
+          "accepted_count": 3,
+          "accepted_share": 0.015306122448979591,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 42,
-          "accepted_share": 0.12962962962962962,
+          "accepted_count": 3,
+          "accepted_share": 0.015306122448979591,
           "empty": false,
           "truth_in": false,
           "truth_second_j": 14.464244218401982,
-          "truth_higher_j": 7.255687333913925,
-          "distance_to_truth_projection": 0.0
+          "truth_higher_j": 7.255687333913921,
+          "distance_to_truth_projection": 0.26249999999999973
         },
         "robust_dw": {
-          "accepted_count": 64,
-          "accepted_share": 0.19753086419753085,
+          "accepted_count": 20,
+          "accepted_share": 0.10204081632653061,
           "empty": false,
           "truth_in": true,
-          "truth_j": 3.661058806026055,
+          "truth_j": 3.6610588060260274,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3777
+          "prefilter_count": 670
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 20,
+              "regularized_eigenvalue_count": 20,
+              "min_eigenvalue_before_floor": 0.026388854348936824,
+              "max_eigenvalue_floor": 5646.07173884336
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 50,
+              "regularized_eigenvalue_count": 92,
+              "min_eigenvalue_before_floor": 0.057226315790893025,
+              "max_eigenvalue_floor": 1.409949028233297e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10720,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.24913419978432083,
+              "max_eigenvalue_floor": 0.00016894393801594764
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 38,
-          "union_count": 68,
-          "jaccard": 0.5588235294117647,
-          "d_standard_not_subset_robust": 0.09523809523809523
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "gaussian_shocks",
-      "label": "Gaussian structural shocks",
-      "rep": 6,
-      "seed": 20400611,
-      "metrics": {
-        "seed": 20400611,
-        "sign": {
-          "accepted_count": 35,
-          "accepted_share": 0.10802469135802469,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 35,
-          "accepted_share": 0.10802469135802469,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 13.768108646827454,
-          "truth_higher_j": 5.076430203388098,
-          "distance_to_truth_projection": 0.028124999999999956
-        },
-        "robust_dw": {
-          "accepted_count": 63,
-          "accepted_share": 0.19444444444444445,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 4.0556432297991005,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3629
-        },
-        "overlap": {
-          "intersection_count": 33,
-          "union_count": 65,
-          "jaccard": 0.5076923076923077,
-          "d_standard_not_subset_robust": 0.05714285714285716
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "gaussian_shocks",
-      "label": "Gaussian structural shocks",
-      "rep": 7,
-      "seed": 20400612,
-      "metrics": {
-        "seed": 20400612,
-        "sign": {
-          "accepted_count": 41,
-          "accepted_share": 0.12654320987654322,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 41,
-          "accepted_share": 0.12654320987654322,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 16.712753021435496,
-          "truth_higher_j": 12.17934120110658,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 60,
-          "accepted_share": 0.18518518518518517,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 8.914342076563855,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3760
-        },
-        "overlap": {
-          "intersection_count": 38,
-          "union_count": 63,
-          "jaccard": 0.6031746031746031,
-          "d_standard_not_subset_robust": 0.07317073170731703
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "gaussian_shocks",
-      "label": "Gaussian structural shocks",
-      "rep": 8,
-      "seed": 20400613,
-      "metrics": {
-        "seed": 20400613,
-        "sign": {
-          "accepted_count": 37,
-          "accepted_share": 0.11419753086419752,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 37,
-          "accepted_share": 0.11419753086419752,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 8.852006187155087,
-          "truth_higher_j": 4.4659152932828325,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 46,
-          "accepted_share": 0.1419753086419753,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 10.385980104433035,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3569
-        },
-        "overlap": {
-          "intersection_count": 29,
-          "union_count": 54,
-          "jaccard": 0.5370370370370371,
-          "d_standard_not_subset_robust": 0.21621621621621623
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "gaussian_shocks",
-      "label": "Gaussian structural shocks",
-      "rep": 9,
-      "seed": 20400614,
-      "metrics": {
-        "seed": 20400614,
-        "sign": {
-          "accepted_count": 39,
-          "accepted_share": 0.12037037037037036,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 39,
-          "accepted_share": 0.12037037037037036,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 17.60096805714653,
-          "truth_higher_j": 9.370742884921773,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 60,
-          "accepted_share": 0.18518518518518517,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 6.829728070263817,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3657
-        },
-        "overlap": {
-          "intersection_count": 34,
-          "union_count": 65,
-          "jaccard": 0.5230769230769231,
-          "d_standard_not_subset_robust": 0.1282051282051282
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "gaussian_shocks",
-      "label": "Gaussian structural shocks",
-      "rep": 10,
-      "seed": 20400615,
-      "metrics": {
-        "seed": 20400615,
-        "sign": {
-          "accepted_count": 30,
-          "accepted_share": 0.09259259259259259,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 25,
-          "accepted_share": 0.07716049382716049,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 12.522150933273194,
-          "truth_higher_j": 7.58008321945745,
-          "distance_to_truth_projection": 0.06874999999999998
-        },
-        "robust_dw": {
-          "accepted_count": 32,
-          "accepted_share": 0.09876543209876543,
-          "empty": false,
-          "truth_in": false,
-          "truth_j": 26.077351063238122,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3429
-        },
-        "overlap": {
-          "intersection_count": 20,
-          "union_count": 37,
-          "jaccard": 0.5405405405405406,
-          "d_standard_not_subset_robust": 0.19999999999999996
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "gaussian_shocks",
-      "label": "Gaussian structural shocks",
-      "rep": 11,
-      "seed": 20400616,
-      "metrics": {
-        "seed": 20400616,
-        "sign": {
-          "accepted_count": 37,
-          "accepted_share": 0.11419753086419752,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 37,
-          "accepted_share": 0.11419753086419752,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 15.380022513357131,
-          "truth_higher_j": 9.532622640800982,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 50,
-          "accepted_share": 0.15432098765432098,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 13.160584712553046,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3777
-        },
-        "overlap": {
-          "intersection_count": 30,
-          "union_count": 57,
-          "jaccard": 0.5263157894736842,
-          "d_standard_not_subset_robust": 0.18918918918918914
+          "intersection_count": 3,
+          "union_count": 20,
+          "jaccard": 0.15,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -2766,37 +2287,64 @@
       "metrics": {
         "seed": 20410605,
         "sign": {
-          "accepted_count": 52,
-          "accepted_share": 0.16049382716049382,
+          "accepted_count": 12,
+          "accepted_share": 0.061224489795918366,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 24,
-          "accepted_share": 0.07407407407407407,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": true,
-          "truth_second_j": 6.215407929542002,
-          "truth_higher_j": 1.8948795600100878,
+          "truth_second_j": 6.215407929542003,
+          "truth_higher_j": 1.8948795600100823,
           "distance_to_truth_projection": 0.0
         },
         "robust_dw": {
-          "accepted_count": 23,
-          "accepted_share": 0.07098765432098765,
+          "accepted_count": 10,
+          "accepted_share": 0.05102040816326531,
           "empty": false,
           "truth_in": true,
-          "truth_j": 9.768838421194717,
+          "truth_j": 9.768838421194799,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3515
+          "prefilter_count": 634
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.031185207932688388,
+              "max_eigenvalue_floor": 7551.903157421994
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 73,
+              "regularized_eigenvalue_count": 116,
+              "min_eigenvalue_before_floor": -3541209049381.05,
+              "max_eigenvalue_floor": 3.6981458927311196e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10144,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.1248434036813352,
+              "max_eigenvalue_floor": 0.000214301296883835
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 16,
-          "union_count": 31,
-          "jaccard": 0.5161290322580645,
-          "d_standard_not_subset_robust": 0.33333333333333337
+          "intersection_count": 4,
+          "union_count": 10,
+          "jaccard": 0.4,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": false
       }
@@ -2809,37 +2357,64 @@
       "metrics": {
         "seed": 20410606,
         "sign": {
-          "accepted_count": 87,
-          "accepted_share": 0.26851851851851855,
+          "accepted_count": 16,
+          "accepted_share": 0.08163265306122448,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 35,
-          "accepted_share": 0.10802469135802469,
+          "accepted_count": 5,
+          "accepted_share": 0.025510204081632654,
           "empty": false,
           "truth_in": true,
           "truth_second_j": 5.157150514879324,
-          "truth_higher_j": 2.568479380812175,
+          "truth_higher_j": 2.5684793808121107,
           "distance_to_truth_projection": 0.0
         },
         "robust_dw": {
-          "accepted_count": 17,
-          "accepted_share": 0.05246913580246913,
+          "accepted_count": 10,
+          "accepted_share": 0.05102040816326531,
           "empty": false,
           "truth_in": false,
-          "truth_j": 14.298947114358551,
+          "truth_j": 14.298947114360638,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3684
+          "prefilter_count": 641
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 24,
+              "regularized_eigenvalue_count": 24,
+              "min_eigenvalue_before_floor": 0.03516892853843569,
+              "max_eigenvalue_floor": 13117.914533772544
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 139,
+              "regularized_eigenvalue_count": 240,
+              "min_eigenvalue_before_floor": -16893202961114.57,
+              "max_eigenvalue_floor": 5.123100408770082e+19
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10256,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.11209485798633653,
+              "max_eigenvalue_floor": 0.005286928604909186
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 15,
-          "union_count": 37,
-          "jaccard": 0.40540540540540543,
-          "d_standard_not_subset_robust": 0.5714285714285714
+          "intersection_count": 4,
+          "union_count": 11,
+          "jaccard": 0.36363636363636365,
+          "d_standard_not_subset_robust": 0.19999999999999996
         },
         "warning": false
       }
@@ -2852,37 +2427,64 @@
       "metrics": {
         "seed": 20410607,
         "sign": {
-          "accepted_count": 50,
-          "accepted_share": 0.15432098765432098,
+          "accepted_count": 11,
+          "accepted_share": 0.05612244897959184,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 26,
-          "accepted_share": 0.08024691358024691,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 7.8097476238022265,
-          "truth_higher_j": 4.924508523053254,
+          "truth_second_j": 7.809747623802224,
+          "truth_higher_j": 4.924508523053263,
           "distance_to_truth_projection": 0.0
         },
         "robust_dw": {
-          "accepted_count": 27,
-          "accepted_share": 0.08333333333333333,
+          "accepted_count": 10,
+          "accepted_share": 0.05102040816326531,
           "empty": false,
           "truth_in": true,
-          "truth_j": 7.511907126562264,
+          "truth_j": 7.511907126562272,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3669
+          "prefilter_count": 649
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 23,
+              "regularized_eigenvalue_count": 23,
+              "min_eigenvalue_before_floor": 0.02405655296084569,
+              "max_eigenvalue_floor": 8116.239238231939
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 89,
+              "regularized_eigenvalue_count": 156,
+              "min_eigenvalue_before_floor": -12614027198256.252,
+              "max_eigenvalue_floor": 7.183211148026332e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10384,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.07151047442600916,
+              "max_eigenvalue_floor": 0.00021204827381786094
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 20,
-          "union_count": 33,
-          "jaccard": 0.6060606060606061,
-          "d_standard_not_subset_robust": 0.23076923076923073
+          "intersection_count": 6,
+          "union_count": 10,
+          "jaccard": 0.6,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -2895,37 +2497,64 @@
       "metrics": {
         "seed": 20410608,
         "sign": {
-          "accepted_count": 56,
-          "accepted_share": 0.1728395061728395,
+          "accepted_count": 7,
+          "accepted_share": 0.03571428571428571,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 31,
-          "accepted_share": 0.09567901234567901,
+          "accepted_count": 2,
+          "accepted_share": 0.01020408163265306,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 9.893726016086932,
-          "truth_higher_j": 6.471221943569109,
-          "distance_to_truth_projection": 0.0
+          "truth_second_j": 9.893726016086928,
+          "truth_higher_j": 6.471221943569107,
+          "distance_to_truth_projection": 0.10833333333333339
         },
         "robust_dw": {
-          "accepted_count": 32,
-          "accepted_share": 0.09876543209876543,
+          "accepted_count": 11,
+          "accepted_share": 0.05612244897959184,
           "empty": false,
           "truth_in": true,
-          "truth_j": 3.2626469650836114,
+          "truth_j": 3.2626469650836025,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3834
+          "prefilter_count": 641
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 20,
+              "regularized_eigenvalue_count": 20,
+              "min_eigenvalue_before_floor": 0.03573746812703228,
+              "max_eigenvalue_floor": 8334.027285711569
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 87,
+              "regularized_eigenvalue_count": 144,
+              "min_eigenvalue_before_floor": -1015904496913.2537,
+              "max_eigenvalue_floor": 6.649733455174192e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10256,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.1661353494557408,
+              "max_eigenvalue_floor": 0.0001674270621081905
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 25,
-          "union_count": 38,
-          "jaccard": 0.6578947368421053,
-          "d_standard_not_subset_robust": 0.19354838709677424
+          "intersection_count": 2,
+          "union_count": 11,
+          "jaccard": 0.18181818181818182,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -2938,37 +2567,64 @@
       "metrics": {
         "seed": 20410609,
         "sign": {
-          "accepted_count": 66,
-          "accepted_share": 0.2037037037037037,
+          "accepted_count": 9,
+          "accepted_share": 0.04591836734693878,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 28,
-          "accepted_share": 0.08641975308641975,
+          "accepted_count": 4,
+          "accepted_share": 0.02040816326530612,
           "empty": false,
           "truth_in": false,
-          "truth_second_j": 9.980030681317048,
-          "truth_higher_j": 9.915304749065557,
-          "distance_to_truth_projection": 0.0
+          "truth_second_j": 9.980030681317057,
+          "truth_higher_j": 9.915304749065573,
+          "distance_to_truth_projection": 0.10833333333333339
         },
         "robust_dw": {
-          "accepted_count": 20,
-          "accepted_share": 0.06172839506172839,
+          "accepted_count": 13,
+          "accepted_share": 0.0663265306122449,
           "empty": false,
           "truth_in": true,
-          "truth_j": 12.992884616027075,
+          "truth_j": 12.992884616026965,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3761
+          "prefilter_count": 639
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.03979716919947001,
+              "max_eigenvalue_floor": 10444.253070019538
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 120,
+              "regularized_eigenvalue_count": 196,
+              "min_eigenvalue_before_floor": -2636603357006.0137,
+              "max_eigenvalue_floor": 2.692869555999088e+19
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10224,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.10064748105849414,
+              "max_eigenvalue_floor": 0.0005470944729173871
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 17,
-          "union_count": 31,
-          "jaccard": 0.5483870967741935,
-          "d_standard_not_subset_robust": 0.3928571428571429
+          "intersection_count": 4,
+          "union_count": 13,
+          "jaccard": 0.3076923076923077,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
       }
@@ -2981,297 +2637,66 @@
       "metrics": {
         "seed": 20410610,
         "sign": {
-          "accepted_count": 47,
-          "accepted_share": 0.14506172839506173,
+          "accepted_count": 6,
+          "accepted_share": 0.030612244897959183,
           "empty": false
         },
         "standard_dw": {
-          "accepted_count": 24,
-          "accepted_share": 0.07407407407407407,
+          "accepted_count": 3,
+          "accepted_share": 0.015306122448979591,
           "empty": false,
           "truth_in": false,
           "truth_second_j": 11.990146134364615,
-          "truth_higher_j": 9.279364803748976,
-          "distance_to_truth_projection": 0.0
+          "truth_higher_j": 9.279364803748992,
+          "distance_to_truth_projection": 0.10833333333333339
         },
         "robust_dw": {
-          "accepted_count": 24,
-          "accepted_share": 0.07407407407407407,
+          "accepted_count": 14,
+          "accepted_share": 0.07142857142857142,
           "empty": false,
           "truth_in": true,
-          "truth_j": 12.5803925533398,
+          "truth_j": 12.580392553339856,
           "true_lambda": [
             0.18823529411764706,
             0.12195121951219512
           ],
           "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3761
+          "prefilter_count": 639
+        },
+        "regularization": {
+          "standard": {
+            "second_moment": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 22,
+              "regularized_eigenvalue_count": 22,
+              "min_eigenvalue_before_floor": 0.025772396541418444,
+              "max_eigenvalue_floor": 7445.381994978983
+            },
+            "standard_dw": {
+              "matrix_count": 5879,
+              "regularized_matrix_count": 88,
+              "regularized_eigenvalue_count": 167,
+              "min_eigenvalue_before_floor": -25047813637032.56,
+              "max_eigenvalue_floor": 9.699127107356054e+18
+            }
+          },
+          "robust": {
+            "robust_full": {
+              "matrix_count": 10224,
+              "regularized_matrix_count": 0,
+              "regularized_eigenvalue_count": 0,
+              "min_eigenvalue_before_floor": 0.12689147632188008,
+              "max_eigenvalue_floor": 9.86246839372279e-05
+            }
+          }
         },
         "overlap": {
-          "intersection_count": 15,
-          "union_count": 33,
-          "jaccard": 0.45454545454545453,
-          "d_standard_not_subset_robust": 0.375
+          "intersection_count": 3,
+          "union_count": 14,
+          "jaccard": 0.21428571428571427,
+          "d_standard_not_subset_robust": 0.0
         },
         "warning": true
-      }
-    },
-    {
-      "scenario": "skewed_residual_noise",
-      "label": "Skewed residual noise",
-      "rep": 6,
-      "seed": 20410611,
-      "metrics": {
-        "seed": 20410611,
-        "sign": {
-          "accepted_count": 49,
-          "accepted_share": 0.15123456790123457,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 24,
-          "accepted_share": 0.07407407407407407,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 11.983650902880749,
-          "truth_higher_j": 9.003348876469126,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 27,
-          "accepted_share": 0.08333333333333333,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 5.575421247428194,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3670
-        },
-        "overlap": {
-          "intersection_count": 16,
-          "union_count": 35,
-          "jaccard": 0.45714285714285713,
-          "d_standard_not_subset_robust": 0.33333333333333337
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "skewed_residual_noise",
-      "label": "Skewed residual noise",
-      "rep": 7,
-      "seed": 20410612,
-      "metrics": {
-        "seed": 20410612,
-        "sign": {
-          "accepted_count": 54,
-          "accepted_share": 0.16666666666666666,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 13,
-          "accepted_share": 0.040123456790123455,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 6.359491857449995,
-          "truth_higher_j": 3.3282632448596443,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 24,
-          "accepted_share": 0.07407407407407407,
-          "empty": false,
-          "truth_in": false,
-          "truth_j": 24.173526292240357,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3641
-        },
-        "overlap": {
-          "intersection_count": 12,
-          "union_count": 25,
-          "jaccard": 0.48,
-          "d_standard_not_subset_robust": 0.07692307692307687
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "skewed_residual_noise",
-      "label": "Skewed residual noise",
-      "rep": 8,
-      "seed": 20410613,
-      "metrics": {
-        "seed": 20410613,
-        "sign": {
-          "accepted_count": 53,
-          "accepted_share": 0.16358024691358025,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 24,
-          "accepted_share": 0.07407407407407407,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 7.107527209412707,
-          "truth_higher_j": 4.793576574288916,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 28,
-          "accepted_share": 0.08641975308641975,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 3.089233318173284,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3577
-        },
-        "overlap": {
-          "intersection_count": 19,
-          "union_count": 33,
-          "jaccard": 0.5757575757575758,
-          "d_standard_not_subset_robust": 0.20833333333333337
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "skewed_residual_noise",
-      "label": "Skewed residual noise",
-      "rep": 9,
-      "seed": 20410614,
-      "metrics": {
-        "seed": 20410614,
-        "sign": {
-          "accepted_count": 53,
-          "accepted_share": 0.16358024691358025,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 21,
-          "accepted_share": 0.06481481481481481,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 7.529321539203262,
-          "truth_higher_j": 7.031380771980654,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 26,
-          "accepted_share": 0.08024691358024691,
-          "empty": false,
-          "truth_in": true,
-          "truth_j": 8.192230998728313,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3693
-        },
-        "overlap": {
-          "intersection_count": 20,
-          "union_count": 27,
-          "jaccard": 0.7407407407407407,
-          "d_standard_not_subset_robust": 0.04761904761904767
-        },
-        "warning": true
-      }
-    },
-    {
-      "scenario": "skewed_residual_noise",
-      "label": "Skewed residual noise",
-      "rep": 10,
-      "seed": 20410615,
-      "metrics": {
-        "seed": 20410615,
-        "sign": {
-          "accepted_count": 47,
-          "accepted_share": 0.14506172839506173,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 5,
-          "accepted_share": 0.015432098765432098,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 13.561822442033154,
-          "truth_higher_j": 16.368964187261454,
-          "distance_to_truth_projection": 0.125
-        },
-        "robust_dw": {
-          "accepted_count": 7,
-          "accepted_share": 0.021604938271604937,
-          "empty": false,
-          "truth_in": false,
-          "truth_j": 24.235931151597313,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.08124999999999982,
-          "prefilter_count": 3934
-        },
-        "overlap": {
-          "intersection_count": 4,
-          "union_count": 8,
-          "jaccard": 0.5,
-          "d_standard_not_subset_robust": 0.19999999999999996
-        },
-        "warning": false
-      }
-    },
-    {
-      "scenario": "skewed_residual_noise",
-      "label": "Skewed residual noise",
-      "rep": 11,
-      "seed": 20410616,
-      "metrics": {
-        "seed": 20410616,
-        "sign": {
-          "accepted_count": 77,
-          "accepted_share": 0.23765432098765432,
-          "empty": false
-        },
-        "standard_dw": {
-          "accepted_count": 36,
-          "accepted_share": 0.1111111111111111,
-          "empty": false,
-          "truth_in": false,
-          "truth_second_j": 13.753722209490592,
-          "truth_higher_j": 8.556875394603424,
-          "distance_to_truth_projection": 0.0
-        },
-        "robust_dw": {
-          "accepted_count": 25,
-          "accepted_share": 0.07716049382716049,
-          "empty": false,
-          "truth_in": false,
-          "truth_j": 15.291962716384152,
-          "true_lambda": [
-            0.18823529411764706,
-            0.12195121951219512
-          ],
-          "distance_to_truth_projection": 0.0,
-          "prefilter_count": 3587
-        },
-        "overlap": {
-          "intersection_count": 19,
-          "union_count": 42,
-          "jaccard": 0.4523809523809524,
-          "d_standard_not_subset_robust": 0.4722222222222222
-        },
-        "warning": false
       }
     }
   ]

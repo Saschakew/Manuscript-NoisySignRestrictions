@@ -1,9 +1,9 @@
-"""Extended Monte Carlo for the three active M68 figure blocks.
+"""Extended Monte Carlo for the three corrected active figure blocks.
 
-This script reuses the M68 first-shock evaluator. It does not change the
+This script reuses the corrected first-shock evaluator. It does not change the
 moment criterion: the active chart displays (B11, B21), profiles B12, B22, and
-lambda, imposes B11>0, B22>0, B12<=0, and B21>=0, and evaluates the M66 route
-nu_i=lambda_i(BB')_ii.
+lambda, imposes B11>0, B22>0, and B12<=0, and evaluates the M66 route
+nu_i=lambda_i(BB')_ii with candidate-specific pointwise covariance weights.
 """
 
 from __future__ import annotations
@@ -251,8 +251,8 @@ def write_outputs(
 ) -> None:
     payload = {
         "schema_version": 1,
-        "task": "M69 extended three-block Monte Carlo",
-        "description": "Extended MC aligned with the three active M68 figure blocks. Uses the same M66 unit-variance projected GMM evaluator as M68.",
+        "task": "M71 corrected extended three-block Monte Carlo",
+        "description": "Extended MC aligned with the three active figure blocks after M71. Uses the same M66 unit-variance projected GMM evaluator with no B21 sign restriction and candidate-specific pointwise weights.",
         "configuration": {
             "quick": quick,
             "reps_per_scenario": reps,
@@ -263,8 +263,10 @@ def write_outputs(
             "lambda_points": spec.lambda_points,
             "displayed_projection": ["B11", "B21"],
             "profiled_coordinates": ["B12", "B22", "lambda1", "lambda2"],
-            "sign_restrictions": ["B11 > 0", "B22 > 0", "B12 <= 0", "B21 >= 0"],
+            "sign_restrictions": ["B11 > 0", "B22 > 0", "B12 <= 0"],
             "set_size_measure": "accepted projection share on the displayed (B11,B21) grid",
+            "weighting": "candidate-specific pointwise covariance estimates for each tested B or (B,lambda) candidate",
+            "weight_regularization": "symmetric covariance eigensystem with eigenvalue floor max(max_eigenvalue, 1) * 1e-10",
             "critical_values": {
                 "second_moment_chi2_90_df3": fig.CHI2_90_DF3,
                 "standard_dw_chi2_90_df5": fig.CHI2_90_DF5,
@@ -300,13 +302,13 @@ def write_outputs(
     json_output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     lines = [
-        "# M69 Extended Three-Block Monte Carlo",
+        "# M71 Corrected Extended Three-Block Monte Carlo",
         "",
-        "Status: generated extended MC output aligned with the three active M68 figure blocks.",
+        "Status: generated corrected extended MC output aligned with the three active figure blocks.",
         "",
         "The set-size measure is the accepted share of the displayed `(B11,B21)` projection grid. The table reports both mean and median set size for the standard-DW and robust-DW inverted sets. Truth inclusion is reported as counts and rates.",
         "",
-        "The cutoffs are pointwise chi-square diagnostics for the displayed moment rows. Final projected confidence-set critical values remain M65 follow-up.",
+        "The statistics use candidate-specific pointwise covariance estimates for each tested candidate. The cutoffs are pointwise chi-square diagnostics for the displayed moment rows. Final projected confidence-set critical values remain M65 follow-up.",
         "",
         "## Configuration",
         "",
@@ -316,7 +318,7 @@ def write_outputs(
         f"- Projection grid: `{spec.projection_points} x {spec.projection_points}`.",
         f"- Profile grid: `{spec.profile_points} x {spec.profile_points}`.",
         f"- Lambda grid: `{spec.lambda_points} x {spec.lambda_points}`.",
-        "- Sign screen: `B11>0`, `B22>0`, `B12<=0`, `B21>=0`.",
+        "- Sign screen: `B11>0`, `B22>0`, `B12<=0`; `B21` is not sign-restricted.",
         "- Robust route: `nu_i=lambda_i(BB')_ii`, `lambda in [0,rho]^2`.",
         "",
     ]
@@ -358,6 +360,8 @@ def write_outputs(
             "| Extended MC mirrors the three active figure blocks. | `code-implemented`, `user-decision` | Scenario block configuration in this script and JSON. | high | promote as M69 setup result |",
             "| Inverted-set size is measured by accepted projection share on `(B11,B21)`. | `code-implemented`, `user-decision` | `size` summaries in JSON and table. | high | promote as diagnostic size metric |",
             "| Truth inclusion is counted for standard-DW and robust-DW sets. | `code-implemented`, `user-decision` | `truth_inclusion` count/rate summaries in JSON and table. | high | promote as MC diagnostic |",
+            "| M71 removes the `B21>=0` sign restriction from the extended MC. | `code-implemented`, `user-decision` | Scenario block configuration and shared evaluator. | high | promote |",
+            "| M71 uses candidate-specific pointwise covariance weights. | `code-implemented`, `user-decision` | Shared evaluator calls through `j_from_observations`. | high | promote |",
             "| Robust MC uses `nu_i=lambda_i(BB')_ii` and profiles `lambda in [0,rho]^2`. | `code-implemented`, `derived` | M66 route reused through M68 evaluator calls. | high | promote |",
             "| The chi-square cutoffs are final projected confidence-set critical values. | `conjectural` | M65 remains open for projected critical values. | medium | quarantine as diagnostic |",
             "",
@@ -371,8 +375,8 @@ def run(
     blocks: tuple[MCBlock, ...],
     json_output: Path = JSON_OUTPUT,
     note_output: Path = NOTE_OUTPUT,
-    reps: int = 24,
-    spec: fig.GridSpec = fig.GridSpec(projection_points=17, profile_points=7, lambda_points=5),
+    reps: int = 8,
+    spec: fig.GridSpec = fig.GridSpec(projection_points=13, profile_points=5, lambda_points=3),
     quick: bool = False,
 ) -> Path:
     grid = fig.make_candidate_grid(spec)
@@ -407,10 +411,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--block", choices=choices, default="all", help="Which MC block to run.")
     parser.add_argument("--json-output", default="", help="Optional JSON output path.")
     parser.add_argument("--note-output", default="", help="Optional Markdown note output path.")
-    parser.add_argument("--evaluation-reps", type=int, default=24)
-    parser.add_argument("--projection-points", type=int, default=17)
-    parser.add_argument("--profile-points", type=int, default=7)
-    parser.add_argument("--lambda-points", type=int, default=5)
+    parser.add_argument("--evaluation-reps", type=int, default=8)
+    parser.add_argument("--projection-points", type=int, default=13)
+    parser.add_argument("--profile-points", type=int, default=5)
+    parser.add_argument("--lambda-points", type=int, default=3)
     parser.add_argument("--robust-batch-size", type=int, default=36)
     parser.add_argument("--standard-batch-size", type=int, default=240)
     parser.add_argument(

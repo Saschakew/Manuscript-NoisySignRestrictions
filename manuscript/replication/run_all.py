@@ -1,10 +1,10 @@
 """Rebuild the active manuscript figures and Monte Carlo evidence.
 
-This is the M33 manuscript-local replication wrapper, updated in M68 and M69. The
+This is the M33 manuscript-local replication wrapper, updated in M71. The
 active stages use the unit-variance first-shock chart: display ``(B11,B21)``,
-profile ``B12``, ``B22``, and ``lambda``, impose ``B11>0``, ``B22>0``,
-``B12<=0``, and ``B21>=0``, and evaluate the M66
-``nu_i=lambda_i(BB')_ii`` route.
+profile ``B12``, ``B22``, and ``lambda``, impose ``B11>0``, ``B22>0``, and
+``B12<=0``, and evaluate the M66 ``nu_i=lambda_i(BB')_ii`` route with
+candidate-specific pointwise covariance weights.
 """
 
 from __future__ import annotations

@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "task": "M68 first-shock impact evidence rebuild",
-  "figure": "manuscript\\figures\\fig_sign_dw_unit_variance_noise_grid.png",
-  "description": "Projected unit-variance first-shock grid over (B11,B21), with B12/B22 and lambda profiled.",
+  "task": "M71 remove B21 sign and pointwise weighting",
+  "figure": "manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png",
+  "description": "Projected unit-variance first-shock grid over (B11,B21), with B12/B22 and lambda profiled, no B21 sign restriction, and candidate-specific pointwise covariance weighting.",
   "configuration": {
     "scenario_set": "noise",
     "rho": 0.5,
-    "projection_points": 43,
-    "profile_points": 11,
-    "lambda_points": 7,
+    "projection_points": 31,
+    "profile_points": 9,
+    "lambda_points": 5,
     "true_B0": [
       [
         1.0,
@@ -37,10 +37,10 @@
     "sign_restrictions": [
       "B11 > 0",
       "B22 > 0",
-      "B12 <= 0",
-      "B21 >= 0"
+      "B12 <= 0"
     ],
-    "weighting": "fixed one-step GMM weights by scenario, evaluated at the fixed-draw true parameter"
+    "weighting": "candidate-specific pointwise covariance estimates for each tested B or (B,lambda) candidate",
+    "weight_regularization": "symmetric covariance eigensystem with eigenvalue floor max(max_eigenvalue, 1) * 1e-10"
   },
   "diagnostics": [
     {
@@ -54,15 +54,15 @@
       "non_gaussian_weight": 1.0,
       "residual_noise": "gaussian",
       "shares": {
-        "sign": 0.1518595041322314,
-        "standard_dw": 0.056818181818181816,
-        "robust_dw": 0.04648760330578512
+        "sign": 0.0634765625,
+        "standard_dw": 0.0263671875,
+        "robust_dw": 0.0498046875
       },
       "truth": {
-        "second_j": 0.3855675616722936,
-        "standard_j": 0.8483140395263836,
+        "second_j": 0.38556756167229284,
+        "standard_j": 0.8483140395263772,
         "standard_in": true,
-        "robust_j": 1.004013181827648,
+        "robust_j": 1.0040131818276743,
         "robust_in": true,
         "true_lambda": [
           0.0,
@@ -74,11 +74,58 @@
         "standard_to_truth": 0.0,
         "robust_to_truth": 0.0
       },
+      "boundary": {
+        "sign": {
+          "touches_b11_min": false,
+          "touches_b11_max": false,
+          "touches_b21_min": false,
+          "touches_b21_max": false
+        },
+        "standard_dw": {
+          "touches_b11_min": false,
+          "touches_b11_max": false,
+          "touches_b21_min": false,
+          "touches_b21_max": false
+        },
+        "robust_dw": {
+          "touches_b11_min": false,
+          "touches_b11_max": false,
+          "touches_b21_min": false,
+          "touches_b21_max": false
+        }
+      },
       "best_truth_cell_lambda": [
         0.0,
         0.0
       ],
-      "robust_prefilter_count": 49260
+      "robust_prefilter_count": 8922,
+      "regularization": {
+        "standard": {
+          "second_moment": {
+            "matrix_count": 92160,
+            "regularized_matrix_count": 468,
+            "regularized_eigenvalue_count": 468,
+            "min_eigenvalue_before_floor": -316.49238567534763,
+            "max_eigenvalue_floor": 58662181.55669724
+          },
+          "standard_dw": {
+            "matrix_count": 92160,
+            "regularized_matrix_count": 2082,
+            "regularized_eigenvalue_count": 3737,
+            "min_eigenvalue_before_floor": -7.371203993967522e+21,
+            "max_eigenvalue_floor": 1.4591219916166916e+27
+          }
+        },
+        "robust": {
+          "robust_full": {
+            "matrix_count": 223050,
+            "regularized_matrix_count": 0,
+            "regularized_eigenvalue_count": 0,
+            "min_eigenvalue_before_floor": 0.046499746957299706,
+            "max_eigenvalue_floor": 0.004917962445945951
+          }
+        }
+      }
     },
     {
       "label": "V=(0.2,0.2)",
@@ -91,15 +138,15 @@
       "non_gaussian_weight": 1.0,
       "residual_noise": "gaussian",
       "shares": {
-        "sign": 0.21952479338842976,
-        "standard_dw": 0.13016528925619836,
-        "robust_dw": 0.0996900826446281
+        "sign": 0.080078125,
+        "standard_dw": 0.033203125,
+        "robust_dw": 0.064453125
       },
       "truth": {
-        "second_j": 10.815291375846837,
-        "standard_j": 5.64646881112048,
+        "second_j": 10.81529137584684,
+        "standard_j": 5.646468811120482,
         "standard_in": false,
-        "robust_j": 4.245196754256059,
+        "robust_j": 4.245196754256075,
         "robust_in": true,
         "true_lambda": [
           0.18823529411764706,
@@ -111,11 +158,58 @@
         "standard_to_truth": 0.0,
         "robust_to_truth": 0.0
       },
+      "boundary": {
+        "sign": {
+          "touches_b11_min": false,
+          "touches_b11_max": false,
+          "touches_b21_min": false,
+          "touches_b21_max": false
+        },
+        "standard_dw": {
+          "touches_b11_min": false,
+          "touches_b11_max": false,
+          "touches_b21_min": false,
+          "touches_b21_max": false
+        },
+        "robust_dw": {
+          "touches_b11_min": false,
+          "touches_b11_max": false,
+          "touches_b21_min": false,
+          "touches_b21_max": false
+        }
+      },
       "best_truth_cell_lambda": [
-        0.18823529411764706,
-        0.12195121951219512
+        0.375,
+        0.375
       ],
-      "robust_prefilter_count": 52578
+      "robust_prefilter_count": 9414,
+      "regularization": {
+        "standard": {
+          "second_moment": {
+            "matrix_count": 92160,
+            "regularized_matrix_count": 443,
+            "regularized_eigenvalue_count": 443,
+            "min_eigenvalue_before_floor": -281.24696256437664,
+            "max_eigenvalue_floor": 67536414.25755896
+          },
+          "standard_dw": {
+            "matrix_count": 92160,
+            "regularized_matrix_count": 1912,
+            "regularized_eigenvalue_count": 3535,
+            "min_eigenvalue_before_floor": -1.0183401658129741e+21,
+            "max_eigenvalue_floor": 1.7603223083152055e+27
+          }
+        },
+        "robust": {
+          "robust_full": {
+            "matrix_count": 338904,
+            "regularized_matrix_count": 0,
+            "regularized_eigenvalue_count": 0,
+            "min_eigenvalue_before_floor": 0.12077793910887162,
+            "max_eigenvalue_floor": 0.0006362354973048656
+          }
+        }
+      }
     },
     {
       "label": "V=(0.5,0.5)",
@@ -128,15 +222,15 @@
       "non_gaussian_weight": 1.0,
       "residual_noise": "gaussian",
       "shares": {
-        "sign": 0.3021694214876033,
-        "standard_dw": 0.2871900826446281,
-        "robust_dw": 0.21384297520661158
+        "sign": 0.0869140625,
+        "standard_dw": 0.041015625,
+        "robust_dw": 0.0859375
       },
       "truth": {
-        "second_j": 42.89867089071211,
-        "standard_j": 18.249713038067647,
+        "second_j": 42.89867089071212,
+        "standard_j": 18.24971303806763,
         "standard_in": false,
-        "robust_j": 7.956640313194605,
+        "robust_j": 7.956640313194575,
         "robust_in": true,
         "true_lambda": [
           0.47058823529411764,
@@ -144,15 +238,62 @@
         ]
       },
       "distances": {
-        "sign_to_truth": 0.061904761904761685,
-        "standard_to_truth": 0.061904761904761685,
+        "sign_to_truth": 0.08666666666666645,
+        "standard_to_truth": 0.08666666666666645,
         "robust_to_truth": 0.0
+      },
+      "boundary": {
+        "sign": {
+          "touches_b11_min": false,
+          "touches_b11_max": false,
+          "touches_b21_min": false,
+          "touches_b21_max": false
+        },
+        "standard_dw": {
+          "touches_b11_min": false,
+          "touches_b11_max": false,
+          "touches_b21_min": false,
+          "touches_b21_max": false
+        },
+        "robust_dw": {
+          "touches_b11_min": false,
+          "touches_b11_max": false,
+          "touches_b21_min": false,
+          "touches_b21_max": false
+        }
       },
       "best_truth_cell_lambda": [
         0.5,
         0.0
       ],
-      "robust_prefilter_count": 52578
+      "robust_prefilter_count": 9731,
+      "regularization": {
+        "standard": {
+          "second_moment": {
+            "matrix_count": 92160,
+            "regularized_matrix_count": 403,
+            "regularized_eigenvalue_count": 403,
+            "min_eigenvalue_before_floor": -522.9371175454582,
+            "max_eigenvalue_floor": 77871906.4189366
+          },
+          "standard_dw": {
+            "matrix_count": 92160,
+            "regularized_matrix_count": 1662,
+            "regularized_eigenvalue_count": 3128,
+            "min_eigenvalue_before_floor": -1.0723141687108277e+21,
+            "max_eigenvalue_floor": 1.976875557374057e+27
+          }
+        },
+        "robust": {
+          "robust_full": {
+            "matrix_count": 350316,
+            "regularized_matrix_count": 0,
+            "regularized_eigenvalue_count": 0,
+            "min_eigenvalue_before_floor": 0.2253692213154116,
+            "max_eigenvalue_floor": 0.00014935244826186898
+          }
+        }
+      }
     }
   ]
 }

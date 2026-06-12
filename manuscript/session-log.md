@@ -1,5 +1,30 @@
 # Session Log
 
+### 2026-06-12 - Complete M71 sign-screen and pointwise-weighting correction
+
+- Request or goal: work on M71 to remove the \(B_{21}\) sign restriction from
+  active evidence and replace true-point fixed weights with
+  candidate-specific pointwise covariance weighting.
+- Files changed: `manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py`,
+  `manuscript/simulations/m68_first_shock_evidence.py`,
+  `manuscript/simulations/m69_extended_three_block_mc.py`,
+  generated Figures 1-3 and JSON/Markdown outputs, replication wrapper/README,
+  draft, formal registry, source packet, planning surfaces, task outcomes,
+  logs, question index, and transparency files.
+- Summary of work: corrected the active first-shock evidence package so
+  Figures 1-3, Table 1, and the extended MC impose only \(B_{11}>0\),
+  \(B_{22}>0\), and \(B_{12}\le0\), then compute
+  \(Tg_T'\widehat\Omega(B,\nu)^{-1}g_T\) with a covariance estimate from each
+  tested candidate. Quick and normal diagnostics were regenerated; the long
+  500-replication MC remains deferred.
+- Check: py-compile, quick wrapper runs, normal wrapper runs, JSON validation,
+  boundary scans, `python scripts\check_manuscript.py`, and `git diff --check`
+  passed, with only the expected open-milestone and line-ending warnings before
+  milestone closeout.
+- Next recommended action: execute M70 to interpret the corrected extended MC
+  in the draft while preserving the reduced diagnostic replication count and
+  M65 projected-critical-value caveat.
+
 ### 2026-06-12 - Complete M69 extended three-block Monte Carlo
 
 - Request or goal: execute M69 and incorporate the user's clarification that
@@ -1320,9 +1345,11 @@ For traceable work blocks, pair this human-readable note with a closed
   `manuscript/paper-map.md`, `manuscript/tasks/M70-extended-mc-draft-documentation/task.md`,
   `manuscript/tasks/M69-extended-three-block-mc/outcome.md`,
   `manuscript/user-input-log.md`, and `manuscript/decision-log.md`.
-- Summary of work: created M71 as the priority-1 correction task. It removes
+- Summary of work: created M71 as the priority-1 correction task. It was
+  designed to remove
   the \(B_{21}\ge0\) sign restriction from active figures and MCs, replaces
   true-point fixed weights with candidate-specific pointwise weighting, blocks
   M70, and defers any 500-replication MC until corrected diagnostics exist.
 - Check: `python scripts/check_manuscript.py` passed.
-- Next recommended action: execute M71.
+- Next recommended action at the time: execute M71. Superseded later on
+  2026-06-12 by the completed M71 execution entry above.

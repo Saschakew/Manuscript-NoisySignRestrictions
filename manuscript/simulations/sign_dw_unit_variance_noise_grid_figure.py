@@ -6,12 +6,13 @@ shocks have unit variance, residual-noise variances are nuisance parameters,
 and the robust row projects accepted ``(B, lambda)`` pairs onto displayed
 impact coordinates.
 
-The active M68 chart reports the impact vector of the first shock,
+The active M71 chart reports the impact vector of the first shock,
 ``(B11, B21)``. For each plotted ``(B11, B21)`` point, the script profiles
 ``B12`` and ``B22`` while imposing the maintained sign screen
-``B11 > 0``, ``B22 > 0``, ``B12 <= 0``, and ``B21 >= 0``. The robust row then
-searches over ``lambda in [0, rho]^2`` and evaluates the Section 4 moment
-vector at ``nu_i(B, lambda) = lambda_i (B B')_ii``.
+``B11 > 0``, ``B22 > 0``, and ``B12 <= 0``. The robust row then searches over
+``lambda in [0, rho]^2`` and evaluates the Section 4 moment vector at
+``nu_i(B, lambda) = lambda_i (B B')_ii``. Every statistic uses a
+candidate-specific pointwise covariance estimate.
 """
 
 from __future__ import annotations
@@ -53,8 +54,8 @@ CHI2_90_DF8 = 13.36156613651173
 
 B12_MIN = -1.10
 B12_MAX = 0.0
-B21_MIN = -0.10
-B21_MAX = 1.45
+B21_MIN = -1.45
+B21_MAX = 1.90
 B11_MIN = 0.35
 B11_MAX = 1.65
 B22_MIN = 0.55
@@ -63,10 +64,10 @@ B22_MAX = 1.45
 
 @dataclass(frozen=True)
 class GridSpec:
-    projection_points: int = 43
-    profile_points: int = 11
-    lambda_points: int = 7
-    robust_batch_size: int = 36
+    projection_points: int = 31
+    profile_points: int = 9
+    lambda_points: int = 5
+    robust_batch_size: int = 48
     standard_batch_size: int = 240
 
 
@@ -197,7 +198,7 @@ def make_candidate_grid(spec: GridSpec) -> CandidateGrid:
     b12 = b12_values[b12_index].ravel()
     b22 = b22_values[b22_index].ravel()
 
-    sign_and_orientation = (b11 > 0.0) & (b22 > 0.0) & (b12 <= 0.0) & (b21 >= 0.0)
+    sign_and_orientation = (b11 > 0.0) & (b22 > 0.0) & (b12 <= 0.0)
     determinant = b11 * b22 - b12 * b21
     nonsingular = np.abs(determinant) > 1e-8
     keep = sign_and_orientation & nonsingular
@@ -255,48 +256,70 @@ def recovered_shocks(
     return shocks - shocks.mean(axis=0, keepdims=True)
 
 
-def regularized_inverse_stack(covariance: np.ndarray) -> np.ndarray:
+def empty_regularization_stats() -> dict[str, Any]:
+    return {
+        "matrix_count": 0,
+        "regularized_matrix_count": 0,
+        "regularized_eigenvalue_count": 0,
+        "min_eigenvalue_before_floor": None,
+        "max_eigenvalue_floor": None,
+    }
+
+
+def merge_regularization_stats(target: dict[str, Any], label: str, update: dict[str, Any]) -> None:
+    entry = target.setdefault(label, empty_regularization_stats())
+    entry["matrix_count"] += int(update["matrix_count"])
+    entry["regularized_matrix_count"] += int(update["regularized_matrix_count"])
+    entry["regularized_eigenvalue_count"] += int(update["regularized_eigenvalue_count"])
+    for key, reducer in (
+        ("min_eigenvalue_before_floor", min),
+        ("max_eigenvalue_floor", max),
+    ):
+        value = update[key]
+        if value is None:
+            continue
+        if entry[key] is None:
+            entry[key] = float(value)
+        else:
+            entry[key] = float(reducer(float(entry[key]), float(value)))
+
+
+def regularized_inverse_stack(covariance: np.ndarray) -> tuple[np.ndarray, dict[str, Any]]:
     covariance = 0.5 * (covariance + np.swapaxes(covariance, -1, -2))
     values, vectors = np.linalg.eigh(covariance)
+    raw_values = values.copy()
     max_values = np.maximum(np.max(values, axis=1), 1.0)
     floors = max_values[:, None] * 1e-10
+    regularized = values < floors
     values = np.maximum(values, floors)
-    return np.einsum("bij,bj,bkj->bik", vectors, 1.0 / values, vectors)
+    stats = {
+        "matrix_count": int(values.shape[0]),
+        "regularized_matrix_count": int(np.count_nonzero(np.any(regularized, axis=1))),
+        "regularized_eigenvalue_count": int(np.count_nonzero(regularized)),
+        "min_eigenvalue_before_floor": float(np.min(raw_values)) if raw_values.size else None,
+        "max_eigenvalue_floor": float(np.max(floors)) if floors.size else None,
+    }
+    return np.einsum("bij,bj,bkj->bik", vectors, 1.0 / values, vectors), stats
 
 
-def j_from_observations(observations: np.ndarray) -> np.ndarray:
+def j_from_observations(
+    observations: np.ndarray,
+    regularization: dict[str, Any] | None = None,
+    label: str = "criterion",
+) -> np.ndarray:
     mean = observations.mean(axis=0)
     centered = observations - mean[None, :, :]
     covariance = np.einsum("tbi,tbj->bij", centered, centered) / observations.shape[0]
-    inverse = regularized_inverse_stack(covariance)
+    inverse, stats = regularized_inverse_stack(covariance)
+    if regularization is not None:
+        merge_regularization_stats(regularization, label, stats)
     return observations.shape[0] * np.einsum("bi,bij,bj->b", mean, inverse, mean)
-
-
-def weight_from_observations(observations: np.ndarray) -> np.ndarray:
-    if observations.ndim != 3 or observations.shape[1] != 1:
-        raise ValueError("weight observations must have shape (T, 1, k)")
-    single = observations[:, 0, :]
-    centered = single - single.mean(axis=0, keepdims=True)
-    covariance = centered.T @ centered / single.shape[0]
-    covariance = 0.5 * (covariance + covariance.T)
-    values, vectors = np.linalg.eigh(covariance)
-    floor = max(float(np.max(values)), 1.0) * 1e-10
-    values = np.maximum(values, floor)
-    return (vectors / values) @ vectors.T
-
-
-def j_with_weight(mean: np.ndarray, weight: np.ndarray, sample_size: int) -> np.ndarray:
-    return sample_size * np.einsum("bi,ij,bj->b", mean, weight, mean)
 
 
 def second_moment_observations(shocks: np.ndarray) -> np.ndarray:
     e1 = shocks[:, :, 0]
     e2 = shocks[:, :, 1]
     return np.stack([e1 * e1 - 1.0, e1 * e2, e2 * e2 - 1.0], axis=2)
-
-
-def second_moment_means(shocks: np.ndarray) -> np.ndarray:
-    return second_moment_observations(shocks).mean(axis=0)
 
 
 def standard_dw_observations(shocks: np.ndarray) -> np.ndarray:
@@ -312,10 +335,6 @@ def standard_dw_observations(shocks: np.ndarray) -> np.ndarray:
         ],
         axis=2,
     )
-
-
-def standard_dw_means(shocks: np.ndarray) -> np.ndarray:
-    return standard_dw_observations(shocks).mean(axis=0)
 
 
 def robust_observations(
@@ -382,111 +401,17 @@ def robust_observations(
     return np.concatenate([second, higher], axis=2)
 
 
-def robust_means(
-    residuals: np.ndarray,
-    shocks: np.ndarray,
-    b11: np.ndarray,
-    b12: np.ndarray,
-    b21: np.ndarray,
-    b22: np.ndarray,
-    lambda_pairs: np.ndarray,
-) -> np.ndarray:
-    batch = b11.size
-    pair_count = lambda_pairs.shape[0]
-    repeated = batch * pair_count
-    e1 = shocks[:, :, 0]
-    e2 = shocks[:, :, 1]
-    covariance = sample_covariance(residuals)
-
-    signal_11 = b11 * b11 + b12 * b12
-    signal_12 = b11 * b21 + b12 * b22
-    signal_22 = b21 * b21 + b22 * b22
-
-    lambda_1 = lambda_pairs[:, 0]
-    lambda_2 = lambda_pairs[:, 1]
-    nu1 = signal_11[:, None] * lambda_1[None, :]
-    nu2 = signal_22[:, None] * lambda_2[None, :]
-    model_11 = signal_11[:, None] + nu1
-    model_12 = signal_12[:, None] + np.zeros_like(nu1)
-    model_22 = signal_22[:, None] + nu2
-
-    second = np.stack(
-        [
-            covariance[0, 0] - model_11.reshape(repeated),
-            covariance[0, 1] - model_12.reshape(repeated),
-            covariance[1, 1] - model_22.reshape(repeated),
-        ],
-        axis=1,
-    )
-
-    _det, inv11, inv12, inv21, inv22 = inverse_elements(b11, b12, b21, b22)
-    omega11 = 1.0 + (inv11[:, None] ** 2) * nu1 + (inv12[:, None] ** 2) * nu2
-    omega12 = (inv11[:, None] * inv21[:, None]) * nu1 + (inv12[:, None] * inv22[:, None]) * nu2
-    omega22 = 1.0 + (inv21[:, None] ** 2) * nu1 + (inv22[:, None] ** 2) * nu2
-
-    e21 = np.mean(e1 * e1 * e2, axis=0)[:, None]
-    e12 = np.mean(e1 * e2 * e2, axis=0)[:, None]
-    e31 = np.mean(e1 * e1 * e1 * e2, axis=0)[:, None]
-    e22 = np.mean(e1 * e1 * e2 * e2, axis=0)[:, None]
-    e13 = np.mean(e1 * e2 * e2 * e2, axis=0)[:, None]
-
-    higher = np.stack(
-        [
-            np.broadcast_to(e21, omega11.shape).reshape(repeated),
-            np.broadcast_to(e12, omega11.shape).reshape(repeated),
-            (e31 - 3.0 * omega11 * omega12).reshape(repeated),
-            (e22 - omega11 * omega22 - 2.0 * omega12 * omega12).reshape(repeated),
-            (e13 - 3.0 * omega22 * omega12).reshape(repeated),
-        ],
-        axis=1,
-    )
-    return np.concatenate([second, higher], axis=1)
-
-
-def scenario_weights(residuals: np.ndarray, noise: tuple[float, float]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
-    true_shocks = recovered_shocks(
-        residuals,
-        np.array([TRUE_B11]),
-        np.array([TRUE_B12]),
-        np.array([TRUE_B21]),
-        np.array([TRUE_B22]),
-    )
-    signal = TRUE_MATRIX @ TRUE_MATRIX.T
-    lambda_pair = np.array(
-        [
-            0.0 if signal[0, 0] <= 0.0 else noise[0] / signal[0, 0],
-            0.0 if signal[1, 1] <= 0.0 else noise[1] / signal[1, 1],
-        ],
-        dtype=float,
-    )[None, :]
-    second_weight = weight_from_observations(second_moment_observations(true_shocks))
-    standard_weight = weight_from_observations(standard_dw_observations(true_shocks))
-    robust_weight = weight_from_observations(
-        robust_observations(
-            residuals,
-            true_shocks,
-            np.array([TRUE_B11]),
-            np.array([TRUE_B12]),
-            np.array([TRUE_B21]),
-            np.array([TRUE_B22]),
-            lambda_pair,
-        )
-    )
-    return second_weight, standard_weight, robust_weight
-
-
 def evaluate_standard_projection(
     residuals: np.ndarray,
     grid: CandidateGrid,
     spec: GridSpec,
-    second_weight: np.ndarray,
-    standard_weight: np.ndarray,
 ) -> dict[str, Any]:
     shape = (grid.b21_values.size, grid.b11_values.size)
     sign_mask = np.zeros(shape, dtype=bool)
     standard_mask = np.zeros(shape, dtype=bool)
     best_second = np.full(shape, np.nan)
     best_standard = np.full(shape, np.nan)
+    regularization: dict[str, Any] = {}
 
     for start in range(0, grid.b11.size, spec.standard_batch_size):
         end = min(start + spec.standard_batch_size, grid.b11.size)
@@ -497,8 +422,16 @@ def evaluate_standard_projection(
             grid.b21[start:end],
             grid.b22[start:end],
         )
-        second_j = j_with_weight(second_moment_means(shocks), second_weight, residuals.shape[0])
-        standard_j = j_with_weight(standard_dw_means(shocks), standard_weight, residuals.shape[0])
+        second_j = j_from_observations(
+            second_moment_observations(shocks),
+            regularization,
+            "second_moment",
+        )
+        standard_j = j_from_observations(
+            standard_dw_observations(shocks),
+            regularization,
+            "standard_dw",
+        )
         sign_accept = second_j <= CHI2_90_DF3
         standard_accept = sign_accept & (standard_j <= CHI2_90_DF5)
         rows = grid.b21_index[start:end]
@@ -520,6 +453,7 @@ def evaluate_standard_projection(
         "standard_mask": standard_mask,
         "best_second": best_second,
         "best_standard": best_standard,
+        "regularization": regularization,
     }
 
 
@@ -550,13 +484,13 @@ def evaluate_robust_projection(
     noise: tuple[float, float],
     grid: CandidateGrid,
     spec: GridSpec,
-    robust_weight: np.ndarray,
 ) -> dict[str, Any]:
     shape = (grid.b21_values.size, grid.b11_values.size)
     robust_mask = np.zeros(shape, dtype=bool)
     best_robust = np.full(shape, np.nan)
     best_lambda_1 = np.full(shape, np.nan)
     best_lambda_2 = np.full(shape, np.nan)
+    regularization: dict[str, Any] = {}
 
     lambda_1, lambda_2 = lambda_grid_for_noise(noise, spec)
     lambda_pairs = np.array(np.meshgrid(lambda_1, lambda_2, indexing="ij")).reshape(2, -1).T
@@ -570,8 +504,8 @@ def evaluate_robust_projection(
         b21 = grid.b21[selected]
         b22 = grid.b22[selected]
         shocks = recovered_shocks(residuals, b11, b12, b21, b22)
-        means = robust_means(residuals, shocks, b11, b12, b21, b22, lambda_pairs)
-        robust_j = j_with_weight(means, robust_weight, residuals.shape[0]).reshape(
+        observations = robust_observations(residuals, shocks, b11, b12, b21, b22, lambda_pairs)
+        robust_j = j_from_observations(observations, regularization, "robust_full").reshape(
             selected.size,
             lambda_pairs.shape[0],
         )
@@ -597,13 +531,13 @@ def evaluate_robust_projection(
         "lambda_1_grid": lambda_1,
         "lambda_2_grid": lambda_2,
         "prefilter_count": int(candidate_indices.size),
+        "regularization": regularization,
     }
 
 
 def robust_truth_j(
     residuals: np.ndarray,
     noise: tuple[float, float],
-    robust_weight: np.ndarray,
 ) -> tuple[float, tuple[float, float]]:
     signal = TRUE_MATRIX @ TRUE_MATRIX.T
     lambda_pair = (
@@ -617,7 +551,7 @@ def robust_truth_j(
         np.array([TRUE_B21]),
         np.array([TRUE_B22]),
     )
-    means = robust_means(
+    observations = robust_observations(
         residuals,
         shocks,
         np.array([TRUE_B11]),
@@ -626,14 +560,10 @@ def robust_truth_j(
         np.array([TRUE_B22]),
         np.array(lambda_pair, dtype=float)[None, :],
     )
-    return float(j_with_weight(means, robust_weight, residuals.shape[0])[0]), lambda_pair
+    return float(j_from_observations(observations)[0]), lambda_pair
 
 
-def standard_truth_j(
-    residuals: np.ndarray,
-    second_weight: np.ndarray,
-    standard_weight: np.ndarray,
-) -> tuple[float, float]:
+def standard_truth_j(residuals: np.ndarray) -> tuple[float, float]:
     shocks = recovered_shocks(
         residuals,
         np.array([TRUE_B11]),
@@ -641,8 +571,8 @@ def standard_truth_j(
         np.array([TRUE_B21]),
         np.array([TRUE_B22]),
     )
-    second_j = float(j_with_weight(second_moment_means(shocks), second_weight, residuals.shape[0])[0])
-    standard_j = float(j_with_weight(standard_dw_means(shocks), standard_weight, residuals.shape[0])[0])
+    second_j = float(j_from_observations(second_moment_observations(shocks))[0])
+    standard_j = float(j_from_observations(standard_dw_observations(shocks))[0])
     return second_j, standard_j
 
 
@@ -656,6 +586,15 @@ def truth_distance(mask: np.ndarray, grid: CandidateGrid) -> float | None:
     b11_mesh, b21_mesh = np.meshgrid(grid.b11_values, grid.b21_values)
     distances = np.hypot(b11_mesh[mask] - TRUE_B11, b21_mesh[mask] - TRUE_B21)
     return float(np.min(distances))
+
+
+def boundary_flags(mask: np.ndarray) -> dict[str, bool]:
+    return {
+        "touches_b11_min": bool(mask[:, 0].any()),
+        "touches_b11_max": bool(mask[:, -1].any()),
+        "touches_b21_min": bool(mask[0, :].any()),
+        "touches_b21_max": bool(mask[-1, :].any()),
+    }
 
 
 def fmt(value: Any, digits: int = 3) -> str:
@@ -677,9 +616,9 @@ def write_outputs(
 ) -> None:
     payload = {
         "schema_version": 1,
-        "task": "M68 first-shock impact evidence rebuild",
+        "task": "M71 remove B21 sign and pointwise weighting",
         "figure": display_path(output_path),
-        "description": "Projected unit-variance first-shock grid over (B11,B21), with B12/B22 and lambda profiled.",
+        "description": "Projected unit-variance first-shock grid over (B11,B21), with B12/B22 and lambda profiled, no B21 sign restriction, and candidate-specific pointwise covariance weighting.",
         "configuration": {
             "scenario_set": scenario_set,
             "rho": RELATIVE_NOISE_RATIO,
@@ -694,8 +633,9 @@ def write_outputs(
             },
             "displayed_projection": ["B11", "B21"],
             "profiled_coordinates": ["B12", "B22", "lambda1", "lambda2"],
-            "sign_restrictions": ["B11 > 0", "B22 > 0", "B12 <= 0", "B21 >= 0"],
-            "weighting": "fixed one-step GMM weights by scenario, evaluated at the fixed-draw true parameter",
+            "sign_restrictions": ["B11 > 0", "B22 > 0", "B12 <= 0"],
+            "weighting": "candidate-specific pointwise covariance estimates for each tested B or (B,lambda) candidate",
+            "weight_regularization": "symmetric covariance eigensystem with eigenvalue floor max(max_eigenvalue, 1) * 1e-10",
         },
         "diagnostics": diagnostics,
     }
@@ -703,15 +643,15 @@ def write_outputs(
     json_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     lines = [
-        "# M68 Unit-Variance First-Shock Figure Diagnostics",
+        "# M71 Unit-Variance First-Shock Figure Diagnostics",
         "",
-        "Status: generated first-shock impact figure for the M64/M66 unit-variance route.",
+        "Status: generated corrected first-shock impact figure for the M64/M66 unit-variance route after M71.",
         "",
-        "The chart displays the projection of accepted matrices onto `(B11, B21)`, the impact vector of the first shock. It does not impose `diag(B)=1`: for every displayed projection point the script searches over `B12` and `B22`. The maintained sign screen is `B11>0`, `B22>0`, `B12<=0`, and `B21>=0`. The robust row also searches over `lambda in [0,rho]^2` and sets `nu_i=lambda_i (B B')_ii` before evaluating the Section 4 moment vector.",
+        "The chart displays the projection of accepted matrices onto `(B11, B21)`, the impact vector of the first shock. It does not impose `diag(B)=1`: for every displayed projection point the script searches over `B12` and `B22`. The maintained sign screen is `B11>0`, `B22>0`, and `B12<=0`; `B21` is displayed but not sign-restricted. The robust row also searches over `lambda in [0,rho]^2` and sets `nu_i=lambda_i (B B')_ii` before evaluating the Section 4 moment vector.",
         "",
         "Truth markers refer to the full true matrix, not merely to whether the true `(B11,B21)` projection cell contains some other accepted profiled pair: a star means the full true `B0` passes that row's test, and an x means it does not.",
         "",
-        "The plotted J statistics use a fixed one-step GMM weight for each scenario, estimated from the fixed draw at the true parameter. The robust cutoff is a pointwise diagnostic chi-square cutoff for the eight displayed moment rows. The final projection-critical-value choice remains part of the broader M65 evidence task.",
+        "The plotted statistics use candidate-specific pointwise covariance estimates: for each tested `B` or `(B,lambda)` candidate, the script estimates the covariance of that candidate's moment observations and computes `T g' W g`. The robust cutoff is a pointwise diagnostic chi-square cutoff for the eight displayed moment rows. The final projection-critical-value choice remains part of the broader M65 evidence task.",
         "",
         "## Configuration",
         "",
@@ -721,7 +661,8 @@ def write_outputs(
         f"- Projection grid: `{spec.projection_points} x {spec.projection_points}` plus true coordinates.",
         f"- Profile grid: `{spec.profile_points} x {spec.profile_points}` plus true profiled coordinates.",
         f"- Lambda grid: `{spec.lambda_points} x {spec.lambda_points}` plus the true lambda values for each scenario.",
-        "- Weighting: fixed one-step GMM weights by scenario, evaluated at the fixed-draw true parameter for this diagnostic figure.",
+        "- Weighting: candidate-specific pointwise covariance estimates for each tested candidate.",
+        "- Weight regularization: symmetric covariance eigensystem with eigenvalue floor `max(max_eigenvalue, 1) * 1e-10`.",
         "",
         "## Fixed-Draw Diagnostics",
         "",
@@ -752,9 +693,9 @@ def write_outputs(
             "| Claim | Status | Evidence | Confidence | Action |",
             "|---|---|---|---|---|",
             "| The robust row uses `nu_i=lambda_i (B B')_ii` with `lambda in [0,rho]^2`. | `code-implemented`, `derived` | `sign_dw_unit_variance_noise_grid_figure.py`; M66 derivation note. | high | promote for Figure 1 |",
-            "| The displayed chart is a projection to `(B11,B21)`, with `B12`, `B22`, and `lambda` profiled. | `code-implemented`, `user-decision` | Candidate grid construction and diagnostics JSON; M68 task. | high | promote |",
-            "| The maintained sign screen is `B11>0`, `B22>0`, `B12<=0`, and `B21>=0`. | `code-implemented`, `user-decision` | Candidate grid construction and diagnostics JSON; M68 task. | high | promote |",
-            "| The plotted J statistics use fixed one-step GMM weights for tractability and visual stability. | `code-implemented` | Scenario weight construction in the script. | high | promote as diagnostic implementation detail |",
+            "| The displayed chart is a projection to `(B11,B21)`, with `B12`, `B22`, and `lambda` profiled. | `code-implemented`, `user-decision` | Candidate grid construction and diagnostics JSON; M71 task. | high | promote |",
+            "| The maintained sign screen is `B11>0`, `B22>0`, and `B12<=0`; `B21` is unrestricted. | `code-implemented`, `user-decision` | Candidate grid construction and diagnostics JSON; M71 task. | high | promote |",
+            "| The plotted statistics use candidate-specific pointwise covariance weights. | `code-implemented`, `user-decision` | `j_from_observations` calls in the evaluator. | high | promote as diagnostic implementation detail |",
             "| The robust cutoff is final for projected inference. | `conjectural` | M65 still lists projection critical values as unresolved. | medium | quarantine as diagnostic |",
             "",
         ]
@@ -849,21 +790,14 @@ def plot(
             non_gaussian_weight=scenario.non_gaussian_weight,
             residual_noise=scenario.residual_noise,
         )
-        second_weight, standard_weight, robust_weight = scenario_weights(residuals, noise)
         standard = evaluate_standard_projection(
             residuals,
             grid,
             spec,
-            second_weight,
-            standard_weight,
         )
-        robust = evaluate_robust_projection(residuals, noise, grid, spec, robust_weight)
-        second_truth, standard_truth = standard_truth_j(
-            residuals,
-            second_weight,
-            standard_weight,
-        )
-        robust_truth, true_lambda = robust_truth_j(residuals, noise, robust_weight)
+        robust = evaluate_robust_projection(residuals, noise, grid, spec)
+        second_truth, standard_truth = standard_truth_j(residuals)
+        robust_truth, true_lambda = robust_truth_j(residuals, noise)
 
         sign_mask = standard["sign_mask"]
         standard_mask = standard["standard_mask"]
@@ -908,8 +842,17 @@ def plot(
                     "standard_to_truth": truth_distance(standard_mask, grid),
                     "robust_to_truth": truth_distance(robust_mask, grid),
                 },
+                "boundary": {
+                    "sign": boundary_flags(sign_mask),
+                    "standard_dw": boundary_flags(standard_mask),
+                    "robust_dw": boundary_flags(robust_mask),
+                },
                 "best_truth_cell_lambda": list(robust_lambda_cell),
                 "robust_prefilter_count": robust["prefilter_count"],
+                "regularization": {
+                    "standard": standard["regularization"],
+                    "robust": robust["regularization"],
+                },
             }
         )
 
@@ -963,7 +906,7 @@ def plot(
     fig.suptitle(
         (
             f"Unit-variance {scenario_set.replace('_', '-')} projection to (B11,B21); "
-            "B12/B22 profiled, signs B11>0, B22>0, B12<=0, B21>=0\n"
+            "B12/B22 profiled, signs B11>0, B22>0, B12<=0\n"
             f"rho={RELATIVE_NOISE_RATIO}; pointwise diagnostic cutoffs "
             f"chi2_3={CHI2_90_DF3:.2f}, chi2_5={CHI2_90_DF5:.2f}, chi2_8={CHI2_90_DF8:.2f}"
         ),

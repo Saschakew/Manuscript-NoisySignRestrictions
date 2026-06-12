@@ -4,15 +4,21 @@ Status: done.
 
 Completed: 2026-06-12.
 
+Correction note, 2026-06-12: M71 supersedes the M68 sign-screen and weighting
+details for active evidence. Use the M71 outcome and regenerated outputs for
+current Figures 1-3 and Table 1.
+
 ## Short Answer
 
 M68 replaces the M67 \((B_{12},B_{21})\) projection with the active
-first-shock chart \((B_{11},B_{21})\). All active figures and the Monte Carlo
-diagnostic impose \(B_{11}>0\), \(B_{22}>0\), \(B_{12}\le0\), and
-\(B_{21}\ge0\), profile \(B_{12}\), \(B_{22}\), and \(\lambda\), and use the
-M66 unit-variance route \(\nu_i=\lambda_i(BB')_{ii}\). The outputs are
-diagnostic pointwise chi-square inversions; projected critical values remain
-M65 follow-up.
+first-shock chart \((B_{11},B_{21})\). In the original M68 run, the figures
+and Monte Carlo diagnostic imposed \(B_{11}>0\), \(B_{22}>0\),
+\(B_{12}\le0\), and \(B_{21}\ge0\), profiled \(B_{12}\), \(B_{22}\), and
+\(\lambda\), and used the M66 unit-variance route
+\(\nu_i=\lambda_i(BB')_{ii}\). After M71, the active outputs keep the
+first-shock chart but remove the \(B_{21}\) sign restriction and use
+candidate-specific pointwise weights. Projected critical values remain M65
+follow-up.
 
 ## What Changed
 
@@ -39,7 +45,7 @@ M65 follow-up.
 |---|---|---|
 | Which coordinates should the active figures report? | \((B_{11},B_{21})\), the first-shock impact coordinates. | `task.md`; `../../draft.md#5-monte-carlo-robustness-check` |
 | Are positive diagonal entries sign restrictions? | Yes. M68 treats \(B_{11}>0\) and \(B_{22}>0\) as maintained sign restrictions. | `../../simulations/sign_dw_unit_variance_noise_grid_figure.md` |
-| What is the \(B_{12}\) sign restriction? | \(B_{12}\le0\), imposed in figures and Monte Carlo along with \(B_{21}\ge0\). | `../../simulations/m68_first_shock_evidence.md` |
+| What is the \(B_{12}\) sign restriction? | \(B_{12}\le0\). The original M68 run also imposed \(B_{21}\ge0\), but M71 removes that extra sign from active evidence. | `../M71-remove-b21-sign-and-pointwise-weighting/outcome.md` |
 | What still remains open? | The projected critical-value route for the enlarged \((B,\lambda)\) inversion. | `../M65-unit-variance-gmm-evidence-rebuild/task.md` |
 
 ## Files To Read

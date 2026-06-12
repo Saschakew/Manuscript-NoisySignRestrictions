@@ -134,3 +134,4 @@
 {"id": "A0066-001", "milestone_id": "M0066-run-m69-500-rep-mc", "captured_at": "2026-06-12T18:45:20Z", "description": "Stopped the long-run path after the user identified methodological corrections."}
 {"id": "A0066-002", "milestone_id": "M0066-run-m69-500-rep-mc", "captured_at": "2026-06-12T18:45:20Z", "description": "Planned M71 to remove the B21 sign restriction and replace true-point fixed weights with candidate-specific pointwise weighting before rerunning figures or MCs."}
 {"id": "A0066-003", "milestone_id": "M0066-run-m69-500-rep-mc", "captured_at": "2026-06-12T18:45:59Z", "description": "Ran the manuscript check after planning M71 and closing the interrupted long-run path."}
+{"id": "A0067-001", "milestone_id": "M0067-m71-remove-b21-sign-and-pointwise-weighting", "captured_at": "2026-06-12T19:44:06Z", "description": "Corrected active evidence scripts and regenerated diagnostic outputs."}

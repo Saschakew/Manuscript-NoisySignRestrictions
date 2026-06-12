@@ -17,34 +17,33 @@ variance moments plus covariance, standard DW refines that second-moment set,
 and Section 4 replaces generated sample covariance-product plug-ins with
 parameter-implied \(\omega_{ij}(B,\nu)\) terms.
 
-Current focus: M71 is now the blocking correction before any long MC run or
-draft interpretation. The intended sign screen for Figures 1-3 and the MCs is
-\(B_{11}>0\), \(B_{22}>0\), and \(B_{12}\le0\), with no sign restriction on
-\(B_{21}\). The intended inversion is a pointwise confidence-set/S-statistic
-inversion: for each candidate \((B,\nu)\), estimate
-\(\widehat\Omega(B,\nu)\) at that candidate and compute
-\(Tg_T(B,\nu)'\widehat\Omega(B,\nu)^{-1}g_T(B,\nu)\). The M69 output still
-records useful set-size and truth-inclusion diagnostics, but it is superseded
-for draft interpretation until M71 regenerates the figures and MC outputs.
+Current focus: M71 has corrected the active figure and Monte Carlo objects.
+Figures 1-3, the Table 1 diagnostic, and the extended MC now use first-shock
+coordinates \((B_{11},B_{21})\), profile \(B_{12}\), \(B_{22}\), and
+\(\lambda\), impose \(B_{11}>0\), \(B_{22}>0\), and \(B_{12}\le0\), and use
+candidate-specific pointwise covariance weights for
+\(Tg_T(B,\nu)'\widehat\Omega(B,\nu)^{-1}g_T(B,\nu)\). The 500-replication run
+remains deferred; the corrected normal diagnostics are reduced-size evidence
+checks, not the long MC.
 
 Background: M68 rebuilt Figures 1-3 and the Monte Carlo diagnostic under the
 M66-settled unit-variance GMM route, and M69 extended the MC into residual
-noise, structural non-Gaussianity, and sample-size blocks. Those scripts
-currently impose \(B_{21}\ge0\) and reuse weights computed at the true DGP
-point across the grid. M71 must remove that sign restriction, implement
-candidate-specific pointwise weighting, and then rerun the diagnostics.
+noise, structural non-Gaussianity, and sample-size blocks. M71 supersedes those
+versions for draft interpretation because it removes the extra \(B_{21}\ge0\)
+screen and replaces true-point fixed weights with candidate-specific pointwise
+weights.
 
-Next recommended action: execute M71 in
-`manuscript/tasks/M71-remove-b21-sign-and-pointwise-weighting/task.md`. Keep
-the 500-replication M69 run deferred until M71 quick and normal diagnostics
-pass. M70 is blocked until the corrected outputs exist. M65 still owns final
-projected-inference wording, but M71 should first fix the implemented
-pointwise statistic and sign screen.
+Next recommended action: use M70 to interpret the corrected M71 extended MC
+diagnostics in the draft, keeping the reduced diagnostic replication count and
+pointwise-critical-value caveat visible. M65 still owns final
+projected-inference wording, projected critical values, and release hardening.
 
-Active milestone: M0066 was opened for a 500-replication M69 run but was
-superseded before producing results because M71 must correct the implemented
-figure/MC object first. M0065 completed M69 and GitHub milestone #60 tracks the
-same extended three-block Monte Carlo work. M0064 completed M68 and closed
+Active milestone: M0067 completes M71 and GitHub milestone #62 tracks the same
+sign-screen and pointwise-weighting correction. M0066 was opened for a
+500-replication M69 run but was superseded before producing results because
+M71 had to correct the implemented figure/MC object first. M0065 completed M69
+and GitHub milestone #60 tracks the same extended three-block Monte Carlo
+work. M0064 completed M68 and closed
 GitHub milestone 59 for the
 first-shock impact evidence rebuild. M0063 completed M67 and closed GitHub
 milestone 58 for the unit-variance Figure 1 rebuild. M0062 completed M66 and created GitHub milestone 57 for the
@@ -73,12 +72,13 @@ unreliable M48 conclusions.
 
 Active blockers:
 
-- M65 is now advanced by M68. Figures 1-3 and the Monte Carlo diagnostic are
-  rebuilt with the projected \((B,\lambda)\) GMM inversion and first-shock
-  chart. The final projection-critical-value route remains open.
+- M65 is now advanced by M71. Figures 1-3 and the Monte Carlo diagnostics are
+  rebuilt with the projected \((B,\lambda)\) GMM inversion, first-shock chart,
+  corrected sign screen, and candidate-specific pointwise weights. The final
+  projection-critical-value route remains open.
 - The M64 revision supersedes the retained `diag(B)=1` chart. The active
   manuscript normalization is now \(E[\varepsilon_t\varepsilon_t']=I\), with
-  residual-noise variances handled as nuisance parameters \(\nu\). M68 updates
+  residual-noise variances handled as nuisance parameters \(\nu\). M71 updates
   the Figure 1-3 and Monte Carlo replication commands; M52 companion evidence
   is historical.
 - M47 conditionally clears the M25 standard-DW J-test inversion result. The
@@ -151,10 +151,15 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-12, completed M69 by implementing
+Last substantive session: 2026-06-12, completed M71 by removing the
+\(B_{21}\) sign restriction, implementing candidate-specific pointwise
+covariance weighting, regenerating Figures 1-3 plus the corrected Table 1 and
+extended MC diagnostics, and updating the manuscript surfaces.
+
+Prior substantive session: 2026-06-12, completed M69 by implementing
 `m69_extended_three_block_mc.py`, adding an explicit `extended-mc` replication
-stage, and running a 24-replication-per-scenario extended MC across the three
-active figure blocks.
+stage, and running the now-superseded extended MC across the three active
+figure blocks.
 
 Prior planning session: 2026-06-12, created M69 for the extended three-block
 Monte Carlo setup/coding task and M70 for the blocked draft interpretation

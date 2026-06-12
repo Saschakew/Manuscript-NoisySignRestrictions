@@ -1,4 +1,4 @@
-"""Monte Carlo evidence for the M68 first-shock unit-variance chart."""
+"""Monte Carlo evidence for the corrected M71 first-shock unit-variance chart."""
 
 from __future__ import annotations
 
@@ -77,11 +77,10 @@ def evaluate_one(
         non_gaussian_weight=scenario.non_gaussian_weight,
         residual_noise=scenario.residual_noise,
     )
-    second_weight, standard_weight, robust_weight = fig.scenario_weights(residuals, scenario.noise)
-    standard = fig.evaluate_standard_projection(residuals, grid, spec, second_weight, standard_weight)
-    robust = fig.evaluate_robust_projection(residuals, scenario.noise, grid, spec, robust_weight)
-    second_truth, standard_truth = fig.standard_truth_j(residuals, second_weight, standard_weight)
-    robust_truth, true_lambda = fig.robust_truth_j(residuals, scenario.noise, robust_weight)
+    standard = fig.evaluate_standard_projection(residuals, grid, spec)
+    robust = fig.evaluate_robust_projection(residuals, scenario.noise, grid, spec)
+    second_truth, standard_truth = fig.standard_truth_j(residuals)
+    robust_truth, true_lambda = fig.robust_truth_j(residuals, scenario.noise)
 
     sign_mask = standard["sign_mask"]
     standard_mask = standard["standard_mask"]
@@ -116,6 +115,10 @@ def evaluate_one(
             "true_lambda": [float(true_lambda[0]), float(true_lambda[1])],
             "distance_to_truth_projection": fig.truth_distance(robust_mask, grid),
             "prefilter_count": int(robust["prefilter_count"]),
+        },
+        "regularization": {
+            "standard": standard["regularization"],
+            "robust": robust["regularization"],
         },
         "overlap": {
             "intersection_count": intersection_count,
@@ -195,8 +198,8 @@ def write_outputs(
 ) -> None:
     payload = {
         "schema_version": 1,
-        "task": "M68 first-shock impact evidence rebuild",
-        "description": "Monte Carlo table using the same first-shock chart and M66 unit-variance GMM criterion as Figures 1-3.",
+        "task": "M71 remove B21 sign and pointwise weighting",
+        "description": "Monte Carlo table using the corrected first-shock chart and M66 unit-variance GMM criterion as Figures 1-3.",
         "configuration": {
             "reps": reps,
             "base_seed": fig.RANDOM_SEED,
@@ -206,7 +209,9 @@ def write_outputs(
             "lambda_points": spec.lambda_points,
             "displayed_projection": ["B11", "B21"],
             "profiled_coordinates": ["B12", "B22", "lambda1", "lambda2"],
-            "sign_restrictions": ["B11 > 0", "B22 > 0", "B12 <= 0", "B21 >= 0"],
+            "sign_restrictions": ["B11 > 0", "B22 > 0", "B12 <= 0"],
+            "weighting": "candidate-specific pointwise covariance estimates for each tested B or (B,lambda) candidate",
+            "weight_regularization": "symmetric covariance eigensystem with eigenvalue floor max(max_eigenvalue, 1) * 1e-10",
             "critical_values": {
                 "second_moment_chi2_90_df3": fig.CHI2_90_DF3,
                 "standard_dw_chi2_90_df5": fig.CHI2_90_DF5,
@@ -220,13 +225,13 @@ def write_outputs(
     json_output.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     lines = [
-        "# M68 First-Shock Monte Carlo Evidence",
+        "# M71 First-Shock Monte Carlo Evidence",
         "",
-        "Status: generated Monte Carlo table for the M68 first-shock impact chart.",
+        "Status: generated Monte Carlo table for the corrected M71 first-shock impact chart.",
         "",
-        "The table uses the same sign screen as Figures 1-3: `B11>0`, `B22>0`, `B12<=0`, and `B21>=0`. The displayed coordinates are `(B11,B21)`, while `B12`, `B22`, and `lambda` are profiled. The robust row evaluates the M66 moment vector at `nu_i=lambda_i(BB')_ii`.",
+        "The table uses the same sign screen as Figures 1-3: `B11>0`, `B22>0`, and `B12<=0`; `B21` is displayed but not sign-restricted. The displayed coordinates are `(B11,B21)`, while `B12`, `B22`, and `lambda` are profiled. The robust row evaluates the M66 moment vector at `nu_i=lambda_i(BB')_ii`.",
         "",
-        "The cutoffs are pointwise chi-square diagnostics for the displayed moment rows. The final projected critical-value route remains an inference follow-up.",
+        "The statistics use candidate-specific pointwise covariance estimates for each tested candidate. The cutoffs are pointwise chi-square diagnostics for the displayed moment rows. The final projected critical-value route remains an inference follow-up.",
         "",
         "## Configuration",
         "",
@@ -263,7 +268,9 @@ def write_outputs(
             "",
             "| Claim | Status | Evidence | Confidence | Action |",
             "|---|---|---|---|---|",
-            "| Monte Carlo uses the M68 sign screen and first-shock chart. | `code-implemented`, `user-decision` | This script and JSON configuration. | high | promote for Table 1 diagnostics |",
+            "| Monte Carlo uses the M71 sign screen and first-shock chart. | `code-implemented`, `user-decision` | This script and JSON configuration. | high | promote for Table 1 diagnostics |",
+            "| M71 removes the `B21>=0` sign restriction from the active MC. | `code-implemented`, `user-decision` | This script and JSON configuration. | high | promote |",
+            "| M71 uses candidate-specific pointwise covariance weights. | `code-implemented`, `user-decision` | Shared evaluator calls through `j_from_observations`. | high | promote |",
             "| Robust MC uses `nu_i=lambda_i(BB')_ii` and profiles `lambda in [0,rho]^2`. | `code-implemented`, `derived` | M66 derivation and evaluator calls. | high | promote |",
             "| The chi-square cutoffs are final projected confidence-set critical values. | `conjectural` | M65/M68 still leave projection-critical-value inference as follow-up. | medium | quarantine as diagnostic |",
             "",
@@ -275,8 +282,8 @@ def write_outputs(
 def run(
     json_output: Path = JSON_OUTPUT,
     note_output: Path = NOTE_OUTPUT,
-    reps: int = 12,
-    spec: fig.GridSpec = fig.GridSpec(projection_points=17, profile_points=7, lambda_points=5),
+    reps: int = 6,
+    spec: fig.GridSpec = fig.GridSpec(projection_points=13, profile_points=5, lambda_points=3),
 ) -> Path:
     grid = fig.make_candidate_grid(spec)
     records: list[dict[str, Any]] = []
@@ -302,10 +309,10 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--json-output", default="", help="Optional JSON output path.")
     parser.add_argument("--note-output", default="", help="Optional Markdown note output path.")
-    parser.add_argument("--evaluation-reps", type=int, default=12)
-    parser.add_argument("--projection-points", type=int, default=17)
-    parser.add_argument("--profile-points", type=int, default=7)
-    parser.add_argument("--lambda-points", type=int, default=5)
+    parser.add_argument("--evaluation-reps", type=int, default=6)
+    parser.add_argument("--projection-points", type=int, default=13)
+    parser.add_argument("--profile-points", type=int, default=5)
+    parser.add_argument("--lambda-points", type=int, default=3)
     parser.add_argument("--robust-batch-size", type=int, default=36)
     parser.add_argument("--standard-batch-size", type=int, default=240)
     return parser.parse_args()

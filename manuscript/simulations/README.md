@@ -5,7 +5,7 @@ Use this folder for exploratory simulation designs and design notes.
 Final shareable code that reproduces manuscript figures and tables belongs in
 `../replication/`.
 
-## M68 First-Shock Unit-Variance Evidence Rebuild
+## M71 Corrected First-Shock Unit-Variance Evidence
 
 - Figure script: `sign_dw_unit_variance_noise_grid_figure.py`
 - Monte Carlo script: `m68_first_shock_evidence.py`
@@ -31,12 +31,13 @@ python manuscript\simulations\sign_dw_unit_variance_noise_grid_figure.py --scena
 python manuscript\simulations\m68_first_shock_evidence.py
 ```
 
-Interpretation: this is the active diagnostic evidence package after M68. It
+Interpretation: this is the active diagnostic evidence package after M71. It
 uses the unit-variance route with `nu_i=lambda_i(BB')_ii`, displays
-first-shock coordinates `(B11,B21)`, profiles `B12`, `B22`, and `lambda`, and
-imposes `B11>0`, `B22>0`, `B12<=0`, and `B21>=0` as maintained sign
-restrictions. The figure and Monte Carlo cutoffs are pointwise chi-square
-diagnostics, not final projected confidence-set critical values.
+first-shock coordinates `(B11,B21)`, profiles `B12`, `B22`, and `lambda`,
+imposes `B11>0`, `B22>0`, and `B12<=0` as maintained sign restrictions, and
+uses candidate-specific pointwise covariance weights. The figure and Monte
+Carlo cutoffs are pointwise chi-square diagnostics, not final projected
+confidence-set critical values.
 
 ## M69 Extended Three-Block Monte Carlo
 
@@ -49,12 +50,12 @@ diagnostics, not final projected confidence-set critical values.
 python manuscript\replication\run_all.py --stage extended-mc
 ```
 
-Interpretation: this output is the M69 setup/coding result for an extended MC
-that mirrors the three active figure blocks: residual noise, structural
-non-Gaussianity, and sample size. It reports true-\(B_0\) inclusion
-counts/rates and uses accepted projection share on `(B11,B21)` as the
-inverted-set size measure, summarized by mean and median. M70 owns draft
-interpretation after the output is checked.
+Interpretation: this output is the M71-corrected extended MC that mirrors the
+three active figure blocks: residual noise, structural non-Gaussianity, and
+sample size. It reports true-\(B_0\) inclusion counts/rates and uses accepted
+projection share on `(B11,B21)` as the inverted-set size measure, summarized
+by mean and median. M70 owns draft interpretation after the corrected output is
+checked. The long 500-replication MC remains deferred.
 
 ## M45 Variance-Ratio Evidence Rebuild
 
@@ -67,7 +68,7 @@ interpretation after the output is checked.
 python manuscript\simulations\m45_variance_ratio_evidence.py
 ```
 
-Interpretation: this is historical after M64/M68. It was the lightweight
+Interpretation: this is historical after M64/M71. It was the lightweight
 evidence gate for the M0036 variance-ratio robust DW proposal. It applies the hard relative
 covariance-decomposition screen in every accepted-set and truth-inclusion
 calculation. Under the primary chi-square convention, the high Gaussian-noise
@@ -106,12 +107,13 @@ variance-ratio Monte Carlo rebuild.
 python manuscript\simulations\sign_dw_unit_variance_noise_grid_figure.py
 ```
 
-Interpretation: this is historical after M68. M67 projected accepted
+Interpretation: this is historical after M71. M67 projected accepted
 candidates onto `(B12,B21)` while profiling positive `B11`, `B22`, and
 `lambda in [0,rho]^2`; the robust row set `nu_i=lambda_i (B B')_ii` and
-evaluated the Section 4 moment vector. M68 keeps the same unit-variance route
-but changes the active chart to first-shock coordinates `(B11,B21)`, profiles
-`B12`, `B22`, and `lambda`, and adds the maintained `B12<=0` sign restriction.
+evaluated the Section 4 moment vector. M71 keeps the same unit-variance route
+but uses the active first-shock coordinates `(B11,B21)`, profiles `B12`,
+`B22`, and `lambda`, imposes only `B11>0`, `B22>0`, and `B12<=0`, and uses
+candidate-specific pointwise covariance weights.
 
 ## M0036 Relative-Noise Robust Figure 1 Candidate
 
@@ -124,14 +126,14 @@ but changes the active chart to first-shock coordinates `(B11,B21)`, profiles
 python manuscript\simulations\sign_dw_robust_noise_grid_figure.py --robust-mode relative
 ```
 
-Interpretation: this is now historical after M64/M66/M68. The robust-DW row uses the pure five-moment
+Interpretation: this is now historical after M64/M66/M71. The robust-DW row uses the pure five-moment
 higher-cumulant J statistic and adds a candidate-specific
 covariance-decomposition screen requiring
 `0 <= nu_i <= 0.5 Var(epsilon_i)`. In the high-noise column, true `B0` remains
 inside and the relative row accepts 0.071 of the full plotted grid. The
 precision comes from explicit signal-to-noise information, not from a DW
 moment. M45 supplies a historical lightweight validation and Monte Carlo
-rebuild; active unit-variance diagnostics now use M68 Figures 1-3 and Table 1.
+rebuild; active unit-variance diagnostics now use M71 Figures 1-3 and Table 1.
 
 ## M0035 Absolute-Bound Robust Figure 1 Comparison
 
@@ -175,7 +177,7 @@ only valid higher-cumulant moments.
 python manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py
 ```
 
-Interpretation: this companion grid is historical after M68. It fixes residual noise at `V=(0.2,0.2)` and
+Interpretation: this companion grid is historical after M71. It fixes residual noise at `V=(0.2,0.2)` and
 weakens structural-shock non-Gaussianity across columns. All rows invert
 pointwise 10 percent J tests. Its robust row now uses the M0036 variance-ratio
 proposal: pure mixed higher-cumulant J inversion plus the relative
@@ -192,7 +194,7 @@ covariance-decomposition screen.
 python manuscript\simulations\sign_dw_sample_size_robust_grid_figure.py
 ```
 
-Interpretation: this Figure 3 is historical after M68. It fixes strong structural non-Gaussianity and
+Interpretation: this Figure 3 is historical after M71. It fixes strong structural non-Gaussianity and
 moderate residual noise, then varies `T=500`, `T=1000`, and `T=2000`. In the
 rendered fixed draw, standard DW misses the true normalized impact at larger
 sample sizes while variance-ratio robust DW remains truth-containing.
@@ -232,8 +234,8 @@ python manuscript\simulations\sign_dw_robust_noise_grid_figure.py
 
 Interpretation: this is the superseded M0030 diagonal-anchor figure. All rows
 invert pointwise 10 percent J tests, but M0034 invalidated the robust-row
-off-diagonal covariance anchor under the old `diag(B)=1` scale. Use the M68
-unit-variance script, not this script, for the active figures.
+off-diagonal covariance anchor under the old `diag(B)=1` scale. Use the M71
+unit-variance wrapper, not this script, for the active figures.
 
 ## M0016 Sign, Standard DW, And Robust DW Noise Figure
 

@@ -4,10 +4,10 @@ Status: done.
 
 Completed: 2026-06-12.
 
-Correction note, 2026-06-12: M71 now supersedes these outputs before draft
-interpretation. The current M69 run inherited the M68 \(B_{21}\ge0\) sign
-restriction and true-point fixed weights. Use this note as historical
-diagnostic context until M71 regenerates corrected MC outputs.
+Correction note, 2026-06-12: M71 supersedes these original outputs for draft
+interpretation. The original M69 run inherited the M68 \(B_{21}\ge0\) sign
+restriction and true-point fixed weights. Use the M71 outcome and regenerated
+`m69_extended_three_block_mc` outputs for current extended-MC diagnostics.
 
 ## Short Answer
 

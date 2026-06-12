@@ -11,6 +11,27 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-12 - M71 sign-screen and pointwise-weighting correction completed
+
+- Request: work on M71 after the M69 long-run attempt exposed that active
+  evidence still imposed \(B_{21}\ge0\) and reused true-point fixed weights.
+- Actions taken: opened M0067 and GitHub milestone #62; removed the active
+  \(B_{21}\) sign restriction; implemented candidate-specific pointwise
+  covariance weighting; regenerated quick and normal Figures 1-3, Table 1,
+  and extended MC diagnostics; updated draft, registry, source packet,
+  planning surfaces, READMEs, task outcomes, question index, and logs.
+- Files changed: simulation scripts and outputs, generated figures,
+  replication wrapper/README, manuscript draft, formal registry,
+  source/planning surfaces, M68/M69/M71 task outcomes, and transparency files.
+- Checks run: py-compile passed; quick wrapper runs passed for figures,
+  evidence, and extended MC; normal wrapper runs passed for figures, evidence,
+  and extended MC; JSON validation and boundary scans passed; manuscript check
+  and diff check passed with only expected open-milestone and line-ending
+  warnings before closeout.
+- Open uncertainties: M70 should interpret the corrected extended MC in the
+  draft, the 500-replication MC remains deferred, and M65 still owns projected
+  critical values before final confidence-set claims.
+
 ### 2026-06-12 - M69 extended three-block Monte Carlo completed
 
 - Request: work on M69 in goal mode, then incorporate the clarification that

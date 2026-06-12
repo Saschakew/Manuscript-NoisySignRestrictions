@@ -15,10 +15,11 @@ package-covered SVAR estimation, identification, inference, or simulation
 routines inside this manuscript repository. Add only thin wrappers, manuscript
 parameters, scripts, and output handling here.
 
-## Current M68 Wrapper
+## Current M71 Wrapper
 
-M33 added a manuscript-local wrapper. M68 updates it for the active
-unit-variance first-shock evidence package:
+M33 added a manuscript-local wrapper. M71 updates it for the active
+unit-variance first-shock evidence package with the corrected sign screen and
+candidate-specific pointwise weighting:
 
 ```powershell
 python manuscript\replication\run_all.py --dry-run
@@ -33,13 +34,17 @@ The full command rebuilds:
   `manuscript/figures/fig_sign_dw_unit_variance_nongaussianity_grid.png`
 - Figure 3:
   `manuscript/figures/fig_sign_dw_unit_variance_sample_size_grid.png`
-- M68 evidence note and JSON:
+- M71 corrected Table 1 note and JSON:
   `manuscript/simulations/m68_first_shock_evidence.md` and
   `manuscript/simulations/output/m68_first_shock_evidence.json`
+- M71 corrected extended MC note and JSON:
+  `manuscript/simulations/m69_extended_three_block_mc.md` and
+  `manuscript/simulations/output/m69_extended_three_block_mc.json`
 
 The active stages display first-shock coordinates `(B11,B21)`, profile `B12`,
-`B22`, and `lambda`, impose `B11>0`, `B22>0`, `B12<=0`, and `B21>=0`, and use
-the M66 route `nu_i=lambda_i(BB')_ii`.
+`B22`, and `lambda`, impose `B11>0`, `B22>0`, and `B12<=0`, use the M66 route
+`nu_i=lambda_i(BB')_ii`, and compute candidate-specific pointwise covariance
+weights for the displayed quadratic criteria.
 
 For a quick operational smoke check that does not overwrite canonical evidence
 outputs, run:
@@ -61,11 +66,12 @@ python manuscript\replication\run_all.py --stage evidence
 python manuscript\replication\run_all.py --stage extended-mc
 ```
 
-M69 adds the explicit `extended-mc` stage. It does not replace the existing
-M68 `evidence` stage. The extended MC mirrors the three active figure blocks,
-reports true-\(B_0\) inclusion counts/rates, and reports mean and median
-accepted projection shares as inverted-set size measures. M70 owns draft
-interpretation after the M69 outputs are checked.
+M69 added the explicit `extended-mc` stage; M71 corrects its sign screen and
+weighting. It does not replace the existing `evidence` stage. The extended MC
+mirrors the three active figure blocks, reports true-\(B_0\) inclusion
+counts/rates, and reports mean and median accepted projection shares as
+inverted-set size measures. M70 owns draft interpretation after the corrected
+M71 outputs are checked. The long 500-replication run remains deferred.
 
 The current wrapper calls scripts under `manuscript/simulations/`; it does not
 import from a local KnowledgeVault checkout. A later release-hardening step can

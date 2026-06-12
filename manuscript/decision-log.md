@@ -5,6 +5,27 @@ decisions.
 
 ## Entries
 
+### 2026-06-12 - Correct active evidence sign screen and pointwise weighting
+
+- Origin: M71 execution after the interrupted long M69 run exposed that the
+  active M68/M69 evidence still imposed an extra \(B_{21}\ge0\) sign and used
+  true-point fixed weights.
+- User input id: U0068
+- Decision: Active Figures 1-3, Table 1, and the extended MC keep the
+  first-shock \((B_{11},B_{21})\) projection, but the maintained sign screen is
+  only \(B_{11}>0\), \(B_{22}>0\), and \(B_{12}\le0\). Each tested
+  \((B,\nu)\) or \((B,\lambda)\) candidate estimates its own pointwise
+  covariance matrix and uses the statistic
+  \(Tg_T'\widehat\Omega(B,\nu)^{-1}g_T\).
+- Rationale: \(B_{21}\) is a plotted coordinate, not a maintained sign in the
+  paper's current sign screen. Reusing weights computed at the DGP truth made
+  the diagnostic closer to an oracle comparison than to a candidate-by-
+  candidate confidence-set inversion.
+- Consequence for next work: M71 supersedes the M68/M69 sign-screen and
+  weighting details for active evidence. M70 can interpret corrected outputs,
+  while M65 still owns projected critical values and final replication
+  strength.
+
 ### 2026-06-12 - Report first-shock impact coordinates in evidence figures
 
 - Origin: M68 execution after the user reviewed the M67 projection.
