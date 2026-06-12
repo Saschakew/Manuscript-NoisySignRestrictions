@@ -472,7 +472,7 @@ restrictions. Instead of requiring the residual covariance to be explained
 entirely by structural shocks, the researcher allows part of each residual
 variance to be idiosyncratic noise. In the bivariate normalized chart, write
 
-\comment{do not use the diag one normalization!}
+\comment{do not use the diag one normalization! instead, we dont need the s_1 s_2 because they are 1 by normalization.}
 
 \begin{equation}
 B(a,b)=
