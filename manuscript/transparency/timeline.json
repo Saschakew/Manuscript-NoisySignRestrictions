@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-12T20:08:08Z",
+  "updated_at": "2026-06-12T21:30:39Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1458,6 +1458,28 @@
         "milestone_number": 63,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/63",
         "tag_name": "manuscript-milestones/M0068-m72-fix-figure-layout"
+      }
+    },
+    {
+      "id": "M0069-increase-figure-1-3-grid-density",
+      "sequence": 69,
+      "title": "Increase Figure 1-3 grid density",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-12T20:15:47Z",
+      "closed_at": "2026-06-12T21:30:39Z",
+      "start_commit": "5fca5bf5f21a51f5fc7817df409d193efe0a72aa",
+      "snapshot_ref": "manuscript-milestones/M0069-increase-figure-1-3-grid-density",
+      "summary": "Regenerated Figures 1-3 with denser 41/11/7 grids while preserving the M71 method and M72 layout.",
+      "user_input_ids": [
+        "U0069-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0069-increase-figure-1-3-grid-density.json",
+      "github": {
+        "repository": "",
+        "milestone_number": null,
+        "milestone_url": "",
+        "tag_name": "manuscript-milestones/M0069-increase-figure-1-3-grid-density"
       }
     }
   ]

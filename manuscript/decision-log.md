@@ -1270,3 +1270,22 @@ decisions.
   are deferred/rejected for final evidence.
 - Consequence for next work: Execute M71 before M70 or any long MC run. M70 is
   blocked until corrected figures and MC outputs exist.
+
+### 2026-06-12 - Use denser default grids for active Figures 1-3
+
+- Origin: M73 Figure 1-3 grid-density refresh.
+- User input id: U0070
+- Codex role: converted the request into a task-backed figure regeneration.
+- Decision: The active Figure 1-3 generator now defaults to `41 x 41`
+  projection points, `11 x 11` profiled `B12/B22` points, and `7 x 7` lambda
+  points. The M71 sign screen and candidate-specific pointwise weighting and
+  the M72 square-panel layout are preserved.
+- Rationale: The active figures should be less visually coarse now that the
+  method and layout have been corrected.
+- Alternatives considered: rerunning only with command-line overrides while
+  leaving coarse defaults in the replication wrapper, or increasing the grid
+  more aggressively. The chosen defaults improve density while remaining
+  feasible for local Figure 1-3 regeneration.
+- Consequence for next work: M65 remains responsible for final projected
+  critical values and release hardening; the denser figures do not settle the
+  inference route.

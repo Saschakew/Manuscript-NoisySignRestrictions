@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "task": "M71 remove B21 sign and pointwise weighting",
+  "task": "M73 increase Figure 1-3 grid density; M71/M72 method and layout preserved",
   "figure": "manuscript/figures/fig_sign_dw_unit_variance_nongaussianity_grid.png",
   "description": "Projected unit-variance first-shock grid over (B11,B21), with B12/B22 and lambda profiled, no B21 sign restriction, and candidate-specific pointwise covariance weighting.",
   "configuration": {
     "scenario_set": "nongaussianity",
     "rho": 0.5,
-    "projection_points": 31,
-    "profile_points": 9,
-    "lambda_points": 5,
+    "projection_points": 41,
+    "profile_points": 11,
+    "lambda_points": 7,
     "true_B0": [
       [
         1.0,
@@ -54,9 +54,9 @@
       "non_gaussian_weight": 1.0,
       "residual_noise": "gaussian",
       "shares": {
-        "sign": 0.080078125,
-        "standard_dw": 0.033203125,
-        "robust_dw": 0.064453125
+        "sign": 0.0782312925170068,
+        "standard_dw": 0.032879818594104306,
+        "robust_dw": 0.06235827664399093
       },
       "truth": {
         "second_j": 10.81529137584684,
@@ -95,34 +95,34 @@
         }
       },
       "best_truth_cell_lambda": [
-        0.375,
-        0.375
+        0.3333333333333333,
+        0.3333333333333333
       ],
-      "robust_prefilter_count": 9414,
+      "robust_prefilter_count": 23065,
       "regularization": {
         "standard": {
           "second_moment": {
-            "matrix_count": 92160,
-            "regularized_matrix_count": 443,
-            "regularized_eigenvalue_count": 443,
-            "min_eigenvalue_before_floor": -281.24696256437664,
-            "max_eigenvalue_floor": 67536414.25755896
+            "matrix_count": 232846,
+            "regularized_matrix_count": 1164,
+            "regularized_eigenvalue_count": 1167,
+            "min_eigenvalue_before_floor": -94882.92574053266,
+            "max_eigenvalue_floor": 200447603142.03394
           },
           "standard_dw": {
-            "matrix_count": 92160,
-            "regularized_matrix_count": 1912,
-            "regularized_eigenvalue_count": 3535,
-            "min_eigenvalue_before_floor": -1.0183401658129741e+21,
-            "max_eigenvalue_floor": 1.7603223083152055e+27
+            "matrix_count": 232846,
+            "regularized_matrix_count": 4941,
+            "regularized_eigenvalue_count": 9108,
+            "min_eigenvalue_before_floor": -2.355936556257353e+28,
+            "max_eigenvalue_floor": 1.6669760951362538e+34
           }
         },
         "robust": {
           "robust_full": {
-            "matrix_count": 338904,
+            "matrix_count": 1476160,
             "regularized_matrix_count": 0,
             "regularized_eigenvalue_count": 0,
-            "min_eigenvalue_before_floor": 0.12077793910887162,
-            "max_eigenvalue_floor": 0.0006362354973048656
+            "min_eigenvalue_before_floor": 0.10994930918554195,
+            "max_eigenvalue_floor": 0.0010177443667394959
           }
         }
       }
@@ -138,9 +138,9 @@
       "non_gaussian_weight": 0.25,
       "residual_noise": "gaussian",
       "shares": {
-        "sign": 0.0458984375,
-        "standard_dw": 0.0390625,
-        "robust_dw": 0.0947265625
+        "sign": 0.04931972789115646,
+        "standard_dw": 0.04365079365079365,
+        "robust_dw": 0.09693877551020408
       },
       "truth": {
         "second_j": 12.564750732587068,
@@ -180,33 +180,33 @@
       },
       "best_truth_cell_lambda": [
         0.18823529411764706,
-        0.25
+        0.08333333333333333
       ],
-      "robust_prefilter_count": 9099,
+      "robust_prefilter_count": 22723,
       "regularization": {
         "standard": {
           "second_moment": {
-            "matrix_count": 92160,
-            "regularized_matrix_count": 398,
-            "regularized_eigenvalue_count": 398,
-            "min_eigenvalue_before_floor": -9.352347232689414,
-            "max_eigenvalue_floor": 28549063.42940243
+            "matrix_count": 232846,
+            "regularized_matrix_count": 1064,
+            "regularized_eigenvalue_count": 1067,
+            "min_eigenvalue_before_floor": -28869.401507820963,
+            "max_eigenvalue_floor": 80412678314.70523
           },
           "standard_dw": {
-            "matrix_count": 92160,
-            "regularized_matrix_count": 834,
-            "regularized_eigenvalue_count": 1461,
-            "min_eigenvalue_before_floor": -9.50071045611774e+19,
-            "max_eigenvalue_floor": 4.716232398600404e+25
+            "matrix_count": 232846,
+            "regularized_matrix_count": 2103,
+            "regularized_eigenvalue_count": 3729,
+            "min_eigenvalue_before_floor": -7.370575477010513e+26,
+            "max_eigenvalue_floor": 3.849148933827262e+32
           }
         },
         "robust": {
           "robust_full": {
-            "matrix_count": 327564,
+            "matrix_count": 1454272,
             "regularized_matrix_count": 0,
             "regularized_eigenvalue_count": 0,
-            "min_eigenvalue_before_floor": 0.1726280179412932,
-            "max_eigenvalue_floor": 0.00012969231288251725
+            "min_eigenvalue_before_floor": 0.17108960940286522,
+            "max_eigenvalue_floor": 0.00011846294662168042
           }
         }
       }
@@ -222,9 +222,9 @@
       "non_gaussian_weight": 0.0,
       "residual_noise": "gaussian",
       "shares": {
-        "sign": 0.048828125,
-        "standard_dw": 0.048828125,
-        "robust_dw": 0.111328125
+        "sign": 0.049886621315192746,
+        "standard_dw": 0.049886621315192746,
+        "robust_dw": 0.10997732426303855
       },
       "truth": {
         "second_j": 12.44863314076682,
@@ -264,33 +264,33 @@
       },
       "best_truth_cell_lambda": [
         0.18823529411764706,
-        0.5
+        0.41666666666666663
       ],
-      "robust_prefilter_count": 9298,
+      "robust_prefilter_count": 22990,
       "regularization": {
         "standard": {
           "second_moment": {
-            "matrix_count": 92160,
-            "regularized_matrix_count": 390,
-            "regularized_eigenvalue_count": 390,
-            "min_eigenvalue_before_floor": -54.722354646149924,
-            "max_eigenvalue_floor": 29459139.124213275
+            "matrix_count": 232846,
+            "regularized_matrix_count": 1033,
+            "regularized_eigenvalue_count": 1036,
+            "min_eigenvalue_before_floor": -15413.533114368774,
+            "max_eigenvalue_floor": 80516160977.21202
           },
           "standard_dw": {
-            "matrix_count": 92160,
-            "regularized_matrix_count": 808,
-            "regularized_eigenvalue_count": 1465,
-            "min_eigenvalue_before_floor": -1.2698322912176472e+20,
-            "max_eigenvalue_floor": 5.81468855953077e+25
+            "matrix_count": 232846,
+            "regularized_matrix_count": 2103,
+            "regularized_eigenvalue_count": 3793,
+            "min_eigenvalue_before_floor": -1.2378410076022609e+27,
+            "max_eigenvalue_floor": 3.720892859271731e+32
           }
         },
         "robust": {
           "robust_full": {
-            "matrix_count": 334728,
+            "matrix_count": 1471360,
             "regularized_matrix_count": 0,
             "regularized_eigenvalue_count": 0,
-            "min_eigenvalue_before_floor": 0.16823585735517063,
-            "max_eigenvalue_floor": 0.00013564855584495891
+            "min_eigenvalue_before_floor": 0.16569878969960647,
+            "max_eigenvalue_floor": 0.00017285830088511328
           }
         }
       }

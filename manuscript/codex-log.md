@@ -1490,3 +1490,23 @@ machine-readable milestone in `transparency/milestones/`.
   `--stage evidence --quick`; `python scripts/check_manuscript.py` passed
   with only the expected open-milestone warning before close; `git diff
   --check` reported only line-ending normalization warnings.
+
+### 2026-06-12 - M73 Figure 1-3 grid-density refresh completed
+
+- Request: plan and execute a task so Figures 1, 2, and 3 use more grid
+  points.
+- Actions taken: opened M0069 and GitHub milestone #64, created
+  `manuscript/tasks/M73-increase-figure-grid-density/`, raised the active
+  figure defaults to `projection_points=41`, `profile_points=11`, and
+  `lambda_points=7`, regenerated Figures 1-3, and refreshed their diagnostics
+  notes/JSON files.
+- Outcome: the active figure images now use the denser grid while preserving
+  the M71 sign screen, M71 pointwise candidate weighting, and M72 square panel
+  layout.
+- Checks run: diagnostics JSON verification confirmed `41/11/7` for all three
+  figures. The full figures wrapper was interrupted after Figures 1 and 2;
+  the separate Figure 3 wrapper wrote the output but timed out while returning
+  control. `python scripts/check_manuscript.py` is recorded in the milestone
+  closeout.
+- Open uncertainties: M65 still owns final projected critical values; M73 is
+  only a grid-density refresh.

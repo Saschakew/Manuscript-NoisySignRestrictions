@@ -18,7 +18,8 @@ and Section 4 replaces generated sample covariance-product plug-ins with
 parameter-implied \(\omega_{ij}(B,\nu)\) terms.
 
 Current focus: M71 has corrected the active figure and Monte Carlo objects,
-and M72 has fixed the rendered figure layout.
+M72 has fixed the rendered figure layout, and M73 has refreshed Figures 1-3
+with denser default grids.
 Figures 1-3, the Table 1 diagnostic, and the extended MC now use first-shock
 coordinates \((B_{11},B_{21})\), profile \(B_{12}\), \(B_{22}\), and
 \(\lambda\), impose \(B_{11}>0\), \(B_{22}>0\), and \(B_{12}\le0\), and use
@@ -27,6 +28,9 @@ candidate-specific pointwise covariance weights for
 remains deferred; the corrected normal diagnostics are reduced-size evidence
 checks, not the long MC. M72 changes only the plot framing: panels are square
 and use shared display limits from accepted regions, \(B_0\), and \(B_{21}=0\).
+M73 changes only the numerical mesh for Figures 1-3: the defaults are now
+`41 x 41` projection points, `11 x 11` profile points, and `7 x 7` lambda
+points.
 
 Background: M68 rebuilt Figures 1-3 and the Monte Carlo diagnostic under the
 M66-settled unit-variance GMM route, and M69 extended the MC into residual
@@ -40,7 +44,9 @@ diagnostics in the draft, keeping the reduced diagnostic replication count and
 pointwise-critical-value caveat visible. M65 still owns final
 projected-inference wording, projected critical values, and release hardening.
 
-Active milestone: M0068 completes the M72 figure-layout polish and GitHub
+Active milestone: M0069 completes the M73 Figure 1-3 grid-density refresh and
+GitHub milestone #64 tracks the same figure-resolution work. M0068 completes
+the M72 figure-layout polish and GitHub
 milestone #63 tracks the same figure presentation fix. M0067 completes M71 and
 GitHub milestone #62 tracks the same sign-screen and pointwise-weighting
 correction. M0066 was opened for a
@@ -155,7 +161,11 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-12, completed M72 by fixing the rendered
+Last substantive session: 2026-06-12, completed M73 by regenerating
+Figures 1-3 with denser `41/11/7` default grids while preserving the M71
+method and M72 layout.
+
+Prior substantive session: 2026-06-12, completed M72 by fixing the rendered
 layout of the M71 Figures 1-3 without changing the underlying masks, weights,
 or cutoffs.
 

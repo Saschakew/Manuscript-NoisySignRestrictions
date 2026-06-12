@@ -1,6 +1,6 @@
-# M71 Unit-Variance First-Shock Figure Diagnostics
+# M73 Unit-Variance First-Shock Figure Diagnostics
 
-Status: generated corrected first-shock impact figure for the M64/M66 unit-variance route after M71.
+Status: refreshed corrected first-shock impact figure for the M64/M66 unit-variance route with denser M73 grids; M71 method and M72 layout are preserved.
 
 The chart displays the projection of accepted matrices onto `(B11, B21)`, the impact vector of the first shock. It does not impose `diag(B)=1`: for every displayed projection point the script searches over `B12` and `B22`. The maintained sign screen is `B11>0`, `B22>0`, and `B12<=0`; `B21` is displayed but not sign-restricted. The robust row also searches over `lambda in [0,rho]^2` and sets `nu_i=lambda_i (B B')_ii` before evaluating the Section 4 moment vector.
 
@@ -13,9 +13,9 @@ The plotted statistics use candidate-specific pointwise covariance estimates: fo
 - Output figure: `manuscript/figures/fig_sign_dw_unit_variance_sample_size_grid.png`.
 - Machine-readable diagnostics: `manuscript/simulations/output/sign_dw_unit_variance_sample_size_grid_figure.json`.
 - Noise ratio bound: `rho=0.5`.
-- Projection grid: `31 x 31` plus true coordinates.
-- Profile grid: `9 x 9` plus true profiled coordinates.
-- Lambda grid: `5 x 5` plus the true lambda values for each scenario.
+- Projection grid: `41 x 41` plus true coordinates.
+- Profile grid: `11 x 11` plus true profiled coordinates.
+- Lambda grid: `7 x 7` plus the true lambda values for each scenario.
 - Weighting: candidate-specific pointwise covariance estimates for each tested candidate.
 - Weight regularization: symmetric covariance eigensystem with eigenvalue floor `max(max_eigenvalue, 1) * 1e-10`.
 
@@ -23,9 +23,9 @@ The plotted statistics use candidate-specific pointwise covariance estimates: fo
 
 | Noise | Sign share | Standard DW share | Robust share | B0 standard | B0 robust | Robust distance | Best lambda at nearest accepted cell |
 |---|---:|---:|---:|---|---|---:|---|
-| T=500 | 0.080 | 0.033 | 0.064 | out | in | 0.000 | (0.375, 0.375) |
-| T=1000 | 0.041 | 0.018 | 0.040 | out | in | 0.000 | (0.250, 0.250) |
-| T=2000 | 0.021 | 0.005 | 0.022 | out | in | 0.000 | (0.125, 0.122) |
+| T=500 | 0.078 | 0.033 | 0.062 | out | in | 0.000 | (0.333, 0.333) |
+| T=1000 | 0.046 | 0.016 | 0.041 | out | in | 0.000 | (0.250, 0.083) |
+| T=2000 | 0.025 | 0.007 | 0.023 | out | in | 0.000 | (0.167, 0.122) |
 
 ## Claim Audit
 

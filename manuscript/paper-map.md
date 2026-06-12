@@ -33,8 +33,9 @@ report a standard GMM set over \((B,\nu)\).
   active chart reports first-shock coordinates \((B_{11},B_{21})\), profiles
   \(B_{12}\), \(B_{22}\), and \(\lambda\), imposes only \(B_{11}>0\),
   \(B_{22}>0\), and \(B_{12}\le0\), and uses candidate-specific pointwise
-  weighting rather than true-point fixed weights. Final projected critical
-  values remain a follow-up.
+  weighting rather than true-point fixed weights. M72 fixes the panel layout,
+  and M73 refreshes Figures 1-3 on denser `41/11/7` default grids. Final
+  projected critical values remain a follow-up.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -118,10 +119,10 @@ and proof or output status.
   source-correct standard DW missing true `B0`, while relative robust DW
   includes it; standard share is 0.026 and robust share is 0.051 on the M52
   diagnostic grid.
-- M71 Figure 2 varies structural-shock non-Gaussianity with the same
+- M73-refresh Figure 2 varies structural-shock non-Gaussianity with the same
   first-shock chart, sign screen, and projected \((B,\lambda)\) route as
   Figure 1.
-- M71 Figure 3 varies `T=500`, `T=1000`, and `T=2000`, holding the Figure 1
+- M73-refresh Figure 3 varies `T=500`, `T=1000`, and `T=2000`, holding the Figure 1
   non-Gaussianity and Figure 2 noise calibration fixed; the robust row remains
   truth-containing in the rendered fixed draw.
 - Algebraic proof of the covariance pseudo-set and column-rescaling

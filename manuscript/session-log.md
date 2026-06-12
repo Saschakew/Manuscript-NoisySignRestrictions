@@ -1371,3 +1371,27 @@ For traceable work blocks, pair this human-readable note with a closed
 - Check: `python scripts/check_manuscript.py` passed.
 - Next recommended action at the time: execute M71. Superseded later on
   2026-06-12 by the completed M71 execution entry above.
+
+### 2026-06-12 - Complete M73 Figure 1-3 grid-density refresh
+
+- Request or goal: plan and execute a task to regenerate Figures 1, 2, and 3
+  with more grid points.
+- Files changed: `manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py`,
+  `manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png`,
+  `manuscript/figures/fig_sign_dw_unit_variance_nongaussianity_grid.png`,
+  `manuscript/figures/fig_sign_dw_unit_variance_sample_size_grid.png`,
+  Figure 1-3 diagnostics Markdown/JSON outputs, `manuscript/tasks/M73-increase-figure-grid-density/`,
+  registry, planning surfaces, logs, and transparency files.
+- Summary of work: created M73, raised the active Figure 1-3 grid defaults to
+  `41 x 41` projection points, `11 x 11` profile points, and `7 x 7` lambda
+  points, regenerated all three active figures, and preserved the M71 method
+  plus M72 layout.
+- Check: diagnostics JSON files for all three figures report `41/11/7` grid
+  settings. `python manuscript/replication/run_all.py --stage figures` was
+  interrupted after Figures 1 and 2 completed; `python
+  manuscript/replication/run_all.py --stage figure3` wrote Figure 3 but timed
+  out while returning control. Final manuscript check is recorded in the M73
+  outcome and transparency milestone.
+- Next recommended action: continue with M70 draft interpretation or M65
+  projected inference, depending on whether the next work should be prose or
+  inference hardening.

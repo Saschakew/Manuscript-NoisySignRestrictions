@@ -64,9 +64,9 @@ B22_MAX = 1.45
 
 @dataclass(frozen=True)
 class GridSpec:
-    projection_points: int = 31
-    profile_points: int = 9
-    lambda_points: int = 5
+    projection_points: int = 41
+    profile_points: int = 11
+    lambda_points: int = 7
     robust_batch_size: int = 48
     standard_batch_size: int = 240
 
@@ -616,7 +616,7 @@ def write_outputs(
 ) -> None:
     payload = {
         "schema_version": 1,
-        "task": "M71 remove B21 sign and pointwise weighting",
+        "task": "M73 increase Figure 1-3 grid density; M71/M72 method and layout preserved",
         "figure": display_path(output_path),
         "description": "Projected unit-variance first-shock grid over (B11,B21), with B12/B22 and lambda profiled, no B21 sign restriction, and candidate-specific pointwise covariance weighting.",
         "configuration": {
@@ -643,9 +643,9 @@ def write_outputs(
     json_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     lines = [
-        "# M71 Unit-Variance First-Shock Figure Diagnostics",
+        "# M73 Unit-Variance First-Shock Figure Diagnostics",
         "",
-        "Status: generated corrected first-shock impact figure for the M64/M66 unit-variance route after M71.",
+        "Status: refreshed corrected first-shock impact figure for the M64/M66 unit-variance route with denser M73 grids; M71 method and M72 layout are preserved.",
         "",
         "The chart displays the projection of accepted matrices onto `(B11, B21)`, the impact vector of the first shock. It does not impose `diag(B)=1`: for every displayed projection point the script searches over `B12` and `B22`. The maintained sign screen is `B11>0`, `B22>0`, and `B12<=0`; `B21` is displayed but not sign-restricted. The robust row also searches over `lambda in [0,rho]^2` and sets `nu_i=lambda_i (B B')_ii` before evaluating the Section 4 moment vector.",
         "",
