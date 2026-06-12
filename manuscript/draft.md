@@ -472,7 +472,7 @@ restrictions. Instead of requiring the residual covariance to be explained
 entirely by structural shocks, the researcher allows part of each residual
 variance to be idiosyncratic noise. In the bivariate normalized chart, write
 
-\comment{do not use the diag one normalization! instead, we dont need the s_1 s_2 because they are 1 by normalization. also, do you use S=E[u_t u_t]? if yes, we always use \Sigma_u=E[u_t u_t] and we call the elements of \Sigma_u \sigma_{ij}! the whole folowing part on how to allow for correlated shocks based on the information noise ration is confusing to me. Can we do it like this: In general u=B_0 epsilon + eta and \ }
+\comment{do not use the diag one normalization! instead, we dont need the s_1 s_2 because they are 1 by normalization. also, do you use S=E[u_t u_t]? if yes, we always use \Sigma_u=E[u_t u_t] and we call the elements of \Sigma_u \sigma_{ij}! the whole folowing part on how to allow for correlated shocks based on the information noise ration is confusing to me. Can we do it like this: In general u=B_0 epsilon + eta and \Sigma_u=E[u_t u_t] = B_0 B_0' + }
 
 \begin{equation}
 B(a,b)=
