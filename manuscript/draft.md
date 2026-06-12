@@ -532,7 +532,7 @@ z_t(B)=B^{-1}u_t
 =B^{-1}B_0\varepsilon_t+B^{-1}\eta_t .
 \end{equation}
 
-\comment{ now the notation gets even more confusing! we already talked about that S should be \Sigma_u, correct? but now you use \Omega for the variance covariance of zeta=B^-1 eta? thats also terrible bwecause in svar, \Omega is typuically the variance covariance matrix of structural shocks epsilon. so we can define E[e(B) e(B)']= \Omega(B). that would make sense.}
+\comment{ now the notation gets even more confusing! we already talked about that S should be \Sigma_u, correct? but now you use \Omega for the variance covariance of zeta=B^-1 eta? thats also terrible bwecause in svar, \Omega is typuically the variance covariance matrix of structural shocks epsilon. so we can define E[e(B) e(B)']= \Omega(B). that would make sense. so get the notation straight!}
 
 It is useful to name the transformed-noise component
 \(\xi_t(B)=B^{-1}\eta_t\). Let
