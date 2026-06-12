@@ -382,7 +382,7 @@ J_{S,T}(B)=T\widehat g_{DW,T}(B)'\widehat W_{S,T}
 \label{eq:standard-dw-j-test-inversion}
 \end{equation}
 
-\comment{maybe this paragraph can start with something like: the \mathcal D_T(c_S) refines the set \mathcal S_{J,T}(c_2) by avoiding B which lead to uncorrelated but dependent (measured by coskewness and cokurtosis) shocks. While this sharpens the identified set when shocks are non-Gaussian, it can }
+\comment{maybe this paragraph can start with something like: the \mathcal D_T(c_S) refines the set \mathcal S_{J,T}(c_2) by avoiding B which lead to uncorrelated but dependent (measured by coskewness and cokurtosis) shocks. While this sharpens the identified set when shocks are non-Gaussian, in the presence of noise, it can  }
 This is a useful refinement under the maintained no-noise null. It is also the
 place where residual noise can turn a wide but honest set into a narrow and
 misleading one. Under the noisy model,
