@@ -2,4 +2,4 @@
 
 Source milestone: M47 standard-DW proof gate audit
 
-Describe the requested changes for this revision here.
+1) We need to change the manuscript to the unit variance assumption Var(epsilon)=1. 
