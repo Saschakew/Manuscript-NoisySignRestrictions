@@ -265,6 +265,7 @@ by rotating a factor of \(B_0B_0'+V\) rather than a factor of \(B_0B_0'\). It is
 internally coherent for the noisy covariance target, but it is generally not
 the no-noise structural set \(\mathcal S_0\).*
 
+\comment{i think we dont need the following paragraph elaborating on 
 The only benign case is a structural-coordinate rescaling. If the noisy
 covariance can be written as \(B_0D^2B_0'\) for a positive diagonal matrix
 \(D\), then a rescaled version of the true impact matrix has the same sign
