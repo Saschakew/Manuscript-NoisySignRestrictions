@@ -382,7 +382,7 @@ J_{S,T}(B)=T\widehat g_{DW,T}(B)'\widehat W_{S,T}
 \label{eq:standard-dw-j-test-inversion}
 \end{equation}
 
-\comment{maybe this paragraph can start with something like: 
+\comment{maybe this paragraph can start with something like: the 
 This is a useful refinement under the maintained no-noise null. It is also the
 place where residual noise can turn a wide but honest set into a narrow and
 misleading one. Under the noisy model,
