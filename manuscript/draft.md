@@ -206,6 +206,8 @@ as
 \label{eq:no-noise-sign-j-set}
 \end{equation}
 
+\comment{}
+
 after the usual sign, label, and scale normalizations. The familiar rotation
 representation is a convenient way to compute the same object: if
 \(P_0P_0'=E(u_tu_t')=B_0B_0'\), then \(B=P_0Q\) automatically gives
