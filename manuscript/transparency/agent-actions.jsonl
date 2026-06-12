@@ -127,3 +127,4 @@
 {"id": "A0060-002", "milestone_id": "M0060-m33-replication-wrapper", "captured_at": "2026-06-12T12:47:02Z", "description": "Created the M33 task folder, run_all.py replication wrapper, output-routing hooks, README/requirements updates, registry links, and question-index entry."}
 {"id": "A0060-003", "milestone_id": "M0060-m33-replication-wrapper", "captured_at": "2026-06-12T12:47:02Z", "description": "Queued M63 as the next citation/source-trail and export cleanup task."}
 {"id": "A0061-001", "milestone_id": "M0061-recover-revision-20260610-comments", "captured_at": "2026-06-12T13:17:07Z", "description": "Integrated revision comments into draft and planning surfaces"}
+{"id": "A0062-001", "milestone_id": "M0062-execute-m66-noise-ratio-bound", "captured_at": "2026-06-12T13:58:35Z", "description": "Use lambda_i=nu_i/(BB')_ii in [0,rho] and route M65 to rebuild projected GMM figures"}

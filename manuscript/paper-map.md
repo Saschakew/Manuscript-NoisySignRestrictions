@@ -22,13 +22,16 @@ report a standard GMM set over \((B,\nu)\).
   Drautzburg-Wright GMM1 menu `112`, `122`, `1112`, `1122`, and `1222`; GMM2
   drops only `1122`.
 - Constructive object: robust DW-style GMM set over \((B,\nu)\). The
-  second-order block imposes \(\Sigma_u=BB'+\operatorname{diag}(\nu)\) with
-  \(0\le\nu_i\le\rho(BB')_{ii}\). The higher-order block uses recovered shocks
-  \(e_t(B)=B^{-1}u_t\) and parameter-implied covariance terms
+  second-order block imposes \(\Sigma_u=BB'+\operatorname{diag}(\nu)\). M66
+  settles the nuisance bound as the dimensionless ratio
+  \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), equivalently
+  \(\nu_i(B,\lambda)=\lambda_i(BB')_{ii}\). The higher-order block uses
+  recovered shocks \(e_t(B)=B^{-1}u_t\) and parameter-implied covariance terms
   \(\omega_{ij}(B,\nu)\), not sample covariance-product plug-ins.
-- Evidence: M52 figures and Monte Carlo results are historical after M64.
+- Evidence: M52 figures and Monte Carlo results are historical after M64/M66.
   M65 must rebuild Figure 1, Figure 2, Figure 3, and the Monte Carlo table
-  under the unit-variance GMM implementation before final evidence claims.
+  under the M66 \(\lambda\)-bounded unit-variance GMM implementation before
+  final evidence claims.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -43,8 +46,8 @@ report a standard GMM set over \((B,\nu)\).
    high-noise grid column, it rejects true `B0` while looking precise.
 4. The paper's constructive move is to model diagonal residual noise directly:
    search over \(B\) and nuisance variances \(\nu\), impose
-   \(\Sigma_u=BB'+\operatorname{diag}(\nu)\), and use a ratio bound
-   \(0\le\nu_i\le\rho(BB')_{ii}\).
+   \(\Sigma_u=BB'+\operatorname{diag}(\nu)\), and impose
+   \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\) as a maintained restriction.
 5. Higher moments then refine this noise-robust second-order set using
    Gaussian-noise-blind rows \(G_H(B,\nu)\). The fourth-order covariance
    products use \(\omega_{ij}(B,\nu)\), so the criterion is standard GMM in
@@ -66,8 +69,8 @@ report a standard GMM set over \((B,\nu)\).
 | 1. Introduction | Motivate sign restrictions through signs plus unit-variance recovered-shock covariance, explain why residual noise breaks that target, position DW as an efficiency refinement, and introduce the \((B,\nu)\) robust GMM route. | first-pass M64 revision; literature positioning retained |
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, define \(\mathcal S_0\) with \(E[e_t(B)e_t(B)']=I\), add diagonal residual noise, and write the three-moment J inversion. | first-pass M64 revision; figure split pending |
 | 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement as a refinement of \(\mathcal S_{J,T}(c_2)\), define the source-correct DW GMM1/GMM2 menus, then show why refinement can be falsely precise under noise. | first-pass M64 revision; figure split pending |
-| 4. Noise-Robust Sign And DW Sets | Start with \(\Sigma_u=BB'+\operatorname{diag}(\nu)\), impose the entrywise noise-to-signal bound, and write \(G_H(B,\nu)\) with parameter-implied \(\omega_{ij}(B,\nu)\) terms inside a standard GMM criterion. | first-pass M64 revision; M65 implementation/audit pending |
-| 5. Figure-Led Evidence And Monte Carlo Check | Rebuild Figures 1-3 and Table 1 under the unit-variance GMM route. | M52 evidence marked historical; M65 pending |
+| 4. Noise-Robust Sign And DW Sets | Start with \(\Sigma_u=BB'+\operatorname{diag}(\nu)\), impose \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), and write \(G_H(B,\nu)\) with parameter-implied \(\omega_{ij}(B,\nu)\) terms inside a standard GMM criterion. | M66 revision; M65 implementation/audit pending |
+| 5. Figure-Led Evidence And Monte Carlo Check | Rebuild Figures 1-3 and Table 1 under the unit-variance \((B,\lambda)\) projected GMM route. | M52 evidence marked historical; M65 pending |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
 ## Core Formal Objects
@@ -182,6 +185,10 @@ and proof or output status.
   in the robust fourth-order moment equations; it shows representative
   fourth-order algebra and states the practical computation of the moment
   plug-ins.
+- M66 completed the immediate bottleneck before M65. It rejected a direct
+  residual-coordinate \(0\le\nu_i\le\rho\) cap as the automatic ratio object
+  and settled the active notation as
+  \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\).
 - M52 implements the generated-moment inference route selected after M56. The
   robust fourth-cumulant sample entries are products of sample averages after
   plugging in `S_{ij}(B)`; the active code now uses full central-moment

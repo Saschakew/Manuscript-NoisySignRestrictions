@@ -1,4 +1,4 @@
-"""Build a sign/DW/relative-robust-DW grid varying sample size.
+"""Build the historical sign/DW/relative-robust-DW sample-size grid.
 
 This companion to the residual-noise and non-Gaussianity grids fixes the
 structural-shock calibration and residual-noise variance, then varies only the
@@ -6,6 +6,10 @@ finite-sample size.  The bottom row uses the M0036 variance-ratio robust-DW
 proposal: pure mixed higher-cumulant J inversion intersected with the
 covariance-decomposition screen in which each diagonal residual-noise variance
 is at most half of the corresponding structural-shock variance.
+
+After M64/M66 this script is historical. It reuses the pre-M64
+diagonal-normalized B-plane implementation and does not implement the active
+unit-variance projected GMM algorithm over B and lambda.
 """
 
 from __future__ import annotations

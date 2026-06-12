@@ -126,15 +126,15 @@
       "type": "definition",
       "status": "rewritten-after-m64-evidence-needs-rebuild",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "M64 robust DW set over the enlarged parameter vector (B,nu). It imposes sign restrictions, the second-order block Sigma_u=BB'+diag(nu), the ratio bound 0<=nu_i<=rho(BB')_ii, and Gaussian-noise-blind higher-moment rows G_H(B,nu). The reported set projects the efficient GMM confidence set onto B. M65 must rebuild code and evidence for this object.",
+      "description": "M64/M66 robust DW set over the enlarged parameter vector (B,nu), with the nuisance bound represented by lambda_i=nu_i/(BB')_ii in [0,rho]. It imposes sign restrictions, the second-order block Sigma_u=BB'+diag(nu), the lambda ratio bound, and Gaussian-noise-blind higher-moment rows G_H(B,nu). The reported set projects the efficient GMM confidence set over accepted (B,lambda) pairs onto B. M65 must rebuild code and evidence for this object.",
       "depends_on": [
         "def:diagonal-noise-svar",
         "ass:gaussian-residual-noise",
         "ass:unit-variance-normalization"
       ],
-      "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md",
-      "verification_status": "M64 supplies a first-pass derivation in the draft from the recovered revision comments. M65 must implement and audit the unit-variance GMM route before figures or Monte Carlo evidence are treated as active.",
-      "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md"
+      "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md; manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md",
+      "verification_status": "M64 supplies the standard GMM draft route. M66 clarifies the nuisance-bound convention and grid algorithm. M65 must implement and audit the unit-variance GMM route before figures or Monte Carlo evidence are treated as active.",
+      "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md; manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md"
     },
     {
       "id": "eq:dw-higher-cumulant-moment-stack",
@@ -166,16 +166,16 @@
     {
       "id": "eq:relative-noise-covariance-screen",
       "type": "equation",
-      "status": "rewritten-after-m64-evidence-needs-rebuild",
+      "status": "clarified-after-m66-evidence-needs-rebuild",
       "draft_location": "simulations/sign_dw_relative_noise_robust_grid_figure.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "M64 unit-variance second-order screen: Psi_2(B,nu)=vech{Sigma_u-BB'-diag(nu)}=0 with 0<=nu_i<=rho(BB')_ii. This replaces the old B=[[1,a],[b,1]] chart and old structural-variance nuisance parameters s_i.",
+      "description": "M66 unit-variance second-order screen: Psi_2(B,nu)=vech{Sigma_u-BB'-diag(nu)}=0 with lambda_i=nu_i/(BB')_ii in [0,rho], equivalently nu_i=lambda_i(BB')_ii. This replaces the old B=[[1,a],[b,1]] chart and old structural-variance nuisance parameters s_i.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack"
       ],
-      "derivation": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md",
-      "verification_status": "Draft derivation updated in M64. M65 must implement this screen and rebuild evidence before final claims.",
-      "source": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md"
+      "derivation": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md; manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md",
+      "verification_status": "Draft derivation updated in M64 and ratio notation clarified in M66. M65 must implement this screen and rebuild evidence before final claims.",
+      "source": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md; manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md"
     },
     {
       "id": "prop:robust-dw-higher-moment-validity",
@@ -231,9 +231,9 @@
     {
       "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "historical-needs-rebuild-after-m64",
+      "status": "historical-needs-rebuild-after-m66",
       "draft_location": "draft.md#3-drautzburg-wright-refinement-under-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "Historical M52 residual-noise story figure. M64 changes the estimator to unit-variance GMM over (B,nu), so this figure must be rebuilt before it can support active claims.",
+      "description": "Historical M52 residual-noise story figure. M64 changes the estimator to unit-variance GMM over (B,nu), and M66 changes the active nuisance-bound notation to lambda_i=nu_i/(BB')_ii. This figure must be rebuilt before it can support active claims.",
       "depends_on": [
         "prop:standard-dw-misspecification",
         "eq:relative-noise-covariance-screen"
@@ -243,9 +243,9 @@
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "historical-needs-rebuild-after-m64",
+      "status": "historical-needs-rebuild-after-m66",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Historical M52 grid story. M65 must rebuild Figure 1, Figure 2, and Figure 3 under the unit-variance GMM route before this object is active again.",
+      "description": "Historical M52 grid story. M65 must rebuild Figure 1, Figure 2, and Figure 3 under the M66 unit-variance projected (B,lambda) GMM route before this object is active again.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic",
         "eq:relative-noise-covariance-screen"
@@ -255,9 +255,9 @@
     {
       "id": "fig:sample-size-robust-grid",
       "type": "figure",
-      "status": "historical-needs-rebuild-after-m64",
+      "status": "historical-needs-rebuild-after-m66",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Historical M52 sample-size grid. M65 must rebuild it under the unit-variance GMM route or drop it from active evidence.",
+      "description": "Historical M52 sample-size grid. M65 must rebuild it under the M66 unit-variance projected (B,lambda) GMM route or drop it from active evidence.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "eq:relative-noise-covariance-screen",

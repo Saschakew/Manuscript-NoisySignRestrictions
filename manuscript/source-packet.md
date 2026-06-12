@@ -65,11 +65,14 @@ evidence, and audit the finite-sample implementation.
 
 M64 revision override: `Revision-20260610-190805` changes the active
 normalization decision. The manuscript now uses `Var(epsilon)=I` and does not
-use `diag(B)=1`. Section 4 is a first-pass standard GMM route over `(B, nu)`,
-with the second-order block `Sigma_u = B B' + diag(nu)` and higher-moment
-covariance-product terms written as functions of `(B, nu)`. The M52 figures
-and Monte Carlo outputs are historical until M65 rebuilds the evidence under
-this unit-variance GMM route.
+use `diag(B)=1`. Section 4 is a standard GMM route over `(B, nu)`, with the
+second-order block `Sigma_u = B B' + diag(nu)` and higher-moment
+covariance-product terms written as functions of `(B, nu)`. M66 settles the
+noise-bound convention as the ratio
+`lambda_i = nu_i / (B B')_ii in [0,rho]`. Direct `nu_i <= rho` is not the
+automatic ratio object when `nu_i` remains an observed residual-coordinate
+variance. The M52 figures and Monte Carlo outputs are historical until M65
+rebuilds the evidence under this settled unit-variance GMM route.
 
 Scope note: the first paper studies the simultaneous SVAR impact problem only.
 It treats the reduced-form residual `u_t` as the object to be decomposed and
@@ -236,14 +239,19 @@ these tasks:
 18. M0061/M64 recovered the real `Revision-20260610-190805` content and
     accepted the unit-variance normalization decision. Sections 2-4 now have a
     first-pass rewrite around `Var(epsilon)=I`, the three-moment second-order
-    J inversion, and a standard GMM moment vector over `(B, nu)`. M65 is the
-    active evidence rebuild gate.
+    J inversion, and a standard GMM moment vector over `(B, nu)`.
+19. M66 completed the noise-ratio bound audit before M65. It derives that the
+    active nuisance restriction should be
+    `lambda_i = nu_i / (B B')_ii in [0,rho]`, writes that bound inside the
+    projected robust set, and marks the old Figure 1-3 scripts historical
+    because they cannot represent the full unit-variance `(B, lambda)` grid.
 
 ## Gaps And Risks
 
-- M64 changes the active normalization and estimator. Until M65 rebuilds the
-  code, figures, table, and replication wrapper under unit-variance GMM, M52
-  outputs are historical rather than active evidence.
+- M64 changes the active normalization and estimator. M66 settles the
+  nuisance-bound convention, but until M65 rebuilds the code, figures, table,
+  and replication wrapper under unit-variance GMM, M52 outputs are historical
+  rather than active evidence.
 - The standard DW J-test emptying statement is now proof-audited by M47 as a
   conditional rich-stack result with explicit exceptions. The implemented
   finite GMM1 row remains a source-correct diagnostic with alias caveats.

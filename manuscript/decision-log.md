@@ -5,6 +5,29 @@ decisions.
 
 ## Entries
 
+### 2026-06-12 - Use lambda for the unit-variance noise-ratio bound
+
+- Origin: M66 execution after the user questioned whether
+  \(0\le\nu_i\le\rho(BB')_{ii}\) should become \(0\le\nu_i\le\rho\) under
+  \(E[\varepsilon_t\varepsilon_t']=I\).
+- User input id: U0063
+- Decision: Keep \(\nu_i\) as observed residual-coordinate noise variance and
+  write the dimensionless bound as
+  \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\). Equivalently,
+  \(\nu_i(B,\lambda)=\lambda_i(BB')_{ii}\).
+- Rationale: Unit variance for \(\varepsilon_i\) is a statement in structural
+  shock coordinates. The variance of the structural signal in residual
+  coordinate \(i\) is \((BB')_{ii}\). A direct \(0\le\nu_i\le\rho\) cap would
+  be an absolute residual-coordinate variance cap unless the residual
+  coordinate were separately standardized or \(\nu_i\) were redefined.
+- Alternatives considered: direct \(0\le\nu_i\le\rho\) as the active bound;
+  keeping only \(0\le\nu_i\le\rho(BB')_{ii}\) notation without a ratio
+  parameter; or rebuilding figures immediately in the old B-plane chart.
+- Consequence for next work: Section 4 uses \(\lambda\in[0,\rho]^2\) inside
+  \(\mathcal R_T(c;\rho)\). Existing Figure 1-3 scripts remain historical
+  because they use the old diagonal-normalized chart. M65 must rebuild figures
+  and evidence using the projected \((B,\lambda)\) GMM algorithm.
+
 ### 2026-06-12 - Switch active manuscript route to unit-variance GMM
 
 - Origin: M64 recovery of live `Revision-20260610-190805` comments.

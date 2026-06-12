@@ -1,10 +1,13 @@
-"""Build the sign/DW/robust-DW B-plane noise grid figure.
+"""Build the historical sign/DW/robust-DW B-plane noise grid figure.
 
 This figure reproduces the KnowledgeVault B-plane layout with three noise
 columns and adds a third robust-DW row.  All rows invert pointwise finite-sample
 J statistics at the 10 percent level.  After M52, the standard-DW row uses the
 source-correct bivariate DW GMM1 higher-moment menu together with a separate
 no-noise covariance screen in the common diagonal-normalized B-plane chart.
+After M64/M66 this script is historical: it does not implement the active
+unit-variance projected GMM algorithm over B and lambda.
+
 The default historical robust-DW row profiles out diagonal residual-noise
 variances using the now-superseded off-diagonal covariance anchor plus mixed
 higher cumulants of B^{-1}u.
@@ -18,7 +21,8 @@ variances bounded by 0.5.
 
 Pass ``--robust-mode relative`` to plot the pure row intersected with the
 candidate covariance decompositions where each diagonal residual-noise variance
-is at most half of the corresponding structural shock variance.
+is at most half of the corresponding structural shock variance in the old
+diagonal-normalized chart.
 """
 
 from __future__ import annotations

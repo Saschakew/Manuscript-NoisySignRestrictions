@@ -11,6 +11,29 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-12 - M66 noise-ratio bound and grid algorithm completed
+
+- Request: work on M66 after the user asked whether Section 4's
+  \(0\le\nu_i\le\rho(BB')_{ii}\) bound should become \(0\le\nu_i\le\rho\),
+  and whether Figures 1-3 should use the corresponding grid/J-test inversion.
+- Actions taken: opened M0062 and GitHub milestone #57; wrote
+  `manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md`; revised
+  Section 4 to use \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\); rewrote the
+  projected robust set and computational algorithm; marked the old Figure 1-3
+  scripts and captions historical after M64/M66; updated M65 so it is the
+  unblocked rebuild task.
+- Files changed: M66 derivation and task folder, `manuscript/draft.md`,
+  historical figure script docstrings, M65 packet, registry, dashboard, paper
+  map, source packet, task board, question index, workplan, and logs.
+- Checks run: `python -m json.tool manuscript/formal-object-registry.json`
+  passed; Figure 1-3 script py-compile passed; `python
+  scripts/check_manuscript.py` passed before closure with the expected
+  open-milestone warning and passed cleanly after closure; `git diff --check`
+  passed with line-ending warnings only.
+- Open uncertainties: M65 still needs the actual unit-variance figure design,
+  implementation, projection-critical-value choice, Monte Carlo rebuild, and
+  replication-wrapper update.
+
 ### 2026-06-12 - M64 revision recovery and unit-variance GMM repair
 
 - Request: correct the missed substantive contents of

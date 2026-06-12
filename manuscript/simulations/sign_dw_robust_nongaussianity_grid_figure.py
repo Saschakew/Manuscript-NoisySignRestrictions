@@ -1,4 +1,4 @@
-"""Build a sign/DW/robust-DW grid varying structural non-Gaussianity.
+"""Build the historical sign/DW/robust-DW grid varying non-Gaussianity.
 
 This companion to sign_dw_robust_noise_grid_figure.py fixes moderate residual
 noise and changes only the strength of structural-shock higher moments. All
@@ -7,6 +7,10 @@ bottom row uses the M0036 variance-ratio robust-DW proposal: the pure mixed
 higher-cumulant J statistic intersected with the covariance-decomposition
 screen in which each diagonal residual-noise variance is at most half of the
 corresponding structural-shock variance.
+
+After M64/M66 this script is historical. It reuses the pre-M64
+diagonal-normalized B-plane implementation and does not implement the active
+unit-variance projected GMM algorithm over B and lambda.
 """
 
 from __future__ import annotations

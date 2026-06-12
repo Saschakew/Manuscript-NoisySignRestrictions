@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-12T13:17:07Z",
+  "updated_at": "2026-06-12T13:58:35Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1303,6 +1303,28 @@
         "milestone_number": 56,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/56",
         "tag_name": "manuscript-milestones/M0061-recover-revision-20260610-comments"
+      }
+    },
+    {
+      "id": "M0062-execute-m66-noise-ratio-bound",
+      "sequence": 62,
+      "title": "Execute M66 noise-ratio bound",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-12T13:47:45Z",
+      "closed_at": "2026-06-12T13:58:35Z",
+      "start_commit": "6c600348809caf7c6cdb0bf3ef70fd88dc820e97",
+      "snapshot_ref": "manuscript-milestones/M0062-execute-m66-noise-ratio-bound",
+      "summary": "Completed M66: derived the lambda noise-share bound, updated Section 4 and figure routing, marked old figures historical, and unblocked M65.",
+      "user_input_ids": [
+        "U0062-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0062-execute-m66-noise-ratio-bound.json",
+      "github": {
+        "repository": "",
+        "milestone_number": null,
+        "milestone_url": "",
+        "tag_name": "manuscript-milestones/M0062-execute-m66-noise-ratio-bound"
       }
     }
   ]

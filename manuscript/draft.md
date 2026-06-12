@@ -80,13 +80,14 @@ The proposed solution keeps the logic of sign restrictions but changes the
 maintained model. Instead of pretending that all variation in \(u_t\) is
 structural signal, the researcher reports impact matrices that are compatible
 with signs, with diagonal Gaussian residual noise, and with an explicit
-residual-noise-to-signal bound. In the bivariate version used here, the bound is
-\(\nu_i\le \rho s_i\): residual-noise variance in coordinate \(i\) can be at
-most a fraction \(\rho\) of the corresponding structural-shock variance. This
-bound makes the sign-restricted set robust to noise up to the specified ratio.
-It also makes the cost transparent. A larger allowed noise ratio gives a more
-robust but wider set; a smaller ratio gives more precision but requires a
-stronger signal-to-noise assumption.
+residual-noise-to-signal bound. In the bivariate version used here, the
+dimensionless bound is written as
+\(\lambda_i=\nu_i/(BB')_{ii}\le\rho\): residual-noise variance in coordinate
+\(i\) can be at most a fraction \(\rho\) of the corresponding structural-signal
+variance. This bound makes the sign-restricted set robust to noise up to the
+specified ratio. It also makes the cost transparent. A larger allowed noise
+ratio gives a more robust but wider set; a smaller ratio gives more precision
+but requires a stronger signal-to-noise assumption.
 
 The higher-moment part of the solution exploits a simple cumulant fact. If
 residual noise is Gaussian and independent of the structural shocks, it changes
@@ -384,26 +385,35 @@ V=\operatorname{diag}(\nu_1,\nu_2).
 \end{equation}
 
 For a candidate \(B\), introduce candidate residual-noise variances
-\(\nu=(\nu_1,\nu_2)'\) and \(V(\nu)=\operatorname{diag}(\nu_1,\nu_2)\). The
-noise-robust second-order restriction is
+\(\nu=(\nu_1,\nu_2)'\) and \(V(\nu)=\operatorname{diag}(\nu_1,\nu_2)\). These
+variances are measured in the coordinates of the reduced-form residual
+\(u_t\). The structural shocks have unit variances, but the structural signal
+in residual coordinate \(i\) is \((B\varepsilon_t)_i\), whose variance is
+\((BB')_{ii}\). The dimensionless noise share is therefore
+
+\begin{equation}
+\lambda_i(B,\nu)=\frac{\nu_i}{(BB')_{ii}}.
+\end{equation}
+
+The noise-robust second-order restriction is
 
 \begin{equation}
 \Psi_2(B,\nu)
 =\operatorname{vech}\{\Sigma_u-BB'-V(\nu)\}=0,
 \qquad
-0\le \nu_i\le \rho (BB')_{ii},\quad i=1,2.
+0\le \lambda_i(B,\nu)\le \rho,\quad i=1,2.
 \label{eq:relative-noise-covariance-screen}
 \end{equation}
 
-This is the clean derivation of the signal-to-noise screen. The matrix
-\(\Sigma_u-BB'\) is the residual covariance left over after candidate
-structural signal \(BB'\) is removed. In the diagonal-noise model, that
-leftover covariance must be diagonal and nonnegative; the ratio bound is
-entrywise. It allows only candidates whose idiosyncratic residual-noise
-variance in coordinate \(i\) is at most the researcher-chosen fraction
-\(\rho\) of the candidate structural-signal variance \((BB')_{ii}\). The
-sample version replaces \(\Sigma_u\) by
-\(\widehat\Sigma_u=T^{-1}\sum_t u_tu_t'\).
+Equivalently, write \(\nu_i(B,\lambda)=\lambda_i(BB')_{ii}\) with
+\(\lambda_i\in[0,\rho]\). This is the clean derivation of the
+residual-noise-to-signal screen. The matrix \(\Sigma_u-BB'\) is the residual
+covariance left over after candidate structural signal \(BB'\) is removed. In
+the diagonal-noise model, that leftover covariance must be diagonal and
+nonnegative; the ratio bound is entrywise. A direct absolute cap
+\(0\le\nu_i\le\rho\) would be a different restriction unless the residual
+coordinates were separately standardized. The sample version replaces
+\(\Sigma_u\) by \(\widehat\Sigma_u=T^{-1}\sum_t u_tu_t'\).
 
 The next step is to regain some of the efficiency lost by allowing noise. Keep
 the same recovered-shock notation as before:
@@ -505,11 +515,18 @@ noise-robust set projects this enlarged GMM confidence set onto \(B\):
 \begin{equation}
 \mathcal R_T(c;\rho)=
 \left\{
-B:\ \exists \nu\ \text{such that}\ R(B)\ge0,
-0\le\nu_i\le\rho(BB')_{ii},\
-J_T(B,\nu)\le c
+B:\ \exists \lambda\in[0,\rho]^2\ \text{such that}\ R(B)\ge0,
+J_T(B,\nu(B,\lambda))\le c
 \right\}.
 \end{equation}
+
+This display treats the sign screen and the noise-share bound as hard
+maintained restrictions. Computationally, for a fixed \(\rho\), the researcher
+searches over \(B\) and over admissible \(\lambda\), sets
+\(\nu_i(B,\lambda)=\lambda_i(BB')_{ii}\), computes the full GMM criterion, and
+keeps \(B\) if at least one admissible \(\lambda\) has
+\(J_T(B,\nu(B,\lambda))\le c\). Showing several values of \(\rho\) means
+repeating this projected inversion as a sensitivity exercise.
 
 At the true parameter \((B_0,\nu_0)\), the second-order block is zero by
 \(\Sigma_u=B_0B_0'+V(\nu_0)\), and the higher-order block is zero by the
@@ -519,8 +536,8 @@ standard GMM formulation of the noise-robust null, with residual-noise
 variances treated as nuisance parameters and projected out when reporting the
 set for \(B\).
 
-<!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, `derivations/m40-variance-ratio-robust-dw-screen-audit.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
-<!-- TODO-NOTE: M64 changes the active normalization from `diag(B)=1` to unit structural-shock variances. The figure code, Monte Carlo code, registry, and derivation notes must be rebuilt or clearly marked historical before final evidence claims. -->
+<!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, `derivations/m40-variance-ratio-robust-dw-screen-audit.md`, `derivations/m66-noise-ratio-bound-grid-algorithm.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
+<!-- TODO-NOTE: M66 settles the nuisance-bound convention as lambda_i=nu_i/(BB')_ii in [0,rho]. The figure code and Monte Carlo code remain historical until M65 rebuilds them under the unit-variance projected GMM algorithm. -->
 <!-- TODO-NOTE: The exact projection critical value for \(\mathcal R_T(c;\rho)\) needs a compact inference note after the enlarged GMM implementation is audited. -->
 
 ## 5. Monte Carlo Robustness Check
@@ -538,61 +555,40 @@ historical diagnostics rather than final evidence for the revised estimator.
 
 ### 5.1 Residual-Noise Grid
 
-Figure 1 is the main story figure. Each column increases Gaussian residual
-noise. The first row shows the standard sign/covariance set. The second row
-adds the source-correct bivariate standard-DW GMM1 higher-moment stack,
-intersected with the separate no-noise covariance screen in the common B-plane.
-The third row uses the robust DW stack, which keeps the sign screen and mixed
-higher cumulants while replacing invalid zero-covariance anchors with a
-relative-noise covariance screen. The high-noise column is the narrative
-anchor: standard DW looks sharp but rejects the true normalized \(B_0\), while
-relative robust DW contains it with a visibly smaller set than the pure
-higher-cumulant fallback.
+The displayed Figure 1 is historical after M64 and M66. It still uses the old
+two-dimensional \(B=\begin{bmatrix}1&b_{12}\\ b_{21}&1\end{bmatrix}\) chart and
+the pre-M64 variance-ratio feasibility screen. The M65 replacement should keep
+the same reader job--residual noise increases across columns--but the robust
+row must use the projected unit-variance algorithm from Section 4: for each
+fixed \(\rho\), search over \(B\) and \(\lambda\in[0,\rho]^2\), compute
+\(J_T(B,\nu(B,\lambda))\), and report the projection onto \(B\).
 
 ![Figure 1. Relative-noise robust residual-noise grid.](figures/fig_sign_dw_relative_noise_robust_grid.png)
 
-**Figure 1. Residual-noise grid.** Rows report the sign/covariance set,
-source-correct standard-DW GMM1 screen, and robust-DW set in the common normalized \(B(b_{12},b_{21})\) chart.
-Columns increase Gaussian residual noise from \(V=(0,0)\) to \(V=(0.5,0.5)\).
-All rows invert pointwise 10 percent criteria for their displayed moment
-stacks. The standard-DW row uses the M49 source-correct GMM1 higher products
-`112`, `122`, `1112`, `1122`, and `1222`, plus a separate covariance-screen
-cutoff. The robust-DW row uses generated higher-cumulant moments with
-central-delta weighting and adds the covariance-decomposition feasibility screen implied by
-\(0\le \nu_i \le 0.5\operatorname{Var}(\varepsilon_i)\) for diagonal residual-noise variances. The
-high-noise column shows the paper's main warning: standard DW rejects true
-\(B_0\) under the researcher-facing cutoff, while relative robust DW contains it.
+**Figure 1. Historical pre-M64 residual-noise grid.** The current image is
+retained only as a visual diagnostic until M65 rebuilds it. The active
+replacement must use the M66 restriction
+\(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\) and the projected
+\((B,\lambda)\) GMM inversion from Section 4.
 
 <!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_relative_noise_robust_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative`; diagnostic note `simulations/sign_dw_relative_noise_robust_grid_figure.md`; audit note `derivations/m40-variance-ratio-robust-dw-screen-audit.md`; M52 validation note `simulations/m52_source_correct_evidence.md`; M49 source audit `derivations/m49-dw-source-and-noisy-moment-audit.md`; M56 generated-moment audit `derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`. -->
 
-M52 checks the finite-sample logic for the source-correct statistic. In the
-fixed-grid diagnostics, the high-noise column has the standard-DW GMM1 screen
-missing true \(B_0\), while relative robust DW contains it and passes the
-variance-ratio screen. In the repeated-sample Monte Carlo, the high-noise
-chi-square row gives standard-DW truth inclusion of \(0.000\) and robust-DW
-truth inclusion of \(0.833\).
+M52 checked the finite-sample logic for the old source-correct statistic. Its
+numbers remain useful for audit history, but they are not final evidence for
+the M66 unit-variance GMM object.
 
 ### 5.2 Non-Gaussianity Grid
 
-Figure 2 states the main limitation immediately after the main warning. It
-holds residual noise fixed and weakens the structural shocks' higher moments
-across columns. The robust-DW set stays noise-robust because the maintained
-diagonal Gaussian residual-noise condition leaves higher cumulants unshifted,
-and it regains precision only through the explicit variance-ratio screen. It is
-not a free source of identification. When structural higher moments weaken,
-robust DW widens toward the covariance-decomposition band; in the
-Gaussian-shock limit, the higher-cumulant substack is all-null and the screen
-does the remaining work.
+The displayed Figure 2 is also historical after M64 and M66. The M65
+replacement should keep the same limitation check--residual noise fixed,
+structural non-Gaussianity weakened across columns--but the robust row must use
+the same projected \((B,\lambda)\) set as Figure 1.
 
 ![Figure 2. Non-Gaussianity grid.](figures/fig_sign_dw_robust_nongaussianity_grid.png)
 
-**Figure 2. Non-Gaussianity grid.** Rows match Figure 1, but residual noise is
-fixed while structural-shock non-Gaussianity weakens across columns. All rows
-invert pointwise 10 percent criteria. The robust row uses the same
-variance-ratio proposal as Figure 1: generated mixed higher-cumulant inversion
-plus the screen \(0\le \nu_i\le 0.5\operatorname{Var}(\varepsilon_i)\). The
-figure explains why the robust set is a robustness check rather than a
-uniformly sharper estimator.
+**Figure 2. Historical pre-M64 non-Gaussianity grid.** The current image is
+retained only as an audit diagnostic. The active replacement must use the M66
+\(\lambda\)-bounded projected GMM algorithm.
 
 <!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_robust_nongaussianity_grid.png`; generator `simulations/sign_dw_robust_nongaussianity_grid_figure.py`; M52 validation note `simulations/m52_source_correct_evidence.md`. -->
 
@@ -607,19 +603,16 @@ when robust DW still contains it.
 
 ### 5.3 Sample-Size Grid
 
-Figure 3 asks whether the same comparison tightens as the sample grows. It
-holds the Figure 1 structural non-Gaussianity calibration and Figure 2 residual
-noise fixed, then varies \(T=500,1000,2000\). In this fixed draw, the standard
-DW GMM1 screen becomes smaller and misses the true \(B_0\) at the larger sample sizes,
-while the variance-ratio robust row keeps the true point and shrinks around
-the covariance-decomposition band.
+The displayed Figure 3 is historical after M64 and M66. The M65 replacement
+should keep the same finite-sample question--residual noise and structural
+non-Gaussianity fixed while \(T\) varies--but the robust row must again report
+the projection of accepted \((B,\lambda)\) pairs.
 
 ![Figure 3. Sample-size grid.](figures/fig_sign_dw_sample_size_robust_grid.png)
 
-**Figure 3. Sample-size grid.** Rows match Figures 1 and 2. Columns vary the
-sample size with strong structural higher moments and fixed residual noise
-\(V=(0.2,0.2)\). The robust row again uses generated mixed higher-cumulant
-inversion plus the variance-ratio covariance-decomposition screen.
+**Figure 3. Historical pre-M64 sample-size grid.** The current image is
+retained only as an audit diagnostic. The active replacement must use the M66
+\(\lambda\)-bounded projected GMM algorithm.
 
 <!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_sample_size_robust_grid.png`; generator `simulations/sign_dw_sample_size_robust_grid_figure.py`; M52 validation note `simulations/m52_source_correct_evidence.md`. -->
 

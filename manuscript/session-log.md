@@ -1,5 +1,34 @@
 # Session Log
 
+### 2026-06-12 - Complete M66 noise-ratio bound and grid algorithm
+
+- Request or goal: work on M66 after the user flagged that Section 4's
+  \(0\le\nu_i\le\rho(BB')_{ii}\) bound may need revision under the
+  unit-variance normalization, and that Figures 1-3 should use the resulting
+  grid/J-test inversion algorithm.
+- Files changed: `manuscript/tasks/M66-noise-ratio-bound-grid-algorithm/`,
+  `manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md`,
+  `manuscript/draft.md`, historical Figure 1-3 script docstrings,
+  `manuscript/tasks/M65-unit-variance-gmm-evidence-rebuild/task.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/source-packet.md`,
+  `manuscript/QUESTION-INDEX.md`, `manuscript/workplan.md`,
+  `manuscript/decision-log.md`, `manuscript/codex-log.md`, and
+  `manuscript/user-input-log.md`.
+- Summary of work: derived that direct \(0\le\nu_i\le\rho\) is not automatic
+  because \(\nu_i\) is residual-coordinate noise variance while unit variance
+  applies to structural shocks. Section 4 now uses the dimensionless share
+  \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), writes the projected set over
+  \((B,\lambda)\), and gives the grid/J-test algorithm. The old B-plane figure
+  scripts are marked historical because they cannot represent the active
+  unit-variance projected GMM algorithm.
+- Check: `python -m json.tool manuscript/formal-object-registry.json` passed;
+  Figure 1-3 script py-compile passed; `python scripts/check_manuscript.py`
+  passed before closure with the expected open-milestone warning and passed
+  cleanly after closure; `git diff --check` passed with line-ending warnings
+  only.
+- Next recommended action: execute M65 for the figure and evidence rebuild.
+
 ### 2026-06-12 - Recover Revision 20260610 and rewrite normalization route
 
 - Request or goal: correct the failed handling of `Revision-20260610-190805`
