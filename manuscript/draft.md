@@ -209,6 +209,7 @@ as
 \comment{However, you missed the unit variance condition in the S_0 definition! I think we can just write \mathcal S_0 =
 \{B:\ R(B)\ge0,\quad E[e_{t}(B)e_{t}(B)]=I\}. then we also dont need to write about sign label and scale normalization after the equation at all. }
 
+\comment{i deleted a whole paragraph here
 after the usual sign, label, and scale normalizations. The familiar rotation
 representation is a convenient way to compute the same object: if \comment{just note that we are implicitly using the unit variance condition in this equation! thats fine but i just try to point out that you are using it all the time. But actually, lets drop this equation enteriely. we will not work with the rotation stuff and just invert J to get S_0. so lets keep it simple.}
 \(P_0P_0'=E(u_tu_t')=B_0B_0'\), then \(B=P_0Q\) automatically gives
