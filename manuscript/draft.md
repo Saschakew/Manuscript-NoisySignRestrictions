@@ -207,7 +207,7 @@ as
 \end{equation}
 
 \comment{However, you missed the unit variance condition in the S_0 definition! I think we can just write \mathcal S_0 =
-\{B:\ R(B)\ge0,\quad E[e_{t}(B)e_{t}(B)]=I\}. then we also dont need to write about sign label and scale normalization after the equation at all. Instead, add a sentence to explain that B_0 is in S_0 as long as it satisfies the sign restrictions  }
+\{B:\ R(B)\ge0,\quad E[e_{t}(B)e_{t}(B)]=I\}. then we also dont need to write about sign label and scale normalization after the equation at all. Instead, add a sentence to explain that B_0 is in S_0 as long as it satisfies the sign restrictions because e_t(B_0)=epsilon_t and they are uncorrelated. }
 
 \comment{i deleted a whole paragraph talking about rotations. but in the end we will only invert J to get S_0 so lets skip the whole rotation stuff} 
 
