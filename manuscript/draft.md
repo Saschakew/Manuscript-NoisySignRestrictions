@@ -325,6 +325,8 @@ make the recovered shocks uncorrelated by construction. The J-test view makes
 the source of bias explicit: in the noisy model, the no-noise moment
 \(E[e_{1t}(B_0)e_{2t}(B_0)]=0\) is generally false.
 
+\comment{then add the figure 1 first row with a brief discussion here to illustrate how noise moves the set away from B_0}
+
 <!-- SOURCE-TRAIL: Use the proposal note, `Noisy residuals in recursive and sign-restricted SVARs.md`, and the M25 column-rescaling obstruction. -->
 <!-- DESIGN-NOTE: Keep the paper simultaneous and impact-only. Treat \(u_t\) as given; do not introduce VAR lag equations, dynamic IRFs, or horizon-specific sign restrictions in this version. -->
 <!-- TODO-NOTE: A future figure can isolate a sign-flip design. The current Figure 1 already shows the continuous set movement caused by residual noise. -->
