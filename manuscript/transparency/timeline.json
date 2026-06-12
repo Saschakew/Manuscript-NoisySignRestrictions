@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-12T15:41:25Z",
+  "updated_at": "2026-06-12T16:17:45Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1369,6 +1369,29 @@
         "milestone_number": 59,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/59",
         "tag_name": "manuscript-milestones/M0064-rebuild-first-shock-impact-figures-and-mc"
+      }
+    },
+    {
+      "id": "M0065-execute-m69-extended-mc",
+      "sequence": 65,
+      "title": "Execute M69 extended MC",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-12T16:03:53Z",
+      "closed_at": "2026-06-12T16:17:45Z",
+      "start_commit": "6631d25497c2e50d035dcfe0bbeb625d9dfcbf8c",
+      "snapshot_ref": "manuscript-milestones/M0065-execute-m69-extended-mc",
+      "summary": "Implemented and ran M69 extended three-block Monte Carlo with truth-inclusion counts and mean/median inverted-set size shares.",
+      "user_input_ids": [
+        "U0065-001",
+        "U0065-002"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0065-execute-m69-extended-mc.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 60,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/60",
+        "tag_name": "manuscript-milestones/M0065-execute-m69-extended-mc"
       }
     }
   ]

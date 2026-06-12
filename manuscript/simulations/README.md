@@ -38,6 +38,24 @@ imposes `B11>0`, `B22>0`, `B12<=0`, and `B21>=0` as maintained sign
 restrictions. The figure and Monte Carlo cutoffs are pointwise chi-square
 diagnostics, not final projected confidence-set critical values.
 
+## M69 Extended Three-Block Monte Carlo
+
+- Script: `m69_extended_three_block_mc.py`
+- Note: `m69_extended_three_block_mc.md`
+- Machine-readable output: `output/m69_extended_three_block_mc.json`
+- Replication wrapper command:
+
+```powershell
+python manuscript\replication\run_all.py --stage extended-mc
+```
+
+Interpretation: this output is the M69 setup/coding result for an extended MC
+that mirrors the three active figure blocks: residual noise, structural
+non-Gaussianity, and sample size. It reports true-\(B_0\) inclusion
+counts/rates and uses accepted projection share on `(B11,B21)` as the
+inverted-set size measure, summarized by mean and median. M70 owns draft
+interpretation after the output is checked.
+
 ## M45 Variance-Ratio Evidence Rebuild
 
 - Script: `m45_variance_ratio_evidence.py`

@@ -11,6 +11,26 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-12 - M69 extended three-block Monte Carlo completed
+
+- Request: work on M69 in goal mode, then incorporate the clarification that
+  the MC must report inverted-set size summaries and count true-\(B_0\)
+  inclusion.
+- Actions taken: opened M0065 and GitHub milestone #60; implemented
+  `m69_extended_three_block_mc.py`; added an explicit `extended-mc`
+  replication stage; ran quick and canonical diagnostics; updated the M69/M70
+  task folders, dashboard, task board, source packet, READMEs, question index,
+  and logs.
+- Files changed: new M69 simulation script and outputs, replication wrapper,
+  simulation and replication READMEs, M69/M70 task folders, planning/logging
+  surfaces, and transparency files.
+- Checks run: py-compile passed; quick script run passed; quick wrapper run
+  passed; canonical `python manuscript\replication\run_all.py --stage
+  extended-mc` passed; M69 JSON outputs validated.
+- Open uncertainties: M70 still needs to interpret the checked output in the
+  draft, and M65 still owns projected critical values before final
+  confidence-set claims.
+
 ### 2026-06-12 - M67 unit-variance Figure 1 rebuilt
 
 - Request: build the corrected updated Figure 1 under the M66 unit-variance

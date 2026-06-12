@@ -58,7 +58,14 @@ Optional staged commands:
 python manuscript\replication\run_all.py --stage figure1
 python manuscript\replication\run_all.py --stage figures
 python manuscript\replication\run_all.py --stage evidence
+python manuscript\replication\run_all.py --stage extended-mc
 ```
+
+M69 adds the explicit `extended-mc` stage. It does not replace the existing
+M68 `evidence` stage. The extended MC mirrors the three active figure blocks,
+reports true-\(B_0\) inclusion counts/rates, and reports mean and median
+accepted projection shares as inverted-set size measures. M70 owns draft
+interpretation after the M69 outputs are checked.
 
 The current wrapper calls scripts under `manuscript/simulations/`; it does not
 import from a local KnowledgeVault checkout. A later release-hardening step can

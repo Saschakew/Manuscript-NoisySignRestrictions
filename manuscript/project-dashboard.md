@@ -17,23 +17,33 @@ variance moments plus covariance, standard DW refines that second-moment set,
 and Section 4 replaces generated sample covariance-product plug-ins with
 parameter-implied \(\omega_{ij}(B,\nu)\) terms.
 
-Current focus: M68 has rebuilt Figures 1-3 and the Monte Carlo diagnostic
+Current focus: M69 has extended the M68 Monte Carlo into three blocks that
+mirror the active figures: residual noise, structural non-Gaussianity, and
+sample size. The output reports true-\(B_0\) inclusion counts/rates and uses
+accepted projection share on \((B_{11},B_{21})\) as the inverted-set size
+measure, summarized by mean and median. M65 remains active for the final
+projected-critical-value and inference route. The M69 output should be treated
+as diagnostic pointwise chi-square evidence until that route is settled.
+
+Background: M68 rebuilt Figures 1-3 and the Monte Carlo diagnostic
 under the M66-settled unit-variance GMM route. The nuisance bound is written
 through the dimensionless share
 \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), and the reported robust set
 projects accepted \((B,\lambda)\) pairs onto first-shock coordinates
 \((B_{11},B_{21})\). The maintained sign screen is \(B_{11}>0\),
-\(B_{22}>0\), \(B_{12}\le0\), and \(B_{21}\ge0\). M65 remains active only for
-the final projected-critical-value and inference route, not for the old
-figure/table rebuild.
+\(B_{22}>0\), \(B_{12}\le0\), and \(B_{21}\ge0\).
 
-Next recommended action: write the projected critical-value note for the
-enlarged \((B,\lambda)\) inversion in
-`manuscript/tasks/M65-unit-variance-gmm-evidence-rebuild/task.md`. M63
-citation/export cleanup is deferred until the inference caveat and evidence
-wording are stable.
+Next recommended action: execute M70 in
+`manuscript/tasks/M70-extended-mc-draft-documentation/task.md` to interpret and
+document the checked M69 output in the draft. Keep M65's projected-critical-
+value caveat visible throughout; if the extended MC needs final confidence-set
+interpretation rather than diagnostic pointwise chi-square interpretation,
+settle M65 before making final prose claims. M63 citation/export cleanup is
+deferred until the inference caveat and evidence wording are stable.
 
-Active milestone: M0064 completed M68 and closed GitHub milestone 59 for the
+Active milestone: M0065 completed M69 and GitHub milestone #60 tracks the
+same extended three-block Monte Carlo work. M0064 completed M68 and closed
+GitHub milestone 59 for the
 first-shock impact evidence rebuild. M0063 completed M67 and closed GitHub
 milestone 58 for the unit-variance Figure 1 rebuild. M0062 completed M66 and created GitHub milestone 57 for the
 noise-ratio bound and grid algorithm. M0061 recovers Revision-20260610-190805 and creates the
@@ -139,7 +149,16 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-12, completed M68 by imposing positive
+Last substantive session: 2026-06-12, completed M69 by implementing
+`m69_extended_three_block_mc.py`, adding an explicit `extended-mc` replication
+stage, and running a 24-replication-per-scenario extended MC across the three
+active figure blocks.
+
+Prior planning session: 2026-06-12, created M69 for the extended three-block
+Monte Carlo setup/coding task and M70 for the blocked draft interpretation
+task.
+
+Prior substantive session: 2026-06-12, completed M68 by imposing positive
 diagonal signs, adding the \(B_{12}\le0\) sign restriction, switching active
 figures to first-shock coordinates \((B_{11},B_{21})\), and rebuilding
 Figures 1-3 plus the Monte Carlo diagnostic under the M66 unit-variance route.

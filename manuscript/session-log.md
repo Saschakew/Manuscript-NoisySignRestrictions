@@ -1,5 +1,42 @@
 # Session Log
 
+### 2026-06-12 - Complete M69 extended three-block Monte Carlo
+
+- Request or goal: execute M69 and incorporate the user's clarification that
+  the MC must report inverted-set size, preferably mean or median, and count
+  true-\(B_0\) inclusion.
+- Files changed: `manuscript/simulations/m69_extended_three_block_mc.py`,
+  M69 outputs, replication wrapper/README, simulation README, source packet,
+  task folders, task board, dashboard, question index, user log, Codex log,
+  and transparency files.
+- Summary of work: reused the M68 evaluator to run three MC blocks matching
+  the active figures. The canonical run used 24 replications per scenario,
+  reported true-\(B_0\) inclusion counts/rates, and summarized accepted
+  \((B_{11},B_{21})\) projection shares by mean and median as set-size
+  measures.
+- Check: py-compile, quick script run, quick wrapper run, canonical wrapper
+  run, and JSON validation passed. Final manuscript/diff checks are recorded
+  in the milestone closeout.
+- Next recommended action: execute M70 to interpret and document the checked
+  M69 output in the draft while preserving the M65 inference caveat.
+
+### 2026-06-12 - Plan extended three-block Monte Carlo
+
+- Request or goal: plan an MC extension along the three DGP/figure variations,
+  with setup and coding first and interpretation/documentation deferred to a
+  second task.
+- Files changed: `manuscript/tasks/M69-extended-three-block-mc/`,
+  `manuscript/tasks/M70-extended-mc-draft-documentation/`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`, and
+  `manuscript/user-input-log.md`.
+- Summary of work: created M69 as the executable extended-MC setup/coding
+  task, organized around Figure 1 residual noise, Figure 2 structural
+  non-Gaussianity, and Figure 3 sample-size blocks. Created M70 as the blocked
+  follow-up for interpreting checked M69 outputs in the draft.
+- Check: `python scripts/check_manuscript.py` passed; `git diff --check`
+  passed with line-ending warnings only.
+- Next recommended action: execute M69 before writing MC interpretation prose.
+
 ### 2026-06-12 - Build M67 unit-variance Figure 1
 
 - Request or goal: build the corrected updated Figure 1 after M66 settled the

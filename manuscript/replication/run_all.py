@@ -1,6 +1,6 @@
 """Rebuild the active manuscript figures and Monte Carlo evidence.
 
-This is the M33 manuscript-local replication wrapper, updated in M68. The
+This is the M33 manuscript-local replication wrapper, updated in M68 and M69. The
 active stages use the unit-variance first-shock chart: display ``(B11,B21)``,
 profile ``B12``, ``B22``, and ``lambda``, impose ``B11>0``, ``B22>0``,
 ``B12<=0``, and ``B21>=0``, and evaluate the M66
@@ -60,6 +60,18 @@ def evidence_outputs(output_dir: Path | None) -> tuple[Path, Path]:
     return (
         SIM_DIR / "output" / "m68_first_shock_evidence.json",
         SIM_DIR / "m68_first_shock_evidence.md",
+    )
+
+
+def extended_mc_outputs(output_dir: Path | None) -> tuple[Path, Path]:
+    if output_dir is not None:
+        return (
+            output_dir / "m69_extended_three_block_mc.json",
+            output_dir / "m69_extended_three_block_mc.md",
+        )
+    return (
+        SIM_DIR / "output" / "m69_extended_three_block_mc.json",
+        SIM_DIR / "m69_extended_three_block_mc.md",
     )
 
 
@@ -151,6 +163,20 @@ def build_steps(args: argparse.Namespace) -> list[Step]:
             )
         steps.append(Step("M68 Monte Carlo evidence", command))
 
+    if args.stage == "extended-mc":
+        json_output, note_output = extended_mc_outputs(output_dir)
+        command = [
+            sys.executable,
+            str(SIM_DIR / "m69_extended_three_block_mc.py"),
+            "--json-output",
+            str(json_output),
+            "--note-output",
+            str(note_output),
+        ]
+        if args.quick:
+            command.append("--quick")
+        steps.append(Step("M69 extended three-block Monte Carlo", command))
+
     return steps
 
 
@@ -158,7 +184,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--stage",
-        choices=("all", "figures", "figure1", "figure2", "figure3", "evidence"),
+        choices=("all", "figures", "figure1", "figure2", "figure3", "evidence", "extended-mc"),
         default="all",
         help="Replication stage to run.",
     )
