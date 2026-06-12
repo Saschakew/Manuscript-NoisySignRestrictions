@@ -210,7 +210,7 @@ as
 \{B:\ R(B)\ge0,\quad E[e_{t}(B)e_{t}(B)]=I\}. then we also dont need to write about sign label and scale normalization after the equation at all. }
 
 after the usual sign, label, and scale normalizations. The familiar rotation
-representation is a convenient way to compute the same object: if \comment{just note that we are implicitly using the unit variance condition in this equation! thats fine but i just try to point out that you are using it all the time. But }
+representation is a convenient way to compute the same object: if \comment{just note that we are implicitly using the unit variance condition in this equation! thats fine but i just try to point out that you are using it all the time. But actually, lets drop this equation enteriely}
 \(P_0P_0'=E(u_tu_t')=B_0B_0'\), then \(B=P_0Q\) automatically gives
 uncorrelated recovered shocks for every orthogonal \(Q\). Equation
 \eqref{eq:no-noise-sign-j-set} \commet{something is broken with the equation ref because i only see(???)} is useful here because it displays the
