@@ -524,6 +524,9 @@ noise the researcher is willing to allow.
 The next step is to regain some of the efficiency lost by allowing noise. For
 each candidate \(B\), define
 
+\comment{ i dont like to call it z at all. z is usually a proxy variable in svars. thats confusing. 
+
+
 \begin{equation}
 z_t(B)=B^{-1}u_t
 =B^{-1}B_0\varepsilon_t+B^{-1}\eta_t .
