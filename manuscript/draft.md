@@ -233,6 +233,8 @@ The covariance of the observed residual is
 \Sigma_u=E(u_tu_t')=B_0B_0'+V .
 \end{equation}
 
+\comment{I dont like this definition. 
+
 *Definition 1 (`def:diagonal-noise-svar`, additive-noise impact model). The
 first-version model is the bivariate simultaneous residual system
 \(u_t=B_0\varepsilon_t+\eta_t\), where \(B_0\) is nonsingular, the structural
