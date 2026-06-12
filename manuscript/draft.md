@@ -532,6 +532,8 @@ z_t(B)=B^{-1}u_t
 =B^{-1}B_0\varepsilon_t+B^{-1}\eta_t .
 \end{equation}
 
+\comment{ now the notation gets even more confusing! we already talked about that S should be \Sigma_u, correct? 
+
 It is useful to name the transformed-noise component
 \(\xi_t(B)=B^{-1}\eta_t\). Let
 \(\Omega(B)=\operatorname{Var}\{\xi_t(B)\}\) denote the covariance of that
