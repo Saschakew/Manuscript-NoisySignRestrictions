@@ -336,7 +336,7 @@ the source of bias explicit: in the noisy model, the no-noise moment
 The previous section used only second moments. Drautzburg-Wright-style
 refinement adds higher moments to exploit non-Gaussian structural shocks. The
 logic in the no-noise case is easiest to see from the general recovered shocks
-\(e_t(B)=B^{-1}u_t\). A sign-admissible \(B\) may make the recovered shocks uncorrelated, but zero covariance is weaker than independence.
+\(e_t(B)=B^{-1}u_t\). A sign-admissible \(B\) may make the recovered shocks uncorrelated,  than independence.
 If the structural shocks are non-Gaussian and independent, incorrect rotations
 can leave higher-order dependence in the recovered shocks. DW refinement
 shrinks the sign-restricted set by testing those higher-order restrictions.
