@@ -286,7 +286,7 @@ make every covariance-compatible impact matrix with uncorrelated recovered
 shocks put a disputed entry on the wrong side of zero. Figure 1 below shows
 the less dramatic but more common version of the same mechanism: as the noise
 variance increases, the sign/covariance set moves in the normalized impact
-chart before higher moments are used. \comment{we should create a new figure which contains only the first row of figure 1 and show it here.}
+chart before higher moments are used. \comment{we should create a new figure which contains only the first row of figure 1 and show it here. but lets }
 
 \comment{the proposition is trivial i think. lets delete it. we already mentioned all of it before}
 *Proposition 1 (`prop:noisy-sign-pseudo-set`, noisy sign-set bias). In the
