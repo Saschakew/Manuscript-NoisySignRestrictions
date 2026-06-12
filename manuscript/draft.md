@@ -258,6 +258,7 @@ Unless the off-diagonal element of \(B_0^{-1}VB_0^{-1'}\) is zero, the shocks
 recovered at \(B_0\) are correlated. Thus \(B_0\) fails the no-noise
 orthogonality condition in \eqref{eq:no-noise-sign-j-set} \commet{the ref to the equation is broken. i only see (???)} \comment{just add something like and consequently B_0 is not in S_0 because S_0 by construction creates a set of uncorrelated e, but e(B_0) is uncorrelated and thus not in S_0 when we have noise. and i deleted the next paragraph which was again talking about rotations }.  
 
+\comment{ also delete this definition.}
 *Definition 2 (`def:noisy-sign-pseudo-set`, noisy sign pseudo-set). The noisy
 sign pseudo-set is the population sign-restricted set \(\mathcal S_*\) obtained
 by rotating a factor of \(B_0B_0'+V\) rather than a factor of \(B_0B_0'\). It is
