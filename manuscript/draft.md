@@ -218,6 +218,7 @@ orthogonality restriction that noise will violate.
 
 Now suppose the observed residual contains additive residual noise:
 
+
 \begin{equation}
 u_t = B_0\varepsilon_t+\eta_t,\qquad
 E(\eta_t)=0,\qquad
