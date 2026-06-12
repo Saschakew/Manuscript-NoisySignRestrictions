@@ -300,7 +300,7 @@ set reported by a no-noise sign-restricted SVAR is a noisy pseudo-set and may
 exclude the true impact shape.*
 
 In finite samples the same idea can be written as a J-test inversion. For a
-candidate \(B\), let \commet{add 
+candidate \(B\), let \commet{add \widehat m_{2,T}(B)=T^{-1}\sum_{t=1}^T e_{1t}(B)e_{2t}(B)
 
 \begin{equation}
 \widehat m_{2,T}(B)=T^{-1}\sum_{t=1}^T e_{1t}(B)e_{2t}(B)
