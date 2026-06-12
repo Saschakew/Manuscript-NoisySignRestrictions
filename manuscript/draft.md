@@ -576,7 +576,7 @@ so the restrictions can be written as \(E\{z_1(B)^2z_2(B)\}=0\) and
 products include covariance terms even when the mixed fourth cumulant is zero.
 For example, at \(B_0\) under Assumption 1,
 
-\comment{i already mentioned this in my review.md: can we somehow 
+\comment{i already mentioned this in my review.md: can we somehow replac
 
 \begin{equation}
 \operatorname{cum}\{z_1,z_2,z_2,z_2\}
