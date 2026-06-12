@@ -592,6 +592,8 @@ records the sample generated-moment treatment.
 Let \(s_{ij}(B)=E\{z_i(B)z_j(B)\}\). The Gaussian-noise-blind moment stack is
 written directly as moment equations:
 
+\comment{i mentioned it in my review.md: can we somehow replace the moment s_ab(B) with functions of B
+
 \begin{equation}
 G_H(B)=
 \begin{bmatrix}
