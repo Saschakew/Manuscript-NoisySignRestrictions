@@ -206,7 +206,7 @@ as
 \label{eq:no-noise-sign-j-set}
 \end{equation}
 
-\comment{}
+\comment{However, you missed the unit variance condition }
 
 after the usual sign, label, and scale normalizations. The familiar rotation
 representation is a convenient way to compute the same object: if
