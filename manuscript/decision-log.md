@@ -1229,3 +1229,23 @@ decisions.
   or keeping the existing flat packet plus logs pattern unchanged.
 - Consequence for next work: For M33 and later substantial tasks, create or use
   a task folder and complete `outcome.md` before marking the task done.
+
+### 2026-06-12 - Correct the first-shock evidence sign screen and weighting
+
+- Origin: M71 planning after the interrupted M69 500-replication run.
+- User input id: U0068
+- Codex role: recorded the correction and created a task contract before
+  further simulation execution.
+- Decision: Figures 1-3 and the MCs should not impose a sign restriction on
+  \(B_{21}\). The maintained sign restrictions are \(B_{11}>0\),
+  \(B_{22}>0\), and \(B_{12}\le0\). The inverted statistic should estimate
+  \(\widehat\Omega(B,\nu)\) at each tested candidate and evaluate the
+  pointwise statistic \(Tg_T'\widehat\Omega^{-1}g_T\).
+- Rationale: The current M68/M69 implementation imposed \(B_{21}\ge0\) and
+  reused weights computed at the true DGP point across the grid. That is not
+  the intended projected confidence-set inversion.
+- Alternatives considered: continuing the 500-replication run on the current
+  implementation, or treating true-point weights as the main statistic. Both
+  are deferred/rejected for final evidence.
+- Consequence for next work: Execute M71 before M70 or any long MC run. M70 is
+  blocked until corrected figures and MC outputs exist.

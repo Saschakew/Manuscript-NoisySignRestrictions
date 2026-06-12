@@ -4,6 +4,11 @@ Status: done.
 
 Completed: 2026-06-12.
 
+Correction note, 2026-06-12: M71 now supersedes these outputs before draft
+interpretation. The current M69 run inherited the M68 \(B_{21}\ge0\) sign
+restriction and true-point fixed weights. Use this note as historical
+diagnostic context until M71 regenerates corrected MC outputs.
+
 ## Short Answer
 
 M69 implemented and ran an extended three-block Monte Carlo matching the three

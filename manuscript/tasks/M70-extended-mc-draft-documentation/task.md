@@ -2,7 +2,7 @@
 
 ## Status And Routing
 
-Status: `todo`
+Status: `blocked`
 
 Priority: 2
 
@@ -12,7 +12,7 @@ Transparency milestone: pending
 
 Outcome note: `outcome.md`
 
-Ready after: M69 extended three-block Monte Carlo outputs.
+Ready after: M71 corrected figures and Monte Carlo outputs.
 
 ## Original User Prompt
 
@@ -22,14 +22,21 @@ interpretation and documentation of the MC in the draft."
 
 ## Why This Task Exists
 
-The interpretation should not be written before the extended MC exists. This
-task is the second step: read the checked M69 outputs, decide what the Monte
-Carlo actually supports, and document it in the draft without overstating
-pointwise chi-square diagnostics as final projected confidence-set evidence.
+The interpretation should not be written before the extended MC exists and
+matches the intended method. M69 produced checked outputs, but M71 now blocks
+this task because the current implementation imposes \(B_{21}\ge0\) and uses
+true-point fixed weights rather than candidate-specific pointwise weighting.
+After M71 regenerates corrected outputs, this task should read them, decide
+what the Monte Carlo actually supports, and document it in the draft without
+overstating pointwise chi-square diagnostics as final projected
+confidence-set evidence.
 
 ## Do Not Trust Without Rechecking
 
-- Any M69 result before its output note, JSON, and checks exist.
+- Any pre-M71 M69 result as final evidence.
+- Any figure or MC result that imposes \(B_{21}\ge0\).
+- Any inverted-statistic result that uses true-point fixed weights while being
+  described as the intended pointwise inversion.
 - Any interpretation that treats pointwise chi-square cutoffs as final
   projected inference unless M65 has supplied that route.
 - Any result that aggregates across the three blocks without preserving the
@@ -43,6 +50,7 @@ pointwise chi-square diagnostics as final projected confidence-set evidence.
 | Path | Purpose | Required before |
 |---|---|---|
 | `manuscript/tasks/M69-extended-three-block-mc/outcome.md` | Confirm what was run and checked. | any draft edit |
+| `manuscript/tasks/M71-remove-b21-sign-and-pointwise-weighting/outcome.md` | Confirm the sign-screen and weighting corrections are complete. | any draft edit |
 | `manuscript/simulations/m69_extended_three_block_mc.md` | Human-readable MC output. | draft edit |
 | `manuscript/simulations/output/m69_extended_three_block_mc.json` | Machine-readable MC output and configuration. | draft edit |
 | `manuscript/tasks/M65-unit-variance-gmm-evidence-rebuild/task.md` | Preserve the projected-inference caveat. | interpretation |
@@ -87,7 +95,7 @@ pointwise chi-square diagnostics as final projected confidence-set evidence.
 
 ## Stop Conditions
 
-- Stop if M69 has not produced checked outputs.
+- Stop if M71 has not produced checked corrected outputs.
 - Stop if MC output contradicts a figure in a way that has not been audited.
 - Stop if the desired interpretation depends on projected critical values that
   M65 has not supplied.

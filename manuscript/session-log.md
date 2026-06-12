@@ -1309,3 +1309,20 @@ For traceable work blocks, pair this human-readable note with a closed
   scripts/check_manuscript.py` passed cleanly.
 - Next recommended action: execute M33, the manuscript-local replication
   wrapper.
+
+### 2026-06-12 - Plan M71 first-shock evidence correction
+
+- Request or goal: stop the long M69 500-replication run for now and plan a
+  correction task before further MC execution.
+- Files changed: `manuscript/tasks/M71-remove-b21-sign-and-pointwise-weighting/task.md`,
+  `manuscript/tasks/M71-remove-b21-sign-and-pointwise-weighting/outcome.md`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`,
+  `manuscript/paper-map.md`, `manuscript/tasks/M70-extended-mc-draft-documentation/task.md`,
+  `manuscript/tasks/M69-extended-three-block-mc/outcome.md`,
+  `manuscript/user-input-log.md`, and `manuscript/decision-log.md`.
+- Summary of work: created M71 as the priority-1 correction task. It removes
+  the \(B_{21}\ge0\) sign restriction from active figures and MCs, replaces
+  true-point fixed weights with candidate-specific pointwise weighting, blocks
+  M70, and defers any 500-replication MC until corrected diagnostics exist.
+- Check: `python scripts/check_manuscript.py` passed.
+- Next recommended action: execute M71.

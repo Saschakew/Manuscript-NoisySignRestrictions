@@ -28,12 +28,14 @@ report a standard GMM set over \((B,\nu)\).
   \(\nu_i(B,\lambda)=\lambda_i(BB')_{ii}\). The higher-order block uses
   recovered shocks \(e_t(B)=B^{-1}u_t\) and parameter-implied covariance terms
   \(\omega_{ij}(B,\nu)\), not sample covariance-product plug-ins.
-- Evidence: M68 rebuilds Figures 1-3 and the Monte Carlo diagnostic under the
-  M66 \(\lambda\)-bounded unit-variance GMM implementation. The active chart
-  reports first-shock coordinates \((B_{11},B_{21})\), profiles \(B_{12}\),
-  \(B_{22}\), and \(\lambda\), and imposes \(B_{11}>0\), \(B_{22}>0\),
-  \(B_{12}\le0\), and \(B_{21}\ge0\). The outputs are diagnostic pointwise
-  chi-square inversions; final projected critical values remain a follow-up.
+- Evidence: M68/M69 currently implement Figures 1-3 and the Monte Carlo
+  diagnostic under the M66 \(\lambda\)-bounded unit-variance GMM route, but
+  M71 now supersedes them before draft interpretation. The corrected active
+  chart should still report first-shock coordinates \((B_{11},B_{21})\) and
+  profile \(B_{12}\), \(B_{22}\), and \(\lambda\), but it should impose only
+  \(B_{11}>0\), \(B_{22}>0\), and \(B_{12}\le0\). It must also use
+  candidate-specific pointwise weighting rather than true-point fixed weights.
+  Final projected critical values remain a follow-up.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -54,10 +56,11 @@ report a standard GMM set over \((B,\nu)\).
    Gaussian-noise-blind rows \(G_H(B,\nu)\). The fourth-order covariance
    products use \(\omega_{ij}(B,\nu)\), so the criterion is standard GMM in
    the enlarged parameter vector.
-6. Figures 1-3 now use the unit-variance first-shock projected chart. Figure 1
-   varies residual noise, Figure 2 weakens structural non-Gaussianity, and
-   Figure 3 varies sample size under the same sign screen and \((B,\lambda)\)
-   search.
+6. Figures 1-3 should use the unit-variance first-shock projected chart.
+   Figure 1 varies residual noise, Figure 2 weakens structural
+   non-Gaussianity, and Figure 3 varies sample size under the corrected sign
+   screen and \((B,\lambda)\) search. M71 must rebuild this evidence before it
+   is interpreted in the draft.
 7. The practical recommendation is simple: report both the standard DW set and
    the robust DW set in the same normalized chart. Standard-DW mass outside the
    robust set is the warning object; robust mass outside the standard set often
@@ -73,7 +76,7 @@ report a standard GMM set over \((B,\nu)\).
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, define \(\mathcal S_0\) with \(E[e_t(B)e_t(B)']=I\), add diagonal residual noise, and write the three-moment J inversion. | first-pass M64 revision; Figure 1 first row rebuilt in M68 |
 | 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement as a refinement of \(\mathcal S_{J,T}(c_2)\), define the source-correct DW GMM1/GMM2 menus, then show why refinement can be falsely precise under noise. | first-pass M64 revision; Figure 1 second row rebuilt in M68 |
 | 4. Noise-Robust Sign And DW Sets | Start with \(\Sigma_u=BB'+\operatorname{diag}(\nu)\), impose \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), and write \(G_H(B,\nu)\) with parameter-implied \(\omega_{ij}(B,\nu)\) terms inside a standard GMM criterion. | M66 revision; M68 diagnostic implementation complete; projected critical values pending |
-| 5. Figure-Led Evidence And Monte Carlo Check | Report Figures 1-3 and Table 1 under the unit-variance \((B,\lambda)\) projected GMM route, using first-shock coordinates and the maintained sign screen. | M68 diagnostic evidence revision |
+| 5. Figure-Led Evidence And Monte Carlo Check | Report Figures 1-3 and Table 1 under the unit-variance \((B,\lambda)\) projected GMM route, using first-shock coordinates and the maintained sign screen. | blocked until M71 corrects the sign screen and pointwise weighting |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
 ## Core Formal Objects
