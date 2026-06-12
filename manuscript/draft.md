@@ -370,7 +370,7 @@ The corresponding GMM2 menu drops only the symmetric fourth product
 \(E\{e_{1t}(B)^2e_{2t}(B)^2\}-1\), which allows that structural shocks are driven by the same volatility process. 
 
 In the no-noise model, \(g_{DW,1}(B_0)=0\). A sample inversion keeps
-sign-admissible candidates whose estimated moment vector is small: \comment{this is not correct because you are missing the variance and covariance conditions from m_2!}
+sign-admissible candidates whose estimated moment vector is small: \comment{this is not correct because you are missing the variance and covariance conditions from m_2! also mention that}
 
 \begin{equation}
 \mathcal D_T(c_S)=
