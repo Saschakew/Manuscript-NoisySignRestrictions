@@ -218,7 +218,7 @@ orthogonality restriction that noise will violate.
 
 Now suppose the observed residual contains additive residual noise:
 
-\comment{add that by assumption V is diagonal. moreover, is E(\varepsilon_t\eta_t')=0 well defined in terms of the dimensions? i know that you are trying to write that epsilon and eta are uncorrelated...}
+\comment{add that by assumption V is diagonal. moreover, is E(\varepsilon_t\eta_t')=0 well defined in terms of the dimensions? i know that you are trying to write that epsilon and eta are uncorrelated...maybe lets not write this moment but simply write out that they are independent?}
 
 \begin{equation}
 u_t = B_0\varepsilon_t+\eta_t,\qquad
