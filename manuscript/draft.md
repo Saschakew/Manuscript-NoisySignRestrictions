@@ -256,7 +256,7 @@ E[e_t(B_0)e_t(B_0)']
 
 Unless the off-diagonal element of \(B_0^{-1}VB_0^{-1'}\) is zero, the shocks
 recovered at \(B_0\) are correlated. Thus \(B_0\) fails the no-noise
-orthogonality condition in \eqref{eq:no-noise-sign-j-set} \commet{the ref to the equation is broken. i only see (???)}. In the rotation
+orthogonality condition in \eqref{eq:no-noise-sign-j-set} \commet{the ref to the equation is broken. i only see (???)} and consequently, . In the rotation
 language, the standard procedure instead rotates a factor \(P_*\) satisfying
 \(P_*P_*'=B_0B_0'+V\). It then reports
 
