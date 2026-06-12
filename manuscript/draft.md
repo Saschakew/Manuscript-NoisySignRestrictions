@@ -524,7 +524,7 @@ noise the researcher is willing to allow.
 The next step is to regain some of the efficiency lost by allowing noise. For
 each candidate \(B\), define
 
-\comment{ i dont like to call it z at all. z is usually a proxy variable in svars. thats confusing. 
+\comment{ i dont like to call it z at all. z is usually a proxy variable in svars. thats confusing. way not still call it e(B) as before!?}
 
 
 \begin{equation}
