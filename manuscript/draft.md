@@ -341,7 +341,7 @@ If the structural shocks are non-Gaussian and independent. DW propose to refine 
 
 <!-- SOURCE-TRAIL: M52 rebuilt the simulation code with the M49 source-correct bivariate Drautzburg-Wright GMM1 higher-moment menu plus a separate B-plane covariance screen. -->
 
-\comment{lets clean up this paragraph. no mention of m49. just explain that dw measure dependency by third and fourth order co-moments and then }
+\comment{lets clean up this paragraph. no mention of m49. just explain that dw measure dependency by third and fourth order co-moments and then introduce }
 M49 verifies that Drautzburg and Wright's moment-based refinement uses
 standardized raw co-skewness and co-kurtosis products, not fourth cumulants. In
 the source-native rotation chart, the recovered shocks are already
