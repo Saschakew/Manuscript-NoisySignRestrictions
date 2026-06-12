@@ -383,7 +383,7 @@ J_{S,T}(B)=T\widehat g_{DW,T}(B)'\widehat W_{S,T}
 \end{equation}
 
 \comment{maybe this paragraph can start with something like: the \mathcal D_T(c_S) refines the set \mathcal S_{J,T}(c_2) by avoiding B which lead to uncorrelated but dependent (measured by coskewness and cokurtosis) shocks. While this sharpens the identified set when shocks are non-Gaussian, in the presence of noise, it can  produce a narrow and
-misleading set. actually, the rest of this subsection seems unnesseary. lets just explain that we already explain in section 2 how noise shifts S_0 away from B_0 and since D_t is a refinement of S_0, the refined set may be smaller but still not contain B_0. we then end the section by inserting a new figure which shows the second row of figure 1. discuss the figure and  }
+misleading set. actually, the rest of this subsection seems unnesseary. lets just explain that we already explain in section 2 how noise shifts S_0 away from B_0 and since D_t is a refinement of S_0, the refined set may be smaller but still not contain B_0. we then end the section by inserting a new figure which shows the second row of figure 1. discuss the figure and explain how non-gaussian shocks refine the set and lead to more precise result in the left column with no noise, but once we add noise, the identified set remains small, but no longer contains B_0. }
 This is a useful refinement under the maintained no-noise null. It is also the
 place where residual noise can turn a wide but honest set into a narrow and
 misleading one. Under the noisy model,
