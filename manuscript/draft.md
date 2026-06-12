@@ -218,7 +218,7 @@ orthogonality restriction that noise will violate.
 
 Now suppose the observed residual contains additive residual noise:
 
-\comment{add that by assumption V is diagonal. moreover, is }
+\comment{add that by assumption V is diagonal. moreover, is E(\varepsilon_t\eta_t')=0 well defined?}
 
 \begin{equation}
 u_t = B_0\varepsilon_t+\eta_t,\qquad
