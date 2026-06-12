@@ -256,14 +256,7 @@ E[e_t(B_0)e_t(B_0)']
 
 Unless the off-diagonal element of \(B_0^{-1}VB_0^{-1'}\) is zero, the shocks
 recovered at \(B_0\) are correlated. Thus \(B_0\) fails the no-noise
-orthogonality condition in \eqref{eq:no-noise-sign-j-set} \commet{the ref to the equation is broken. i only see (???)} \comment{just add something like and consequently B_0 is not in S_0 and i deleted the next paragraph which was again talking about rotations }. . In the rotation
-language, the standard procedure instead rotates a factor \(P_*\) satisfying
-\(P_*P_*'=B_0B_0'+V\). It then reports
-
-\begin{equation}
-\mathcal S_* =
-\{P_*Q:\ Q'Q=I,\quad R(P_*Q)\ge0\}.
-\end{equation}
+orthogonality condition in \eqref{eq:no-noise-sign-j-set} \commet{the ref to the equation is broken. i only see (???)} \comment{just add something like and consequently B_0 is not in S_0 and i deleted the next paragraph which was again talking about rotations }.  
 
 *Definition 2 (`def:noisy-sign-pseudo-set`, noisy sign pseudo-set). The noisy
 sign pseudo-set is the population sign-restricted set \(\mathcal S_*\) obtained
