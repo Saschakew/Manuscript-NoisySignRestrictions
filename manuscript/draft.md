@@ -337,8 +337,7 @@ The previous section used only second moments. Drautzburg-Wright-style
 refinement adds higher moments to exploit non-Gaussian structural shocks. The
 logic in the no-noise case is easiest to see from the general recovered shocks
 \(e_t(B)=B^{-1}u_t\). A sign-admissible \(B\) may make the recovered shocks uncorrelated, however, they can still be dependent.
-If the structural shocks are non-Gaussian and independent, DW propose to detect the dependent shocks and
-can leave higher-order dependence in the recovered shocks. DW refinement
+If the structural shocks are non-Gaussian and independent, DW propose to detect the dependent shocks and can leave higher-order dependence in the recovered shocks. DW refinement
 shrinks the sign-restricted set by testing those higher-order restrictions.
 
 <!-- SOURCE-TRAIL: M52 rebuilt the simulation code with the M49 source-correct bivariate Drautzburg-Wright GMM1 higher-moment menu plus a separate B-plane covariance screen. -->
