@@ -184,7 +184,7 @@ E(\varepsilon_t)=0,\qquad
 E(\varepsilon_t\varepsilon_t')=I .
 \end{equation}
 
-\comment{}
+\comment{Just note that we are already imposing the unit variance condition here! thats good.}
 
 The matrix \(B_0\) is the structural impact matrix. The vector
 \(\varepsilon_t=(\varepsilon_{1t},\varepsilon_{2t})'\) contains structural
