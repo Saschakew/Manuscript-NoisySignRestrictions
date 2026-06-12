@@ -319,7 +319,7 @@ J_{2,T}(B)=T\widehat m_{2,T}(B)'\widehat W_{2,T}\widehat m_{2,T}(B)\le c_2
 
 \comment{ you need to explain how to get c_2. We now that at B_0 and with the efficient weighting matrix, J is chi2. than we get the critical value and can invert}
 
-\comment{delete the 
+\comment{delete the following paragraph on rotations}
 The rotation approach hides this test because rotations of a covariance factor
 make the recovered shocks uncorrelated by construction. The J-test view makes
 the source of bias explicit: in the noisy model, the no-noise moment
