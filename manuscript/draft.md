@@ -19,14 +19,14 @@ contain the true impact matrix. Higher-moment refinement can then sharpen the
 wrong target, producing a small accepted set that looks precise while moving
 further away from the structural object of interest. This paper proposes a
 noise-robust refinement that separates non-Gaussian structural shocks from
-Gaussian residual noise. The researcher states a maximum ratio of residual-noise
-variance to structural-signal variance, and higher cumulants are used only in
-forms that are blind to Gaussian noise. Source-correct simulations with the
-bivariate Drautzburg-Wright GMM1 higher-moment menu show standard sign
-restrictions drifting under noise, standard higher-moment refinement excluding
-the truth, and the robust refinement usually keeping the true impact matrix in
-the reported set while regaining precision when the variance-ratio bound is
-informative.
+Gaussian residual noise under the unit-variance normalization
+\(E[\varepsilon_t\varepsilon_t']=I\). The researcher states a maximum ratio of
+residual-noise variance to structural-signal variance, treats residual-noise
+variances as nuisance parameters, and uses higher-moment restrictions in a
+standard GMM criterion over \((B,\nu)\). The existing simulation section now
+serves as a rebuild target: the figures and Monte Carlo evidence must be
+regenerated under this unit-variance GMM implementation before final evidence
+claims are made.
 
 <!-- SOURCE-TRAIL: Use the M0036 relative-noise Figure 1 candidate, the M40 screen audit, the M0035 absolute-bound comparison, the M0034 pure robust variant, the M24 higher-cumulant derivation, M49 for the source-correct GMM1 menu, M56 for generated-moment inference, and the M52 evidence rebuild. -->
 <!-- CONTRIBUTION-NOTE: The abstract's original contribution is the residual-noise pseudo-set warning and the DW-versus-robust-DW comparison diagnostic. -->
@@ -36,8 +36,8 @@ informative.
 Sign-restricted SVARs are popular because they identify structural shocks with
 relatively little economic structure. Once the reduced-form residual \(u_t\) is
 available, the researcher searches for impact matrices \(B\) such that the
-recovered shocks \(e_t(B)=B^{-1}u_t\) are mutually uncorrelated and the entries
-of \(B\) satisfy economically motivated sign restrictions. Compared with
+recovered shocks \(e_t(B)=B^{-1}u_t\) have covariance \(I\) and the entries of
+\(B\) satisfy economically motivated sign restrictions. Compared with
 recursive zero restrictions or external instruments, this looks robust: the
 researcher does not choose a recursive ordering or a single proxy, but reports
 the set of impact matrices consistent with signs and orthogonality.
@@ -193,46 +193,39 @@ impact matrix \(B\), the recovered shocks are
 e_t(B)=B^{-1}u_t .
 \end{equation}
 
-A sign-restricted SVAR keeps candidates whose recovered shocks are uncorrelated
-and whose impact matrix satisfies the chosen sign restrictions. If \(R(B)\ge0\)
-denotes the sign screen, the population no-noise identified set can be written
-as
+A sign-restricted SVAR keeps candidates whose recovered shocks have the same
+unit-variance covariance matrix as the structural shocks and whose impact
+matrix satisfies the chosen sign restrictions. If \(R(B)\ge0\) denotes the sign
+screen, the population no-noise set is
 
 \begin{equation}
 \mathcal S_0 =
-\{B:\ R(B)\ge0,\quad E[e_{1t}(B)e_{2t}(B)]=0\},
+\{B:\ R(B)\ge0,\quad E[e_t(B)e_t(B)']=I\}.
 \label{eq:no-noise-sign-j-set}
 \end{equation}
 
-after the usual sign, label, and scale normalizations. The familiar rotation
-representation is a convenient way to compute the same object: if
-\(P_0P_0'=E(u_tu_t')=B_0B_0'\), then \(B=P_0Q\) automatically gives
-uncorrelated recovered shocks for every orthogonal \(Q\). Equation
-\eqref{eq:no-noise-sign-j-set} is useful here because it displays the
-orthogonality restriction that noise will violate.
+If \(B_0\) satisfies the sign restrictions, then \(B_0\in\mathcal S_0\)
+because \(e_t(B_0)=\varepsilon_t\) and the normalization above gives
+\(E[\varepsilon_t\varepsilon_t']=I\). This J-test representation is the object
+we will invert in finite samples.
 
 Now suppose the observed residual contains additive residual noise:
 
 \begin{equation}
 u_t = B_0\varepsilon_t+\eta_t,\qquad
 E(\eta_t)=0,\qquad
-E(\eta_t\eta_t')=V,\qquad
-E(\varepsilon_t\eta_t')=0 .
+E(\eta_t\eta_t')=V=\operatorname{diag}(\nu_1,\nu_2).
 \end{equation}
+
+The residual noise is independent of the structural shocks. The diagonal
+matrix \(V\) records idiosyncratic residual-noise variances in the coordinates
+of \(u_t\).
 
 The covariance of the observed residual is
 
 \begin{equation}
 \Sigma_u=E(u_tu_t')=B_0B_0'+V .
 \end{equation}
-
-*Definition 1 (`def:diagonal-noise-svar`, additive-noise impact model). The
-first-version model is the bivariate simultaneous residual system
-\(u_t=B_0\varepsilon_t+\eta_t\), where \(B_0\) is nonsingular, the structural
-shocks are mean zero, mutually independent, and normalized, and the additive
-residual noise is mean zero and independent of the structural shocks. The main
-figures use diagonal \(V\). The first version does not model VAR lag dynamics,
-dynamic impulse responses, or horizon-specific sign restrictions.*
 
 If the researcher ignores \(\eta_t\), the standard sign-restricted SVAR treats
 \(\Sigma_u\) as if it were generated only by structural shocks. That changes
@@ -250,63 +243,36 @@ E[e_t(B_0)e_t(B_0)']
 = I+B_0^{-1}VB_0^{-1'} .
 \end{equation}
 
-Unless the off-diagonal element of \(B_0^{-1}VB_0^{-1'}\) is zero, the shocks
-recovered at \(B_0\) are correlated. Thus \(B_0\) fails the no-noise
-orthogonality condition in \eqref{eq:no-noise-sign-j-set}. In the rotation
-language, the standard procedure instead rotates a factor \(P_*\) satisfying
-\(P_*P_*'=B_0B_0'+V\). It then reports
+Consequently \(B_0\) generally fails the no-noise condition in
+\eqref{eq:no-noise-sign-j-set}. Any nonzero diagonal element of
+\(B_0^{-1}VB_0^{-1'}\) violates the unit-variance part of
+\(\mathcal S_0\), and any nonzero off-diagonal element also makes the recovered
+components correlated. The issue is not that the noisy model is incoherent.
+The issue is that \(\mathcal S_0\) is constructed to find candidates whose
+recovered residuals look like unit-variance, mutually uncorrelated structural
+shocks. Under residual noise, \(e_t(B_0)\) no longer has that covariance
+matrix.
 
-\begin{equation}
-\mathcal S_* =
-\{P_*Q:\ Q'Q=I,\quad R(P_*Q)\ge0\}.
-\end{equation}
-
-*Definition 2 (`def:noisy-sign-pseudo-set`, noisy sign pseudo-set). The noisy
-sign pseudo-set is the population sign-restricted set \(\mathcal S_*\) obtained
-by rotating a factor of \(B_0B_0'+V\) rather than a factor of \(B_0B_0'\). It is
-internally coherent for the noisy covariance target, but it is generally not
-the no-noise structural set \(\mathcal S_0\).*
-
-The only benign case is a structural-coordinate rescaling. If the noisy
-covariance can be written as \(B_0D^2B_0'\) for a positive diagonal matrix
-\(D\), then a rescaled version of the true impact matrix has the same sign
-pattern and can factor the noisy covariance. This requires
-
-\begin{equation}
-B_0(D^2-I)B_0' = V,
-\qquad
-D^2-I = B_0^{-1}VB_0^{-1'} .
-\label{eq:column-rescaling-obstruction}
-\end{equation}
-
-For generic residual noise, \(B_0^{-1}VB_0^{-1'}\) is not diagonal. The noisy
-covariance cannot be absorbed by positive column scales, and the standard
-sign-restricted set is shifted away from the structural impact matrix. In
-extreme cases the shift can cross a sign boundary: the noisy covariance may
-make every covariance-compatible impact matrix with uncorrelated recovered
-shocks put a disputed entry on the wrong side of zero. Figure 1 below shows
-the less dramatic but more common version of the same mechanism: as the noise
-variance increases, the sign/covariance set moves in the normalized impact
-chart before higher moments are used.
-
-*Proposition 1 (`prop:noisy-sign-pseudo-set`, noisy sign-set bias). In the
-additive-noise impact model, the standard covariance-factor sign set reports
-factors of \(B_0B_0'+V\), so \(B_0\) itself is included only when \(V=0\). If
-signs are interpreted up to positive structural-shock rescaling, a rescaled
-true impact matrix \(B_0D\) can survive the noisy covariance target only when
-\(B_0^{-1}VB_0^{-1'}\) is diagonal up to the accepted sign and label
-convention. Outside that structural-coordinate rescaling case, the population
-set reported by a no-noise sign-restricted SVAR is a noisy pseudo-set and may
-exclude the true impact shape.*
+Thus, without modeling residual noise, the reported sign-restricted set is
+shifted away from the structural impact matrix. In extreme cases the shift can
+cross a sign boundary: the noisy covariance may make every candidate satisfying
+the no-noise unit-variance and zero-covariance target put a disputed entry on
+the wrong side of zero.
 
 In finite samples the same idea can be written as a J-test inversion. For a
 candidate \(B\), let
 
 \begin{equation}
-\widehat m_{2,T}(B)=T^{-1}\sum_{t=1}^T e_{1t}(B)e_{2t}(B)
+\widehat m_{2,T}(B)=
+\begin{bmatrix}
+T^{-1}\sum_{t=1}^T e_{1t}(B)^2-1\\
+T^{-1}\sum_{t=1}^T e_{2t}(B)^2-1\\
+T^{-1}\sum_{t=1}^T e_{1t}(B)e_{2t}(B)
+\end{bmatrix}.
 \end{equation}
 
-be the sample recovered-shock covariance. A no-noise sign-restricted inversion
+These are the two unit-variance moments and the covariance moment implied by
+\eqref{eq:no-noise-sign-j-set}. A no-noise sign-restricted inversion
 accepts candidates satisfying
 
 \begin{equation}
@@ -317,40 +283,37 @@ J_{2,T}(B)=T\widehat m_{2,T}(B)'\widehat W_{2,T}\widehat m_{2,T}(B)\le c_2
 \right\}.
 \end{equation}
 
-The rotation approach hides this test because rotations of a covariance factor
-make the recovered shocks uncorrelated by construction. The J-test view makes
-the source of bias explicit: in the noisy model, the no-noise moment
-\(E[e_{1t}(B_0)e_{2t}(B_0)]=0\) is generally false.
+With the usual efficient weighting matrix and standard regularity conditions,
+the statistic evaluated at the true \(B_0\) under the no-noise null has the
+pointwise limit \(\chi^2_3\), one degree for each moment in
+\(\widehat m_{2,T}\). For a level-\(\alpha\) inversion, \(c_2\) can therefore
+be taken as the \(1-\alpha\) quantile of \(\chi^2_3\). The J-test view makes
+the source of bias explicit: in the noisy model, the no-noise vector
+\(E[e_t(B_0)e_t(B_0)']-I\) is generally not zero. The first-row residual-noise
+figure should be inserted here after the unit-variance figure code is rebuilt;
+its role is to show the sign set moving away from \(B_0\) before higher
+moments are used.
 
 <!-- SOURCE-TRAIL: Use the proposal note, `Noisy residuals in recursive and sign-restricted SVARs.md`, and the M25 column-rescaling obstruction. -->
 <!-- DESIGN-NOTE: Keep the paper simultaneous and impact-only. Treat \(u_t\) as given; do not introduce VAR lag equations, dynamic IRFs, or horizon-specific sign restrictions in this version. -->
-<!-- TODO-NOTE: A future figure can isolate a sign-flip design. The current Figure 1 already shows the continuous set movement caused by residual noise. -->
+<!-- TODO-NOTE: M64 must rebuild or split the residual-noise figure under the unit-variance chart before this section is shareable. -->
 
 ## 3. Drautzburg-Wright Refinement Under Noise
 
 The previous section used only second moments. Drautzburg-Wright-style
 refinement adds higher moments to exploit non-Gaussian structural shocks. The
-no-noise logic is easiest to see from the general recovered shocks
-\(e_t(B)=B^{-1}u_t\). A sign-admissible \(B\) may make
-\(E[e_{1t}(B)e_{2t}(B)]=0\), but zero covariance is weaker than independence.
-If the structural shocks are non-Gaussian and independent, incorrect rotations
-can leave higher-order dependence in the recovered shocks. DW refinement
-shrinks the sign-restricted set by testing those higher-order restrictions.
+logic in the no-noise case is easiest to see from the recovered shocks
+\(e_t(B)=B^{-1}u_t\). A candidate can satisfy the second-moment restrictions in
+\(\mathcal S_0\), so that the recovered shocks have covariance \(I\), while
+still mixing the independent structural shocks. DW refinement keeps the
+second-moment sign set but removes candidates whose recovered shocks are
+uncorrelated and dependent.
 
 <!-- SOURCE-TRAIL: M52 rebuilt the simulation code with the M49 source-correct bivariate Drautzburg-Wright GMM1 higher-moment menu plus a separate B-plane covariance screen. -->
 
-M49 verifies that Drautzburg and Wright's moment-based refinement uses
-standardized raw co-skewness and co-kurtosis products, not fourth cumulants. In
-the source-native rotation chart, the recovered shocks are already
-covariance-normalized, so the higher-moment GMM vector does not include a
-separate covariance moment. The same notation introduced in Section 2 is
-enough: \(e_t(B)=B^{-1}u_t\). In the no-noise benchmark,
-\(e_t(B_0)=\varepsilon_t\), and the structural shocks are centered with unit
-variances by normalization. If the common B-plane chart is used outside the
-source-native rotation normalization, the product moments below are evaluated
-after the usual centering and unit-variance scaling of the recovered-shock
-coordinates \(e_{it}(B)\). No separate headline variable is needed. The
-bivariate GMM1 higher-moment menu is
+DW measures this remaining dependence with third- and fourth-order
+co-moments of the recovered shocks. With the same recovered-shock notation as
+Section 2, the bivariate GMM1 higher-moment menu is
 
 \begin{equation}
 g_{DW,1}(B)=
@@ -364,101 +327,39 @@ E\{e_{1t}(B)e_{2t}(B)^3\}
 \end{equation}
 
 The corresponding GMM2 menu drops only the symmetric fourth product
-\(E\{e_{1t}(B)^2e_{2t}(B)^2\}-1\). It keeps the singleton fourth products
-\(E\{e_{1t}(B)^3e_{2t}(B)\}\) and
-\(E\{e_{1t}(B)e_{2t}(B)^3\}\). In the manuscript's
-diagonal-normalized B-plane, a no-noise covariance screen may still be added
-to mimic the standard covariance factorization, but that screen is a
-manuscript chart component rather than a DW higher-moment entry.
+\(E\{e_{1t}(B)^2e_{2t}(B)^2\}-1\), which allows the two structural shocks to be
+driven by the same volatility process.
 
-In the no-noise model, \(g_{DW,1}(B_0)=0\). A sample inversion keeps
-sign-admissible candidates whose estimated moment vector is small:
+In the no-noise model, \(g_{DW,1}(B_0)=0\). A sample DW inversion refines the
+second-moment set by keeping candidates that pass both the unit-variance
+second-moment test and the higher-moment test:
 
 \begin{equation}
-\mathcal D_T(c_S)=
+\mathcal D_T(c_2,c_S)=
 \left\{
-B:\ R(B)\ge0,\quad
+B\in\mathcal S_{J,T}(c_2):\quad
 J_{S,T}(B)=T\widehat g_{DW,T}(B)'\widehat W_{S,T}
 \widehat g_{DW,T}(B)\le c_S
 \right\}.
 \label{eq:standard-dw-j-test-inversion}
 \end{equation}
 
-This is a useful refinement under the maintained no-noise null. It is also the
-place where residual noise can turn a wide but honest set into a narrow and
-misleading one. Under the noisy model,
+With the usual efficient weighting matrix, \(J_{S,T}(B_0)\) has a pointwise
+\(\chi^2_5\) limit under the no-noise GMM1 null, so \(c_S\) can be chosen as a
+chi-square critical value for the five higher-moment entries. The important
+object is the refinement: \(\mathcal D_T(c_2,c_S)\) is a subset of
+\(\mathcal S_{J,T}(c_2)\) that discards candidates whose recovered shocks are
+uncorrelated but still dependent.
 
-\begin{equation}
-e_t(B)=B^{-1}B_0\varepsilon_t+B^{-1}\eta_t .
-\end{equation}
-
-At \(B=B_0\), the B-plane no-noise covariance screen is generally nonzero:
-
-\begin{equation}
-E\{e_{1t}(B_0)e_{2t}(B_0)\}
-=\left[B_0^{-1}VB_0^{-1'}\right]_{12}.
-\end{equation}
-
-Thus a standard no-noise inversion in the B-plane can reject the true impact
-matrix before the higher moments even matter. If the researcher instead works
-with rotations of the noisy covariance factor \(P_*P_*'=B_0B_0'+V\), the
-recovered shocks are
-uncorrelated by construction, but the candidate impact matrices are factors of
-the noisy covariance. Writing \(B(Q)=P_*Q\),
-
-\begin{equation}
-e_t(Q)=B(Q)^{-1}u_t
-=M(Q)\varepsilon_t+\zeta_t(Q),
-\qquad
-M(Q)=Q'P_*^{-1}B_0 .
-\end{equation}
-
-The non-Gaussian structural shocks are then mixed by \(M(Q)\). A rich
-higher-moment stack can vanish only when this mixing matrix recovers
-structural coordinates up to scale, sign, and label:
-
-\begin{equation}
-M(Q)=D\Pi ,
-\end{equation}
-
-where \(D\) is diagonal and \(\Pi\) is a signed permutation matrix. Combining
-this with the noisy covariance factorization gives the same structural
-rescaling condition as in Section 2:
-
-\begin{equation}
-B_0^{-1}VB_0^{-1'}=\Pi'D^{-2}\Pi-I .
-\end{equation}
-
-Outside these special cases, no covariance-whitened standard-DW candidate both
-matches the noisy covariance and recovers independent structural shocks. With a
-finite moment stack there can still be accidental zeros or least-rejected
-pseudo-candidates, but those are properties of the misspecified noisy target.
-
-*Proposition 2 (`prop:standard-dw-misspecification`, standard DW under
-residual noise). Consider the additive-noise impact model with independent
-non-Gaussian structural shocks, independent Gaussian residual noise, and a
-compact sign-admissible candidate set bounded away from singular impact
-matrices. A standard no-noise DW inversion imposes recovered-shock covariance
-and higher-order independence moments on \(e_t(B)=B^{-1}u_t\). In population,
-a zero of a rich standard-DW independence stack can occur only when residual
-noise is equivalent to a diagonal structural-coordinate rescaling, up to sign
-and label aliases; finite GMM1/GMM2 moment stacks can also create accidental
-pseudo-zeros unless a no-alias condition rules them out. When the population
-moment vector is bounded away from zero on the sign-admissible set,
-fixed-critical-value inversion is asymptotically empty. In finite samples, the
-same inversion can nevertheless look precise by concentrating near a
-least-rejected noisy pseudo-target.*
-
-The proposition is deliberately conditional, not an unconditional finite-GMM1
-theorem. The M47 audit passes the rich-stack proof gate under the stated
-Gaussian-noise, ICA/rich-moment, compactness, and no-singular-boundary
-conditions, while keeping finite-stack aliases visible. The paper's practical
-claim does not require accusing DW of failing under its own null. The point is
-narrower: if the no-noise null is applied to residuals that contain additive
-noise, the refinement sharpens a misspecified object. The current second row
-of Figure 1 illustrates this failure mode with the source-correct bivariate
-GMM1 higher-moment menu, intersected with the separate B-plane covariance
-screen.
+This is useful under the maintained no-noise null. Under residual noise, it can
+produce a narrow and misleading set. Section 2 already showed why \(B_0\) is
+generally shifted out of \(\mathcal S_0\) when the no-noise unit-variance
+moments are applied to noisy residuals. Since DW refinement is a refinement of
+that second-moment set, the refined set can become smaller while still missing
+\(B_0\). The second-row residual-noise figure should be inserted here after the
+unit-variance figure rebuild: in the no-noise column, non-Gaussianity sharpens
+the sign set; once residual noise is added, the accepted set can remain small
+but no longer contain the true impact matrix.
 
 <!-- SOURCE-TRAIL: Use Drautzburg-Wright, higher-moment SVAR caution sources, and the noisy-residual synthesis. -->
 <!-- SOURCE-TRAIL: Use `derivations/standard-dw-j-test-under-noise.md` for the M25 J-test inversion result: rich-stack generic emptying, structural-rescaling exceptions, finite-moment aliases, and least-rejected pseudo-candidates. -->
@@ -470,82 +371,60 @@ screen.
 The robust construction begins by changing the null model for sign
 restrictions. Instead of requiring the residual covariance to be explained
 entirely by structural shocks, the researcher allows part of each residual
-variance to be idiosyncratic noise. In the bivariate normalized chart, write
+variance to be idiosyncratic noise. The normalization remains
+\(E[\varepsilon_t\varepsilon_t']=I\). We do not impose
+\(\operatorname{diag}(B)=1\).
+
+Let \(\Sigma_u=E[u_tu_t']\), with entries \(\sigma_{ij}\). Under the model
+\(u_t=B_0\varepsilon_t+\eta_t\) and diagonal residual noise,
 
 \begin{equation}
-B(a,b)=
-\begin{bmatrix}
-1 & a\\
-b & 1
-\end{bmatrix},
-\qquad
-1-ab\neq 0 .
+\Sigma_u = B_0B_0' + V,\qquad
+V=\operatorname{diag}(\nu_1,\nu_2).
 \end{equation}
 
-The diagonal normalization fixes the scale of the impact matrix. The remaining
-second-moment scale is carried by the structural-shock variances
-\(s_1,s_2\) and the residual-noise variances \(\nu_1,\nu_2\). Let \(S\) denote
-the residual covariance used in the inversion. For a candidate \(B(a,b)\), the
-noise-robust covariance screen asks whether there exist
-\(s_1,s_2,\nu_1,\nu_2\) such that
+For a candidate \(B\), introduce candidate residual-noise variances
+\(\nu=(\nu_1,\nu_2)'\) and \(V(\nu)=\operatorname{diag}(\nu_1,\nu_2)\). The
+noise-robust second-order restriction is
 
 \begin{equation}
-\begin{aligned}
-S_{11} &= s_1+a^2s_2+\nu_1,\\
-S_{12} &= bs_1+as_2,\\
-S_{22} &= b^2s_1+s_2+\nu_2,\\
-s_i &>0,\qquad 0\le \nu_i\le \rho s_i .
-\end{aligned}
+\Psi_2(B,\nu)
+=\operatorname{vech}\{\Sigma_u-BB'-V(\nu)\}=0,
+\qquad
+0\le \nu_i\le \rho (BB')_{ii},\quad i=1,2.
 \label{eq:relative-noise-covariance-screen}
 \end{equation}
 
-The scalar \(\rho\) is the maximum residual-noise-to-signal ratio chosen by the
-researcher. The simulations use \(\rho=0.5\): each residual-noise variance may
-be at most one half of the corresponding structural-shock variance. A larger
-\(\rho\) makes the sign set more robust to noise but less precise. A smaller
-\(\rho\) recovers precision only by assuming a cleaner signal.
+This is the clean derivation of the signal-to-noise screen. The matrix
+\(\Sigma_u-BB'\) is the residual covariance left over after candidate
+structural signal \(BB'\) is removed. In the diagonal-noise model, that
+leftover covariance must be diagonal and nonnegative; the ratio bound is
+entrywise. It allows only candidates whose idiosyncratic residual-noise
+variance in coordinate \(i\) is at most the researcher-chosen fraction
+\(\rho\) of the candidate structural-signal variance \((BB')_{ii}\). The
+sample version replaces \(\Sigma_u\) by
+\(\widehat\Sigma_u=T^{-1}\sum_t u_tu_t'\).
 
-Equivalently, after profiling out \(\nu_1,\nu_2\), the screen is
-
-\begin{equation}
-\begin{aligned}
-s_1+a^2s_2 &\le S_{11}\le (1+\rho)s_1+a^2s_2,\\
-b^2s_1+s_2 &\le S_{22}\le b^2s_1+(1+\rho)s_2,\\
-S_{12} &= bs_1+as_2 .
-\end{aligned}
-\end{equation}
-
-This is not a DW higher-moment restriction and not a normalization. It is
-substantive identifying information about how much idiosyncratic residual
-noise the researcher is willing to allow.
-
-The next step is to regain some of the efficiency lost by allowing noise. For
-each candidate \(B\), define
+The next step is to regain some of the efficiency lost by allowing noise. Keep
+the same recovered-shock notation as before:
 
 \begin{equation}
-z_t(B)=B^{-1}u_t
+e_t(B)=B^{-1}u_t
 =B^{-1}B_0\varepsilon_t+B^{-1}\eta_t .
 \end{equation}
 
-It is useful to name the transformed-noise component
-\(\xi_t(B)=B^{-1}\eta_t\). Let
-\(\Omega(B)=\operatorname{Var}\{\xi_t(B)\}\) denote the covariance of that
-unobserved transformed noise, and let
-\(S(B)=\operatorname{Var}\{z_t(B)\}\) denote the covariance of the full
-transformed residual that the researcher can compute for a candidate \(B\).
-At the truth,
+For a candidate pair \((B,\nu)\) satisfying the second-order model, the
+covariance of the recovered residual is the parameter-implied matrix
 
 \begin{equation}
-z_t(B_0)=\varepsilon_t+\xi_t(B_0),
-\qquad
-S(B_0)=I+\Omega(B_0).
+\Omega_e(B,\nu)
+=E[e_t(B)e_t(B)']
+=I+B^{-1}V(\nu)B^{-1'} .
 \end{equation}
 
-Thus \(S_{ij}(B_0)\) is not a known no-noise normalization constant. For
-example, \(S_{ii}(B_0)=1+\Omega_{ii}(B_0)\), and
-\(S_{ij}(B_0)=\Omega_{ij}(B_0)\) for \(i\neq j\). The entries of \(S(B)\) are
-nuisance covariance terms of the transformed observed residual, not
-restrictions that force recovered shocks to be uncorrelated.
+Write its entries as \(\omega_{ij}(B,\nu)\). These entries are not estimated as
+separate sample plug-ins inside the fourth-order moments. They are smooth
+functions of the candidate impact matrix and residual-noise variances.
 
 The robust higher-moment route uses the following maintained condition.
 
@@ -556,130 +435,104 @@ second moments. This assumption makes the displayed transformed higher-order
 moment conditions robust to Gaussian noise; it does not make recovered-shock
 variances or recovered-shock covariances equal to their no-noise targets.*
 
-Under Assumption 1, \(\xi_t(B_0)\) is Gaussian because it is a linear
-transformation of Gaussian residual noise. Gaussian variables have no
+Under Assumption 1, \(B_0^{-1}\eta_t\) is Gaussian. Gaussian variables have no
 cumulants above order two, and cumulants of independent sums add. Since the
 structural shocks are mutually independent, every mixed higher cumulant of
-\(z_t(B_0)=\varepsilon_t+\xi_t(B_0)\) vanishes. This is the population reason
-the robust higher-moment restrictions hold at \(B_0\).
+\(e_t(B_0)=\varepsilon_t+B_0^{-1}\eta_t\) vanishes. This is the population
+reason the robust higher-moment restrictions hold at \(B_0\).
 
 For third-order entries, the mixed cumulants are just centered third moments,
-so the restrictions can be written as \(E\{z_1(B)^2z_2(B)\}=0\) and
-\(E\{z_1(B)z_2(B)^2\}=0\). Fourth-order entries are different. Raw fourth
-products include covariance terms even when the mixed fourth cumulant is zero.
-For example, at \(B_0\) under Assumption 1,
+so the restrictions can be written as \(E\{e_1(B)^2e_2(B)\}=0\) and
+\(E\{e_1(B)e_2(B)^2\}=0\). Fourth-order entries subtract the covariance
+products implied by \(\Omega_e(B,\nu)\). The Gaussian-noise-blind moment stack
+is
 
 \begin{equation}
-\operatorname{cum}\{z_1,z_2,z_2,z_2\}
-=E(z_1z_2^3)-3S_{12}(B)S_{22}(B)=0 .
-\end{equation}
-
-The other fourth-order entries use the same cumulant-product logic. The
-step-by-step expansions behind these equations are recorded in
-`manuscript/derivations/m54-stepwise-transformed-noise-moments.md`, while
-`manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`
-records the sample generated-moment treatment.
-
-Let \(s_{ij}(B)=E\{z_i(B)z_j(B)\}\). The Gaussian-noise-blind moment stack is
-written directly as moment equations:
-
-\begin{equation}
-G_H(B)=
+G_H(B,\nu)=
 \begin{bmatrix}
-E\{z_1(B)^2z_2(B)\}\\
-E\{z_1(B)z_2(B)^2\}\\
-E\{z_1(B)^3z_2(B)\}-3s_{11}(B)s_{12}(B)\\
-E\{z_1(B)^2z_2(B)^2\}
--s_{11}(B)s_{22}(B)-2s_{12}(B)^2\\
-E\{z_1(B)z_2(B)^3\}-3s_{22}(B)s_{12}(B)
+E\{e_1(B)^2e_2(B)\}\\
+E\{e_1(B)e_2(B)^2\}\\
+E\{e_1(B)^3e_2(B)\}-3\omega_{11}(B,\nu)\omega_{12}(B,\nu)\\
+E\{e_1(B)^2e_2(B)^2\}
+-\omega_{11}(B,\nu)\omega_{22}(B,\nu)-2\omega_{12}(B,\nu)^2\\
+E\{e_1(B)e_2(B)^3\}-3\omega_{22}(B,\nu)\omega_{12}(B,\nu)
 \end{bmatrix}.
 \label{eq:dw-higher-cumulant-moment-stack}
 \end{equation}
 
-The first two entries are the centered third-product conditions. The last
-three entries are fourth-order conditions with the covariance-product
-subtractions required for Gaussian-noise robustness. The covariance terms
-\(s_{ij}(B)\) are nuisance quantities used to form those fourth-order moment
-conditions. They are not imposed as no-noise restrictions such as
-\(s_{12}(B)=0\) or \(s_{11}(B)=s_{22}(B)=1\). This is the central difference
-from standard DW under residual noise. The distinction matters because DW raw
-fourth products are shifted by Gaussian residual-noise covariance terms, while
-the robust fourth-order conditions subtract those covariance-product terms.
-In sample, the researcher does not recover \(\eta_t\) or \(\xi_t(B)\). For
-each candidate \(B\), compute \(z_t(B)=B^{-1}u_t\), center those transformed
-residuals, estimate \(S_{ij}(B)\) from their sample covariance, and plug those
-entries into the third- and fourth-order equations. For instance,
+The first two entries are centered third-product conditions. The last three
+entries are fourth-order conditions with covariance-product subtractions. The
+important change is that the covariance terms are parameter-implied functions
+of \((B,\nu)\), not sample averages multiplied after the fact. This makes the
+sample criterion a standard GMM criterion in the enlarged parameter vector.
+For example, the \(1222\) row becomes
 
 \begin{equation}
-\widehat g_{1222,T}(B)
-=T^{-1}\sum_t \widetilde z_{1t}(B)\widetilde z_{2t}(B)^3
--3\widehat S_{12}(B)\widehat S_{22}(B).
+\widehat g_{1222,T}(B,\nu)
+=T^{-1}\sum_t \widetilde e_{1t}(B)\widetilde e_{2t}(B)^3
+-3\omega_{12}(B,\nu)\omega_{22}(B,\nu),
 \end{equation}
 
-M56 clarifies that this is a generated smooth moment, because
-\(\widehat S_{12}(B)\) and \(\widehat S_{22}(B)\) are themselves sample
-averages. Its weighting should therefore come from a primitive-moment
-delta-method covariance, an equivalent augmented nuisance-covariance system,
-or an explicit calibration route, not from treating each concentrated
-expression as one primitive row-level moment.
+where tildes denote sample-centering of the recovered residuals.
 
-M54 keeps the manuscript in the common `diag(B)=1` chart. The source-native
-DW unit-variance scaling is internal to the recovered-shock standardization in
-Section 3; it does not require a manuscript-wide rotation-chart switch for the
-first paper.
+Combine the second-order and higher-order restrictions in one moment vector
 
-*Definition 3 (`def:robust-dw-higher-moment-set`, variance-ratio robust DW
-set). For a researcher-chosen \(\rho\), the variance-ratio robust DW set is the
-set of normalized candidates \(B\in\mathcal B_N\) such that \(R(B)\ge0\), the
-covariance screen in \eqref{eq:relative-noise-covariance-screen} is feasible,
-and
-\[
-T\widehat G_H(B)'\widehat W_{H,T}\widehat G_H(B)\le c_H .
-\]
-The set deliberately drops no-noise covariance factorization, unit-variance
-recovered-shock restrictions, and recovered-shock zero covariance as equality
-moments. In finite samples, \(\widehat W_{H,T}\) must account for the generated
-covariance-product entries in \(\widehat G_H(B)\).*
+\begin{equation}
+\psi_t(B,\nu)=
+\begin{bmatrix}
+\operatorname{vech}\{u_tu_t'-BB'-V(\nu)\}\\
+e_{1t}(B)^2e_{2t}(B)\\
+e_{1t}(B)e_{2t}(B)^2\\
+e_{1t}(B)^3e_{2t}(B)-3\omega_{11}(B,\nu)\omega_{12}(B,\nu)\\
+e_{1t}(B)^2e_{2t}(B)^2
+-\omega_{11}(B,\nu)\omega_{22}(B,\nu)-2\omega_{12}(B,\nu)^2\\
+e_{1t}(B)e_{2t}(B)^3-3\omega_{22}(B,\nu)\omega_{12}(B,\nu)
+\end{bmatrix}.
+\end{equation}
 
-The pure higher-moment fallback is obtained by dropping the covariance
-screen and keeping only \(R(B)\ge0\) and the \(G_H(B)\) inversion. It is the
-most validity-first object, but it can be wide because higher moments alone
-do not recover all second-moment scale information. The variance-ratio screen
-adds that information back only through an explicit signal-to-noise bound.
+Let \(\widehat g_T(B,\nu)=T^{-1}\sum_t\psi_t(B,\nu)\). A standard efficient
+GMM inversion uses
 
-*Proposition 3 (`prop:robust-dw-higher-moment-validity`, robust higher-moment
-validity). Under the normalized bivariate chart, independent structural
-shocks, Assumption 1, and the local higher-moment rank condition that each
-shock has at least one informative third- or fourth-order entry in the stack,
-the true normalized impact matrix has \(G_H(B_0)=0\). If the true diagonal
-residual-noise variances also satisfy \(\nu_i\le\rho s_i\), then the true
-impact shape satisfies the variance-ratio covariance screen. The robust DW set
-therefore keeps the true impact matrix in the population target while using
-non-Gaussianity to refine the noise-robust sign set.*
+\begin{equation}
+J_T(B,\nu)
+=T\widehat g_T(B,\nu)'\widehat W_T\widehat g_T(B,\nu),
+\end{equation}
 
-The third row of Figure 1 illustrates the construction. It starts from the
-same sign restrictions as the standard procedure, allows residual noise up to
-the specified residual-noise-to-signal ratio, and then sharpens the remaining
-set with moment conditions that Gaussian noise cannot shift. The result is not
-a uniformly smaller set. It is a different robustness object: precision is
-reported only when it survives the stated noise allowance and the higher-moment
-restrictions.
+where \(\widehat W_T\) is the inverse of the estimated covariance matrix of
+\(\psi_t(B,\nu)\), usually obtained from a preliminary GMM step. The reported
+noise-robust set projects this enlarged GMM confidence set onto \(B\):
 
-<!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, `derivations/m40-variance-ratio-robust-dw-screen-audit.md`, `simulations/sign_dw_relative_noise_robust_grid_figure.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
-<!-- TODO-NOTE: The 50 percent noise-to-shock variance bound is identifying information, not a normalization. Final theorem wording still needs the M25 proof audit and final replication packaging. M52 implements full central-moment delta weighting for the generated fourth-cumulant rows, but final replication can still add heavier calibration checks. -->
+\begin{equation}
+\mathcal R_T(c;\rho)=
+\left\{
+B:\ \exists \nu\ \text{such that}\ R(B)\ge0,
+0\le\nu_i\le\rho(BB')_{ii},\
+J_T(B,\nu)\le c
+\right\}.
+\end{equation}
+
+At the true parameter \((B_0,\nu_0)\), the second-order block is zero by
+\(\Sigma_u=B_0B_0'+V(\nu_0)\), and the higher-order block is zero by the
+Gaussian-noise cumulant argument. This construction is not a no-noise
+covariance factorization and not a diagonal impact normalization. It is a
+standard GMM formulation of the noise-robust null, with residual-noise
+variances treated as nuisance parameters and projected out when reporting the
+set for \(B\).
+
+<!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, `derivations/m40-variance-ratio-robust-dw-screen-audit.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
+<!-- TODO-NOTE: M64 changes the active normalization from `diag(B)=1` to unit structural-shock variances. The figure code, Monte Carlo code, registry, and derivation notes must be rebuilt or clearly marked historical before final evidence claims. -->
+<!-- TODO-NOTE: The exact projection critical value for \(\mathcal R_T(c;\rho)\) needs a compact inference note after the enlarged GMM implementation is audited. -->
 
 ## 5. Monte Carlo Robustness Check
 
-This section should be read as the evidence map for the first draft. The
-figures give the reader the geometry first; the Monte Carlo table then checks
-whether the same comparison survives repeated finite-sample draws. All reported
-objects use the same normalized bivariate impact chart and the same sign
-screen, so the standard-DW and robust-DW accepted sets can be compared directly.
-After M52, the standard-DW rows use the M49 source-correct bivariate GMM1
-higher-moment menu, with the no-noise covariance restriction kept as a separate
-B-plane screen. The robust rows use the M56 generated-moment route through full
-central-moment delta weighting for the fourth-cumulant rows, plus the
-variance-ratio covariance-decomposition screen.
+This section is now an evidence rebuild target. Figures 1-3 and Table 1 still
+record the pre-M64 evidence path, which used the old normalized B-plane chart.
+The revision in Sections 2-4 switches the manuscript to unit structural-shock
+variances and an enlarged GMM criterion over \((B,\nu)\). Before this section
+is shareable, the residual-noise grid, the non-Gaussianity grid, the
+sample-size grid, and the Monte Carlo table must be regenerated under that
+unit-variance GMM implementation. Until then, the existing figures remain
+historical diagnostics rather than final evidence for the revised estimator.
 
 <!-- SOURCE-TRAIL: Use M27 for the common reporting chart, accepted shares, overlap, warning-rate, and truth-inclusion diagnostics. -->
 

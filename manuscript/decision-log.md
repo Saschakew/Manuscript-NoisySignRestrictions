@@ -5,6 +5,28 @@ decisions.
 
 ## Entries
 
+### 2026-06-12 - Switch active manuscript route to unit-variance GMM
+
+- Origin: M64 recovery of live `Revision-20260610-190805` comments.
+- User input id: U0062
+- Decision: The active manuscript uses the unit structural-shock variance
+  normalization \(E[\varepsilon_t\varepsilon_t']=I\) and does not use
+  `diag(B)=1`. The robust Section 4 object is a standard GMM route over the
+  impact matrix \(B\) and residual-noise variance parameters \(\nu\), with
+  second-order block \(\Sigma_u=BB'+\operatorname{diag}(\nu)\) and
+  higher-order covariance-product terms written as functions
+  \(\omega_{ij}(B,\nu)\).
+- Rationale: The live revision notes explicitly said the draft mixed up unit
+  variance and diagonal impact normalization, and requested a standard GMM
+  estimator with noise variances treated as parameters rather than sample
+  covariance-product plug-ins.
+- Alternatives considered: preserving the M54 `diag(B)=1` route; treating the
+  revision as comments only; or leaving M52 figures and table as active
+  evidence.
+- Consequence for next work: M52 evidence is historical until M65 rebuilds the
+  implementation, figures, Monte Carlo table, registry, and replication wrapper
+  under the unit-variance GMM route.
+
 ### 2026-06-12 - Use M33 wrapper as the replication entry point
 
 - Origin: M0060 execution after `Revision-20260610-190805`.

@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "id": "M0061-recover-revision-20260610-comments",
+  "sequence": 61,
+  "title": "Recover Revision 20260610 comments",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-12T12:56:25Z",
+  "closed_at": "2026-06-12T13:17:07Z",
+  "start_commit": "6375fafcb43aaf435a6a710ede3ee7bc39ad4d47",
+  "snapshot_ref": "manuscript-milestones/M0061-recover-revision-20260610-comments",
+  "summary": "Recovered live Revision-20260610-190805 contents, restored submitted revision metadata, rewrote Sections 2-4 toward the unit-variance GMM route, marked M52 evidence historical, and created M65 for the evidence rebuild.",
+  "user_inputs": [
+    {
+      "id": "U0061-001",
+      "milestone_id": "M0061-recover-revision-20260610-comments",
+      "captured_at": "2026-06-12T12:56:25Z",
+      "source": "chat",
+      "text": "User corrected that Revision-20260610-190805 contains general revision notes, draft edits, and inline draft comments; recover the actual branch content and work from those comments."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0061-001",
+      "milestone_id": "M0061-recover-revision-20260610-comments",
+      "captured_at": "2026-06-12T13:17:07Z",
+      "description": "Integrated revision comments into draft and planning surfaces"
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-12T13:17:07Z",
+      "description": "python scripts/check_manuscript.py: passed with only open-milestone warning before close; git diff --check: passed after whitespace cleanup"
+    }
+  ],
+  "changed_files": [
+    "manuscript/QUESTION-INDEX.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/revisions/Revision-20260610-190805/revision.md",
+    "manuscript/session-log.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M33-replication-wrapper/outcome.md",
+    "manuscript/tasks/M63-citation-export-cleanup/task.md",
+    "manuscript/tasks/M64-revision-20260610-unit-variance-gmm/outcome.md",
+    "manuscript/tasks/M64-revision-20260610-unit-variance-gmm/task.md",
+    "manuscript/tasks/M65-unit-variance-gmm-evidence-rebuild/outcome.md",
+    "manuscript/tasks/M65-unit-variance-gmm-evidence-rebuild/task.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0061-recover-revision-20260610-comments.json",
+    "manuscript/transparency/revision.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 56,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/56",
+    "tag_name": "manuscript-milestones/M0061-recover-revision-20260610-comments"
+  }
+}

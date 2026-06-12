@@ -6,42 +6,30 @@ Manuscript slug: noise-robust-sign-restricted-svars
 
 KnowledgeVault link: `../knowledge-vault-link.json`
 
-Current stage: M47 is complete after the M52 evidence rebuild. The stepwise M54 derivation confirms that the
-requested population moments separate transformed-noise remainders from
-Gaussian covariance-product simplifications, and the normalization audit keeps
-the manuscript in the common `diag(B)=1` chart for the first paper. M56
-establishes that the fourth-cumulant sample entries are generated smooth
-moments, not ordinary fixed row-level moments. M55 has now turned those
-results into reader-facing Section 4 prose: the draft distinguishes
-transformed-noise covariance `Omega(B)=Var(B^{-1}eta_t)` from full
-transformed-residual covariance `S(B)=Var(B^{-1}u_t)`, shows why the robust
-moments hold at `B0`, gives representative fourth-order algebra, and states
-the candidate-by-candidate sample recipe. M52 rebuilt the evidence path:
-standard DW now uses the source-correct bivariate GMM1 higher-moment menu
-`112`, `122`, `1112`, `1122`, and `1222`, intersected with a separate
-no-noise covariance screen in the common B-plane, and the robust row now uses
-full central-moment delta weighting for generated fourth-cumulant entries.
-M47 conditionally clears the M25 standard-DW proof gate: Proposition 2 is safe
-as a rich-stack/ICA misspecification result with structural-rescaling,
-finite-alias, compactness, and nonsingularity caveats visible.
+Current stage: Revision-20260610-190805 has been recovered and M64 rewrote the
+active method route. The manuscript now treats the user revision as a durable
+normalization decision: use \(E[\varepsilon_t\varepsilon_t']=I\), never
+`diag(B)=1`, and formulate the robust estimator as standard GMM over the
+impact matrix \(B\) and residual-noise variances \(\nu\). Sections 2-4 have a
+first-pass revision: \(\mathcal S_0\) imposes
+\(E[e_t(B)e_t(B)']=I\), the finite-sample second-moment vector includes both
+variance moments plus covariance, standard DW refines that second-moment set,
+and Section 4 replaces generated sample covariance-product plug-ins with
+parameter-implied \(\omega_{ij}(B,\nu)\) terms.
 
-Current focus: final citation/export cleanup after M33 replication packaging. The revised draft still conditionally
-passes the M34 adversarial scope, logic, and style review; M49 clears the
-source-moment menu and noisy-product gate; M0050 clears the M53 notation gate;
-M54 clears the transformed-noise derivation and normalization gate; M56 clears
-the generated-moment routing gate; and M55 clears the main-text explanation
-gate. M52 clears the source-correct evidence gate, and M47 clears the
-standard-DW proof-gate audit at conditional rich-stack strength. The active
-Figure 1, Figure 2, Figure 3, and Table 1 use the M52
-GMM1-plus-covariance-screen standard comparator and the M56 central-delta
-robust generated-moment route.
+Current focus: M65 must rebuild the implementation and evidence under the new
+unit-variance GMM route. The M52 figures, Monte Carlo table, and M33
+replication wrapper are useful historical diagnostics, but they are not final
+evidence for the revised estimator until the code is rebuilt away from the old
+normalized B-plane chart.
 
-Next recommended action: execute M63, the citation/source-trail and export
-cleanup task, now that M33 added `manuscript/replication/run_all.py` for the
-active figures and M52 evidence. A unit-variance/rotation-chart
-rewrite remains a separate future user decision if it is ever requested.
+Next recommended action: execute M65, the unit-variance GMM evidence rebuild
+task in `manuscript/tasks/M65-unit-variance-gmm-evidence-rebuild/task.md`.
+M63 citation/export cleanup is deferred until the core estimator, figures, and
+registry match the recovered revision.
 
-Active milestone: M0060 completed the M33 replication wrapper and created
+Active milestone: M0061 recovers Revision-20260610-190805 and creates the
+unit-variance GMM repair path; GitHub milestone 56 tracks the same work. M0060 completed the M33 replication wrapper and created
 GitHub milestone 55. M0059 completed the M57 task folder workflow; GitHub
 milestone 54 tracks the same work. M58-M62 were planning-only navigation
 cleanups without transparency or GitHub milestones. M0058 completed the M47
@@ -65,12 +53,11 @@ unreliable M48 conclusions.
 
 Active blockers:
 
-- The M0030/M37 diagonal-anchor robust-DW estimator is superseded. With
-  `diag(B)=1`, the off-diagonal covariance equation is
-  `Sigma_u,12=b21*sigma_1^2+b12*sigma_2^2`, not `b12+b21`, unless unit shock
-  variances are imposed as an extra scale normalization. The active robust-DW
-  fallback is the pure five-moment higher-moment stack, and M54 keeps the
-  manuscript in this common chart.
+- The M64 revision supersedes the retained `diag(B)=1` chart. The active
+  manuscript normalization is now \(E[\varepsilon_t\varepsilon_t']=I\), with
+  residual-noise variances handled as nuisance parameters \(\nu\). All M52
+  evidence and M33 replication commands must be rebuilt or clearly marked
+  historical before final evidence claims.
 - M47 conditionally clears the M25 standard-DW J-test inversion result. The
   theorem-level version must remain a rich-stack/ICA statement with
   structural-coordinate rescaling exceptions, finite-GMM alias caveats,
@@ -141,9 +128,10 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-12, completed M33 by adding the
-manuscript-local replication wrapper for active Figures 1-3 and the M52
-evidence note/JSON after preserving the `Revision-20260610-190805` metadata.
+Last substantive session: 2026-06-12, completed M64 by recovering the live
+`Revision-20260610-190805` branch content, accepting the unit-variance
+normalization decision, rewriting Sections 2-4 toward a standard GMM
+\((B,\nu)\) route, and routing the next work to M65.
 
 Last maintenance session: 2026-06-11, completed M62 to audit the traceability
 cleanup and confirm that the workflow improvements are enough for now. M61

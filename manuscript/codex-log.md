@@ -11,6 +11,26 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-12 - M64 revision recovery and unit-variance GMM repair
+
+- Request: correct the missed substantive contents of
+  `Revision-20260610-190805` and work from the real `revision.md`, draft edits,
+  and inline draft comments.
+- Actions taken: fetched the live branch; recovered the submitted revision
+  metadata; created M64 and M65 task folders; rewrote Sections 2-4 to use
+  \(E[\varepsilon_t\varepsilon_t']=I\), the three-moment second-order J
+  inversion, and a standard GMM criterion over `(B, nu)`; marked M52 figures
+  and table historical until M65 rebuilds them.
+- Files changed: `manuscript/draft.md`, revision artifacts, task folders,
+  task board, dashboard, paper map, source packet, registry, question index,
+  decision/user/session logs, and transparency files.
+- Checks run: `python scripts/check_manuscript.py` passed before close with
+  only the expected open-milestone warning; `git diff --check` passed after
+  whitespace cleanup; JSON validation passed for registry and revision
+  metadata.
+- Open uncertainties: M65 must implement the unit-variance GMM estimator,
+  choose the projection/inference route, and regenerate or drop old evidence.
+
 ### 2026-06-12 - M33 replication wrapper completed
 
 - Request: continue after `Revision-20260610-190805`, orient first, then work

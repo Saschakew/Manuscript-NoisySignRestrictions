@@ -7,9 +7,9 @@ changing section structure or drafting substantial prose.
 
 Residual noise can bias standard sign-restricted SVAR sets and make
 Drautzburg-Wright-style higher-moment refinement look falsely precise; a
-variance-ratio robust DW comparison can use Gaussian-noise-blind higher-moment
-conditions plus an explicit residual-noise-to-signal variance bound to recover
-precision without reusing invalid covariance anchors.
+unit-variance robust DW comparison can model diagonal residual noise with
+nuisance variances, use Gaussian-noise-blind higher-moment restrictions, and
+report a standard GMM set over \((B,\nu)\).
 
 ## Paper Contract
 
@@ -17,59 +17,41 @@ precision without reusing invalid covariance anchors.
 - Scope: bivariate simultaneous impact model in the main text. Treat the
   reduced-form residual `u_t` as given; omit VAR lag dynamics, dynamic impulse
   responses, horizon-specific sign restrictions, and `K > 2` extensions.
-- Benchmark: standard sign-restricted covariance rotations and a
-  Drautzburg-Wright-style no-noise higher-moment refinement. M49 source-audited
-  the bivariate DW moment menu: GMM1 uses `112`, `122`, `1112`, `1122`, and
-  `1222`, while GMM2 drops only `1122`. M52 implements GMM1 in the common
-  B-plane chart, with the no-noise covariance restriction as a separate screen.
-- Constructive object: robust DW-style set over normalized impact matrices
-  using mixed higher-moment equations for `B^{-1}u`, including the required
-  fourth-order covariance-product subtractions, while avoiding recovered-shock
-  zero-covariance targets. M0053 adds a prose gate: Section 4 must distinguish
-  transformed-noise covariance `Omega(B)=Var(B^{-1}eta_t)` from full
-  transformed-residual covariance `S(B)=Var(B^{-1}u_t)` and explain that the
-  implementable fourth-order subtractions use `S(B)`. M55 now supplies the
-  reader-facing explanation, and M56 completes the inference gate: sample
-  fourth-cumulants are generated smooth moments that can be handled by
-  primitive-moment delta-method weighting or an equivalent augmented
-  nuisance-covariance GMM system. M52 implements the full central-delta route
-  for the generated robust rows. M0036 is now the
-  variance-ratio robust DW proposal: add the covariance-decomposition screen
-  `0 <= nu_i <= 0.5 Var(epsilon_i)`.
-- Evidence: the M0034 pure Figure 1 variant shows the honest cost of dropping
-  invalid second-order information. M52 rebuilt Figure 1, Figure 2, Figure 3,
-  and the active Monte Carlo table with a source-correct GMM1 standard-DW row
-  and full central-delta robust weighting.
+- Benchmark: standard sign restrictions are written as the no-noise
+  unit-variance set \(E[e_t(B)e_t(B)']=I\), then refined by the bivariate
+  Drautzburg-Wright GMM1 menu `112`, `122`, `1112`, `1122`, and `1222`; GMM2
+  drops only `1122`.
+- Constructive object: robust DW-style GMM set over \((B,\nu)\). The
+  second-order block imposes \(\Sigma_u=BB'+\operatorname{diag}(\nu)\) with
+  \(0\le\nu_i\le\rho(BB')_{ii}\). The higher-order block uses recovered shocks
+  \(e_t(B)=B^{-1}u_t\) and parameter-implied covariance terms
+  \(\omega_{ij}(B,\nu)\), not sample covariance-product plug-ins.
+- Evidence: M52 figures and Monte Carlo results are historical after M64.
+  M65 must rebuild Figure 1, Figure 2, Figure 3, and the Monte Carlo table
+  under the unit-variance GMM implementation before final evidence claims.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
 ## Reader Path
 
 1. The reader is placed directly in the simultaneous impact problem: the VAR
-   residual `u_t` is already in hand, sign restrictions filter rotations of a
-   covariance factor, and DW uses higher moments to refine a sign-admissible
-   set.
-2. The residual-noise grid makes the problem visual: the covariance factor is
-   built from `B0 B0' + V`, so the sign set moves with noise.
+   residual `u_t` is already in hand, and sign restrictions keep candidates
+   whose recovered shocks have covariance \(I\).
+2. Residual noise breaks that no-noise target because at the true \(B_0\),
+   \(E[e_t(B_0)e_t(B_0)']=I+B_0^{-1}VB_0^{-1'}\).
 3. Standard DW-style refinement does not automatically fix this. In the
    high-noise grid column, it rejects true `B0` while looking precise.
-4. The paper's constructive move is to drop invalid zero-covariance
-   restrictions, use robust higher-moment restrictions on normalized candidate
-   impacts, and add a variance-ratio covariance-decomposition screen that
-   profiles structural-shock and residual-noise variances. Section 4 must make
-   the moment computation transparent: for each candidate `B`, compute
-   `z_t(B)=B^{-1}u_t`, estimate `S_{ij}(B)` from those transformed residuals,
-   and use those nuisance entries in the fourth-order cumulant-style
-   subtractions. M56 now says those sample entries are generated smooth
-   moments. Section 4 now explains the primitive/delta or augmented-nuisance
-   route and avoids calling the concentrated expression one ordinary row-level
-   moment.
-5. The companion non-Gaussianity grid now uses the variance-ratio proposal and
-   states the limitation honestly: robust DW depends on informative higher
-   moments and becomes wide when the shocks are close to Gaussian.
-6. The sample-size grid shows whether the variance-ratio robust set tightens
-   as `T` increases from 500 to 1000 to 2000 with non-Gaussianity and noise
-   held fixed.
+4. The paper's constructive move is to model diagonal residual noise directly:
+   search over \(B\) and nuisance variances \(\nu\), impose
+   \(\Sigma_u=BB'+\operatorname{diag}(\nu)\), and use a ratio bound
+   \(0\le\nu_i\le\rho(BB')_{ii}\).
+5. Higher moments then refine this noise-robust second-order set using
+   Gaussian-noise-blind rows \(G_H(B,\nu)\). The fourth-order covariance
+   products use \(\omega_{ij}(B,\nu)\), so the criterion is standard GMM in
+   the enlarged parameter vector.
+6. The companion non-Gaussianity and sample-size grids remain required, but
+   they must be regenerated after M65 because the old M52 figures implement
+   the pre-M64 chart.
 7. The practical recommendation is simple: report both the standard DW set and
    the robust DW set in the same normalized chart. Standard-DW mass outside the
    robust set is the warning object; robust mass outside the standard set often
@@ -80,12 +62,12 @@ precision without reusing invalid covariance anchors.
 
 | Section | Job | Status |
 |---|---|---|
-| Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the variance-ratio robust refinement, and simulation evidence. | revised after M34 claim-tightening |
-| 1. Introduction | Motivate sign restrictions through signs plus uncorrelated recovered shocks, explain why residual noise breaks that robustness, position DW as an efficiency refinement, introduce the robust residual-noise-to-signal fix, and preview the evidence. | revised after M34 claim-tightening; literature positioning retained |
-| 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, explain sign restrictions as signs plus recovered-shock orthogonality, add residual noise, derive the noisy covariance pseudo-set and J-test view, and state the rescaling exception. | rewritten after revision comments; proof polish pending |
-| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement from uncorrelated-but-dependent recovered shocks, define the source-correct DW GMM1/GMM2 higher-moment menus, then show how noise can make refinement falsely precise. | M49 source audit complete; M0050 displays the menu with \(e_t(B)\); M52 rebuilt the source-correct GMM1 evidence row; M47 conditionally clears the M25 proof gate |
-| 4. Noise-Robust Sign And DW Sets | Start with the variance-ratio residual-noise-to-signal screen, then add Gaussian-noise-blind higher-moment conditions to regain efficiency without imposing invalid recovered-shock covariance. The main text explains why the moment conditions hold at `B0`, why raw fourth moments need covariance-product subtractions, how `S_{ij}(B)` is computed from candidate transformed residuals, and how the resulting generated sample moments are handled in inference. | M49 noisy product derivations complete; M0050 rewrote the display as explicit moment equations with fourth-order covariance-product subtractions; M54 completed the step-by-step transformed-noise derivation and confirmed the retained `diag(B)=1` chart; M56 completed the generated-moment audit; M55 completed the reader-facing Section 4 explanation; M52 implemented the central-delta robust statistic; final proof and replication still pending |
-| 5. Figure-Led Evidence And Monte Carlo Check | Use M52 Figure 1, Figure 2, Figure 3, and source-correct Monte Carlo evidence. | source-correct lightweight evidence rebuilt after M52; still needs replication wrapper |
+| Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the unit-variance robust GMM route, and the evidence rebuild requirement. | first-pass M64 revision |
+| 1. Introduction | Motivate sign restrictions through signs plus unit-variance recovered-shock covariance, explain why residual noise breaks that target, position DW as an efficiency refinement, and introduce the \((B,\nu)\) robust GMM route. | first-pass M64 revision; literature positioning retained |
+| 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, define \(\mathcal S_0\) with \(E[e_t(B)e_t(B)']=I\), add diagonal residual noise, and write the three-moment J inversion. | first-pass M64 revision; figure split pending |
+| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement as a refinement of \(\mathcal S_{J,T}(c_2)\), define the source-correct DW GMM1/GMM2 menus, then show why refinement can be falsely precise under noise. | first-pass M64 revision; figure split pending |
+| 4. Noise-Robust Sign And DW Sets | Start with \(\Sigma_u=BB'+\operatorname{diag}(\nu)\), impose the entrywise noise-to-signal bound, and write \(G_H(B,\nu)\) with parameter-implied \(\omega_{ij}(B,\nu)\) terms inside a standard GMM criterion. | first-pass M64 revision; M65 implementation/audit pending |
+| 5. Figure-Led Evidence And Monte Carlo Check | Rebuild Figures 1-3 and Table 1 under the unit-variance GMM route. | M52 evidence marked historical; M65 pending |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
 ## Core Formal Objects

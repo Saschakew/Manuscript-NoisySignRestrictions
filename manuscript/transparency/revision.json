@@ -3,16 +3,16 @@
   "created_at": "2026-06-10T19:08:06Z",
   "draft_path": "manuscript/draft.md",
   "id": "Revision-20260610-190805",
-  "integrated_at": "",
-  "issue_number": null,
-  "issue_url": "",
+  "integrated_at": "2026-06-12T13:04:57Z",
+  "issue_number": 2,
+  "issue_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/issues/2",
   "revision_path": "manuscript/revisions/Revision-20260610-190805/revision.md",
   "schema_version": 1,
   "source_commit": "4bc0b00157f4d6b4949c69734436827b49f121d1",
   "source_milestone_id": "M0058-m47-standard-dw-proof-gate-audit",
   "source_milestone_title": "M47 standard-DW proof gate audit",
   "source_snapshot_ref": "manuscript-milestones/M0058-m47-standard-dw-proof-gate-audit",
-  "status": "open",
-  "submitted_at": "",
-  "updated_at": "2026-06-10T19:08:06Z"
+  "status": "integrated",
+  "submitted_at": "2026-06-12T12:17:55Z",
+  "updated_at": "2026-06-12T12:17:55Z"
 }

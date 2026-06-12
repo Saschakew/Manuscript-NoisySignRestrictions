@@ -1,5 +1,26 @@
 # Session Log
 
+### 2026-06-12 - Recover Revision 20260610 and rewrite normalization route
+
+- Request or goal: correct the failed handling of `Revision-20260610-190805`
+  after the user pointed out that the live branch contained real revision notes,
+  draft edits, and inline comments.
+- Files changed: recovered revision artifacts, `manuscript/draft.md`,
+  M64/M65 task folders, task board, dashboard, paper map, source packet,
+  registry, question index, logs, and transparency files.
+- Summary of work: fetched the live revision branch, recovered its submitted
+  `revision.md` and `revision.json`, integrated the draft comments into a
+  first-pass rewrite of Sections 2-4, switched the active route to
+  \(E[\varepsilon_t\varepsilon_t']=I\), wrote Section 4 as standard GMM over
+  `(B, nu)`, marked M52 evidence historical, and created M65 as the next
+  evidence rebuild task.
+- Check: `python scripts/check_manuscript.py` passed before close with only
+  the expected open-milestone warning; `git diff --check` passed after
+  whitespace cleanup; JSON validation passed for the registry and revision
+  metadata.
+- Next recommended action: execute M65 before returning to citation/export
+  cleanup.
+
 Record meaningful work blocks. Avoid duplicating every detail already visible in
 Git history or the task board.
 

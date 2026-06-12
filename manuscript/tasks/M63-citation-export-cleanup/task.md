@@ -20,11 +20,10 @@ shareable-draft bottleneck.
 
 ## Why This Task Exists
 
-After M33, the active figures and M52 evidence have a manuscript-local
-replication wrapper. The remaining shareable-draft gates are citation/source
-cleanup and export readiness: remove or resolve visible TODO/export notes,
-ensure bibliography and citation provenance support the prose, and prepare the
-draft for clean export.
+After M64, this task is deferred. M33 wrapped the pre-M64 figures and M52
+evidence, but Revision-20260610-190805 changed the active normalization and
+estimator. M65 must rebuild the unit-variance GMM evidence before
+citation/source cleanup and export readiness can be audited.
 
 ## Do Not Trust Without Rechecking
 
