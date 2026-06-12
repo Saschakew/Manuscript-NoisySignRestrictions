@@ -17,14 +17,16 @@ variance moments plus covariance, standard DW refines that second-moment set,
 and Section 4 replaces generated sample covariance-product plug-ins with
 parameter-implied \(\omega_{ij}(B,\nu)\) terms.
 
-Current focus: M71 has corrected the active figure and Monte Carlo objects.
+Current focus: M71 has corrected the active figure and Monte Carlo objects,
+and M72 has fixed the rendered figure layout.
 Figures 1-3, the Table 1 diagnostic, and the extended MC now use first-shock
 coordinates \((B_{11},B_{21})\), profile \(B_{12}\), \(B_{22}\), and
 \(\lambda\), impose \(B_{11}>0\), \(B_{22}>0\), and \(B_{12}\le0\), and use
 candidate-specific pointwise covariance weights for
 \(Tg_T(B,\nu)'\widehat\Omega(B,\nu)^{-1}g_T(B,\nu)\). The 500-replication run
 remains deferred; the corrected normal diagnostics are reduced-size evidence
-checks, not the long MC.
+checks, not the long MC. M72 changes only the plot framing: panels are square
+and use shared display limits from accepted regions, \(B_0\), and \(B_{21}=0\).
 
 Background: M68 rebuilt Figures 1-3 and the Monte Carlo diagnostic under the
 M66-settled unit-variance GMM route, and M69 extended the MC into residual
@@ -38,8 +40,10 @@ diagnostics in the draft, keeping the reduced diagnostic replication count and
 pointwise-critical-value caveat visible. M65 still owns final
 projected-inference wording, projected critical values, and release hardening.
 
-Active milestone: M0067 completes M71 and GitHub milestone #62 tracks the same
-sign-screen and pointwise-weighting correction. M0066 was opened for a
+Active milestone: M0068 completes the M72 figure-layout polish and GitHub
+milestone #63 tracks the same figure presentation fix. M0067 completes M71 and
+GitHub milestone #62 tracks the same sign-screen and pointwise-weighting
+correction. M0066 was opened for a
 500-replication M69 run but was superseded before producing results because
 M71 had to correct the implemented figure/MC object first. M0065 completed M69
 and GitHub milestone #60 tracks the same extended three-block Monte Carlo
@@ -151,7 +155,11 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-12, completed M71 by removing the
+Last substantive session: 2026-06-12, completed M72 by fixing the rendered
+layout of the M71 Figures 1-3 without changing the underlying masks, weights,
+or cutoffs.
+
+Prior substantive session: 2026-06-12, completed M71 by removing the
 \(B_{21}\) sign restriction, implementing candidate-specific pointwise
 covariance weighting, regenerating Figures 1-3 plus the corrected Table 1 and
 extended MC diagnostics, and updating the manuscript surfaces.

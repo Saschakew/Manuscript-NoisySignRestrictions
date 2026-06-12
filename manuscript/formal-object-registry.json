@@ -220,9 +220,9 @@
     {
       "id": "fig:sign-noise-geometry",
       "type": "figure",
-      "status": "figure1-row-rebuilt-after-m71",
+      "status": "figure1-row-layout-polished-after-m72",
       "draft_location": "draft.md#2-sign-restrictions-and-noisy-svars",
-      "description": "M71 rebuilds the first-row residual-noise geometry under the unit-variance projected route. The displayed chart projects to first-shock coordinates (B11,B21), profiles B12 and B22, imposes B11>0, B22>0, and B12<=0, and marks whether the full true B0 passes the no-noise sign/covariance test.",
+      "description": "M71 rebuilds the first-row residual-noise geometry under the unit-variance projected route. The displayed chart projects to first-shock coordinates (B11,B21), profiles B12 and B22, imposes B11>0, B22>0, and B12<=0, and marks whether the full true B0 passes the no-noise sign/covariance test. M72 polishes the rendered layout by using shared display limits from accepted regions and square panel boxes rather than equal data-unit aspect.",
       "depends_on": [
         "prop:noisy-sign-pseudo-set"
       ],
@@ -231,9 +231,9 @@
     {
       "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "figure1-row-rebuilt-after-m71",
+      "status": "figure1-row-layout-polished-after-m72",
       "draft_location": "draft.md#3-drautzburg-wright-refinement-under-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "M71 rebuilds the standard-DW residual-noise row for Figure 1 under the unit-variance projection. The standard row remains the no-noise comparator: it profiles B12 and B22 for the displayed (B11,B21) projection, imposes the maintained sign screen, and marks whether the full true B0 passes the standard no-noise and DW tests.",
+      "description": "M71 rebuilds the standard-DW residual-noise row for Figure 1 under the unit-variance projection. The standard row remains the no-noise comparator: it profiles B12 and B22 for the displayed (B11,B21) projection, imposes the maintained sign screen, and marks whether the full true B0 passes the standard no-noise and DW tests. M72 polishes the rendered layout only; it does not change masks, weights, or cutoffs.",
       "depends_on": [
         "prop:standard-dw-misspecification",
         "eq:relative-noise-covariance-screen"
@@ -243,9 +243,9 @@
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "rebuilt-after-m71",
+      "status": "layout-polished-after-m72",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "M71 rebuilds Figures 1-2 under the M66 unit-variance projected (B,lambda) GMM route and the corrected first-shock chart. Figure 1 varies residual noise; Figure 2 fixes residual noise and weakens structural non-Gaussianity. Both report (B11,B21), profile B12, B22, and lambda, impose B11>0, B22>0, and B12<=0, and use candidate-specific pointwise covariance weights.",
+      "description": "M71 rebuilds Figures 1-2 under the M66 unit-variance projected (B,lambda) GMM route and the corrected first-shock chart. Figure 1 varies residual noise; Figure 2 fixes residual noise and weakens structural non-Gaussianity. Both report (B11,B21), profile B12, B22, and lambda, impose B11>0, B22>0, and B12<=0, and use candidate-specific pointwise covariance weights. M72 improves visual framing with shared display limits and square panel boxes.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic",
         "eq:relative-noise-covariance-screen"
@@ -255,9 +255,9 @@
     {
       "id": "fig:sample-size-robust-grid",
       "type": "figure",
-      "status": "rebuilt-after-m71",
+      "status": "layout-polished-after-m72",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "M71 sample-size grid under the M66 unit-variance projected (B,lambda) GMM route and the corrected first-shock chart. It fixes residual noise and structural non-Gaussianity, varies T, reports (B11,B21), profiles B12, B22, and lambda, imposes B11>0, B22>0, and B12<=0, and uses candidate-specific pointwise covariance weights.",
+      "description": "M71 sample-size grid under the M66 unit-variance projected (B,lambda) GMM route and the corrected first-shock chart. It fixes residual noise and structural non-Gaussianity, varies T, reports (B11,B21), profiles B12, B22, and lambda, imposes B11>0, B22>0, and B12<=0, and uses candidate-specific pointwise covariance weights. M72 improves visual framing with shared display limits and square panel boxes.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "eq:relative-noise-covariance-screen",

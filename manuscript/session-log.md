@@ -1,5 +1,23 @@
 # Session Log
 
+### 2026-06-12 - Complete M72 figure layout fix
+
+- Request or goal: fix the M71-generated figures after the user reported that
+  they looked weird and attached a screenshot of tall, skinny panels.
+- Files changed: `manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py`,
+  generated Figures 1-3, M72 task folder, formal registry, simulation README,
+  dashboard, task board, question index, user log, Codex log, and transparency
+  files.
+- Summary of work: preserved the M71 masks, sign screen, candidate-specific
+  pointwise weights, and cutoffs, but changed the renderer to choose shared
+  display limits from the accepted regions plus \(B_0\) and \(B_{21}=0\), draw
+  square panel boxes, and add white backing behind panel text. Regenerated and
+  visually checked Figures 1-3.
+- Check: py-compile, quick Figure 1 wrapper, normal Figure 1-3 wrappers, JSON
+  validation, visual inspection, manuscript check, and diff check passed.
+- Next recommended action: return to M70 for draft interpretation of the
+  corrected extended MC, with M65 still owning projected critical values.
+
 ### 2026-06-12 - Complete M71 sign-screen and pointwise-weighting correction
 
 - Request or goal: work on M71 to remove the \(B_{21}\) sign restriction from

@@ -37,7 +37,9 @@ first-shock coordinates `(B11,B21)`, profiles `B12`, `B22`, and `lambda`,
 imposes `B11>0`, `B22>0`, and `B12<=0` as maintained sign restrictions, and
 uses candidate-specific pointwise covariance weights. The figure and Monte
 Carlo cutoffs are pointwise chi-square diagnostics, not final projected
-confidence-set critical values.
+confidence-set critical values. M72 changes only the rendered figure layout:
+shared display limits are chosen from accepted regions plus the truth and
+`B21=0`, and panels use square boxes instead of equal data-unit aspect.
 
 ## M69 Extended Three-Block Monte Carlo
 

@@ -717,12 +717,56 @@ def draw_mask(ax: Any, grid: CandidateGrid, mask: np.ndarray, color: str, alpha:
         )
 
 
-def draw_panel_style(ax: Any, grid: CandidateGrid) -> None:
+def display_limits(records: list[dict[str, Any]], grid: CandidateGrid) -> tuple[tuple[float, float], tuple[float, float]]:
+    x_values = [TRUE_B11]
+    y_values = [TRUE_B21, 0.0]
+    for record in records:
+        for key in ("sign_mask", "standard_mask", "robust_mask"):
+            rows, cols = np.nonzero(record[key])
+            if rows.size:
+                x_values.extend(float(value) for value in grid.b11_values[cols])
+                y_values.extend(float(value) for value in grid.b21_values[rows])
+
+    x_min = min(x_values)
+    x_max = max(x_values)
+    y_min = min(y_values)
+    y_max = max(y_values)
+
+    x_span = max(x_max - x_min, 0.65)
+    y_span = max(y_max - y_min, 1.20)
+    x_pad = max(0.10, 0.12 * x_span)
+    y_pad = max(0.14, 0.12 * y_span)
+
+    xlim = (
+        max(float(grid.b11_values.min()), x_min - x_pad),
+        min(float(grid.b11_values.max()), x_max + x_pad),
+    )
+    ylim = (
+        max(float(grid.b21_values.min()), y_min - y_pad),
+        min(float(grid.b21_values.max()), y_max + y_pad),
+    )
+    return xlim, ylim
+
+
+def annotation_position(xlim: tuple[float, float], ylim: tuple[float, float]) -> tuple[float, float]:
+    return (
+        xlim[0] + 0.04 * (xlim[1] - xlim[0]),
+        ylim[1] - 0.08 * (ylim[1] - ylim[0]),
+    )
+
+
+def draw_panel_style(
+    ax: Any,
+    xlim: tuple[float, float],
+    ylim: tuple[float, float],
+) -> None:
     ax.axvline(0.0, color="0.35", lw=0.8)
     ax.axhline(0.0, color="0.35", lw=0.8)
-    ax.set_xlim(float(grid.b11_values.min()), float(grid.b11_values.max()))
-    ax.set_ylim(float(grid.b21_values.min()), float(grid.b21_values.max()))
-    ax.set_aspect("equal", adjustable="box")
+    ax.set_xlim(*xlim)
+    ax.set_ylim(*ylim)
+    ax.set_aspect("auto")
+    if hasattr(ax, "set_box_aspect"):
+        ax.set_box_aspect(1)
     ax.grid(True, alpha=0.18)
 
 
@@ -773,12 +817,13 @@ def plot(
     fig, axes = plt.subplots(
         3,
         len(scenarios),
-        figsize=(15.6, 11.4),
+        figsize=(14.8, 10.6),
         sharex=True,
         sharey=True,
         constrained_layout=True,
     )
     diagnostics: list[dict[str, Any]] = []
+    evaluated: list[dict[str, Any]] = []
     truth_row, truth_col = nearest_truth_cell(grid)
 
     for col, scenario in enumerate(scenarios):
@@ -855,49 +900,76 @@ def plot(
                 },
             }
         )
+        evaluated.append(
+            {
+                "label": label,
+                "sign_mask": sign_mask,
+                "standard_mask": standard_mask,
+                "robust_mask": robust_mask,
+                "second_truth": second_truth,
+                "standard_truth": standard_truth,
+                "robust_truth": robust_truth,
+                "sign_truth_in": second_truth <= CHI2_90_DF3,
+                "standard_status": "in"
+                if second_truth <= CHI2_90_DF3 and standard_truth <= CHI2_90_DF5
+                else "out",
+                "robust_status": "in" if diagnostics[-1]["truth"]["robust_in"] else "out",
+            }
+        )
 
+    xlim, ylim = display_limits(evaluated, grid)
+    text_x, text_y = annotation_position(xlim, ylim)
+
+    for col, record in enumerate(evaluated):
+        label = record["label"]
         ax = axes[0, col]
-        draw_mask(ax, grid, sign_mask, "#9bc9a6", 0.92)
+        draw_mask(ax, grid, record["sign_mask"], "#9bc9a6", 0.92)
         ax.set_title(f"No-noise sign/covariance, {label}")
-        sign_truth_in = second_truth <= CHI2_90_DF3
-        draw_truth_marker(ax, sign_truth_in)
+        draw_truth_marker(ax, record["sign_truth_in"])
         ax.text(
-            B11_MIN + 0.08,
-            B21_MAX - 0.22,
-            f"share {mask_share(sign_mask):.3f}\nB0 {'in' if sign_truth_in else 'out'}; J2 {second_truth:.2f}",
+            text_x,
+            text_y,
+            f"share {mask_share(record['sign_mask']):.3f}\nB0 {'in' if record['sign_truth_in'] else 'out'}; J2 {record['second_truth']:.2f}",
             color="#11623a",
             fontsize=9,
+            ha="left",
+            va="top",
+            bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.72, "pad": 1.5},
         )
 
         ax = axes[1, col]
-        draw_mask(ax, grid, sign_mask, "#d9d9d9", 0.45)
-        draw_mask(ax, grid, standard_mask, "#6a51a3", 0.90)
+        draw_mask(ax, grid, record["sign_mask"], "#d9d9d9", 0.45)
+        draw_mask(ax, grid, record["standard_mask"], "#6a51a3", 0.90)
         ax.set_title(f"Standard DW GMM1, {label}")
-        standard_status = "in" if second_truth <= CHI2_90_DF3 and standard_truth <= CHI2_90_DF5 else "out"
-        draw_truth_marker(ax, standard_status == "in")
+        draw_truth_marker(ax, record["standard_status"] == "in")
         ax.text(
-            B11_MIN + 0.08,
-            B21_MAX - 0.25,
-            f"share {mask_share(standard_mask):.3f}\nB0 {standard_status}; JH {standard_truth:.2f}",
+            text_x,
+            text_y,
+            f"share {mask_share(record['standard_mask']):.3f}\nB0 {record['standard_status']}; JH {record['standard_truth']:.2f}",
             color="#542788",
             fontsize=9,
+            ha="left",
+            va="top",
+            bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.72, "pad": 1.5},
         )
 
         ax = axes[2, col]
-        draw_mask(ax, grid, robust_mask, "#67a9cf", 0.90)
+        draw_mask(ax, grid, record["robust_mask"], "#67a9cf", 0.90)
         ax.set_title(f"Robust projected GMM, {label}")
-        robust_status = "in" if diagnostics[-1]["truth"]["robust_in"] else "out"
-        draw_truth_marker(ax, robust_status == "in")
+        draw_truth_marker(ax, record["robust_status"] == "in")
         ax.text(
-            B11_MIN + 0.08,
-            B21_MAX - 0.25,
-            f"share {mask_share(robust_mask):.3f}\nB0 {robust_status}; J {robust_truth:.2f}",
+            text_x,
+            text_y,
+            f"share {mask_share(record['robust_mask']):.3f}\nB0 {record['robust_status']}; J {record['robust_truth']:.2f}",
             color="#2166ac",
             fontsize=9,
+            ha="left",
+            va="top",
+            bbox={"facecolor": "white", "edgecolor": "none", "alpha": 0.72, "pad": 1.5},
         )
 
     for ax in axes.flat:
-        draw_panel_style(ax, grid)
+        draw_panel_style(ax, xlim, ylim)
     for ax in axes[2, :]:
         ax.set_xlabel("B11")
     for ax in axes[:, 0]:

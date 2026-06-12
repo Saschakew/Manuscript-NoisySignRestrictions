@@ -11,6 +11,23 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-12 - M72 figure layout fixed
+
+- Request: fix the figures after the user reported that the M71 output looked
+  weird and supplied a screenshot.
+- Actions taken: opened M0068 and GitHub milestone #63; created the M72 task
+  folder; patched the figure renderer to use data-driven shared display limits
+  and square panel boxes; regenerated Figures 1-3; updated registry,
+  simulation README, dashboard, task board, question index, user/session logs,
+  and outcome note.
+- Files changed: figure renderer, generated Figure 1-3 PNGs, M72 task folder,
+  registry/planning/logging surfaces, and transparency files.
+- Checks run: py-compile passed; quick Figure 1 render passed; normal Figure
+  1-3 regeneration passed; JSON validation passed; manual visual inspection
+  passed; manuscript and diff checks passed before closeout.
+- Open uncertainties: none for figure layout. M70 and M65 remain the next
+  writing/inference tasks.
+
 ### 2026-06-12 - M71 sign-screen and pointwise-weighting correction completed
 
 - Request: work on M71 after the M69 long-run attempt exposed that active
