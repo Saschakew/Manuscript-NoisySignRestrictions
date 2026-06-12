@@ -1,5 +1,21 @@
 # Session Log
 
+### 2026-06-12 - Build M67 unit-variance Figure 1
+
+- Request or goal: build the corrected updated Figure 1 after M66 settled the
+  \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\) projected GMM route.
+- Files changed: new Figure 1 script, generated Figure 1 PNG, diagnostics
+  note and JSON, `manuscript/draft.md`, registry, replication wrapper,
+  planning surfaces, task folder, and logs.
+- Summary of work: created a projection chart to \((B_{12},B_{21})\) that
+  profiles \(B_{11}\), \(B_{22}\), and \(\lambda\), uses the Section 4 moment
+  vector with \(\nu_i=\lambda_i(BB')_{ii}\), and marks full-\(B_0\) truth
+  inclusion with row-specific star/x markers.
+- Check: py-compile, registry JSON, diagnostics JSON, quick replication
+  wrapper, manuscript check, and diff whitespace check passed.
+- Next recommended action: finish M65 by rebuilding Figure 2, Figure 3, and
+  the Monte Carlo table under the same unit-variance route.
+
 ### 2026-06-12 - Complete M66 noise-ratio bound and grid algorithm
 
 - Request or goal: work on M66 after the user flagged that Section 4's

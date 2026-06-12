@@ -1,8 +1,8 @@
 """Rebuild the active manuscript figures and Monte Carlo evidence.
 
-This is the M33 manuscript-local replication wrapper. It calls the
-manuscript-local simulation scripts that produced the active M52 figures and
-table, without depending on a local KnowledgeVault checkout.
+This is the M33 manuscript-local replication wrapper. Figure 1 now calls the
+M67 unit-variance projected GMM script. The remaining figure and evidence
+stages still reproduce historical M52 outputs until M65 rebuilds them.
 """
 
 from __future__ import annotations
@@ -68,11 +68,9 @@ def build_steps(args: argparse.Namespace) -> list[Step]:
     figure_commands = {
         "figure1": [
             sys.executable,
-            str(SIM_DIR / "sign_dw_robust_noise_grid_figure.py"),
-            "--robust-mode",
-            "relative",
+            str(SIM_DIR / "sign_dw_unit_variance_noise_grid_figure.py"),
             "--output",
-            str(figure_output(output_dir, "fig_sign_dw_relative_noise_robust_grid.png")),
+            str(figure_output(output_dir, "fig_sign_dw_unit_variance_noise_grid.png")),
         ],
         "figure2": [
             sys.executable,

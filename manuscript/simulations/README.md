@@ -43,6 +43,25 @@ historical for the current robust row because M0034-M0036 superseded the
 diagonal-anchor statistic. M45 reuses the reporting metrics for the
 variance-ratio Monte Carlo rebuild.
 
+## M67 Unit-Variance Projected Figure 1
+
+- Script: `sign_dw_unit_variance_noise_grid_figure.py`
+- Note: `sign_dw_unit_variance_noise_grid_figure.md`
+- Machine-readable output: `output/sign_dw_unit_variance_noise_grid_figure.json`
+- Output figure: `../figures/fig_sign_dw_unit_variance_noise_grid.png`
+- Command run:
+
+```powershell
+python manuscript\simulations\sign_dw_unit_variance_noise_grid_figure.py
+```
+
+Interpretation: this is the active Figure 1 diagnostic after M64/M66. It
+projects accepted candidates onto `(B12,B21)` while profiling positive
+`B11`, `B22`, and `lambda in [0,rho]^2`; the robust row sets
+`nu_i=lambda_i (B B')_ii` and evaluates the Section 4 moment vector. The
+plotted J statistics use fixed one-step GMM weights for the fixed-draw
+diagnostic. The final projection-critical-value choice remains part of M65.
+
 ## M0036 Relative-Noise Robust Figure 1 Candidate
 
 - Script: `sign_dw_robust_noise_grid_figure.py`
@@ -54,15 +73,15 @@ variance-ratio Monte Carlo rebuild.
 python manuscript\simulations\sign_dw_robust_noise_grid_figure.py --robust-mode relative
 ```
 
-Interpretation: this is the current Figure 1 candidate after the M40
-conditional audit. The robust-DW row uses the pure five-moment
+Interpretation: this is now historical after M64/M66/M67. The robust-DW row uses the pure five-moment
 higher-cumulant J statistic and adds a candidate-specific
 covariance-decomposition screen requiring
 `0 <= nu_i <= 0.5 Var(epsilon_i)`. In the high-noise column, true `B0` remains
 inside and the relative row accepts 0.071 of the full plotted grid. The
 precision comes from explicit signal-to-noise information, not from a DW
 moment. M45 now supplies a lightweight validation and Monte Carlo rebuild; final
-claims still need adversarial evidence review and replication packaging.
+claims for the active unit-variance route use M67 for Figure 1 and need M65 for
+the remaining figures and table.
 
 ## M0035 Absolute-Bound Robust Figure 1 Comparison
 
@@ -106,7 +125,8 @@ only valid higher-cumulant moments.
 python manuscript\simulations\sign_dw_robust_nongaussianity_grid_figure.py
 ```
 
-Interpretation: this companion grid fixes residual noise at `V=(0.2,0.2)` and
+Interpretation: this companion grid is historical after M64/M66 until M65
+rebuilds it. It fixes residual noise at `V=(0.2,0.2)` and
 weakens structural-shock non-Gaussianity across columns. All rows invert
 pointwise 10 percent J tests. Its robust row now uses the M0036 variance-ratio
 proposal: pure mixed higher-cumulant J inversion plus the relative
@@ -123,7 +143,8 @@ covariance-decomposition screen.
 python manuscript\simulations\sign_dw_sample_size_robust_grid_figure.py
 ```
 
-Interpretation: this new Figure 3 fixes strong structural non-Gaussianity and
+Interpretation: this Figure 3 is historical after M64/M66 until M65 rebuilds
+it. It fixes strong structural non-Gaussianity and
 moderate residual noise, then varies `T=500`, `T=1000`, and `T=2000`. In the
 rendered fixed draw, standard DW misses the true normalized impact at larger
 sample sizes while variance-ratio robust DW remains truth-containing.
@@ -163,8 +184,8 @@ python manuscript\simulations\sign_dw_robust_noise_grid_figure.py
 
 Interpretation: this is the superseded M0030 diagonal-anchor figure. All rows
 invert pointwise 10 percent J tests, but M0034 invalidated the robust-row
-off-diagonal covariance anchor under the active `diag(B)=1` scale. Use the
-M0036 relative mode for the current Figure 1 candidate.
+off-diagonal covariance anchor under the old `diag(B)=1` scale. Use M67,
+not this script, for the current Figure 1.
 
 ## M0016 Sign, Standard DW, And Robust DW Noise Figure
 

@@ -220,37 +220,37 @@
     {
       "id": "fig:sign-noise-geometry",
       "type": "figure",
-      "status": "needs-rebuild-after-m64",
+      "status": "figure1-row-rebuilt-after-m67",
       "draft_location": "draft.md#2-sign-restrictions-and-noisy-svars",
-      "description": "Intuitive sign-set geometry should be rebuilt as the first-row residual-noise figure under the unit-variance GMM route. The old M0036/M52 top row is historical after M64.",
+      "description": "M67 rebuilds the first-row residual-noise geometry under the unit-variance projected route. The displayed chart projects to (B12,B21), profiles B11 and B22, and marks whether the full true B0 passes the no-noise sign/covariance test.",
       "depends_on": [
         "prop:noisy-sign-pseudo-set"
       ],
-      "output_source": "Proposal visual spine: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative and manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png. M33 wrapper command: python manuscript/replication/run_all.py --stage figure1. A separate covariance-ellipse panel is optional, not required for the first draft."
+      "output_source": "M67 output: manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png; generator manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py; diagnostics manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md and manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json. Replication wrapper command: python manuscript/replication/run_all.py --stage figure1."
     },
     {
       "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "historical-needs-rebuild-after-m66",
+      "status": "figure1-row-rebuilt-after-m67",
       "draft_location": "draft.md#3-drautzburg-wright-refinement-under-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "Historical M52 residual-noise story figure. M64 changes the estimator to unit-variance GMM over (B,nu), and M66 changes the active nuisance-bound notation to lambda_i=nu_i/(BB')_ii. This figure must be rebuilt before it can support active claims.",
+      "description": "M67 rebuilds the standard-DW residual-noise row for Figure 1 under the unit-variance projection. The standard row remains the no-noise comparator: it profiles B11 and B22 for the displayed (B12,B21) projection and marks whether the full true B0 passes the standard no-noise and DW tests.",
       "depends_on": [
         "prop:standard-dw-misspecification",
         "eq:relative-noise-covariance-screen"
       ],
-      "output_source": "M0036 relative variant: manuscript/simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative, manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md, and manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png. M33 wrapper command: python manuscript/replication/run_all.py --stage figure1. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M0035 absolute-bound comparison remains manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png. M0034 pure variant remains manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png. The earlier diagonal-anchor output manuscript/figures/fig_sign_dw_robust_noise_grid.png is superseded for the robust row."
+      "output_source": "M67 output: manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png; generator manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py; diagnostics manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md and manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. Historical comparisons remain manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png, manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png, and manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png."
     },
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "historical-needs-rebuild-after-m66",
+      "status": "partially-rebuilt-figure1-after-m67",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Historical M52 grid story. M65 must rebuild Figure 1, Figure 2, and Figure 3 under the M66 unit-variance projected (B,lambda) GMM route before this object is active again.",
+      "description": "M67 rebuilds Figure 1 under the M66 unit-variance projected (B,lambda) GMM route. Figure 2 and Figure 3 remain historical M52 grid stories until M65 rebuilds them under the same route.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic",
         "eq:relative-noise-covariance-screen"
       ],
-      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png and manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md. Figure 2: manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png and manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py. Figure 3: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png and manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py. M33 wrapper command: python manuscript/replication/run_all.py --stage figures. M52 validation output: manuscript/simulations/m52_source_correct_evidence.md and manuscript/simulations/output/m52_source_correct_evidence.json. Source-correct standard-DW rebuild packet: manuscript/tasks/M52-standard-dw-source-correct-rebuild.md."
+      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png, manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py, manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md, and manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json. Figure 2 historical: manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png and manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py. Figure 3 historical: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png and manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py. Replication wrapper command for rebuilt Figure 1: python manuscript/replication/run_all.py --stage figure1. M52 validation output remains historical: manuscript/simulations/m52_source_correct_evidence.md and manuscript/simulations/output/m52_source_correct_evidence.json."
     },
     {
       "id": "fig:sample-size-robust-grid",

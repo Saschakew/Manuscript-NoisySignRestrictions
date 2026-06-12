@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "id": "M0063-rebuild-unit-variance-figure-1",
+  "sequence": 63,
+  "title": "Rebuild unit-variance Figure 1",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-12T14:07:40Z",
+  "closed_at": "2026-06-12T14:34:02Z",
+  "start_commit": "85268112718dc59e57bd46aa678e3d96f10b6a0e",
+  "snapshot_ref": "manuscript-milestones/M0063-rebuild-unit-variance-figure-1",
+  "summary": "Rebuilt Figure 1 under the unit-variance projected B-lambda GMM route; updated draft, registry, replication command, and M65 routing.",
+  "user_inputs": [
+    {
+      "id": "U0063-001",
+      "milestone_id": "M0063-rebuild-unit-variance-figure-1",
+      "captured_at": "2026-06-12T14:07:40Z",
+      "source": "chat",
+      "text": "User asks to build the correct updated Figure 1 under the M66 unit-variance projected B-lambda GMM algorithm."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0063-001",
+      "milestone_id": "M0063-rebuild-unit-variance-figure-1",
+      "captured_at": "2026-06-12T14:34:02Z",
+      "description": "Use sign_dw_unit_variance_noise_grid_figure.py and fig_sign_dw_unit_variance_noise_grid.png for active Figure 1; leave Figures 2-3 and Monte Carlo table to M65."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-12T14:34:02Z",
+      "description": "python scripts/check_manuscript.py: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/QUESTION-INDEX.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/figures/README.md",
+    "manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/replication/run_all.py",
+    "manuscript/session-log.md",
+    "manuscript/simulations/README.md",
+    "manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json",
+    "manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md",
+    "manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M65-unit-variance-gmm-evidence-rebuild/task.md",
+    "manuscript/tasks/M67-unit-variance-figure1-rebuild/outcome.md",
+    "manuscript/tasks/M67-unit-variance-figure1-rebuild/task.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0063-rebuild-unit-variance-figure-1.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "manuscript/workplan.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 58,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/58",
+    "tag_name": "manuscript-milestones/M0063-rebuild-unit-variance-figure-1"
+  }
+}

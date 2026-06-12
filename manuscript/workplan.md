@@ -81,9 +81,9 @@ dynamic impulse responses.
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
 | M4. Formal result package | doing | M64 supersedes the retained `diag(B)=1` route and switches the active formal route to unit-variance GMM over `(B, nu)`. M66 settles the nuisance bound as `lambda_i = nu_i / (B B')_ii in [0,rho]`. M65 must audit the implementation, projection critical value, and evidence before theorem-level wording. |
-| M5. Evidence package | doing | M52 figures and Monte Carlo outputs are historical after M64/M66. M65 must rebuild Figure 1, Figure 2, Figure 3, and the Monte Carlo table under the unit-variance `(B,lambda)` projected GMM estimator before evidence claims become active again. |
+| M5. Evidence package | doing | M67 rebuilds Figure 1 under the unit-variance `(B,lambda)` projected GMM estimator. M52 companion figures and Monte Carlo outputs remain historical; M65 must rebuild Figure 2, Figure 3, and the Monte Carlo table before the full evidence package is active. |
 | M6. First complete draft | doing | M64 recovered the real revision comments and rewrote Sections 2-4 around unit variance and standard GMM. Remaining draft gates are M65 evidence rebuild, then references cleanup and export preparation. |
-| M7. Reproducibility package | doing | M33 added `manuscript/replication/run_all.py` for the pre-M64 evidence package. M65 must update the wrapper after the estimator and figures are rebuilt. |
+| M7. Reproducibility package | doing | M33 added `manuscript/replication/run_all.py`; M67 updates its Figure 1 command. M65 must update the remaining figure/evidence commands after the estimator and companion outputs are rebuilt. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
 
 ## Review Plan

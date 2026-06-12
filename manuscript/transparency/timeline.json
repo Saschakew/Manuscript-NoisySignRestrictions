@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-12T13:58:35Z",
+  "updated_at": "2026-06-12T14:34:03Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1325,6 +1325,28 @@
         "milestone_number": null,
         "milestone_url": "",
         "tag_name": "manuscript-milestones/M0062-execute-m66-noise-ratio-bound"
+      }
+    },
+    {
+      "id": "M0063-rebuild-unit-variance-figure-1",
+      "sequence": 63,
+      "title": "Rebuild unit-variance Figure 1",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-12T14:07:40Z",
+      "closed_at": "2026-06-12T14:34:02Z",
+      "start_commit": "85268112718dc59e57bd46aa678e3d96f10b6a0e",
+      "snapshot_ref": "manuscript-milestones/M0063-rebuild-unit-variance-figure-1",
+      "summary": "Rebuilt Figure 1 under the unit-variance projected B-lambda GMM route; updated draft, registry, replication command, and M65 routing.",
+      "user_input_ids": [
+        "U0063-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0063-rebuild-unit-variance-figure-1.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 58,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/58",
+        "tag_name": "manuscript-milestones/M0063-rebuild-unit-variance-figure-1"
       }
     }
   ]

@@ -17,20 +17,21 @@ variance moments plus covariance, standard DW refines that second-moment set,
 and Section 4 replaces generated sample covariance-product plug-ins with
 parameter-implied \(\omega_{ij}(B,\nu)\) terms.
 
-Current focus: M65 must rebuild the implementation and evidence under the
-M66-settled unit-variance GMM route. The nuisance bound is now written through
-the dimensionless share \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), and the
-reported robust set projects accepted \((B,\lambda)\) pairs onto \(B\). The
-M52 figures, Monte Carlo table, and M33 replication wrapper are useful
-historical diagnostics, but they are not final evidence until M65 rebuilds the
-code away from the old normalized B-plane chart.
+Current focus: M67 has rebuilt Figure 1 under the M66-settled unit-variance
+GMM route. The nuisance bound is written through the dimensionless share
+\(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), and the reported robust set
+projects accepted \((B,\lambda)\) pairs onto \(B\). Figure 1 now uses a
+projection to \((B_{12},B_{21})\) while profiling \(B_{11}\), \(B_{22}\), and
+\(\lambda\). M65 remains the active evidence task for Figure 2, Figure 3, the
+Monte Carlo table, and final inference/replication choices.
 
-Next recommended action: execute M65, the unit-variance GMM evidence rebuild
-task in `manuscript/tasks/M65-unit-variance-gmm-evidence-rebuild/task.md`.
-M63 citation/export cleanup is deferred until the core estimator, figures, and
+Next recommended action: continue M65 for the remaining unit-variance evidence rebuild in
+`manuscript/tasks/M65-unit-variance-gmm-evidence-rebuild/task.md`. M63
+citation/export cleanup is deferred until the core estimator, figures, and
 registry match the recovered revision.
 
-Active milestone: M0062 completed M66 and created GitHub milestone 57 for the
+Active milestone: M0063 completed M67 and closed GitHub milestone 58 for the
+unit-variance Figure 1 rebuild. M0062 completed M66 and created GitHub milestone 57 for the
 noise-ratio bound and grid algorithm. M0061 recovers Revision-20260610-190805 and creates the
 unit-variance GMM repair path; GitHub milestone 56 tracks the same work. M0060 completed the M33 replication wrapper and created
 GitHub milestone 55. M0059 completed the M57 task folder workflow; GitHub
@@ -56,15 +57,15 @@ unreliable M48 conclusions.
 
 Active blockers:
 
-- M65 is now unblocked by M66. It must implement the projected
-  \((B,\lambda)\) GMM inversion, choose the visual chart for the
-  unit-variance \(B\) projection, and rebuild or drop Figures 1-3 plus the
-  Monte Carlo table.
+- M65 is now partially advanced by M67. Figure 1 is rebuilt with the projected
+  \((B,\lambda)\) GMM inversion. Figure 2, Figure 3, and the Monte Carlo table
+  still need the same unit-variance treatment, and the final
+  projection-critical-value route remains open.
 - The M64 revision supersedes the retained `diag(B)=1` chart. The active
   manuscript normalization is now \(E[\varepsilon_t\varepsilon_t']=I\), with
-  residual-noise variances handled as nuisance parameters \(\nu\). All M52
-  evidence and M33 replication commands must be rebuilt or clearly marked
-  historical before final evidence claims.
+  residual-noise variances handled as nuisance parameters \(\nu\). M67 updates
+  the Figure 1 replication command; remaining M52 companion evidence must be
+  rebuilt or clearly marked historical before final evidence claims.
 - M47 conditionally clears the M25 standard-DW J-test inversion result. The
   theorem-level version must remain a rich-stack/ICA statement with
   structural-coordinate rescaling exceptions, finite-GMM alias caveats,

@@ -11,6 +11,24 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-12 - M67 unit-variance Figure 1 rebuilt
+
+- Request: build the corrected updated Figure 1 under the M66 unit-variance
+  projected \((B,\lambda)\) GMM algorithm.
+- Actions taken: opened M0063 and GitHub milestone #58; created the M67 task
+  folder; implemented `sign_dw_unit_variance_noise_grid_figure.py`; generated
+  `fig_sign_dw_unit_variance_noise_grid.png`, diagnostics Markdown, and JSON;
+  updated the draft, registry, replication wrapper, dashboard, paper map,
+  source packet, READMEs, M65 packet, task board, question index, and logs.
+- Files changed: new Figure 1 script/output/diagnostics, `manuscript/draft.md`,
+  formal registry, replication wrapper, planning surfaces, and M67 task folder.
+- Checks run: py-compile, registry JSON validation, diagnostics JSON
+  validation, `python manuscript/replication/run_all.py --stage figure1
+  --quick`, `python scripts/check_manuscript.py`, and `git diff --check`
+  passed.
+- Open uncertainties: M65 still needs Figure 2, Figure 3, Monte Carlo evidence,
+  and a final projected critical-value/inference route.
+
 ### 2026-06-12 - M66 noise-ratio bound and grid algorithm completed
 
 - Request: work on M66 after the user asked whether Section 4's

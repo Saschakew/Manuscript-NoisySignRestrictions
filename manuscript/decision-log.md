@@ -5,6 +5,23 @@ decisions.
 
 ## Entries
 
+### 2026-06-12 - Use a profiled projection chart for unit-variance Figure 1
+
+- Origin: M67 execution after the user asked to build the corrected updated
+  Figure 1.
+- User input id: U0064
+- Decision: Display Figure 1 as a projection to \((B_{12},B_{21})\), while
+  profiling positive \(B_{11}\), \(B_{22}\), and
+  \(\lambda\in[0,\rho]^2\). Do not impose `diag(B)=1`.
+- Rationale: The active M64/M66 object is a set over general \(B\) and
+  residual-noise shares \(\lambda_i=\nu_i/(BB')_{ii}\). A two-dimensional
+  figure must therefore be a projection, not the old
+  \(B=\begin{bmatrix}1&b_{12}\\ b_{21}&1\end{bmatrix}\) chart.
+- Consequence for next work: Figure 1 is active as a diagnostic with fixed
+  one-step GMM weights and pointwise chi-square cutoffs. M65 still needs the
+  companion Figure 2/3 rebuild, Monte Carlo table, and final projected
+  critical-value route.
+
 ### 2026-06-12 - Use lambda for the unit-variance noise-ratio bound
 
 - Origin: M66 execution after the user questioned whether

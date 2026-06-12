@@ -71,8 +71,9 @@ covariance-product terms written as functions of `(B, nu)`. M66 settles the
 noise-bound convention as the ratio
 `lambda_i = nu_i / (B B')_ii in [0,rho]`. Direct `nu_i <= rho` is not the
 automatic ratio object when `nu_i` remains an observed residual-coordinate
-variance. The M52 figures and Monte Carlo outputs are historical until M65
-rebuilds the evidence under this settled unit-variance GMM route.
+variance. M67 rebuilds Figure 1 under this route. The M52 companion figures
+and Monte Carlo outputs are historical until M65 rebuilds the remaining
+evidence under the settled unit-variance GMM route.
 
 Scope note: the first paper studies the simultaneous SVAR impact problem only.
 It treats the reduced-form residual `u_t` as the object to be decomposed and
@@ -115,12 +116,13 @@ Statuses: `candidate`, `source-backed`, `needs-verification`, `dropped`.
 | Vault path | What it validates or illustrates | Manuscript action |
 |---|---|---|
 | `replications/svar-noise-recursive-sign-visualization/` | Deterministic sign-noise geometry and no-noise independence-refinement behavior under residual noise. | Use as the starting point for the intuitive figure and standard-DW false-sharpening figure. |
-| `manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md` | M52 source-correct Figure 1: standard DW uses bivariate GMM1 higher moments plus a separate covariance screen; robust DW uses generated mixed higher-cumulants with central-delta weighting plus the variance-ratio screen `0 <= nu_i <= 0.5 * Var(epsilon_i)`. | Historical after M64: useful for audit history and visual intuition, but not active evidence for the unit-variance GMM route until M65 rebuilds the figure. |
+| `manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md` and `manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json` | M67 Figure 1: projects accepted candidates to `(B12,B21)`, profiles positive `B11`, `B22`, and `lambda in [0,rho]^2`, and evaluates the Section 4 moment vector with `nu_i=lambda_i(BB')_ii`. | Active Figure 1 diagnostic after M64/M66. The plotted J statistics use fixed one-step weights for the fixed-draw diagnostic; M65 still owns final projection-critical-value and remaining evidence choices. |
+| `manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md` | M52 source-correct Figure 1: standard DW uses bivariate GMM1 higher moments plus a separate covariance screen; robust DW uses generated mixed higher-cumulants with central-delta weighting plus the variance-ratio screen `0 <= nu_i <= 0.5 * Var(epsilon_i)`. | Historical after M64/M67: useful for audit history and visual intuition, but not active evidence for the unit-variance GMM route. |
 | `manuscript/simulations/sign_dw_bounded_noise_robust_grid_figure.md` | M0035 bounded-noise Figure 1 comparison: uses pure mixed higher-cumulant J inversion plus a profiled recovered-covariance feasibility screen with `0 <= nu_i <= 0.5`. | Historical comparison: high-noise bounded robust DW contains true `B0` and accepts 0.066 of the full plotted grid, but the absolute variance cap is scale-arbitrary relative to the M0036 signal-to-noise screen. |
 | `manuscript/simulations/sign_dw_pure_robust_noise_grid_figure.md` | M0034 scale-correction diagnostic for Figure 1: the bottom row uses only five mixed higher-cumulant moments and drops the invalid off-diagonal covariance anchor. | Current visual diagnostic: high-noise pure robust DW contains true `B0` but accepts 0.459 of the full plotted grid, showing the precision cost of validity. |
-| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | M52 rebuilt companion grid: fixes residual noise and varies structural-shock non-Gaussianity while using the source-correct standard row and M0036 variance-ratio robust row. | Active Figure 2 visual: documents the weak-higher-moment limitation with the same robust row as Figure 1. |
-| `manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py` | M52 rebuilt sample-size grid: fixes strong structural non-Gaussianity and moderate residual noise while varying `T=500,1000,2000`. | Active Figure 3 visual: shows standard DW shrinking away from truth in the fixed draw while variance-ratio robust DW remains truth-containing. |
-| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local B-plane grid generator. M0034 added `--robust-mode pure`; M0035 added `--robust-mode bounded`; M0036 added `--robust-mode relative`; M52 rebuilt the source-correct standard-DW and central-delta robust statistic. | Use relative mode for the proposal Figure 1 and pure/bounded modes as fallback comparisons; M40 conditionally audited the screen, and M52 rebuilds the active evidence around the relative mode. |
+| `manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py` | M52 rebuilt companion grid: fixes residual noise and varies structural-shock non-Gaussianity while using the source-correct standard row and M0036 variance-ratio robust row. | Historical after M64/M66. M65 must rebuild Figure 2 with the M67/M66 unit-variance projected route. |
+| `manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py` | M52 rebuilt sample-size grid: fixes strong structural non-Gaussianity and moderate residual noise while varying `T=500,1000,2000`. | Historical after M64/M66. M65 must rebuild Figure 3 with the unit-variance projected route. |
+| `manuscript/simulations/sign_dw_robust_noise_grid_figure.py` | Manuscript-local historical B-plane grid generator. M0034 added `--robust-mode pure`; M0035 added `--robust-mode bounded`; M0036 added `--robust-mode relative`; M52 rebuilt the source-correct standard-DW and central-delta robust statistic. | Historical comparison only after M67; do not use it for active Figure 1 evidence. |
 | `manuscript/simulations/sign_dw_robust_noise_figure.py` | Manuscript-local M0016 population candidate that reproduces the KnowledgeVault sign/standard-DW noise visualization and adds the robust-DW normalized higher-cumulant set. | Keep as exploratory figure support; refreshed M28 population-grid validation now favors the M0030 grid pair as the main visual spine. |
 | `manuscript/simulations/m28_grid_story_validation.py` | Refreshed M28 validation pass for the superseded M0030 grid pair. | Historical for the robust row after M0034/M0035/M0036; do not treat it as evidence for the variance-ratio row. |
 | `manuscript/simulations/m29_calibrated_monte_carlo.py` | Refreshed M29 finite-sample pass for the superseded M0030 robust statistic. | Historical for the robust row after M0034/M0035/M0036; its metric bundle is reused by M45. |
@@ -245,13 +247,16 @@ these tasks:
     `lambda_i = nu_i / (B B')_ii in [0,rho]`, writes that bound inside the
     projected robust set, and marks the old Figure 1-3 scripts historical
     because they cannot represent the full unit-variance `(B, lambda)` grid.
+20. M67 rebuilds Figure 1 under the M66 route. The new figure projects to
+    `(B12,B21)` while profiling `B11`, `B22`, and `lambda`; Figure 2,
+    Figure 3, and the Monte Carlo table remain M65 follow-up.
 
 ## Gaps And Risks
 
 - M64 changes the active normalization and estimator. M66 settles the
-  nuisance-bound convention, but until M65 rebuilds the code, figures, table,
-  and replication wrapper under unit-variance GMM, M52 outputs are historical
-  rather than active evidence.
+  nuisance-bound convention, and M67 rebuilds Figure 1. Until M65 rebuilds the
+  companion figures and table under unit-variance GMM, M52 companion outputs
+  remain historical rather than active evidence.
 - The standard DW J-test emptying statement is now proof-audited by M47 as a
   conditional rich-stack result with explicit exceptions. The implemented
   finite GMM1 row remains a source-correct diagnostic with alias caveats.

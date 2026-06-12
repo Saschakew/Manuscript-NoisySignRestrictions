@@ -23,12 +23,12 @@ Gaussian residual noise under the unit-variance normalization
 \(E[\varepsilon_t\varepsilon_t']=I\). The researcher states a maximum ratio of
 residual-noise variance to structural-signal variance, treats residual-noise
 variances as nuisance parameters, and uses higher-moment restrictions in a
-standard GMM criterion over \((B,\nu)\). The existing simulation section now
-serves as a rebuild target: the figures and Monte Carlo evidence must be
-regenerated under this unit-variance GMM implementation before final evidence
-claims are made.
+standard GMM criterion over \((B,\nu)\). Figure 1 has been regenerated under
+this unit-variance projected GMM implementation. The companion figures and
+Monte Carlo table remain rebuild targets before final evidence claims are
+made.
 
-<!-- SOURCE-TRAIL: Use the M0036 relative-noise Figure 1 candidate, the M40 screen audit, the M0035 absolute-bound comparison, the M0034 pure robust variant, the M24 higher-cumulant derivation, M49 for the source-correct GMM1 menu, M56 for generated-moment inference, and the M52 evidence rebuild. -->
+<!-- SOURCE-TRAIL: Use the M67 unit-variance Figure 1 rebuild, the M66 noise-ratio derivation, M49 for the source-correct GMM1 menu, M56 for generated-moment inference, and M52 only as historical evidence. -->
 <!-- CONTRIBUTION-NOTE: The abstract's original contribution is the residual-noise pseudo-set warning and the DW-versus-robust-DW comparison diagnostic. -->
 
 ## 1. Introduction
@@ -101,18 +101,17 @@ robust set widens, and that widening is part of the diagnostic.
 
 <!-- SOURCE-TRAIL: Use `manuscript/derivations/dw-noise-robust-moments.md`, `manuscript/derivations/dw-robust-comparison-diagnostic.md`, and higher-moment SVAR caution sources. -->
 
-The preliminary simulation evidence follows the same sequence. Figure 1 varies
-Gaussian residual noise. The standard sign-restricted set moves away from the
-true impact matrix, the source-correct standard-DW GMM1 screen can become
-tight while excluding the truth, and the variance-ratio robust refinement
-remains truth-containing in the high-noise design. Figure 2 weakens structural
-non-Gaussianity and shows the limitation: without informative higher moments,
-robust refinement is wider. Figure 3 varies the sample size, and Table 1
-summarizes the repeated-sample comparison. The recommendation is diagnostic:
-report the standard DW set and the robust DW set together, and treat standard
-DW precision unsupported by the robust set as a warning sign.
+The current simulation evidence starts with the rebuilt Figure 1, which varies
+Gaussian residual noise under the unit-variance projected GMM route. The
+standard no-noise and standard-DW screens can reject the full true impact
+matrix once residual noise is present, while the robust projected set remains
+truth-containing in the displayed fixed draw. Figure 2, Figure 3, and Table 1
+still need the same unit-variance rebuild before they can support final
+evidence claims. The recommendation is diagnostic: report the standard DW set
+and the robust DW set together, and treat standard DW precision unsupported by
+the robust set as a warning sign.
 
-<!-- SOURCE-TRAIL: Use M0036 and the M40 audit for Figure 1, plus M52 for the rebuilt Figure 1, Figure 2, Figure 3, and Monte Carlo evidence. -->
+<!-- SOURCE-TRAIL: Use M67 for the rebuilt Figure 1, M66 for the lambda-bound algorithm, and M52 only as historical evidence for the remaining pre-M64 figures/table. -->
 
 ### 1.1 Literature Positioning
 
@@ -154,17 +153,16 @@ a noisy covariance target that the robust moments do not support.
 <!-- CONTRIBUTION-NOTE: The original contribution is the DW-versus-robust-DW comparison under residual noise, not the general idea that higher moments can identify SVARs. -->
 
 The paper is organized around this comparison. Figure 1 varies Gaussian
-residual noise and shows the main warning with the source-correct GMM1
-implementation: the sign/covariance set moves, the standard-DW row can exclude
-the true normalized impact matrix, and robust DW
-remains wider while containing it once explicit relative noise-scale
-information is added. Figure 2 holds residual noise fixed and weakens
-structural non-Gaussianity, showing the limitation that robust DW's
-higher-cumulant component needs informative higher moments. Figure 3 asks
-whether the comparison tightens with sample size, and Table 1 reports the
-rebuilt Monte Carlo comparison under researcher-facing chi-square cutoffs.
+residual noise and shows the main warning with the unit-variance projected
+implementation: the no-noise and standard-DW rows reject the full true impact
+matrix once residual noise is present, while the robust projected row remains
+truth-containing after profiling admissible \(\lambda\). Figure 2 should hold
+residual noise fixed and weaken structural non-Gaussianity, showing the
+limitation that robust DW's higher-cumulant component needs informative higher
+moments. Figure 3 should ask whether the comparison tightens with sample size,
+and Table 1 must be rebuilt under the same unit-variance route.
 
-<!-- SOURCE-TRAIL: Use M0036 and the M40 audit for the current Figure 1 candidate, plus M52 for the rebuilt Figure 1/Figure 2/Figure 3 and Monte Carlo evidence. -->
+<!-- SOURCE-TRAIL: Use M67 for the current Figure 1 and M65 for the remaining Figure 2/Figure 3/table rebuild. -->
 
 <!-- SOURCE-TRAIL: Use sign-restriction overview sources, Drautzburg-Wright, and the noisy-residual synthesis. -->
 <!-- CONTRIBUTION-NOTE: The original contribution is the noise-bias warning plus the standard-DW versus robust-DW comparison. -->
@@ -290,14 +288,14 @@ pointwise limit \(\chi^2_3\), one degree for each moment in
 \(\widehat m_{2,T}\). For a level-\(\alpha\) inversion, \(c_2\) can therefore
 be taken as the \(1-\alpha\) quantile of \(\chi^2_3\). The J-test view makes
 the source of bias explicit: in the noisy model, the no-noise vector
-\(E[e_t(B_0)e_t(B_0)']-I\) is generally not zero. The first-row residual-noise
-figure should be inserted here after the unit-variance figure code is rebuilt;
-its role is to show the sign set moving away from \(B_0\) before higher
-moments are used.
+\(E[e_t(B_0)e_t(B_0)']-I\) is generally not zero. The first row of Figure 1
+shows this unit-variance version of the bias: the no-noise sign/covariance
+target rejects the full true \(B_0\) once residual noise is present, before
+higher moments are used.
 
 <!-- SOURCE-TRAIL: Use the proposal note, `Noisy residuals in recursive and sign-restricted SVARs.md`, and the M25 column-rescaling obstruction. -->
 <!-- DESIGN-NOTE: Keep the paper simultaneous and impact-only. Treat \(u_t\) as given; do not introduce VAR lag equations, dynamic IRFs, or horizon-specific sign restrictions in this version. -->
-<!-- TODO-NOTE: M64 must rebuild or split the residual-noise figure under the unit-variance chart before this section is shareable. -->
+<!-- SOURCE-TRAIL: Use M67 for the rebuilt unit-variance residual-noise Figure 1. -->
 
 ## 3. Drautzburg-Wright Refinement Under Noise
 
@@ -357,10 +355,10 @@ produce a narrow and misleading set. Section 2 already showed why \(B_0\) is
 generally shifted out of \(\mathcal S_0\) when the no-noise unit-variance
 moments are applied to noisy residuals. Since DW refinement is a refinement of
 that second-moment set, the refined set can become smaller while still missing
-\(B_0\). The second-row residual-noise figure should be inserted here after the
-unit-variance figure rebuild: in the no-noise column, non-Gaussianity sharpens
-the sign set; once residual noise is added, the accepted set can remain small
-but no longer contain the true impact matrix.
+\(B_0\). The second row of Figure 1 shows this warning in the unit-variance
+projection: in the no-noise column, non-Gaussianity sharpens the sign set;
+once residual noise is added, the standard-DW projection can remain visually
+sharp while the full true impact matrix fails the standard no-noise test.
 
 <!-- SOURCE-TRAIL: Use Drautzburg-Wright, higher-moment SVAR caution sources, and the noisy-residual synthesis. -->
 <!-- SOURCE-TRAIL: Use `derivations/standard-dw-j-test-under-noise.md` for the M25 J-test inversion result: rich-stack generic emptying, structural-rescaling exceptions, finite-moment aliases, and least-rejected pseudo-candidates. -->
@@ -537,41 +535,39 @@ variances treated as nuisance parameters and projected out when reporting the
 set for \(B\).
 
 <!-- SOURCE-TRAIL: Use `derivations/dw-noise-robust-moments.md`, `derivations/m40-variance-ratio-robust-dw-screen-audit.md`, `derivations/m66-noise-ratio-bound-grid-algorithm.md`, Drautzburg-Wright, and higher-moment GMM sources. -->
-<!-- TODO-NOTE: M66 settles the nuisance-bound convention as lambda_i=nu_i/(BB')_ii in [0,rho]. The figure code and Monte Carlo code remain historical until M65 rebuilds them under the unit-variance projected GMM algorithm. -->
+<!-- TODO-NOTE: M67 rebuilds Figure 1 under the unit-variance projected GMM algorithm. Figure 2, Figure 3, and the Monte Carlo code remain historical until M65 rebuilds them. -->
 <!-- TODO-NOTE: The exact projection critical value for \(\mathcal R_T(c;\rho)\) needs a compact inference note after the enlarged GMM implementation is audited. -->
 
 ## 5. Monte Carlo Robustness Check
 
-This section is now an evidence rebuild target. Figures 1-3 and Table 1 still
-record the pre-M64 evidence path, which used the old normalized B-plane chart.
-The revision in Sections 2-4 switches the manuscript to unit structural-shock
-variances and an enlarged GMM criterion over \((B,\nu)\). Before this section
-is shareable, the residual-noise grid, the non-Gaussianity grid, the
-sample-size grid, and the Monte Carlo table must be regenerated under that
-unit-variance GMM implementation. Until then, the existing figures remain
-historical diagnostics rather than final evidence for the revised estimator.
+This section is partly rebuilt. Figure 1 now uses the unit-variance projected
+GMM route from Section 4. Figures 2-3 and Table 1 still record the pre-M64
+evidence path, which used the old normalized B-plane chart. Before this
+section is shareable as a complete evidence package, the non-Gaussianity grid,
+the sample-size grid, and the Monte Carlo table must be regenerated under the
+same unit-variance implementation.
 
 <!-- SOURCE-TRAIL: Use M27 for the common reporting chart, accepted shares, overlap, warning-rate, and truth-inclusion diagnostics. -->
 
 ### 5.1 Residual-Noise Grid
 
-The displayed Figure 1 is historical after M64 and M66. It still uses the old
-two-dimensional \(B=\begin{bmatrix}1&b_{12}\\ b_{21}&1\end{bmatrix}\) chart and
-the pre-M64 variance-ratio feasibility screen. The M65 replacement should keep
-the same reader job--residual noise increases across columns--but the robust
-row must use the projected unit-variance algorithm from Section 4: for each
-fixed \(\rho\), search over \(B\) and \(\lambda\in[0,\rho]^2\), compute
-\(J_T(B,\nu(B,\lambda))\), and report the projection onto \(B\).
+Figure 1 keeps the reader job of the old residual-noise grid: residual noise
+increases across columns. The chart is now the projection to
+\((B_{12},B_{21})\), while \(B_{11}\), \(B_{22}\), and
+\(\lambda\in[0,\rho]^2\) are searched internally. A star means the full true
+\(B_0\) passes that row's test; an x means the true projected coordinate may
+sit in a shaded cell only because another diagonal pair at that projection is
+accepted.
 
-![Figure 1. Relative-noise robust residual-noise grid.](figures/fig_sign_dw_relative_noise_robust_grid.png)
+![Figure 1. Unit-variance projected residual-noise grid.](figures/fig_sign_dw_unit_variance_noise_grid.png)
 
-**Figure 1. Historical pre-M64 residual-noise grid.** The current image is
-retained only as a visual diagnostic until M65 rebuilds it. The active
-replacement must use the M66 restriction
-\(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\) and the projected
-\((B,\lambda)\) GMM inversion from Section 4.
+**Figure 1. Unit-variance residual-noise grid.** The robust row uses the M66
+restriction \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\) and reports the
+projection of accepted \((B,\lambda)\) pairs. The plotted \(J\) statistics use
+fixed one-step GMM weights for this diagnostic figure; the final projected
+critical-value choice remains part of M65.
 
-<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_relative_noise_robust_grid.png`; generator `simulations/sign_dw_robust_noise_grid_figure.py --robust-mode relative`; diagnostic note `simulations/sign_dw_relative_noise_robust_grid_figure.md`; audit note `derivations/m40-variance-ratio-robust-dw-screen-audit.md`; M52 validation note `simulations/m52_source_correct_evidence.md`; M49 source audit `derivations/m49-dw-source-and-noisy-moment-audit.md`; M56 generated-moment audit `derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`. -->
+<!-- SOURCE-TRAIL: Figure file `figures/fig_sign_dw_unit_variance_noise_grid.png`; generator `simulations/sign_dw_unit_variance_noise_grid_figure.py`; diagnostic note `simulations/sign_dw_unit_variance_noise_grid_figure.md`; machine-readable output `simulations/output/sign_dw_unit_variance_noise_grid_figure.json`; M66 derivation `derivations/m66-noise-ratio-bound-grid-algorithm.md`; M49 source audit `derivations/m49-dw-source-and-noisy-moment-audit.md`; M56 generated-moment audit `derivations/m56-robust-cumulant-gmm-generated-moment-audit.md`. -->
 
 M52 checked the finite-sample logic for the old source-correct statistic. Its
 numbers remain useful for audit history, but they are not final evidence for
