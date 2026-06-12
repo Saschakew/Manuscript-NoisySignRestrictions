@@ -367,7 +367,7 @@ E\{e_{1t}(B)e_{2t}(B)^3\}
 \end{equation}
 
 The corresponding GMM2 menu drops only the symmetric fourth product
-\(E\{e_{1t}(B)^2e_{2t}(B)^2\}-1\), which allows . It keeps the singleton fourth products
+\(E\{e_{1t}(B)^2e_{2t}(B)^2\}-1\), which allows that structural shocks are driven by the same volatility process. It keeps the singleton fourth products
 \(E\{e_{1t}(B)^3e_{2t}(B)\}\) and
 \(E\{e_{1t}(B)e_{2t}(B)^3\}\). In the manuscript's
 diagonal-normalized B-plane, a no-noise covariance screen may still be added
