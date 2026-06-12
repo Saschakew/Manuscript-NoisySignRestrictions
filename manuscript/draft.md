@@ -592,7 +592,7 @@ records the sample generated-moment treatment.
 Let \(s_{ij}(B)=E\{z_i(B)z_j(B)\}\). The Gaussian-noise-blind moment stack is
 written directly as moment equations:
 
-\comment{i mentioned it in my review.md: can we somehow replace the moment s_ab(B) with functions of B and add parameters for the variances so that G_h(B,v) or something like that? ma goal is to keep this as standaerd gmm moments. then we just invert the set also for the variance parameters. also keep in mind that the set we revert needs to take into accound our }
+\comment{i mentioned it in my review.md: can we somehow replace the moment s_ab(B) with functions of B and add parameters for the variances so that G_h(B,v) or something like that? ma goal is to keep this as standaerd gmm moments. then we just invert the set also for the variance parameters. also keep in mind that the set we revert needs to take into accound our noise robust second order moments.}
 
 \begin{equation}
 G_H(B)=
