@@ -28,10 +28,12 @@ report a standard GMM set over \((B,\nu)\).
   \(\nu_i(B,\lambda)=\lambda_i(BB')_{ii}\). The higher-order block uses
   recovered shocks \(e_t(B)=B^{-1}u_t\) and parameter-implied covariance terms
   \(\omega_{ij}(B,\nu)\), not sample covariance-product plug-ins.
-- Evidence: M67 rebuilds Figure 1 under the M66 \(\lambda\)-bounded
-  unit-variance GMM implementation. M52 Figure 2, Figure 3, and Monte Carlo
-  results are historical after M64/M66 and must be rebuilt under M65 before
-  final evidence claims.
+- Evidence: M68 rebuilds Figures 1-3 and the Monte Carlo diagnostic under the
+  M66 \(\lambda\)-bounded unit-variance GMM implementation. The active chart
+  reports first-shock coordinates \((B_{11},B_{21})\), profiles \(B_{12}\),
+  \(B_{22}\), and \(\lambda\), and imposes \(B_{11}>0\), \(B_{22}>0\),
+  \(B_{12}\le0\), and \(B_{21}\ge0\). The outputs are diagnostic pointwise
+  chi-square inversions; final projected critical values remain a follow-up.
 - Excluded: first-version empirical application and broad noise models beyond
   the maintained robust-noise assumptions.
 
@@ -52,9 +54,10 @@ report a standard GMM set over \((B,\nu)\).
    Gaussian-noise-blind rows \(G_H(B,\nu)\). The fourth-order covariance
    products use \(\omega_{ij}(B,\nu)\), so the criterion is standard GMM in
    the enlarged parameter vector.
-6. Figure 1 now uses the unit-variance projected chart. The companion
-   non-Gaussianity and sample-size grids remain required, but they must be
-   regenerated in M65 because the old M52 figures implement the pre-M64 chart.
+6. Figures 1-3 now use the unit-variance first-shock projected chart. Figure 1
+   varies residual noise, Figure 2 weakens structural non-Gaussianity, and
+   Figure 3 varies sample size under the same sign screen and \((B,\lambda)\)
+   search.
 7. The practical recommendation is simple: report both the standard DW set and
    the robust DW set in the same normalized chart. Standard-DW mass outside the
    robust set is the warning object; robust mass outside the standard set often
@@ -65,12 +68,12 @@ report a standard GMM set over \((B,\nu)\).
 
 | Section | Job | Status |
 |---|---|---|
-| Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the unit-variance robust GMM route, and the evidence rebuild requirement. | first-pass M64 revision |
+| Abstract | State sign-restricted set identification, residual-noise bias, false DW sharpening, the unit-variance robust GMM route, the M68 first-shock evidence rebuild, and the remaining projected-critical-value caveat. | M68 diagnostic evidence revision |
 | 1. Introduction | Motivate sign restrictions through signs plus unit-variance recovered-shock covariance, explain why residual noise breaks that target, position DW as an efficiency refinement, and introduce the \((B,\nu)\) robust GMM route. | first-pass M64 revision; literature positioning retained |
-| 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, define \(\mathcal S_0\) with \(E[e_t(B)e_t(B)']=I\), add diagonal residual noise, and write the three-moment J inversion. | first-pass M64 revision; Figure 1 first row rebuilt in M67 |
-| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement as a refinement of \(\mathcal S_{J,T}(c_2)\), define the source-correct DW GMM1/GMM2 menus, then show why refinement can be falsely precise under noise. | first-pass M64 revision; Figure 1 second row rebuilt in M67 |
-| 4. Noise-Robust Sign And DW Sets | Start with \(\Sigma_u=BB'+\operatorname{diag}(\nu)\), impose \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), and write \(G_H(B,\nu)\) with parameter-implied \(\omega_{ij}(B,\nu)\) terms inside a standard GMM criterion. | M66 revision; M65 implementation/audit pending |
-| 5. Figure-Led Evidence And Monte Carlo Check | Rebuild Figures 1-3 and Table 1 under the unit-variance \((B,\lambda)\) projected GMM route. | Figure 1 rebuilt in M67; Figure 2/Figure 3/table pending in M65 |
+| 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, define \(\mathcal S_0\) with \(E[e_t(B)e_t(B)']=I\), add diagonal residual noise, and write the three-moment J inversion. | first-pass M64 revision; Figure 1 first row rebuilt in M68 |
+| 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement as a refinement of \(\mathcal S_{J,T}(c_2)\), define the source-correct DW GMM1/GMM2 menus, then show why refinement can be falsely precise under noise. | first-pass M64 revision; Figure 1 second row rebuilt in M68 |
+| 4. Noise-Robust Sign And DW Sets | Start with \(\Sigma_u=BB'+\operatorname{diag}(\nu)\), impose \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), and write \(G_H(B,\nu)\) with parameter-implied \(\omega_{ij}(B,\nu)\) terms inside a standard GMM criterion. | M66 revision; M68 diagnostic implementation complete; projected critical values pending |
+| 5. Figure-Led Evidence And Monte Carlo Check | Report Figures 1-3 and Table 1 under the unit-variance \((B,\lambda)\) projected GMM route, using first-shock coordinates and the maintained sign screen. | M68 diagnostic evidence revision |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
 ## Core Formal Objects
@@ -113,9 +116,10 @@ and proof or output status.
   source-correct standard DW missing true `B0`, while relative robust DW
   includes it; standard share is 0.026 and robust share is 0.051 on the M52
   diagnostic grid.
-- M52 Figure 2 varies structural-shock non-Gaussianity with the same
-  source-correct standard-DW and robust rows.
-- M52 Figure 3 varies `T=500`, `T=1000`, and `T=2000`, holding the Figure 1
+- M68 Figure 2 varies structural-shock non-Gaussianity with the same
+  first-shock chart, sign screen, and projected \((B,\lambda)\) route as
+  Figure 1.
+- M68 Figure 3 varies `T=500`, `T=1000`, and `T=2000`, holding the Figure 1
   non-Gaussianity and Figure 2 noise calibration fixed; the robust row remains
   truth-containing in the rendered fixed draw.
 - Algebraic proof of the covariance pseudo-set and column-rescaling
@@ -127,17 +131,17 @@ and proof or output status.
 - Derivation of the pure higher-moment robust moment stack from
   `derivations/dw-noise-robust-moments.md`; the post-M0030 diagonal-anchor
   estimator audit is superseded by the M0034 scale correction.
-- M52 fixed-grid diagnostics rebuild the M28-style checks for the
-  variance-ratio robust row and source-correct standard-DW row, including
+- M68 fixed-grid diagnostics rebuild the M28-style checks for the
+  unit-variance robust row and source-correct standard-DW row, including
   Figure 1, Figure 2, and Figure 3 scenarios.
 - M27 formal diagnostic note defining the reported standard-DW set, robust-DW
   set, critical-value convention, directional overlap metric, and interpretation
   boundaries.
-- M52 refreshed chi-square-primary Monte Carlo evidence for the
-  source-correct GMM1 standard-DW row and the variance-ratio robust row. In the
+- M68 refreshed chi-square diagnostic Monte Carlo evidence for the
+  source-correct GMM1 standard-DW row and the unit-variance robust row. In the
   high-noise row, standard-DW truth inclusion is 0.000 and robust-DW truth
-  inclusion is 0.833. The historical M45 and M29 passes remain superseded for
-  active evidence.
+  inclusion is 0.750. The historical M52, M45, and M29 passes remain
+  superseded for active evidence.
 - Final Monte Carlo comparison of standard sign, standard DW, and robust DW
   sets using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and
@@ -185,10 +189,11 @@ and proof or output status.
   in the robust fourth-order moment equations; it shows representative
   fourth-order algebra and states the practical computation of the moment
   plug-ins.
-- M66 completed the immediate bottleneck before M65. It rejected a direct
-  residual-coordinate \(0\le\nu_i\le\rho\) cap as the automatic ratio object
-  and settled the active notation as
-  \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\).
+- M68 completed the immediate evidence bottleneck after M66. It rebuilt the
+  figure and Monte Carlo diagnostics with positive diagonal signs, a
+  \(B_{12}\le0\) sign restriction, and first-shock coordinates
+  \((B_{11},B_{21})\). The remaining bottleneck is the projected
+  critical-value route.
 - M52 implements the generated-moment inference route selected after M56. The
   robust fourth-cumulant sample entries are products of sample averages after
   plugging in `S_{ij}(B)`; the active code now uses full central-moment

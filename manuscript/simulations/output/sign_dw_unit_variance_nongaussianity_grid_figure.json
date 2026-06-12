@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
   "task": "M68 first-shock impact evidence rebuild",
-  "figure": "manuscript\\figures\\fig_sign_dw_unit_variance_noise_grid.png",
+  "figure": "manuscript\\figures\\fig_sign_dw_unit_variance_nongaussianity_grid.png",
   "description": "Projected unit-variance first-shock grid over (B11,B21), with B12/B22 and lambda profiled.",
   "configuration": {
-    "scenario_set": "noise",
+    "scenario_set": "nongaussianity",
     "rho": 0.5,
     "projection_points": 43,
     "profile_points": 11,
@@ -44,44 +44,7 @@
   },
   "diagnostics": [
     {
-      "label": "V=(0,0)",
-      "noise": [
-        0.0,
-        0.0
-      ],
-      "sample_size": 500,
-      "seed": 20260605,
-      "non_gaussian_weight": 1.0,
-      "residual_noise": "gaussian",
-      "shares": {
-        "sign": 0.1518595041322314,
-        "standard_dw": 0.056818181818181816,
-        "robust_dw": 0.04648760330578512
-      },
-      "truth": {
-        "second_j": 0.3855675616722936,
-        "standard_j": 0.8483140395263836,
-        "standard_in": true,
-        "robust_j": 1.004013181827648,
-        "robust_in": true,
-        "true_lambda": [
-          0.0,
-          0.0
-        ]
-      },
-      "distances": {
-        "sign_to_truth": 0.0,
-        "standard_to_truth": 0.0,
-        "robust_to_truth": 0.0
-      },
-      "best_truth_cell_lambda": [
-        0.0,
-        0.0
-      ],
-      "robust_prefilter_count": 49260
-    },
-    {
-      "label": "V=(0.2,0.2)",
+      "label": "w=1",
       "noise": [
         0.2,
         0.2
@@ -118,41 +81,78 @@
       "robust_prefilter_count": 52578
     },
     {
-      "label": "V=(0.5,0.5)",
+      "label": "w=0.25",
       "noise": [
-        0.5,
-        0.5
+        0.2,
+        0.2
       ],
       "sample_size": 500,
       "seed": 20260605,
-      "non_gaussian_weight": 1.0,
+      "non_gaussian_weight": 0.25,
       "residual_noise": "gaussian",
       "shares": {
-        "sign": 0.3021694214876033,
-        "standard_dw": 0.2871900826446281,
-        "robust_dw": 0.21384297520661158
+        "sign": 0.12293388429752067,
+        "standard_dw": 0.12293388429752067,
+        "robust_dw": 0.16580578512396693
       },
       "truth": {
-        "second_j": 42.89867089071211,
-        "standard_j": 18.249713038067647,
+        "second_j": 12.564750732587052,
+        "standard_j": 6.954174949839001,
         "standard_in": false,
-        "robust_j": 7.956640313194605,
+        "robust_j": 6.149207207414544,
         "robust_in": true,
         "true_lambda": [
-          0.47058823529411764,
-          0.3048780487804878
+          0.18823529411764706,
+          0.12195121951219512
         ]
       },
       "distances": {
-        "sign_to_truth": 0.061904761904761685,
-        "standard_to_truth": 0.061904761904761685,
+        "sign_to_truth": 0.0,
+        "standard_to_truth": 0.0,
         "robust_to_truth": 0.0
       },
       "best_truth_cell_lambda": [
-        0.5,
+        0.16666666666666666,
         0.0
       ],
-      "robust_prefilter_count": 52578
+      "robust_prefilter_count": 51288
+    },
+    {
+      "label": "w=0",
+      "noise": [
+        0.2,
+        0.2
+      ],
+      "sample_size": 500,
+      "seed": 20260605,
+      "non_gaussian_weight": 0.0,
+      "residual_noise": "gaussian",
+      "shares": {
+        "sign": 0.12861570247933884,
+        "standard_dw": 0.12861570247933884,
+        "robust_dw": 0.1962809917355372
+      },
+      "truth": {
+        "second_j": 12.448633140766816,
+        "standard_j": 6.966954461217896,
+        "standard_in": false,
+        "robust_j": 1.5494843473107278,
+        "robust_in": true,
+        "true_lambda": [
+          0.18823529411764706,
+          0.12195121951219512
+        ]
+      },
+      "distances": {
+        "sign_to_truth": 0.0,
+        "standard_to_truth": 0.0,
+        "robust_to_truth": 0.0
+      },
+      "best_truth_cell_lambda": [
+        0.18823529411764706,
+        0.0
+      ],
+      "robust_prefilter_count": 51132
     }
   ]
 }

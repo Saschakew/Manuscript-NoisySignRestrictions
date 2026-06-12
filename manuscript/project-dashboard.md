@@ -17,21 +17,25 @@ variance moments plus covariance, standard DW refines that second-moment set,
 and Section 4 replaces generated sample covariance-product plug-ins with
 parameter-implied \(\omega_{ij}(B,\nu)\) terms.
 
-Current focus: M67 has rebuilt Figure 1 under the M66-settled unit-variance
-GMM route. The nuisance bound is written through the dimensionless share
+Current focus: M68 has rebuilt Figures 1-3 and the Monte Carlo diagnostic
+under the M66-settled unit-variance GMM route. The nuisance bound is written
+through the dimensionless share
 \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), and the reported robust set
-projects accepted \((B,\lambda)\) pairs onto \(B\). Figure 1 now uses a
-projection to \((B_{12},B_{21})\) while profiling \(B_{11}\), \(B_{22}\), and
-\(\lambda\). M65 remains the active evidence task for Figure 2, Figure 3, the
-Monte Carlo table, and final inference/replication choices.
+projects accepted \((B,\lambda)\) pairs onto first-shock coordinates
+\((B_{11},B_{21})\). The maintained sign screen is \(B_{11}>0\),
+\(B_{22}>0\), \(B_{12}\le0\), and \(B_{21}\ge0\). M65 remains active only for
+the final projected-critical-value and inference route, not for the old
+figure/table rebuild.
 
-Next recommended action: continue M65 for the remaining unit-variance evidence rebuild in
+Next recommended action: write the projected critical-value note for the
+enlarged \((B,\lambda)\) inversion in
 `manuscript/tasks/M65-unit-variance-gmm-evidence-rebuild/task.md`. M63
-citation/export cleanup is deferred until the core estimator, figures, and
-registry match the recovered revision.
+citation/export cleanup is deferred until the inference caveat and evidence
+wording are stable.
 
-Active milestone: M0063 completed M67 and closed GitHub milestone 58 for the
-unit-variance Figure 1 rebuild. M0062 completed M66 and created GitHub milestone 57 for the
+Active milestone: M0064 completed M68 and closed GitHub milestone 59 for the
+first-shock impact evidence rebuild. M0063 completed M67 and closed GitHub
+milestone 58 for the unit-variance Figure 1 rebuild. M0062 completed M66 and created GitHub milestone 57 for the
 noise-ratio bound and grid algorithm. M0061 recovers Revision-20260610-190805 and creates the
 unit-variance GMM repair path; GitHub milestone 56 tracks the same work. M0060 completed the M33 replication wrapper and created
 GitHub milestone 55. M0059 completed the M57 task folder workflow; GitHub
@@ -57,15 +61,14 @@ unreliable M48 conclusions.
 
 Active blockers:
 
-- M65 is now partially advanced by M67. Figure 1 is rebuilt with the projected
-  \((B,\lambda)\) GMM inversion. Figure 2, Figure 3, and the Monte Carlo table
-  still need the same unit-variance treatment, and the final
-  projection-critical-value route remains open.
+- M65 is now advanced by M68. Figures 1-3 and the Monte Carlo diagnostic are
+  rebuilt with the projected \((B,\lambda)\) GMM inversion and first-shock
+  chart. The final projection-critical-value route remains open.
 - The M64 revision supersedes the retained `diag(B)=1` chart. The active
   manuscript normalization is now \(E[\varepsilon_t\varepsilon_t']=I\), with
-  residual-noise variances handled as nuisance parameters \(\nu\). M67 updates
-  the Figure 1 replication command; remaining M52 companion evidence must be
-  rebuilt or clearly marked historical before final evidence claims.
+  residual-noise variances handled as nuisance parameters \(\nu\). M68 updates
+  the Figure 1-3 and Monte Carlo replication commands; M52 companion evidence
+  is historical.
 - M47 conditionally clears the M25 standard-DW J-test inversion result. The
   theorem-level version must remain a rich-stack/ICA statement with
   structural-coordinate rescaling exceptions, finite-GMM alias caveats,
@@ -136,13 +139,18 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-12, completed M66 by deriving that the
+Last substantive session: 2026-06-12, completed M68 by imposing positive
+diagonal signs, adding the \(B_{12}\le0\) sign restriction, switching active
+figures to first-shock coordinates \((B_{11},B_{21})\), and rebuilding
+Figures 1-3 plus the Monte Carlo diagnostic under the M66 unit-variance route.
+
+Prior substantive session: 2026-06-12, completed M66 by deriving that the
 scale-invariant bound is \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), not a
 direct residual-coordinate \(0\le\nu_i\le\rho\) cap, revising Section 4's
 projected set and algorithm, marking old Figure 1-3 scripts historical, and
 unblocking M65.
 
-Prior substantive session: 2026-06-12, completed M64 by recovering the live
+Earlier substantive session: 2026-06-12, completed M64 by recovering the live
 `Revision-20260610-190805` branch content, accepting the unit-variance
 normalization decision, rewriting Sections 2-4 toward a standard GMM
 \((B,\nu)\) route, and routing the next work to M65.

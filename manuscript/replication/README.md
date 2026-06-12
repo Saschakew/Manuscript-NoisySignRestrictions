@@ -15,9 +15,10 @@ package-covered SVAR estimation, identification, inference, or simulation
 routines inside this manuscript repository. Add only thin wrappers, manuscript
 parameters, scripts, and output handling here.
 
-## Current M33 Wrapper
+## Current M68 Wrapper
 
-M33 adds a manuscript-local wrapper for the active M52 evidence package:
+M33 added a manuscript-local wrapper. M68 updates it for the active
+unit-variance first-shock evidence package:
 
 ```powershell
 python manuscript\replication\run_all.py --dry-run
@@ -26,12 +27,19 @@ python manuscript\replication\run_all.py --stage all
 
 The full command rebuilds:
 
-- Figure 1: `manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png`
-- Figure 2: `manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png`
-- Figure 3: `manuscript/figures/fig_sign_dw_sample_size_robust_grid.png`
-- M52 evidence note and JSON:
-  `manuscript/simulations/m52_source_correct_evidence.md` and
-  `manuscript/simulations/output/m52_source_correct_evidence.json`
+- Figure 1:
+  `manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png`
+- Figure 2:
+  `manuscript/figures/fig_sign_dw_unit_variance_nongaussianity_grid.png`
+- Figure 3:
+  `manuscript/figures/fig_sign_dw_unit_variance_sample_size_grid.png`
+- M68 evidence note and JSON:
+  `manuscript/simulations/m68_first_shock_evidence.md` and
+  `manuscript/simulations/output/m68_first_shock_evidence.json`
+
+The active stages display first-shock coordinates `(B11,B21)`, profile `B12`,
+`B22`, and `lambda`, impose `B11>0`, `B22>0`, `B12<=0`, and `B21>=0`, and use
+the M66 route `nu_i=lambda_i(BB')_ii`.
 
 For a quick operational smoke check that does not overwrite canonical evidence
 outputs, run:
@@ -41,8 +49,8 @@ python manuscript\replication\run_all.py --stage evidence --quick
 ```
 
 Quick outputs are written under `manuscript/replication/output/quick/` and are
-not manuscript evidence. Use them only to verify that the wrapper and imports
-work.
+not manuscript evidence. Use them only to verify that the wrapper, imports,
+and small grids work.
 
 Optional staged commands:
 

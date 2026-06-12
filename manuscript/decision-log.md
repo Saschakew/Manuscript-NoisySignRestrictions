@@ -5,6 +5,22 @@ decisions.
 
 ## Entries
 
+### 2026-06-12 - Report first-shock impact coordinates in evidence figures
+
+- Origin: M68 execution after the user reviewed the M67 projection.
+- User input id: U0065
+- Decision: Treat \(B_{11}>0\) and \(B_{22}>0\) as maintained sign
+  restrictions, impose a sign restriction on \(B_{12}\), and report
+  first-shock impact coordinates \((B_{11},B_{21})\) in the active figures.
+- Rationale: The M67 \((B_{12},B_{21})\) projection can visually hide full
+  \(B_0\) rejection because accepted cells may contain another diagonal pair.
+  The first-shock chart keeps the reader focused on the response vector of the
+  first shock while still allowing the remaining coordinates to be profiled.
+- Consequence for next work: M68 supersedes the M67 chart as the active
+  evidence design. Figures 1-3 and the Monte Carlo diagnostic now use one
+  common sign screen and moment criterion; projected critical values remain
+  the next inference task.
+
 ### 2026-06-12 - Use a profiled projection chart for unit-variance Figure 1
 
 - Origin: M67 execution after the user asked to build the corrected updated
@@ -17,10 +33,9 @@ decisions.
   residual-noise shares \(\lambda_i=\nu_i/(BB')_{ii}\). A two-dimensional
   figure must therefore be a projection, not the old
   \(B=\begin{bmatrix}1&b_{12}\\ b_{21}&1\end{bmatrix}\) chart.
-- Consequence for next work: Figure 1 is active as a diagnostic with fixed
-  one-step GMM weights and pointwise chi-square cutoffs. M65 still needs the
-  companion Figure 2/3 rebuild, Monte Carlo table, and final projected
-  critical-value route.
+- Consequence for next work: M68 supersedes this \((B_{12},B_{21})\) chart
+  with the first-shock \((B_{11},B_{21})\) chart. M65 still needs the final
+  projected critical-value route.
 
 ### 2026-06-12 - Use lambda for the unit-variance noise-ratio bound
 
@@ -41,9 +56,10 @@ decisions.
   keeping only \(0\le\nu_i\le\rho(BB')_{ii}\) notation without a ratio
   parameter; or rebuilding figures immediately in the old B-plane chart.
 - Consequence for next work: Section 4 uses \(\lambda\in[0,\rho]^2\) inside
-  \(\mathcal R_T(c;\rho)\). Existing Figure 1-3 scripts remain historical
-  because they use the old diagonal-normalized chart. M65 must rebuild figures
-  and evidence using the projected \((B,\lambda)\) GMM algorithm.
+  \(\mathcal R_T(c;\rho)\). Existing pre-M68 Figure 1-3 scripts remain
+  historical because they use the old diagonal-normalized chart. M68 rebuilds
+  diagnostic figures and evidence using the projected \((B,\lambda)\) GMM
+  algorithm; M65 keeps the projected critical-value issue.
 
 ### 2026-06-12 - Switch active manuscript route to unit-variance GMM
 
@@ -63,17 +79,18 @@ decisions.
 - Alternatives considered: preserving the M54 `diag(B)=1` route; treating the
   revision as comments only; or leaving M52 figures and table as active
   evidence.
-- Consequence for next work: M52 evidence is historical until M65 rebuilds the
-  implementation, figures, Monte Carlo table, registry, and replication wrapper
-  under the unit-variance GMM route.
+- Consequence for next work: M52 evidence is historical after M68. The
+  remaining unit-variance GMM route work is projected critical values and
+  release hardening.
 
 ### 2026-06-12 - Use M33 wrapper as the replication entry point
 
 - Origin: M0060 execution after `Revision-20260610-190805`.
 - User input id: U0061
 - Decision: Treat `manuscript/replication/run_all.py` as the current
-  manuscript-local entry point for rebuilding active Figures 1-3 and the M52
-  evidence note/JSON.
+  manuscript-local entry point for rebuilding active Figures 1-3 and the
+  evidence note/JSON. M68 updates this wrapper for the unit-variance
+  first-shock outputs.
 - Rationale: The active evidence scripts already live inside this manuscript
   repository and do not import from the local KnowledgeVault checkout. A thin
   replication wrapper makes the rebuild path explicit without duplicating
@@ -84,7 +101,8 @@ decisions.
   archive shape is settled; note-only commands were too easy to miss.
 - Consequence for next work: Use `python manuscript\replication\run_all.py
   --stage all` for canonical rebuilds. Use quick mode only for smoke checks.
-  Move next to M63 citation/export cleanup.
+  Move next to the M65 projected-critical-value note before M63
+  citation/export cleanup.
 
 ### 2026-06-11 - Stop cleanup expansion and return to M33
 

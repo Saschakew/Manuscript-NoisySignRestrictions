@@ -84,7 +84,7 @@
     {
       "id": "def:standard-dw-refined-set",
       "type": "definition",
-      "status": "rewritten-after-m64-evidence-needs-rebuild",
+      "status": "diagnostic-evidence-rebuilt-after-m68",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#3-drautzburg-wright-refinement-under-noise",
       "description": "M49 source-audited the bivariate Drautzburg-Wright higher-moment menus. GMM1 uses standardized raw products 112, 122, 1112, 1122, and 1222; GMM2 drops only the symmetric 1122 kurtosis condition. After M64, the draft presents DW as a refinement of the unit-variance second-moment set S_{J,T}(c_2), so the finite-sample set must pass both the variance/covariance block and the higher-moment block.",
       "depends_on": [
@@ -110,7 +110,7 @@
     {
       "id": "eq:standard-dw-j-test-inversion",
       "type": "equation",
-      "status": "rewritten-after-m64-evidence-needs-rebuild",
+      "status": "diagnostic-evidence-rebuilt-after-m68",
       "draft_location": "derivations/standard-dw-j-test-under-noise.md; draft.md#3-drautzburg-wright-refinement-under-noise",
       "description": "Sample J-test inversion for the standard no-noise DW moment stack. After M64, the displayed set is D_T(c_2,c_S)={B in S_{J,T}(c_2): J_{S,T}(B)<=c_S}; it refines the unit-variance second-moment set rather than using a separate old B-plane covariance screen.",
       "depends_on": [
@@ -118,35 +118,35 @@
         "prop:standard-dw-misspecification"
       ],
       "derivation": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md",
-      "verification_status": "M25 working derivation complete; M49 source and noisy-moment audit complete; M52 evidence rebuild complete; M47 conditionally passes the proof gate for compact rich-stack wording while preserving finite-GMM alias caveats.",
+      "verification_status": "M25 working derivation complete; M49 source and noisy-moment audit complete; M47 conditionally passes the proof gate for compact rich-stack wording while preserving finite-GMM alias caveats. M68 rebuilds the first-shock diagnostic evidence for the post-M64 unit-variance chart.",
       "source": "manuscript/derivations/standard-dw-j-test-under-noise.md; manuscript/derivations/m47-standard-dw-proof-gate-audit.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md"
     },
     {
       "id": "def:robust-dw-higher-moment-set",
       "type": "definition",
-      "status": "rewritten-after-m64-evidence-needs-rebuild",
+      "status": "diagnostic-evidence-rebuilt-after-m68",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "M64/M66 robust DW set over the enlarged parameter vector (B,nu), with the nuisance bound represented by lambda_i=nu_i/(BB')_ii in [0,rho]. It imposes sign restrictions, the second-order block Sigma_u=BB'+diag(nu), the lambda ratio bound, and Gaussian-noise-blind higher-moment rows G_H(B,nu). The reported set projects the efficient GMM confidence set over accepted (B,lambda) pairs onto B. M65 must rebuild code and evidence for this object.",
+      "description": "M64/M66 robust DW set over the enlarged parameter vector (B,nu), with the nuisance bound represented by lambda_i=nu_i/(BB')_ii in [0,rho]. It imposes sign restrictions, the second-order block Sigma_u=BB'+diag(nu), the lambda ratio bound, and Gaussian-noise-blind higher-moment rows G_H(B,nu). M68 implements the diagnostic projected evidence route by reporting accepted first-shock coordinates (B11,B21), profiling B12, B22, and lambda, and imposing B11>0, B22>0, B12<=0, and B21>=0.",
       "depends_on": [
         "def:diagonal-noise-svar",
         "ass:gaussian-residual-noise",
         "ass:unit-variance-normalization"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md; manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md",
-      "verification_status": "M64 supplies the standard GMM draft route. M66 clarifies the nuisance-bound convention and grid algorithm. M65 must implement and audit the unit-variance GMM route before figures or Monte Carlo evidence are treated as active.",
+      "verification_status": "M64 supplies the standard GMM draft route. M66 clarifies the nuisance-bound convention and grid algorithm. M68 rebuilds Figures 1-3 and Table 1 as diagnostic pointwise-chi-square inversions. Final projected critical values for the enlarged set remain open under M65.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/dw-robust-comparison-diagnostic.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md; manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md"
     },
     {
       "id": "eq:dw-higher-cumulant-moment-stack",
       "type": "equation",
-      "status": "rewritten-after-m64-evidence-needs-rebuild",
+      "status": "diagnostic-evidence-rebuilt-after-m68",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
       "description": "Displayed M64 moment-equation representation G_H(B,nu). It uses e_t(B)=B^{-1}u_t and parameter-implied covariance entries omega_ij(B,nu) from Omega_e(B,nu)=I+B^{-1}diag(nu)B^{-1'}, replacing the previous z(B) notation and sample covariance-product plug-ins. The full GMM vector stacks the second-order block with the five higher-moment rows.",
       "depends_on": [
         "def:robust-dw-higher-moment-set"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md",
-      "verification_status": "First-pass M64 draft derivation complete. Code, weighting, projection critical values, and regenerated evidence remain open for M65.",
+      "verification_status": "First-pass M64 draft derivation complete. M68 implements the figure and Monte Carlo diagnostics using fixed pointwise chi-square cutoffs. Weighting and projected critical values remain open for the final inference note.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md"
     },
     {
@@ -166,7 +166,7 @@
     {
       "id": "eq:relative-noise-covariance-screen",
       "type": "equation",
-      "status": "clarified-after-m66-evidence-needs-rebuild",
+      "status": "implemented-in-m68-diagnostic-evidence",
       "draft_location": "simulations/sign_dw_relative_noise_robust_grid_figure.md; draft.md#4-noise-robust-sign-and-dw-sets",
       "description": "M66 unit-variance second-order screen: Psi_2(B,nu)=vech{Sigma_u-BB'-diag(nu)}=0 with lambda_i=nu_i/(BB')_ii in [0,rho], equivalently nu_i=lambda_i(BB')_ii. This replaces the old B=[[1,a],[b,1]] chart and old structural-variance nuisance parameters s_i.",
       "depends_on": [
@@ -174,7 +174,7 @@
         "eq:dw-higher-cumulant-moment-stack"
       ],
       "derivation": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md; manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md",
-      "verification_status": "Draft derivation updated in M64 and ratio notation clarified in M66. M65 must implement this screen and rebuild evidence before final claims.",
+      "verification_status": "Draft derivation updated in M64 and ratio notation clarified in M66. M68 implements this screen in Figures 1-3 and the Monte Carlo diagnostic; projected confidence-set critical values remain open.",
       "source": "manuscript/simulations/sign_dw_relative_noise_robust_grid_figure.md; manuscript/derivations/m40-variance-ratio-robust-dw-screen-audit.md; manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md"
     },
     {
@@ -182,36 +182,36 @@
       "type": "proposition",
       "status": "historical-main-text-proposition-deleted-after-m64",
       "draft_location": "derivations/dw-noise-robust-moments.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "Historical proposition block from the pre-M64 route. M64 keeps the population validity logic in prose: at (B0,nu0), the second-order block is zero by Sigma_u=B0B0'+diag(nu0), and the higher-order block is zero by the Gaussian-noise cumulant argument. Final theorem wording is deferred to M65 or a later proof task.",
+      "description": "Historical proposition block from the pre-M64 route. M64 keeps the population validity logic in prose: at (B0,nu0), the second-order block is zero by Sigma_u=B0B0'+diag(nu0), and the higher-order block is zero by the Gaussian-noise cumulant argument. Final theorem wording is deferred to the M65 projected-critical-value note or a later proof task.",
       "depends_on": [
         "def:robust-dw-higher-moment-set",
         "eq:dw-higher-cumulant-moment-stack",
         "eq:relative-noise-covariance-screen"
       ],
       "derivation": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md",
-      "proof_status": "M64 first-pass derivation only. Needs M65 implementation/audit and a later proof review before theorem-level wording.",
+      "proof_status": "M64 first-pass derivation and M68 diagnostic implementation complete. Needs projected-critical-value and proof review before theorem-level wording.",
       "source": "manuscript/derivations/dw-noise-robust-moments.md; manuscript/derivations/m37-diagonal-noise-robust-estimator-audit.md; manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md"
     },
     {
       "id": "prop:dw-robust-comparison-diagnostic",
       "type": "proposition",
-      "status": "recomputed-after-m45",
+      "status": "recomputed-after-m68",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#5-monte-carlo-robustness-check",
-      "description": "Diagnostic statement after M52: standard-DW accepted mass outside the variance-ratio robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while a large robust-DW set records the information lost by dropping invalid recovered-shock covariance restrictions and profiling diagonal noise.",
+      "description": "Diagnostic statement after M68: standard-DW accepted mass outside the unit-variance robust-DW set warns that no-noise covariance-target precision may be driven by residual-noise misspecification, while a large robust-DW set records the information lost by modeling diagonal residual noise and profiling lambda.",
       "depends_on": [
         "def:standard-dw-refined-set",
         "def:robust-dw-higher-moment-set"
       ],
-      "proof_status": "M27 formalization complete for the comparison metric. M52 recomputed the metric bundle for the source-correct standard-DW GMM1 set and variance-ratio robust set after Figures 1-3 were rebuilt.",
+      "proof_status": "M27 formalization complete for the comparison metric. M68 recomputed the metric bundle for the first-shock unit-variance chart after Figures 1-3 and Table 1 were rebuilt.",
       "derivation": "manuscript/derivations/dw-robust-comparison-diagnostic.md",
       "source": "manuscript/derivations/dw-robust-comparison-diagnostic.md"
     },
     {
       "id": "eq:dw-robust-directional-overlap",
       "type": "equation",
-      "status": "formalized-for-m29",
+      "status": "reused-for-m68-first-shock-chart",
       "draft_location": "derivations/dw-robust-comparison-diagnostic.md; draft.md#5-monte-carlo-robustness-check",
-      "description": "M27 overlap metric bundle for the common normalized chart: accepted shares, symmetric Jaccard overlap, directional containment q_{S|R}=mu(S cap R)/mu(S), and warning share d_{S not subset R}=1-q_{S|R}.",
+      "description": "M27 overlap metric bundle, reused in M68 on the first-shock projection chart: accepted shares, symmetric Jaccard overlap when reported, directional containment q_{S|R}=mu(S cap R)/mu(S), and warning share d_{S not subset R}=1-q_{S|R}.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic"
       ],
@@ -220,61 +220,61 @@
     {
       "id": "fig:sign-noise-geometry",
       "type": "figure",
-      "status": "figure1-row-rebuilt-after-m67",
+      "status": "figure1-row-rebuilt-after-m68",
       "draft_location": "draft.md#2-sign-restrictions-and-noisy-svars",
-      "description": "M67 rebuilds the first-row residual-noise geometry under the unit-variance projected route. The displayed chart projects to (B12,B21), profiles B11 and B22, and marks whether the full true B0 passes the no-noise sign/covariance test.",
+      "description": "M68 rebuilds the first-row residual-noise geometry under the unit-variance projected route. The displayed chart projects to first-shock coordinates (B11,B21), profiles B12 and B22, imposes B11>0, B22>0, B12<=0, and B21>=0, and marks whether the full true B0 passes the no-noise sign/covariance test.",
       "depends_on": [
         "prop:noisy-sign-pseudo-set"
       ],
-      "output_source": "M67 output: manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png; generator manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py; diagnostics manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md and manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json. Replication wrapper command: python manuscript/replication/run_all.py --stage figure1."
+      "output_source": "M68 output: manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png; generator manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py --scenario-set noise; diagnostics manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md and manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json. Replication wrapper command: python manuscript/replication/run_all.py --stage figure1."
     },
     {
       "id": "fig:standard-dw-false-sharpening",
       "type": "figure",
-      "status": "figure1-row-rebuilt-after-m67",
+      "status": "figure1-row-rebuilt-after-m68",
       "draft_location": "draft.md#3-drautzburg-wright-refinement-under-noise; draft.md#5-monte-carlo-robustness-check",
-      "description": "M67 rebuilds the standard-DW residual-noise row for Figure 1 under the unit-variance projection. The standard row remains the no-noise comparator: it profiles B11 and B22 for the displayed (B12,B21) projection and marks whether the full true B0 passes the standard no-noise and DW tests.",
+      "description": "M68 rebuilds the standard-DW residual-noise row for Figure 1 under the unit-variance projection. The standard row remains the no-noise comparator: it profiles B12 and B22 for the displayed (B11,B21) projection, imposes the maintained sign screen, and marks whether the full true B0 passes the standard no-noise and DW tests.",
       "depends_on": [
         "prop:standard-dw-misspecification",
         "eq:relative-noise-covariance-screen"
       ],
-      "output_source": "M67 output: manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png; generator manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py; diagnostics manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md and manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. Historical comparisons remain manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png, manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png, and manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png."
+      "output_source": "M68 output: manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png; generator manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py --scenario-set noise; diagnostics manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md and manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. Historical comparisons remain manuscript/figures/fig_sign_dw_relative_noise_robust_grid.png, manuscript/figures/fig_sign_dw_bounded_noise_robust_grid.png, and manuscript/figures/fig_sign_dw_pure_robust_noise_grid.png."
     },
     {
       "id": "fig:dw-robust-set-comparison",
       "type": "figure",
-      "status": "partially-rebuilt-figure1-after-m67",
+      "status": "rebuilt-after-m68",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "M67 rebuilds Figure 1 under the M66 unit-variance projected (B,lambda) GMM route. Figure 2 and Figure 3 remain historical M52 grid stories until M65 rebuilds them under the same route.",
+      "description": "M68 rebuilds Figures 1-2 under the M66 unit-variance projected (B,lambda) GMM route and the first-shock chart. Figure 1 varies residual noise; Figure 2 fixes residual noise and weakens structural non-Gaussianity. Both report (B11,B21), profile B12, B22, and lambda, and impose B11>0, B22>0, B12<=0, and B21>=0.",
       "depends_on": [
         "prop:dw-robust-comparison-diagnostic",
         "eq:relative-noise-covariance-screen"
       ],
-      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png, manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py, manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md, and manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json. Figure 2 historical: manuscript/figures/fig_sign_dw_robust_nongaussianity_grid.png and manuscript/simulations/sign_dw_robust_nongaussianity_grid_figure.py. Figure 3 historical: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png and manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py. Replication wrapper command for rebuilt Figure 1: python manuscript/replication/run_all.py --stage figure1. M52 validation output remains historical: manuscript/simulations/m52_source_correct_evidence.md and manuscript/simulations/output/m52_source_correct_evidence.json."
+      "output_source": "Figure 1: manuscript/figures/fig_sign_dw_unit_variance_noise_grid.png, manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.md, and manuscript/simulations/output/sign_dw_unit_variance_noise_grid_figure.json. Figure 2: manuscript/figures/fig_sign_dw_unit_variance_nongaussianity_grid.png, manuscript/simulations/sign_dw_unit_variance_nongaussianity_grid_figure.md, and manuscript/simulations/output/sign_dw_unit_variance_nongaussianity_grid_figure.json. Generator for both: manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py. Replication wrapper commands: python manuscript/replication/run_all.py --stage figure1 and python manuscript/replication/run_all.py --stage figure2. M52 validation output remains historical: manuscript/simulations/m52_source_correct_evidence.md and manuscript/simulations/output/m52_source_correct_evidence.json."
     },
     {
       "id": "fig:sample-size-robust-grid",
       "type": "figure",
-      "status": "historical-needs-rebuild-after-m66",
+      "status": "rebuilt-after-m68",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Historical M52 sample-size grid. M65 must rebuild it under the M66 unit-variance projected (B,lambda) GMM route or drop it from active evidence.",
+      "description": "M68 sample-size grid under the M66 unit-variance projected (B,lambda) GMM route and the first-shock chart. It fixes residual noise and structural non-Gaussianity, varies T, reports (B11,B21), profiles B12, B22, and lambda, and imposes B11>0, B22>0, B12<=0, and B21>=0.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "eq:relative-noise-covariance-screen",
         "prop:robust-dw-higher-moment-validity"
       ],
-      "output_source": "M44 output: manuscript/figures/fig_sign_dw_sample_size_robust_grid.png; generator manuscript/simulations/sign_dw_sample_size_robust_grid_figure.py; M33 wrapper command: python manuscript/replication/run_all.py --stage figure3; diagnostic note manuscript/simulations/sign_dw_sample_size_robust_grid_figure.md."
+      "output_source": "M68 output: manuscript/figures/fig_sign_dw_unit_variance_sample_size_grid.png; generator manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py --scenario-set sample_size; replication wrapper command: python manuscript/replication/run_all.py --stage figure3; diagnostics manuscript/simulations/sign_dw_unit_variance_sample_size_grid_figure.md and manuscript/simulations/output/sign_dw_unit_variance_sample_size_grid_figure.json."
     },
     {
       "id": "table:monte-carlo-coverage-width",
       "type": "table",
-      "status": "historical-needs-rebuild-after-m64",
+      "status": "rebuilt-after-m68-diagnostic",
       "draft_location": "draft.md#5-monte-carlo-robustness-check",
-      "description": "Historical M52 Monte Carlo table. M64 marks it as not final evidence for the revised unit-variance GMM estimator; M65 must rebuild the table or remove it from active claims.",
+      "description": "M68 first-shock Monte Carlo diagnostic for the revised unit-variance GMM estimator. It uses the same sign screen as Figures 1-3, reports accepted-set shares on the (B11,B21) projection, profiles B12, B22, and lambda, and compares standard-DW and robust-DW truth inclusion under pointwise chi-square cutoffs.",
       "depends_on": [
         "fig:dw-robust-set-comparison"
       ],
-      "output_source": "M52 output: manuscript/simulations/m45_variance_ratio_evidence.py, manuscript/simulations/m52_source_correct_evidence.md, and manuscript/simulations/output/m52_source_correct_evidence.json. M33 wrapper command: python manuscript/replication/run_all.py --stage evidence. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M56 audit: manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md. Superseded historical M45 and M29 outputs remain for audit history."
+      "output_source": "M68 output: manuscript/simulations/m68_first_shock_evidence.py, manuscript/simulations/m68_first_shock_evidence.md, and manuscript/simulations/output/m68_first_shock_evidence.json. Replication wrapper command: python manuscript/replication/run_all.py --stage evidence. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M56 audit: manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md. Superseded historical M52, M45, and M29 outputs remain for audit history."
     },
     {
       "id": "audit:robust-dw-derivation",
@@ -331,7 +331,7 @@
       "type": "audit",
       "status": "historical-superseded-for-robust-row",
       "draft_location": "simulations/m28_grid_story_validation.md",
-      "description": "Refreshed M28 validation gate for the M0030 revised grid pair. It is historical after M0034/M0036 because the robust row used the superseded diagonal-anchor statistic. M52 supplies the active variance-ratio evidence gate.",
+      "description": "Refreshed M28 validation gate for the M0030 revised grid pair. It is historical after M0034/M0036/M68 because the robust row used the superseded diagonal-anchor statistic. M68 supplies the active unit-variance first-shock diagnostic evidence gate.",
       "depends_on": [
         "fig:dw-robust-set-comparison",
         "prop:standard-dw-misspecification",
@@ -384,7 +384,7 @@
       "type": "audit",
       "status": "done",
       "draft_location": "derivations/m56-robust-cumulant-gmm-generated-moment-audit.md; draft.md#4-noise-robust-sign-and-dw-sets",
-      "description": "M56 generated-moment audit. It shows that robust fourth-cumulant sample entries such as mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2) are smooth functions of primitive sample moments, not ordinary fixed row-level GMM moments. The population cumulant restrictions remain valid under independent Gaussian residual noise, but final finite-sample evidence should use primitive-moment delta-method covariance including centering terms, an equivalent augmented nuisance-covariance GMM system, or bootstrap/repeated-sample calibration. M52 implements the full central-moment delta route for the active evidence.",
+      "description": "M56 generated-moment audit. It shows that robust fourth-cumulant sample entries such as mean(z1*z2^3)-3 mean(z2^2) mean(z1*z2) are smooth functions of primitive sample moments, not ordinary fixed row-level GMM moments. The population cumulant restrictions remain valid under independent Gaussian residual noise, but final finite-sample evidence should use primitive-moment delta-method covariance including centering terms, an equivalent augmented nuisance-covariance GMM system, or bootstrap/repeated-sample calibration. M68 implements the active first-shock diagnostic evidence; final projected critical values remain open.",
       "depends_on": [
         "eq:dw-higher-cumulant-moment-stack",
         "prop:robust-dw-higher-moment-validity",

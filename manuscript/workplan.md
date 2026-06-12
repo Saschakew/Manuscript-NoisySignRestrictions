@@ -4,9 +4,11 @@
 
 M0034 scale correction: the M0030/M37 diagonal-anchor robust-DW evidence is
 superseded. M0036 supplied the pre-M64 replacement: variance-ratio robust DW.
-M64 then switched the active manuscript to unit structural-shock variances, and
-M66 clarified the active ratio notation as
-`lambda_i = nu_i / (B B')_ii in [0,rho]`.
+M64 then switched the active manuscript to unit structural-shock variances, M66
+clarified the active ratio notation as
+`lambda_i = nu_i / (B B')_ii in [0,rho]`, and M68 rebuilt Figures 1-3 plus
+the Monte Carlo diagnostic on the first-shock chart `(B11,B21)` with positive
+diagonal signs and the maintained `B12<=0`, `B21>=0` restrictions.
 
 M0040 update: the variance-ratio robust DW screen is now the paper's active
 proposal with rebuilt first-pass evidence. Sections 2-4 have formula-first
@@ -80,10 +82,10 @@ dynamic impulse responses.
 | M1. Initialize repository | done | Metadata, source links, package path, source packet, and first bibliography snapshot are initialized. |
 | M2. Scope paper | done | One-sentence claim, paper contract, exclusions, and revised structure are stable enough for formal planning. |
 | M3. Pivot to robust DW plan | done | Active plan, map, registry, task board, source packet, draft skeleton, and replication plan all point to the robust DW comparison paper. |
-| M4. Formal result package | doing | M64 supersedes the retained `diag(B)=1` route and switches the active formal route to unit-variance GMM over `(B, nu)`. M66 settles the nuisance bound as `lambda_i = nu_i / (B B')_ii in [0,rho]`. M65 must audit the implementation, projection critical value, and evidence before theorem-level wording. |
-| M5. Evidence package | doing | M67 rebuilds Figure 1 under the unit-variance `(B,lambda)` projected GMM estimator. M52 companion figures and Monte Carlo outputs remain historical; M65 must rebuild Figure 2, Figure 3, and the Monte Carlo table before the full evidence package is active. |
-| M6. First complete draft | doing | M64 recovered the real revision comments and rewrote Sections 2-4 around unit variance and standard GMM. Remaining draft gates are M65 evidence rebuild, then references cleanup and export preparation. |
-| M7. Reproducibility package | doing | M33 added `manuscript/replication/run_all.py`; M67 updates its Figure 1 command. M65 must update the remaining figure/evidence commands after the estimator and companion outputs are rebuilt. |
+| M4. Formal result package | doing | M64 supersedes the retained `diag(B)=1` route and switches the active formal route to unit-variance GMM over `(B, nu)`. M66 settles the nuisance bound as `lambda_i = nu_i / (B B')_ii in [0,rho]`. M68 implements diagnostic evidence; M65 still owns the projection critical value before theorem-level wording. |
+| M5. Evidence package | doing | M68 rebuilds Figures 1-3 and the Monte Carlo diagnostic under the unit-variance `(B,lambda)` projected GMM estimator and first-shock chart. Final evidence status still needs the projected critical-value note. |
+| M6. First complete draft | doing | M64 recovered the real revision comments and rewrote Sections 2-4 around unit variance and standard GMM. M68 updates Section 5 around the active first-shock evidence. Remaining draft gates are projected-critical-value wording, references cleanup, and export preparation. |
+| M7. Reproducibility package | doing | M33 added `manuscript/replication/run_all.py`; M68 updates its Figure 1-3 and evidence commands for the active first-shock unit-variance outputs. Release hardening can still package source and pin dependencies. |
 | M8. Shareable draft | todo | Citations, provenance, checks, and exports are clean. |
 
 ## Review Plan
@@ -108,7 +110,8 @@ dynamic impulse responses.
    equality-plus-inequality behavior, and the substantive interpretation of
     the 50 percent noise-to-shock variance bound. M66 updates this route for
    the unit-variance manuscript by using the dimensionless share
-   `lambda_i=nu_i/(B B')_ii`. M0050 made the robust
+   `lambda_i=nu_i/(B B')_ii`, and M68 implements it in the first-shock figure
+   and Monte Carlo diagnostics. M0050 made the robust
    restrictions read as moment conditions rather than visible cumulant notation
    while preserving the fourth-order covariance-product subtractions. M54
    completed the intermediate expansion steps and kept the current
@@ -120,11 +123,11 @@ dynamic impulse responses.
 6. Diagnostic interpretation review: use the M27 directional metric and verify
    that DW-versus-robust-DW divergence is described as a warning, not proof of
    literal measurement error.
-7. Evidence design: treat the Figure 1/Figure 2/Figure 3 sequence and M52
-   table as the current visual spine for the source-correct standard-DW GMM1
-   statistic and central-delta robust generated-moment statistic. M34 completed
-   the adversarial review and kept the evidence language lightweight; final
-   evidence still requires replication packaging or a heavier run.
+7. Evidence design: treat the M68 Figure 1/Figure 2/Figure 3 sequence and
+   Table 1 as the current diagnostic visual spine for the source-correct
+   standard-DW GMM1 statistic and unit-variance robust generated-moment
+   statistic. Final evidence still requires the projected critical-value note
+   and replication hardening before confidence-set claims.
 8. Simulation adversary: before accepting any figure, check whether the DGP,
    grids, critical values, cumulant estimators, or plotting choices could make
    the result look correct even if the theory is wrong.

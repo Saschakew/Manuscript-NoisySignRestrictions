@@ -1,15 +1,17 @@
-"""Build the M67 unit-variance residual-noise Figure 1.
+"""Build unit-variance first-shock impact grid figures.
 
-The figure replaces the historical diagonal-normalized B-plane Figure 1.  It
-uses the M64/M66 route: structural shocks have unit variance, residual-noise
-variances are nuisance parameters, and the robust row projects accepted
-``(B, lambda)`` pairs onto the displayed ``(B12, B21)`` coordinates.
+The figures replace the historical diagonal-normalized B-plane figures and
+the M67 ``(B12, B21)`` projection. They use the M64/M66 route: structural
+shocks have unit variance, residual-noise variances are nuisance parameters,
+and the robust row projects accepted ``(B, lambda)`` pairs onto displayed
+impact coordinates.
 
-The displayed chart is a projection, not a normalization.  For each plotted
-``(B12, B21)`` point, the script searches over positive diagonal entries
-``B11`` and ``B22``.  The robust row then searches over
-``lambda in [0, rho]^2`` and evaluates the Section 4 moment vector at
-``nu_i(B, lambda) = lambda_i (B B')_ii``.
+The active M68 chart reports the impact vector of the first shock,
+``(B11, B21)``. For each plotted ``(B11, B21)`` point, the script profiles
+``B12`` and ``B22`` while imposing the maintained sign screen
+``B11 > 0``, ``B22 > 0``, ``B12 <= 0``, and ``B21 >= 0``. The robust row then
+searches over ``lambda in [0, rho]^2`` and evaluates the Section 4 moment
+vector at ``nu_i(B, lambda) = lambda_i (B B')_ii``.
 """
 
 from __future__ import annotations
@@ -50,22 +52,32 @@ CHI2_90_DF5 = 9.236356899781123
 CHI2_90_DF8 = 13.36156613651173
 
 B12_MIN = -1.10
-B12_MAX = 0.45
+B12_MAX = 0.0
 B21_MIN = -0.10
 B21_MAX = 1.45
-B11_MIN = 0.55
-B11_MAX = 1.45
+B11_MIN = 0.35
+B11_MAX = 1.65
 B22_MIN = 0.55
 B22_MAX = 1.45
 
 
 @dataclass(frozen=True)
 class GridSpec:
-    projection_points: int = 47
-    diagonal_points: int = 11
+    projection_points: int = 43
+    profile_points: int = 11
     lambda_points: int = 7
     robust_batch_size: int = 36
     standard_batch_size: int = 240
+
+
+@dataclass(frozen=True)
+class FigureScenario:
+    label: str
+    noise: tuple[float, float]
+    sample_size: int = SAMPLE_SIZE
+    non_gaussian_weight: float = 1.0
+    seed: int = RANDOM_SEED
+    residual_noise: str = "gaussian"
 
 
 @dataclass(frozen=True)
@@ -74,10 +86,29 @@ class CandidateGrid:
     b12: np.ndarray
     b21: np.ndarray
     b22: np.ndarray
-    b12_index: np.ndarray
+    b11_index: np.ndarray
     b21_index: np.ndarray
-    b12_values: np.ndarray
+    b11_values: np.ndarray
     b21_values: np.ndarray
+
+
+FIGURE_SCENARIOS = {
+    "noise": (
+        FigureScenario("V=(0,0)", (0.0, 0.0)),
+        FigureScenario("V=(0.2,0.2)", (0.2, 0.2)),
+        FigureScenario("V=(0.5,0.5)", (0.5, 0.5)),
+    ),
+    "nongaussianity": (
+        FigureScenario("w=1", (0.2, 0.2), non_gaussian_weight=1.0),
+        FigureScenario("w=0.25", (0.2, 0.2), non_gaussian_weight=0.25),
+        FigureScenario("w=0", (0.2, 0.2), non_gaussian_weight=0.0),
+    ),
+    "sample_size": (
+        FigureScenario("T=500", (0.2, 0.2), sample_size=500),
+        FigureScenario("T=1000", (0.2, 0.2), sample_size=1000),
+        FigureScenario("T=2000", (0.2, 0.2), sample_size=2000),
+    ),
+}
 
 
 def display_path(path: Path) -> str:
@@ -95,15 +126,41 @@ def standardize_columns(values: np.ndarray) -> np.ndarray:
     return values / scale
 
 
-def primitive_draws(sample_size: int = SAMPLE_SIZE, seed: int = RANDOM_SEED) -> tuple[np.ndarray, np.ndarray]:
+def primitive_draws(
+    sample_size: int = SAMPLE_SIZE,
+    seed: int = RANDOM_SEED,
+    non_gaussian_weight: float = 1.0,
+    residual_noise: str = "gaussian",
+) -> tuple[np.ndarray, np.ndarray]:
     rng = np.random.default_rng(seed)
-    structural = standardize_columns(rng.chisquare(df=STRUCTURAL_CHI2_DF, size=(sample_size, 2)))
-    noise = standardize_columns(rng.normal(size=(sample_size, 2)))
+    skewed = standardize_columns(rng.chisquare(df=STRUCTURAL_CHI2_DF, size=(sample_size, 2)))
+    if non_gaussian_weight >= 1.0 - 1e-12:
+        structural = skewed
+    elif non_gaussian_weight <= 1e-12:
+        structural = standardize_columns(rng.normal(size=(sample_size, 2)))
+    else:
+        gaussian = standardize_columns(rng.normal(size=(sample_size, 2)))
+        structural = math.sqrt(non_gaussian_weight) * skewed
+        structural += math.sqrt(max(0.0, 1.0 - non_gaussian_weight)) * gaussian
+        structural = standardize_columns(structural)
+    if residual_noise == "gaussian":
+        noise = standardize_columns(rng.normal(size=(sample_size, 2)))
+    elif residual_noise == "skewed":
+        noise = standardize_columns(rng.chisquare(df=STRUCTURAL_CHI2_DF, size=(sample_size, 2)))
+    else:
+        raise ValueError(f"unknown residual-noise type: {residual_noise}")
     return structural, noise
 
 
-def simulate_residuals(nu1: float, nu2: float) -> np.ndarray:
-    structural, noise = primitive_draws()
+def simulate_residuals(
+    nu1: float,
+    nu2: float,
+    sample_size: int = SAMPLE_SIZE,
+    seed: int = RANDOM_SEED,
+    non_gaussian_weight: float = 1.0,
+    residual_noise: str = "gaussian",
+) -> np.ndarray:
+    structural, noise = primitive_draws(sample_size, seed, non_gaussian_weight, residual_noise)
     residuals = structural @ TRUE_MATRIX.T
     residuals[:, 0] += math.sqrt(nu1) * noise[:, 0]
     residuals[:, 1] += math.sqrt(nu2) * noise[:, 1]
@@ -123,24 +180,24 @@ def unique_grid(start: float, stop: float, points: int, include: float) -> np.nd
 
 
 def make_candidate_grid(spec: GridSpec) -> CandidateGrid:
-    b12_values = unique_grid(B12_MIN, B12_MAX, spec.projection_points, TRUE_B12)
+    b11_values = unique_grid(B11_MIN, B11_MAX, spec.projection_points, TRUE_B11)
     b21_values = unique_grid(B21_MIN, B21_MAX, spec.projection_points, TRUE_B21)
-    b11_values = unique_grid(B11_MIN, B11_MAX, spec.diagonal_points, TRUE_B11)
-    b22_values = unique_grid(B22_MIN, B22_MAX, spec.diagonal_points, TRUE_B22)
+    b12_values = unique_grid(B12_MIN, B12_MAX, spec.profile_points, TRUE_B12)
+    b22_values = unique_grid(B22_MIN, B22_MAX, spec.profile_points, TRUE_B22)
 
-    b12_index, b21_index, b11_index, b22_index = np.meshgrid(
-        np.arange(b12_values.size),
-        np.arange(b21_values.size),
+    b11_index, b21_index, b12_index, b22_index = np.meshgrid(
         np.arange(b11_values.size),
+        np.arange(b21_values.size),
+        np.arange(b12_values.size),
         np.arange(b22_values.size),
         indexing="ij",
     )
-    b12 = b12_values[b12_index].ravel()
-    b21 = b21_values[b21_index].ravel()
     b11 = b11_values[b11_index].ravel()
+    b21 = b21_values[b21_index].ravel()
+    b12 = b12_values[b12_index].ravel()
     b22 = b22_values[b22_index].ravel()
 
-    sign_and_orientation = (b11 > 0.0) & (b22 > 0.0) & (b21 >= 0.0)
+    sign_and_orientation = (b11 > 0.0) & (b22 > 0.0) & (b12 <= 0.0) & (b21 >= 0.0)
     determinant = b11 * b22 - b12 * b21
     nonsingular = np.abs(determinant) > 1e-8
     keep = sign_and_orientation & nonsingular
@@ -149,9 +206,9 @@ def make_candidate_grid(spec: GridSpec) -> CandidateGrid:
         b12=b12[keep],
         b21=b21[keep],
         b22=b22[keep],
-        b12_index=b12_index.ravel()[keep],
+        b11_index=b11_index.ravel()[keep],
         b21_index=b21_index.ravel()[keep],
-        b12_values=b12_values,
+        b11_values=b11_values,
         b21_values=b21_values,
     )
 
@@ -425,7 +482,7 @@ def evaluate_standard_projection(
     second_weight: np.ndarray,
     standard_weight: np.ndarray,
 ) -> dict[str, Any]:
-    shape = (grid.b21_values.size, grid.b12_values.size)
+    shape = (grid.b21_values.size, grid.b11_values.size)
     sign_mask = np.zeros(shape, dtype=bool)
     standard_mask = np.zeros(shape, dtype=bool)
     best_second = np.full(shape, np.nan)
@@ -445,7 +502,7 @@ def evaluate_standard_projection(
         sign_accept = second_j <= CHI2_90_DF3
         standard_accept = sign_accept & (standard_j <= CHI2_90_DF5)
         rows = grid.b21_index[start:end]
-        cols = grid.b12_index[start:end]
+        cols = grid.b11_index[start:end]
         for local, (row, col) in enumerate(zip(rows, cols)):
             value_2 = float(second_j[local])
             value_s = float(standard_j[local])
@@ -495,7 +552,7 @@ def evaluate_robust_projection(
     spec: GridSpec,
     robust_weight: np.ndarray,
 ) -> dict[str, Any]:
-    shape = (grid.b21_values.size, grid.b12_values.size)
+    shape = (grid.b21_values.size, grid.b11_values.size)
     robust_mask = np.zeros(shape, dtype=bool)
     best_robust = np.full(shape, np.nan)
     best_lambda_1 = np.full(shape, np.nan)
@@ -521,7 +578,7 @@ def evaluate_robust_projection(
         lambda_min_index = np.nanargmin(robust_j, axis=1)
         min_j = robust_j[np.arange(selected.size), lambda_min_index]
         rows = grid.b21_index[selected]
-        cols = grid.b12_index[selected]
+        cols = grid.b11_index[selected]
         for local, (row, col) in enumerate(zip(rows, cols)):
             value = float(min_j[local])
             if not np.isfinite(best_robust[row, col]) or value < best_robust[row, col]:
@@ -596,8 +653,8 @@ def mask_share(mask: np.ndarray) -> float:
 def truth_distance(mask: np.ndarray, grid: CandidateGrid) -> float | None:
     if not mask.any():
         return None
-    b12_mesh, b21_mesh = np.meshgrid(grid.b12_values, grid.b21_values)
-    distances = np.hypot(b12_mesh[mask] - TRUE_B12, b21_mesh[mask] - TRUE_B21)
+    b11_mesh, b21_mesh = np.meshgrid(grid.b11_values, grid.b21_values)
+    distances = np.hypot(b11_mesh[mask] - TRUE_B11, b21_mesh[mask] - TRUE_B21)
     return float(np.min(distances))
 
 
@@ -616,18 +673,18 @@ def write_outputs(
     output_path: Path,
     note_path: Path,
     json_path: Path,
+    scenario_set: str,
 ) -> None:
     payload = {
         "schema_version": 1,
-        "task": "M67 unit-variance Figure 1 rebuild",
+        "task": "M68 first-shock impact evidence rebuild",
         "figure": display_path(output_path),
-        "description": "Projected unit-variance residual-noise grid over (B12,B21), with B11/B22 and lambda profiled.",
+        "description": "Projected unit-variance first-shock grid over (B11,B21), with B12/B22 and lambda profiled.",
         "configuration": {
-            "sample_size": SAMPLE_SIZE,
-            "seed": RANDOM_SEED,
+            "scenario_set": scenario_set,
             "rho": RELATIVE_NOISE_RATIO,
             "projection_points": spec.projection_points,
-            "diagonal_points": spec.diagonal_points,
+            "profile_points": spec.profile_points,
             "lambda_points": spec.lambda_points,
             "true_B0": TRUE_MATRIX.tolist(),
             "critical_values": {
@@ -635,10 +692,9 @@ def write_outputs(
                 "standard_dw_chi2_90_df5": CHI2_90_DF5,
                 "robust_full_moment_chi2_90_df8": CHI2_90_DF8,
             },
-            "displayed_projection": ["B12", "B21"],
-            "profiled_coordinates": ["B11", "B22", "lambda1", "lambda2"],
-            "orientation": "B11 > 0 and B22 > 0",
-            "sign_restriction": "B21 >= 0",
+            "displayed_projection": ["B11", "B21"],
+            "profiled_coordinates": ["B12", "B22", "lambda1", "lambda2"],
+            "sign_restrictions": ["B11 > 0", "B22 > 0", "B12 <= 0", "B21 >= 0"],
             "weighting": "fixed one-step GMM weights by scenario, evaluated at the fixed-draw true parameter",
         },
         "diagnostics": diagnostics,
@@ -647,13 +703,13 @@ def write_outputs(
     json_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8", newline="\n")
 
     lines = [
-        "# M67 Unit-Variance Figure 1 Diagnostics",
+        "# M68 Unit-Variance First-Shock Figure Diagnostics",
         "",
-        "Status: generated corrected Figure 1 for the M64/M66 unit-variance route.",
+        "Status: generated first-shock impact figure for the M64/M66 unit-variance route.",
         "",
-        "The chart displays the projection of accepted matrices onto `(B12, B21)`. It does not impose `diag(B)=1`: for every displayed projection point the script searches over positive `B11` and `B22`. The robust row also searches over `lambda in [0,rho]^2` and sets `nu_i=lambda_i (B B')_ii` before evaluating the Section 4 moment vector.",
+        "The chart displays the projection of accepted matrices onto `(B11, B21)`, the impact vector of the first shock. It does not impose `diag(B)=1`: for every displayed projection point the script searches over `B12` and `B22`. The maintained sign screen is `B11>0`, `B22>0`, `B12<=0`, and `B21>=0`. The robust row also searches over `lambda in [0,rho]^2` and sets `nu_i=lambda_i (B B')_ii` before evaluating the Section 4 moment vector.",
         "",
-        "Truth markers refer to the full true matrix, not merely to whether the true `(B12,B21)` projection cell contains some other accepted diagonal pair: a star means the full true `B0` passes that row's test, and an x means it does not.",
+        "Truth markers refer to the full true matrix, not merely to whether the true `(B11,B21)` projection cell contains some other accepted profiled pair: a star means the full true `B0` passes that row's test, and an x means it does not.",
         "",
         "The plotted J statistics use a fixed one-step GMM weight for each scenario, estimated from the fixed draw at the true parameter. The robust cutoff is a pointwise diagnostic chi-square cutoff for the eight displayed moment rows. The final projection-critical-value choice remains part of the broader M65 evidence task.",
         "",
@@ -661,11 +717,9 @@ def write_outputs(
         "",
         f"- Output figure: `{display_path(output_path)}`.",
         f"- Machine-readable diagnostics: `{display_path(json_path)}`.",
-        f"- Sample size: `{SAMPLE_SIZE}`.",
-        f"- Seed: `{RANDOM_SEED}`.",
         f"- Noise ratio bound: `rho={RELATIVE_NOISE_RATIO}`.",
         f"- Projection grid: `{spec.projection_points} x {spec.projection_points}` plus true coordinates.",
-        f"- Diagonal grid: `{spec.diagonal_points} x {spec.diagonal_points}` plus true diagonal entries.",
+        f"- Profile grid: `{spec.profile_points} x {spec.profile_points}` plus true profiled coordinates.",
         f"- Lambda grid: `{spec.lambda_points} x {spec.lambda_points}` plus the true lambda values for each scenario.",
         "- Weighting: fixed one-step GMM weights by scenario, evaluated at the fixed-draw true parameter for this diagnostic figure.",
         "",
@@ -698,7 +752,8 @@ def write_outputs(
             "| Claim | Status | Evidence | Confidence | Action |",
             "|---|---|---|---|---|",
             "| The robust row uses `nu_i=lambda_i (B B')_ii` with `lambda in [0,rho]^2`. | `code-implemented`, `derived` | `sign_dw_unit_variance_noise_grid_figure.py`; M66 derivation note. | high | promote for Figure 1 |",
-            "| The displayed chart is a projection to `(B12,B21)`, with diagonal entries profiled. | `code-implemented` | Candidate grid construction and diagnostics JSON. | high | promote |",
+            "| The displayed chart is a projection to `(B11,B21)`, with `B12`, `B22`, and `lambda` profiled. | `code-implemented`, `user-decision` | Candidate grid construction and diagnostics JSON; M68 task. | high | promote |",
+            "| The maintained sign screen is `B11>0`, `B22>0`, `B12<=0`, and `B21>=0`. | `code-implemented`, `user-decision` | Candidate grid construction and diagnostics JSON; M68 task. | high | promote |",
             "| The plotted J statistics use fixed one-step GMM weights for tractability and visual stability. | `code-implemented` | Scenario weight construction in the script. | high | promote as diagnostic implementation detail |",
             "| The robust cutoff is final for projected inference. | `conjectural` | M65 still lists projection critical values as unresolved. | medium | quarantine as diagnostic |",
             "",
@@ -708,10 +763,10 @@ def write_outputs(
 
 
 def draw_mask(ax: Any, grid: CandidateGrid, mask: np.ndarray, color: str, alpha: float) -> None:
-    b12_mesh, b21_mesh = np.meshgrid(grid.b12_values, grid.b21_values)
+    b11_mesh, b21_mesh = np.meshgrid(grid.b11_values, grid.b21_values)
     if mask.any():
         ax.contourf(
-            b12_mesh,
+            b11_mesh,
             b21_mesh,
             mask.astype(float),
             levels=[0.5, 1.5],
@@ -724,7 +779,7 @@ def draw_mask(ax: Any, grid: CandidateGrid, mask: np.ndarray, color: str, alpha:
 def draw_panel_style(ax: Any, grid: CandidateGrid) -> None:
     ax.axvline(0.0, color="0.35", lw=0.8)
     ax.axhline(0.0, color="0.35", lw=0.8)
-    ax.set_xlim(float(grid.b12_values.min()), float(grid.b12_values.max()))
+    ax.set_xlim(float(grid.b11_values.min()), float(grid.b11_values.max()))
     ax.set_ylim(float(grid.b21_values.min()), float(grid.b21_values.max()))
     ax.set_aspect("equal", adjustable="box")
     ax.grid(True, alpha=0.18)
@@ -733,7 +788,7 @@ def draw_panel_style(ax: Any, grid: CandidateGrid) -> None:
 def draw_truth_marker(ax: Any, accepted: bool) -> None:
     if accepted:
         ax.scatter(
-            [TRUE_B12],
+            [TRUE_B11],
             [TRUE_B21],
             marker="*",
             color="#b2182b",
@@ -744,7 +799,7 @@ def draw_truth_marker(ax: Any, accepted: bool) -> None:
         )
     else:
         ax.scatter(
-            [TRUE_B12],
+            [TRUE_B11],
             [TRUE_B21],
             marker="x",
             color="#b2182b",
@@ -755,7 +810,7 @@ def draw_truth_marker(ax: Any, accepted: bool) -> None:
 
 
 def nearest_truth_cell(grid: CandidateGrid) -> tuple[int, int]:
-    col = int(np.argmin(np.abs(grid.b12_values - TRUE_B12)))
+    col = int(np.argmin(np.abs(grid.b11_values - TRUE_B11)))
     row = int(np.argmin(np.abs(grid.b21_values - TRUE_B21)))
     return row, col
 
@@ -765,6 +820,8 @@ def plot(
     note_path: Path = NOTE_PATH,
     json_path: Path = JSON_PATH,
     spec: GridSpec = GridSpec(),
+    scenarios: tuple[FigureScenario, ...] = FIGURE_SCENARIOS["noise"],
+    scenario_set: str = "noise",
 ) -> Path:
     import matplotlib
 
@@ -774,7 +831,7 @@ def plot(
     grid = make_candidate_grid(spec)
     fig, axes = plt.subplots(
         3,
-        3,
+        len(scenarios),
         figsize=(15.6, 11.4),
         sharex=True,
         sharey=True,
@@ -783,8 +840,15 @@ def plot(
     diagnostics: list[dict[str, Any]] = []
     truth_row, truth_col = nearest_truth_cell(grid)
 
-    for col, noise in enumerate(NOISE_LEVELS):
-        residuals = simulate_residuals(*noise)
+    for col, scenario in enumerate(scenarios):
+        noise = scenario.noise
+        residuals = simulate_residuals(
+            *noise,
+            sample_size=scenario.sample_size,
+            seed=scenario.seed,
+            non_gaussian_weight=scenario.non_gaussian_weight,
+            residual_noise=scenario.residual_noise,
+        )
         second_weight, standard_weight, robust_weight = scenario_weights(residuals, noise)
         standard = evaluate_standard_projection(
             residuals,
@@ -813,11 +877,15 @@ def plot(
             else math.nan,
         )
 
-        label = f"V=({noise[0]:g},{noise[1]:g})"
+        label = scenario.label
         diagnostics.append(
             {
                 "label": label,
                 "noise": list(noise),
+                "sample_size": scenario.sample_size,
+                "seed": scenario.seed,
+                "non_gaussian_weight": scenario.non_gaussian_weight,
+                "residual_noise": scenario.residual_noise,
                 "shares": {
                     "sign": mask_share(sign_mask),
                     "standard_dw": mask_share(standard_mask),
@@ -851,7 +919,7 @@ def plot(
         sign_truth_in = second_truth <= CHI2_90_DF3
         draw_truth_marker(ax, sign_truth_in)
         ax.text(
-            B12_MIN + 0.08,
+            B11_MIN + 0.08,
             B21_MAX - 0.22,
             f"share {mask_share(sign_mask):.3f}\nB0 {'in' if sign_truth_in else 'out'}; J2 {second_truth:.2f}",
             color="#11623a",
@@ -865,7 +933,7 @@ def plot(
         standard_status = "in" if second_truth <= CHI2_90_DF3 and standard_truth <= CHI2_90_DF5 else "out"
         draw_truth_marker(ax, standard_status == "in")
         ax.text(
-            B12_MIN + 0.08,
+            B11_MIN + 0.08,
             B21_MAX - 0.25,
             f"share {mask_share(standard_mask):.3f}\nB0 {standard_status}; JH {standard_truth:.2f}",
             color="#542788",
@@ -878,7 +946,7 @@ def plot(
         robust_status = "in" if diagnostics[-1]["truth"]["robust_in"] else "out"
         draw_truth_marker(ax, robust_status == "in")
         ax.text(
-            B12_MIN + 0.08,
+            B11_MIN + 0.08,
             B21_MAX - 0.25,
             f"share {mask_share(robust_mask):.3f}\nB0 {robust_status}; J {robust_truth:.2f}",
             color="#2166ac",
@@ -888,15 +956,15 @@ def plot(
     for ax in axes.flat:
         draw_panel_style(ax, grid)
     for ax in axes[2, :]:
-        ax.set_xlabel("B12")
+        ax.set_xlabel("B11")
     for ax in axes[:, 0]:
         ax.set_ylabel("B21")
 
     fig.suptitle(
         (
-            "Figure 1: unit-variance projection to (B12,B21); "
-            "B11/B22 profiled, B11>0, B22>0, sign B21>=0\n"
-            f"T={SAMPLE_SIZE}; rho={RELATIVE_NOISE_RATIO}; pointwise diagnostic cutoffs "
+            f"Unit-variance {scenario_set.replace('_', '-')} projection to (B11,B21); "
+            "B12/B22 profiled, signs B11>0, B22>0, B12<=0, B21>=0\n"
+            f"rho={RELATIVE_NOISE_RATIO}; pointwise diagnostic cutoffs "
             f"chi2_3={CHI2_90_DF3:.2f}, chi2_5={CHI2_90_DF5:.2f}, chi2_8={CHI2_90_DF8:.2f}"
         ),
         fontsize=12,
@@ -905,7 +973,7 @@ def plot(
     output_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(output_path, dpi=180)
     plt.close(fig)
-    write_outputs(diagnostics, spec, output_path, note_path, json_path)
+    write_outputs(diagnostics, spec, output_path, note_path, json_path, scenario_set)
     return output_path
 
 
@@ -915,10 +983,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--note-output", default="", help="Optional Markdown note output path.")
     parser.add_argument("--json-output", default="", help="Optional JSON diagnostics output path.")
     parser.add_argument("--projection-points", type=int, default=GridSpec.projection_points)
-    parser.add_argument("--diagonal-points", type=int, default=GridSpec.diagonal_points)
+    parser.add_argument("--profile-points", type=int, default=GridSpec.profile_points)
     parser.add_argument("--lambda-points", type=int, default=GridSpec.lambda_points)
     parser.add_argument("--robust-batch-size", type=int, default=GridSpec.robust_batch_size)
     parser.add_argument("--standard-batch-size", type=int, default=GridSpec.standard_batch_size)
+    parser.add_argument(
+        "--scenario-set",
+        choices=tuple(FIGURE_SCENARIOS.keys()),
+        default="noise",
+        help="Which three-column figure scenario set to render.",
+    )
     return parser.parse_args()
 
 
@@ -926,7 +1000,7 @@ def main() -> int:
     args = parse_args()
     spec = GridSpec(
         projection_points=args.projection_points,
-        diagonal_points=args.diagonal_points,
+        profile_points=args.profile_points,
         lambda_points=args.lambda_points,
         robust_batch_size=args.robust_batch_size,
         standard_batch_size=args.standard_batch_size,
@@ -936,6 +1010,8 @@ def main() -> int:
         note_path=Path(args.note_output) if args.note_output else NOTE_PATH,
         json_path=Path(args.json_output) if args.json_output else JSON_PATH,
         spec=spec,
+        scenarios=FIGURE_SCENARIOS[args.scenario_set],
+        scenario_set=args.scenario_set,
     )
     print(f"Wrote {display_path(path)}")
     return 0

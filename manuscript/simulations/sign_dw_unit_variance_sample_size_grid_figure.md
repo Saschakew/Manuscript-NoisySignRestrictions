@@ -10,8 +10,8 @@ The plotted J statistics use a fixed one-step GMM weight for each scenario, esti
 
 ## Configuration
 
-- Output figure: `manuscript\figures\fig_sign_dw_unit_variance_noise_grid.png`.
-- Machine-readable diagnostics: `manuscript\simulations\output\sign_dw_unit_variance_noise_grid_figure.json`.
+- Output figure: `manuscript\figures\fig_sign_dw_unit_variance_sample_size_grid.png`.
+- Machine-readable diagnostics: `manuscript\simulations\output\sign_dw_unit_variance_sample_size_grid_figure.json`.
 - Noise ratio bound: `rho=0.5`.
 - Projection grid: `43 x 43` plus true coordinates.
 - Profile grid: `11 x 11` plus true profiled coordinates.
@@ -22,9 +22,9 @@ The plotted J statistics use a fixed one-step GMM weight for each scenario, esti
 
 | Noise | Sign share | Standard DW share | Robust share | B0 standard | B0 robust | Robust distance | Best lambda at nearest accepted cell |
 |---|---:|---:|---:|---|---|---:|---|
-| V=(0,0) | 0.152 | 0.057 | 0.046 | in | in | 0.000 | (0.000, 0.000) |
-| V=(0.2,0.2) | 0.220 | 0.130 | 0.100 | out | in | 0.000 | (0.188, 0.122) |
-| V=(0.5,0.5) | 0.302 | 0.287 | 0.214 | out | in | 0.000 | (0.500, 0.000) |
+| T=500 | 0.220 | 0.130 | 0.100 | out | in | 0.000 | (0.188, 0.122) |
+| T=1000 | 0.123 | 0.044 | 0.056 | out | in | 0.000 | (0.250, 0.083) |
+| T=2000 | 0.068 | 0.018 | 0.028 | out | in | 0.000 | (0.167, 0.000) |
 
 ## Claim Audit
 

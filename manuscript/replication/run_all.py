@@ -1,8 +1,10 @@
 """Rebuild the active manuscript figures and Monte Carlo evidence.
 
-This is the M33 manuscript-local replication wrapper. Figure 1 now calls the
-M67 unit-variance projected GMM script. The remaining figure and evidence
-stages still reproduce historical M52 outputs until M65 rebuilds them.
+This is the M33 manuscript-local replication wrapper, updated in M68. The
+active stages use the unit-variance first-shock chart: display ``(B11,B21)``,
+profile ``B12``, ``B22``, and ``lambda``, impose ``B11>0``, ``B22>0``,
+``B12<=0``, and ``B21>=0``, and evaluate the M66
+``nu_i=lambda_i(BB')_ii`` route.
 """
 
 from __future__ import annotations
@@ -52,12 +54,12 @@ def figure_output(output_dir: Path | None, filename: str) -> Path:
 def evidence_outputs(output_dir: Path | None) -> tuple[Path, Path]:
     if output_dir is not None:
         return (
-            output_dir / "m52_source_correct_evidence.json",
-            output_dir / "m52_source_correct_evidence.md",
+            output_dir / "m68_first_shock_evidence.json",
+            output_dir / "m68_first_shock_evidence.md",
         )
     return (
-        SIM_DIR / "output" / "m52_source_correct_evidence.json",
-        SIM_DIR / "m52_source_correct_evidence.md",
+        SIM_DIR / "output" / "m68_first_shock_evidence.json",
+        SIM_DIR / "m68_first_shock_evidence.md",
     )
 
 
@@ -69,22 +71,53 @@ def build_steps(args: argparse.Namespace) -> list[Step]:
         "figure1": [
             sys.executable,
             str(SIM_DIR / "sign_dw_unit_variance_noise_grid_figure.py"),
+            "--scenario-set",
+            "noise",
             "--output",
             str(figure_output(output_dir, "fig_sign_dw_unit_variance_noise_grid.png")),
+            "--note-output",
+            str((output_dir or SIM_DIR) / "sign_dw_unit_variance_noise_grid_figure.md"),
+            "--json-output",
+            str((output_dir or (SIM_DIR / "output")) / "sign_dw_unit_variance_noise_grid_figure.json"),
         ],
         "figure2": [
             sys.executable,
-            str(SIM_DIR / "sign_dw_robust_nongaussianity_grid_figure.py"),
+            str(SIM_DIR / "sign_dw_unit_variance_noise_grid_figure.py"),
+            "--scenario-set",
+            "nongaussianity",
             "--output",
-            str(figure_output(output_dir, "fig_sign_dw_robust_nongaussianity_grid.png")),
+            str(figure_output(output_dir, "fig_sign_dw_unit_variance_nongaussianity_grid.png")),
+            "--note-output",
+            str((output_dir or SIM_DIR) / "sign_dw_unit_variance_nongaussianity_grid_figure.md"),
+            "--json-output",
+            str((output_dir or (SIM_DIR / "output")) / "sign_dw_unit_variance_nongaussianity_grid_figure.json"),
         ],
         "figure3": [
             sys.executable,
-            str(SIM_DIR / "sign_dw_sample_size_robust_grid_figure.py"),
+            str(SIM_DIR / "sign_dw_unit_variance_noise_grid_figure.py"),
+            "--scenario-set",
+            "sample_size",
             "--output",
-            str(figure_output(output_dir, "fig_sign_dw_sample_size_robust_grid.png")),
+            str(figure_output(output_dir, "fig_sign_dw_unit_variance_sample_size_grid.png")),
+            "--note-output",
+            str((output_dir or SIM_DIR) / "sign_dw_unit_variance_sample_size_grid_figure.md"),
+            "--json-output",
+            str((output_dir or (SIM_DIR / "output")) / "sign_dw_unit_variance_sample_size_grid_figure.json"),
         ],
     }
+
+    if args.quick:
+        for command in figure_commands.values():
+            command.extend(
+                [
+                    "--projection-points",
+                    "9",
+                    "--profile-points",
+                    "5",
+                    "--lambda-points",
+                    "3",
+                ]
+            )
 
     if args.stage in {"all", "figures", "figure1"}:
         steps.append(Step("Figure 1 residual-noise grid", figure_commands["figure1"]))
@@ -97,7 +130,7 @@ def build_steps(args: argparse.Namespace) -> list[Step]:
         json_output, note_output = evidence_outputs(output_dir)
         command = [
             sys.executable,
-            str(SIM_DIR / "m45_variance_ratio_evidence.py"),
+            str(SIM_DIR / "m68_first_shock_evidence.py"),
             "--json-output",
             str(json_output),
             "--note-output",
@@ -106,17 +139,17 @@ def build_steps(args: argparse.Namespace) -> list[Step]:
         if args.quick:
             command.extend(
                 [
-                    "--diagnostic-grid-points",
-                    "11",
-                    "--calibration-reps",
-                    "2",
                     "--evaluation-reps",
                     "1",
-                    "--grid-points",
-                    "9",
+                    "--projection-points",
+                    "7",
+                    "--profile-points",
+                    "5",
+                    "--lambda-points",
+                    "3",
                 ]
             )
-        steps.append(Step("M52 Monte Carlo evidence", command))
+        steps.append(Step("M68 Monte Carlo evidence", command))
 
     return steps
 
@@ -132,7 +165,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--quick",
         action="store_true",
-        help="Use small Monte Carlo settings and write outputs under replication/output/quick.",
+        help="Use small figure/Monte Carlo settings and write outputs under replication/output/quick.",
     )
     parser.add_argument(
         "--output-dir",

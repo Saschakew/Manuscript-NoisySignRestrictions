@@ -1409,3 +1409,26 @@ machine-readable milestone in `transparency/milestones/`.
   scripts/check_manuscript.py` passed cleanly.
 - Open uncertainties: legacy flat task packets were not migrated; this is
   intentional unless a legacy task is reopened.
+
+### 2026-06-12 - M68 first-shock impact evidence rebuild completed
+
+- Request: impose positive diagonal signs, add the \(B_{12}\) sign
+  restriction, report \((B_{11},B_{21})\) instead of \((B_{12},B_{21})\), and
+  update the figures and Monte Carlo.
+- Actions taken: created the M68 task folder, updated the unit-variance figure
+  generator to use the first-shock chart and common sign screen, added
+  `m68_first_shock_evidence.py`, regenerated Figures 1-3 and the M68 Monte
+  Carlo note/JSON, updated the replication wrapper, and revised the draft,
+  registry, source packet, dashboard, paper map, workplan, task board, and
+  question index.
+- Outcome: active evidence now uses \(B_{11}>0\), \(B_{22}>0\),
+  \(B_{12}\le0\), \(B_{21}\ge0\), displays \((B_{11},B_{21})\), profiles
+  \(B_{12}\), \(B_{22}\), and \(\lambda\), and applies
+  \(\nu_i=\lambda_i(BB')_{ii}\). The remaining caveat is projected critical
+  values for the enlarged inversion.
+- Checks run: `python -m py_compile` passed for the touched Python scripts;
+  `python -m json.tool` passed for the formal registry and M68 JSON outputs;
+  wrapper quick checks passed for `--stage figure1 --quick` and
+  `--stage evidence --quick`; `python scripts/check_manuscript.py` passed
+  with only the expected open-milestone warning before close; `git diff
+  --check` reported only line-ending normalization warnings.

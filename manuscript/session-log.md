@@ -122,6 +122,32 @@ For traceable work blocks, pair this human-readable note with a closed
 - Next recommended action: execute M33, the manuscript-local replication
   wrapper.
 
+### 2026-06-12 - Complete M68 first-shock impact evidence rebuild
+
+- Request or goal: impose positive diagonal entries as sign restrictions,
+  impose a sign restriction on \(B_{12}\), report first-shock impact
+  coordinates \((B_{11},B_{21})\), and rebuild Figures 1-3 plus the Monte
+  Carlo table.
+- Files changed: `manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py`,
+  `manuscript/simulations/m68_first_shock_evidence.py`,
+  `manuscript/replication/run_all.py`, regenerated M68 figure PNGs,
+  simulation notes and JSON outputs, `manuscript/draft.md`,
+  `manuscript/formal-object-registry.json`, task packets, planning surfaces,
+  logs, and transparency files.
+- Summary of work: created M68, updated the unit-variance evidence code to use
+  the M66 \(\nu_i=\lambda_i(BB')_{ii}\) route with the sign screen
+  \(B_{11}>0\), \(B_{22}>0\), \(B_{12}\le0\), \(B_{21}\ge0\), regenerated
+  Figure 1 residual-noise, Figure 2 non-Gaussianity, Figure 3 sample-size, and
+  a lightweight M68 Monte Carlo diagnostic on the \((B_{11},B_{21})\) chart.
+- Check: `python -m py_compile` passed for the touched Python scripts;
+  `python -m json.tool` passed for the formal registry and M68 JSON outputs;
+  wrapper quick checks passed for `--stage figure1 --quick` and
+  `--stage evidence --quick`; `python scripts/check_manuscript.py` passed
+  with only the expected open-milestone warning before close; `git diff
+  --check` reported only line-ending normalization warnings.
+- Next recommended action: write the projected critical-value note for the
+  enlarged \((B,\lambda)\) inversion before export cleanup.
+
 ### 2026-06-11 - Complete M61 question-index maintenance rule
 
 - Request or goal: continue the step-by-step repository cleanup by making the
