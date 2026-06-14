@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "id": "M0073-m78-full-clean-iid-sample-size-mc",
+  "sequence": 73,
+  "title": "M78 full clean iid sample-size MC",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-14T17:31:52Z",
+  "closed_at": "2026-06-14T18:44:22Z",
+  "start_commit": "7c3354f8d6875db7bd8d9a3fc508409021c84af6",
+  "snapshot_ref": "manuscript-milestones/M0073-m78-full-clean-iid-sample-size-mc",
+  "summary": "Completed M78 cleaned iid full-grid sample-size MC and updated Table 2.",
+  "user_inputs": [
+    {
+      "id": "U0073-001",
+      "milestone_id": "M0073-m78-full-clean-iid-sample-size-mc",
+      "captured_at": "2026-06-14T17:31:52Z",
+      "source": "chat",
+      "text": "Plan and execute a full sample-size Monte Carlo for T=500,1000,2000 using the cleaned iid analytic-weight design, then update the draft with the results."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0073-001",
+      "milestone_id": "M0073-m78-full-clean-iid-sample-size-mc",
+      "captured_at": "2026-06-14T18:44:22Z",
+      "description": "Added m78_clean_iid_full_sample_size_mc.py, ran 500 replications for T=500,1000,2000 on the 27/7/5 grid with analytic iid weights, generated JSON/Markdown outputs, and updated draft evidence surfaces."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-14T18:44:22Z",
+      "description": "python scripts\\check_manuscript.py: passed with expected open-milestone warning before closeout"
+    }
+  ],
+  "changed_files": [
+    "manuscript/QUESTION-INDEX.md",
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/m78_clean_iid_full_sample_size_mc.md",
+    "manuscript/simulations/m78_clean_iid_full_sample_size_mc.py",
+    "manuscript/simulations/output/m78_clean_iid_full_sample_size_mc.json",
+    "manuscript/simulations/output/m78_clean_iid_full_sample_size_mc.progress.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M78-clean-iid-full-sample-size-mc/outcome.md",
+    "manuscript/tasks/M78-clean-iid-full-sample-size-mc/task.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0073-m78-full-clean-iid-sample-size-mc.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 68,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/68",
+    "tag_name": "manuscript-milestones/M0073-m78-full-clean-iid-sample-size-mc"
+  }
+}

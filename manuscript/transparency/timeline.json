@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-14T17:13:30Z",
+  "updated_at": "2026-06-14T18:44:23Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1547,6 +1547,28 @@
         "milestone_number": null,
         "milestone_url": "",
         "tag_name": "manuscript-milestones/M0072-clean-iid-mc-efficient-weight"
+      }
+    },
+    {
+      "id": "M0073-m78-full-clean-iid-sample-size-mc",
+      "sequence": 73,
+      "title": "M78 full clean iid sample-size MC",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-14T17:31:52Z",
+      "closed_at": "2026-06-14T18:44:22Z",
+      "start_commit": "7c3354f8d6875db7bd8d9a3fc508409021c84af6",
+      "snapshot_ref": "manuscript-milestones/M0073-m78-full-clean-iid-sample-size-mc",
+      "summary": "Completed M78 cleaned iid full-grid sample-size MC and updated Table 2.",
+      "user_input_ids": [
+        "U0073-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0073-m78-full-clean-iid-sample-size-mc.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 68,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/68",
+        "tag_name": "manuscript-milestones/M0073-m78-full-clean-iid-sample-size-mc"
       }
     }
   ]

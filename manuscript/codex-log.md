@@ -11,6 +11,23 @@ machine-readable milestone in `transparency/milestones/`.
 
 ## Entries
 
+### 2026-06-14 - M78 cleaned iid full sample-size MC completed
+
+- Request: plan and execute the full sample-size MC for the cleaned iid
+  analytic-weight design and update the draft with the results.
+- Actions taken: opened M0073 and GitHub milestone #68; created the M78 task
+  folder; implemented `m78_clean_iid_full_sample_size_mc.py`; optimized the
+  full-grid evaluator by computing sample moment means from raw residual
+  moments; ran the 500-replication `T=500,1000,2000` MC; updated Table 2 and
+  evidence provenance surfaces.
+- Files changed: M78 simulation script and outputs, `draft.md`, source packet,
+  paper map, dashboard, registry, citation provenance, question index, task
+  board, task folder, logs, and transparency files.
+- Checks run: py-compile, smoke run, raw-moment formula check, full MC, JSON
+  validation, manuscript check, and diff check.
+- Open uncertainty: pointwise chi-square cutoffs remain diagnostic; M65 still
+  owns projected confidence-set critical values.
+
 ### 2026-06-12 - M72 figure layout fixed
 
 - Request: fix the figures after the user reported that the M71 output looked

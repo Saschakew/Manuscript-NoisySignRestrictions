@@ -5,6 +5,25 @@ decisions.
 
 ## Entries
 
+### 2026-06-14 - Promote M78 cleaned iid full-grid sample-size MC
+
+- Origin: M78 execution after the user asked to run the full sample-size MC,
+  not only the M77 truth-at-\(B_0\) size audit.
+- User input id: U0075
+- Decision: Table 2 should use the M78 cleaned iid full-grid sample-size MC as
+  the preferred evidence. M78 keeps the M74 `27/7/5` grid and
+  \(T=500,1000,2000\) scenarios, but removes sample standardization,
+  residual demeaning, recovered-shock demeaning, and sample-specific covariance
+  weights. Sign and DW use analytic no-noise weights; nrDW uses
+  candidate-specific analytic iid weights \(W(B,\lambda)=(E[f_tf_t'])^{-1}\).
+- Rationale: M77 showed the robust moment restrictions have nominal pointwise
+  size under the cleaned iid analytic-weight design. M78 confirms the same
+  truth-inclusion rates on the full projection grid while also reporting set
+  sizes and empty-set rates.
+- Consequence for next work: M74 remains historical implementation-audit
+  evidence. M65 still owns projected critical values and final
+  confidence-set wording.
+
 ### 2026-06-12 - Correct active evidence sign screen and pointwise weighting
 
 - Origin: M71 execution after the interrupted long M69 run exposed that the

@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "updated_at": "2026-06-14T20:04:29+02:00",
+  "pid": 36188,
+  "completed": 1500,
+  "total": 1500,
+  "remaining": 0,
+  "elapsed_seconds": 788.6556909999927,
+  "average_seconds_per_rep": 0.5257704606666618,
+  "eta_seconds": 0.0,
+  "grid": {
+    "projection_points": 27,
+    "profile_points": 7,
+    "lambda_points": 5
+  },
+  "reps_per_scenario": 500,
+  "current": null,
+  "latest_metrics": null,
+  "robust_weight_cache": {
+    "computed_b_candidates": 9817,
+    "computed_candidate_lambda_pairs": 353412,
+    "regularization": {
+      "matrix_count": 353412,
+      "regularized_matrix_count": 0,
+      "regularized_eigenvalue_count": 0,
+      "min_eigenvalue_before_floor": 0.0012811224749719962,
+      "max_eigenvalue_floor": 3.311889862515073e-06
+    },
+    "max_abs_moment_mean": 1.4210854715202004e-14
+  },
+  "outputs": {
+    "json": "manuscript\\simulations\\output\\m78_clean_iid_full_sample_size_mc.json",
+    "note": "manuscript\\simulations\\m78_clean_iid_full_sample_size_mc.md"
+  }
+}

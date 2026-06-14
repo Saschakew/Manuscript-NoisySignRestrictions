@@ -1,5 +1,23 @@
 # Session Log
 
+### 2026-06-14 - Complete M78 cleaned iid full sample-size MC
+
+- Request or goal: plan and immediately execute the full sample-size Monte
+  Carlo for \(T=500,1000,2000\), then update the draft with the results.
+- Files changed: added `manuscript/simulations/m78_clean_iid_full_sample_size_mc.py`,
+  generated M78 Markdown/JSON/progress outputs, updated `draft.md#55`,
+  registry, source packet, paper map, dashboard, citation provenance, question
+  index, task board, task folder, logs, and transparency files.
+- Summary of work: implemented the cleaned iid full-grid MC with
+  population-normalized iid shocks/noise, no demeaning, analytic Sign/DW
+  weights, and candidate-specific analytic nrDW weights. Ran 500 replications
+  for each sample size on the `27/7/5` grid. The nrDW truth rates are 0.884,
+  0.896, and 0.900; warning rates rise from 0.796 to 0.900.
+- Check: py-compile, smoke run, raw-moment formula check, full run, JSON
+  validation, manuscript check, and diff check were run during closeout.
+- Next recommended action: return to M65 for projected critical values and
+  final projected-inference wording.
+
 ### 2026-06-12 - Complete M72 figure layout fix
 
 - Request or goal: fix the M71-generated figures after the user reported that
