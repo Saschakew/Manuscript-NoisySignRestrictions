@@ -840,6 +840,60 @@ misspecification built into the sample-size DGP.
 
 <!-- SOURCE-TRAIL: M78 output note `simulations/m78_clean_iid_full_sample_size_mc.md`; machine-readable records `simulations/output/m78_clean_iid_full_sample_size_mc.json`; runner `simulations/m78_clean_iid_full_sample_size_mc.py`; progress manifest `simulations/output/m78_clean_iid_full_sample_size_mc.progress.json`; M77 pointwise audit `simulations/m77_clean_iid_mc_efficient_weight.md` and `simulations/output/m77_clean_iid_mc_efficient_weight.json`; historical M74 output note `simulations/m74_sample_size_mc_500_grid27.md`; historical machine-readable records `simulations/output/m74_sample_size_mc_500_grid27.json`; active grid/statistic code `simulations/sign_dw_unit_variance_noise_grid_figure.py`; M49 DW source audit; M56 generated-moment audit; M66 noise-ratio derivation. -->
 
+### 5.6 Detailed Residual-Noise Monte Carlo
+
+The matching residual-noise Monte Carlo isolates the Figure 1 design. It keeps
+the cleaned iid implementation from M78, holds \(T=500\) and strong
+structural non-Gaussianity fixed, and varies only residual-noise variance:
+\(V=\operatorname{diag}(0,0)\),
+\(V=\operatorname{diag}(0.2,0.2)\), and
+\(V=\operatorname{diag}(0.5,0.5)\). The impact matrix, first-shock chart,
+`27/7/5` grid, sign screen, analytic iid weights, and pointwise chi-square
+cutoffs are the same as in Table 2. The lambda grid appends each scenario's
+true \(\lambda_i=\nu_i/(B_0B_0')_{ii}\), including \((0,0)\) in the no-noise
+row. The high-noise true shares are \((0.471,0.305)\), still inside the
+maintained \(\rho=0.5\) bound.
+
+**Table 3. M79 cleaned iid 500-replication residual-noise Monte Carlo.** The
+run uses the Figure 1 residual-noise DGPs, \(T=500\), strong structural
+non-Gaussianity, the `27/7/5` grid, analytic iid weights, and pointwise
+chi-square cutoffs.
+
+| V | Sign truth | DW truth | nrDW truth | Sign size | DW size | nrDW size | Sign empty | DW empty | nrDW empty | Warning |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| (0,0) | 0.924 | 0.846 | 0.888 | 0.060 (0.060) | 0.023 (0.023) | 0.045 (0.046) | 0.000 | 0.004 | 0.010 | 0.060 |
+| (0.2,0.2) | 0.140 | 0.102 | 0.880 | 0.074 (0.074) | 0.028 (0.029) | 0.063 (0.065) | 0.000 | 0.022 | 0.008 | 0.778 |
+| (0.5,0.5) | 0.000 | 0.000 | 0.886 | 0.094 (0.094) | 0.037 (0.038) | 0.091 (0.093) | 0.000 | 0.054 | 0.006 | 0.886 |
+
+The table makes the residual-noise channel visible. In the no-noise row, the
+Sign and nrDW truth-inclusion rates are near the nominal pointwise benchmark,
+while DW is somewhat more selective because it adds the higher-moment screen.
+Once residual noise is introduced, the no-noise covariance target breaks:
+Sign truth inclusion falls to 0.140 under moderate noise and to zero under
+high noise. DW inherits that misspecified second-order screen and is even more
+selective, with truth inclusion 0.102 and zero in the two noisy rows.
+
+nrDW behaves differently because the residual-noise variances are profiled
+rather than forced into the no-noise covariance target. Its truth-inclusion
+rates are 0.880 and 0.886 in the moderate- and high-noise rows, within Monte
+Carlo sampling error of the 0.90 pointwise benchmark for 500 replications.
+The robust projection is wider as residual noise grows: its mean accepted
+projection share rises from 0.045 with no noise to 0.063 and 0.091 in the two
+noisy rows. That widening is the intended cost of modeling diagonal residual
+noise. The warning event becomes common exactly when the no-noise target is
+wrong: DW misses the full true \(B_0\) while nrDW contains it in 0.778 of the
+moderate-noise samples and 0.886 of the high-noise samples.
+
+Table 3 therefore supplies the full-grid cleaned version of the Figure 1
+message. Residual noise does not merely make the accepted set wider or more
+variable. It makes the no-noise sign and DW screens reject the true impact
+matrix with increasing reliability, while the noise-robust inversion retains
+the truth at the intended diagnostic rate. As in Table 2, the conclusion is a
+pointwise chi-square diagnostic. Final projected critical values remain the
+separate M65 inference task.
+
+<!-- SOURCE-TRAIL: M79 output note `simulations/m79_clean_iid_full_residual_noise_mc.md`; machine-readable records `simulations/output/m79_clean_iid_full_residual_noise_mc.json`; runner `simulations/m79_clean_iid_full_residual_noise_mc.py`; progress manifest `simulations/output/m79_clean_iid_full_residual_noise_mc.progress.json`; active grid/statistic code `simulations/sign_dw_unit_variance_noise_grid_figure.py`; M78 full-grid cleaned runner; M77 analytic weight formulas; M49 DW source audit; M56 generated-moment audit; M66 noise-ratio derivation. -->
+
 <!-- SOURCE-TRAIL: Use KnowledgeVault replication assets only as starting points; final figure commands must live in `replication/README.md`. -->
 <!-- SOURCE-TRAIL: Use `derivations/dw-robust-comparison-diagnostic.md` for the M27 definitions of the reported standard-DW set, robust-DW set, critical-value convention, directional overlap metric, and interpretation boundaries. -->
 <!-- DESIGN-NOTE: M71 keeps pointwise chi-square critical values as the primary diagnostic benchmark for the displayed rows and uses candidate-specific pointwise covariance weights; projected critical values remain a separate inference follow-up. -->

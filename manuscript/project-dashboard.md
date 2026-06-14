@@ -24,7 +24,9 @@ Monte Carlo into a detailed draft section, M76 has revised the M74 table to
 report Sign, DW, and nrDW side by side, M77 has added a cleaned iid
 truth-at-\(B_0\) pointwise size audit using analytic efficient weights
 \(W=(E[f_t f_t'])^{-1}\), and M78 has run the corresponding cleaned iid
-full-grid sample-size MC.
+full-grid sample-size MC. M79 has now run the matching cleaned iid full-grid
+MC for the Figure 1 residual-noise DGPs. M80 remains the matching cleaned iid
+full-grid MC for the Figure 2 non-Gaussianity DGPs.
 Figures 1-3, the Table 1 diagnostic, and the extended MC now use first-shock
 coordinates \((B_{11},B_{21})\), profile \(B_{12}\), \(B_{22}\), and
 \(\lambda\), impose \(B_{11}>0\), \(B_{22}>0\), and \(B_{12}\le0\), and use
@@ -46,12 +48,13 @@ versions for draft interpretation because it removes the extra \(B_{21}\ge0\)
 screen and replaces true-point fixed weights with candidate-specific pointwise
 weights.
 
-Next recommended action: return to M65 for projected critical values, final
-projected-inference wording, and release hardening. M78 now supplies the
-cleaned iid full-grid sample-size table, while M70 can still refine the
-broader extended-MC narrative after M65.
+Next recommended action: execute M80 if continuing the cleaned full-MC sequence,
+then return to M65 for projected critical values, final projected-inference
+wording, and release hardening. After M80, fold the broader extended-MC
+narrative into M70.
 
-Active milestone: M0073 is closed for the M78 cleaned iid full-grid sample-size
+Active milestone: M0074 is closed for the M79 cleaned iid full-grid residual-noise
+MC. GitHub milestone #69 tracks the same work. M0073 is closed for the M78 cleaned iid full-grid sample-size
 MC. GitHub milestone #68 tracks the same work. M0072 is closed for the M77 cleaned iid analytic-weight
 pointwise audit. GitHub milestone #67 tracks the same work. M0071 is closed
 for the M76 sign-only M74 table revision. GitHub milestone #66 tracks the same
@@ -176,7 +179,13 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-14, completed M78 by adding the cleaned iid
+Last substantive session: 2026-06-14, completed M79 by adding the cleaned iid
+full-grid residual-noise Monte Carlo for the Figure 1 DGPs and updating Table 3.
+
+Last planning session: 2026-06-14, created M79 and M80 as packet-backed
+cleaned iid full-grid Monte Carlo tasks for the Figure 1 and Figure 2 DGPs.
+
+Prior substantive session: 2026-06-14, completed M78 by adding the cleaned iid
 full-grid sample-size Monte Carlo with analytic candidate-specific weights and
 updating the detailed sample-size table.
 

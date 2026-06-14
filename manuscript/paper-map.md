@@ -31,8 +31,9 @@ report a standard GMM set over \((B,\nu)\).
 - Evidence: M71 implements Figures 1-3, the Table 1 diagnostic, and the
   extended MC under the M66 \(\lambda\)-bounded unit-variance GMM route. M78
   supplies the detailed cleaned iid 500-replication sample-size Monte Carlo
-  section for Figure 3 on the intermediate `27/7/5` grid, reporting Sign, DW,
-  and nrDW side by side. The
+  section for Figure 3 on the intermediate `27/7/5` grid, and M79 supplies the
+  matching cleaned iid residual-noise Monte Carlo for the Figure 1 DGPs. Both
+  report Sign, DW, and nrDW side by side. The
   active chart reports first-shock coordinates \((B_{11},B_{21})\), profiles
   \(B_{12}\), \(B_{22}\), and \(\lambda\), imposes only \(B_{11}>0\),
   \(B_{22}>0\), and \(B_{12}\le0\), and uses candidate-specific pointwise
@@ -79,7 +80,7 @@ report a standard GMM set over \((B,\nu)\).
 | 2. Sign Restrictions And Noisy SVARs | Introduce the no-noise SVAR first, define \(\mathcal S_0\) with \(E[e_t(B)e_t(B)']=I\), add diagonal residual noise, and write the three-moment J inversion. | first-pass M64 revision; Figure 1 first row rebuilt in M71 |
 | 3. Drautzburg-Wright Refinement Under Noise | Explain no-noise DW refinement as a refinement of \(\mathcal S_{J,T}(c_2)\), define the source-correct DW GMM1/GMM2 menus, then show why refinement can be falsely precise under noise. | first-pass M64 revision; Figure 1 second row rebuilt in M71 |
 | 4. Noise-Robust Sign And DW Sets | Start with \(\Sigma_u=BB'+\operatorname{diag}(\nu)\), impose \(\lambda_i=\nu_i/(BB')_{ii}\in[0,\rho]\), and write \(G_H(B,\nu)\) with parameter-implied \(\omega_{ij}(B,\nu)\) terms inside a standard GMM criterion. | M66 revision; M71 diagnostic implementation complete; projected critical values pending |
-| 5. Figure-Led Evidence And Monte Carlo Check | Report Figures 1-3, Table 1, and the detailed M78 cleaned iid sample-size Monte Carlo under the unit-variance \((B,\lambda)\) projected GMM route, using first-shock coordinates and the maintained sign screen. | M78 adds the cleaned full-grid T-changing MC interpretation; M70 can still refine the broader extended-MC narrative |
+| 5. Figure-Led Evidence And Monte Carlo Check | Report Figures 1-3, Table 1, the detailed M78 cleaned iid sample-size Monte Carlo, and the M79 cleaned iid residual-noise Monte Carlo under the unit-variance \((B,\lambda)\) projected GMM route, using first-shock coordinates and the maintained sign screen. | M79 adds the cleaned full-grid residual-noise MC interpretation; M80 remains the matching non-Gaussianity full-grid MC before broader M70 synthesis |
 | 6. Conclusion | Recommend the DW-versus-robust-DW comparison as a robustness check and state limitations. | drafted after M34; needs final citation/export cleanup |
 
 ## Core Formal Objects
@@ -165,6 +166,14 @@ and proof or output status.
   iid weights \(W=(E[f_tf_t'])^{-1}\), nrDW truth inclusion is 0.884, 0.896,
   and 0.900 for \(T=500,1000,2000\). M78 extends this pointwise audit to the
   full projection grid.
+- M79 cleaned iid detailed residual-noise Monte Carlo evidence for Figure 1:
+  with \(T=500\), strong structural non-Gaussianity, 500 replications per
+  residual-noise scenario, the intermediate `27/7/5` grid, no sample
+  standardization or demeaning, and analytic iid weights, Sign truth inclusion
+  is 0.924, 0.140, and 0.000 for \(V=(0,0),(0.2,0.2),(0.5,0.5)\); DW truth
+  inclusion is 0.846, 0.102, and 0.000; nrDW truth inclusion is 0.888, 0.880,
+  and 0.886. The warning event rises from 0.060 to 0.778 and 0.886 as
+  residual noise increases.
 - Final Monte Carlo comparison of standard sign, standard DW, and robust DW
   sets using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and

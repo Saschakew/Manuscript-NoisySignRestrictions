@@ -1608,3 +1608,24 @@ machine-readable milestone in `transparency/milestones/`.
   warnings only.
 - Open uncertainties: M65 still owns projected critical values and final
   projected-inference wording; a full-grid cleaned iid MC remains optional.
+
+### 2026-06-14 - M79 cleaned iid residual-noise MC completed
+
+- Request: work on M79 in goal mode.
+- Actions taken: opened M0074 and GitHub milestone #69, implemented
+  `m79_clean_iid_full_residual_noise_mc.py`, generated the M79 JSON/Markdown
+  outputs, updated draft Table 3, and updated registry, provenance, planning,
+  question-index, and task outcome surfaces.
+- Outcome: the cleaned iid residual-noise full-grid MC reports Sign truth
+  inclusion of 0.924, 0.140, and 0.000; DW truth inclusion of 0.846, 0.102,
+  and 0.000; and nrDW truth inclusion of 0.888, 0.880, and 0.886 for
+  \(V=(0,0),(0.2,0.2),(0.5,0.5)\). The warning rate rises to 0.778 and 0.886
+  in the noisy rows.
+- Checks run: M79 script compiled; quick smoke run passed; full
+  500-replication run passed; lambda-grid checks confirmed true lambda values
+  for all residual-noise scenarios; robust analytic weights required no
+  regularization. Final repository checks are recorded in the closing
+  milestone.
+- Open uncertainties: M80 remains the matching Figure 2 non-Gaussianity
+  full-grid MC. M65 still owns projected critical values and final
+  projected-inference wording.

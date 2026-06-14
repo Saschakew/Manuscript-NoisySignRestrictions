@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-14T18:44:23Z",
+  "updated_at": "2026-06-14T19:55:54Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1569,6 +1569,28 @@
         "milestone_number": 68,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/68",
         "tag_name": "manuscript-milestones/M0073-m78-full-clean-iid-sample-size-mc"
+      }
+    },
+    {
+      "id": "M0074-m79-clean-iid-residual-noise-mc",
+      "sequence": 74,
+      "title": "M79 Clean IID Residual-Noise MC",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-14T19:14:12Z",
+      "closed_at": "2026-06-14T19:55:54Z",
+      "start_commit": "46735b5125267bda66233d063f5079e4f5d756cb",
+      "snapshot_ref": "manuscript-milestones/M0074-m79-clean-iid-residual-noise-mc",
+      "summary": "Completed M79 cleaned iid full-grid residual-noise Monte Carlo and draft Table 3.",
+      "user_input_ids": [
+        "U0074-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0074-m79-clean-iid-residual-noise-mc.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 69,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/69",
+        "tag_name": "manuscript-milestones/M0074-m79-clean-iid-residual-noise-mc"
       }
     }
   ]

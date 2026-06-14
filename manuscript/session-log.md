@@ -1526,3 +1526,28 @@ For traceable work blocks, pair this human-readable note with a closed
   warnings only.
 - Next recommended action: close M0072, then return to M65 for projected
   critical values and final inference wording.
+
+### 2026-06-14 - Complete M79 cleaned iid residual-noise MC
+
+- Request or goal: work on M79 in goal mode by executing the cleaned iid
+  full-grid Monte Carlo for the Figure 1 residual-noise DGPs.
+- Files changed: `manuscript/simulations/m79_clean_iid_full_residual_noise_mc.py`,
+  `manuscript/simulations/m79_clean_iid_full_residual_noise_mc.md`,
+  `manuscript/simulations/output/m79_clean_iid_full_residual_noise_mc.json`,
+  `manuscript/draft.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/source-packet.md`,
+  `manuscript/paper-map.md`, `manuscript/project-dashboard.md`,
+  `manuscript/task-board.md`, `manuscript/QUESTION-INDEX.md`, and
+  `manuscript/tasks/M79-clean-iid-full-residual-noise-mc/`.
+- Summary of work: added the M79 full-grid runner by reusing the M78 cleaned
+  iid evaluator and analytic-weight machinery, verified the lambda grid
+  contains the true lambda values for all residual-noise scenarios, ran 500
+  replications each for \(V=(0,0),(0.2,0.2),(0.5,0.5)\), and added draft
+  Table 3 with the residual-noise interpretation.
+- Check: M79 script compiled; quick smoke run passed; full 500-replication run
+  passed with 1500 records; M79 JSON lambda checks passed and robust analytic
+  weights required no regularization. Final repository checks are recorded in
+  the closing milestone.
+- Next recommended action: execute M80 if continuing the cleaned full-MC
+  sequence, then return to M65 for projected critical values and final
+  inference wording.

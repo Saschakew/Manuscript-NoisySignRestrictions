@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "id": "M0074-m79-clean-iid-residual-noise-mc",
+  "sequence": 74,
+  "title": "M79 Clean IID Residual-Noise MC",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-14T19:14:12Z",
+  "closed_at": "2026-06-14T19:55:54Z",
+  "start_commit": "46735b5125267bda66233d063f5079e4f5d756cb",
+  "snapshot_ref": "manuscript-milestones/M0074-m79-clean-iid-residual-noise-mc",
+  "summary": "Completed M79 cleaned iid full-grid residual-noise Monte Carlo and draft Table 3.",
+  "user_inputs": [
+    {
+      "id": "U0074-001",
+      "milestone_id": "M0074-m79-clean-iid-residual-noise-mc",
+      "captured_at": "2026-06-14T19:14:12Z",
+      "source": "chat",
+      "text": "Work on M79 in goal mode: execute the cleaned iid full-grid Monte Carlo for the Figure 1 residual-noise DGPs, update evidence surfaces, verify, and close the task."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0074-001",
+      "milestone_id": "M0074-m79-clean-iid-residual-noise-mc",
+      "captured_at": "2026-06-14T19:55:54Z",
+      "description": "Added M79 simulation runner, generated 500-replication residual-noise outputs, updated draft evidence and manuscript tracking surfaces."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-14T19:55:54Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before close"
+    },
+    {
+      "captured_at": "2026-06-14T19:55:54Z",
+      "description": "python -m py_compile manuscript\\\\simulations\\\\m79_clean_iid_full_residual_noise_mc.py: passed"
+    },
+    {
+      "captured_at": "2026-06-14T19:55:54Z",
+      "description": "python -m json.tool manuscript\\\\formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-14T19:55:54Z",
+      "description": "python -m json.tool manuscript\\\\simulations\\\\output\\\\m79_clean_iid_full_residual_noise_mc.json: passed"
+    },
+    {
+      "captured_at": "2026-06-14T19:55:54Z",
+      "description": "git diff --check: passed with line-ending normalization warnings only"
+    }
+  ],
+  "changed_files": [
+    "manuscript/QUESTION-INDEX.md",
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/m79_clean_iid_full_residual_noise_mc.md",
+    "manuscript/simulations/m79_clean_iid_full_residual_noise_mc.py",
+    "manuscript/simulations/output/m79_clean_iid_full_residual_noise_mc.json",
+    "manuscript/simulations/output/m79_clean_iid_full_residual_noise_mc.progress.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M79-clean-iid-full-residual-noise-mc/outcome.md",
+    "manuscript/tasks/M79-clean-iid-full-residual-noise-mc/task.md",
+    "manuscript/tasks/M80-clean-iid-full-nongaussianity-mc/outcome.md",
+    "manuscript/tasks/M80-clean-iid-full-nongaussianity-mc/task.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0074-m79-clean-iid-residual-noise-mc.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 69,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/69",
+    "tag_name": "manuscript-milestones/M0074-m79-clean-iid-residual-noise-mc"
+  }
+}

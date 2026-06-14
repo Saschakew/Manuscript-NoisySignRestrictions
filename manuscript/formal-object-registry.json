@@ -293,6 +293,22 @@
       "verification_status": "M78 JSON validates and the script compiles. An independent formula-vs-observation smoke check matched raw-moment means to numerical precision before the full run. The 500-replication cleaned full-grid run reports nrDW truth inclusion of 0.884, 0.896, and 0.900 for T=500,1000,2000, with accepted projection shares of 0.063, 0.035, and 0.021. Final projected critical values remain open under M65."
     },
     {
+      "id": "table:residual-noise-mc-coverage-size-power",
+      "type": "table",
+      "status": "cleaned-full-grid-after-m79",
+      "draft_location": "draft.md#56-detailed-residual-noise-monte-carlo",
+      "description": "M79 500-replication cleaned iid residual-noise Monte Carlo table for the Figure 1 DGPs. It reports empirical full-B0 truth inclusion, accepted projection share, and empty-set rates for Sign, DW, and nrDW, plus the warning event that DW rejects the truth while nrDW contains it across V=(0,0),(0.2,0.2),(0.5,0.5). It uses the same cleaned iid design as M78: no sample standardization, no residual demeaning, no recovered-shock demeaning, analytic no-noise weights for Sign/DW, and candidate-specific analytic iid weights W(B,lambda)=(E[f_t(B,lambda)f_t(B,lambda)'])^{-1} for nrDW.",
+      "depends_on": [
+        "fig:dw-robust-set-comparison",
+        "table:sample-size-mc-coverage-size-power",
+        "def:standard-dw-refined-set",
+        "def:robust-dw-higher-moment-set",
+        "eq:relative-noise-covariance-screen"
+      ],
+      "output_source": "M79 output: manuscript/simulations/m79_clean_iid_full_residual_noise_mc.md and manuscript/simulations/output/m79_clean_iid_full_residual_noise_mc.json. Runner: manuscript/simulations/m79_clean_iid_full_residual_noise_mc.py with --evaluation-reps 500 --projection-points 27 --profile-points 7 --lambda-points 5. Progress manifest: manuscript/simulations/output/m79_clean_iid_full_residual_noise_mc.progress.json. Active grid/statistic code: manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py. M78 runner: manuscript/simulations/m78_clean_iid_full_sample_size_mc.py. M77 analytic-weight formulas: manuscript/simulations/m77_clean_iid_mc_efficient_weight.py. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M56 audit: manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md. M66 derivation: manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md.",
+      "verification_status": "M79 script compiles, quick and full-grid smoke checks passed, the 500-replication cleaned full-grid run completed with 1500 records, lambda-grid checks confirmed true lambda values for all residual-noise scenarios, and robust analytic weights required no regularization. Sign truth inclusion is 0.924, 0.140, and 0.000; DW truth inclusion is 0.846, 0.102, and 0.000; nrDW truth inclusion is 0.888, 0.880, and 0.886. Final projected critical values remain open under M65."
+    },
+    {
       "id": "table:clean-iid-pointwise-size-audit",
       "type": "table",
       "status": "created-after-m77",

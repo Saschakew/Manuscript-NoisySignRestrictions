@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "updated_at": "2026-06-14T21:48:50+02:00",
+  "pid": 21648,
+  "completed": 1500,
+  "total": 1500,
+  "remaining": 0,
+  "elapsed_seconds": 1223.715847000014,
+  "average_seconds_per_rep": 0.815810564666676,
+  "eta_seconds": 0.0,
+  "grid": {
+    "projection_points": 27,
+    "profile_points": 7,
+    "lambda_points_nominal": 5,
+    "lambda_1_points_actual": 7,
+    "lambda_2_points_actual": 7
+  },
+  "reps_per_scenario": 500,
+  "current": null,
+  "latest_metrics": null,
+  "robust_weight_cache": {
+    "computed_b_candidates": 13210,
+    "computed_candidate_lambda_pairs": 647290,
+    "regularization": {
+      "matrix_count": 647290,
+      "regularized_matrix_count": 0,
+      "regularized_eigenvalue_count": 0,
+      "min_eigenvalue_before_floor": 0.0004406168889975095,
+      "max_eigenvalue_floor": 4.975062023420221e-06
+    },
+    "max_abs_moment_mean": 2.1316282072803006e-14
+  },
+  "outputs": {
+    "json": "manuscript/simulations/output/m79_clean_iid_full_residual_noise_mc.json",
+    "note": "manuscript/simulations/m79_clean_iid_full_residual_noise_mc.md"
+  }
+}

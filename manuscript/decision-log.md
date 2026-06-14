@@ -1375,3 +1375,25 @@ decisions.
 - Consequence for next work: M77 supplements M74 Table 2 rather than replacing
   it. A full-grid cleaned iid MC with accepted projection shares remains an
   optional future evidence task; M65 still owns final projected inference.
+
+### 2026-06-14 - Use cleaned iid full-grid residual-noise MC as Table 3
+
+- Origin: M79 clean iid full residual-noise MC task.
+- User input id: U0077
+- Codex role: implemented the M78-style full-grid residual-noise simulation
+  and updated the draft evidence section.
+- Decision: The Figure 1 residual-noise finite-sample table should use the
+  cleaned iid analytic-weight design: population-normalized iid \(\chi^2_5\)
+  structural shocks, iid Gaussian residual noise, no sample standardization,
+  no residual or recovered-shock demeaning, analytic no-noise weights for Sign
+  and DW, and candidate-specific analytic iid weights for nrDW.
+- Rationale: This makes the residual-noise experiment comparable with the M78
+  cleaned sample-size table and avoids the M74 calibration issue from
+  sample-specific covariance weights and sample standardization.
+- Alternatives considered: using the older M69 reduced diagnostic, or
+  waiting to combine M79 and M80 before updating the draft. M69 is too small
+  and uses the superseded diagnostic route; M79 already answers the Figure 1
+  residual-noise question cleanly enough to record as Table 3.
+- Consequence for next work: M80 should complete the analogous Figure 2
+  non-Gaussianity full-grid MC. M65 still owns projected critical values and
+  final confidence-set wording.
