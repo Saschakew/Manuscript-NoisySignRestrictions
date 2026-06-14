@@ -31,7 +31,8 @@ report a standard GMM set over \((B,\nu)\).
 - Evidence: M71 implements Figures 1-3, the Table 1 diagnostic, and the
   extended MC under the M66 \(\lambda\)-bounded unit-variance GMM route. M75
   adds the detailed M74 500-replication sample-size Monte Carlo section for
-  Figure 3 on the intermediate `27/7/5` grid. The
+  Figure 3 on the intermediate `27/7/5` grid, and M76 revises that table to
+  report Sign, DW, and nrDW side by side. The
   active chart reports first-shock coordinates \((B_{11},B_{21})\), profiles
   \(B_{12}\), \(B_{22}\), and \(\lambda\), imposes only \(B_{11}>0\),
   \(B_{22}>0\), and \(B_{12}\le0\), and uses candidate-specific pointwise
@@ -149,13 +150,14 @@ and proof or output status.
   inclusion is 0.000 and robust-DW truth inclusion is 0.667. The historical
   M52, M45, M29, and pre-correction M68/M69 passes remain superseded for
   active evidence.
-- M74/M75 detailed sample-size Monte Carlo evidence for Figure 3: with
+- M74/M75/M76 detailed sample-size Monte Carlo evidence for Figure 3: with
   \(V=\operatorname{diag}(0.2,0.2)\), strong structural non-Gaussianity, 500
-  replications per sample size, and the intermediate `27/7/5` grid, standard
-  DW truth inclusion is 0.110, 0.000, and 0.000 for \(T=500,1000,2000\), while
-  robust truth inclusion is 0.750, 0.842, and 0.872. Mean accepted projection
-  shares shrink from 0.022 to 0.003 for standard DW and from 0.050 to 0.019
-  for robust DW; the warning event rises from 0.676 to 0.872.
+  replications per sample size, and the intermediate `27/7/5` grid, Sign
+  truth inclusion is 0.112, 0.000, and 0.000 for \(T=500,1000,2000\); DW truth
+  inclusion is 0.110, 0.000, and 0.000; nrDW truth inclusion is 0.750, 0.842,
+  and 0.872. Mean accepted projection shares shrink from 0.062 to 0.014 for
+  Sign, from 0.022 to 0.003 for DW, and from 0.050 to 0.019 for nrDW; the
+  warning event rises from 0.676 to 0.872.
 - Final Monte Carlo comparison of standard sign, standard DW, and robust DW
   sets using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and

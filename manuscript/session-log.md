@@ -1456,3 +1456,27 @@ For traceable work blocks, pair this human-readable note with a closed
 - Next recommended action: close M0070, then return to M65 for projected
   critical values and final confidence-set wording; M70 can still refine the
   broader extended-MC narrative.
+
+### 2026-06-14 - Complete M76 sign-only M74 table revision
+
+- Request or goal: plan and implement a short task to report sign-only M74
+  results and rename confusing `S`/`R` labels in Table 2.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/simulations/m74_sample_size_mc_500_grid27.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/source-packet.md`,
+  `manuscript/paper-map.md`, `manuscript/project-dashboard.md`,
+  `manuscript/task-board.md`, `manuscript/QUESTION-INDEX.md`, and
+  `manuscript/tasks/M76-report-sign-only-m74-results/`.
+- Summary of work: created M76, recovered sign-only truth inclusion from the
+  stored no-noise second-moment truth statistic, revised Table 2 to report
+  Sign, DW, and nrDW truth inclusion, accepted projection shares, and empty-set
+  rates, and updated the local interpretation.
+- Check: `python -m json.tool manuscript/formal-object-registry.json` passed;
+  sign-only M74 rates were recomputed from JSON and matched the revised table;
+  `python scripts/check_manuscript.py` passed with the expected open-milestone
+  warning before closeout; `git diff --check` passed with only line-ending
+  normalization warnings.
+- Next recommended action: return to M65 for projected critical values and
+  final confidence-set wording; M70 can still refine the broader extended-MC
+  narrative.

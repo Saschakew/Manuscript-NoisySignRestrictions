@@ -634,19 +634,18 @@ wrong no-noise target as \(T\) grows, while the robust row keeps the full true
 ### 5.4 Monte Carlo Table
 
 Table 1 reports the M71 corrected first-shock Monte Carlo diagnostic under the
-same sign screen and projected criterion as Figures 1-3. The standard row uses the
+same sign screen and projected criterion as Figures 1-3. The DW row uses the
 no-noise second-order screen plus the bivariate DW GMM1 higher-moment menu.
-The robust row searches over \((B,\lambda)\), sets
+The nrDW row searches over \((B,\lambda)\), sets
 \(\nu_i=\lambda_i(BB')_{ii}\), estimates the pointwise covariance matrix at
-each candidate, and evaluates the Section 4 moment vector. `S
-truth` and `R truth` are full true-\(B_0\) inclusion rates for standard DW and
-robust DW. `Warning` is the fraction of replications in which standard DW
-misses the truth while robust DW contains it. `Sign share`, `S share`, and `R
-share` are accepted-set shares on the displayed first-shock projection grid.
-`d_S_not_subset_R` is the directional share of standard-DW accepted projection
-mass not supported by robust DW. `S dist` and `R dist` are average distances
-from the true first-shock projection to the accepted projection set, with zero
-when the projected truth is accepted.
+each candidate, and evaluates the Section 4 moment vector. `DW truth` and
+`nrDW truth` are full true-\(B_0\) inclusion rates for DW and nrDW. `Warning`
+is the fraction of replications in which DW misses the truth while nrDW
+contains it. `Sign share`, `DW share`, and `nrDW share` are accepted-set shares
+on the displayed first-shock projection grid. `d_DW_not_subset_nrDW` is the
+directional share of DW accepted projection mass not supported by nrDW. `DW
+dist` and `nrDW dist` are average distances from the true first-shock projection
+to the accepted projection set, with zero when the projected truth is accepted.
 
 **Table 1. M71 corrected first-shock Monte Carlo diagnostic.** Entries are
 evaluation averages from 6 replications per scenario on a \(13\times13\)
@@ -655,7 +654,7 @@ first-shock projection grid, profiling a \(5\times5\) grid for
 pointwise chi-square diagnostics for the displayed moment rows. They are not
 final projected confidence-set critical values.
 
-| Scenario | S truth | R truth | Warning | Sign share | S share | R share | d_S_not_subset_R | S dist | R dist |
+| Scenario | DW truth | nrDW truth | Warning | Sign share | DW share | nrDW share | d_DW_not_subset_nrDW | DW dist | nrDW dist |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
 | No noise, strong moments | 0.667 | 0.500 | 0.000 | 0.048 | 0.020 | 0.035 | 0.133 | 0.022 | 0.018 |
 | Moderate Gaussian noise | 0.167 | 0.667 | 0.667 | 0.051 | 0.019 | 0.060 | 0.000 | 0.039 | 0.000 |
@@ -673,7 +672,7 @@ non-Gaussian residual noise without additional restrictions.
 
 The no-noise row also shows why the table should be read as a lightweight
 diagnostic rather than final inference: the pointwise chi-square cutoff is
-close to the finite-sample distribution of the profiled robust truth statistic
+close to the finite-sample distribution of the profiled nrDW truth statistic
 in this small run. The next inference task is therefore not another chart
 normalization change, but a projected critical-value note for the enlarged
 \((B,\lambda)\) inversion.
@@ -728,8 +727,8 @@ cells. The profiled impact coordinates are \(B_{12}\) and \(B_{22}\), with the
 maintained sign and orientation screen
 \(B_{11}>0\), \(B_{22}>0\), \(B_{12}\le0\), and
 \(|B_{11}B_{22}-B_{12}B_{21}|>10^{-8}\). There is no sign restriction on
-\(B_{21}\). For a displayed projection cell, the sign, standard-DW, or robust
-projection is accepted if at least one admissible profiled candidate passes the
+\(B_{21}\). For a displayed projection cell, the Sign, DW, or nrDW projection
+is accepted if at least one admissible profiled candidate passes the
 corresponding test.
 
 The no-noise sign row uses the three second-moment observations
@@ -737,13 +736,13 @@ The no-noise sign row uses the three second-moment observations
 (e_1^2-1,\ e_1e_2,\ e_2^2-1),
 \]
 where \(e_t(B)=B^{-1}u_t\) is sample-centered candidate by candidate. Its
-pointwise diagnostic cutoff is \(\chi^2_3(0.90)=6.251\). Standard DW first
+pointwise diagnostic cutoff is \(\chi^2_3(0.90)=6.251\). DW first
 requires that second-moment screen and then applies the source-correct
 bivariate GMM1 higher-product menu
 \[
 (e_1^2e_2,\ e_1e_2^2,\ e_1^3e_2,\ e_1^2e_2^2-1,\ e_1e_2^3)
 \]
-with cutoff \(\chi^2_5(0.90)=9.236\). The robust row searches
+with cutoff \(\chi^2_5(0.90)=9.236\). The nrDW row searches
 \(\lambda\in[0,0.5]^2\), sets
 \(\nu_i(B,\lambda)=\lambda_i(BB')_{ii}\), and evaluates the eight-row Section
 4 vector: three second-order residual-covariance rows
@@ -767,47 +766,57 @@ This is a diagnostic pointwise efficient-weight calculation, not a final
 projected-confidence-set calibration.
 
 Table 2 separates the three quantities the sample-size experiment is meant to
-check. `S truth` and `R truth` are empirical truth-inclusion rates for the
-full true \(B_0\); one minus these rates is the false-rejection rate at the
-true parameter. `S size` and `R size` are mean accepted projection shares, with
-medians in parentheses, so smaller numbers mean more projected exclusion.
-`Warning` is the noise-diagnostic event that standard DW misses the full true
-\(B_0\) while robust DW contains it.
+check for three reported approaches. `Sign` is the no-noise sign-restriction
+screen alone. `DW` adds the standard no-noise Drautzburg-Wright
+higher-moment refinement. `nrDW` is the noise-robust DW set over
+\((B,\lambda)\). The truth columns are empirical full-\(B_0\) inclusion rates;
+one minus these rates is the false-rejection rate at the true parameter. The
+size columns are mean accepted projection shares, with medians in parentheses,
+so smaller numbers mean more projected exclusion. The empty columns are
+empty-set frequencies. `Warning` is the noise-diagnostic event that DW misses
+the full true \(B_0\) while nrDW contains it.
 
 **Table 2. M74 500-replication sample-size Monte Carlo.** The run uses the
 sample-size block only, \(V=\operatorname{diag}(0.2,0.2)\), strong structural
 non-Gaussianity, the `27/7/5` grid, candidate-specific pointwise covariance
 weights, and pointwise chi-square cutoffs.
 
-| T | S truth | R truth | S size | R size | S empty | R empty | Warning |
-|---:|---:|---:|---:|---:|---:|---:|---:|
-| 500 | 0.110 | 0.750 | 0.022 (0.022) | 0.050 (0.052) | 0.010 | 0.024 | 0.676 |
-| 1000 | 0.000 | 0.842 | 0.009 (0.009) | 0.031 (0.033) | 0.022 | 0.026 | 0.842 |
-| 2000 | 0.000 | 0.872 | 0.003 (0.003) | 0.019 (0.022) | 0.144 | 0.056 | 0.872 |
+| T | Sign truth | DW truth | nrDW truth | Sign size | DW size | nrDW size | Sign empty | DW empty | nrDW empty | Warning |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 500 | 0.112 | 0.110 | 0.750 | 0.062 (0.061) | 0.022 (0.022) | 0.050 (0.052) | 0.000 | 0.010 | 0.024 | 0.676 |
+| 1000 | 0.000 | 0.000 | 0.842 | 0.034 (0.033) | 0.009 (0.009) | 0.031 (0.033) | 0.000 | 0.022 | 0.026 | 0.842 |
+| 2000 | 0.000 | 0.000 | 0.872 | 0.014 (0.014) | 0.003 (0.003) | 0.019 (0.022) | 0.000 | 0.144 | 0.056 | 0.872 |
 
-The main size result is unfavorable to the standard no-noise DW inversion
-under this noisy DGP. Its truth-inclusion rate falls from 0.110 at \(T=500\)
-to zero at \(T=1000\) and \(T=2000\). The accepted projection share also
-shrinks sharply, from 0.022 to 0.003, so the standard set has high projection
-exclusion but the exclusion is aimed at the wrong target. The empty-set rate
-reaches 0.144 at \(T=2000\), which is itself evidence that the pointwise
-standard-DW inversion is becoming incompatible with the noisy data-generating
-process rather than simply becoming more precise.
+The first message is that the no-noise sign restriction already fails under
+this noisy covariance target. Sign contains the full true \(B_0\) in only
+0.112 of the \(T=500\) samples and in none of the \(T=1000\) or \(T=2000\)
+samples, even though the sign-only projection never becomes empty. Its mean
+accepted projection share shrinks from 0.062 to 0.014, so the baseline
+no-noise sign screen becomes more selective as \(T\) grows, but around the
+wrong covariance target.
 
-The robust inversion is wider but behaves like the intended noise-aware
+The DW row mostly inherits and sharpens that second-order failure. Its
+truth-inclusion rate falls from 0.110 at \(T=500\) to zero at \(T=1000\) and
+\(T=2000\). The accepted projection share shrinks more sharply, from 0.022 to
+0.003, so DW has high projection exclusion but the exclusion is aimed at the
+wrong target. The empty-set rate reaches 0.144 at \(T=2000\), which is itself
+evidence that the pointwise DW inversion is becoming incompatible with the
+noisy data-generating process rather than simply becoming more precise.
+
+The nrDW inversion is wider but behaves like the intended noise-aware
 diagnostic. Its truth-inclusion rate rises from 0.750 to 0.872 as \(T\)
 increases, while its mean accepted projection share falls from 0.050 to 0.019.
-Thus the robust set also gains projection-exclusion strength, but it does so
-while usually retaining the full true \(B_0\). The remaining robust
+Thus the noise-robust set also gains projection-exclusion strength, but it does
+so while usually retaining the full true \(B_0\). The remaining nrDW
 false-rejection rates, especially 0.250 at \(T=500\), should not be hidden:
 they are part of the finite-sample cost of using pointwise chi-square cutoffs,
 a coarse projection grid, and regularized candidate-specific weights.
 
 The warning rate is the clearest power-like diagnostic available from this
 run. It increases from 0.676 to 0.872, meaning that as sample size grows the
-standard-DW false precision becomes easier to detect by comparing it with the
-robust set. This is not a separate local-alternative power calculation. It is
-the power of the reported comparison to flag the specific noisy-covariance
+DW false precision becomes easier to detect by comparing it with the nrDW set.
+This is not a separate local-alternative power calculation. It is the power of
+the reported comparison to flag the specific noisy-covariance
 misspecification built into the sample-size DGP.
 
 <!-- SOURCE-TRAIL: M74 output note `simulations/m74_sample_size_mc_500_grid27.md`; machine-readable records `simulations/output/m74_sample_size_mc_500_grid27.json`; launch/progress manifests in `simulations/output/m74_sample_size_mc_500_grid27.launch.json` and `.progress.json`; runner `simulations/m69_extended_three_block_mc.py`; shared evaluator `simulations/m68_first_shock_evidence.py`; active grid/statistic code `simulations/sign_dw_unit_variance_noise_grid_figure.py`; M49 DW source audit; M56 generated-moment audit; M66 noise-ratio derivation. -->

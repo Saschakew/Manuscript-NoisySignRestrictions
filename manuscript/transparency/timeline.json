@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-14T12:45:20Z",
+  "updated_at": "2026-06-14T13:14:08Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1503,6 +1503,28 @@
         "milestone_number": 65,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/65",
         "tag_name": "manuscript-milestones/M0070-run-sample-size-mc-grid-audit"
+      }
+    },
+    {
+      "id": "M0071-report-sign-only-m74-results",
+      "sequence": 71,
+      "title": "Report sign-only M74 results",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-14T13:04:38Z",
+      "closed_at": "2026-06-14T13:14:07Z",
+      "start_commit": "740a43c3ae939efd9045925348ea8a9adb92ca91",
+      "snapshot_ref": "manuscript-milestones/M0071-report-sign-only-m74-results",
+      "summary": "Reported the sign-only M74 baseline and renamed the sample-size MC approaches Sign, DW, and nrDW.",
+      "user_input_ids": [
+        "U0071-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0071-report-sign-only-m74-results.json",
+      "github": {
+        "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+        "milestone_number": 66,
+        "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/66",
+        "tag_name": "manuscript-milestones/M0071-report-sign-only-m74-results"
       }
     }
   ]

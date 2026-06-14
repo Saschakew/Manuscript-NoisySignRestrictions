@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "id": "M0071-report-sign-only-m74-results",
+  "sequence": 71,
+  "title": "Report sign-only M74 results",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-14T13:04:38Z",
+  "closed_at": "2026-06-14T13:14:07Z",
+  "start_commit": "740a43c3ae939efd9045925348ea8a9adb92ca91",
+  "snapshot_ref": "manuscript-milestones/M0071-report-sign-only-m74-results",
+  "summary": "Reported the sign-only M74 baseline and renamed the sample-size MC approaches Sign, DW, and nrDW.",
+  "user_inputs": [
+    {
+      "id": "U0071-001",
+      "milestone_id": "M0071-report-sign-only-m74-results",
+      "captured_at": "2026-06-14T13:04:38Z",
+      "source": "chat",
+      "text": "Plan and implement a short task to also report the sign results in Table 2 and rename the approaches Sign, DW, and nrDW instead of S and R."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0071-001",
+      "milestone_id": "M0071-report-sign-only-m74-results",
+      "captured_at": "2026-06-14T13:13:15Z",
+      "description": "Created M76 task folder and outcome note."
+    },
+    {
+      "id": "A0071-002",
+      "milestone_id": "M0071-report-sign-only-m74-results",
+      "captured_at": "2026-06-14T13:13:15Z",
+      "description": "Revised draft Table 2 and M74 output note to report Sign, DW, and nrDW truth, size, and empty-set rates."
+    },
+    {
+      "id": "A0071-003",
+      "milestone_id": "M0071-report-sign-only-m74-results",
+      "captured_at": "2026-06-14T13:13:15Z",
+      "description": "Updated registry, provenance, planning, question index, and logs."
+    },
+    {
+      "id": "A0071-004",
+      "milestone_id": "M0071-report-sign-only-m74-results",
+      "captured_at": "2026-06-14T13:14:07Z",
+      "description": "Closed GitHub milestone #66 and refreshed the dashboard milestone summary."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-14T13:13:15Z",
+      "description": "python -m json.tool manuscript/formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-14T13:13:15Z",
+      "description": "M74 sign-only rates recomputed from JSON and matched revised table"
+    },
+    {
+      "captured_at": "2026-06-14T13:13:15Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closeout"
+    },
+    {
+      "captured_at": "2026-06-14T13:13:15Z",
+      "description": "git diff --check: passed with only line-ending normalization warnings"
+    },
+    {
+      "captured_at": "2026-06-14T13:14:07Z",
+      "description": "python scripts/check_manuscript.py: passed cleanly after M0071 closeout"
+    },
+    {
+      "captured_at": "2026-06-14T13:14:07Z",
+      "description": "python -m json.tool manuscript/transparency/timeline.json and M0071 manifest: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/QUESTION-INDEX.md",
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/m74_sample_size_mc_500_grid27.md",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M76-report-sign-only-m74-results/outcome.md",
+    "manuscript/tasks/M76-report-sign-only-m74-results/task.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0071-report-sign-only-m74-results.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 66,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/66",
+    "tag_name": "manuscript-milestones/M0071-report-sign-only-m74-results"
+  }
+}

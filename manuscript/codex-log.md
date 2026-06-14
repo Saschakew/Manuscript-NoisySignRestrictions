@@ -1549,3 +1549,24 @@ machine-readable milestone in `transparency/milestones/`.
   M0070 warning before closeout, then passed cleanly after M0070 was closed.
 - Open uncertainties: M65 still owns projected critical values and final
   confidence-set wording; M70 can refine the broader extended-MC narrative.
+
+### 2026-06-14 - M76 sign-only M74 table revision completed
+
+- Request: plan and implement a short task to also report sign results and
+  rename Table 2 approaches from confusing `S`/`R` labels to Sign, DW, and
+  nrDW.
+- Actions taken: opened M0071 and GitHub milestone #66, created
+  `manuscript/tasks/M76-report-sign-only-m74-results/`, recovered sign-only
+  truth inclusion from the stored M74 truth-second-moment statistic, revised
+  Table 2 and the M74 output note, and updated registry, provenance, planning,
+  question-index, and log surfaces.
+- Outcome: Table 2 now reports Sign, DW, and nrDW side by side. The sign-only
+  baseline shows truth inclusion of 0.112, 0.000, and 0.000 for
+  \(T=500,1000,2000\), while nrDW remains wider but usually truth-containing.
+- Checks run: `python -m json.tool manuscript/formal-object-registry.json`
+  passed; sign-only M74 rates were recomputed from JSON and matched the revised
+  table; `python scripts/check_manuscript.py` passed with the expected
+  open-milestone warning before closeout; `git diff --check` passed with only
+  line-ending normalization warnings.
+- Open uncertainties: M65 still owns projected critical values and final
+  confidence-set wording.

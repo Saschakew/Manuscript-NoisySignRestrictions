@@ -19,8 +19,9 @@ parameter-implied \(\omega_{ij}(B,\nu)\) terms.
 
 Current focus: M71 has corrected the active figure and Monte Carlo objects,
 M72 has fixed the rendered figure layout, M73 has refreshed Figures 1-3
-with denser default grids, and M75 has turned the completed M74 sample-size
-Monte Carlo into a detailed draft section.
+with denser default grids, M75 has turned the completed M74 sample-size
+Monte Carlo into a detailed draft section, and M76 has revised the M74 table
+to report Sign, DW, and nrDW side by side.
 Figures 1-3, the Table 1 diagnostic, and the extended MC now use first-shock
 coordinates \((B_{11},B_{21})\), profile \(B_{12}\), \(B_{22}\), and
 \(\lambda\), impose \(B_{11}>0\), \(B_{22}>0\), and \(B_{12}\le0\), and use
@@ -45,8 +46,10 @@ Next recommended action: return to M65 for final projected-inference wording,
 projected critical values, and release hardening. M70 can still refine the
 broader extended-MC narrative after the M75 sample-size section.
 
-Active milestone: M0070 is closed for the M74 sample-size MC grid audit and
-M75 detailed draft interpretation. GitHub milestone #65 tracks the same work.
+Active milestone: M0071 is closed for the M76 sign-only M74 table revision.
+GitHub milestone #66 tracks the same work. M0070 is closed for the M74
+sample-size MC grid audit and M75 detailed draft interpretation. GitHub
+milestone #65 tracks the same work.
 M0069 completes the M73 Figure 1-3
 grid-density refresh and GitHub milestone #64 tracks the same
 figure-resolution work. M0068 completes
@@ -165,7 +168,11 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-14, completed M75 by drafting the detailed
+Last substantive session: 2026-06-14, completed M76 by adding the sign-only
+baseline to the M74 sample-size Monte Carlo table and renaming the reported
+approaches Sign, DW, and nrDW.
+
+Prior substantive session: 2026-06-14, completed M75 by drafting the detailed
 sample-size Monte Carlo subsection from the completed M74 `27/7/5`
 500-replication output, including the DGP, set computations, pointwise
 weighting and cutoffs, and coverage/set-size/warning interpretation.

@@ -1314,3 +1314,22 @@ decisions.
 - Consequence for next work: M65 can use the M75 section as diagnostic
   evidence, but final confidence-set claims still require projected critical
   values and inference wording.
+
+### 2026-06-14 - Use Sign, DW, and nrDW names in the M74 table
+
+- Origin: M76 report sign-only M74 results.
+- User input id: U0073
+- Codex role: implemented the user's table naming and reporting request using
+  the completed M74 output.
+- Decision: The M74 sample-size MC table should report the three approaches as
+  `Sign`, `DW`, and `nrDW`. `Sign` means the sign-only no-noise second-moment
+  screen; `DW` means the standard no-noise Drautzburg-Wright refinement; `nrDW`
+  means the noise-robust DW inversion over \((B,\lambda)\).
+- Rationale: `S` and `R` were confusing in Table 2, especially once the
+  sign-only baseline is reported. The new names make clear that DW refines the
+  no-noise sign/covariance screen and nrDW is the noise-adjusted comparison.
+- Alternatives considered: keeping `S` for standard DW and `R` for robust DW,
+  or adding a footnote while leaving the old column labels. Both would preserve
+  avoidable ambiguity.
+- Consequence for next work: Future MC tables should use the Sign/DW/nrDW
+  naming convention unless a later task deliberately revises it.
