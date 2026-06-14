@@ -144,3 +144,4 @@
 {"id": "A0071-002", "milestone_id": "M0071-report-sign-only-m74-results", "captured_at": "2026-06-14T13:13:15Z", "description": "Revised draft Table 2 and M74 output note to report Sign, DW, and nrDW truth, size, and empty-set rates."}
 {"id": "A0071-003", "milestone_id": "M0071-report-sign-only-m74-results", "captured_at": "2026-06-14T13:13:15Z", "description": "Updated registry, provenance, planning, question index, and logs."}
 {"id": "A0071-004", "milestone_id": "M0071-report-sign-only-m74-results", "captured_at": "2026-06-14T13:14:07Z", "description": "Closed GitHub milestone #66 and refreshed the dashboard milestone summary."}
+{"id": "A0072-001", "milestone_id": "M0072-clean-iid-mc-efficient-weight", "captured_at": "2026-06-14T17:13:29Z", "description": "Added cleaned iid MC script/output and draft interpretation; nrDW truth inclusion is near nominal under analytic iid weights"}

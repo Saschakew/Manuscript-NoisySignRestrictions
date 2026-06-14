@@ -1480,3 +1480,31 @@ For traceable work blocks, pair this human-readable note with a closed
 - Next recommended action: return to M65 for projected critical values and
   final confidence-set wording; M70 can still refine the broader extended-MC
   narrative.
+
+### 2026-06-14 - Complete M77 clean iid analytic-weight audit
+
+- Request or goal: work on M77 in goal mode after the user requested a cleaned
+  Monte Carlo using \(W=(E[f_tf_t'])^{-1}\) rather than a large-sample or
+  sample-specific weight.
+- Files changed: `manuscript/simulations/m77_clean_iid_mc_efficient_weight.py`,
+  `manuscript/simulations/m77_clean_iid_mc_efficient_weight.md`,
+  `manuscript/simulations/output/m77_clean_iid_mc_efficient_weight.json`,
+  `manuscript/draft.md`, `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/source-packet.md`,
+  `manuscript/paper-map.md`, `manuscript/project-dashboard.md`,
+  `manuscript/task-board.md`, `manuscript/QUESTION-INDEX.md`, and
+  `manuscript/tasks/M77-clean-iid-mc-efficient-weight/`.
+- Summary of work: added a cleaned iid truth-at-\(B_0\) MC script that uses
+  population-normalized \(\chi^2_5\) structural shocks, iid Gaussian residual
+  noise, no sample standardization or demeaning, and analytic iid weights
+  computed by polynomial expansion of \(E[f_tf_t']\). The 500-replication run
+  reports nrDW truth inclusion of 0.884, 0.896, and 0.900 for
+  \(T=500,1000,2000\).
+- Check: M77 script ran with 500 replications; M77 JSON and the formal registry
+  validated; the M77 script compiled; an independent 200000-draw formula check
+  at \(B_0\) was not used to compute \(W\); `python scripts/check_manuscript.py`
+  passed with the expected open-milestone warning before closeout and cleanly
+  after closeout; `git diff --check` passed with line-ending normalization
+  warnings only.
+- Next recommended action: close M0072, then return to M65 for projected
+  critical values and final inference wording.

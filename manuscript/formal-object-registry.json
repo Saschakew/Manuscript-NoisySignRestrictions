@@ -279,9 +279,9 @@
     {
       "id": "table:sample-size-mc-coverage-size-power",
       "type": "table",
-      "status": "revised-after-m76",
+      "status": "supplemented-after-m77",
       "draft_location": "draft.md#55-detailed-sample-size-monte-carlo",
-      "description": "M74 500-replication sample-size Monte Carlo table for the Figure 3 DGP. It reports empirical full-B0 truth inclusion, accepted projection share as estimated-set size, and empty-set rates for Sign, DW, and nrDW, plus the warning event that DW rejects the truth while nrDW contains it across T=500,1000,2000.",
+      "description": "M74 500-replication sample-size Monte Carlo table for the Figure 3 DGP. It reports empirical full-B0 truth inclusion, accepted projection share as estimated-set size, and empty-set rates for Sign, DW, and nrDW, plus the warning event that DW rejects the truth while nrDW contains it across T=500,1000,2000. M77 supplements the table with a truth-at-B0 cleaned iid pointwise audit using analytic W=(E[f_t f_t'])^{-1}; it does not replace the M74 set-size rows.",
       "depends_on": [
         "fig:sample-size-robust-grid",
         "table:monte-carlo-coverage-width",
@@ -290,7 +290,21 @@
         "eq:relative-noise-covariance-screen"
       ],
       "output_source": "M74 output: manuscript/simulations/m74_sample_size_mc_500_grid27.md and manuscript/simulations/output/m74_sample_size_mc_500_grid27.json. Runner: manuscript/simulations/m69_extended_three_block_mc.py with --block sample_size_grid --evaluation-reps 500 --projection-points 27 --profile-points 7 --lambda-points 5. Shared evaluator: manuscript/simulations/m68_first_shock_evidence.py. Active grid/statistic code: manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M56 audit: manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md. M66 derivation: manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md.",
-      "verification_status": "M75 verified the Markdown rows against the JSON summaries, confirmed the completed progress manifest and empty error log, and added the draft interpretation with pointwise-critical-value caveats. M76 added the sign-only baseline from stored sign-screen accepted shares and the stored no-noise second-moment truth statistic. Final projected critical values remain open under M65."
+      "verification_status": "M75 verified the Markdown rows against the JSON summaries, confirmed the completed progress manifest and empty error log, and added the draft interpretation with pointwise-critical-value caveats. M76 added the sign-only baseline from stored sign-screen accepted shares and the stored no-noise second-moment truth statistic. M77 added a cleaned iid analytic-weight truth-at-B0 audit showing nrDW pointwise truth inclusion near the nominal 0.90 benchmark. Final projected critical values remain open under M65."
+    },
+    {
+      "id": "table:clean-iid-pointwise-size-audit",
+      "type": "table",
+      "status": "created-after-m77",
+      "draft_location": "draft.md#55-detailed-sample-size-monte-carlo",
+      "description": "M77 500-replication truth-at-B0 pointwise size audit for the sample-size DGP. It removes sample standardization, residual demeaning, and recovered-shock demeaning; draws population-normalized iid chi-square structural shocks and iid Gaussian residual noise; and uses analytic iid efficient weights W=(E[f_t f_t'])^{-1}. It reports only truth inclusion and J quantiles, not accepted projection shares or empty-set rates.",
+      "depends_on": [
+        "table:sample-size-mc-coverage-size-power",
+        "def:robust-dw-higher-moment-set",
+        "eq:relative-noise-covariance-screen"
+      ],
+      "output_source": "M77 output: manuscript/simulations/m77_clean_iid_mc_efficient_weight.md and manuscript/simulations/output/m77_clean_iid_mc_efficient_weight.json. Script: manuscript/simulations/m77_clean_iid_mc_efficient_weight.py. The script computes W by polynomial expansion from exact univariate raw moments through order eight, not by an auxiliary large-sample simulation.",
+      "verification_status": "M77 JSON validates, script compiles, and a separate 200000-draw formula check at B0 had max scaled robust covariance discrepancy about 0.070 without being used to compute W. nrDW truth inclusion is 0.884, 0.896, and 0.900 for T=500,1000,2000."
     },
     {
       "id": "audit:robust-dw-derivation",

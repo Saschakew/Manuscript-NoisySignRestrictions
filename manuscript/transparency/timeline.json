@@ -3,7 +3,7 @@
   "manuscript_slug": "noise-robust-sign-restricted-svars",
   "working_title": "Noise-Robust Sign-Restricted SVARs",
   "snapshot_tag_prefix": "manuscript-milestones/",
-  "updated_at": "2026-06-14T13:14:08Z",
+  "updated_at": "2026-06-14T17:13:30Z",
   "milestones": [
     {
       "id": "M0003-initialize-noise-robust-sign-svar-manuscript",
@@ -1525,6 +1525,28 @@
         "milestone_number": 66,
         "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/66",
         "tag_name": "manuscript-milestones/M0071-report-sign-only-m74-results"
+      }
+    },
+    {
+      "id": "M0072-clean-iid-mc-efficient-weight",
+      "sequence": 72,
+      "title": "Clean iid MC efficient weight",
+      "kind": "user-request",
+      "status": "closed",
+      "opened_at": "2026-06-14T17:02:25Z",
+      "closed_at": "2026-06-14T17:13:29Z",
+      "start_commit": "c8b00648aff7ecc0f613e662768d01ade5009975",
+      "snapshot_ref": "manuscript-milestones/M0072-clean-iid-mc-efficient-weight",
+      "summary": "Completed M77 cleaned iid analytic-weight pointwise size audit",
+      "user_input_ids": [
+        "U0072-001"
+      ],
+      "milestone_path": "manuscript/transparency/milestones/M0072-clean-iid-mc-efficient-weight.json",
+      "github": {
+        "repository": "",
+        "milestone_number": null,
+        "milestone_url": "",
+        "tag_name": "manuscript-milestones/M0072-clean-iid-mc-efficient-weight"
       }
     }
   ]

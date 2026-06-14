@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "id": "M0072-clean-iid-mc-efficient-weight",
+  "sequence": 72,
+  "title": "Clean iid MC efficient weight",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-14T17:02:25Z",
+  "closed_at": "2026-06-14T17:13:29Z",
+  "start_commit": "c8b00648aff7ecc0f613e662768d01ade5009975",
+  "snapshot_ref": "manuscript-milestones/M0072-clean-iid-mc-efficient-weight",
+  "summary": "Completed M77 cleaned iid analytic-weight pointwise size audit",
+  "user_inputs": [
+    {
+      "id": "U0072-001",
+      "milestone_id": "M0072-clean-iid-mc-efficient-weight",
+      "captured_at": "2026-06-14T17:02:25Z",
+      "source": "chat",
+      "text": "Execute M77: clean the sample-size Monte Carlo DGP, remove sample standardization and demeaning, compute analytic iid efficient weights W=(E[f_t f_t'])^{-1}, and rerun the pointwise size diagnostic."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0072-001",
+      "milestone_id": "M0072-clean-iid-mc-efficient-weight",
+      "captured_at": "2026-06-14T17:13:29Z",
+      "description": "Added cleaned iid MC script/output and draft interpretation; nrDW truth inclusion is near nominal under analytic iid weights"
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-14T17:13:29Z",
+      "description": "python scripts/check_manuscript.py: passed with expected open-milestone warning before closeout"
+    }
+  ],
+  "changed_files": [
+    "manuscript/QUESTION-INDEX.md",
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/m77_clean_iid_mc_efficient_weight.md",
+    "manuscript/simulations/m77_clean_iid_mc_efficient_weight.py",
+    "manuscript/simulations/output/m77_clean_iid_mc_efficient_weight.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M77-clean-iid-mc-efficient-weight/outcome.md",
+    "manuscript/tasks/M77-clean-iid-mc-efficient-weight/task.md",
+    "manuscript/transparency/active-milestone.json",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0072-clean-iid-mc-efficient-weight.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 67,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/67",
+    "tag_name": "manuscript-milestones/M0072-clean-iid-mc-efficient-weight"
+  }
+}

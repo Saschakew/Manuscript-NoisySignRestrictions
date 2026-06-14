@@ -158,6 +158,12 @@ and proof or output status.
   and 0.872. Mean accepted projection shares shrink from 0.062 to 0.014 for
   Sign, from 0.022 to 0.003 for DW, and from 0.050 to 0.019 for nrDW; the
   warning event rises from 0.676 to 0.872.
+- M77 cleaned iid pointwise audit for the same truth-at-\(B_0\) sample-size
+  design: after removing sample standardization/demeaning and using analytic
+  iid weights \(W=(E[f_tf_t'])^{-1}\), nrDW truth inclusion is 0.884, 0.896,
+  and 0.900 for \(T=500,1000,2000\). This supplements rather than replaces the
+  full-grid M74 set-size table because it does not compute accepted projection
+  shares.
 - Final Monte Carlo comparison of standard sign, standard DW, and robust DW
   sets using the grid pair's scenarios as the main design.
 - Stress cases that quantify honest widening, weak-moment uncertainty, and

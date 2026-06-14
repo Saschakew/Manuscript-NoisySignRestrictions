@@ -1570,3 +1570,24 @@ machine-readable milestone in `transparency/milestones/`.
   line-ending normalization warnings.
 - Open uncertainties: M65 still owns projected critical values and final
   confidence-set wording.
+
+### 2026-06-14 - M77 clean iid analytic-weight audit completed
+
+- Request: execute the cleaned Monte Carlo task using the simple analytic
+  \(W=(E[f_tf_t'])^{-1}\) formula rather than a large-sample weight estimate.
+- Actions taken: opened M0072 and GitHub milestone #67, implemented
+  `m77_clean_iid_mc_efficient_weight.py`, generated the M77 JSON/Markdown
+  outputs, updated the detailed sample-size draft section, and updated
+  registry, provenance, planning, question-index, and task outcome surfaces.
+- Outcome: the cleaned iid truth-at-\(B_0\) audit reports nrDW inclusion rates
+  of 0.884, 0.896, and 0.900 for \(T=500,1000,2000\), so the earlier nrDW
+  undercoverage is interpreted as a sample-specific weighting and
+  finite-sample implementation issue. M77 supplements M74 Table 2 because it
+  does not compute projection shares or empty-set rates.
+- Checks run: 500-replication M77 run passed; M77 JSON and formal registry
+  validation passed; script compilation passed; `python scripts/check_manuscript.py`
+  passed with the expected open-milestone warning before closeout and cleanly
+  after closeout; `git diff --check` passed with line-ending normalization
+  warnings only.
+- Open uncertainties: M65 still owns projected critical values and final
+  projected-inference wording; a full-grid cleaned iid MC remains optional.

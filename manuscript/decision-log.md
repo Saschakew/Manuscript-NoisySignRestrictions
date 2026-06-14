@@ -1333,3 +1333,26 @@ decisions.
   avoidable ambiguity.
 - Consequence for next work: Future MC tables should use the Sign/DW/nrDW
   naming convention unless a later task deliberately revises it.
+
+### 2026-06-14 - Clean iid analytic weights for the pointwise size audit
+
+- Origin: M77 clean iid MC efficient-weight task.
+- User input id: U0074
+- Codex role: implemented the task-backed diagnostic and updated the draft
+  interpretation.
+- Decision: The cleaned pointwise size audit should remove sample
+  standardization, residual demeaning, and recovered-shock demeaning; draw
+  population-normalized iid \(\chi^2_5\) structural shocks and iid Gaussian
+  residual noise; and compute \(W=(E[f_t f_t'])^{-1}\) analytically from exact
+  univariate moments rather than from a large auxiliary sample.
+- Rationale: Under iid per-period moments with \(E[f_t]=0\), the efficient GMM
+  weight is sample-size invariant. The M74 nrDW undercoverage was therefore
+  plausibly a finite-sample implementation and sample-specific weighting
+  calibration issue, not a failure of the robust population restrictions.
+- Alternatives considered: estimating \(W\) from one very large simulated
+  sample, or treating M74 candidate-specific sample weights as final. The
+  large-sample route was rejected by user instruction for this task; the M74
+  route remains a full-grid diagnostic but not the clean pointwise size audit.
+- Consequence for next work: M77 supplements M74 Table 2 rather than replacing
+  it. A full-grid cleaned iid MC with accepted projection shares remains an
+  optional future evidence task; M65 still owns final projected inference.

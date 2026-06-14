@@ -20,8 +20,10 @@ parameter-implied \(\omega_{ij}(B,\nu)\) terms.
 Current focus: M71 has corrected the active figure and Monte Carlo objects,
 M72 has fixed the rendered figure layout, M73 has refreshed Figures 1-3
 with denser default grids, M75 has turned the completed M74 sample-size
-Monte Carlo into a detailed draft section, and M76 has revised the M74 table
-to report Sign, DW, and nrDW side by side.
+Monte Carlo into a detailed draft section, M76 has revised the M74 table to
+report Sign, DW, and nrDW side by side, and M77 has added a cleaned iid
+truth-at-\(B_0\) pointwise size audit using analytic efficient weights
+\(W=(E[f_t f_t'])^{-1}\).
 Figures 1-3, the Table 1 diagnostic, and the extended MC now use first-shock
 coordinates \((B_{11},B_{21})\), profile \(B_{12}\), \(B_{22}\), and
 \(\lambda\), impose \(B_{11}>0\), \(B_{22}>0\), and \(B_{12}\le0\), and use
@@ -42,12 +44,16 @@ versions for draft interpretation because it removes the extra \(B_{21}\ge0\)
 screen and replaces true-point fixed weights with candidate-specific pointwise
 weights.
 
-Next recommended action: return to M65 for final projected-inference wording,
-projected critical values, and release hardening. M70 can still refine the
-broader extended-MC narrative after the M75 sample-size section.
+Next recommended action: return to M65 for projected critical values, final
+projected-inference wording, and release hardening. M77 shows that nrDW
+truth-at-\(B_0\) pointwise inclusion is near nominal under the cleaned iid
+analytic-weight design, but it does not replace M74's full-grid set-size
+table. M70 can still refine the broader extended-MC narrative after M65.
 
-Active milestone: M0071 is closed for the M76 sign-only M74 table revision.
-GitHub milestone #66 tracks the same work. M0070 is closed for the M74
+Active milestone: M0072 is closed for the M77 cleaned iid analytic-weight
+pointwise audit. GitHub milestone #67 tracks the same work. M0071 is closed
+for the M76 sign-only M74 table revision. GitHub milestone #66 tracks the same
+work. M0070 is closed for the M74
 sample-size MC grid audit and M75 detailed draft interpretation. GitHub
 milestone #65 tracks the same work.
 M0069 completes the M73 Figure 1-3
@@ -168,7 +174,12 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-14, completed M76 by adding the sign-only
+Last substantive session: 2026-06-14, completed M77 by adding the cleaned iid
+truth-at-\(B_0\) sample-size audit with analytic \(W=(E[f_t f_t'])^{-1}\). The
+audit supplements M74 Table 2 and shows nrDW pointwise truth inclusion near
+nominal.
+
+Prior substantive session: 2026-06-14, completed M76 by adding the sign-only
 baseline to the M74 sample-size Monte Carlo table and renaming the reported
 approaches Sign, DW, and nrDW.
 

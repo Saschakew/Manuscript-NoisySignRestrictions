@@ -812,6 +812,31 @@ false-rejection rates, especially 0.250 at \(T=500\), should not be hidden:
 they are part of the finite-sample cost of using pointwise chi-square cutoffs,
 a coarse projection grid, and regularized candidate-specific weights.
 
+A follow-up pointwise audit isolates the weighting issue. M77 changes the
+simulation design by drawing population-normalized iid structural shocks
+\((\chi^2_5-5)/\sqrt{10}\), drawing iid Gaussian residual noise, and removing
+all sample standardization, residual demeaning, and recovered-shock demeaning.
+It also replaces the sample-specific covariance estimate with the analytic iid
+efficient weight \(W=(E[f_tf_t'])^{-1}\), computed from the exact univariate
+moments of the maintained shock and noise distributions. This is only a
+truth-at-\(B_0\) size audit, not a new accepted-set-size table:
+
+| T | Sign truth | DW truth | nrDW truth | nrDW \(J\) q90 |
+|---:|---:|---:|---:|---:|
+| 500 | 0.124 | 0.088 | 0.884 | 14.280 |
+| 1000 | 0.020 | 0.010 | 0.896 | 13.422 |
+| 2000 | 0.000 | 0.000 | 0.900 | 13.257 |
+
+The nominal robust cutoff is 13.362, and the Monte Carlo standard error for a
+0.90 inclusion rate with 500 replications is about 0.013. Thus the cleaned iid
+analytic-weight audit brings nrDW pointwise truth inclusion back to nominal
+sampling error. The low Sign and DW truth rates remain, as expected, because
+those rows still test the no-noise covariance target under residual noise.
+Table 2 therefore remains the full-grid set-size diagnostic, while M77 shows
+that the earlier nrDW undercoverage is mainly an implementation and weighting
+calibration problem rather than a failure of the robust population moment
+restrictions.
+
 The warning rate is the clearest power-like diagnostic available from this
 run. It increases from 0.676 to 0.872, meaning that as sample size grows the
 DW false precision becomes easier to detect by comparing it with the nrDW set.
@@ -819,7 +844,7 @@ This is not a separate local-alternative power calculation. It is the power of
 the reported comparison to flag the specific noisy-covariance
 misspecification built into the sample-size DGP.
 
-<!-- SOURCE-TRAIL: M74 output note `simulations/m74_sample_size_mc_500_grid27.md`; machine-readable records `simulations/output/m74_sample_size_mc_500_grid27.json`; launch/progress manifests in `simulations/output/m74_sample_size_mc_500_grid27.launch.json` and `.progress.json`; runner `simulations/m69_extended_three_block_mc.py`; shared evaluator `simulations/m68_first_shock_evidence.py`; active grid/statistic code `simulations/sign_dw_unit_variance_noise_grid_figure.py`; M49 DW source audit; M56 generated-moment audit; M66 noise-ratio derivation. -->
+<!-- SOURCE-TRAIL: M74 output note `simulations/m74_sample_size_mc_500_grid27.md`; machine-readable records `simulations/output/m74_sample_size_mc_500_grid27.json`; launch/progress manifests in `simulations/output/m74_sample_size_mc_500_grid27.launch.json` and `.progress.json`; runner `simulations/m69_extended_three_block_mc.py`; shared evaluator `simulations/m68_first_shock_evidence.py`; active grid/statistic code `simulations/sign_dw_unit_variance_noise_grid_figure.py`; M77 pointwise audit `simulations/m77_clean_iid_mc_efficient_weight.md` and `simulations/output/m77_clean_iid_mc_efficient_weight.json`; M49 DW source audit; M56 generated-moment audit; M66 noise-ratio derivation. -->
 
 <!-- SOURCE-TRAIL: Use KnowledgeVault replication assets only as starting points; final figure commands must live in `replication/README.md`. -->
 <!-- SOURCE-TRAIL: Use `derivations/dw-robust-comparison-diagnostic.md` for the M27 definitions of the reported standard-DW set, robust-DW set, critical-value convention, directional overlap metric, and interpretation boundaries. -->
