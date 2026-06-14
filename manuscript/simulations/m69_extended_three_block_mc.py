@@ -11,7 +11,12 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
+import sys
+import time
+import traceback
 from dataclasses import dataclass
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -96,6 +101,34 @@ def display_path(path: Path) -> str:
         return path.relative_to(ROOT).as_posix()
     except ValueError:
         return str(path)
+
+
+def now_iso() -> str:
+    return datetime.now().astimezone().isoformat(timespec="seconds")
+
+
+def write_progress(progress_output: Path | None, payload: dict[str, Any]) -> None:
+    if progress_output is None:
+        return
+    progress_output.parent.mkdir(parents=True, exist_ok=True)
+    temp_path = progress_output.with_suffix(progress_output.suffix + ".tmp")
+    temp_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8", newline="\n")
+    temp_path.replace(progress_output)
+
+
+def append_progress_log(progress_log_output: Path | None, line: str) -> None:
+    if progress_log_output is None:
+        return
+    progress_log_output.parent.mkdir(parents=True, exist_ok=True)
+    with progress_log_output.open("a", encoding="utf-8", newline="\n") as handle:
+        handle.write(line.rstrip() + "\n")
+
+
+def emit_progress(line: str, progress_log_output: Path | None) -> None:
+    append_progress_log(progress_log_output, line)
+    stream = getattr(sys, "stdout", None)
+    if stream is not None:
+        print(line, flush=True)
 
 
 def block_map() -> dict[str, MCBlock]:
@@ -378,16 +411,92 @@ def run(
     reps: int = 8,
     spec: fig.GridSpec = fig.GridSpec(projection_points=13, profile_points=5, lambda_points=3),
     quick: bool = False,
+    progress_output: Path | None = None,
+    progress_log_output: Path | None = None,
 ) -> Path:
     grid = fig.make_candidate_grid(spec)
     records: list[dict[str, Any]] = []
-    all_blocks = block_map()
+    block_names = list(block_map())
+    total = int(sum(len(block.scenarios) * reps for block in blocks))
+    completed = 0
+    started = time.perf_counter()
+
+    def publish_progress(
+        status: str,
+        block: MCBlock | None = None,
+        scenario: MCScenario | None = None,
+        rep: int | None = None,
+        seed: int | None = None,
+        metrics: dict[str, Any] | None = None,
+    ) -> None:
+        elapsed = time.perf_counter() - started
+        average = elapsed / completed if completed else None
+        eta = average * (total - completed) if average is not None else None
+        latest = None
+        if metrics is not None:
+            latest = {
+                "sign_share": metrics["sign"]["accepted_share"],
+                "standard_share": metrics["standard_dw"]["accepted_share"],
+                "robust_share": metrics["robust_dw"]["accepted_share"],
+                "standard_truth_in": metrics["standard_dw"]["truth_in"],
+                "robust_truth_in": metrics["robust_dw"]["truth_in"],
+                "robust_prefilter_count": metrics["robust_dw"]["prefilter_count"],
+            }
+        payload = {
+            "schema_version": 1,
+            "status": status,
+            "updated_at": now_iso(),
+            "pid": os.getpid(),
+            "completed": completed,
+            "total": total,
+            "remaining": total - completed,
+            "elapsed_seconds": elapsed,
+            "average_seconds_per_rep": average,
+            "eta_seconds": eta,
+            "grid": {
+                "projection_points": spec.projection_points,
+                "profile_points": spec.profile_points,
+                "lambda_points": spec.lambda_points,
+            },
+            "reps_per_scenario": reps,
+            "current": None
+            if block is None or scenario is None
+            else {
+                "block": block.name,
+                "block_label": block.label,
+                "scenario": scenario.name,
+                "label": scenario.label,
+                "sample_size": scenario.sample_size,
+                "rep": rep,
+                "seed": seed,
+            },
+            "latest_metrics": latest,
+            "outputs": {
+                "json": display_path(json_output),
+                "note": display_path(note_output),
+            },
+        }
+        write_progress(progress_output, payload)
+        if status == "completed":
+            emit_progress(f"[progress] completed {completed}/{total} reps in {elapsed:.1f}s", progress_log_output)
+        elif block is not None and scenario is not None and rep is not None:
+            eta_text = "n/a" if eta is None else f"{eta / 3600:.2f}h"
+            emit_progress(
+                f"[progress] {completed}/{total} block={block.name} scenario={scenario.name} "
+                f"rep={rep + 1}/{reps} elapsed={elapsed / 3600:.2f}h eta={eta_text}",
+                progress_log_output,
+            )
+        else:
+            emit_progress(f"[progress] started total={total}", progress_log_output)
+
+    publish_progress("running")
     for block in blocks:
-        block_index = list(all_blocks).index(block.name)
+        block_index = block_names.index(block.name)
         for scenario_index, scenario in enumerate(block.scenarios):
             for rep in range(reps):
                 seed = seed_for(fig.RANDOM_SEED, block_index, scenario_index, rep)
                 metrics = m68.evaluate_one(scenario, seed, grid, spec)
+                completed += 1
                 records.append(
                     {
                         "block": block.name,
@@ -400,8 +509,10 @@ def run(
                         "metrics": metrics,
                     }
                 )
+                publish_progress("running", block, scenario, rep, seed, metrics)
     summaries = summarize(records, blocks)
     write_outputs(records, summaries, blocks, spec, reps, json_output, note_output, quick)
+    publish_progress("completed")
     return note_output
 
 
@@ -417,6 +528,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--lambda-points", type=int, default=3)
     parser.add_argument("--robust-batch-size", type=int, default=36)
     parser.add_argument("--standard-batch-size", type=int, default=240)
+    parser.add_argument("--progress-output", default="", help="Optional JSON progress file updated after each replication.")
+    parser.add_argument("--progress-log-output", default="", help="Optional text progress log appended after each replication.")
     parser.add_argument(
         "--quick",
         action="store_true",
@@ -453,14 +566,34 @@ def main() -> int:
     else:
         note_output = Path(args.note_output) if args.note_output else NOTE_OUTPUT
 
-    path = run(
-        blocks=selected_blocks(args.block),
-        json_output=json_output,
-        note_output=note_output,
-        reps=reps,
-        spec=spec,
-        quick=args.quick,
-    )
+    progress_output = Path(args.progress_output) if args.progress_output else None
+    progress_log_output = Path(args.progress_log_output) if args.progress_log_output else None
+    try:
+        path = run(
+            blocks=selected_blocks(args.block),
+            json_output=json_output,
+            note_output=note_output,
+            reps=reps,
+            spec=spec,
+            quick=args.quick,
+            progress_output=progress_output,
+            progress_log_output=progress_log_output,
+        )
+    except Exception:
+        error = traceback.format_exc()
+        write_progress(
+            progress_output,
+            {
+                "schema_version": 1,
+                "status": "failed",
+                "updated_at": now_iso(),
+                "pid": os.getpid(),
+                "error": error,
+            },
+        )
+        append_progress_log(progress_log_output, "[progress] failed")
+        append_progress_log(progress_log_output, error)
+        raise
     print(f"Wrote {display_path(path)}")
     return 0
 

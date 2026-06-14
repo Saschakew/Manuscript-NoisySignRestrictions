@@ -1289,3 +1289,28 @@ decisions.
 - Consequence for next work: M65 remains responsible for final projected
   critical values and release hardening; the denser figures do not settle the
   inference route.
+
+### 2026-06-14 - Define the M74 sample-size MC power-like diagnostics
+
+- Origin: M75 detailed sample-size MC section.
+- User input id: U0072
+- Codex role: interpreted the completed M74 output and drafted the detailed
+  sample-size Monte Carlo subsection.
+- Decision: For the M74 draft section, separate three quantities: empirical
+  truth inclusion or false rejection of the full true \(B_0\) as the
+  size/coverage diagnostic, accepted projection share as estimated-set size,
+  and the warning event `standard DW misses B0 while robust DW contains B0` as
+  the main power-like diagnostic for the noisy-covariance design. Projection
+  exclusion strength can be read as one minus accepted projection share, but it
+  must not be treated as good power when the set excludes the truth.
+- Rationale: The M74 output does not include a separate local-alternative
+  experiment. The user asked to understand set size and power, so the draft
+  needs explicit, checkable metrics without implying that a different power
+  design was run.
+- Alternatives considered: calling visual narrowing "power" directly or
+  adding a new local-alternative simulation before drafting. The first would be
+  misleading under standard-DW false precision; the second is broader than
+  M75 and belongs in a future evidence task if desired.
+- Consequence for next work: M65 can use the M75 section as diagnostic
+  evidence, but final confidence-set claims still require projected critical
+  values and inference wording.

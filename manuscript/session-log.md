@@ -1395,3 +1395,64 @@ For traceable work blocks, pair this human-readable note with a closed
 - Next recommended action: continue with M70 draft interpretation or M65
   projected inference, depending on whether the next work should be prose or
   inference hardening.
+
+### 2026-06-13 - Launch M74 sample-size MC background run
+
+- Request or goal: run the T-changing Monte Carlo with an intermediate grid
+  between the small MC grid and the dense figure grid, using 500 replications
+  per scenario and monitorable background progress.
+- Files changed: `manuscript/simulations/m69_extended_three_block_mc.py`,
+  `scripts/launch_m74_sample_size_mc.py`,
+  `manuscript/tasks/M74-sample-size-mc-grid-audit/`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`, logs, and
+  M0070 transparency files.
+- Summary of work: added progress JSON/log support to the extended MC runner,
+  created a detached launcher, smoke-tested the progress path, and launched
+  the full `sample_size_grid` run with 500 replications per scenario and grid
+  `27/7/5`.
+- Check: `python -m py_compile` passed for the MC runner and launcher; the
+  one-replication `sample_size_grid` smoke check passed; PID `10256` was
+  confirmed alive after progress advanced to `3/1500`; stderr was empty.
+- Next recommended action: monitor
+  `manuscript/simulations/output/m74_sample_size_mc_500_grid27.progress.json`
+  until completion, then inspect the final JSON/Markdown outputs before
+  closing M0070.
+
+### 2026-06-14 - Plan M75 detailed sample-size MC section
+
+- Request or goal: plan a new task to write a detailed `draft.md` section for
+  the completed M74 sample-size MC, including the exact DGP, estimator set
+  computations, moment conditions, J distributions, cutoffs, efficient
+  weighting, and a readable coverage/set-size/power result representation.
+- Files changed: `manuscript/tasks/M75-detailed-sample-size-mc-section/`,
+  `manuscript/task-board.md`, `manuscript/project-dashboard.md`, and
+  `manuscript/user-input-log.md`.
+- Summary of work: created M75 as a priority-1 fragile writing/evidence task
+  and routed it as the next recommended action before closing out M74/M0070.
+- Check: `python scripts/check_manuscript.py` passed with the expected warning
+  that M0070 is still open.
+- Next recommended action: execute M75 with a substantive milestone before
+  editing `draft.md`.
+
+### 2026-06-14 - Complete M75 detailed sample-size MC section
+
+- Request or goal: work on M75 and turn the completed M74 sample-size Monte
+  Carlo into an audit-friendly draft section.
+- Files changed: `manuscript/draft.md`,
+  `manuscript/formal-object-registry.json`,
+  `manuscript/citation-provenance.md`, `manuscript/source-packet.md`,
+  `manuscript/paper-map.md`, `manuscript/project-dashboard.md`,
+  `manuscript/task-board.md`, `manuscript/QUESTION-INDEX.md`,
+  `manuscript/tasks/M74-sample-size-mc-grid-audit/outcome.md`, and
+  `manuscript/tasks/M75-detailed-sample-size-mc-section/outcome.md`.
+- Summary of work: verified the completed M74 progress manifest, empty error
+  log, and JSON/Markdown table agreement; drafted Section 5.5 with the exact
+  DGP, grid ranges, moment rows, pointwise J cutoffs, efficient-weight
+  construction, and coverage/set-size/warning results; added Table 2 and
+  registry/provenance/index trails.
+- Check: `python -m json.tool` passed for the formal registry and M74 JSON.
+  `python scripts/check_manuscript.py` passed with only the expected open
+  M0070 warning before closeout, then passed cleanly after M0070 was closed.
+- Next recommended action: close M0070, then return to M65 for projected
+  critical values and final confidence-set wording; M70 can still refine the
+  broader extended-MC narrative.

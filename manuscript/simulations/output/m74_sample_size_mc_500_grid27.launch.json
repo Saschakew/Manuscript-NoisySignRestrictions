@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "launched_at": "2026-06-13T10:04:43+02:00",
+  "pid": 10256,
+  "command": [
+    "C:\\Python313\\python.exe",
+    "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\m69_extended_three_block_mc.py",
+    "--block",
+    "sample_size_grid",
+    "--evaluation-reps",
+    "500",
+    "--projection-points",
+    "27",
+    "--profile-points",
+    "7",
+    "--lambda-points",
+    "5",
+    "--json-output",
+    "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\output\\m74_sample_size_mc_500_grid27.json",
+    "--note-output",
+    "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\m74_sample_size_mc_500_grid27.md",
+    "--progress-output",
+    "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\output\\m74_sample_size_mc_500_grid27.progress.json",
+    "--progress-log-output",
+    "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\output\\m74_sample_size_mc_500_grid27.log"
+  ],
+  "cwd": "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions",
+  "grid": {
+    "projection_points": 27,
+    "profile_points": 7,
+    "lambda_points": 5
+  },
+  "reps_per_scenario": 500,
+  "block": "sample_size_grid",
+  "outputs": {
+    "json": "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\output\\m74_sample_size_mc_500_grid27.json",
+    "note": "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\m74_sample_size_mc_500_grid27.md",
+    "progress": "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\output\\m74_sample_size_mc_500_grid27.progress.json",
+    "progress_log": "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\output\\m74_sample_size_mc_500_grid27.log",
+    "error_log": "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\output\\m74_sample_size_mc_500_grid27.err.log",
+    "pid": "C:\\Users\\smsakewe\\Documents\\GitHub\\Manuscript-NoisySignRestrictions\\manuscript\\simulations\\output\\m74_sample_size_mc_500_grid27.pid"
+  }
+}

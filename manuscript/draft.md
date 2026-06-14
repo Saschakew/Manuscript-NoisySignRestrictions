@@ -678,6 +678,140 @@ in this small run. The next inference task is therefore not another chart
 normalization change, but a projected critical-value note for the enlarged
 \((B,\lambda)\) inversion.
 
+### 5.5 Detailed Sample-Size Monte Carlo
+
+The longer sample-size Monte Carlo isolates the Figure 3 design and reruns it
+with 500 replications per sample size on an intermediate grid. The data
+generating process is the same across the three rows except for \(T\). The true
+impact matrix is
+
+\[
+B_0=
+\begin{bmatrix}
+1 & -0.25\\
+0.80 & 1
+\end{bmatrix}.
+\]
+
+The structural shocks are generated as two independent standardized
+\(\chi^2_5\) columns: each simulated column is demeaned and divided by its
+sample standard deviation. The residual noise is generated as two independent
+standardized Gaussian columns, independent of the structural shocks. The
+observed residual is
+
+\[
+u_t=B_0\varepsilon_t+
+\begin{bmatrix}
+\sqrt{0.2}\eta_{1t}\\
+\sqrt{0.2}\eta_{2t}
+\end{bmatrix},
+\]
+
+and the simulated residuals are demeaned before the criteria are evaluated.
+Thus the run fixes residual noise at \(V=\operatorname{diag}(0.2,0.2)\), fixes
+strong structural non-Gaussianity, and varies only
+\(T\in\{500,1000,2000\}\). The base seed is 20260605; the script offsets it by
+block, scenario, and replication so that each of the 1500 samples has a
+recorded deterministic seed.
+
+The candidate chart reports the first-shock projection
+\((B_{11},B_{21})\). The M74 grid uses \(B_{11}\in[0.35,1.65]\),
+\(B_{21}\in[-1.45,1.90]\), \(B_{12}\in[-1.10,0]\), and
+\(B_{22}\in[0.55,1.45]\). It places 27 nominal points on each displayed
+coordinate, 7 nominal points on each profiled impact coordinate, and 5 nominal
+points on each \(\lambda_i\). Exact true coordinates and true
+\(\lambda_i=\nu_i/(B_0B_0')_{ii}\) values are appended when they are not
+already on the grid. In this DGP the true noise shares are
+\((0.188,0.122)\), safely inside the maintained \(\rho=0.5\) bound. In the
+M74 sample-size run the appended coordinates give 784 displayed projection
+cells. The profiled impact coordinates are \(B_{12}\) and \(B_{22}\), with the
+maintained sign and orientation screen
+\(B_{11}>0\), \(B_{22}>0\), \(B_{12}\le0\), and
+\(|B_{11}B_{22}-B_{12}B_{21}|>10^{-8}\). There is no sign restriction on
+\(B_{21}\). For a displayed projection cell, the sign, standard-DW, or robust
+projection is accepted if at least one admissible profiled candidate passes the
+corresponding test.
+
+The no-noise sign row uses the three second-moment observations
+\[
+(e_1^2-1,\ e_1e_2,\ e_2^2-1),
+\]
+where \(e_t(B)=B^{-1}u_t\) is sample-centered candidate by candidate. Its
+pointwise diagnostic cutoff is \(\chi^2_3(0.90)=6.251\). Standard DW first
+requires that second-moment screen and then applies the source-correct
+bivariate GMM1 higher-product menu
+\[
+(e_1^2e_2,\ e_1e_2^2,\ e_1^3e_2,\ e_1^2e_2^2-1,\ e_1e_2^3)
+\]
+with cutoff \(\chi^2_5(0.90)=9.236\). The robust row searches
+\(\lambda\in[0,0.5]^2\), sets
+\(\nu_i(B,\lambda)=\lambda_i(BB')_{ii}\), and evaluates the eight-row Section
+4 vector: three second-order residual-covariance rows
+\(\operatorname{vech}\{u_tu_t'-BB'-\operatorname{diag}(\nu)\}\) plus the five
+Gaussian-noise-blind higher rows in \eqref{eq:dw-higher-cumulant-moment-stack}.
+The robust cutoff is \(\chi^2_8(0.90)=13.362\). The implementation also uses a
+rough covariance prefilter with tolerance 0.65 before the expensive robust
+\(\lambda\) search; every reported robust acceptance still comes from the full
+eight-row \(J\) statistic.
+
+All three criteria use the same pointwise weighting rule. For each tested
+candidate, the code forms the \(T\times k\) matrix of candidate moment
+observations, computes its sample mean \(\widehat g_T\), estimates the
+candidate-specific covariance matrix of the observations, symmetrizes it, and
+inverts it after applying the eigenvalue floor
+\(\max\{\lambda_{\max},1\}10^{-10}\). The reported statistic is
+\[
+J_T=T\widehat g_T'\widehat\Omega_T(B,\nu)^{-1}\widehat g_T.
+\]
+This is a diagnostic pointwise efficient-weight calculation, not a final
+projected-confidence-set calibration.
+
+Table 2 separates the three quantities the sample-size experiment is meant to
+check. `S truth` and `R truth` are empirical truth-inclusion rates for the
+full true \(B_0\); one minus these rates is the false-rejection rate at the
+true parameter. `S size` and `R size` are mean accepted projection shares, with
+medians in parentheses, so smaller numbers mean more projected exclusion.
+`Warning` is the noise-diagnostic event that standard DW misses the full true
+\(B_0\) while robust DW contains it.
+
+**Table 2. M74 500-replication sample-size Monte Carlo.** The run uses the
+sample-size block only, \(V=\operatorname{diag}(0.2,0.2)\), strong structural
+non-Gaussianity, the `27/7/5` grid, candidate-specific pointwise covariance
+weights, and pointwise chi-square cutoffs.
+
+| T | S truth | R truth | S size | R size | S empty | R empty | Warning |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 500 | 0.110 | 0.750 | 0.022 (0.022) | 0.050 (0.052) | 0.010 | 0.024 | 0.676 |
+| 1000 | 0.000 | 0.842 | 0.009 (0.009) | 0.031 (0.033) | 0.022 | 0.026 | 0.842 |
+| 2000 | 0.000 | 0.872 | 0.003 (0.003) | 0.019 (0.022) | 0.144 | 0.056 | 0.872 |
+
+The main size result is unfavorable to the standard no-noise DW inversion
+under this noisy DGP. Its truth-inclusion rate falls from 0.110 at \(T=500\)
+to zero at \(T=1000\) and \(T=2000\). The accepted projection share also
+shrinks sharply, from 0.022 to 0.003, so the standard set has high projection
+exclusion but the exclusion is aimed at the wrong target. The empty-set rate
+reaches 0.144 at \(T=2000\), which is itself evidence that the pointwise
+standard-DW inversion is becoming incompatible with the noisy data-generating
+process rather than simply becoming more precise.
+
+The robust inversion is wider but behaves like the intended noise-aware
+diagnostic. Its truth-inclusion rate rises from 0.750 to 0.872 as \(T\)
+increases, while its mean accepted projection share falls from 0.050 to 0.019.
+Thus the robust set also gains projection-exclusion strength, but it does so
+while usually retaining the full true \(B_0\). The remaining robust
+false-rejection rates, especially 0.250 at \(T=500\), should not be hidden:
+they are part of the finite-sample cost of using pointwise chi-square cutoffs,
+a coarse projection grid, and regularized candidate-specific weights.
+
+The warning rate is the clearest power-like diagnostic available from this
+run. It increases from 0.676 to 0.872, meaning that as sample size grows the
+standard-DW false precision becomes easier to detect by comparing it with the
+robust set. This is not a separate local-alternative power calculation. It is
+the power of the reported comparison to flag the specific noisy-covariance
+misspecification built into the sample-size DGP.
+
+<!-- SOURCE-TRAIL: M74 output note `simulations/m74_sample_size_mc_500_grid27.md`; machine-readable records `simulations/output/m74_sample_size_mc_500_grid27.json`; launch/progress manifests in `simulations/output/m74_sample_size_mc_500_grid27.launch.json` and `.progress.json`; runner `simulations/m69_extended_three_block_mc.py`; shared evaluator `simulations/m68_first_shock_evidence.py`; active grid/statistic code `simulations/sign_dw_unit_variance_noise_grid_figure.py`; M49 DW source audit; M56 generated-moment audit; M66 noise-ratio derivation. -->
+
 <!-- SOURCE-TRAIL: Use KnowledgeVault replication assets only as starting points; final figure commands must live in `replication/README.md`. -->
 <!-- SOURCE-TRAIL: Use `derivations/dw-robust-comparison-diagnostic.md` for the M27 definitions of the reported standard-DW set, robust-DW set, critical-value convention, directional overlap metric, and interpretation boundaries. -->
 <!-- DESIGN-NOTE: M71 keeps pointwise chi-square critical values as the primary diagnostic benchmark for the displayed rows and uses candidate-specific pointwise covariance weights; projected critical values remain a separate inference follow-up. -->

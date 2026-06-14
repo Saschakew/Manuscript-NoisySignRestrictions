@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "completed",
+  "updated_at": "2026-06-14T14:02:18+02:00",
+  "pid": 10256,
+  "completed": 1500,
+  "total": 1500,
+  "remaining": 0,
+  "elapsed_seconds": 100655.3204695,
+  "average_seconds_per_rep": 67.10354697966667,
+  "eta_seconds": 0.0,
+  "grid": {
+    "projection_points": 27,
+    "profile_points": 7,
+    "lambda_points": 5
+  },
+  "reps_per_scenario": 500,
+  "current": null,
+  "latest_metrics": null,
+  "outputs": {
+    "json": "manuscript/simulations/output/m74_sample_size_mc_500_grid27.json",
+    "note": "manuscript/simulations/m74_sample_size_mc_500_grid27.md"
+  }
+}

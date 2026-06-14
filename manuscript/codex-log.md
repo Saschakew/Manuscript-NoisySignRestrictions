@@ -1510,3 +1510,42 @@ machine-readable milestone in `transparency/milestones/`.
   closeout.
 - Open uncertainties: M65 still owns final projected critical values; M73 is
   only a grid-density refresh.
+
+### 2026-06-13 - M74 sample-size MC background launch verified
+
+- Request: run the T-changing MC with an intermediate grid and 500
+  replications per scenario, in the background with monitorable progress.
+- Actions taken: added progress JSON/log updates to the extended MC runner,
+  added a detached M74 launcher, smoke-tested progress output, and launched
+  `sample_size_grid` with grid `27/7/5`.
+- Outcome: background PID `10256` was verified alive after progress advanced
+  to `3/1500`; the stderr log was empty at verification. Final scientific
+  interpretation waits for the MC outputs to finish.
+- Checks run: `python -m py_compile` for the runner and launcher passed; the
+  one-replication progress smoke test passed; process/progress/error-log
+  health checks passed.
+- Open uncertainties: M0070 remains open until final JSON/Markdown outputs are
+  inspected and the run is closed out.
+
+### 2026-06-14 - M75 detailed sample-size MC section completed
+
+- Request: work on M75 by writing the detailed draft section for the completed
+  M74 sample-size Monte Carlo.
+- Actions taken: verified the completed M74 run from progress, error-log,
+  JSON, and Markdown evidence; added `draft.md#55-detailed-sample-size-monte-carlo`;
+  added Table 2 for truth inclusion, accepted projection share, empty-set
+  rates, and warning rates; updated formal registry, citation provenance,
+  source packet, paper map, dashboard, task board, question index, and M74/M75
+  outcome notes.
+- Outcome: the draft now states the exact DGP, grid ranges, profiled
+  coordinates, sign screen, moment rows, pointwise chi-square cutoffs,
+  candidate-specific efficient-weight construction, and the M74 interpretation:
+  standard DW becomes more precise but misses \(B_0\), while robust DW remains
+  wider but mostly truth-containing as \(T\) grows.
+- Checks run: M74 Markdown rows matched JSON summaries; `python -m json.tool`
+  passed for `manuscript/formal-object-registry.json` and
+  `manuscript/simulations/output/m74_sample_size_mc_500_grid27.json`;
+  `python scripts/check_manuscript.py` passed with only the expected open
+  M0070 warning before closeout, then passed cleanly after M0070 was closed.
+- Open uncertainties: M65 still owns projected critical values and final
+  confidence-set wording; M70 can refine the broader extended-MC narrative.

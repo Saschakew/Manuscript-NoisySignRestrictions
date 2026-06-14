@@ -18,15 +18,17 @@ and Section 4 replaces generated sample covariance-product plug-ins with
 parameter-implied \(\omega_{ij}(B,\nu)\) terms.
 
 Current focus: M71 has corrected the active figure and Monte Carlo objects,
-M72 has fixed the rendered figure layout, and M73 has refreshed Figures 1-3
-with denser default grids.
+M72 has fixed the rendered figure layout, M73 has refreshed Figures 1-3
+with denser default grids, and M75 has turned the completed M74 sample-size
+Monte Carlo into a detailed draft section.
 Figures 1-3, the Table 1 diagnostic, and the extended MC now use first-shock
 coordinates \((B_{11},B_{21})\), profile \(B_{12}\), \(B_{22}\), and
 \(\lambda\), impose \(B_{11}>0\), \(B_{22}>0\), and \(B_{12}\le0\), and use
 candidate-specific pointwise covariance weights for
-\(Tg_T(B,\nu)'\widehat\Omega(B,\nu)^{-1}g_T(B,\nu)\). The 500-replication run
-remains deferred; the corrected normal diagnostics are reduced-size evidence
-checks, not the long MC. M72 changes only the plot framing: panels are square
+\(Tg_T(B,\nu)'\widehat\Omega(B,\nu)^{-1}g_T(B,\nu)\). The 500-replication
+sample-size run under M74 is now interpreted in `draft.md#55`: it fixes
+\(V=\operatorname{diag}(0.2,0.2)\), strong structural non-Gaussianity, and the
+intermediate `27/7/5` grid while varying \(T=500,1000,2000\). M72 changes only the plot framing: panels are square
 and use shared display limits from accepted regions, \(B_0\), and \(B_{21}=0\).
 M73 changes only the numerical mesh for Figures 1-3: the defaults are now
 `41 x 41` projection points, `11 x 11` profile points, and `7 x 7` lambda
@@ -39,13 +41,15 @@ versions for draft interpretation because it removes the extra \(B_{21}\ge0\)
 screen and replaces true-point fixed weights with candidate-specific pointwise
 weights.
 
-Next recommended action: use M70 to interpret the corrected M71 extended MC
-diagnostics in the draft, keeping the reduced diagnostic replication count and
-pointwise-critical-value caveat visible. M65 still owns final
-projected-inference wording, projected critical values, and release hardening.
+Next recommended action: return to M65 for final projected-inference wording,
+projected critical values, and release hardening. M70 can still refine the
+broader extended-MC narrative after the M75 sample-size section.
 
-Active milestone: M0069 completes the M73 Figure 1-3 grid-density refresh and
-GitHub milestone #64 tracks the same figure-resolution work. M0068 completes
+Active milestone: M0070 is closed for the M74 sample-size MC grid audit and
+M75 detailed draft interpretation. GitHub milestone #65 tracks the same work.
+M0069 completes the M73 Figure 1-3
+grid-density refresh and GitHub milestone #64 tracks the same
+figure-resolution work. M0068 completes
 the M72 figure-layout polish and GitHub
 milestone #63 tracks the same figure presentation fix. M0067 completes M71 and
 GitHub milestone #62 tracks the same sign-screen and pointwise-weighting
@@ -161,7 +165,12 @@ Active blockers:
   rotation-chart switch would need a separate manuscript-wide update task if
   the user ever requests one.
 
-Last substantive session: 2026-06-12, completed M73 by regenerating
+Last substantive session: 2026-06-14, completed M75 by drafting the detailed
+sample-size Monte Carlo subsection from the completed M74 `27/7/5`
+500-replication output, including the DGP, set computations, pointwise
+weighting and cutoffs, and coverage/set-size/warning interpretation.
+
+Prior substantive session: 2026-06-12, completed M73 by regenerating
 Figures 1-3 with denser `41/11/7` default grids while preserving the M71
 method and M72 layout.
 

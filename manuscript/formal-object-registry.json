@@ -277,6 +277,22 @@
       "output_source": "M71 output: manuscript/simulations/m68_first_shock_evidence.py, manuscript/simulations/m68_first_shock_evidence.md, and manuscript/simulations/output/m68_first_shock_evidence.json. Replication wrapper command: python manuscript/replication/run_all.py --stage evidence. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M56 audit: manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md. Superseded historical M52, M45, and M29 outputs remain for audit history."
     },
     {
+      "id": "table:sample-size-mc-coverage-size-power",
+      "type": "table",
+      "status": "drafted-after-m75",
+      "draft_location": "draft.md#55-detailed-sample-size-monte-carlo",
+      "description": "M74 500-replication sample-size Monte Carlo table for the Figure 3 DGP. It reports empirical full-B0 truth inclusion, accepted projection share as estimated-set size, empty-set rates, and the warning event that standard DW rejects the truth while robust DW contains it across T=500,1000,2000.",
+      "depends_on": [
+        "fig:sample-size-robust-grid",
+        "table:monte-carlo-coverage-width",
+        "def:standard-dw-refined-set",
+        "def:robust-dw-higher-moment-set",
+        "eq:relative-noise-covariance-screen"
+      ],
+      "output_source": "M74 output: manuscript/simulations/m74_sample_size_mc_500_grid27.md and manuscript/simulations/output/m74_sample_size_mc_500_grid27.json. Runner: manuscript/simulations/m69_extended_three_block_mc.py with --block sample_size_grid --evaluation-reps 500 --projection-points 27 --profile-points 7 --lambda-points 5. Shared evaluator: manuscript/simulations/m68_first_shock_evidence.py. Active grid/statistic code: manuscript/simulations/sign_dw_unit_variance_noise_grid_figure.py. M49 audit: manuscript/derivations/m49-dw-source-and-noisy-moment-audit.md. M56 audit: manuscript/derivations/m56-robust-cumulant-gmm-generated-moment-audit.md. M66 derivation: manuscript/derivations/m66-noise-ratio-bound-grid-algorithm.md.",
+      "verification_status": "M75 verified the Markdown rows against the JSON summaries, confirmed the completed progress manifest and empty error log, and added the draft interpretation with pointwise-critical-value caveats. Final projected critical values remain open under M65."
+    },
+    {
       "id": "audit:robust-dw-derivation",
       "type": "audit",
       "status": "done",

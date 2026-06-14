@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "id": "M0070-run-sample-size-mc-grid-audit",
+  "sequence": 70,
+  "title": "Run sample-size MC grid audit",
+  "kind": "user-request",
+  "status": "closed",
+  "opened_at": "2026-06-13T07:48:59Z",
+  "closed_at": "2026-06-14T12:45:20Z",
+  "start_commit": "9fad11fe46e2c73ed6fde2aad402420f395d4a78",
+  "snapshot_ref": "manuscript-milestones/M0070-run-sample-size-mc-grid-audit",
+  "summary": "Completed the M74 sample-size MC grid audit and M75 detailed draft interpretation.",
+  "user_inputs": [
+    {
+      "id": "U0070-001",
+      "milestone_id": "M0070-run-sample-size-mc-grid-audit",
+      "captured_at": "2026-06-13T07:48:59Z",
+      "source": "chat",
+      "text": "Run the T-changing Monte Carlo with 500 replications per scenario on an intermediate grid between the current MC grid and current figure grid; make it monitorable and start it in the background."
+    },
+    {
+      "id": "U0070-002",
+      "milestone_id": "M0070-run-sample-size-mc-grid-audit",
+      "captured_at": "2026-06-14T12:15:00Z",
+      "source": "chat",
+      "text": "Work on M75: write a detailed draft section for the completed sample-size Monte Carlo, including the exact DGP, estimator-set computation, moment conditions, J distributions and cutoffs, efficient weighting, and coverage/set-size/power interpretation."
+    }
+  ],
+  "agent_actions": [
+    {
+      "id": "A0070-001",
+      "milestone_id": "M0070-run-sample-size-mc-grid-audit",
+      "captured_at": "2026-06-14T12:43:15Z",
+      "description": "Verified the completed M74 progress manifest, empty error log, JSON summaries, and generated Markdown rows."
+    },
+    {
+      "id": "A0070-002",
+      "milestone_id": "M0070-run-sample-size-mc-grid-audit",
+      "captured_at": "2026-06-14T12:43:15Z",
+      "description": "Drafted Section 5.5 with the exact DGP, grid, set computations, pointwise weights, cutoffs, and coverage/set-size/warning interpretation."
+    },
+    {
+      "id": "A0070-003",
+      "milestone_id": "M0070-run-sample-size-mc-grid-audit",
+      "captured_at": "2026-06-14T12:43:15Z",
+      "description": "Updated registry, provenance, source packet, paper map, dashboard, task board, question index, M74/M75 outcomes, and logs."
+    }
+  ],
+  "checks": [
+    {
+      "captured_at": "2026-06-14T12:43:15Z",
+      "description": "M74 Markdown rows matched JSON summaries: passed"
+    },
+    {
+      "captured_at": "2026-06-14T12:43:15Z",
+      "description": "python -m json.tool manuscript\\\\formal-object-registry.json: passed"
+    },
+    {
+      "captured_at": "2026-06-14T12:43:15Z",
+      "description": "python -m json.tool manuscript\\\\simulations\\\\output\\\\m74_sample_size_mc_500_grid27.json: passed"
+    },
+    {
+      "captured_at": "2026-06-14T12:43:15Z",
+      "description": "python scripts\\\\check_manuscript.py: passed with expected open milestone warning before close"
+    },
+    {
+      "captured_at": "2026-06-14T12:43:15Z",
+      "description": "git diff --check: passed with line-ending warnings only"
+    },
+    {
+      "captured_at": "2026-06-14T12:44:01Z",
+      "description": "python scripts\\\\check_manuscript.py after closing M0070: passed"
+    },
+    {
+      "captured_at": "2026-06-14T12:45:20Z",
+      "description": "gh api PATCH milestone #65 closed: passed"
+    }
+  ],
+  "changed_files": [
+    "manuscript/QUESTION-INDEX.md",
+    "manuscript/citation-provenance.md",
+    "manuscript/codex-log.md",
+    "manuscript/decision-log.md",
+    "manuscript/draft.md",
+    "manuscript/formal-object-registry.json",
+    "manuscript/paper-map.md",
+    "manuscript/project-dashboard.md",
+    "manuscript/session-log.md",
+    "manuscript/simulations/m69_extended_three_block_mc.py",
+    "manuscript/simulations/m74_sample_size_mc_500_grid27.md",
+    "manuscript/simulations/output/m74_sample_size_mc_500_grid27.err.log",
+    "manuscript/simulations/output/m74_sample_size_mc_500_grid27.json",
+    "manuscript/simulations/output/m74_sample_size_mc_500_grid27.launch.json",
+    "manuscript/simulations/output/m74_sample_size_mc_500_grid27.log",
+    "manuscript/simulations/output/m74_sample_size_mc_500_grid27.pid",
+    "manuscript/simulations/output/m74_sample_size_mc_500_grid27.progress.json",
+    "manuscript/source-packet.md",
+    "manuscript/task-board.md",
+    "manuscript/tasks/M74-sample-size-mc-grid-audit/outcome.md",
+    "manuscript/tasks/M74-sample-size-mc-grid-audit/task.md",
+    "manuscript/tasks/M75-detailed-sample-size-mc-section/outcome.md",
+    "manuscript/tasks/M75-detailed-sample-size-mc-section/task.md",
+    "manuscript/transparency/agent-actions.jsonl",
+    "manuscript/transparency/milestones/M0070-run-sample-size-mc-grid-audit.json",
+    "manuscript/transparency/timeline.json",
+    "manuscript/transparency/user-input.jsonl",
+    "manuscript/user-input-log.md",
+    "scripts/launch_m74_sample_size_mc.py"
+  ],
+  "github": {
+    "repository": "Saschakew/Manuscript-NoisySignRestrictions",
+    "milestone_number": 65,
+    "milestone_url": "https://github.com/Saschakew/Manuscript-NoisySignRestrictions/milestone/65",
+    "tag_name": "manuscript-milestones/M0070-run-sample-size-mc-grid-audit"
+  }
+}
